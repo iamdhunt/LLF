@@ -8,7 +8,99 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="pagewrap">
+
+	<div id="nav_bar">	
+	   <div class="primary_nav">
+			<a href="/index.html">Home</a>
+			<a href="/groups.html">Community</a>
+			<a href="/events.html">Events</a>
+			<a href="/projects.html">Projects</a>
+			<a href="/market.html">Market</a>
+		</div> 
+	</div>  
+
+	<%= yield %>
+
+	<div id="widget_wrap">
+
+		<div id="widget_left">
+		
+			<div id="widget_left_1" class="bottom_widgets">
+			
+				<div class="events_widget bottom_widgets_content">            
+				</div>
+				
+				<div class="view_all_widget">
+					<a href="/events.html">View All Events &raquo;</a>
+				</div>
+				
+			</div>
+			
+		  <div id="widget_left_2" class="bottom_widgets left_inside">
+		  
+				<div class="projects_widget bottom_widgets_content">            
+				</div>
+				
+				<div class="view_all_widget">
+					<a href="/projects.html">View All Projects &raquo;</a>
+				</div>
+				
+		  </div>
+		  
+		</div>
+		
+		<div id="widget_right">
+		
+		  <div id="widget_right_1" class="bottom_widgets right_inside">
+		  
+				<div class="market_widget bottom_widgets_content">
+				</div>
+				
+				<div class="view_all_widget">
+					<a href="/market.html">View Market &raquo;</a>
+				</div>
+				
+		  </div>
+		  
+		  <div id="widget_right_2" class="bottom_widgets">
+		  
+				<div class="featured_member_widget bottom_widgets_content">
+				</div>
+				
+		  </div>
+		  
+		</div>
+		
+	<div style="clear: both;"></div> 
+	</div>
+
+<!--/widgets-->
+
+	<div id="footer_wrap">
+		
+		<div id="footer_top" class="box_font">
+			<a href="/spotlights/spotlights.html">Spotlights</a> &#8226; 
+			<a href="/contests.html">Contests</a> &#8226; 
+			<a href="/faqs.html">FAQ's</a> &#8226; 
+			<a href="/contact_us.html">Contact Us</a> &#8226; 
+			<a href="/terms.html">Terms</a> &#8226; 
+			<a href="/privacy.html">Privacy</a> &#8226; 
+			<a href="http://livinglifefearless.com/blog" target="_blank">BLOG</a> &#8226; 
+			<a href="http://havenforthebold.tv/" target="_blank" class="bold_tv">BOLD.TV</a>	
+		</div>
+	  
+		<div id="footer_bottom" class="box_font">
+			LLF &copy; 2014 
+		</div>
+
+	</div>
+
+<!--/footer-->
+
+</div>
+
+<!--/pagewrap-->
 
 </body>
 </html>

@@ -1,15 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div id="activity_wrap" style="margin-top:60px;">
 
-<p>
-  <b>Name:</b>
-  <%= @status.name %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Content:</b>
-  <%= @status.content %>
-</p>
+	<p>
+	  <b>Name:</b>
+	  <%= @status.name %>
+	</p>
+
+	<p>
+	  <b>Content:</b>
+	  <%= @status.content %>
+	</p>
 
 
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+	<%= link_to 'Edit', edit_status_path(@status) %> |
+	<%= link_to 'Back', statuses_path %>
+
+<div style="clear: both;"></div>
+</div>
+
+<!--/activity_wrap-->
