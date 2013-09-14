@@ -1,5 +1,10 @@
-<p>Welcome <%= @email %>!</p>
+<div id="activity_wrap">
 
-<p>You can confirm your account email through the link below:</p>
+	<p>Welcome <%= @email %>!</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+	<p>You can confirm your account email through the link below:</p>
+
+	<p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @token) %></p>
+
+	<div style="clear: both;"></div>
+</div>

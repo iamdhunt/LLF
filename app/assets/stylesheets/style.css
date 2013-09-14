@@ -265,7 +265,7 @@ table {
 	width: 75%;
 	margin-right: auto;
 	margin-left: auto;
-	background-image:url(../images/Container%20BG%20Grey.png);
+	background-image: ;
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;
@@ -340,8 +340,9 @@ table {
 }
 
 .dob_reg_fields {
-	height: 1.8em;
-	width: 21%;
+	height: 2.4em;
+	font-size: .8em;
+	width: 22%;
 	cursor: pointer;
 }
 

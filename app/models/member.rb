@@ -9,9 +9,17 @@ class Member < ActiveRecord::Base
   					:first_name, :last_name, :user_name
   # attr_accessible :title, :body
 
-  validates :first_name, presence: true
+  validates :first_name, presence: true,
+                          format: {
+                          with: /a-zA-Z/,
+                          message: 'Must be formatted correctly.'
+                        }
 
-  validates :last_name, presence: true
+  validates :last_name, presence: true,
+                        format: {
+                          with: /a-zA-Z/,
+                          message: 'Must be formatted correctly.'
+                        }
 
   validates :user_name, presence: true,
                         uniqueness: true,

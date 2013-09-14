@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<div id="pagewrap">
+
 
 	<div id="nav_bar">	
 	   <div class="primary_nav">
@@ -32,6 +32,14 @@
 		<div style="clear:both;"></div>
 	</div>
  
+<div id="pagewrap" style="padding-top:60px;">
+
+	<% flash.each do |type, message| %>
+	  <div class="alert <%= flash_class type %>">
+	      <button class="close" data-dismiss="alert">x</button>
+	      <%= message %>
+	  </div>
+	<% end %>
 
 	<%= yield %>		
 

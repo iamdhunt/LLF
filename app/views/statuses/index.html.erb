@@ -1,11 +1,8 @@
-<div id="activity_wrap" style="padding-top:60px;">
+<div id="activity_wrap"> 
 
-		<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p> 
+	<h1>All Statuses</h1>
 
-<h1>All Statuses</h1>
-
-		<%= link_to 'Post a New Status', new_status_path %>
+		<%= link_to 'Post a New Status', new_status_path, :class => 'btn btn-info' %>
 
 		<% @statuses.each do |status| %>
 			<div class="status">
@@ -20,7 +17,6 @@
 				</span>
 			</div>
 		<% end %>
-
 
 	<br />
 

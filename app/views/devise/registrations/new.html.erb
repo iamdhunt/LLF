@@ -1,12 +1,12 @@
 <div id="content_wrap">
+
     <p><img src="images/LLF 2 Home.png" class="home_image" /></p>
+    
 </div>
 
 <!--/content_wrap-->
 
 <div id="registration_wrap">
-    	<p class="notice"><%= notice %></p>
-		<p class="alert"><%= alert %></p> 
         <span class="join reg_title">Join the Community!</span> <span class="free reg_title">(It's free for <strong>&middot;</strong> ev <strong>&middot;</strong> er)</span><br/>
         
   <div class="registration">
@@ -80,7 +80,7 @@
         <div class="reg_right">
         	<input name="" type="text" class="forms reg_forms" id="pursuits" tabindex="13" placeholder="Pursuits" /> 
             <label for="pursuits" class="pursuit_reg_label">Your interests, activities, professions, hobbies... (i.e. Sports, Music, Skydiving, Branding, Pop Art). We use this info to help connect our members. So be as general or specific as you want.</label>
-            <%= f.submit "Sign up", input_html: { tabindex: '16'} %>
+            <%= f.submit "Join the Community", :class => 'btn btn-info' %>
         </div>
 	 <% end %>
 
