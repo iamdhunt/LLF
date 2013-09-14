@@ -142,6 +142,7 @@ table {
 	float: left;
 	height: 55px;
 	text-decoration: none;
+	margin-left: 2.333em;
 }
 
 #nav_bar .primary_nav a {
@@ -159,6 +160,25 @@ table {
 
 #nav_bar .primary_nav a:hover {
 	color: #9327c9;
+}
+
+.nav_links {
+	margin-right: 2.333em;
+}
+
+.nav_links a {
+	float: right;
+	height: 55px;
+	line-height: 55px;
+	font-size: 1.1em;
+	padding: 0 10px;
+	text-decoration: none;
+	display: block;
+}
+
+.nav_links a:hover {
+	text-decoration: none;
+	color: #898989;
 }
 
 #login_wrap {
@@ -204,7 +224,7 @@ table {
 	border-width:0 2px 2px 2px;	
 	padding: 1.333em 1.333em;
 	color: #333;
-	padding-top: 3.333em;
+	padding-top: 4em;
 	position: relative;
 }
 
@@ -286,8 +306,8 @@ table {
 	color: #898989;
 }
 
-#username {
-	display: block;
+#username_reg {
+	height: 2.5em;
 }
 
 .reg_left {
@@ -314,13 +334,13 @@ table {
 }
 
 .reg_name {
-	width: 36%;
-	height: 3.5em;
-	margin-bottom: 1.5em;
+	width: 79%;
+	height: 2.5em;
+	margin-bottom: .8em;
 }
 
 .dob_reg_fields {
-	height: 2.3em;
+	height: 1.8em;
 	width: 21%;
 	cursor: pointer;
 }

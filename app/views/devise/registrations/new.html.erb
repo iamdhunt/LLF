@@ -5,16 +5,17 @@
 <!--/content_wrap-->
 
 <div id="registration_wrap">
-    	
+    	<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p> 
         <span class="join reg_title">Join the Community!</span> <span class="free reg_title">(It's free for <strong>&middot;</strong> ev <strong>&middot;</strong> er)</span><br/>
         
   <div class="registration">
-	  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 	  <%= devise_error_messages! %>
        	<div class="reg_left">
-        	<%= f.text_field :first_name %>
-             <%= f.text_field :last_name %>
-             <%= f.text_field :user_name %>
+        	<%= f.input :first_name, label: false, placeholder: 'First Name', input_html:{ class: 'forms reg_name', tabindex: '4'} %>
+             <%= f.input :last_name, label: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_name', tabindex: '5'} %>
+             <%= f.input :user_name, label: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', id: 'username_reg', tabindex: '6'} %>
              <label for="dob_month" class="bday_reg_label" >Birthday</label> <select name="dob_month" id="dob_month" placeholder="Month" tabindex="7" class="dob_month dob_reg_fields forms">
                           <option>Month</option>
                           <option>Jan</option>
@@ -70,16 +71,16 @@
         </div>
         
         <div class="reg_center">
-        	<%= f.email_field :email, :autofocus => true %>
-            <input name="" type="text" class="forms reg_forms" id="confirm_email" tabindex="11" placeholder="Confirm Email" />
-            <%= f.password_field :password %>
+        	<%= f.input :email, label: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms', id: 'email', tabindex: '10'} %>
+            <%= f.input :password, label: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', id: 'confirm_email', tabindex: '11'} %>
+            <%= f.input :password_confirmation, label: false, placeholder: 'Confirm Password', input_html:{ class: 'forms reg_forms', id: 'password_reg', tabindex: '12'} %>
             
         </div>
         
         <div class="reg_right">
         	<input name="" type="text" class="forms reg_forms" id="pursuits" tabindex="13" placeholder="Pursuits" /> 
             <label for="pursuits" class="pursuit_reg_label">Your interests, activities, professions, hobbies... (i.e. Sports, Music, Skydiving, Branding, Pop Art). We use this info to help connect our members. So be as general or specific as you want.</label>
-            <%= f.submit "Sign up" %>
+            <%= f.submit "Sign up", input_html: { tabindex: '16'} %>
         </div>
 	 <% end %>
 

@@ -12,12 +12,24 @@
 
 	<div id="nav_bar">	
 	   <div class="primary_nav">
-			<a href="/index.html">Home</a>
+			<%= link_to "Home", new_member_registration_path %>
 			<a href="/groups.html">Community</a>
 			<a href="/events.html">Events</a>
 			<a href="/projects.html">Projects</a>
 			<a href="/market.html">Market</a>
 		</div> 
+
+		<div class="nav_links">
+			<% if member_signed_in? %>
+				<%= link_to "Log Out", destroy_member_session_path, method: :delete %>
+				<%= link_to current_member.full_name, edit_member_registration_path %>
+			<% else %>
+				<%= link_to "Register", new_member_registration_path %>
+				<%= link_to "Log In", new_member_session_path %>
+			<% end %>
+		</div>
+
+		<div style="clear:both;"></div>
 	</div>
  
 
