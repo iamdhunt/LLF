@@ -1,4 +1,7 @@
-<div id="activity_wrap" style="margin-top:60px;">
+<div id="activity_wrap" style="padding-top:60px;">
+
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p> 
 
 <h1>All Statuses</h1>
 
@@ -6,7 +9,7 @@
 
 		<% @statuses.each do |status| %>
 			<div class="status">
-				    <h3><%= status.name %></h3>
+				    <h3><%= status.member.user_name %></h3>
 				    <p><%= status.content %></p>
 				<div class="meta">
 			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>

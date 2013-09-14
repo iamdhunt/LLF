@@ -1,0 +1,94 @@
+<div id="content_wrap">
+    <p><img src="images/LLF 2 Home.png" class="home_image" /></p>
+</div>
+
+<!--/content_wrap-->
+
+<div id="registration_wrap">
+    	
+        <span class="join reg_title">Join the Community!</span> <span class="free reg_title">(It's free for <strong>&middot;</strong> ev <strong>&middot;</strong> er)</span><br/>
+        
+  <div class="registration">
+	  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+	  <%= devise_error_messages! %>
+       	<div class="reg_left">
+        	<%= f.text_field :first_name %>
+             <%= f.text_field :last_name %>
+             <%= f.text_field :user_name %>
+             <label for="dob_month" class="bday_reg_label" >Birthday</label> <select name="dob_month" id="dob_month" placeholder="Month" tabindex="7" class="dob_month dob_reg_fields forms">
+                          <option>Month</option>
+                          <option>Jan</option>
+                          <option>Feb</option>
+                          <option>Mar</option>
+                          <option>Apr</option>
+                          <option>May</option>
+                          <option>Jun</option>
+                          <option>Jul</option>
+                          <option>Aug</option>
+                          <option>Sep</option>
+                          <option>Oct</option>
+                          <option>Nov</option>
+                          <option>Dec</option>
+                        </select> 
+                      <select name="dob_day" class="dob_month dob_reg_fields forms" id="dob_month" placeholder="Day" tabindex="8">
+                        <option>Day</option>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                        <option>31</option>
+                      </select> 
+                      <select name="dob_year" class="dob_year dob_reg_fields forms" id="dob_year" placeholder="Year" tabindex="9">
+                        <option>Year</option>
+                      </select>
+        </div>
+        
+        <div class="reg_center">
+        	<%= f.email_field :email, :autofocus => true %>
+            <input name="" type="text" class="forms reg_forms" id="confirm_email" tabindex="11" placeholder="Confirm Email" />
+            <%= f.password_field :password %>
+            
+        </div>
+        
+        <div class="reg_right">
+        	<input name="" type="text" class="forms reg_forms" id="pursuits" tabindex="13" placeholder="Pursuits" /> 
+            <label for="pursuits" class="pursuit_reg_label">Your interests, activities, professions, hobbies... (i.e. Sports, Music, Skydiving, Branding, Pop Art). We use this info to help connect our members. So be as general or specific as you want.</label>
+            <%= f.submit "Sign up" %>
+        </div>
+	 <% end %>
+
+
+  </div>
+ 
+ <div style="clear:both;"></div> 
+       
+</div>        
+    
+<!--/registration-->
+
