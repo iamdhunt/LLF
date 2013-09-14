@@ -1,8 +1,14 @@
 LLF::Application.routes.draw do
   devise_for :members
 
-  resources :statuses
+  devise_scope :member do 
+    get 'join', to: 'devise/registrations#new', as: :join
+    get 'login', to: 'devise/sessions#new', as: :login
+    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  end  
 
+  resources :statuses
+    get 'stream', to: 'statuses#index', as: :stream
   root to: 'statuses#index'
 
   # The priority is based upon order of creation:

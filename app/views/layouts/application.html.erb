@@ -21,11 +21,11 @@
 
 		<div class="nav_links">
 			<% if member_signed_in? %>
-				<%= link_to "Log Out", destroy_member_session_path, method: :delete %>
+				<%= link_to "Log Out", logout_path %>
 				<%= link_to current_member.full_name, edit_member_registration_path %>
 			<% else %>
-				<%= link_to "Register", new_member_registration_path %>
-				<%= link_to "Log In", new_member_session_path %>
+				<%= link_to "Log In", login_path %>
+				<%= link_to "Join!", join_path %>
 			<% end %>
 		</div>
 
