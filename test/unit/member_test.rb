@@ -22,6 +22,7 @@ class MemberTest < ActiveSupport::TestCase
 
    test "a member should enter a last name with only letters" do 
   	member = Member.new
+    member.user_name = members(:dario).user_name
   	assert !member.save
   	assert !member.errors[:last_name].empty?
   	assert member.errors[:last_name].include?("Must be formatted correctly.")
