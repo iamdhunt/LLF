@@ -11,20 +11,20 @@ class Member < ActiveRecord::Base
 
   validates :first_name, presence: true,
                           format: {
-                          with: /a-zA-Z/,
+                          with: /^[a-zA-Z]+$/,
                           message: 'Must be formatted correctly.'
                         }
 
   validates :last_name, presence: true,
                         format: {
-                          with: /a-zA-Z/,
+                          with: /^[a-zA-Z]+$/,
                           message: 'Must be formatted correctly.'
                         }
 
   validates :user_name, presence: true,
                         uniqueness: true,
                         format: {
-                          with: /a-zA-Z0-9_-/,
+                          with: /^[a-zA-Z0-9_-]+$/,
                           message: 'Must be formatted correctly.'
                         }
 

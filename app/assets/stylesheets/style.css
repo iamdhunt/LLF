@@ -276,7 +276,7 @@ table {
 	font-size: .9em;
 	color: #898989;
 	display: block;
-	margin: .4em 0 0 0.8em;
+	margin-top: .3em;
 }
 
 .bday_reg_label {
@@ -287,7 +287,7 @@ table {
 }
 
 .join {
-	margin-left: 0.3em;
+	margin-left: 0;
 }
 
 .join.reg_title {
@@ -331,6 +331,10 @@ table {
 .reg_forms {
 	width: 79%;
 	height: 3.5em;
+}
+
+.reg_spacer {
+	margin: .8em 0 .8em 0;
 }
 
 .reg_name {

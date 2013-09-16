@@ -1,4 +1,6 @@
 LLF::Application.routes.draw do
+  get "profiles/show"
+
   devise_for :members
 
   devise_scope :member do 

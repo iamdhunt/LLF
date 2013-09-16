@@ -48,4 +48,12 @@ class MemberTest < ActiveSupport::TestCase
   	assert member.errors[:user_name].include?("Must be formatted correctly.")
   end
 
+  test "a member can have a correctly formatted user name" do 
+    member = Member.new(first_name: 'Dario', last_name: 'Hunt', email: 'dariohunt@gmail.com')
+    member.password = members(:dario).password 
+
+    member.user_name = 'dhunt_4'
+    assert user.valid? 
+  end
+
 end
