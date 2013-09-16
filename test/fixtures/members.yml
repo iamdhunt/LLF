@@ -3,5 +3,3 @@ dario:
     last_name: 'Hunt'
     email: 'dariohunt@gmail.com'
     user_name: 'dhunt_4'
-    password: 'password'
-    password_confirmation: 'password'

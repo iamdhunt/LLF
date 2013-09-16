@@ -13,6 +13,8 @@ LLF::Application.routes.draw do
     get 'stream', to: 'statuses#index', as: :stream
   root to: 'statuses#index'
 
+  get '/:id', to: 'profiles#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

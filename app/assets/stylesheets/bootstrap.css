@@ -752,11 +752,7 @@ input[type="color"],
   border-radius: 2px;
   vertical-align: middle;
 }
-input,
-textarea,
-.uneditable-input {
-  width: 206px;
-}
+
 textarea {
   height: auto;
 }
@@ -4675,7 +4671,7 @@ a.thumbnail:focus {
 .well {
   min-height: 20px;
   padding: 19px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   -webkit-border-radius: 4px;
