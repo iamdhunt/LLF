@@ -5,25 +5,25 @@
   <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <%= f.input :email, :autofocus => true, input_html: { class: 'forms'} %>
+      <%= f.input :email, :autofocus => true, error: false, input_html: { class: 'forms account'} %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <%= f.input :password, :autocomplete => "off", input_html: { class: 'forms'} %>
-      <%= f.input :password_confirmation, input_html: { class: 'forms'} %>
+       <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account'} %>
 
-      <%= f.input :current_password, input_html: { class: 'forms'} %>
+      <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account'} %>
+      <%= f.input :password_confirmation, error: false, input_html: { class: 'forms account'} %>
+
+      <%= f.input :current_password, error: false, input_html: { class: 'forms account'} %>
 
       <div><%= f.button :submit, "Update" %></div>
   <% end %>
 
-  <h3>Delete my account</h3>
+  <br />
 
   <p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-link' %></p>
-
-  <%= link_to "Back", :back %>
 
 <div style="clear: both;"></div>
 </div>

@@ -32,12 +32,15 @@ h1 {
 	color: #980adf;
 	font-size: 2em;
 	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 h2 {
 	font-weight: bold;
 	color: #9327c9;
 	font-size: 1.6em;
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 p {
@@ -84,7 +87,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-	background-image: url(../images/Background%204.png);
+	background-image: url('/assets/Background 4.png');
 	background-repeat: repeat;
 	padding: 1;
 	margin: 0;
@@ -214,17 +217,29 @@ table {
 
 /* Content */
 
+#home_wrap {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url('/assets/Container BG.png');
+	border-color:#EFEFEF;
+	border-style:solid;
+	border-width:0 2px 2px 2px;	
+	padding: 0 0 1em 3em;
+	color: #333;
+	position: relative;
+}
+
 #content_wrap {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
 	padding: 1.333em 1.333em;
 	color: #333;
-	padding-top: 4em;
 	position: relative;
 }
 
@@ -232,7 +247,7 @@ table {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
@@ -265,7 +280,7 @@ table {
 	width: 75%;
 	margin-right: auto;
 	margin-left: auto;
-	background-image: ;
+	background-image:url('/assets/Container BG Grey.png') ;
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;
@@ -277,6 +292,16 @@ table {
 	color: #898989;
 	display: block;
 	margin-top: .3em;
+}
+
+.reg_terms {
+	font-size: .9em;
+
+	margin-top: .5em;
+}
+
+.reg_button {
+	margin-top: .1em;
 }
 
 .bday_reg_label {
@@ -407,7 +432,7 @@ table {
 .bottom_widgets {
 	height: 275px;
 	width: 48%;
-	background-image:url(../images/Container%20BG.png);
+	background-image:url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width: 2px 2px 2px 2px;
@@ -514,7 +539,7 @@ table {
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 0 2px;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 }
 
 .contest_rules {
@@ -546,7 +571,7 @@ table {
 .twitter_contact {
 	background-color: #4aade8;
 	background-size: 60px 60px;
-	background-image: url(../images/Twitter%202.png);
+	background-image: url('/assets/Twitter 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 }
@@ -557,7 +582,7 @@ table {
 
 .tv_contact {
 	background-color: #9327c9;
-	background-image: url(../images/Bold%20TV.png);
+	background-image: url('/assets/Bold TV.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -570,7 +595,7 @@ table {
 .fb_contact {
 	background-color: #4c66a4;
 	background-size: 60px 60px;
-	background-image: url(../images/Facebook%202.png);
+	background-image: url('/assets/Facebook 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 }
@@ -581,7 +606,7 @@ table {
 
 .pin_contact {
 	background-color: #c92228;
-	background-image: url(../images/Pinterest%202.png);
+	background-image: url('/assets/Pinterest 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -593,7 +618,7 @@ table {
 
 .youtube_contact {
 	background-color: #cc181e;
-	background-image: url(../images/Youtube%202.png);
+	background-image: url('/assets/Youtube 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -605,7 +630,7 @@ table {
 
 .linkedin_contact {
 	background-color: #287bbc;
-	background-image: url(../images/Linkedin%202.png);
+	background-image: url('/assets/Linkedin 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -617,7 +642,7 @@ table {
 
 .soundcloud_contact {
 	background-color: #F76700;
-	background-image: url(../images/Soundcloud%202.png);
+	background-image: url('/assets/Soundcloud 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -629,7 +654,7 @@ table {
 
 .flickr_contact {
 	background-color: #ff0084;
-	background-image: url(../images/Flickr%202.png);
+	background-image: url('/assets/Flickr 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -641,7 +666,7 @@ table {
 
 .instagram_contact {
 	background-color: #d6c7a8;
-	background-image: url(../images/Instagram%202.png);
+	background-image: url('/assets/Instagram 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -653,7 +678,7 @@ table {
 
 .rss_contact {
 	background-color: #ff6600;
-	background-image: url(../images/RSS%202.png);
+	background-image: url('/assets/RSS 2.png');
 	background-repeat: no-repeat;
 	background-position: 48% 10%;
 	background-size: 60px 60px;
@@ -794,6 +819,10 @@ hr.contact {
 	background: #fff;
 }
 
+.account {
+	margin-bottom: 1.333em;
+}
+
 /*Profile CSS*/
 
 #profile_wrap {
@@ -801,7 +830,7 @@ hr.contact {
 	height: 13.333em;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);	
+	background-image: url('/assets/Container BG.png');	
 	color: #333;
 	margin-top: 1.2em;
 	position: relative;
@@ -833,23 +862,19 @@ hr.contact {
 	float: right;
 }
 
-.profile_name a{
+.profile_name {
 	width: 100%;
 	height: 25%;
 	font-size: 2.500em;
 	font-weight: bold;
 	color: #898989;
 	text-decoration: none;
-	margin-top: .3em;
+	margin-top: .1em;
 	margin-left: .5em;
 }
 
 .profile_name a:hover {
 	color: #ababab;
-}
-
-.profile_name {
-	margin-top: .2em;
 }
 
 .profile_username {
@@ -1095,7 +1120,7 @@ hr.contact {
 	margin-left: auto;
 	margin-right: auto;
 	width: 75%;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
@@ -1149,12 +1174,13 @@ hr.contact {
 	height: 2.333em;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: .667em;
-	background-color: #FFF;
-	background-image: url(../images/Load%20More%20Arrow.png);
+	margin-top: 1em;
+	background-image: url('/assets/Load More Arrow.png');
+	border: 2px solid #EFEFEF;
 	background-repeat: no-repeat;
 	background-position: center;
-	opacity: .65;
+	opacity: .6;
+	background-color: #FFF;
 }
 
 #media_subnav_wrap {
@@ -1194,7 +1220,7 @@ hr.contact {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
@@ -1261,7 +1287,7 @@ hr.contact {
 	height: 13.333em;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);	
+	background-image: url('/assets/Container BG.png');	
 	color: #333;
 	margin-top: 5em;
 	position: relative;
@@ -1487,7 +1513,7 @@ hr.contact {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
@@ -1499,7 +1525,7 @@ hr.contact {
 	margin-left: auto;
 	margin-right: auto;
 	width: 75%;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 0 2px;	
@@ -1514,7 +1540,7 @@ hr.contact {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 2px 2px;	
@@ -1527,7 +1553,7 @@ hr.contact {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	position: relative;
 	overflow: hidden;
 	height: 16em;
@@ -1785,7 +1811,7 @@ hr.contact {
 	width: 75%;
 	margin-left: auto;
 	margin-right: auto;
-	background-image: url(../images/Container%20BG.png);
+	background-image: url('/assets/Container BG.png');
 	position: relative;
 	overflow: hidden;
 	height: 20em;

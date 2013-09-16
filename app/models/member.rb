@@ -5,27 +5,49 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me,
-  					:first_name, :last_name, :user_name
-  # attr_accessible :title, :body
+  attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
+  					:first_name, :last_name, :user_name, :pursuits
 
   validates :first_name, presence: true,
                           format: {
                           with: /^[a-zA-Z]+$/,
-                          message: 'Must be formatted correctly.'
+                          message: 'must be formatted correctly.'
+                        },
+                        length: {
+                          maximum: 1, :tokenizer => lambda {|str| str.scan(/\w+/) },
+                          message: 'must not be more than one word.'
                         }
 
   validates :last_name, presence: true,
                         format: {
-                          with: /^[a-zA-Z]+$/,
-                          message: 'Must be formatted correctly.'
+                          with: /^[a-zA-Z-]+$/,
+                          message: 'must be formatted correctly.'
+                        },
+                        length: {
+                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
+                          message: 'must not be more than two words.'
                         }
 
   validates :user_name, presence: true,
                         uniqueness: true,
                         format: {
                           with: /^[a-zA-Z0-9_-]+$/,
-                          message: 'Must be formatted correctly.'
+                          message: 'must be formatted correctly.'
+                        },
+                        length: {
+                          maximum: 14,
+                          message: 'must not be longer than 14 characters'
+                        }                    
+
+  validates :email, confirmation: true
+
+  validates :pursuits,  format: {
+                          with: /^[a-zA-Z ]+$/,
+                          message: 'must be formatted correctly.'
+                        },
+                        length: {
+                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
+                          message: 'must not be more than two words.'
                         }
 
   has_many :statuses
