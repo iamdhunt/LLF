@@ -13,20 +13,22 @@
 
 	<div id="nav_bar">	
 	   <div class="primary_nav">
-			<%= link_to "Home", new_member_registration_path %>
-			<a href="/groups.html">Community</a>
-			<a href="/events.html">Events</a>
-			<a href="/projects.html">Projects</a>
-			<a href="/market.html">Market</a>
+			<%= link_to "Home", join_path %>
+			<a href="#">Community</a>
+			<a href="#">Events</a>
+			<a href="#">Projects</a>
+			<a href="#">Market</a>
 		</div> 
 
 		<div class="nav_links">
 			<% if member_signed_in? %>
-				<%= link_to "Log Out", logout_path %>
-				<%= link_to current_member.full_name, edit_member_registration_path %>
+				<%= link_to "Log Out", logout_path, :class => "member_links" %>
+				<%= link_to current_member.full_name, edit_member_registration_path, :class => "member_links" %>
+				<%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
+				<%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
 			<% else %>
-				<%= link_to "Log In", login_path %>
-				<%= link_to "Join!", join_path %>
+				<%= link_to "Sign In", login_path, :class => "member_links" %>
+				<%= link_to "Join!", join_path, :class => "member_links" %>
 			<% end %>
 		</div>
 
@@ -54,7 +56,7 @@
 				</div>
 				
 				<div class="view_all_widget">
-					<a href="/events.html">View All Events &raquo;</a>
+					<a href="#">View All Events &raquo;</a>
 				</div>
 				
 			</div>
@@ -65,7 +67,7 @@
 				</div>
 				
 				<div class="view_all_widget">
-					<a href="/projects.html">View All Projects &raquo;</a>
+					<a href="#">View All Projects &raquo;</a>
 				</div>
 				
 		  </div>
@@ -80,7 +82,7 @@
 				</div>
 				
 				<div class="view_all_widget">
-					<a href="/market.html">View Market &raquo;</a>
+					<a href="#">View Market &raquo;</a>
 				</div>
 				
 		  </div>
@@ -102,12 +104,12 @@
 	<div id="footer_wrap">
 		
 		<div id="footer_top" class="box_font">
-			<a href="/spotlights/spotlights.html">Spotlights</a> &#8226; 
-			<a href="/contests.html">Contests</a> &#8226; 
-			<a href="/faqs.html">FAQ's</a> &#8226; 
-			<a href="/contact_us.html">Contact Us</a> &#8226; 
-			<a href="/terms.html">Terms</a> &#8226; 
-			<a href="/privacy.html">Privacy</a> &#8226; 
+			<a href="#">Spotlights</a> &#8226; 
+			<a href="#">Contests</a> &#8226; 
+			<a href="#">FAQ's</a> &#8226; 
+			<a href="#">Contact Us</a> &#8226; 
+			<a href="#">Terms</a> &#8226; 
+			<a href="#">Privacy</a> &#8226; 
 			<a href="http://livinglifefearless.com/blog" target="_blank">BLOG</a> &#8226; 
 			<a href="http://havenforthebold.tv/" target="_blank" class="bold_tv">BOLD.TV</a>	
 		</div>
