@@ -2,5 +2,19 @@ dario:
     first_name: 'Dario'
     last_name: 'Hunt'
     email: 'dariohunt@gmail.com'
-    user_name: 'dhunt_4'
+    user_name: 'iamdhunt'
     pursuits: 'basketball'
+
+gary:
+    first_name: 'Gary'
+    last_name: 'Gorilla'
+    email: 'garythegorilla@gmail.com'
+    user_name: 'garythegorilla'
+    pursuits: 'business'
+
+mike:
+    first_name: 'Mike'
+    last_name: 'Test'
+    email: 'miketest@gmail.com'
+    user_name: 'miketest'
+    pursuits: 'music'

@@ -1,31 +1,20 @@
 require 'test_helper'
 
 class MemberTest < ActiveSupport::TestCase
+
+  should have_many(:member_follows)
+  should have_many(:follows)
+
   test "a member should enter a first name" do 
   	member = Member.new
   	assert !member.save
   	assert !member.errors[:first_name].empty? 	
   end
 
-   test "a member should enter a first name with only letters" do 
-  	member = Member.new
-  	assert !member.save
-  	assert !member.errors[:first_name].empty?
-  	assert member.errors[:first_name].include?("Must be formatted correctly.")
-  end
-
   test "a member should enter a last name" do 
   	member = Member.new
   	assert !member.save
   	assert !member.errors[:last_name].empty?
-  end
-
-   test "a member should enter a last name with only letters" do 
-  	member = Member.new
-    member.user_name = members(:dario).user_name
-  	assert !member.save
-  	assert !member.errors[:last_name].empty?
-  	assert member.errors[:last_name].include?("Must be formatted correctly.")
   end
 
   test "a member should enter a username" do 
@@ -40,20 +29,16 @@ class MemberTest < ActiveSupport::TestCase
   	assert !member.errors[:user_name].empty?
   end
 
-  test "a member should should have a username without spaces" do 
-  	member = Member.new
+  test "that no error is raised when trying to access a follow list" do 
+    assert_nothing_raised do 
+      members(:dario).follows
+    end 
+  end 
 
-  	assert !member.save
-  	assert !member.errors[:user_name].empty?
-  	assert member.errors[:user_name].include?("Must be formatted correctly.")
-  end
-
-  test "a member can have a correctly formatted user name" do 
-    member = Member.new(first_name: 'Dario', last_name: 'Hunt', email: 'dariohunt@gmail.com')
-    member.password = members(:dario).password 
-
-    member.user_name = 'dhunt_4'
-    assert user.valid? 
-  end
+  test "that creating a follow relationship works" do 
+    members(:dario).follows << members(:mike)
+    members(:dario).follows.reload
+    assert members(:dario).follows.include?(members(:mike))
+  end 
 
 end

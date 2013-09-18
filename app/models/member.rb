@@ -51,6 +51,8 @@ class Member < ActiveRecord::Base
                         }
 
   has_many :statuses
+  has_many :member_follows
+  has_many :follows, through: :member_follows
 
   def full_name
   		first_name + " " + last_name
