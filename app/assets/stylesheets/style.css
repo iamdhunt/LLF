@@ -51,7 +51,6 @@ p {
 a {
 	color: #942fc6;
 	text-decoration: none;
-	font-weight: bold;
 }
 
 a:hover {
@@ -173,7 +172,8 @@ table {
 	float: right;
 	height: 55px;
 	line-height: 55px;
-	font-size: 1.1em;;
+	font-size: 1.1em;
+	font-weight: bold;
 	text-decoration: none;
 	display: block;
 }
@@ -1139,6 +1139,11 @@ hr.contact {
 	border-width:0 2px 0 2px;
 }
 
+.sub_stream {
+	padding: 0 2em;
+}
+
+
 .sub_stream li a {
 	float: left;
 	display: inline;	
@@ -1146,10 +1151,6 @@ hr.contact {
 	text-align: center;
 	color: #FFF;
 	margin-right: .8em;
-}
-
-.my_stream {
-	margin-left: 2em;
 }
 
 #act_update {
@@ -1196,6 +1197,14 @@ hr.contact {
 	height: 1.400em;
 }
 
+.action_wrap{
+	margin-top: .3em;
+}
+
+.actions {
+	float: right;
+}
+
 #activity_wrap {
 	margin-left: auto;
 	margin-right: auto;
@@ -1207,19 +1216,16 @@ hr.contact {
 
 .load_more {
 	width: 75%;
-	height: 2.333em;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 1em;
-	background-image: url('/assets/Load More Arrow.png');
-	border: 2px solid #EFEFEF;
-	background-repeat: no-repeat;
-	background-position: center;
+}
+.load_more a{
 	opacity: .6;
-	background-color: #FFF;
+	margin-left: 50%;
 }
 
-.load_more:hover {
+.load_more a:hover {
 	opacity: 1;
 }
 

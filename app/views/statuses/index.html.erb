@@ -6,17 +6,23 @@
 
 		<% @statuses.each do |status| %>
 			<div class="status">
-				    <h3><%= status.member.user_name %></h3>
-				    <p><%= status.content %></p>
-				<div class="meta">
-			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
-			    </div>
-			    <span class="ad_item">
-				    <%= link_to 'Edit', edit_status_path(status) %> |
-				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-				</span>
+                <div class="row">
+                    <div class="span1">
+                        Avatar
+                    </div> 
+                    <div class="span7">
+        				<div class="status_name"><%= status.member.user_name %></div>
+        				<div class="content"><%= status.content %></div>
+        				<div class="meta">
+        			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
+        			    </div>
+        			    <span class="ad_item">
+        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+        				</span>
+                    </div>
+                </div> 
 			</div>
-		<% end %>
+		<% end %> 
 
 	<br />
 

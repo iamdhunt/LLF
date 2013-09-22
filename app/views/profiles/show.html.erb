@@ -82,13 +82,19 @@
 <div id="stream_subnav_wrap">
 
  	<ul class="sub_stream">
+        <% if @member == current_member %>
+
     	<li>
         	<a href="#" class="my_stream">My Stream</a>
         </li>  
+
+        <% end %>
         
         <li>
             <a href="#" class="personal">Personal</a>
         </li>
+
+        <% if @member == current_member %>
           
         <li>
             <a href="#" class="mentions_subnav">Mentions</a>
@@ -96,7 +102,9 @@
             
         <li>
             <a href="#" class="groups_stream_subnav">Groups</a>
-        </li>  
+        </li> 
+
+        <% end %> 
         
         <li>
             <a href="#" class="favorties_subnav">Favorites</a>
@@ -108,6 +116,8 @@
 </div>
 
 <!--/stream_subnav_wrap-->
+
+<% if @member == current_member %>
 
 <div id="act_update">
 
@@ -122,14 +132,26 @@
         	<%= link_to image_tag("Link 3.png", :class => "act_icons"), "#" %>
         	<%= link_to image_tag("Check In 2.png", :class => "act_icons"), "#" %>
         </div>
-    	<textarea name="" rows="1" class="forms" id="update_box" tabindex="1"></textarea>
-    	
+    	<div class="">
+            <%= simple_form_for(@status) do |f| %>
+              <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '1' } %>
+              <div class="action_wrap">
+                <span class="social_post">
+                </span> 
+                <span class="actions">
+                <%= f.submit "Post to Stream", :class => 'btn btn-info' %>
+                </span>
+              </div>
+            <% end %>
+    	</div>
     	<div class="act_buttons">
     	</div>
     </div>
 
 <div style="clear: both;"></div>
 </div>
+
+<% end %>
 
 <!--/act_update-->
 
@@ -138,15 +160,21 @@
 	<% if @statuses %>
 		<% @statuses.each do |status| %>
 			<div class="status">
-				<h3><%= status.member.user_name %></h3>
-				<%= status.content %>
-				<div class="meta">
-			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
-			    </div>
-			    <span class="ad_item">
-				    <%= link_to 'Edit', edit_status_path(status) %> |
-				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-				</span>
+                <div class="row">
+                    <div class="span1">
+                        Avatar
+                    </div> 
+                    <div class="span7">
+        				<div class="status_name"><%= status.member.user_name %></div>
+        				<div class="content"><%= status.content %></div>
+        				<div class="meta">
+        			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
+        			    </div>
+        			    <span class="ad_item">
+        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+        				</span>
+                    </div>
+                </div> 
 			</div>
 		<% end %> 
 	<% end %>
@@ -154,6 +182,8 @@
 <div style="clear: both;"></div>
 </div>
 
-	<a href="#"><div class="load_more"></div></a>
+	<div class="load_more">
+        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+    </div>
 
 <!--/activity_wrap-->
