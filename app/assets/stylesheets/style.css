@@ -118,8 +118,11 @@ table {
 
 /* Specific CSS */
 
-#pagewrap {
+#main_wrap {
 	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 72%;
 }
 
 #contest_header {
@@ -231,9 +234,6 @@ table {
 /* Content */
 
 #home_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -244,9 +244,6 @@ table {
 }
 
 #content_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -257,9 +254,6 @@ table {
 }
 
 #signin_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Sign In BG.png');
 	background-size: 100% 100%;
 	background-repeat: none;
@@ -276,9 +270,6 @@ table {
 }
 
 #contest_content {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -309,9 +300,6 @@ table {
 /* Registration */
 
 #registration_wrap {
-	width: 75%;
-	margin-right: auto;
-	margin-left: auto;
 	background-image:url('/assets/Container BG Grey.png') ;
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -427,7 +415,7 @@ table {
 
 #widget_wrap {
 	height:275px;
-	width: 75%;
+	width: 72%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 50px;
@@ -565,9 +553,6 @@ table {
 /*Contests*/
 
 #contest_header {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 0 2px;
@@ -862,10 +847,7 @@ hr.contact {
 /*Profile CSS*/
 
 #profile_wrap {
-	width: 75%;
 	height: 13.333em;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');	
 	color: #333;
 	margin-top: 1.2em;
@@ -1032,9 +1014,6 @@ hr.contact {
 }
 
 #profile_nav_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	color: #FFF;
 	position: relative;
 	overflow: hidden;
@@ -1131,9 +1110,6 @@ hr.contact {
 
 #stream_subnav_wrap {
 	background-color: #bd8ed4;
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:0 2px 0 2px;
@@ -1154,9 +1130,6 @@ hr.contact {
 }
 
 #act_update {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -1178,12 +1151,12 @@ hr.contact {
 }
 
 .update_box_wrap {
-	float: left;
+	float: right;
 }
 
 #update_box {
 	margin-left: 2.5em;
-	width: 58em;
+	width: 55em;
 }
 
 .act_icons_wrap {
@@ -1206,18 +1179,12 @@ hr.contact {
 }
 
 #activity_wrap {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	padding: .667em .667em;
 	overflow: hidden;
 	color: #333;
 }
 
 .load_more {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	margin-top: 1em;
 }
 .load_more a{
@@ -1231,9 +1198,6 @@ hr.contact {
 
 #media_subnav_wrap {
 	background-color: #f3ab77;
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 }
 
 .all_media {
@@ -1242,9 +1206,6 @@ hr.contact {
 
 #events_subnav_wrap {
 	background-color: #44986c;
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 }
 
 .at_a_glance {
@@ -1253,9 +1214,6 @@ hr.contact {
 
 #projects_subnav_wrap {
 	background-color: #e25b60;
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 }
 
 .my_projects {
@@ -1263,9 +1221,6 @@ hr.contact {
 }
 
 #profile_content_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -1329,10 +1284,7 @@ hr.contact {
 }
 
 #group_wrap {
-	width: 75%;
 	height: 13.333em;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');	
 	color: #333;
 	margin-top: 5em;
@@ -1415,9 +1367,6 @@ hr.contact {
 }
 
 #event_search_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	margin-top: 6em;
 	background-color: #93C;
 	opacity: .85;
@@ -1447,9 +1396,6 @@ hr.contact {
 }
 
 #event_dir_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	padding: .667em .667em;
 	color: #333;
 	margin-top: 1.667em;
@@ -1473,9 +1419,6 @@ hr.contact {
 }
 
 #market_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;	
 	color: #333;
 	margin-top: 6em;
 	position: relative;
@@ -1500,10 +1443,7 @@ hr.contact {
 }
 
 #search_nav_wrap {
-	margin-left: auto;
-	margin-right: auto;
 	margin-top: 6em;
-	width: 75%;
 	color: #333;
 }
 
@@ -1540,9 +1480,6 @@ hr.contact {
 }
 
 #results_wrap {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	padding: .667em;
 }
 
@@ -1556,9 +1493,6 @@ hr.contact {
 }
 
 #comment_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -1568,9 +1502,6 @@ hr.contact {
 }
 
 #comment_update {
-	margin-left: auto;
-	margin-right: auto;
-	width: 75%;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -1583,9 +1514,6 @@ hr.contact {
 }
 
 #event_info_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
 	border-style:solid;
@@ -1596,9 +1524,6 @@ hr.contact {
 }
 
 #event_media_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	position: relative;
 	overflow: hidden;
@@ -1854,9 +1779,6 @@ hr.contact {
 }
 
 #project_media_wrap {
-	width: 75%;
-	margin-left: auto;
-	margin-right: auto;
 	background-image: url('/assets/Container BG.png');
 	position: relative;
 	overflow: hidden;

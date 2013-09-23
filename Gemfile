@@ -6,8 +6,9 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-
 gem 'devise'
+gem 'paperclip'
+gem "acts_as_follower", '~> 0.1.1'
 
 group :test do
 	gem 'shoulda'

@@ -1,32 +1,38 @@
-<div id="activity_wrap"> 
+<div id ="main_wrap">
 
-	<h1>Stream</h1>
+	<div id="activity_wrap"> 
 
-		<%= link_to 'Post a New Item', new_status_path, :class => 'btn btn-info' %>
+		<h1>Stream</h1>
 
-		<% @statuses.each do |status| %>
-			<div class="status">
-                <div class="row">
-                    <div class="span1">
-                        Avatar
-                    </div> 
-                    <div class="span7">
-        				<div class="status_name"><%= status.member.user_name %></div>
-        				<div class="content"><%= status.content %></div>
-        				<div class="meta">
-        			    	<p><%= link_to time_ago_in_words(status.created_at) + " ago", status %></p>
-        			    </div>
-        			    <span class="ad_item">
-        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-        				</span>
-                    </div>
-                </div> 
-			</div>
-		<% end %> 
+			<%= link_to 'Post a New Item', new_status_path, :class => 'btn btn-info' %>
 
-	<br />
+			<% @statuses.each do |status| %>
+				<div class="status">
+	                <div class="row">
+	                    <div class="span1">
+	                        Avatar
+	                    </div> 
+	                    <div class="span7">
+	        				<div class="status_name"><%= status.member.user_name %></div>
+	        				<div class="content"><%= status.content %></div>
+	        				<div class="meta">
+	        			    	<%= link_to time_ago_in_words(status.created_at) + " ago" %>
+	        			    </div>
+	        			    <span class="ad_item">
+	        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+	        				</span>
+	                    </div>
+	                </div> 
+				</div>
+			<% end %> 
 
-<div style="clear: both;"></div>
+		<br />
+
+	<div style="clear: both;"></div>
+	</div>
+
+	<!--/activity_wrap-->
+
 </div>
 
-<!--/activity_wrap-->
+<!--/main_wrap-->

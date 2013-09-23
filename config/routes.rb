@@ -1,19 +1,30 @@
 LLF::Application.routes.draw do
   get "profiles/show"
 
-  devise_for :members
-
-  devise_scope :member do 
-    get 'join', to: 'devise/registrations#new', as: :join
-    get 'login', to: 'devise/sessions#new', as: :login
-    get 'logout', to: 'devise/sessions#destroy', as: :logout
+  as :member do 
+    get '/join', to: 'devise/registrations#new', as: :join
+    get '/sign_in', to: 'devise/sessions#new', as: :sign_in
+    get '/sign_out', to: 'devise/sessions#destroy', as: :sign_out
   end  
+
+  devise_for :members, skip: [:sessions]
+
+  as :member do
+     get '/sign_in' => 'devise/sessions#new', as: :new_member_session
+     post '/sign_in' => 'devise/sessions#create', as: :member_session
+     delete '/sign_out' => 'devise/sessions#destroy', as: :destroy_member_session
+   end 
+
 
   resources :statuses
     get 'stream', to: 'statuses#index', as: :stream
   root to: 'statuses#index'
 
-  get '/:id', to: 'profiles#show'
+  get '/:id', to: 'profiles#show', as: 'profile'
+
+  resources :members, :only => [:index, :show] do
+    resources :follows, :only => [:create, :destroy]
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

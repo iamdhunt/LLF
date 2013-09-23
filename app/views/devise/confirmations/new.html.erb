@@ -1,16 +1,24 @@
-<div id="activity_wrap">
-	
-	<h2>Resend confirmation instructions</h2>
+<div id="main_wrap">
 
-		<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-			  <%= devise_error_messages! %>
+	<div id="activity_wrap">
+		
+		<h2>Resend confirmation instructions</h2>
 
-			  <%= f.input :email, :autofocus => true %>
+			<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+				  <%= devise_error_messages! %>
 
-			  <%= f.button :submit "Resend confirmation instructions" %>
-		<% end %>
+				  <%= f.input :email, :autofocus => true %>
 
-	<%= render "devise/shared/links" %>
+				  <%= f.button :submit "Resend confirmation instructions" %>
+			<% end %>
 
-	<div style="clear: both;"></div>
+		<%= render "devise/shared/links" %>
+
+		<div style="clear: both;"></div>
+	</div>
+
+<!--/activity_wrap-->
+
 </div>
+
+<!--/main_wrap-->

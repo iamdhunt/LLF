@@ -1,57 +1,63 @@
-<div id="home_wrap">
+<div id="main_wrap">
 
-    <%= image_tag("LLF 2 Home.png", :class => "home_image") %>
-    
-</div>
+  <div id="home_wrap">
 
-<!--/content_wrap-->
-
-<div id="registration_wrap">
-        
-        <span class="join reg_title">Join the Community!</span> <span class="free reg_title">(It's free for <strong>&middot;</strong> ev <strong>&middot;</strong> er)</span><br/>
-        
-  <div class="registration">
-	  
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
-       	
-        <div class="reg_left">
-        	
-          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4'} %>
-             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5'} %>
-             <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6'} %>
-        
-        </div>
-        
-        <div class="reg_center">
-        	
-          <%= f.input :email, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms', tabindex: '7'} %>
-            <%= f.input :email_confirmation, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '7'} %>
-            <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', tabindex: '9'} %>
-            
-        </div>
-        
-        <div class="reg_right">
-        	
-          <%= f.text_field :pursuits, :placeholder => 'Favorite Pursuit', :class => 'forms reg_forms', :tabindex => '10' %>
-          <div class="pursuit_reg_label">
-            (i.e. Sports, Music, Skydiving, Branding, Pop Art)
-          </div>
-          <div class="reg_terms">
-            <p>By joining LLF, you agree to our <%= link_to 'Terms', "#" %> and <br /> to the details of our <%= link_to 'Privacy Policy', "#" %>.</p>
-          </div>
-            <%= f.submit "Join the Community", :class => 'reg_button btn btn-info btn-large' %>
-        
-        </div>
-	 
-   <% end %>
-
-
+      <%= image_tag("LLF 2 Home.png", :class => "home_image") %>
+      
   </div>
- 
- <div style="clear:both;"></div> 
-       
-</div>        
+
+  <!--/content_wrap-->
+
+  <div id="registration_wrap">
+          
+          <span class="join reg_title">Join the Community!</span> <span class="free reg_title">(It's free for <strong>&middot;</strong> ev <strong>&middot;</strong> er)</span><br/>
+          
+    <div class="registration">
+  	  
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  	  <%= devise_error_messages! %>
+         	
+          <div class="reg_left">
+          	
+            <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4'} %>
+               <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5'} %>
+               <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6'} %>
+          
+          </div>
+          
+          <div class="reg_center">
+          	
+            <%= f.input :email, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms', tabindex: '7'} %>
+              <%= f.input :email_confirmation, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '7'} %>
+              <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', tabindex: '9'} %>
+              
+          </div>
+          
+          <div class="reg_right">
+          	
+            <%= f.text_field :pursuits, :placeholder => 'Favorite Pursuit', :class => 'forms reg_forms', :tabindex => '10' %>
+            <div class="pursuit_reg_label">
+              (i.e. Sports, Music, Skydiving, Branding, Pop Art)
+            </div>
+            <div class="reg_terms">
+              <p>By joining LLF, you agree to our <%= link_to 'Terms', "#" %> and <br /> to the details of our <%= link_to 'Privacy Policy', "#" %>.</p>
+            </div>
+              <%= f.submit "Join the Community", :class => 'reg_button btn btn-info btn-large' %>
+          
+          </div>
+  	 
+     <% end %>
+
+
+    </div>
+   
+   <div style="clear:both;"></div> 
+         
+  </div>        
     
 <!--/registration-->
+
+</div>
+
+<!--/main_wrap-->
 

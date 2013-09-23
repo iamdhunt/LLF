@@ -1,32 +1,40 @@
-<div id="signin_wrap">
+<div id="main_wrap">
 
-	<div class="row">
-		<div class="span4 signin_box">
+	<div id="signin_wrap">
 
-			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "well" }) do |f| %>
-				  
-				<fieldset class="fieldset">
+		<div class="row">
+			<div class="span4 signin_box">
 
-					<legend class="legend">Welcome Back!</legend>
+				<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "well" }) do |f| %>
+					  
+					<fieldset class="fieldset">
 
-				  <%= f.input :email, :autofocus => true, input_html: { class: 'forms account sign_in'} %>
-				  <%= f.input :password, input_html: { class: 'forms account sign_in'} %>
+						<legend class="legend">Welcome Back!</legend>
 
-				  <% if devise_mapping.rememberable? -%>
-				    <div><%= f.input :remember_me, as: :boolean, label: 'Remember Me' %></div><br />
-				  <% end -%>
+					  <%= f.input :email, :autofocus => true, input_html: { class: 'forms account sign_in'} %>
+					  <%= f.input :password, input_html: { class: 'forms account sign_in'} %>
 
-				  <div><%= f.button :submit, "Sign In" %></div><br />
+					  <% if devise_mapping.rememberable? -%>
+					    <div><%= f.input :remember_me, as: :boolean, label: 'Remember Me' %></div><br />
+					  <% end -%>
 
-				</fieldset> 
+					  <div><%= f.button :submit, "Sign In" %></div><br />
 
-			<% end %>
+					</fieldset> 
 
-			<%= render "devise/shared/links" %>
+				<% end %>
+
+				<%= render "devise/shared/links" %>
+			</div>
+
+			<div class="span8">
+			</div>
 		</div>
-
-		<div class="span8">
-		</div>
+	<div style="clear: both;"></div>
 	</div>
-<div style="clear: both;"></div>
+
+<!--/activity_wrap-->
+
 </div>
+
+<!--/main_wrap-->
