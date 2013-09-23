@@ -18,9 +18,11 @@
 	        				<div class="meta">
 	        			    	<%= time_ago_in_words(status.created_at) + " ago" %>
 	        			    </div>
-	        			    <span class="ad_item">
-	        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-	        				</span>
+	        			    <% if status.member == current_member %>
+		        			    <span class="ad_item">
+		        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+		        				</span>
+	        				<% end %>
 	                    </div>
 	                </div> 
 				</div>

@@ -8,7 +8,14 @@
         <div id="center_profile">
         	<div class="profile_name"><%= @member.full_name %></div>
             <div class="profile_username"><%= "@" + @member.user_name %></div>
-            <div class="follow_count"><span class="following_count">#</span> <span class="follower_count">#</span></div>
+            <div class="follow_count">
+                <span class="following_count">
+                    <%= @member.follow_count %>
+                </span> 
+                <span class="follower_count">
+                    <%= @member.followers_count %>
+                </span>
+            </div>
             <div class="follow_count_text"><span class="following_text"><a href="#">Following</a></span> <span class="follower_text"><a href="#">Followers</a></span></div>
             <% if signed_in? %>
                 <div id="member_actions" class="profile_buttons">
@@ -162,9 +169,11 @@
             				<div class="meta">
             			    	<%= time_ago_in_words(status.created_at) + " ago" %>
             			    </div>
-            			    <span class="ad_item">
-            				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-            				</span>
+                            <% if status.member == current_member %>
+                			    <span class="ad_item">
+                				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+                				</span>
+                            <% end %>
                         </div>
                     </div> 
     			</div>
