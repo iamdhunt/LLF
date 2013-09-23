@@ -852,7 +852,6 @@ hr.contact {
 	color: #333;
 	margin-top: 1.2em;
 	position: relative;
-	overflow: hidden;
 	border-color:#EFEFEF;
 	border-style:solid;
 	border-width:2px 2px 0 2px;
@@ -1034,7 +1033,7 @@ hr.contact {
 .profile_nav li a{
 	float: left;
 	display: inline;
-	width: 16.667%;	
+	width: 25%;	
 	font-size: 1.133em;
 	padding: .4em .4em;
 	text-align: center;
@@ -1052,19 +1051,11 @@ hr.contact {
 	background-color: #8500c7;
 }
 
-.following_wrap {
-	background-color: #365069;
-}
-
-.following_wrap:hover {
-	background-color: #144471;
-}
-
-.followers_wrap {
+.market_wrap {
 	background-color: #00749a;
 }
 
-.followers_wrap:hover {
+.market_wrap:hover {
 	background-color: #005e7d;
 }
 
@@ -1077,7 +1068,7 @@ hr.contact {
 }
 
 .events_wrap {
-	background-color: #007236;
+	background-color: #168349;
 }
 
 .events_wrap:hover {
@@ -1085,7 +1076,7 @@ hr.contact {
 }
 
 .projects_wrap {
-	background-color: #cc181e;
+	background-color: #d3262c;
 }
 
 .projects_wrap:hover {

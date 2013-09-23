@@ -1673,6 +1673,7 @@ input[type="button"].btn-block {
 .btn-danger.active,
 .btn-success.active,
 .btn-info.active,
+btn-follow.active,
 .btn-inverse.active {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -1822,6 +1823,24 @@ input[type="button"].btn-block {
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+.btn-follow {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #93c;
+  background-image: -moz-linear-gradient(top, #b153e0, #9629cd);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b153e0), to(#9629cd));
+  background-image: -webkit-linear-gradient(top, #b153e0, #9629cd);
+  background-image: -o-linear-gradient(top, #b153e0, #9629cd);
+  background-image: linear-gradient(to bottom, #b153e0, #9629cd);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  border-color: #b153e0 #b153e0 #9629cd;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #b153e0;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
 .btn-info:hover,
 .btn-info:focus,
 .btn-info:active,
@@ -1832,9 +1851,23 @@ input[type="button"].btn-block {
   background-color: #2f96b4;
   *background-color: #2a85a0;
 }
+.btn-follow:hover,
+.btn-follow:focus,
+.btn-follow:active,
+.btn-follow.active,
+.btn-follow.disabled,
+.btn-follow[disabled] {
+  color: #ffffff;
+  background-color: #93C;
+  *background-color: #9629cd;
+}
 .btn-info:active,
 .btn-info.active {
   background-color: #24748c \9;
+}
+.btn-follow:active,
+.btn-follow.active {
+  background-color: #832ab0 \9;
 }
 .btn-inverse {
   color: #ffffff;
@@ -2523,6 +2556,9 @@ input[type="submit"].btn.btn-mini {
 .btn-group.open .btn-info.dropdown-toggle {
   background-color: #2f96b4;
 }
+.btn-group.open .btn-follow.dropdown-toggle {
+  background-color: #93c;
+}
 .btn-group.open .btn-inverse.dropdown-toggle {
   background-color: #222222;
 }
@@ -2549,6 +2585,7 @@ input[type="submit"].btn.btn-mini {
 .btn-warning .caret,
 .btn-danger .caret,
 .btn-info .caret,
+.btn-follow .caret,
 .btn-success .caret,
 .btn-inverse .caret {
   border-top-color: #ffffff;

@@ -13,10 +13,10 @@
 	                        Avatar
 	                    </div> 
 	                    <div class="span7">
-	        				<div class="status_name"><%= status.member.user_name %></div>
+	        				<div class="status_name"><%= link_to status.member.user_name, profile_path(status.member) %></div>
 	        				<div class="content"><%= status.content %></div>
 	        				<div class="meta">
-	        			    	<%= link_to time_ago_in_words(status.created_at) + " ago" %>
+	        			    	<%= time_ago_in_words(status.created_at) + " ago" %>
 	        			    </div>
 	        			    <span class="ad_item">
 	        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>

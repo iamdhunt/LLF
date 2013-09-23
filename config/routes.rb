@@ -22,7 +22,7 @@ LLF::Application.routes.draw do
 
   get '/:id', to: 'profiles#show', as: 'profile'
 
-  resources :members, :only => [:index, :show] do
+  resources :members, :only => [:index, :show], :path => '/' do
     resources :follows, :only => [:create, :destroy]
   end
 
