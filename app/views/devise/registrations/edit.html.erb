@@ -1,29 +1,37 @@
-<div id="activity_wrap">
+<div id="main_wrap">
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <div id="activity_wrap">
 
-  <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-      <%= devise_error_messages! %>
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-      <%= f.input :email, :autofocus => true, error: false, input_html: { class: 'forms account'} %>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= devise_error_messages! %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
+        <%= f.input :email, :autofocus => true, error: false, input_html: { class: 'forms account'} %>
 
-       <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account'} %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
-      <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account'} %>
-      <%= f.input :password_confirmation, error: false, input_html: { class: 'forms account'} %>
+         <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account'} %>
 
-      <%= f.input :current_password, error: false, input_html: { class: 'forms account'} %>
+        <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account'} %>
+        <%= f.input :password_confirmation, error: false, input_html: { class: 'forms account'} %>
 
-      <div><%= f.button :submit, "Update" %></div>
-  <% end %>
+        <%= f.input :current_password, error: false, input_html: { class: 'forms account'} %>
 
-  <br />
+        <div><%= f.button :submit, "Update" %></div>
+    <% end %>
 
-  <p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-link' %></p>
+    <br />
 
-<div style="clear: both;"></div>
+    <p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-link' %></p>
+
+  <div style="clear: both;"></div>
+  </div>
+
+<!--activity_wrap-->
+
 </div>
+
+<!--/main_wrap-->

@@ -11,16 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918164119) do
+ActiveRecord::Schema.define(:version => 20130923151547) do
 
-  create_table "member_follows", :force => true do |t|
-    t.integer  "member_id"
-    t.integer  "follow_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
-  add_index "member_follows", ["member_id", "follow_id"], :name => "index_member_follows_on_member_id_and_follow_id"
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
   create_table "members", :force => true do |t|
     t.string   "first_name"
@@ -48,11 +52,9 @@ ActiveRecord::Schema.define(:version => 20130918164119) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "user_id"
     t.integer  "member_id"
   end
 
   add_index "statuses", ["member_id"], :name => "index_statuses_on_member_id"
-  add_index "statuses", ["user_id"], :name => "index_statuses_on_user_id"
 
 end

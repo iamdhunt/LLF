@@ -1,22 +1,28 @@
-<div id="activity_wrap">
+<div id="main_wrap">
 
-	<p id="notice"><%= notice %></p>
+	<div id="activity_wrap">
 
-	<p>
-	  <b>Username:</b>
-	  <%= @status.member.user_name %>
-	</p>
+		<p id="notice"><%= notice %></p>
 
-	<p>
-	  <b>Content:</b>
-	  <%= @status.content %>
-	</p>
+		<p>
+		  <b>Username:</b>
+		  <%= @status.member.user_name %>
+		</p>
+
+		<p>
+		  <b>Content:</b>
+		  <%= @status.content %>
+		</p>
 
 
-	<%= link_to 'Edit', edit_status_path(@status) %> |
-	<%= link_to 'Back', statuses_path %>
+		<%= link_to 'Edit', edit_status_path(@status) %> |
+		<%= link_to 'Back', statuses_path %>
 
-<div style="clear: both;"></div>
-</div>
+	<div style="clear: both;"></div>
+	</div>
 
 <!--/activity_wrap-->
+
+</div>
+
+<!--/main_wrap-->

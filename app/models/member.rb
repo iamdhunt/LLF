@@ -51,11 +51,15 @@ class Member < ActiveRecord::Base
                         }
 
   has_many :statuses
-  has_many :member_follows
-  has_many :follows, through: :member_follows
+  acts_as_follower
+  acts_as_followable
 
   def full_name
   		first_name + " " + last_name
   end
+
+  def to_param
+    user_name
+  end 
 
 end
