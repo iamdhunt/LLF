@@ -3,7 +3,7 @@ class Status < ActiveRecord::Base
   belongs_to :member 
 
   validates :content, presence: true,
-  			length: { minimum: 2, maximum: 420 }
+  			length: { minimum: 2, maximum: 280 }
 
   validates :member_id, presence: true
 

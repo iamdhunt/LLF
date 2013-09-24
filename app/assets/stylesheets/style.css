@@ -1069,10 +1069,6 @@ hr.contact {
 	background-color: #8500c7;
 }
 
-.stream_wrap:hover {
-	background-color: #8500c7;
-}
-
 .following_wrap {
 	background-color: #365069;
 }
@@ -1111,22 +1107,6 @@ hr.contact {
 
 .projects_wrap:hover {
 	background-color: #af1e23;
-}
-
-.achievements_wrap {
-	background-color: #e6db08;
-}
-
-.achievements_wrap:hover {
-	background-color: #cbc325;
-}
-
-.invite_wrap {
-	background-color: #d6c7a8;
-}
-
-.invite_wrap:hover {
-	background-color: #c8b388;
 }
 
 #stream_subnav_wrap {
