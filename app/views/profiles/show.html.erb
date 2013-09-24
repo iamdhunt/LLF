@@ -10,10 +10,10 @@
             <div class="profile_username"><%= "@" + @member.user_name %></div>
             <div class="follow_count">
                 <span class="following_count">
-                    <%= @member.follow_count %>
+                    <%= @member.following_by_type_count('Member') %>
                 </span> 
                 <span class="follower_count">
-                    <%= @member.followers_count %>
+                    <%= @member.followers_by_type_count('Member') %>
                 </span>
             </div>
             <div class="follow_count_text"><span class="following_text"><a href="#">Following</a></span> <span class="follower_text"><a href="#">Followers</a></span></div>
