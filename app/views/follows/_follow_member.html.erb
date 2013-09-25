@@ -6,12 +6,6 @@
         <%= link_to("Following", member_follow_path(member.id, current_member.get_follow(member).id), :method => :delete, :remote => true, :class => "btn btn-follow") %>
         <%= link_to "Message", "#", :class => "btn" %>
         <%= link_to "Mention", "#", :class => "btn" %>
-         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            More
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Block <%= @member.first_name %></a></li>
-          </ul>
      </div>
 
 
@@ -21,12 +15,6 @@
         <%= link_to("Follow", member_follows_path(member.id), :method => :post, :remote => true, :class => "btn") %>
         <%= link_to "Message", "#", :class => "btn" %>
         <%= link_to "Mention", "#", :class => "btn" %>
-         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            More
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Block <%= @member.first_name %></a></li>
-          </ul>
       </div>
 
   <% end %>
