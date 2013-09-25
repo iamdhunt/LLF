@@ -1,4 +1,17 @@
 LLF::Application.routes.draw do
+
+  match '/spotlights' => 'pages#spotlights'
+  match '/contests' => 'pages#contests'
+  match '/faqs' => 'pages#faqs'
+  match '/contact_us' => 'pages#contact_us'
+  match '/terms' => 'pages#terms'
+  match '/privacy' => 'pages#privacy'
+  match '/rules' => 'pages#rules'
+  match '/brand_spotlights' => 'pages#brand_spotlights'
+  match '/artist_spotlights' => 'pages#artist_spotlights'
+  match '/music_spotlights' => 'pages#music_spotlights'
+  match '/member_spotlights' => 'pages#member_spotlights'
+
   get "profiles/show"
 
   as :member do 

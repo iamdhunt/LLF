@@ -22,6 +22,7 @@
                     <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
                 </div>
             <% end %>
+            <div class="profile_bio"></div>
         </div>
         
         <div id="right_profile">
@@ -133,7 +134,7 @@
             </div>
         	<div class="">
                 <%= simple_form_for(@status) do |f| %>
-                  <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '1' } %>
+                  <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '3', maxlength: '280' } %>
                   <div class="action_wrap">
                     <span class="social_post">
                     </span> 
@@ -142,29 +143,13 @@
                     </span>
                   </div>
                 <% end %>
-        	</div>
-        	<div class="act_buttons">
-        	</div>
+            </div>
+            <div class="act_buttons">
+            </div>
         </div>
-<<<<<<< HEAD
-    	<div class="">
-            <%= simple_form_for(@status) do |f| %>
-              <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '3', maxlength: '280' } %>
-              <div class="action_wrap">
-                <span class="social_post">
-                </span> 
-                <span class="actions">
-                <%= f.submit "Post to Stream", :class => 'btn btn-info' %>
-                </span>
-              </div>
-            <% end %>
-    	</div>
-    	<div class="act_buttons">
-    	</div>
-=======
 
     <div style="clear: both;"></div>
->>>>>>> acts_as_follower
+
     </div>
 
     <% end %>

@@ -7,7 +7,7 @@ class FollowsController < ApplicationController
     	current_member.follow(@member)
     	respond_to do |format|
 	      format.html { redirect_to @member }
-	      format.js { render :layout=>false, :content_type => 'application/javascript' }
+	      format.js 
 	    end
  	end
 
@@ -16,7 +16,7 @@ class FollowsController < ApplicationController
     	current_member.stop_following(@member)
     	respond_to do |format|
 	      format.html { redirect_to @member }
-	      format.js { render :layout=>false, :content_type => 'application/javascript' }
+	      format.js 
 	    end
 	end
 

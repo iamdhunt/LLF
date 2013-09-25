@@ -125,10 +125,6 @@ table {
 	width: 72%;
 }
 
-#contest_header {
-	margin-top: 50px;
-}
-
 /* Navigation Bar*/
 
 #nav_bar {
@@ -317,11 +313,11 @@ table {
 .reg_terms {
 	font-size: .9em;
 
-	margin-top: .5em;
+	margin-top: .7em;
 }
 
 .reg_button {
-	margin-top: .1em;
+	margin-top: .3em;
 }
 
 .bday_reg_label {
@@ -1047,23 +1043,7 @@ hr.contact {
 	background-color: #8500c7;
 }
 
-<<<<<<< HEAD
-.following_wrap {
-	background-color: #365069;
-}
-
-.following_wrap:hover {
-	background-color: #144471;
-}
-
-.followers_wrap {
-=======
-.stream_wrap:hover {
-	background-color: #8500c7;
-}
-
 .market_wrap {
->>>>>>> acts_as_follower
 	background-color: #00749a;
 }
 

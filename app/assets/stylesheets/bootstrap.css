@@ -712,7 +712,7 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 20px;
 }
@@ -745,7 +745,7 @@ input[type="color"],
 .uneditable-input {
   display: inline-block;
   padding: 4px 6px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   color: #555555;
   -webkit-border-radius: 2px;
@@ -1256,7 +1256,7 @@ select:focus:invalid:focus {
 .input-prepend .dropdown-menu,
 .input-append .popover,
 .input-prepend .popover {
-  font-size: 14px;
+  font-size: 15px;
 }
 .input-append input,
 .input-prepend input,
@@ -1287,7 +1287,7 @@ select:focus:invalid:focus {
   height: 20px;
   min-width: 16px;
   padding: 4px 5px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 20px;
   text-align: center;
@@ -1536,7 +1536,7 @@ legend + .control-group {
   *zoom: 1;
   padding: 4px 12px;
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   text-align: center;
   vertical-align: middle;
@@ -2450,7 +2450,7 @@ input[type="submit"].btn.btn-mini {
 .btn-group > .btn,
 .btn-group > .dropdown-menu,
 .btn-group > .popover {
-  font-size: 14px;
+  font-size: 15px;
 }
 .btn-group > .btn-mini {
   font-size: 10.5px;
@@ -4158,7 +4158,7 @@ a.thumbnail:focus {
 .popover-title {
   margin: 0;
   padding: 8px 14px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 18px;
   background-color: #f7f7f7;
@@ -4386,16 +4386,16 @@ a.thumbnail:focus {
   margin: 2px 0 0;
   list-style: none;
   background-color: #ffffff;
-  border: 1px solid #ccc;
+  border: 1px solid #EFEFEF;
   border: 1px solid rgba(0, 0, 0, 0.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 7px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding;
   background-clip: padding-box;
