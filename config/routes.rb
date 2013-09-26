@@ -28,13 +28,8 @@ LLF::Application.routes.draw do
      delete '/sign_out' => 'devise/sessions#destroy', as: :destroy_member_session
    end 
 
-  devise_scope :member do
-    authenticated :member do
-      root :to => 'profiles#show'
-    end
-    unauthenticated :member do  
+  devise_scope :member do 
       root :to => 'devise/registrations#new'
-    end 
   end 
 
 

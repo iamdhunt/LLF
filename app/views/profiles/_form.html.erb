@@ -1,10 +1,18 @@
-<%= simple_form_for(@status) do |f| %>
+<%= simple_form_for(@status, html: { multipart: true }) do |f| %>
 
   <div class="act_icons_wrap">
 
-    <%= link_to image_tag("Media 2.png", :class => "act_icons"), "#" %>
-    <%= link_to image_tag("Link 3.png", :class => "act_icons"), "#" %>
-    <%= link_to image_tag("Check In 2.png", :class => "act_icons"), "#" %>
+    <%= image_tag("Media 2.png", :class => "act_icons") %>
+    <%= image_tag("Link 3.png", :class => "act_icons") %>
+    <%= image_tag("Check In 2.png", :class => "act_icons") %>
+
+  </div>
+
+  <div class="act_icons_wrap" id="update_att">
+
+    <%= f.fields_for :document do |document_fields| %>
+      <%= document_fields.input :attachment, as: :file, label: false %>
+    <% end %>
 
   </div>
 

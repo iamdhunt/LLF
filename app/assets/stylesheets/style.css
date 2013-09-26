@@ -1135,6 +1135,7 @@ hr.contact {
 	display: inline;
 	width: 2.800em;
 	height: 1.400em;
+	cursor: pointer;
 }
 
 .action_wrap{

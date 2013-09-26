@@ -14,9 +14,11 @@
 		  <%= @status.content %>
 		</p>
 
-
-		<%= link_to 'Edit', edit_status_path(@status) %> |
-		<%= link_to 'Back', statuses_path %>
+		<% if @status.document && @status.document.attachment? %>
+            <div>
+                <%= status_document_link @status %>
+            </div> 
+        <% end %>
 
 	<div style="clear: both;"></div>
 	</div>

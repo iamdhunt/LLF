@@ -1,6 +1,9 @@
 class Status < ActiveRecord::Base
-  attr_accessible :content, :member_id
+  attr_accessible :content, :member_id, :document_attributes
   belongs_to :member 
+  belongs_to :document
+
+  accepts_nested_attributes_for :document
 
   validates :content, presence: true,
   			length: { minimum: 2, maximum: 280 }

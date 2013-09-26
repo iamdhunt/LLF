@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130923151547) do
+ActiveRecord::Schema.define(:version => 20130926150725) do
+
+  create_table "documents", :force => true do |t|
+    t.integer  "member_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
+  add_index "documents", ["member_id"], :name => "index_documents_on_member_id"
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false
@@ -50,9 +62,10 @@ ActiveRecord::Schema.define(:version => 20130923151547) do
 
   create_table "statuses", :force => true do |t|
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "member_id"
+    t.integer  "document_id"
   end
 
   add_index "statuses", ["member_id"], :name => "index_statuses_on_member_id"
