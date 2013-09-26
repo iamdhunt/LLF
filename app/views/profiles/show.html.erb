@@ -126,26 +126,8 @@
             <div class="update_text_bottom">New?</div>
         </div>
         
-        <div class="update_box_wrap">
-        	<div class="act_icons_wrap">
-        		<%= link_to image_tag("Media 2.png", :class => "act_icons"), "#" %>
-            	<%= link_to image_tag("Link 3.png", :class => "act_icons"), "#" %>
-            	<%= link_to image_tag("Check In 2.png", :class => "act_icons"), "#" %>
-            </div>
-        	<div class="">
-                <%= simple_form_for(@status) do |f| %>
-                  <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '3', maxlength: '280' } %>
-                  <div class="action_wrap">
-                    <span class="social_post">
-                    </span> 
-                    <span class="actions">
-                    <%= f.submit "Post to Stream", :class => 'btn btn-info' %>
-                    </span>
-                  </div>
-                <% end %>
-            </div>
-            <div class="act_buttons">
-            </div>
+        <div class="update_box_wrap" id="update_box_wrap">
+        	<%= render :partial => "profiles/form" %>
         </div>
 
     <div style="clear: both;"></div>
@@ -158,29 +140,7 @@
 
     <div id="activity_wrap">
 
-    	<% if @statuses %>
-    		<% @statuses.each do |status| %>
-    			<div class="status">
-                    <div class="row">
-                        <div class="span1">
-                            Avatar
-                        </div> 
-                        <div class="span7">
-            				<div class="status_name"><%= link_to status.member.user_name, profile_path(status.member) %></div>
-            				<div class="content"><%= status.content %></div>
-            				<div class="meta">
-            			    	<%= time_ago_in_words(status.created_at) + " ago" %>
-            			    </div>
-                            <% if status.member == current_member %>
-                			    <span class="ad_item">
-                				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-                				</span>
-                            <% end %>
-                        </div>
-                    </div> 
-    			</div>
-    		<% end %> 
-    	<% end %>
+    	<%= render :partial => "profiles/statuses" %>
 
     <div style="clear: both;"></div>
     </div>

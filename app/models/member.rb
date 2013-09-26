@@ -35,8 +35,8 @@ class Member < ActiveRecord::Base
                           message: 'must be formatted correctly.'
                         },
                         length: {
-                          maximum: 14,
-                          message: 'must not be longer than 14 characters'
+                          maximum: 16,
+                          message: 'must not be longer than 16 characters'
                         }                    
 
   validates :email, confirmation: true

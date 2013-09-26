@@ -47,8 +47,8 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        format.json { render json: @status, status: :created, location: @status }
+        format.html { redirect_to :back }
+        format.json 
       else
         format.html { render action: "new" }
         format.json { render json: @status.errors, status: :unprocessable_entity }
@@ -81,7 +81,7 @@ class StatusesController < ApplicationController
     @status.destroy
 
     respond_to do |format|
-      format.html { redirect_to statuses_url }
+      format.html { redirect_to :back }
       format.json { head :no_content }
     end
   end

@@ -9,9 +9,11 @@ gem 'sqlite3'
 gem 'devise'
 gem 'paperclip'
 gem "acts_as_follower", '~> 0.1.1'
+gem 'js-routes'
 
 group :test do
 	gem 'shoulda'
+	gem 'factory_girl_rails'
 end 
 
 gem 'simple_form'
