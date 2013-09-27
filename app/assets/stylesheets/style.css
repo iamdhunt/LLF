@@ -864,6 +864,11 @@ hr.contact {
 	float: left;
 }
 
+#left_profile img {
+	max-width: none;
+	max-height: none;
+}
+
 #center_profile {
 	width: 40%;
 	float: left;
@@ -1036,15 +1041,15 @@ hr.contact {
 }
 
 .stream_wrap {
-	background-color: #93c;
+	background-color: #8930c7;
 }
 
 .stream_wrap:hover {
-	background-color: #8500c7;
+	background-color: #650197;
 }
 
 .market_wrap {
-	background-color: #00749a;
+	background-color: #1b85a6;
 }
 
 .market_wrap:hover {
@@ -1052,7 +1057,7 @@ hr.contact {
 }
 
 .media_wrap {
-	background-color: #f3781f;
+	background-color: #F7803C;
 }
 
 .media_wrap:hover {
@@ -1060,7 +1065,7 @@ hr.contact {
 }
 
 .events_wrap {
-	background-color: #168349;
+	background-color: #6DA67A;
 }
 
 .events_wrap:hover {
@@ -1068,11 +1073,11 @@ hr.contact {
 }
 
 .projects_wrap {
-	background-color: #d3262c;
+	background-color: #c72835;
 }
 
 .projects_wrap:hover {
-	background-color: #af1e23;
+	background-color: #9f0e1b;
 }
 
 #stream_subnav_wrap {
@@ -1835,3 +1840,21 @@ hr.contact {
 	margin-left: 3.5em;
 	margin-right: 1em;
 }
+
+.stream_av img {
+	width: 60px;
+	height: 60px;
+	-webkit-border-radius: 30px; /* Saf3+, Chrome */
+	border-radius: 30px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+
+.nav_av {
+	margin-top: 10px;
+	width: 35px;
+	height: 35px;
+	-webkit-border-radius: 30px; /* Saf3+, Chrome */
+	border-radius: 30px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+

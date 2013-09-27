@@ -27,7 +27,8 @@
 		<div class="nav_links">
 			<% if member_signed_in? %>
 				<%= link_to "Sign Out", sign_out_path, :class => "member_links" %>
-				<%= link_to current_member.full_name, profile_path(current_member), :class => "member_links" %>
+				<%= avatar_profile_link current_member, :class => "nav_av" %>
+				<%= link_to current_member.first_name, edit_member_registration_path, :class => "member_links" %>
 				<%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
 				<%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
 			<% else %>
@@ -40,12 +41,13 @@
 	</div>
  
 <div id="pagewrap" style="padding-top:60px;">
-
-	<% flash.each do |type, message| %>
-	  <div class="alert <%= flash_class type %>">
-	      <button class="close" data-dismiss="alert">x</button>
-	      <%= message %>
-	  </div>
+	<% unless notice.blank? && alert.blank? %>
+		<% flash.each do |type, message| %>
+		  <div class="alert <%= flash_class type %>">
+		    <button class="close" data-dismiss="alert">x</button>
+		    <%= message %>
+		  </div>
+		<% end %>
 	<% end %>
 
 	<%= yield %>		

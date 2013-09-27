@@ -2,8 +2,8 @@
 	<% @statuses.each do |status| %>
 		<div class="status">
             <div class="row">
-                <div class="span1">
-                    Avatar
+                <div class="span1 stream_av">
+                    <%= avatar_profile_link status.member %>
                 </div> 
                 <div class="span7">
 

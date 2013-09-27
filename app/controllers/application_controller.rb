@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
 	def after_sign_up_path_for(resource)
 	  profile_path(current_member)
 	end
-  
+ 
+	def after_update_path_for(resource)
+      profile_path(current_member)
+    end
+
 end

@@ -15,6 +15,14 @@
 
          <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account'} %>
 
+         <%= f.input :avatar, as: :file, label: 'Change your profile picture.', input_html: { class: 'account'} %>
+
+         <div>
+          <% if f.object.avatar? %>
+            <%= image_tag f.object.avatar.url(:av) %>
+          <% end %>
+         </div>
+
         <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account'} %>
         <%= f.input :password_confirmation, error: false, input_html: { class: 'forms account'} %>
 

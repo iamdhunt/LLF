@@ -32,7 +32,6 @@ LLF::Application.routes.draw do
       root :to => 'devise/registrations#new'
   end 
 
-
   resources :statuses
     get 'stream', to: 'statuses#index', as: :stream
   
