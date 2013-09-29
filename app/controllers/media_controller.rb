@@ -50,7 +50,7 @@ class MediaController < ApplicationController
 
     respond_to do |format|
       if @medium.save
-        format.html { redirect_to media_path, notice: 'Media was successfully uploaded.' }
+        format.html { redirect_to profile_media_path(current_member), notice: 'Media was successfully uploaded.' }
         format.json { render json: @medium, status: :created, location: @medium }
       else
         format.html { render action: "new" }
@@ -80,7 +80,7 @@ class MediaController < ApplicationController
     @medium.destroy
 
     respond_to do |format|
-      format.html { redirect_to media_url }
+      format.html { redirect_to profile_media_path(current_member) }
       format.json { head :no_content }
     end
   end

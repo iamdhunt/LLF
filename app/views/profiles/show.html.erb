@@ -58,11 +58,11 @@
     <div id="profile_nav_wrap">
             <ul class="profile_nav">
                 <li>
-                	<a href="/members/stream.html" class="stream_wrap">Stream</a>           
+                	<%= link_to 'Stream', profile_path(@member), class: 'stream_wrap' %>           
                 </li> 
 
                 <li>
-                	<a href="/members/media.html" class="media_wrap">Media</a>
+                    <%= link_to 'Media', profile_media_path(@member), class: 'media_wrap' %>
                 </li>
                 
                 <li>
@@ -142,11 +142,11 @@
 
     	<%= render :partial => "profiles/statuses" %>
 
-    <div style="clear: both;"></div>
-    </div>
+        <div class="load_more">
+            <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+        </div>
 
-    <div class="load_more">
-        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+        <div style="clear: both;"></div>
     </div>
 
 <!--/activity_wrap-->

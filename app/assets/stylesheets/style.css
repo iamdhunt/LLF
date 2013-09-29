@@ -1171,6 +1171,9 @@ hr.contact {
 
 #media_subnav_wrap {
 	background-color: #f3ab77;
+	border-color:#EFEFEF;
+	border-style:solid;
+	border-width:0 2px 0 2px;
 }
 
 .all_media {
@@ -1179,6 +1182,9 @@ hr.contact {
 
 #events_subnav_wrap {
 	background-color: #44986c;
+	border-color:#EFEFEF;
+	border-style:solid;
+	border-width:0 2px 0 2px;
 }
 
 .at_a_glance {
@@ -1187,6 +1193,9 @@ hr.contact {
 
 #projects_subnav_wrap {
 	background-color: #e25b60;
+	border-color:#EFEFEF;
+	border-style:solid;
+	border-width:0 2px 0 2px;
 }
 
 .my_projects {
