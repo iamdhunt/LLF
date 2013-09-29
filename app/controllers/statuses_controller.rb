@@ -1,6 +1,13 @@
 class StatusesController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
+  before_filter :find_member
+  before_filter :find_status, only: [:edit, :update, :destroy, :show]
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, formats: [:html]
+  end
+
 
   # GET /statuses
   # GET /statuses.json
@@ -16,7 +23,6 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-    @status = Status.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +44,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
-    @status = Status.find(params[:id])
+    
   end
 
   # POST /statuses
@@ -60,7 +66,7 @@ class StatusesController < ApplicationController
   # PUT /statuses/1
   # PUT /statuses/1.json
   def update
-    @status = current_member.statuses.find(params[:id])
+
     if params[:status] && params[:status].has_key?(:user_id)
         params[:status].delete(:user_id) 
     end 
@@ -78,7 +84,7 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status = Status.find(params[:id])
+ 
     @status.destroy
 
     respond_to do |format|
@@ -86,4 +92,14 @@ class StatusesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def find_member
+    @member = Member.find_by_user_name(params[:user_name])
+  end 
+
+  def find_status
+    @status = current_member.statuses.find(params[:id])
+  end 
+
 end

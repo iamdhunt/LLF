@@ -4,6 +4,10 @@ class MediaController < ApplicationController
   before_filter :find_member
   before_filter :find_media, only: [:edit, :update, :destroy]
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, formats: [:html]
+  end
+
   # GET /media
   # GET /media.json
   def index
@@ -39,7 +43,7 @@ class MediaController < ApplicationController
 
   # GET /media/1/edit
   def edit
-
+    
   end
 
   # POST /media
