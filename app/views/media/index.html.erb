@@ -1,0 +1,43 @@
+<div id="main_wrap">
+
+  <div id="media_list_wrap">
+
+  <% if signed_in? %>
+    <%= link_to 'Add New Media', new_medium_path, :class => "btn btn-warning add_media" %>
+  <% end %>
+
+  <ul class="thumbnails">
+
+    <% @media.each do |medium| %>
+     <li class="span2_5">
+        <div class="thumbnail">
+
+          <%= link_to image_tag(medium.asset.url(:list)), medium %>
+
+          <% if medium.caption? %>
+            <div class="caption">
+                <%= medium.caption %>
+            </div>
+          <% end %> 
+
+          <% if can_edit_medium?(medium) %>
+            <div class="list_actions">
+              <%= link_to "Edit", edit_medium_path(medium) %> |
+              <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" } %>
+            </div>
+          <% end %>
+
+        </div>
+     </li> 
+    <% end %>
+
+  </ul>
+
+<div style="clear: both;"></div>
+</div>
+
+<!--/activity_wrap-->
+
+</div>
+
+<!--/main_wrap-->

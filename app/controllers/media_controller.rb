@@ -1,0 +1,101 @@
+class MediaController < ApplicationController
+
+  before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :find_member
+  before_filter :find_media, only: [:edit, :update, :destroy]
+
+  # GET /media
+  # GET /media.json
+  def index
+    @media = Medium.order('created_at desc').all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @media }
+    end
+  end
+
+  # GET /media/1
+  # GET /media/1.json
+  def show
+    @medium = Medium.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @medium }
+    end
+  end
+
+  # GET /media/new
+  # GET /media/new.json
+  def new
+    @medium = current_member.medium.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+    end
+  end
+
+  # GET /media/1/edit
+  def edit
+
+  end
+
+  # POST /media
+  # POST /media.json
+  def create
+    @medium = Medium.new(params[:medium])
+    @medium.member = current_member
+
+    respond_to do |format|
+      if @medium.save
+        format.html { redirect_to media_path, notice: 'Media was successfully uploaded.' }
+        format.json { render json: @medium, status: :created, location: @medium }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @medium.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /media/1
+  # PUT /media/1.json
+  def update
+
+    respond_to do |format|
+      if @medium.update_attributes(params[:medium])
+        format.html { redirect_to @medium, notice: 'Media was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @medium.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /media/1
+  # DELETE /media/1.json
+  def destroy
+    @medium.destroy
+
+    respond_to do |format|
+      format.html { redirect_to media_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def url_options
+    { user_name: params[:user_name] }.merge(super)
+  end 
+
+  private
+  def find_member
+    @member = Member.find_by_user_name(params[:user_name])
+  end 
+
+  def find_media
+    @medium = current_member.medium.find(params[:id])
+  end 
+
+end

@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+	def bootstrap_paperclip_media(form, paperclip_object)
+		if form.object.send("#{paperclip_object}?")
+			content_tag(:div, class: '') do 
+					image_tag form.object.send(paperclip_object).send(:url, :medium)
+			end 
+		end 
+	end 
+
 	def status_document_link(status)
 		if status.document && status.document.attachment?
 			link_to("Attachment", status.document.attachment.url, class: "label label-info") 

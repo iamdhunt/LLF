@@ -1,0 +1,15 @@
+<%= simple_form_for(@medium) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= bootstrap_paperclip_media f, :asset %>
+    <div class="cap">
+    	<span class="cap_label">Caption</span> <span class="cap_opt">(Optional)</span>
+    </div> 
+    <%= f.input :caption, label: false, error: false, input_html: { rows: '9', maxlength: '280', class: 'input-xlarge' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Submit', :class => "btn btn-warning" %>
+  </div>
+<% end %>

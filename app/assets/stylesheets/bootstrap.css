@@ -88,6 +88,9 @@
 .span3 {
   width: 220px;
 }
+.span2_5 {
+  width: 188px;
+}
 .span2 {
   width: 140px;
 }
@@ -3625,20 +3628,15 @@ input[type="submit"].btn.btn-mini {
 }
 .thumbnails > li {
   float: left;
-  margin-bottom: 20px;
-  margin-left: 20px;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 .thumbnail {
   display: block;
   padding: 4px;
   line-height: 20px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  background-image: url('/assets/Container BG.png');
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
@@ -3658,7 +3656,7 @@ a.thumbnail:focus {
   margin-right: auto;
 }
 .thumbnail .caption {
-  padding: 9px;
+  padding: 3px 9px;
   color: #555555;
 }
 .alert {
@@ -5606,10 +5604,10 @@ button.close {
     width: 56px;
   }
   .thumbnails {
-    margin-left: -30px;
+    margin-left: -5px;
   }
   .thumbnails > li {
-    margin-left: 30px;
+    margin-left: 5px;
   }
   .row-fluid .thumbnails {
     margin-left: 0;

@@ -1,0 +1,16 @@
+<div id="main_wrap">
+
+	<%= image_tag(@medium.asset.url(:large), class: 'thumbnail') %>
+
+	<p class="view_caption">
+	  <%= @medium.caption %>
+	</p>
+
+	<% if can_edit_medium?(@medium) %>
+		<%= link_to 'Edit', edit_medium_path(@medium) %> |
+	<% end %>
+	<%= link_to 'Back', media_path %>
+
+</div>
+
+<!--/main_wrap-->

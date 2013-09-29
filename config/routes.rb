@@ -1,5 +1,8 @@
 LLF::Application.routes.draw do
 
+  resources :media
+
+
   match '/spotlights' => 'pages#spotlights'
   match '/contests' => 'pages#contests'
   match '/faqs' => 'pages#faqs'
@@ -11,8 +14,6 @@ LLF::Application.routes.draw do
   match '/artist_spotlights' => 'pages#artist_spotlights'
   match '/music_spotlights' => 'pages#music_spotlights'
   match '/member_spotlights' => 'pages#member_spotlights'
-
-  get "profiles/show"
 
   as :member do 
     get '/join', to: 'devise/registrations#new', as: :join
@@ -37,6 +38,12 @@ LLF::Application.routes.draw do
   
 
   get '/:id', to: 'profiles#show', as: 'profile'
+
+  scope '/:id' do
+    get '' => 'profiles#show'
+    get '/media' => 'profiles#media', as: 'profile_media'
+    get '/media/new' => 'profiles#media_new', as: 'profile_media_new'
+  end
 
   resources :members, :only => [:index, :show], :path => '/' do
     resources :follows, :only => [:create, :destroy]

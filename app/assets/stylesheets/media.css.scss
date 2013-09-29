@@ -1,0 +1,50 @@
+// Place all the styles related to the media controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#media_list_wrap {
+	padding: .667em .333em;
+	overflow: hidden;
+	color: #333;
+}
+.cap {
+	padding: 4px 0 6px 0;	
+}
+.cap_label {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #7b7b7b;
+}
+.cap_opt {
+	font-size: .8em;
+	font-weight: none;
+}
+
+.caption {
+	font-size: .8em;
+	font-style: oblique;
+	color: #898989;
+}
+
+.view_caption {
+	font-size: 1em;
+	font-style: oblique;
+	color: #898989;
+	margin-top: 6px;
+}
+
+.list_actions {
+	padding: 0 9px 0 9px;
+}
+
+.add_media {
+	margin-bottom: 9px;
+}
+
+.thumbnail .list_actions {
+	display: none;
+}
+
+.thumbnail:hover .list_actions {
+	display: inline;
+}

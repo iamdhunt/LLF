@@ -50,6 +50,8 @@ class Member < ActiveRecord::Base
                           message: 'must not be more than two words.'
                         }
 
+
+  has_many :medium
   has_many :statuses
   acts_as_follower
   acts_as_followable
