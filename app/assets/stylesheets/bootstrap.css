@@ -403,11 +403,11 @@ a.badge:focus {
 }
 .label-important,
 .badge-important {
-  background-color: #b94a48;
+  background-color: #da0f17;
 }
 .label-important[href],
 .badge-important[href] {
-  background-color: #953b39;
+  background-color: #da0f17;
 }
 .label-warning,
 .badge-warning {
@@ -431,7 +431,7 @@ a.badge:focus {
 }
 .label-info[href],
 .badge-info[href] {
-  background-color: #2d6987;
+  background-color: #3a87ad;
 }
 .label-inverse,
 .badge-inverse {

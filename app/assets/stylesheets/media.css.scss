@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #media_list_wrap {
-	padding: .667em .333em;
-	overflow: hidden;
 	color: #333;
+	padding: 5px;
+	position: relative;
+}
+#add_new {
+	padding: 10px 5px 0 5px;
 }
 .cap {
 	padding: 4px 0 6px 0;	
@@ -20,10 +23,11 @@
 	font-weight: none;
 }
 
-.caption {
+.media_cap {
 	font-size: .8em;
 	font-style: oblique;
 	color: #898989;
+	padding: 3px 9px;
 }
 
 .view_caption {
@@ -33,20 +37,8 @@
 	margin-top: 6px;
 }
 
-.list_actions {
-	padding: 0 9px 0 9px;
-}
-
 .add_media {
 	margin-bottom: 9px;
-}
-
-.thumbnail .list_actions {
-	display: none;
-}
-
-.thumbnail:hover .list_actions {
-	display: inline;
 }
 
 #media_content_wrap {
@@ -67,4 +59,26 @@
 #media_show_wrap img {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.media {
+	display: block;
+	padding: 4px;
+	line-height: 20px;
+	width: 188px;
+	border: 1px solid #ddd;
+	background-image: url('/assets/Container BG.png');
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.delete_label {
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	display: none;
+}
+
+.media:hover .delete_label {
+	display: inline;
 }

@@ -1,29 +1,19 @@
-<% if @member == current_member %>
-  <%= link_to 'Add New Media', profile_media_new_path, :class => "btn btn-warning add_media" %>
-<% end %>
-
-<ul class="thumbnails">
-
   <% @media.each do |medium| %>
-   <li class="span2_5">
-      <div class="thumbnail">
+      <div class="media">
 
         <%= link_to image_tag(medium.asset.url(:list)), medium %>
 
         <% if medium.caption? %>
-          <div class="caption">
-              <%= medium.caption %>
+          <div class="media_cap">
+            <%= medium.caption %>
           </div>
         <% end %> 
 
         <% if can_edit_medium?(medium) %>
-          <div class="list_actions">
-            <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" } %>
+          <div>
+            <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
           </div>
         <% end %>
 
       </div>
-   </li> 
   <% end %>
-
-</ul>
