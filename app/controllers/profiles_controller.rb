@@ -1,8 +1,4 @@
 class ProfilesController < ApplicationController
-
-  rescue_from ActiveRecord::RecordNotFound do
-    render file: 'public/404', status: 404, formats: [:html]
-  end
  
   def show
   	@status = Status.new
@@ -59,7 +55,7 @@ class ProfilesController < ApplicationController
   end
 
   def media
-    @medium = current_member.medium.new
+    @medium = Medium.new
     @member = Member.find_by_user_name(params[:id])
     if @member 
       @media = @member.medium.order('created_at desc').all 

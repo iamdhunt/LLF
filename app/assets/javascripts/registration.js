@@ -44,4 +44,36 @@ $(document).ready(function() {
 	            $(this).popover('hide');
 	        });
 	});
+
+	$(function () {
+	    $("#reg_first")
+	        .popover({ 
+	        	title: 'Enter your first name.',
+	        	placement: 'right',
+	        	trigger: 'focus',
+	        	html : true,
+	        	content: function() {
+			      return $('#pop_first_reg').html();
+			    } 
+	        })
+	        .blur(function () {
+	            $(this).popover('hide');
+	        });
+	});
+
+	$(function () {
+	    $("#reg_last")
+	        .popover({ 
+	        	title: 'Enter your last name.',
+	        	placement: 'right',
+	        	trigger: 'focus',
+	        	html : true,
+	        	content: function() {
+			      return $('#pop_last_reg').html();
+			    } 
+	        })
+	        .blur(function () {
+	            $(this).popover('hide');
+	        });
+	});
 });

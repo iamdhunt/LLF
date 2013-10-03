@@ -1,3 +1,5 @@
+<% title "LLF | Haven for the Bold" %>
+
 <div id="main_wrap">
 
   <div id="home_wrap">
@@ -21,8 +23,8 @@
        	
         <div class="reg_left">
         	
-          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4', maxlength: '15'} %>
-             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5', maxlength: '20'} %>
+          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4', maxlength: '15', id: 'reg_first'} %>
+             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5', maxlength: '20', id: 'reg_last'} %>
              <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6', maxlength: '16', id: 'reg_username', :rel => "popover" } %>
         
         </div>
@@ -55,18 +57,26 @@
 
     <div id="pop_username_reg" style="display: none">
       <ul>
-        <li class="pop_content">No special characters (!%*$#)</li><li class="pop_content">No spaces allowed</li><li class="pop_content">Maximum length of 16</li>
+        <li class="pop_content">&raquo; No special characters (!%*$#)</li><li class="pop_content">&raquo; No spaces allowed</li><li class="pop_content">&raquo; Maximum length of 16</li>
       </ul>
     </div>
 
     <div id="pop_password_reg" style="display: none">
       <ul>
-        <li class="pop_content">Choose a strong password</li><li class="pop_content">Max length of 20</li><li class="pop_content">Minimum length of 6</li>
+        <li class="pop_content">&raquo; Choose a strong password</li><li class="pop_content">&raquo; Max length of 20</li><li class="pop_content">&raquo; Minimum length of 6</li>
       </ul>
     </div>
 
     <div id="pop_pursuits_reg" style="display: none">
       The best way to connect with other members. Be as general or specific as you want. 
+    </div>
+
+    <div id="pop_first_reg" style="display: none">
+      &raquo; 1 Name Maximum 
+    </div>
+
+    <div id="pop_last_reg" style="display: none">
+      &raquo; 2 Name Maximum 
     </div>
    
    <div style="clear:both;"></div> 

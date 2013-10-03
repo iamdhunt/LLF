@@ -24,6 +24,10 @@ module ApplicationHelper
 	    link_to(image_tag(avatar_url, image_options), profile_path(member.user_name), html_options)
 	end
 
+	def title(page_title)
+		content_for(:title) { page_title }
+	end 
+
 	def flash_class (type)
 		case type
 		when :alert

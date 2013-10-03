@@ -1,26 +1,39 @@
+<% title "LLF | Change Your Password" %>
+
 <div id="main_wrap">
 
-	<div id="activity_wrap">
+	<div id="signin_wrap">
 
-		<h2>Change your password</h2>
+		<div class="row">
+			<div class="span4 signin_box">
 
-			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+				<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, class: "well" }) do |f| %>
 				  <%= devise_error_messages! %>
-				  <%= f.hidden_field :reset_password_token %>
+					  
+					<fieldset class="fieldset">
 
-				  <div><%= f.label :password, "New password" %><br />
-				  <%= f.password_field :password, :autofocus => true %></div>
+						<legend class="legend">Change Your Password</legend>
+							<%= f.hidden_field :reset_password_token %>
 
-				  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-				  <%= f.password_field :password_confirmation %></div>
+							<div><%= f.label :password, "New Password" %><br />
+							<%= f.password_field :password, :autofocus => true, class: 'forms account sign_in' %></div>
 
-				  <div><%= f.submit "Change my password" %></div>
-			<% end %>
+							<div><%= f.label :password_confirmation, "Confirm New Password" %><br />
+							<%= f.password_field :password_confirmation, class: 'forms account sign_in' %></div>  
 
-		<%= render "devise/shared/links" %>
+					  <div><%= f.button :submit, "Change My Password", :class => "btn-info" %></div><br />
 
+					</fieldset> 
 
-		<div style="clear: both;"></div>
+				<% end %>
+
+				<%= render "devise/shared/links" %>
+			</div>
+
+			<div class="span8">
+			</div>
+		</div>
+	<div style="clear: both;"></div>
 	</div>
 
 <!--/activity_wrap-->

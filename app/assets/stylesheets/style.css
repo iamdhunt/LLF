@@ -137,6 +137,7 @@ table {
 	box-shadow: 0 1px 4px #ccc;
 	position: fixed;
 	top: 0;
+	opacity: .9;
 }
 
 #nav_bar .primary_nav {
@@ -1045,7 +1046,7 @@ hr.contact {
 }
 
 .stream_wrap:hover {
-	background-color: #650197;
+	background-color: #7501B1;
 }
 
 .market_wrap {
@@ -1869,4 +1870,15 @@ hr.contact {
 	-webkit-border-radius: 30px; /* Saf3+, Chrome */
 	border-radius: 30px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+.scrollup{
+    width:40px;
+    height:40px;
+    opacity:0.6;
+    position:fixed;
+    bottom:50px;
+    right:100px;
+    display: none;
+    text-indent:-9999px;
+    background: url('icon_top.png') no-repeat;
 }

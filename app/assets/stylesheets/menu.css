@@ -14,9 +14,15 @@
 .member_menu a:hover {
 	text-decoration: none;
 }
+.member_menu [class^="icon-"],
+[class*=" icon-"] {
+	line-height: 0;
+	vertical-align: 50%;
+}
 .member_menu_top {
 	background: #fff;
-	padding: 8px 38px;
+	padding: 8px 0;
+	opacity: .9;
 }
 .member_menu_top a {
 	color: #898989;
@@ -41,10 +47,11 @@
 .member_menu_bottom {
 	background: #efefef;
 	padding: 8px 0;
+	opacity: .9;
 }
 .member_menu_bottom a {
-	color: #333;
+	color: #4a4a4a;
 }
 .member_menu_bottom a:hover {
-	color: #898989;
+	color: #942fc6;
 }

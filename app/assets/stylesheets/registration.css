@@ -1,0 +1,8 @@
+.registration .popover-title {
+	color: #FFF;
+	background-color: #49afcd;
+	font-weight: bold;
+}
+.registration .popover li {
+	padding: 2px 0 2px 0;
+}

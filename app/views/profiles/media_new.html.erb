@@ -1,3 +1,5 @@
+<% title @member.full_name + " | Upload Media" %>
+
 <div id="main_wrap">
 
     <div id="profile_wrap">
@@ -83,19 +85,19 @@
 
         <ul class="sub_stream">
             <li>
-                <%= link_to 'All Media', profile_media_path(@member), class: 'all_media' %>
+                <%= link_to '<i class="icon-th-large icon-white"></i> All Media'.html_safe, profile_media_path(@member), class: 'all_media' %>
             </li>  
             
             <li>
-                <a href="#" class="photos_subnav">Photos</a>
+                <%= link_to '<i class="icon-camera icon-white"></i> Photos'.html_safe, "#", class: 'photos_subnav' %>
             </li>
               
             <li>
-                <a href="#" class="music_subnav">Audio</a>
+                <%= link_to '<i class="icon-music icon-white"></i> Audio'.html_safe, "#", class: 'music_subnav' %>
             </li>
 
             <li>
-                <a href="#" class="social_albums_subnav">Social Media</a>
+                <%= link_to '<i class="icon-globe icon-white"></i> Social Media'.html_safe, "#", class: 'social_albums_subnav' %>
             </li> 
       
         </ul>

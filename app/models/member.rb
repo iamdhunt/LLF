@@ -15,7 +15,9 @@ class Member < ActiveRecord::Base
                         },
                         length: {
                           maximum: 1, :tokenizer => lambda {|str| str.scan(/\w+/) },
-                          message: 'must not be more than one word.'
+                          message: 'must not be more than one name.',
+                          maximum: 15, 
+                          message: 'must not be more than 15 characters.'
                         }
 
   validates :last_name, presence: true,
@@ -24,6 +26,8 @@ class Member < ActiveRecord::Base
                           message: 'must be formatted correctly.'
                         },
                         length: {
+                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
+                          message: 'must not be more than 2 names.',
                           maximum: 20, 
                           message: 'must not be more than 20 characters.'
                         }

@@ -403,11 +403,11 @@ a.badge:focus {
 }
 .label-important,
 .badge-important {
-  background-color: #da0f17;
+  background-color: #c72835;
 }
 .label-important[href],
 .badge-important[href] {
-  background-color: #da0f17;
+  background-color: #c72835;
 }
 .label-warning,
 .badge-warning {
@@ -1688,8 +1688,8 @@ btn-follow.active,
 .btn-warning {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #faa732;
-  border-color: #faa732;
+  background-color: #F7803C;
+  border-color: #F7803C;
 }
 .btn-warning:hover,
 .btn-warning:focus,
@@ -1698,7 +1698,8 @@ btn-follow.active,
 .btn-warning.disabled,
 .btn-warning[disabled] {
   color: #ffffff;
-  background-color: #f89406;
+  background-color: #db5b00;
+  border-color: #db5b00;
   *background-color: #df8505;
 }
 .btn-warning:active,
@@ -4046,7 +4047,7 @@ a.thumbnail:focus {
   z-index: 1010;
   display: none;
   max-width: 276px;
-  padding: 1px;
+  padding: 0;
   text-align: left;
   background-color: #ffffff;
   -webkit-background-clip: padding-box;
