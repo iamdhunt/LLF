@@ -58,7 +58,7 @@
     <div id="profile_nav_wrap">
             <ul class="profile_nav">
                 <li>
-                	<%= link_to 'Stream', profile_path(@member), class: 'stream_wrap' %>           
+                	<%= link_to 'Stream', profile_stream_path(@member), class: 'stream_wrap' %>           
                 </li> 
 
                 <li>
@@ -85,29 +85,29 @@
             <% if @member == current_member %>
 
         	<li>
-            	<a href="#" class="my_stream">My Stream</a>
+                <%= link_to '<i class="icon-th icon-white"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: 'my_stream' %>
             </li>  
 
             <% end %>
             
             <li>
-                <a href="#" class="personal">Personal</a>
+                <%= link_to '<i class="icon-user icon-white"></i> Personal'.html_safe, profile_personal_path(@member), class: 'personal' %>
             </li>
 
             <% if @member == current_member %>
               
             <li>
-                <a href="#" class="mentions_subnav">Mentions</a>
+                <%= link_to '<i class="icon-asterisk icon-white"></i> Mentions'.html_safe, "#", class: 'mentions_subnav' %>
             </li>
                 
             <li>
-                <a href="#" class="groups_stream_subnav">Groups</a>
+                <%= link_to '<i class="icon-th-list icon-white"></i> Groups'.html_safe, "#", class: 'groups_stream_subnav' %>
             </li> 
 
             <% end %> 
             
             <li>
-                <a href="#" class="favorties_subnav">Favorites</a>
+                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, "#", class: 'favorties_subnav' %>
             </li>  
         </ul>
         	       

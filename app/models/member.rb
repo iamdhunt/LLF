@@ -10,7 +10,7 @@ class Member < ActiveRecord::Base
 
   validates :first_name, presence: true,
                           format: {
-                          with: /^[a-zA-Z]+$/,
+                          with: /^[a-zA-Z ]+$/,
                           message: 'must be formatted correctly.'
                         },
                         length: {
@@ -20,12 +20,12 @@ class Member < ActiveRecord::Base
 
   validates :last_name, presence: true,
                         format: {
-                          with: /^[a-zA-Z-]+$/,
+                          with: /^[a-zA-Z- ]+$/,
                           message: 'must be formatted correctly.'
                         },
                         length: {
-                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
-                          message: 'must not be more than two words.'
+                          maximum: 20, 
+                          message: 'must not be more than 20 characters.'
                         }
 
   validates :user_name, presence: true,
@@ -57,6 +57,9 @@ class Member < ActiveRecord::Base
   acts_as_followable
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", thumb: "60x60#", av: "200x200#"}
+
+  validates_attachment_size :avatar, :less_than=>10.megabyte
+  validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   def full_name
   		first_name + " " + last_name

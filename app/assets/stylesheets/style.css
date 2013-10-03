@@ -1100,6 +1100,9 @@ hr.contact {
 	color: #FFF;
 	margin-right: .8em;
 }
+.sub_stream li a:hover {
+	text-decoration: none;
+}
 
 #act_update {
 	background-image: url('/assets/Container BG.png');
@@ -1145,6 +1148,7 @@ hr.contact {
 
 .action_wrap{
 	margin-top: .3em;
+	display: none;
 }
 
 .actions {
@@ -1866,4 +1870,3 @@ hr.contact {
 	border-radius: 30px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
-

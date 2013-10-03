@@ -1,6 +1,10 @@
 class MembersController < ApplicationController
   
-   before_filter :authenticate_member!
+  before_filter :authenticate_member!
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, formats: [:html]
+  end
 
   def index
     @member = Member.find(current_member)

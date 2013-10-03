@@ -57,7 +57,7 @@ class MediaController < ApplicationController
         format.html { redirect_to profile_media_path(current_member), notice: 'Media was successfully uploaded.' }
         format.json { render json: @medium, status: :created, location: @medium }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to profile_media_new_path(current_member), alert: 'Please check you\'re uploading only images under 10Mbs.' }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
       end
     end

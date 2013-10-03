@@ -3,7 +3,7 @@
   <% if current_member.following?(member) %>
 
     <div class="btn-group">
-        <%= link_to("Following", member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, :class => "btn btn-follow") %>
+        <%= link_to('Following <i class="icon-ok icon-white"></i>'.html_safe, member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, :class => "btn btn-follow") %>
         <%= link_to "Message", "#", :class => "btn" %>
         <%= link_to "Mention", "#", :class => "btn" %>
      </div>

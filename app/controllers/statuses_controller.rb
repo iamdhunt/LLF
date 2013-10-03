@@ -23,10 +23,10 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-
+   
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @status }
+      format.json { redirect_to profile_path(current_member) }
     end
   end
 
@@ -57,7 +57,7 @@ class StatusesController < ApplicationController
         format.html { redirect_to :back }
         format.json 
       else
-        format.html { render action: "new" }
+        format.html { redirect_to profile_path(current_member), alert: 'Post wasn\'t created. Please try again and ensure image attchments are under 10Mbs.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end
@@ -72,7 +72,7 @@ class StatusesController < ApplicationController
     end 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
+        format.html { redirect_to profile_path(current_member), notice: 'Status was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

@@ -1,43 +1,37 @@
 <div id="main_wrap">
 
-  <div id="media_list_wrap">
-
   <% if signed_in? %>
-    <%= link_to 'Add New Media', profile_media_new_path(current_member), :class => "btn btn-warning add_media" %>
+      <div id="add_new">
+        <%= link_to 'Add New Media', profile_media_new_path(current_member), :class => "btn btn-warning add_media" %>
+      </div>
   <% end %>
 
-  <ul class="thumbnails">
+  <div id="media_list_wrap">
 
-    <% @media.each do |medium| %>
-     <li class="span2_5">
-        <div class="thumbnail">
+   <% @media.each do |medium| %>
+      <div class="media">
 
-          <%= link_to image_tag(medium.asset.url(:list)), medium %>
+        <%= link_to image_tag(medium.asset.url(:list)), medium %>
 
-          <% if medium.caption? %>
-            <div class="caption">
-                <%= medium.caption %>
-            </div>
-          <% end %> 
+        <% if medium.caption? %>
+          <div class="media_cap">
+            <%= medium.caption %>
+          </div>
+        <% end %> 
 
-          <% if can_edit_medium?(medium) %>
-            <div class="list_actions">
-              <%= link_to "Edit", edit_medium_path(medium) %> |
-              <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" } %>
-            </div>
-          <% end %>
+        <% if can_edit_medium?(medium) %>
+          <div>
+            <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
+          </div>
+        <% end %>
 
-        </div>
-     </li> 
-    <% end %>
+      </div>
+  <% end %>
 
-  </ul>
+</div>
 
-  <div class="load_more">
-      <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
-  </div>
-
-<div style="clear: both;"></div>
+<div class="load_more">
+    <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
 </div>
 
 <!--/activity_wrap-->

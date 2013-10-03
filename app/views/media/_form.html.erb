@@ -5,9 +5,9 @@
     <%= f.input :asset, label: false, error: false, as: :file %>
     <%= bootstrap_paperclip_media f, :asset %>
     <div class="cap">
-    	<span class="cap_label">Caption</span> <span class="cap_opt">(Optional)</span>
+    	<span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, input_html: { rows: '9', maxlength: '280', class: 'input-xlarge' } %>
+    <%= f.input :caption, label: false, error: false, input_html: { rows: '9', maxlength: '280', class: 'input-xlarge', id: 'cap_box' } %>
   </div>
 
   <div class="form-actions">

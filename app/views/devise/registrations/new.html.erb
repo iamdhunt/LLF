@@ -21,9 +21,9 @@
        	
         <div class="reg_left">
         	
-          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4'} %>
-             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5'} %>
-             <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6', maxlength: '16'} %>
+          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4', maxlength: '15'} %>
+             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5', maxlength: '20'} %>
+             <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6', maxlength: '16', id: 'reg_username', :rel => "popover" } %>
         
         </div>
         
@@ -31,26 +31,42 @@
         	
           <%= f.input :email, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms', tabindex: '7'} %>
             <%= f.input :email_confirmation, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '7'} %>
-            <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', tabindex: '9'} %>
+            <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', id: 'reg_password', tabindex: '9'} %>
             
         </div>
         
         <div class="reg_right">
         	
-          <%= f.text_field :pursuits, :placeholder => 'Favorite Pursuit', :class => 'forms reg_forms', :tabindex => '10' %>
+          <%= f.text_field :pursuits, :placeholder => 'Favorite Pursuit', :class => 'forms reg_forms', :tabindex => '10', id: 'reg_pursuits' %>
           <div class="pursuit_reg_label">
             (i.e. Sports, Music, Skydiving, Branding, Pop Art)
           </div>
             <div class="reg_terms">
-              <p>By joining LLF, you agree to our <%= link_to 'Terms', "#" %> and <br /> to the details of our <%= link_to 'Privacy Policy', "#" %>.</p>
+              <p>By joining LLF, you agree to our <%= link_to "Terms", terms_path %> and <br /> to the details of our <%= link_to 'Privacy Policy', privacy_path %>.</p>
             </div>
-              <%= f.submit "Join the Community", :class => 'reg_button btn btn-info btn-large' %>
+              <%= f.submit "Join the Community!", :class => 'reg_button btn btn-info btn-large' %>
           
           </div>
   	 
      <% end %>
 
 
+    </div>
+
+    <div id="pop_username_reg" style="display: none">
+      <ul>
+        <li class="pop_content">No special characters (!%*$#)</li><li class="pop_content">No spaces allowed</li><li class="pop_content">Maximum length of 16</li>
+      </ul>
+    </div>
+
+    <div id="pop_password_reg" style="display: none">
+      <ul>
+        <li class="pop_content">Choose a strong password</li><li class="pop_content">Max length of 20</li><li class="pop_content">Minimum length of 6</li>
+      </ul>
+    </div>
+
+    <div id="pop_pursuits_reg" style="display: none">
+      The best way to connect with other members. Be as general or specific as you want. 
     </div>
    
    <div style="clear:both;"></div> 

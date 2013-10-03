@@ -25,19 +25,37 @@
 		</div> 
 
 		<div class="nav_links">
-			<% if member_signed_in? %>
-				<%= link_to "Sign Out", sign_out_path, :class => "member_links" %>
-				<%= avatar_profile_link current_member, :class => "nav_av" %>
-				<%= link_to current_member.first_name, edit_member_registration_path, :class => "member_links" %>
-				<%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
-				<%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
-			<% else %>
-				<%= link_to "Sign In", sign_in_path, :class => "member_links" %>
-				<%= link_to "Join!", join_path, :class => "member_links" %>
-			<% end %>
+			<div id="member_menu_wrap">
+				<% if member_signed_in? %>
+					<%= avatar_profile_link current_member, :class => "nav_av" %>
+					<%= link_to current_member.full_name, profile_path(current_member), :class => "member_links" %>
+			</div>
+					<%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
+					<%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
+				<% else %>
+					<%= link_to "Sign In", sign_in_path, :class => "member_links" %>
+					<%= link_to "Join!", join_path, :class => "member_links" %>
+				<% end %>
 		</div>
 
 		<div style="clear:both;"></div>
+	</div>
+
+
+	<div class="member_menu">
+		<div class="member_menu_top">
+			<div class="menu_links"><%= link_to "Edit Profile", edit_member_registration_path %></div>
+			<div class="menu_links"><%= link_to "Account Settings", "#" %></div>
+			<div class="menu_links"><%= link_to "Sign Out", sign_out_path %></div>
+		</div>
+		<div class="member_menu_bottom">
+			<div class="menu_links"><span class="menu_arrow"><i class="icon-circle-arrow-right menu_icons"></i></span><span><%= link_to "Following", "#" %></span></div>
+			<div class="menu_links"><span class="menu_arrow"><i class="icon-circle-arrow-left menu_icons"></i></span><span><%= link_to "Followers", "#" %></span></div>
+			<div class="menu_links stream"><span class="menu_arrow bottom"><i class="icon-th menu_icons"></i></span><span><%= link_to "Stream", profile_path(current_member) %></span></div>
+			<div class="menu_links medium"><span class="menu_arrow bottom"><i class="icon-camera menu_icons"></i></span><span><%= link_to "Media", profile_media_path(current_member) %></span></div>
+			<div class="menu_links events"><span class="menu_arrow bottom"><i class="icon-calendar menu_icons"></i></span><span><%= link_to "Events", "#" %></span></div>
+			<div class="menu_links projects"><span class="menu_arrow bottom"><i class="icon-folder-open menu_icons"></i></span><span><%= link_to "Projects", "#" %></span></div>
+		</div>
 	</div>
  
 <div id="pagewrap" style="padding-top:60px;">

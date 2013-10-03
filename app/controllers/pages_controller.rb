@@ -1,4 +1,9 @@
 class PagesController < ApplicationController
+
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, formats: [:html]
+  end
+  
   def spotlights
   end
 
