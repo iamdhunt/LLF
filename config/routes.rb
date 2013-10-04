@@ -36,15 +36,12 @@ LLF::Application.routes.draw do
   resources :statuses
     get 'stream', to: 'statuses#index', as: :stream
   
-
   get '/:id', to: 'profiles#show', as: 'profile'
 
   scope '/:id' do
     get '' => 'profiles#show'
     get '/media' => 'profiles#media', as: 'profile_media'
     get '/media/new' => 'profiles#media_new', as: 'profile_media_new'
-    get '/edit' => 'profiles#edit', as: 'profile_edit'
-    get '/settings' => 'profiles#settings', as: 'profile_settings'
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
     get '/stream/my_stream' => 'profiles#my_stream', as: 'profile_my_stream'

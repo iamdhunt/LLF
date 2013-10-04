@@ -6,3 +6,42 @@
 .registration .popover li {
 	padding: 2px 0 2px 0;
 }
+#edit_wrap legend {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 40px;
+	font-size: 25px;
+	line-height: 40px;
+	color: #898989;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+#edit_wrap fieldset {
+	padding: 0 0 10px 0;
+	margin: 0;
+	border: 0;
+}
+#edit_wrap .settings {
+	margin: 0 0 30px 15px;
+}
+#edit_wrap .upload {
+	margin: 0 0 30px 180px;
+}
+#edit_wrap .edit_av {
+	margin: 0 0 30px 180px;
+}
+.edit_pass {
+	font-size: 14px;
+	font-weight: normal;
+	color: #333;
+	font-style: oblique;
+}
+#edit_wrap .popover-title {
+	color: #FFF;
+	background-color: #49afcd;
+	font-weight: bold;
+}
+#edit_wrap .popover li {
+	padding: 2px 0 2px 0;
+}

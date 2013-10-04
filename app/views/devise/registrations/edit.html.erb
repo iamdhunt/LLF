@@ -1,41 +1,66 @@
+<% title current_member.full_name + " | Edit Profile" %>
+
 <div id="main_wrap">
 
-  <div id="activity_wrap">
+  <div id="edit_wrap">
 
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,  class: 'form-horizontal ' }) do |f| %>
         <%= devise_error_messages! %>
 
-        <%= f.input :email, :autofocus => true, error: false, input_html: { class: 'forms account'} %>
+        <fieldset>
+          <legend>Change Your Avatar</legend>
+          <%= f.input :avatar, as: :file, label: false, input_html: { class: 'account upload'} %>
+        
+          <div class="edit_av">
+            <% if f.object.avatar? %>
+              <%= image_tag f.object.avatar.url(:av) %>
+            <% end %>
+          </div>
+        </fieldset>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
+        <fieldset>
+          <legend>Change Your Username</legend>
+          <%= f.input :user_name, label: 'Username', input_html: { class: 'forms account settings', tabindex: '3', id: 'edit_username'} %>
+        </fieldset>
 
-         <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account'} %>
+        <fieldset>
+          <legend>Update Your Pursuits</legend>
+          <%= f.input :pursuits, label: 'Pursuits', input_html: { class: 'forms account settings', tabindex: '4', id: 'edit_pursuits'} %>
+        </fieldset>
 
-         <%= f.input :avatar, as: :file, label: 'Change your profile picture.', input_html: { class: 'account'} %>
+        <fieldset>
+          <legend>About Me</legend>
+          <%= f.input :user_name, label: 'Username', input_html: { class: 'forms account settings', tabindex: '3', id: 'edit_username'} %>
+        </fieldset>
 
-         <div>
-          <% if f.object.avatar? %>
-            <%= image_tag f.object.avatar.url(:av) %>
-          <% end %>
-         </div>
+        <fieldset>
+          <legend>Update Your Name</legend>
+          <%= f.input :first_name, label: 'First Name', input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_first'} %>
+          <%= f.input :last_name, label: 'Last Name', input_html: { class: 'forms account settings', tabindex: '2', id: 'reg_last'} %>
+        </fieldset>
 
-        <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account'} %>
-        <%= f.input :password_confirmation, error: false, input_html: { class: 'forms account'} %>
+        <fieldset>
+          <legend>Change Your Email</legend>
+          <%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
+        </fieldset>
 
-        <%= f.input :current_password, error: false, input_html: { class: 'forms account'} %>
+        <fieldset>
+          <legend>Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
+          <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
+          <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
+        </fieldset>
 
-        <div><%= f.button :submit, "Update" %></div>
+        <fieldset>
+          <legend>Confirm Your Changes</legend>
+          <%= f.input :current_password, error: false, label: 'Current Password', input_html: { class: 'forms account settings'}, autocomplete: 'off' %>
+        </fieldset>
+
+        <div class="form-actions">
+          <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+          <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger pull-right' %>
+        </div>
     <% end %>
 
-    <br />
-
-    <p><%= button_to "Delete my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-link' %></p>
-
-  <div style="clear: both;"></div>
   </div>
 
 <!--activity_wrap-->
