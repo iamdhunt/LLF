@@ -1,86 +1,5 @@
 <% title @member.full_name + " | Upload Media" %>
 
-<div id="main_wrap">
-
-    <div id="profile_wrap">
-    	<div id="left_profile">
-        	<%= avatar_profile @member %>
-        </div>
-        
-        <div id="center_profile">
-        	<div class="profile_name"><%= @member.full_name %></div>
-            <div class="profile_username"><%= "@" + @member.user_name %></div>
-            <div class="follow_count">
-                <span class="following_count">
-                    <%= @member.following_by_type_count('Member') %>
-                </span> 
-                <span class="follower_count" id="follows_count">
-                    <%= @member.followers_by_type_count('Member') %>
-                </span>
-            </div>
-            <div class="follow_count_text"><span class="following_text"><a href="#">Following</a></span> <span class="follower_text"><a href="#">Followers</a></span></div>
-            <% if signed_in? %>
-                <div id="member_actions" class="profile_buttons">
-                    <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
-                </div>
-            <% end %>
-            <div class="profile_bio"></div>
-        </div>
-        
-        <div id="right_profile">
-        	<div class="profile_accounts">
-            	<div class="top_profile_accounts">
-                	<a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-                <div class="bottom_profile_accounts">
-                	<a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-            </div>
-        	<div class="profile_pursuits">
-            	<a href="#"><%= @member.pursuits %></a>
-            </div>        
-            <div class="profile_location">
-            	<a href="#"></a>
-            </div>
-        </div>
-       <div style="clear:both;"></div>      
-    </div>
-     
-      
-    <!--/content_wrap-->
-
-    <div id="profile_nav_wrap">
-            <ul class="profile_nav">
-                <li>
-                	<%= link_to 'Stream', profile_stream_path(@member), class: 'stream_wrap' %>            
-                </li> 
-
-                <li>
-                	<%= link_to 'Media', profile_media_path(@member), class: 'media_wrap' %>
-                </li>
-                
-                <li>
-                	<a href="/members/events.html" class="events_wrap">Events</a>
-                </li>
-                
-                <li>
-                	<a href="/members/projects.html" class="projects_wrap">Projects</a>
-                </li>
-            </ul>
-        
-    <div style="clear:both;"></div> 
-    </div>
-
-    <!--/profile_nav-->
-
     <div id="media_subnav_wrap">
 
         <ul class="sub_stream">
@@ -116,7 +35,3 @@
     </div>
     
 <!--/activity_wrap-->
-
-</div>
-
-<!--/main_wrap-->

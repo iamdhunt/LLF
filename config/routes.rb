@@ -19,6 +19,9 @@ LLF::Application.routes.draw do
     get '/join', to: 'devise/registrations#new', as: :join
     get '/sign_in', to: 'devise/sessions#new', as: :sign_in
     get '/sign_out', to: 'devise/sessions#destroy', as: :sign_out
+    get '/password/new', to: 'devise/passwords#new', as: :new_password
+    get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
+    get '/edit', to: 'devise/registrations#edit', as: :edit_member
   end  
 
   devise_for :members, skip: [:sessions]
@@ -27,6 +30,9 @@ LLF::Application.routes.draw do
      get '/sign_in' => 'devise/sessions#new', as: :new_member_session
      post '/sign_in' => 'devise/sessions#create', as: :member_session
      delete '/sign_out' => 'devise/sessions#destroy', as: :destroy_member_session
+     post '/password' => 'devise/passwords#create', as: :password
+     put '/password' => 'devise/passwords#update'
+     put '/' => 'devise/registrations#update'
    end 
 
   devise_scope :member do 

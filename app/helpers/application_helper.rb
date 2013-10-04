@@ -33,9 +33,9 @@ module ApplicationHelper
 		when :alert
 			"alert-error"
 		when :notice
-			"alert-success"
-		else 
 			"alert-info"
+		else 
+			"alert-success"
 		end
 	end
 

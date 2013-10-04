@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) || "LLF | Haven for the Bold" %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= favicon_link_tag 'favicon.ico' %>
+</head>
+<body>
+
+
+
+    <div id="nav_bar">  
+       <div class="primary_nav">
+            <% if member_signed_in? %>
+                <%= link_to "Home", profile_path(current_member) %>
+            <% else %>
+                <%= link_to "Home", root_path %>
+            <% end %>
+            <a href="#">Community</a>
+            <a href="#">Events</a>
+            <a href="#">Projects</a>
+            <a href="#">Market</a>
+        </div> 
+
+        <div class="nav_links">
+            <% if member_signed_in? %>
+                <div id="member_menu_wrap">
+                    <%= avatar_profile_link current_member, :class => "nav_av" %>
+                    <%= link_to current_member.full_name, profile_path(current_member), :class => "member_links" %>
+                </div>
+                <%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
+                <%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
+            <% else %>
+                <%= link_to "Sign In", sign_in_path, :class => "member_links" %>
+                <%= link_to "Join!", join_path, :class => "member_links" %>
+            <% end %>
+        </div>
+
+        <div style="clear:both;"></div>
+    </div>
+
+    <% if member_signed_in? %>
+        <%= render :partial => "profiles/member_menu" %>
+    <% end %>
+ 
+<div id="pagewrap" style="padding-top:60px;">
+    <% unless notice.blank? && alert.blank? %>
+        <% flash.each do |type, message| %>
+          <div class="alert <%= flash_class type %>">
+            <button class="close" data-dismiss="alert">x</button>
+            <%= message %>
+          </div>
+        <% end %>
+    <% end %>
+
+<div id="main_wrap">
+
+    <div id="profile_wrap">
+    	<div id="left_profile">
+        	<%= avatar_profile @member %>
+        </div>
+        
+        <div id="center_profile">
+        	<div class="profile_name"><%= @member.full_name %></div>
+            <div class="profile_username"><%= "@" + @member.user_name %></div>
+            <div class="follow_count">
+                <span class="following_count">
+                    <%= @member.following_by_type_count('Member') %>
+                </span> 
+                <span class="follower_count" id="follows_count">
+                    <%= @member.followers_by_type_count('Member') %>
+                </span>
+            </div>
+            <div class="follow_count_text"><span class="following_text"><a href="#">Following</a></span> <span class="follower_text"><a href="#">Followers</a></span></div>
+            <% if signed_in? %>
+                <div id="member_actions" class="profile_buttons">
+                    <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
+                </div>
+            <% end %>
+            <div class="profile_bio">
+                <% if @member.bio %>
+                    <%= @member.bio %>
+                <% end %>
+            </div>
+        </div>
+        
+        <div id="right_profile">
+        	<div class="profile_accounts">
+            	<div class="top_profile_accounts">
+                	<a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+                <div class="bottom_profile_accounts">
+                	<a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>
+            </div>
+        	<div class="profile_pursuits">
+                <% if @member.pursuits %>
+                    <%= link_to @member.pursuits, "#" %>
+                <% end %>
+            </div>        
+            <div class="profile_location">
+                <% if @member.city %>
+                    <%= link_to @member.city, "#" %>
+                <% end %>
+                <% if @member.state %>
+                    <%= link_to @member.state, "#" %>
+                <% end %>
+                <% if @member.country %>
+                    <%= link_to @member.country, "#" %>
+                <% end %>
+            </div>
+        </div>
+       <div style="clear:both;"></div>      
+    </div>
+     
+      
+    <!--/content_wrap-->
+
+    <div id="profile_nav_wrap">
+            <ul class="profile_nav">
+                <li>
+                	<%= link_to 'Stream', profile_stream_path(@member), class: 'stream_wrap' %>           
+                </li> 
+
+                <li>
+                    <%= link_to 'Media', profile_media_path(@member), class: 'media_wrap' %>
+                </li>
+                
+                <li>
+                	<a href="/members/events.html" class="events_wrap">Events</a>
+                </li>
+                
+                <li>
+                	<a href="/members/projects.html" class="projects_wrap">Projects</a>
+                </li>
+            </ul>
+        
+    <div style="clear:both;"></div> 
+    </div>
+
+    <!--/profile_nav-->
+
+    <%= yield %>
+
+</div>
+
+    <div id="widget_wrap">
+
+        <div id="widget_left">
+        
+            <div id="widget_left_1" class="bottom_widgets">
+            
+                <div class="events_widget bottom_widgets_content">            
+                </div>
+                
+                <div class="view_all_widget">
+                    <a href="#">View All Events &raquo;</a>
+                </div>
+                
+            </div>
+            
+          <div id="widget_left_2" class="bottom_widgets left_inside">
+          
+                <div class="projects_widget bottom_widgets_content">            
+                </div>
+                
+                <div class="view_all_widget">
+                    <a href="#">View All Projects &raquo;</a>
+                </div>
+                
+          </div>
+          
+        </div>
+        
+        <div id="widget_right">
+        
+          <div id="widget_right_1" class="bottom_widgets right_inside">
+          
+                <div class="market_widget bottom_widgets_content">
+                </div>
+                
+                <div class="view_all_widget">
+                    <a href="#">View Market &raquo;</a>
+                </div>
+                
+          </div>
+          
+          <div id="widget_right_2" class="bottom_widgets">
+          
+                <div class="featured_member_widget bottom_widgets_content">
+                </div>
+                
+          </div>
+          
+        </div>
+        
+    <div style="clear: both;"></div> 
+    </div>
+
+<!--/widgets-->
+
+    <div id="footer_wrap">
+        
+        <div id="footer_top" class="box_font">
+            <%= link_to "Spotlights", spotlights_path %> &#8226; 
+            <%= link_to "Contests", contests_path %> &#8226; 
+            <%= link_to "FAQ's", faqs_path %> &#8226; 
+            <%= link_to "Contact Us", contact_us_path %> &#8226; 
+            <%= link_to "Terms", terms_path %> &#8226; 
+            <%= link_to "Privacy", privacy_path %> &#8226; 
+            <a href="http://livinglifefearless.com/blog">BLOG</a> &#8226; 
+            <a href="http://havenforthebold.tv/" class="bold_tv">BOLD.TV</a>    
+        </div>
+      
+        <div id="footer_bottom" class="box_font">
+            LLF &copy; 2014 
+        </div>
+
+    </div>
+
+<!--/footer-->
+
+    <a href="#" class="scrollup">Scroll</a>
+
+</div>
+
+<!--/pagewrap-->
+
+</body>
+</html>
+<!--/main_wrap-->

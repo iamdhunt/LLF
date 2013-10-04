@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
  
+ layout "profile"
+
   def show
   	@status = Status.new
     @status.build_document

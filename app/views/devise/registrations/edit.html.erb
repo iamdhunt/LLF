@@ -20,26 +20,26 @@
 
         <fieldset>
           <legend>Change Your Username</legend>
-          <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '3', id: 'edit_username', maxlength: '16'} %>
+          <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16'} %>
         </fieldset>
 
         <fieldset>
           <legend>Update Your Pursuits</legend>
-          <%= f.input :pursuits, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '4', id: 'edit_pursuits'} %>
+          <%= f.input :pursuits, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits'} %>
         </fieldset>
 
         <fieldset>
           <legend>About Me</legend>
           <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '3', maxlength: '140'} %>
           <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '20'} %>
-          <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '12'} %>
-          <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '20'} %>
+          <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '5', maxlength: '12'} %>
+          <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '6', maxlength: '20'} %>
         </fieldset>
 
         <fieldset>
           <legend>Update Your Name</legend>
-          <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_first', maxlength: '15'} %>
-          <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '2', maxlength: '20', id: 'reg_last'} %>
+          <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '15'} %>
+          <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'reg_last'} %>
         </fieldset>
 
         <fieldset>
@@ -55,7 +55,7 @@
 
         <fieldset>
           <legend>Confirm Your Changes</legend>
-          <%= f.input :current_password, error: false, label: 'Current Password', input_html: { class: 'forms account settings'}, autocomplete: 'off' %>
+          <%= f.input :current_password, error: false, label: 'Current Password', input_html: { class: 'forms account settings'}, autocomplete: 'off', tabindex: '9' %>
         </fieldset>
 
         <div class="form-actions">

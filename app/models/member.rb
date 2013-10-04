@@ -91,6 +91,9 @@ class Member < ActiveRecord::Base
                         message: 'must not be longer than 20 characters.'
                       }
 
+  before_save :titleize, :to_lower
+  before_create :titleize, :to_lower 
+
   has_many :medium
   has_many :statuses
   acts_as_follower
@@ -107,6 +110,16 @@ class Member < ActiveRecord::Base
 
   def to_param
     user_name
+  end 
+
+  def titleize
+    self.first_name = self.first_name.titleize
+    self.last_name = self.last_name.titleize
+    self.pursuits = self.pursuits.titleize
+  end 
+
+  def to_lower
+    self.user_name = self.user_name.downcase
   end 
 
 end
