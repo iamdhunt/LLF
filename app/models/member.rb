@@ -6,7 +6,7 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
-  					:first_name, :last_name, :user_name, :pursuits, :avatar
+  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country
 
   validates :first_name, presence: true,
                           format: {
@@ -45,7 +45,8 @@ class Member < ActiveRecord::Base
 
   validates :email, confirmation: true
 
-  validates :pursuits,  format: {
+  validates :pursuits,  allow_blank: true,
+                        format: {
                           with: /^[a-zA-Z ]+$/,
                           message: 'must be formatted correctly.'
                         },
@@ -54,6 +55,41 @@ class Member < ActiveRecord::Base
                           message: 'must not be more than two words.'
                         }
 
+  validates :bio, allow_blank: true,
+                  length: {
+                    maximum: 140,
+                    message: 'must not be longer than 140 characters'
+                  }
+
+ validates :city, allow_blank: true,
+                  format: {
+                    with: /^[a-zA-Z- ]+$/,
+                    message: 'must be formatted correctly.'
+                  },
+                  length: {
+                    maximum: 20,
+                    message: 'must not be longer than 20 characters.'
+                  } 
+
+  validates :state, allow_blank: true,
+                    format: {
+                      with: /^[a-zA-Z- ]+$/,
+                      message: 'must be formatted correctly.'
+                    },
+                    length: {
+                      maximum: 12,
+                      message: 'must not be longer than 12 characters.'
+                    } 
+
+  validates :country, allow_blank: true,
+                      format: {
+                        with: /^[a-zA-Z- ]+$/,
+                        message: 'must be formatted correctly.'
+                      },
+                      length: {
+                        maximum: 20,
+                        message: 'must not be longer than 20 characters.'
+                      }
 
   has_many :medium
   has_many :statuses

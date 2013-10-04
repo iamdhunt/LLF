@@ -24,7 +24,11 @@
                     <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
                 </div>
             <% end %>
-            <div class="profile_bio"></div>
+            <div class="profile_bio">
+                <% if @member.bio %>
+                    <%= @member.bio %>
+                <% end %>
+            </div>
         </div>
         
         <div id="right_profile">
@@ -45,10 +49,20 @@
                 </div>
             </div>
         	<div class="profile_pursuits">
-            	<a href="#"><%= @member.pursuits %></a>
+                <% if @member.pursuits %>
+                    <%= link_to @member.pursuits, "#" %>
+                <% end %>
             </div>        
             <div class="profile_location">
-            	<a href="#"></a>
+                <% if @member.city %>
+                    <%= link_to @member.city, "#" %>
+                <% end %>
+                <% if @member.state %>
+                    <%= link_to @member.state, "#" %>
+                <% end %>
+                <% if @member.country %>
+                    <%= link_to @member.country, "#" %>
+                <% end %>
             </div>
         </div>
        <div style="clear:both;"></div>      
