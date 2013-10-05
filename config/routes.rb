@@ -15,12 +15,6 @@ LLF::Application.routes.draw do
   match '/music_spotlights' => 'pages#music_spotlights'
   match '/member_spotlights' => 'pages#member_spotlights'
 
-  resources :members do
-    member do
-      get :settings
-    end  
-  end
-
   as :member do 
     get '/join', to: 'devise/registrations#new', as: :join
     get '/sign_in', to: 'devise/sessions#new', as: :sign_in
@@ -38,6 +32,7 @@ LLF::Application.routes.draw do
      delete '/sign_out' => 'devise/sessions#destroy', as: :destroy_member_session
      post '/password' => 'devise/passwords#create', as: :password
      put '/password' => 'devise/passwords#update'
+     put '/' => 'devise/registrations#update'
    end 
 
   devise_scope :member do 

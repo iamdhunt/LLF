@@ -55,6 +55,8 @@
         <% end %>
     <% end %>
 
+
+<% if @member %>
 <div id="main_wrap">
 
     <div id="profile_wrap">
@@ -73,7 +75,10 @@
                     <%= @member.followers_by_type_count('Member') %>
                 </span>
             </div>
-            <div class="follow_count_text"><span class="following_text"><%= link_to "Following", profile_following_path(@member) %></span> <span class="follower_text"><%= link_to "Followers", profile_followers_path(@member) %></span></div>
+            <div class="follow_count_text">
+                <span class="following_text"><%= link_to "Following", profile_following_path(@member) %></span> 
+                <span class="follower_text"><%= link_to "Followers", profile_followers_path(@member) %></span>
+            </div>
             <% if signed_in? %>
                 <div id="member_actions" class="profile_buttons">
                     <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
@@ -112,7 +117,6 @@
                 <% if @member.city %>
                     <%= link_to @member.city, "#" %>
                 <% end %>
-
                 <% if @member.state %>
                     <%= link_to @member.state, "#" %>
                 <% end %>
@@ -154,6 +158,9 @@
     <%= yield %>
 
 </div>
+<% else %>
+ <%= render :partial => "no_user" %>
+<% end %>
 
     <div id="widget_wrap">
 

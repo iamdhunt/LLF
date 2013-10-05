@@ -22,7 +22,7 @@ class Member < ActiveRecord::Base
 
   validates :last_name, presence: true,
                         format: {
-                          with: /^[a-zA-Z- ]+$/,
+                          with: /^[a-zA-Z -]+$/,
                           message: 'must be formatted correctly.'
                         },
                         length: {
@@ -116,15 +116,6 @@ class Member < ActiveRecord::Base
     self.first_name = self.first_name.titleize
     self.last_name = self.last_name.titleize
     self.pursuits = self.pursuits.titleize
-    if self.city?
-      self.city = self.city.titleize
-    end
-    if self.state?
-      self.state = self.state.titleize
-    end
-    if self.country?
-      self.country = self.country.titleize
-    end
   end 
 
   def to_lower

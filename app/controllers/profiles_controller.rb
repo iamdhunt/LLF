@@ -77,6 +77,17 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def media
+    @medium = Medium.new
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      @media = @member.medium.order('created_at desc').all 
+      render action: :media
+    else
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
   def followers
     @member = Member.find_by_user_name(params[:id])
     @followers = @member.followers
@@ -89,8 +100,8 @@ class ProfilesController < ApplicationController
 
   def following
     @member = Member.find_by_user_name(params[:id])
-    @follows = @member.follows
-    if @member 
+    @followers = @member.following
+    if @member  
       render action: :following
     else
       render file: 'public/404', status: 404, formats: [:html]
