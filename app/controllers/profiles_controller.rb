@@ -6,8 +6,9 @@ class ProfilesController < ApplicationController
   	@status = Status.new
     @status.build_document
   	@member = Member.find_by_user_name(params[:id])
+    following_ids = current_member.following_members.map(&:id)
   	if @member == current_member 
-  		@statuses = Status.order('created_at desc').all
+  		@statuses = Status.where(member_id: following_ids).order("created_at DESC")
   		render action: :show
   	elsif @member 
       @statuses = @member.statuses.order('created_at desc').all
@@ -21,8 +22,9 @@ class ProfilesController < ApplicationController
     @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
+    following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.order('created_at desc').all
+      @statuses = Status.where(member_id: following_ids).order("created_at DESC")
       render action: :show
     elsif @member 
       @statuses = @member.statuses.order('created_at desc').all
@@ -48,8 +50,9 @@ class ProfilesController < ApplicationController
     @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
+    following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.order('created_at desc').all
+      @statuses = Status.where(member_id: following_ids).order("created_at DESC")
       render action: :show
     else 
       redirect_to profile_stream_path(@member)
@@ -100,7 +103,7 @@ class ProfilesController < ApplicationController
 
   def following
     @member = Member.find_by_user_name(params[:id])
-    @followers = @member.following
+    @following = @member.following_by_type('Member')
     if @member  
       render action: :following
     else

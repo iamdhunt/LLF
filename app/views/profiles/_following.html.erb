@@ -1,7 +1,25 @@
-<% @follows.each do |follow| %>
+<% @following.each do |follow| %>
 
-	<div>
-		<%= follow.user_name %>
+<div id="follow_item_wrap">
+
+	<div class="avatar">
+		<%= follow_profile_link follow %>
 	</div> 
+
+	<div class="bottom">
+		<div class="name">
+			<%= follow.full_name %>
+		</div> 
+
+		<div class="username">
+			<%= "@" + follow.user_name %>
+		</div> 
+
+		<div class="pursuits">
+			<%= follow.pursuits %>
+		</div> 
+	</div>
+
+</div>
 
 <% end %>

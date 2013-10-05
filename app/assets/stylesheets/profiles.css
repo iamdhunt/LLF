@@ -5,3 +5,24 @@
 	float: right;
 	padding: .2em .3em 0 0;
 }
+#left_profile .change_av {
+	position: absolute;
+	bottom: 0;
+	background: #333;
+	width: 200px;
+	text-align: center;
+	font-size: 1.5em;
+	color: #fff;
+	padding: 8px 0;
+	opacity: .6;
+	display: none;
+}
+#left_profile .change_av a {
+	color: #fff;
+}
+#left_profile .change_av a {
+	text-decoration: none;
+}
+#left_profile:hover .change_av {
+	display: inline;
+}

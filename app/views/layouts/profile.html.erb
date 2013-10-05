@@ -62,6 +62,13 @@
     <div id="profile_wrap">
     	<div id="left_profile">
         	<%= avatar_profile @member %>
+            <% if @member == current_member %>
+                <div class="change_av">
+                    <div>
+                        <%= link_to "Change Avatar", edit_member_path %>
+                    </div> 
+                </div> 
+            <% end %>
         </div>
         
         <div id="center_profile">
@@ -69,10 +76,10 @@
             <div class="profile_username"><%= "@" + @member.user_name %></div>
             <div class="follow_count">
                 <span class="following_count">
-                    <%= @member.following_by_type_count('Member') %>
+                    <%= link_to @member.following_by_type_count('Member'), profile_following_path(@member) %>
                 </span> 
                 <span class="follower_count" id="follows_count">
-                    <%= @member.followers_by_type_count('Member') %>
+                    <%= link_to @member.followers_by_type_count('Member'), profile_followers_path(@member) %>
                 </span>
             </div>
             <div class="follow_count_text">

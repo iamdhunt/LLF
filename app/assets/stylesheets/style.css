@@ -870,6 +870,7 @@ hr.contact {
 	width: 20%;
 	height: 100%;
 	float: left;
+	position: relative;
 }
 
 #left_profile img {
@@ -926,14 +927,18 @@ hr.contact {
 .follower_text {
 	margin-left: 1.2em;
 }
-
 .follow_count {
 	font-size: 1.2em;
 	margin-left: 1.1em;
-	color: #898989;
 	margin-top: .3em;
 }
-
+.follow_count a {
+	color: #898989;
+}
+.follow_count a:hover {
+	text-decoration: none;
+	color: #942fc6;
+}
 .follower_count {
 	left: 7.6em;
 	position: absolute;
