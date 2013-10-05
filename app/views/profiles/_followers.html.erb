@@ -1,0 +1,25 @@
+<% @followers.each do |follower| %>
+
+	<div id="follow_item_wrap">
+
+		<div class="avatar">
+			<%= follow_profile_link follower %>
+		</div> 
+
+		<div class="bottom">
+			<div class="name">
+				<%= follower.full_name %>
+			</div> 
+
+			<div class="username">
+				<%= "@" + follower.user_name %>
+			</div> 
+
+			<div class="pursuits">
+				<%= follower.pursuits %>
+			</div> 
+		</div>
+
+	</div>
+
+<% end %>

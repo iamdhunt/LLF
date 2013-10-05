@@ -1,0 +1,44 @@
+// Place all the styles related to the follows controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.dropdown-menu {
+	left: 12em;
+}
+#follow_item_wrap {	
+	width: 160px;
+	overflow: hidden;
+	text-align: center;
+	margin-bottom: 7px;
+	margin-right: 10px;
+	border: 1px solid #ddd;
+}
+#follow_item_wrap .name {
+	color: #4a4a4a;
+	font-size: 1.4em;
+	padding: 4px 0 0 0;
+}
+#follow_item_wrap .username {
+	color: #942fc6;
+	font-size: 1.1em;
+	padding: 0 0 7px 0;
+}
+#follow_item_wrap .pursuits {
+	font-size: .8em;
+}
+#follow_item_wrap .btn {
+	font-size: 13px;
+	padding: 2px 6px;
+}
+#follow_item_wrap .button {
+	padding: 5px 0;
+}
+#follow_item_wrap img {
+	-webkit-border-radius: 80px; /* Saf3+, Chrome */
+	border-radius: 80px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+#follow_item_wrap .avatar {
+	padding: 5px;
+}

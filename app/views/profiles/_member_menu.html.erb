@@ -6,7 +6,7 @@
 	</div>
 	<div class="member_menu_bottom">
 		<div class="menu_links"><span class="menu_arrow"><i class="icon-circle-arrow-right icon-purple menu_icons"></i></span><span><%= link_to "Following", "#" %></span></div>
-		<div class="menu_links"><span class="menu_arrow"><i class="icon-circle-arrow-left icon-purple menu_icons"></i></span><span><%= link_to "Followers", "#" %></span></div>
+		<div class="menu_links"><span class="menu_arrow"><i class="icon-circle-arrow-left icon-purple menu_icons"></i></span><span><%= link_to "Followers", profile_followers_path(current_member) %></span></div>
 		<div class="menu_links stream"><span class="menu_arrow bottom"><i class="icon-th icon-purple menu_icons"></i></span><span><%= link_to "Stream", profile_stream_path(current_member) %></span></div>
 		<div class="menu_links medium"><span class="menu_arrow bottom"><i class="icon-music icon-purple menu_icons"></i></span><span><%= link_to "Media", profile_media_path(current_member) %></span></div>
 		<div class="menu_links events"><span class="menu_arrow bottom"><i class="icon-calendar icon-purple menu_icons"></i></span><span><%= link_to "Events", "#" %></span></div>

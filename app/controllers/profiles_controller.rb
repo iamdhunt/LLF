@@ -76,5 +76,25 @@ class ProfilesController < ApplicationController
       redirect_to profile_media_path(@member)
     end
   end
+
+  def followers
+    @member = Member.find_by_user_name(params[:id])
+    @followers = @member.followers
+    if @member  
+      render action: :followers
+    else
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def following
+    @member = Member.find_by_user_name(params[:id])
+    @follows = @member.follows
+    if @member 
+      render action: :following
+    else
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
   
 end

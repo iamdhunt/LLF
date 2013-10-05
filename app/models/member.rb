@@ -99,7 +99,7 @@ class Member < ActiveRecord::Base
   acts_as_follower
   acts_as_followable
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", thumb: "60x60#", av: "200x200#"}
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", follow: "175x175#", thumb: "60x60#", av: "200x200#"}
 
   validates_attachment_size :avatar, :less_than=>10.megabyte
   validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
@@ -116,6 +116,15 @@ class Member < ActiveRecord::Base
     self.first_name = self.first_name.titleize
     self.last_name = self.last_name.titleize
     self.pursuits = self.pursuits.titleize
+    if self.city?
+      self.city = self.city.titleize
+    end
+    if self.state?
+      self.state = self.state.titleize
+    end
+    if self.country?
+      self.country = self.country.titleize
+    end
   end 
 
   def to_lower

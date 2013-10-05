@@ -12,6 +12,11 @@ class MembersController < ApplicationController
     @member = Member.all
   end
 
+  def settings
+    @member = Member.find_by_user_name(current_member)
+    render action: :settings
+  end 
+
   def show
     @member = Member.find_by_user_name(params[:id])
     	if @member 
