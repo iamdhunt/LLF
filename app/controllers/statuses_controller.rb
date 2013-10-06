@@ -102,4 +102,8 @@ class StatusesController < ApplicationController
     @status = current_member.statuses.find(params[:id])
   end 
 
+  def sortable_date
+    created_at
+  end 
+
 end

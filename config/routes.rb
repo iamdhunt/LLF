@@ -2,7 +2,6 @@ LLF::Application.routes.draw do
 
   resources :media
 
-
   match '/spotlights' => 'pages#spotlights'
   match '/contests' => 'pages#contests'
   match '/faqs' => 'pages#faqs'
@@ -22,8 +21,9 @@ LLF::Application.routes.draw do
     get '/password/new', to: 'devise/passwords#new', as: :new_password
     get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
     get '/edit', to: 'devise/registrations#edit', as: :edit_member
-  end  
+  end 
 
+  devise_for :members, :controllers => { :registrations => "registrations" }
   devise_for :members, skip: [:sessions]
 
   as :member do
@@ -37,7 +37,10 @@ LLF::Application.routes.draw do
 
   devise_scope :member do 
       root :to => 'devise/registrations#new'
+      match '/settings' => 'registrations#settings', as: :settings
   end 
+
+
 
   resources :statuses
     get 'stream', to: 'statuses#index', as: :stream
@@ -58,6 +61,7 @@ LLF::Application.routes.draw do
   resources :members, :only => [:index, :show], :path => '/' do
     resources :follows, :only => [:create, :destroy]
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

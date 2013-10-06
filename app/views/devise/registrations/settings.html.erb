@@ -5,41 +5,12 @@
   <div id="edit_wrap">
 
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,  class: 'form-horizontal ' }) do |f| %>
-        <%= devise_error_messages! %>
-
-        <fieldset>
-          <legend>Change Your Avatar</legend>
-          <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
-        
-          <div class="edit_av">
-            <% if f.object.avatar? %>
-              <%= image_tag f.object.avatar.url(:av) %>
-            <% end %>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Change Your Username</legend>
-          <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16'} %>
-        </fieldset>
-
-        <fieldset>
-          <legend>Update Your Pursuits</legend>
-          <%= f.input :pursuits, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits'} %>
-        </fieldset>
-
-        <fieldset>
-          <legend>About Me</legend>
-          <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '3', maxlength: '140'} %>
-          <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '20'} %>
-          <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '5', maxlength: '12'} %>
-          <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '6', maxlength: '20'} %>
-        </fieldset>
+        <%= devise_error_messages! %> 
 
         <fieldset>
           <legend>Update Your Name</legend>
           <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '15'} %>
-          <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'reg_last'} %>
+          <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'edit_last'} %>
         </fieldset>
 
         <fieldset>
@@ -53,11 +24,7 @@
           <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
         </fieldset>
 
-        <fieldset>
-          <legend>Confirm Your Changes</legend>
-          <%= f.input :current_password, error: false, label: 'Current Password', input_html: { class: 'forms account settings'}, autocomplete: 'off', tabindex: '9' %>
-        </fieldset>
-
+        
         <div class="form-actions">
           <%= f.submit "Update", class: 'btn btn-info pull-left' %>
           <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger pull-right' %>

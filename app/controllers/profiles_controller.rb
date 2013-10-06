@@ -8,7 +8,10 @@ class ProfilesController < ApplicationController
   	@member = Member.find_by_user_name(params[:id])
     following_ids = current_member.following_members.map(&:id)
   	if @member == current_member 
-  		@statuses = Status.where(member_id: following_ids).order("created_at DESC")
+  		@follow_statuses = Status.where(member_id: following_ids).order("created_at DESC")
+      @my_statuses = current_member.statuses.order('created_at desc')
+      @statuses = @follow_statuses + @my_statuses
+      @statuses.sort_by(&:created_at)
   		render action: :show
   	elsif @member 
       @statuses = @member.statuses.order('created_at desc').all
