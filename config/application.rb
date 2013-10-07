@@ -60,5 +60,8 @@ module LLF
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = true
+
+    ActsAsTaggableOn.remove_unused_tags = true
+    ActsAsTaggableOn.force_lowercase = true
   end
 end

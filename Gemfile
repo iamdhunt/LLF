@@ -10,6 +10,7 @@ gem 'devise'
 gem 'paperclip'
 gem "acts_as_follower", '~> 0.1.1'
 gem 'js-routes'
+gem 'acts-as-taggable-on'
 
 group :test do
 	gem 'shoulda'

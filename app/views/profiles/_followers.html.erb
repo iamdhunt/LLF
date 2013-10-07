@@ -16,7 +16,7 @@
 			</div> 
 
 			<div class="pursuits">
-				<%= follower.pursuits %>
+				<%= follower.pursuit_list.map { |p| link_to p.titleize, "#" }.join(', ').html_safe %>
 			</div> 
 		</div>
 

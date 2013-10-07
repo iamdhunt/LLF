@@ -6,7 +6,7 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
-  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country
+  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list
 
   validates :first_name, presence: true,
                           format: {
@@ -45,15 +45,16 @@ class Member < ActiveRecord::Base
 
   validates :email, confirmation: true
 
-  validates :pursuits,  allow_blank: true,
-                        format: {
-                          with: /^[a-zA-Z ]+$/,
-                          message: 'must be formatted correctly.'
-                        },
-                        length: {
-                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
-                          message: 'must not be more than two words.'
-                        }
+  validates :pursuit_list,  allow_blank: true,
+                            length: {
+                              maximum: 5,
+                              message: 'must not list more than 5 pursuits.'
+                            },
+                            format: {
+                              with: /^[a-zA-Z, ]+$/,
+                              message: 'must be formatted correctly.'
+                            }
+  validate :each_pursuit
 
   validates :bio, allow_blank: true,
                   length: {
@@ -92,12 +93,14 @@ class Member < ActiveRecord::Base
                       }
 
   before_save :titleize, :to_lower
-  before_create :titleize, :to_lower 
+  before_create :titleize, :to_lower
 
   has_many :medium
   has_many :statuses
   acts_as_follower
   acts_as_followable
+  acts_as_ordered_taggable
+  acts_as_ordered_taggable_on :pursuits
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", follow: "175x175#", thumb: "60x60#", av: "200x200#"}
 
@@ -112,14 +115,23 @@ class Member < ActiveRecord::Base
     user_name
   end 
 
+
+  private
+
   def titleize
     self.first_name = self.first_name.titleize
     self.last_name = self.last_name.titleize
-    self.pursuits = self.pursuits.titleize
   end 
 
   def to_lower
     self.user_name = self.user_name.downcase
+  end 
+
+  def each_pursuit
+    pursuit_list.each do |pursuit|
+      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
+      errors.add(:pursuit, "Too long (Maximum is 25 characters)") if pursuit.length > 25
+    end
   end 
 
 end

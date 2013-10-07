@@ -8,7 +8,7 @@
         <%= devise_error_messages! %>
 
         <fieldset>
-          <legend>Change Your Avatar</legend>
+          <legend class="legend">Change Your Avatar</legend>
           <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
         
           <div class="edit_av">
@@ -19,17 +19,34 @@
         </fieldset>
 
         <fieldset>
-          <legend>Change Your Username</legend>
+          <legend class="descriptors">Change Your Username</legend>
+          <div class="edit_instructions">* = Required Field</div>
           <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16'} %>
         </fieldset>
 
         <fieldset>
-          <legend>Update Your Pursuits</legend>
-          <%= f.input :pursuits, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits'} %>
+          <legend class="descriptors">Update Your Pursuits</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Enter your top 5 Pursuits
+              </li>
+              <li>
+                &raquo; 25 characters per Pursuit
+              </li>
+              <li>
+                &raquo; Separate Pursuits by commas
+              </li>
+              <li>
+                &raquo; Only letters, spaces ok
+              </li>
+            </ul>
+          </div>
+          <%= f.input :pursuit_list, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits'} %>
         </fieldset>
 
         <fieldset>
-          <legend>About Me</legend>
+          <legend class="legend">About Me</legend>
           <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '3', maxlength: '140'} %>
           <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '20'} %>
           <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '5', maxlength: '12'} %>

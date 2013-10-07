@@ -39,7 +39,7 @@
         
         <div class="reg_right">
         	
-          <%= f.text_field :pursuits, :placeholder => 'Favorite Pursuit', :class => 'forms reg_forms', :tabindex => '10', id: 'reg_pursuits' %>
+          <%= f.text_field :pursuit_list, :placeholder => 'Favorite Pursuits', :class => 'forms reg_forms', :tabindex => '10', id: 'reg_pursuits' %>
           <div class="pursuit_reg_label">
             (i.e. Sports, Music, Skydiving, Branding, Pop Art)
           </div>
@@ -68,15 +68,33 @@
     </div>
 
     <div id="pop_pursuits_reg" style="display: none">
-      The best way to connect with other members. Be as general or specific as you want. 
+      The best way to connect with other members. Be as general or specific as you want.
+      <ul class="pursuits">
+        <li>
+          &raquo; Enter your top 5 Pursuits
+        </li>
+        <li>
+          &raquo; 25 characters per Pursuit
+        </li>
+        <li>
+          &raquo; Separate Pursuits by commas
+        </li>
+        <li>
+          &raquo; Only letters, spaces ok
+        </li>
+      </ul> 
     </div>
 
     <div id="pop_first_reg" style="display: none">
-      &raquo; 1 Name Maximum 
+      <ul class="names">
+        <li>&raquo; 1 First Name Max</li>
+      </ul>
     </div>
 
     <div id="pop_last_reg" style="display: none">
-      &raquo; 2 Name Maximum 
+      <ul class="names">
+        <li>&raquo; 2 Last Names Max</li>
+      </ul>
     </div>
    
    <div style="clear:both;"></div> 

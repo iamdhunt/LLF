@@ -1,4 +1,4 @@
-<% title current_member.full_name + " | Account Settings" %>
+<% title current_member.full_name + " | Settings" %>
 
 <div id="main_wrap">
 
@@ -8,18 +8,29 @@
         <%= devise_error_messages! %> 
 
         <fieldset>
-          <legend>Update Your Name</legend>
+          <legend class="descriptors">Update Your Name</legend>
+            <div class="edit_instructions">
+              * = Required Field
+            <ul>
+              <li>
+                &raquo; 1 First Name Max
+              </li>
+              <li>
+                &raquo; 2 Last Names Max
+              </li>
+            </ul>
+          </div>
           <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '15'} %>
           <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'edit_last'} %>
         </fieldset>
 
         <fieldset>
-          <legend>Change Your Email</legend>
+          <legend class="legend">Change Your Email</legend>
           <%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
         </fieldset>
 
         <fieldset>
-          <legend>Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
+          <legend class="legend">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
           <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
           <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
         </fieldset>

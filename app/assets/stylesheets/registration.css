@@ -5,8 +5,13 @@
 }
 .registration .popover li {
 	padding: 2px 0 2px 0;
+	color: #6d6d6d;
+	font-size: .9em;
 }
-#edit_wrap legend {
+.popover .names {
+	padding: 8px;
+}
+#edit_wrap .legend {
 	display: block;
 	width: 100%;
 	padding: 0;
@@ -47,4 +52,29 @@
 }
 .shared_links {
 	margin: 6px 0;
+}
+.edit_instructions {
+	font-size: .9em;
+	font-style: oblique;
+	color: #898989;
+	margin-bottom: 40px;
+}
+.edit_instructions li {
+	padding: 2px 0;
+}
+#edit_wrap .descriptors {
+	display: block;
+	width: 100%;
+	padding: 0;
+	margin-bottom: 10px;
+	font-size: 25px;
+	line-height: 40px;
+	color: #898989;
+	border: 0;
+	border-bottom: 1px solid #e5e5e5;
+}
+.popover .pursuits {
+	font-style: oblique;
+	margin-top: 3px;
+	color: #6d6d6d;
 }
