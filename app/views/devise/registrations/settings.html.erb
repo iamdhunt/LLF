@@ -1,4 +1,4 @@
-<% title current_member.full_name + " | Settings | LLF" %>
+<% title current_member.full_name + " | Settings" %>
 
 <div id="main_wrap">
 
@@ -25,12 +25,12 @@
         </fieldset>
 
         <fieldset>
-          <legend class="legend">Change Your Email</legend>
+          <legend class="leg">Change Your Email</legend>
           <%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
         </fieldset>
 
         <fieldset>
-          <legend class="legend">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
+          <legend class="leg">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
           <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
           <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
         </fieldset>

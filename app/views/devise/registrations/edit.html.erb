@@ -1,4 +1,4 @@
-<% title current_member.full_name + " | Edit Profile | LLF" %>
+<% title current_member.full_name + " | Edit Profile" %>
 
 <div id="main_wrap">
 
@@ -8,7 +8,7 @@
         <%= devise_error_messages! %>
 
         <fieldset>
-          <legend class="legend">Change Your Avatar</legend>
+          <legend class="leg">Change Your Avatar</legend>
           <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
         
           <div class="edit_av">
@@ -46,7 +46,7 @@
         </fieldset>
 
         <fieldset>
-          <legend class="legend">About Me</legend>
+          <legend class="leg">About Me</legend>
           <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '3', maxlength: '140'} %>
           <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '4', maxlength: '20'} %>
           <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '5', maxlength: '12'} %>
