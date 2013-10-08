@@ -5,16 +5,16 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'devise'
 gem 'paperclip'
 gem "acts_as_follower", '~> 0.1.1'
 gem 'js-routes'
 gem 'acts-as-taggable-on'
 
-group :test do
+group :development, :test do
 	gem 'shoulda'
 	gem 'factory_girl_rails'
+	gem 'sqlite3'
 end 
 
 gem 'simple_form'
