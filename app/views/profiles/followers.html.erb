@@ -7,7 +7,12 @@
 </div>
 
 <div id="follow_list_wrap">
-
-	<%= render :partial => "followers" %>       
+	 <% if @followers.count > 0 %>
+		<%= render :partial => "followers" %>
+	<% else %>
+	    <div class="none_message">
+	        No Followers Yet
+	    </div>
+	<% end %>   
 
 </div>
