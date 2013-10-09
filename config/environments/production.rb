@@ -74,7 +74,4 @@ LLF::Application.configure do
     }
   }
 
-  $ heroku config:set AWS_BUCKET=llf_assets
-  $ heroku config:set AWS_ACCESS_KEY_ID=AKIAIBFA6AJ65UCH4MTA
-  $ heroku config:set AWS_SECRET_ACCESS_KEY=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
 end
