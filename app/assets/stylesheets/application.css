@@ -11,3 +11,6 @@
  *= require_self
  *= require_tree .
  */
+.act_content {
+	padding: 8px 0 8px 0;
+}

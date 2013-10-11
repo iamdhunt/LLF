@@ -5,9 +5,9 @@ class ProfilesController < ApplicationController
   def show
   	@status = Status.new
     @status.build_document
-  	@member = Member.find_by_user_name(params[:id])
-    following_ids = current_member.following_members.map(&:id)
+  	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member 
+      following_ids = current_member.following_members.map(&:id)
   		@follow_statuses = Status.where(member_id: following_ids).order("created_at DESC")
       @my_statuses = current_member.statuses.order('created_at desc')
       @statuses = @follow_statuses + @my_statuses

@@ -54,6 +54,7 @@ class MediaController < ApplicationController
 
     respond_to do |format|
       if @medium.save
+        current_member.create_activity(@medium, 'created')
         format.html { redirect_to profile_media_path(current_member), notice: 'Media was successfully uploaded.' }
         format.json { render json: @medium, status: :created, location: @medium }
       else

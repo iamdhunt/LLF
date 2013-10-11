@@ -1,0 +1,5 @@
+.activity [class^="icon-"],
+[class*=" icon-"] {
+	line-height: 0;
+	vertical-align: 50%;
+}

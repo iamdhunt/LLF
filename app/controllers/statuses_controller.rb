@@ -54,6 +54,7 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
+        current_member.create_activity(@status, 'created')
         format.html { redirect_to :back }
         format.json 
       else

@@ -1,0 +1,15 @@
+	<div>
+		<span class="status_name">
+			<%= link_to activity.member.user_name, profile_path(activity.member) %>
+		</span> 
+		<span>
+			is now following <%= link_to activity.targetable.following_member.user_name, "#" %>
+		</span> 
+		<span class="meta">
+			<%= time_ago_in_words(activity.targetable.created_at) %> 
+		</span>
+	</div>
+
+	<div class="act_content">
+		<%= follow_profile_link activity.targetable.following_member %>
+	</div>

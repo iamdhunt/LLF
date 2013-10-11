@@ -1,5 +1,7 @@
 LLF::Application.routes.draw do
 
+  resources :activities, only: [:index] 
+
   resources :media
 
   match '/spotlights' => 'pages#spotlights'

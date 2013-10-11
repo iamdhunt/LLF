@@ -1,0 +1,9 @@
+<div>
+	<span class="status_name">
+		<%= link_to activity.member.user_name, profile_path(activity.member) %></span> <span>wrote a <%= link_to "Post", profile_stream_path(activity.member) %></span> <span class="meta"> <%= time_ago_in_words(activity.targetable.created_at) %>
+	</span>
+</div>
+
+<div class="act_content">
+	<%= activity.targetable.content %>
+</div>

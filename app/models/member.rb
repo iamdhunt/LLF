@@ -97,6 +97,7 @@ class Member < ActiveRecord::Base
 
   has_many :medium
   has_many :statuses
+  has_many :activities
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable
@@ -115,6 +116,13 @@ class Member < ActiveRecord::Base
     user_name
   end 
 
+  def create_activity(item, action)
+    activity = activities.new
+    activity.targetable = item
+    activity.action = action 
+    activity.save 
+    activity
+  end 
 
   private
 
