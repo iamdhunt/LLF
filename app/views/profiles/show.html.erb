@@ -60,8 +60,8 @@
     <!--/act_update-->
 
     <div id="activity_wrap">
-        <% if @statuses.count > 0 %>
-    	   <%= render :partial => "profiles/statuses" %>
+        <% if @activities.count > 0 %>
+    	   <%= render :partial => "activities/activities" %>
         <% else %>
             <div class="none_message">
                 No Posts Yet

@@ -7,3 +7,9 @@
 <div class="act_content">
 	<%= link_to image_tag(activity.targetable.asset.url(:medium), class: ''), medium_path(activity.targetable_id) %>
 </div>
+
+<% if activity.targetable.caption? %>
+	<div class="media_act_cap">
+		<%= activity.targetable.caption %>
+	</div> 
+<% end %>

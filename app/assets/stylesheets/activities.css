@@ -3,3 +3,9 @@
 	line-height: 0;
 	vertical-align: 50%;
 }
+.media_act_cap {
+	font-size: .8em;
+	font-style: oblique;
+	color: #898989;
+	padding: 3px 0;
+}

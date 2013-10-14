@@ -8,11 +8,10 @@ class ProfilesController < ApplicationController
   	@member = Member.find_by_user_name(params[:id]) 
     following_ids = current_member.following_members.map(&:id)
   	if @member == current_member       
-      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
-      @statuses.sort_by(&:created_at)
+      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
   		render action: :show
   	elsif @member 
-      @statuses = @member.statuses.order('created_at desc').all
+      @activities = @member.activities.order("created_at desc").all
       render action: :show
     else 
   		render file: 'public/404', status: 404, formats: [:html]
@@ -25,10 +24,10 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
+      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     elsif @member 
-      @statuses = @member.statuses.order('created_at desc').all
+      @activities = @member.activities.order("created_at desc").all
       render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -40,7 +39,7 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @statuses = @member.statuses.order('created_at desc').all
+      @activities = @member.activities.order("created_at desc").all
       render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -53,7 +52,7 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
+      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     else 
       redirect_to profile_stream_path(@member)
