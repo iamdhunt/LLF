@@ -6,7 +6,6 @@ class FollowsController < ApplicationController
     	@member = Member.find_by_user_name(params[:member_id])
     	@follow_member = current_member.follow(@member)
     	if @follow_member
-	    	current_member.create_activity(@follow_member, 'followed')
 	    	respond_to do |format|
 		      format.html { redirect_to @member }
 		      format.js 

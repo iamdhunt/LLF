@@ -1,6 +1,6 @@
 LLF::Application.routes.draw do
 
-  resources :activities, only: [:index] 
+  resources :activities, only: [:index, :destroy] 
 
   resources :media
 

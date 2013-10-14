@@ -82,6 +82,10 @@ class MediaController < ApplicationController
   # DELETE /media/1
   # DELETE /media/1.json
   def destroy
+    @activity = Activity.find_by_targetable_id(params[:id])
+    if @activity
+      @activity.destroy
+    end 
     @medium.destroy
 
     respond_to do |format|

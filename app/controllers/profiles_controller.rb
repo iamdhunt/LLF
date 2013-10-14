@@ -6,11 +6,9 @@ class ProfilesController < ApplicationController
   	@status = Status.new
     @status.build_document
   	@member = Member.find_by_user_name(params[:id]) 
-  	if @member == current_member 
-      following_ids = current_member.following_members.map(&:id)
-  		@follow_statuses = Status.where(member_id: following_ids).order("created_at DESC")
-      @my_statuses = current_member.statuses.order('created_at desc')
-      @statuses = @follow_statuses + @my_statuses
+    following_ids = current_member.following_members.map(&:id)
+  	if @member == current_member       
+      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       @statuses.sort_by(&:created_at)
   		render action: :show
   	elsif @member 
@@ -27,7 +25,7 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.where(member_id: following_ids).order("created_at DESC")
+      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     elsif @member 
       @statuses = @member.statuses.order('created_at desc').all
@@ -55,7 +53,7 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
-      @statuses = Status.where(member_id: following_ids).order("created_at DESC")
+      @statuses = Status.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     else 
       redirect_to profile_stream_path(@member)

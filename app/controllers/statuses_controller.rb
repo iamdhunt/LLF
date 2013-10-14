@@ -85,7 +85,10 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
- 
+    @activity = Activity.find_by_targetable_id(params[:id])
+    if @activity
+      @activity.destroy
+    end 
     @status.destroy
 
     respond_to do |format|
