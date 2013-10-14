@@ -37,14 +37,15 @@
         <div id="media_list_wrap">
         	<%= render :partial => "media" %>       
         </div>
+
+        <div class="load_more">
+            <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+        </div>       
     <% else %>
         <div class="none_message">
             No Media Yet
         </div>
     <% end %>
 
-    <div class="load_more">
-        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
-    </div>
     
 <!--/activity_wrap-->
