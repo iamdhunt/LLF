@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
 
-  before_filter :authenticate_member!, only: [:destroy]
+  before_filter :authenticate_member!
   before_filter :find_activity, only: [:destroy]
 
   def index

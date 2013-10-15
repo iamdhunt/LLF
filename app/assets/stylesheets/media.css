@@ -24,6 +24,7 @@
 	font-style: oblique;
 	color: #898989;
 	padding: 3px 9px;
+	text-align: center;
 }
 
 .view_caption {
@@ -62,8 +63,6 @@
 	padding: 4px;
 	line-height: 20px;
 	width: 188px;
-	border: 1px solid #ddd;
-	background-image: url('/assets/Container BG.png');
 	margin-bottom: 5px;
 	position: relative;
 }

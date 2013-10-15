@@ -3,9 +3,87 @@
 	line-height: 0;
 	vertical-align: 50%;
 }
+#activity_stream_wrap {
+	position: relative;
+	padding: 10px 5px;
+}
 .media_act_cap {
 	font-size: .8em;
 	font-style: oblique;
 	color: #898989;
 	padding: 3px 0;
+	text-align: center;
+}
+.list_act_wrap {
+	width: 314px;
+	position: relative;
+	margin-bottom: 10px;
+}
+.act_status_top {
+	border-bottom: 5px solid #d4d4d4;
+}
+.act_media_top {
+	border-bottom: 5px solid #F7803C;
+}
+.act_media_content {
+	text-align: center;
+	padding: 8px 0;
+}
+.act_av {
+	padding: 3px 5px;
+	-webkit-border-radius: 25px; /* Saf3+, Chrome */
+	border-radius: 25px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+.act_name {
+	font-weight: bold;
+	font-size: 1em;
+	position: absolute;
+	top: 10px;
+}
+.act_name a:hover {
+	text-decoration: none;
+}
+.act_attachment {
+	text-align: center;
+}
+.act_status_top .meta {
+	float: right;
+	padding: 0 5px 0 5px;
+	margin-top: 14px;
+}
+.act_media_top .meta {
+	float: right;
+	padding: 0 5px 0 5px;
+	margin-top: 14px;
+}
+.act_content {
+	padding: 5px;
+}
+.act_delete {
+	float: right;
+	margin-top: 12px;
+	padding: 0 5px 0 0;
+	display: none;
+}
+.list_act_wrap:hover .act_delete {
+	display: inline;
+}
+.act_title {
+	font-size: .9em;
+	margin: .867em 0 0 0;
+}
+.act_media_top .med a {
+	color: #F7803C;
+	font-weight: bold;
+}
+.act_media_top .med a:hover {
+	text-decoration: none;
+}
+.act_status_top .stat a {
+	color: #49afcd;
+	font-weight: bold;
+}
+.act_status_top .stat a:hover {
+	text-decoration: none;
 }

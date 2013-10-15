@@ -1,13 +1,35 @@
-<div>
-	<span class="status_name">
-		<%= link_to activity.member.user_name, profile_path(activity.member) %></span> <span class="meta"> <%= time_ago_in_words(activity.targetable.created_at) %>
-	</span>
-</div>
+<div class="list_act_wrap">
 
-<div class="act_content">
-	<%= activity.targetable.content %>
-</div>
+	<div class="act_status_top">
+		<span class="">
+			<%= avatar_profile_link activity.member, :class => "act_av" %>
+		</span>
 
-<div>
-    <%= status_document_link activity.targetable %>
+		<span class="act_name">
+			<%= link_to activity.member.user_name, profile_path(activity.member) %>
+		</span>
+
+		<% if activity.member == current_member %>
+			<div class="act_delete">
+			    <%= link_to image_tag("delete-6-icon.png"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		<% end %>
+
+		<span class="meta"> 
+			<%= time_ago_in_words(activity.targetable.created_at) %>
+		</span>
+
+		<span class="act_title stat">
+			wrote a new <%= link_to 'Post', profile_path(activity.member) %>
+		</span>
+	</div>
+
+	<div class="act_content">
+		<%= activity.targetable.content %>
+	</div>
+
+	<div class="act_attachment">
+	    <%= status_document_link activity.targetable %>
+	</div>
+
 </div>

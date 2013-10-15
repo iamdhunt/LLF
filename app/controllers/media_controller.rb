@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
 
-  before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_filter :find_member
   before_filter :find_media, only: [:edit, :update, :destroy]
 

@@ -103,7 +103,7 @@ class Member < ActiveRecord::Base
   acts_as_ordered_taggable
   acts_as_ordered_taggable_on :pursuits
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", follow: "175x175#", thumb: "60x60#", av: "200x200#"}
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", av: "200x200#"}
 
   validates_attachment_size :avatar, :less_than=>10.megabyte
   validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']

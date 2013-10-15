@@ -1,15 +1,39 @@
-<div>
-	<span class="status_name">
-		<%= link_to activity.member.user_name, profile_path(activity.member) %></span> <span class="meta"> <%= time_ago_in_words(activity.targetable.created_at) %>
-	</span>
-</div>
+<div class="list_act_wrap">
 
-<div class="act_content">
-	<%= link_to image_tag(activity.targetable.asset.url(:medium), class: ''), medium_path(activity.targetable_id) %>
-</div>
+	<div class="act_media_top">
+		<span class="">
+			<%= avatar_profile_link activity.member, :class => "act_av" %>
+		</span>
 
-<% if activity.targetable.caption? %>
-	<div class="media_act_cap">
-		<%= activity.targetable.caption %>
-	</div> 
-<% end %>
+		<span class="act_name">
+			<%= link_to activity.member.user_name, profile_path(activity.member) %> 
+		</span>
+
+		<% if activity.member == current_member %>
+			<div class="act_delete">
+			    <%= link_to image_tag("delete-6-icon.png"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
+			</div>
+		<% end %> 
+
+		<span class="meta"> 
+			<%= time_ago_in_words(activity.targetable.created_at) %>
+		</span>
+
+		<span class="act_title med">
+			uploaded new <%= link_to 'Media', profile_media_path(activity.member) %>
+		</span>
+	</div>
+
+	<div class="act_media_content">
+		<%= link_to image_tag(activity.targetable.asset.url(:activity), class: ''), medium_path(activity.targetable_id) %>
+	</div>
+
+	<% if activity.targetable.caption? %>
+		<div class="media_act_cap">
+			<%= activity.targetable.caption %>
+		</div> 
+	<% end %>
+
+	
+
+</div>

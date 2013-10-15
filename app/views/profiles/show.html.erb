@@ -59,20 +59,18 @@
 
     <!--/act_update-->
 
-    <div id="activity_wrap">
+    <div id="activity_stream_wrap">
         <% if @activities.count > 0 %>
-    	   <%= render :partial => "activities/activities" %>
-
-           <div class="load_more">
-                <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
-           </div>
+    	   <%= render :partial => "activities/activities" %>         
         <% else %>
             <div class="none_message">
                 No Posts Yet
             </div>
         <% end %>    
-
-        <div style="clear: both;"></div>
     </div>
+
+    <div class="load_more">
+        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+   </div>
 
 <!--/activity_wrap-->

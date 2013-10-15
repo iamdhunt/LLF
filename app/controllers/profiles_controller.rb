@@ -6,8 +6,8 @@ class ProfilesController < ApplicationController
   	@status = Status.new
     @status.build_document
   	@member = Member.find_by_user_name(params[:id]) 
-    following_ids = current_member.following_members.map(&:id)
   	if @member == current_member       
+      following_ids = current_member.following_members.map(&:id)
       @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
   		render action: :show
   	elsif @member 
@@ -22,8 +22,8 @@ class ProfilesController < ApplicationController
     @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
-    following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
+      following_ids = current_member.following_members.map(&:id)
       @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     elsif @member 
@@ -50,8 +50,8 @@ class ProfilesController < ApplicationController
     @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
-    following_ids = current_member.following_members.map(&:id)
     if @member == current_member 
+      following_ids = current_member.following_members.map(&:id)
       @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
       render action: :show
     else 

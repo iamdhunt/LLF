@@ -86,8 +86,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
-	background-image: url('/assets/Background 4.png');
-	background-repeat: repeat;
+	background: #fff;
 	padding: 1;
 	margin: 0;
 }
