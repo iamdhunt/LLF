@@ -69,7 +69,9 @@
         <% end %>    
     </div>
 
-    <div class="load_more">
+    <%= will_paginate @activities %>
+
+    <div class="load_more" style="display:none;">
         <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
    </div>
 

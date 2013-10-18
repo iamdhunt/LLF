@@ -11,6 +11,8 @@ gem "acts_as_follower", '~> 0.1.1'
 gem 'js-routes'
 gem 'acts-as-taggable-on'
 gem 'aws-sdk'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 group :development, :test do
 	gem 'shoulda'

@@ -11,7 +11,7 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.order('created_at desc').all
+    @media = Medium.order('created_at desc').page(params[:page]).per_page(25)
 
     respond_to do |format|
       format.html # index.html.erb

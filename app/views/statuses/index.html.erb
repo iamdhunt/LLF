@@ -2,43 +2,17 @@
 
 <div id ="main_wrap">
 
-	<div id="activity_wrap"> 
+		<h1>Statuses</h1>
 
-		<h1>Stream</h1>
+			<%= link_to 'Post to Stream', profile_path(current_member), :class => 'btn btn-info' %>
 
-			<%= link_to 'Post a New Item', new_status_path, :class => 'btn btn-info' %>
-
-			<% @statuses.each do |status| %>
-				<div class="status">
-	                <div class="row">
-	                    <div class="span1">
-	                        Avatar
-	                    </div> 
-	                    <div class="span7">
-	        				<div class="status_name"><%= link_to status.member.user_name, profile_path(status.member) %></div>
-	        				<div class="content"><%= status.content %></div>
-	        				<div>
-	        					<%= status_document_link(status) %>
-	        				</div> 
-	        				<div class="meta">
-	        			    	<%= time_ago_in_words(status.created_at) + " ago" %>
-	        			    </div>
-	        			    <% if status.member == current_member %>
-		        			    <span class="ad_item">
-		        				    <%= link_to 'Delete', status, method: :delete, data: { confirm: 'Are you sure?' } %>
-		        				</span>
-	        				<% end %>
-	                    </div>
-	                </div> 
-				</div>
-			<% end %> 
-
-		<br />
-
-	<div style="clear: both;"></div>
-	</div>
+			<div id="statuses">
+				<%= render partial: 'statuses' %>
+			</div>
 
 	<!--/activity_wrap-->
+
+	<%= will_paginate @statuses %>
 
 </div>
 

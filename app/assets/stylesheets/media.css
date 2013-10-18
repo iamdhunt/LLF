@@ -1,6 +1,5 @@
 #media_list_wrap {
-	color: #333;
-	padding: 5px;
+	padding: 10px 0 0 5px;
 	position: relative;
 }
 #add_new {
@@ -59,22 +58,19 @@
 }
 
 .media {
-	display: block;
-	padding: 4px;
-	line-height: 20px;
 	width: 188px;
-	margin-bottom: 5px;
 	position: relative;
+	margin-bottom: 10px;
 }
 
 .delete_label {
 	position: absolute;
-	top: 7px;
-	right: 7px;
+	top: 12px;
+	right: 5px;
 	display: none;
 }
 
-.media:hover .delete_label {
+.list_act_wrap:hover .delete_label {
 	display: inline;
 }
 
@@ -86,4 +82,12 @@
 .cap_remain {
 	font-weight: bold;
 	font-size: 1.1em;
+}
+#media_list_wrap .list_act_wrap {
+	width: 188px;
+	position: relative;
+	margin-bottom: 16px;
+}
+#media_list_wrap .act_name {
+	top: 12px;
 }

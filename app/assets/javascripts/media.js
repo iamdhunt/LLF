@@ -8,7 +8,7 @@ $(document).ready(function(){
 	    masonry: {
 		    columnWidth: 192
 		  },
-		  itemSelector: '.media',
+		  itemSelector: '.list_act_wrap',
 	  });
 	});
 

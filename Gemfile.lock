@@ -38,6 +38,8 @@ GEM
       nokogiri (>= 1.4.4, < 1.6.0)
       uuidtools (~> 2.1)
     bcrypt-ruby (3.1.2-x86-mingw32)
+    bootstrap-will_paginate (0.0.10)
+      will_paginate
     builder (3.0.4)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -77,6 +79,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.0)
+    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -145,6 +148,7 @@ GEM
     uuidtools (2.1.4)
     warden (1.2.3)
       rack (>= 1.0)
+    will_paginate (3.0.5)
 
 PLATFORMS
   x86-mingw32
@@ -153,6 +157,7 @@ DEPENDENCIES
   acts-as-taggable-on
   acts_as_follower (~> 0.1.1)
   aws-sdk
+  bootstrap-will_paginate
   coffee-rails (~> 3.2.1)
   devise
   factory_girl_rails
@@ -166,3 +171,4 @@ DEPENDENCIES
   simple_form
   sqlite3
   uglifier (>= 1.0.3)
+  will_paginate

@@ -1,20 +1,21 @@
+<% @media.each do |medium| %>
 
-  <% @media.each do |medium| %>
-      <div class="media">
+  <div class="list_act_wrap">
+    <div class="act_media_content">
+      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium %>
+    </div>
 
-        <%= link_to image_tag(medium.asset.url(:list)), medium %>
+    <% if medium.caption? %>
+      <div class="media_act_cap">
+        <%= medium.caption %>
+      </div> 
+    <% end %>
 
-        <% if medium.caption? %>
-          <div class="media_cap">
-            <%= medium.caption %>
-          </div>
-        <% end %> 
-
-        <% if can_edit_medium?(medium) %>
-          <div>
-            <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
-          </div>
-        <% end %>
-
+    <% if can_edit_medium?(medium) %>
+      <div>
+        <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
+    
+<% end %>

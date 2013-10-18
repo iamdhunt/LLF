@@ -2,28 +2,18 @@
 
 <div id ="main_wrap">
 
-	<% @activities.each do |activity| %>
-		<div class="status">
-	            <div class="row">
-	                <div class="span1 stream_av">
-	                    <%= avatar_profile_link activity.member %>
-	                </div> 
-	                <div class="span7">
+	<h1>Activity Stream</h1>
 
-	    				<%= render partial: "activities/#{activity.targetable_type.underscore}/#{activity.action}",
-	    					locals: { activity: activity } %>
+	<%= link_to 'Post to Stream', profile_path(current_member), :class => 'btn btn-info' %>
 
-	    				<% if activity.member == current_member %>
-		    				<div class="meta">
-	        				    <%= link_to 'Delete', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
-	        				</div>
-	        			<% end %>
-	                    
-	                </div>
-	            </div> 
-			</div>
-	<% end %> 
+	<div id="activity_stream_wrap">		
+			<%= render partial: "activities" %>
+	</div>
+
+	<%= will_paginate @activities %>
 
 </div>
+
+
 
 <!--/main_wrap-->

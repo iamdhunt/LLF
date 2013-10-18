@@ -12,11 +12,11 @@ class StatusesController < ApplicationController
   # GET /statuses
   # GET /statuses.json
   def index
-    @statuses = Status.order('created_at desc').all
+    @statuses = Status.order('created_at desc').page(params[:page]).per_page(21)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @statuses }
+      format.js
     end
   end
 

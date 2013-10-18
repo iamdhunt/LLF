@@ -1,0 +1,7 @@
+$('#statuses').append('<%= j render("statuses") %>');
+<% if @statuses.next_page %>
+	$('.pagination').replaceWith('<%= j will_paginate(@statuses) %>');
+<% else %>
+	$('.pagination').remove();
+<% end %>
+<% sleep 1 %>

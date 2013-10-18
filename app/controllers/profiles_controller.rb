@@ -7,11 +7,11 @@ class ProfilesController < ApplicationController
     @status.build_document
   	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member       
-      following_ids = current_member.following_members.map(&:id)
-      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
+      params[:page] ||= 1
+      @activities = Activity.for_member(current_member, params)
   		render action: :show
   	elsif @member 
-      @activities = @member.activities.order("created_at desc").all
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(21)
       render action: :show
     else 
   		render file: 'public/404', status: 404, formats: [:html]
@@ -23,11 +23,11 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member 
-      following_ids = current_member.following_members.map(&:id)
-      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
+      params[:page] ||= 1
+      @activities = Activity.for_member(current_member, params)
       render action: :show
     elsif @member 
-      @activities = @member.activities.order("created_at desc").all
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(21)
       render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @activities = @member.activities.order("created_at desc").all
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(21)
       render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -51,22 +51,11 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member 
-      following_ids = current_member.following_members.map(&:id)
-      @activities = Activity.where("member_id in (?)", following_ids.push(current_member.id)).order("created_at desc").all
+      params[:page] ||= 1
+      @activities = Activity.for_member(current_member, params)
       render action: :show
     else 
       redirect_to profile_stream_path(@member)
-    end
-  end
-
-  def media
-    @medium = Medium.new
-    @member = Member.find_by_user_name(params[:id])
-    if @member 
-      @media = @member.medium.order('created_at desc').all 
-      render action: :media
-    else
-      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 
@@ -84,7 +73,7 @@ class ProfilesController < ApplicationController
     @medium = Medium.new
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @media = @member.medium.order('created_at desc').all 
+      @media = @member.medium.order('created_at desc').page(params[:page]).per_page(25) 
       render action: :media
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -93,8 +82,8 @@ class ProfilesController < ApplicationController
 
   def followers
     @member = Member.find_by_user_name(params[:id])
-    @followers = @member.followers
-    if @member  
+    if @member 
+      @followers = @member.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
       render action: :followers
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -103,7 +92,7 @@ class ProfilesController < ApplicationController
 
   def following
     @member = Member.find_by_user_name(params[:id])
-    @following = @member.following_by_type('Member')
+    @following = @member.following_members(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
     if @member  
       render action: :following
     else
