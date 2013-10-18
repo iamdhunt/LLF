@@ -38,7 +38,7 @@
         	<%= render :partial => "media" %>       
         </div>
 
-        <div class="load_more" style="display:none;">
+        <div class="load_more" id="load_arrow">
             <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
         </div>       
     <% else %>
@@ -47,7 +47,7 @@
         </div>
     <% end %>
 
-    <%= will_paginate @media %>
+    <%= will_paginate @media, class: 'display_none' %>
 
     
 <!--/activity_wrap-->
