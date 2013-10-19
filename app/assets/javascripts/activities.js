@@ -15,10 +15,14 @@ $(document).ready(function(){
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
 	    itemSelector : '#activity_stream_wrap .list_act_wrap',     // selector for all items you'll retrieve
 	    loading: {
-	        finishedMsg: '',
-	        img: 'data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
-	        msgText: ''
-	      }
+	       	selector: '#loading',
+	    	finishedMsg: '',
+	        img: '/assets/ajax-loader (7).gif',
+	        msgText: '',
+	      },
+	      errorCallback : function () { 
+	     	$('#load-arrow').fadeOut(); 
+	     }
 	    },
 
 	    function( newElements ) {
@@ -32,10 +36,9 @@ $(document).ready(function(){
 
 	$(window).unbind('.infscr');
 
-		$("#load_arrow").click(function(){
-			$(".load_arrow").attr('src',"/assets/ajax-loader (7).gif").delay(800);
-	    	$('#activity_stream_wrap').infinitescroll('retrieve');
-	        	return false;
+	$("#load-arrow").click(function(){
+    	$('#activity_stream_wrap').infinitescroll('retrieve');
+        	return false;
 	});
 
 	
