@@ -12,9 +12,6 @@
 
 <%= will_paginate @following, class: 'display_none' %>
 
-<% if @following.total_pages != @following.current_page %>
-    <div id="loading"></div>
-    <div class="load_more" id="load-arrow">
-        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "" %>
-    </div>
-<% end %>
+<div class="load_more" id="load_arrow">
+    <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+</div>

@@ -36,7 +36,11 @@
     <% if @media.count > 0 %>
         <div id="media_list_wrap">
         	<%= render :partial => "media" %>       
-        </div>      
+        </div>
+
+        <div class="load_more" id="load_arrow">
+            <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+        </div>       
     <% else %>
         <div class="none_message">
             No Media Yet
@@ -44,13 +48,6 @@
     <% end %>
 
     <%= will_paginate @media, class: 'display_none' %>
-
-    <% if @media.total_pages != @media.current_page %>
-        <div id="loading"></div>
-        <div class="load_more" id="load-arrow">
-            <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "" %>
-        </div>
-    <% end %>
 
     
 <!--/activity_wrap-->
