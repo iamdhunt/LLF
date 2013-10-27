@@ -10,7 +10,14 @@
 			<%= render partial: "activities" %>
 	</div>
 
-	<%= will_paginate @activities %>
+	<%= will_paginate @activities, class: 'display_none' %>
+
+	<% if @activities.total_pages != @activities.current_page %>
+		<div id="loading"></div>
+		<div class="load_more" id="load-arrow">
+	        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "" %>
+	   	</div>
+	<% end %>
 
 </div>
 
