@@ -815,7 +815,6 @@ hr.contact {
 	color:#898989;
 	font-weight: bold; 
 	font-size: 1.3em;
-	text-align: center;
 }
 
 .forms::-moz-placeholder { 
@@ -1897,4 +1896,10 @@ hr.contact {
     display: none;
     text-indent:-9999px;
     background: url('icon_top.png') no-repeat;
+}
+#loading {
+	margin-left: 50%;
+}
+.display_none {
+	display: none;
 }

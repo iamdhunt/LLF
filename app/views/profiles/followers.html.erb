@@ -10,4 +10,11 @@
 	<%= render :partial => "followers" %>       
 </div>
 
-<%= will_paginate @followers %>
+<%= will_paginate @followers, class: 'display_none' %>
+
+<% if @followers.total_pages != @followers.current_page %>
+    <div id="loading"></div>
+    <div class="load_more">
+        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow") %>
+    </div>
+<% end %>

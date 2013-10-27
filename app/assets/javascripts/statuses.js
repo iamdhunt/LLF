@@ -15,10 +15,14 @@ $(document).ready(function(){
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
 	    itemSelector : '#statuses .list_act_wrap',     // selector for all items you'll retrieve
 	    loading: {
+	    	selector: '#loading',
 	    	finishedMsg: '',
 	        img: '/assets/ajax-loader (7).gif',
 	        msgText: '',
 	      },
+	      errorCallback : function () { 
+	     	$('.load_arrow').fadeOut(); 
+	     }
 	    },
 
 	    function( newElements ) {

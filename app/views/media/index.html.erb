@@ -12,13 +12,16 @@
       <%= render partial: 'media' %>
     </div>
 
-  <div class="load_more" style="display:none;">
-      <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
-  </div>
-
 <!--/activity_wrap-->
 
-  <%= will_paginate @medium %>
+  <%= will_paginate @medium, class: 'display_none' %>
+
+  <% if @media.total_pages != @media.current_page %>
+    <div id="loading"></div>
+    <div class="load_more">
+          <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow") %>
+      </div>
+  <% end %>
 
 </div>
 
