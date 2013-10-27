@@ -1,8 +1,4 @@
-$boxes = $('<%= j render("activities/activities") %>')
-
-$('#activity_stream_wrap').append( $boxes ).imagesLoaded( function(){
-  $('#activity_stream_wrap').isotope( 'reload');
-});
+$('#act_index').append('<%= j render ("activities/activities") %>');
 <% if @activities.next_page %>
 	$('.pagination').replaceWith('<%= j will_paginate(@activities) %>');
 <% else %>

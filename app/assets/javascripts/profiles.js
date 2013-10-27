@@ -8,7 +8,7 @@ $(document).ready(function(){
 	var text_max = 280;
 
 	$update.focus(function(){
-		$(this).animate({'height': '100px'}, 'slow' );
+		$(this).animate({'height': '70px'}, 'slow' );
 		$buttons.css({ 
 			"display": "block", 
 			"opacity": "0" 

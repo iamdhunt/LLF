@@ -11,46 +11,45 @@
 	padding: 5px;
 	position: relative;
 }
-.follow_item_wrap {	
+#follow_item_wrap {	
 	width: 160px;
 	overflow: hidden;
 	text-align: center;
 	margin-bottom: 7px;
 }
-.follow_item_wrap .name {
+#follow_item_wrap .name {
 	color: #4a4a4a;
 	font-size: 1.4em;
 	padding: 4px 0 0 0;
 }
-.follow_item_wrap .username {
+#follow_item_wrap .username {
 	color: #942fc6;
 	font-size: 1.1em;
 	padding: 0 0 7px 0;
 }
-.follow_item_wrap .pursuits {
+#follow_item_wrap .pursuits {
 	font-size: .85em;
-	padding-bottom: 3px;
 }
-.follow_item_wrap .pursuits a {
+#follow_item_wrap .pursuits a {
 	color: #333;
 }
-.follow_item_wrap .pursuits a:hover {
+#follow_item_wrap .pursuits a:hover {
 	text-decoration: none;
 	color: #6d6d6d;
 }
-.follow_item_wrap .btn {
+#follow_item_wrap .btn {
 	font-size: 13px;
 	padding: 2px 6px;
 }
-.follow_item_wrap .button {
+#follow_item_wrap .button {
 	padding: 5px 0;
 }
-.follow_item_wrap img {
+#follow_item_wrap img {
 	-webkit-border-radius: 80px; /* Saf3+, Chrome */
 	border-radius: 80px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
-.follow_item_wrap .avatar {
+#follow_item_wrap .avatar {
 	padding: 5px;
 }
 #follow_title {

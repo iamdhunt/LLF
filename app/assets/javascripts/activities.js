@@ -10,36 +10,5 @@ $(document).ready(function(){
 	  });
 	});
 
-	$container.infinitescroll({
-	    navSelector  : '.pagination',    // selector for the paged navigation 
-	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#activity_stream_wrap .list_act_wrap',     // selector for all items you'll retrieve
-	    loading: {
-	       	selector: '#loading',
-	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
-	        msgText: '',
-	      },
-	      errorCallback : function () { 
-	     	$('#load-arrow').fadeOut(); 
-	     }
-	    },
-
-	    function( newElements ) {
-	      var $newElems = $( newElements ).css({ opacity: 0 });
-	      $newElems.imagesLoaded(function(){
-	        $newElems.animate({ opacity: 1 });
-	        $container.isotope( 'appended', $newElems, true ); 
-	      });
-	    }
-	  );
-
-	$(window).unbind('.infscr');
-
-	$("#load-arrow").click(function(){
-    	$('#activity_stream_wrap').infinitescroll('retrieve');
-        	return false;
-	});
-
 	
 });

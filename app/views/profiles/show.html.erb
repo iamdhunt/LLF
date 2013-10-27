@@ -69,13 +69,10 @@
         <% end %>    
     </div>
 
-    <%= will_paginate @activities, class: 'display_none' %>
+    <%= will_paginate @activities %>
 
-    <% if @activities.total_pages != @activities.current_page %>
-        <div id="loading"></div>
-        <div class="load_more" id="load-arrow">
-            <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "" %>
-        </div>
-    <% end %>
+    <div class="load_more" style="display:none;">
+        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow"), "#" %>
+   </div>
 
 <!--/activity_wrap-->

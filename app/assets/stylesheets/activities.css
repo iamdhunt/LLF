@@ -31,8 +31,8 @@
 }
 .act_av {
 	padding: 3px 5px;
-	-webkit-border-radius: 30px; /* Saf3+, Chrome */
-	border-radius: 30px; /* Opera 10.5, IE 9 */
+	-webkit-border-radius: 35px; /* Saf3+, Chrome */
+	border-radius: 35px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
 .act_name {
