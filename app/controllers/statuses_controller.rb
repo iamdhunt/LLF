@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_status, only: [:edit, :update, :destroy, :show]
+  before_filter :find_status, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -23,7 +23,7 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-   
+    @status = Status.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.json { redirect_to profile_path(current_member) }

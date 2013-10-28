@@ -23,7 +23,11 @@
     </div>
 
     <div class="act_media_content">
-      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium %>
+      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'media_gall' %>
+    </div>
+
+    <div id="fancyboxTitles" style="display: none;">
+        <div><%= medium.caption %></div>
     </div>
 
     <% if medium.caption? %>

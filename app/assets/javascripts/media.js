@@ -58,4 +58,25 @@ $(document).ready(function(){
 		};
 	});
 
+	$(".fancybox").fancybox({
+		minHeight: 400,
+		beforeShow: function(){
+		   	this.title = $("#fancyboxTitles div").eq(this.index).html();
+		},
+		helpers: {
+		   title : {
+		    type : 'over'
+		   }
+		},
+		afterShow: function() {
+	        var imageWidth = $(".fancybox-image").width();
+	        $(".fancybox-title-over-wrap").css({
+	            "width": imageWidth,
+	            "paddingLeft": 0,
+	            "paddingRight": 0,
+	            "textAlign": "center"
+	        });
+	    }
+	});
+
 });

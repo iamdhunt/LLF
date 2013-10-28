@@ -1903,3 +1903,12 @@ hr.contact {
 .display_none {
 	display: none;
 }
+#spotlights {
+	margin: 0 15%;
+}
+#spotlights img {
+	opacity: .85;
+}
+#spotlights img:hover {
+	opacity: 1;
+}

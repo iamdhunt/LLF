@@ -58,3 +58,6 @@
 #statuses .act_name {
 	top: 12px;
 }
+#status_show {
+	padding: 0 33%;
+}
