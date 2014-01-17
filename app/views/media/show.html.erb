@@ -1,18 +1,41 @@
-<% title "LLF | Media" %>
+<% title @medium.member.full_name + " | Media" %>
 
 <div id="main_wrap">
 
+	 <div class="act_media_top">
+      <span class="">
+        <%= avatar_profile_link @medium.member, :class => "act_av" %>
+      </span>
+
+      <span class="act_name">
+        <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
+      </span>
+
+      <% if @medium.member == current_member %>
+        <div class="act_delete">
+            <%= link_to image_tag("delete-6-icon.png"), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %> 
+
+      <span class="meta"> 
+        <%= time_ago_in_words(@medium.created_at) %>
+      </span>
+    </div>
+
 	<div id="media_show_wrap">
-
 		<%= image_tag(@medium.asset.url(:large), class: 'thumbnail show_media') %>
-
 		<p class="view_caption">
 		  <%= @medium.caption %>
-		</p>
-
+		</p>	
 	</div>
 
 <!--/media_show_wrap-->
+	<% if member_signed_in? %>
+		<div class="media_comment_wrap">
+			<%= render "comment_form" %>
+			<%= render "comments" %>
+		</div>
+	<% end %>
 
 </div>
 

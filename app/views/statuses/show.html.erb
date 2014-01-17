@@ -1,4 +1,4 @@
-<% title @status.member.full_name %>
+<% title @status.member.full_name + " | Post"%>
 
 <div id="main_wrap">
 
@@ -33,6 +33,10 @@
 			<div class="act_attachment">
 			    <%= status_document_link(@status) %>
 			</div>
+			<% if member_signed_in? %>
+				<%= render "comment_form" %>
+				<%= render "comments" %>
+			<% end %>
 
 		</div>
 		

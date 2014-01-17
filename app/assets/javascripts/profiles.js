@@ -7,8 +7,8 @@ $(document).ready(function(){
 	var $dropdown = $('.member_menu');
 	var text_max = 280;
 
-	$update.focus(function(){
-		$(this).animate({'height': '70px'}, 'slow' );
+	$update.one('focus', function(){
+		$(this).autosize();
 		$buttons.css({ 
 			"display": "block", 
 			"opacity": "0" 

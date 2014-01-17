@@ -34,4 +34,12 @@
 		</div> 
 	<% end %>
 
+	<div class="actions_act">
+		<span id="comment_act_btn">
+			<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Comment', medium_path(activity.targetable_id), :class => "btn comment" %>
+			<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Favorite', "#", :class => "btn favorite" %>
+			<%= link_to image_tag("Re-Stream 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Re-Stream', "#", :class => "btn restream" %>
+		</span>
+	</div>
+
 </div>

@@ -13,7 +13,6 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.order('created_at desc').page(params[:page]).per_page(21)
-
     respond_to do |format|
       format.html # index.html.erb
       format.js
@@ -24,6 +23,9 @@ class StatusesController < ApplicationController
   # GET /statuses/1.json
   def show
     @status = Status.find(params[:id])
+    @commentable = @status
+    @comments = @commentable.comments
+    @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { redirect_to profile_path(current_member) }

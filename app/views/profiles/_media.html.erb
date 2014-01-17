@@ -20,6 +20,13 @@
         <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
       </div>
     <% end %>
+
+    <div class="actions_act">
+      <span id="comment_act_btn">
+        <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Comment', medium_path(medium), :class => "btn comment" %>
+        <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Favorite', "#", :class => "btn favorite" %>
+      </span>
+    </div>
   </div>
     
 <% end %>

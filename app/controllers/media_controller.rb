@@ -23,7 +23,9 @@ class MediaController < ApplicationController
   # GET /media/1.json
   def show
     @medium = Medium.find(params[:id])
-
+    @commentable = @medium
+    @comments = @commentable.comments
+    @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @medium }

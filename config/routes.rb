@@ -2,7 +2,9 @@ LLF::Application.routes.draw do
 
   resources :activities, only: [:index, :destroy] 
 
-  resources :media
+  resources :media do
+    resources :comments
+  end 
 
   match '/spotlights' => 'pages#spotlights'
   match '/contests' => 'pages#contests'
@@ -42,7 +44,9 @@ LLF::Application.routes.draw do
       match '/settings' => 'registrations#settings', as: :settings
   end 
 
-
+  resources :statuses do
+    resources :comments
+  end 
 
   resources :statuses
     get 'stream', to: 'statuses#index', as: :stream

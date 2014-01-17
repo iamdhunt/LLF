@@ -51,7 +51,9 @@
 	color: #333;
 	text-align: center;
 }
-
+.media_comment_wrap {
+	padding: 40px 60px;
+}
 #media_show_wrap img {
 	margin-left: auto;
 	margin-right: auto;
