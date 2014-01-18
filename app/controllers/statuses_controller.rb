@@ -88,13 +88,18 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1.json
   def destroy
     @activity = Activity.find_by_targetable_id(params[:id])
+    @commentable = @status
+    @comments = @commentable.comments
     if @activity
       @activity.destroy
+    end
+    if @comments
+      @comments.destroy
     end 
     @status.destroy
 
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to profile_path(current_member) }
       format.json { head :no_content }
     end
   end

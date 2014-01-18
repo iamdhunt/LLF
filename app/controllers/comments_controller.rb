@@ -24,13 +24,14 @@ before_filter :find_member
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    if @comment.destroy
-      redirect_to :back
-    else
-      format.html { redirect_to :back, alert: 'You can\'t delete this comment.' }
-    end
+    respond_to do |format|
+      if @comment.member == current_member || @commentable.member == current_member
+         @comment.destroy
+         format.html { redirect_to :back }
+      else
+         format.html { redirect_to :back, alert: 'You can\'t delete this comment.' }
+      end
+    end 
   end
 
   private

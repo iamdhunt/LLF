@@ -15,6 +15,11 @@ class ActivitiesController < ApplicationController
 
   def destroy
   	@status = @activity.targetable
+    @commentable = @status
+    @comments = @commentable.comments
+    if @status && @comments
+      @comments.destroy
+    end
 		if @status && @activity.targetable_type == 'Status'	
 			@status.destroy
 		end

@@ -4,12 +4,11 @@
 	padding: 10px 5px;
 }
 .comments .meta{
+	float: right;
 }
 .comment_del {
 	float: right;
-	position: absolute;
-	right: 0;
-	top: 40%;
+	padding: 0 0 0 5px;
 	display: none;
 }
 .comments:hover .comment_del {
