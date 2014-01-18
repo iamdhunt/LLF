@@ -15,6 +15,6 @@
 <% if @followers.total_pages != @followers.current_page %>
     <div id="loading"></div>
     <div class="load_more">
-        <%= link_to image_tag("Load More Arrow.png", :class => "load_arrow") %>
+        <%= link_to "Show More", "#", class: 'btn btn-info load_arrow' %>
     </div>
 <% end %>
