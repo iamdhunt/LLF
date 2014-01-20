@@ -46,4 +46,5 @@ $(document).ready(function(){
 		$dropdown.stop().delay(300).slideUp(300);
 		return false;
 	});
+
 });

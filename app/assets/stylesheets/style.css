@@ -143,22 +143,25 @@ table {
 	top: 0;
 	opacity: .9;
 }
-
+#nav_bar .nav_container {
+	width: auto;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
 #nav_bar .primary_nav {
 	float: left;
-	height: 55px;
 	text-decoration: none;
-	margin-left: 2.333em;
+	display: inline-block;
 }
-
+#nav_bar .primary_nav ul li {
+	float: left;
+}
 #nav_bar .primary_nav a {
 	text-decoration: none;
 	color: #898989;
 	font-weight: bold;
 	font-size: 1.1em;
-	display: block;
-	float: left;
-	height: 55px;
 	padding-right: 10px;
 	padding-left: 10px;
 	line-height: 55px;
@@ -168,18 +171,18 @@ table {
 	color: #9327c9;
 }
 
-.nav_links {
-	margin-right: 2.333em;
-}
-
-.nav_links a {
+#nav_bar .nav_links {
 	float: right;
-	height: 55px;
+	text-decoration: none;
+	display: inline-block;
+}
+#nav_bar .nav_links ul li {
+	float: left;
+}
+.nav_links a {
 	line-height: 55px;
 	font-size: 1.1em;
 	font-weight: bold;
-	text-decoration: none;
-	display: block;
 }
 
 .nav_links a:hover {
@@ -192,9 +195,9 @@ table {
 }
 
 .nav_icons {
-	width: 23px;
-	height: 23px;
-	margin: 15px 0 0 10px;
+	width: 26px;
+	height: 26px;
+	margin: 15px 5px 0 10px;
 }
 
 .nav_icons.notifications {
@@ -230,6 +233,13 @@ table {
 	color: #f4f4f4;
 	font-size: 1px;
 	border-radius: 20px;
+}
+.menu_logo {
+	width: 30px;
+	height: 30px;
+	margin-top: 13px;
+	margin-left: 200px;
+	opacity: .8;
 }
 
 /* Content */
@@ -1882,6 +1892,7 @@ hr.contact {
 
 .nav_av {
 	margin-top: 10px;
+	margin-left: 8px;
 	width: 35px;
 	height: 35px;
 	-webkit-border-radius: 30px; /* Saf3+, Chrome */

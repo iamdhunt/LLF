@@ -9,41 +9,7 @@
 </head>
 <body>
 
-
-
-    <div id="nav_bar">  
-       <div class="primary_nav">
-            <% if member_signed_in? %>
-                <%= link_to "Home", profile_path(current_member) %>
-            <% else %>
-                <%= link_to "Home", root_path %>
-            <% end %>
-            <a href="#">Community</a>
-            <a href="#">Events</a>
-            <a href="#">Projects</a>
-            <a href="#">Market</a>
-        </div> 
-
-        <div class="nav_links">
-            <% if member_signed_in? %>
-                <div id="member_menu_wrap">
-                    <%= avatar_profile_link current_member, :class => "nav_av" %>
-                    <%= link_to current_member.full_name, profile_path(current_member), :class => "member_links" %>
-                </div>
-                <%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications"), "#" %>
-                <%= link_to image_tag("Messages.png", :class => "nav_icons messages"), "#" %>
-            <% else %>
-                <%= link_to "Sign In", sign_in_path, :class => "member_links" %>
-                <%= link_to "Join!", join_path, :class => "member_links" %>
-            <% end %>
-        </div>
-
-        <div style="clear:both;"></div>
-    </div>
-
-    <% if member_signed_in? %>
-        <%= render :partial => "profiles/member_menu" %>
-    <% end %>
+<%= render :partial => "layouts/menu" %>
  
 <div id="pagewrap" style="padding-top:60px;">
     <% unless notice.blank? && alert.blank? %>

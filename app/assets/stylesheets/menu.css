@@ -1,57 +1,119 @@
-.member_menu {
-	position: fixed;
-	right: 10px;
-	width: 200px;
-	top: 55px;
-	z-index: 10000;
+.notif {
+	top: 52px;
+	left: -300px;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	border-radius: 7px;
+	border: none;
+	width: 400px;
+}
+.notif .notices {
+	padding: 10px;
+	max-height: 400px;
+	overflow: auto;
+}
+.notif .see_all {
+	font-weight: bold;
+	color: #942fc6;
+	border-top: 1px solid #dddddd;
+	padding: 7px 0;
+}
+.notif li {
+	width: 100%;
+	text-align: center;
+}
+.member {
+	top: 52px;
+	left: -100px;
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	border-radius: 7px;
+	border: none;
+}
+.member li {
+	width: 100%;
+}
+.member li a {
+	padding: 1px 20px;
+}
+.member .menu_name {
+	font-weight: bold;
+	color: #942fc6;
+	font-size: 1.2em;
+}
+.member .sign_out {
+	border-top: 1px solid #dddddd;
+	padding: 7px 20px;
+}
+.member .top_menu {
+	padding: 7px 0;
+	border-bottom: 1px solid #dddddd;
+}
+.member .a {
+	border-bottom: 1px solid #dddddd;
+}
+.member .view_profile {
+	color: #898989;
+	font-size: 12px;
+	padding: 0 20px;
+}
+.member .top_links {
 	font-size: .9em;
 	font-weight: bold;
-	-webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-  	-moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-  	box-shadow: 0 3px 7px rgba(0, 0, 0, 0.2);
-  	display: none;
 }
-.member_menu a:hover {
-	text-decoration: none;
-}
-.member_menu [class^="icon-"],
-[class*=" icon-"] {
-	line-height: 0;
-	vertical-align: 50%;
-}
-.member_menu_top {
-	background: #fff;
-	padding: 8px 0;
-	opacity: .9;
-}
-.member_menu_top a {
+.member .bottom_links {
 	color: #898989;
+	font-size: .9em;
+	font-weight: bold;
 }
-.member_menu_top a:hover {
-	color: #942fc6;
+.member .grey_bottom {
+	background-color: #efefef;
 }
-.menu_links {
-	padding: 3px 0;
+.mem_drop .dropdown-menu:before {
+   position: absolute;
+   top: -7px;
+   left: 109px;
+   display: inline-block;
+   border-right: 7px solid transparent;
+   border-bottom: 7px solid #CCC;
+   border-left: 7px solid transparent;
+   border-bottom-color: rgba(0, 0, 0, 0.2);
+   content: '';
+ }
+.mem_drop .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 110px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    border-left: 6px solid transparent;
+    content: '';
+  }
+.not_drop .dropdown-menu:before {
+   position: absolute;
+   top: -7px;
+   left: 306px;
+   display: inline-block;
+   border-right: 7px solid transparent;
+   border-bottom: 7px solid #CCC;
+   border-left: 7px solid transparent;
+   border-bottom-color: rgba(0, 0, 0, 0.2);
+   content: '';
+ }
+.not_drop .dropdown-menu:after {
+    position: absolute;
+    top: -6px;
+    left: 307px;
+    display: inline-block;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid white;
+    border-left: 6px solid transparent;
+    content: '';
 }
-.member_menu_groups {
-	background: #efefef;
-}
-.member_menu_groups a {
-	color: #898989;
-}
-.menu_arrow{
-	font-size: 18px;
-	color: #333;
-	padding: 0 15px 0 15px;
-}
-.member_menu_bottom {
-	background: #efefef;
-	padding: 8px 0;
-	opacity: .9;
-}
-.member_menu_bottom a {
-	color: #4a4a4a;
-}
-.member_menu_bottom a:hover {
-	color: #942fc6;
+.dropdown-menu > li > a:hover > [class^="icon-grey"],
+.dropdown-menu > li > a:hover > [class*=" icon-grey"],
+.dropdown-menu > .active > a > [class^="icon-grey"],
+.dropdown-menu > .active > a > [class*=" icon-grey"] {
+	background-image: url('/assets/glyphicons-halflings-white.png') !important;
 }
