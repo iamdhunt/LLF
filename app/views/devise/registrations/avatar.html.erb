@@ -1,0 +1,42 @@
+<% title current_member.full_name + " | Edit Profile" %>
+
+<div id="main_wrap">
+
+  <div id="edit_nav_wrap">
+      <span class="edit_nav">
+          <%= link_to "Change Avatar", avatar_path %>
+          <%= link_to "Edit Profile", edit_member_path %>
+          <span class="set_link">
+            <%= link_to "Account Settings", settings_path %>
+          </span>
+      </span>
+  </div>
+
+  <div id="edit_wrap">
+
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,  class: 'form-horizontal ' }) do |f| %>
+        <%= devise_error_messages! %>
+
+        <fieldset>
+          <legend class="leg">Change Your Avatar</legend>
+          <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
+        
+          <div class="edit_av">
+            <% if f.object.avatar? %>
+              <%= image_tag f.object.avatar.url(:av) %>
+            <% end %>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+        </div>
+    <% end %>
+
+  </div>
+
+<!--activity_wrap-->
+
+</div>
+
+<!--/main_wrap-->

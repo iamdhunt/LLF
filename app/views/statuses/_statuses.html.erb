@@ -31,11 +31,25 @@
 		</div>
 
 		<% if member_signed_in? %>
+
 			<div class="actions_act">
+
 				<span id="comment_act_btn">
-					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Comment', status_path(status), :class => "btn comment" %>
+
+				<% if status.comments.count > 0 && status.comments.count <= 99 %>
+					<%= link_to status_path(status), :class => "btn comment" do %>
+						<%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= status.comments.count %>
+					<% end %>
+				<% elsif status.comments.count > 99 %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', status_path(status), :class => "btn comment" %>
+				<% else %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), status_path(status), :class => "btn comment" %>
+				<% end %>
+
 				</span>
+
 			</div>
+
 		<% end %>
 
 	</div>

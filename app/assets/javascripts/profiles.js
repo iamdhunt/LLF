@@ -38,13 +38,8 @@ $(document).ready(function(){
 	});
 	
 	$menu.hover(function(){
-		$dropdown.delay(300).slideDown(300);
+		$dropdown.delay(300).slideDown("slow");
   		return false;
-	});
-
-	$dropdown.mouseleave(function(){
-		$dropdown.stop().delay(300).slideUp(300);
-		return false;
 	});
 
 });

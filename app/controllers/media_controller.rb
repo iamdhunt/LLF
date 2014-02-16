@@ -24,7 +24,7 @@ class MediaController < ApplicationController
   def show
     @medium = Medium.find(params[:id])
     @commentable = @medium
-    @comments = @commentable.comments
+    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
@@ -98,6 +98,19 @@ class MediaController < ApplicationController
     respond_to do |format|
       format.html { redirect_to profile_media_path(current_member) }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+    @medium = Medium.find(params[:id])
+    if current_member.voted_up_on? @medium
+      @medium.unliked_by current_member
+    else 
+      @medium.liked_by current_member
+    end
+    respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
     end
   end
 

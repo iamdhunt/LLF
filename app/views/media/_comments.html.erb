@@ -6,14 +6,15 @@
 		<span>
 			<div class="comment_name">
 				<%= link_to comment.member.user_name, profile_path(comment.member) %>
-			</div>
-			<% if comment.member == current_member || @commentable.member == current_member %>
-				<span class="comment_del">
-					<%= link_to image_tag("delete-6-icon.png"), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+			
+				<% if comment.member == current_member || @commentable.member == current_member %>
+					<span class="comment_del">
+						<%= link_to image_tag("delete-6-icon.png"), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+					</span>
+				<% end %>
+				<span class="meta">
+					<%= time_ago_in_words(comment.created_at) %>
 				</span>
-			<% end %>
-			<div class="meta">
-				<%= time_ago_in_words(comment.created_at) %>
 			</div>
 			<div class="com_con">
 				<%= comment.content %>

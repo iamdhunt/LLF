@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131031220956) do
+ActiveRecord::Schema.define(:version => 20140216025705) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -100,6 +100,18 @@ ActiveRecord::Schema.define(:version => 20131031220956) do
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "soundcloud"
+    t.string   "youtube"
+    t.string   "vimeo"
+    t.string   "instagram"
+    t.string   "flickr"
+    t.string   "google"
+    t.string   "pinterest"
+    t.string   "blog"
+    t.string   "website"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -131,5 +143,22 @@ ActiveRecord::Schema.define(:version => 20131031220956) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], :name => "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type"], :name => "index_votes_on_votable_id_and_votable_type"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], :name => "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type"], :name => "index_votes_on_voter_id_and_voter_type"
 
 end

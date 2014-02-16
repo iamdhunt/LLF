@@ -2,8 +2,17 @@ LLF::Application.routes.draw do
 
   resources :activities, only: [:index, :destroy] 
 
+  resources :activities do
+    member do
+      put "favorite", to: "activities#upvote"
+    end
+  end
+
   resources :media do
     resources :comments
+    member do
+      put "favorite", to: "media#upvote"
+    end
   end 
 
   match '/spotlights' => 'pages#spotlights'
@@ -42,6 +51,7 @@ LLF::Application.routes.draw do
   devise_scope :member do 
       root :to => 'devise/registrations#new'
       match '/settings' => 'registrations#settings', as: :settings
+      match '/avatar' => 'registrations#avatar', as: :avatar
   end 
 
   resources :statuses do
@@ -60,6 +70,7 @@ LLF::Application.routes.draw do
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
     get '/stream/my_stream' => 'profiles#my_stream', as: 'profile_my_stream'
+    get '/stream/favorites' => 'profiles#favorites', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'
     get '/following' => 'profiles#following', as: 'profile_following'
   end

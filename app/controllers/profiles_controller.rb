@@ -59,6 +59,19 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def favorites
+    @status = Status.new
+    @status.build_document
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      params[:page] ||= 1
+      @activities = Activity.for_member(current_member, params)
+      render action: :show
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
   def media_new
     @medium = current_member.medium.new
     @member = Member.find_by_user_name(params[:id])

@@ -1,0 +1,6 @@
+<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") , medium_path(medium), :class => "btn comment" %>
+<% if current_member.voted_up_on?(medium) %>
+<%= link_to image_tag("Favorite 3.png", class: "act_actions", title: "Comments", alt: "Comments") , favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" %>
+<% else %>
+<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Comments", alt: "Comments") , favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" %>
+<% end %>

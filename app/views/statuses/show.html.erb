@@ -33,9 +33,25 @@
 			<div class="act_attachment">
 			    <%= status_document_link(@status) %>
 			</div>
+
 			<% if member_signed_in? %>
 				<%= render "comment_form" %>
-				<%= render "comments" %>
+
+				<div id="comments_wrap">
+					<%= render "comments" %>
+				</div>
+
+				<%= will_paginate @comments, class: 'display_none' %>
+
+				<% if @comments.total_pages != @comments.current_page %>
+					<div id="loading"></div>	
+			        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+			        	<div class="com_show">
+			        		Show More
+			        	</div>
+			        <% end %>				    
+				<% end %>
+				
 			<% end %>
 
 		</div>

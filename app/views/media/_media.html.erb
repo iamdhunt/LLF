@@ -37,12 +37,41 @@
     <% end %>
 
     <% if member_signed_in? %>
-      <div class="actions_act">
-        <span id="comment_act_btn">
-          <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Comment', medium_path(medium), :class => "btn comment" %>
-          <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Favorite', "#", :class => "btn favorite" %>
+
+      <div class="">
+
+       <span id="comment_act_btn">
+
+          <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
+            <%= link_to medium_path(medium), :class => "btn comment" do %>
+              <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
+            <% end %>
+          <% elsif medium.comments.count > 99 %>   
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(medium), :class => "btn comment" %>
+          <% else %>
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
+          <% end %>
+
+          <% if medium.votes.size > 0 && medium.votes.size <= 99 && current_member.voted_up_on?(medium) %>
+            <%= link_to favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" do %>
+                <%= image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") %><%= medium.votes.size %>
+            <% end %>
+          <% elsif medium.votes.size > 99 && current_member.voted_up_on?(medium) %>
+            <%= link_to image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") +'99+', favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" %>
+          <% elsif medium.votes.size > 0 && medium.votes.size <= 99 %>
+            <%= link_to favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" do %>
+                <%= image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") %><%= medium.votes.size %>
+            <% end %>
+          <% elsif medium.votes.size > 99 %>
+            <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") +'99+', favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" %>
+          <% else %>
+            <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_medium_path(medium), method: :put, :remote => true, :class => "btn favorite" %>
+          <% end %>
+
         </span>
+
       </div>
+      
     <% end %>
 
   </div>

@@ -6,7 +6,8 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
-  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list
+  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
+            :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
 
   validates :first_name, presence: true,
                           format: {
@@ -92,6 +93,67 @@ class Member < ActiveRecord::Base
                         message: 'must not be longer than 20 characters.'
                       }
 
+  validates :facebook, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :twitter, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :linkedin, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :soundcloud, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :youtube, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :vimeo, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :instagram, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :flickr, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :google, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :pinterest, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :blog, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+  validates :website, allow_blank: true,
+                       length: {
+                        minimum: 4,
+                        message: 'must be longer than 4 characters.'
+                       }
+
   before_save :titleize, :to_lower
   before_create :titleize, :to_lower
 
@@ -103,6 +165,7 @@ class Member < ActiveRecord::Base
   acts_as_followable
   acts_as_ordered_taggable
   acts_as_ordered_taggable_on :pursuits
+  acts_as_voter
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", av: "200x200#", comment: "22x22#"}
 

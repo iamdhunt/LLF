@@ -24,7 +24,7 @@ class StatusesController < ApplicationController
   def show
     @status = Status.find(params[:id])
     @commentable = @status
-    @comments = @commentable.comments
+    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
     respond_to do |format|
       format.html # show.html.erb
@@ -105,16 +105,16 @@ class StatusesController < ApplicationController
   end
 
   private
-  def find_member
-    @member = Member.find_by_user_name(params[:user_name])
-  end 
+    def find_member
+      @member = Member.find_by_user_name(params[:user_name])
+    end 
 
-  def find_status
-    @status = current_member.statuses.find(params[:id])
-  end 
+    def find_status
+      @status = current_member.statuses.find(params[:id])
+    end 
 
-  def sortable_date
-    created_at
-  end 
+    def sortable_date
+      created_at
+    end 
 
 end

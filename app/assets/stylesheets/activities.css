@@ -142,3 +142,9 @@
 .act_comment {
 	width: 100%;
 }
+.actions_act {
+	padding: 0 5px;
+}
+.act_count {
+	color: #aeaeae;
+}

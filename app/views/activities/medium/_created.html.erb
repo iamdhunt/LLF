@@ -37,9 +37,34 @@
 	<% if member_signed_in? %>
 		<div class="actions_act">
 			<span id="comment_act_btn">
-				<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Comment', medium_path(activity.targetable_id), :class => "btn comment" %>
-				<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Favorite', "#", :class => "btn favorite" %>
-				<%= link_to image_tag("Re-Stream 3.png", class: "act_actions", title: "Comments", alt: "Comments") + 'Re-Stream', "#", :class => "btn restream" %>
+
+				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
+					<%= link_to medium_path(activity.targetable_id), :class => "btn comment" do %>
+						<%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= activity.targetable.comments.count %>
+					<% end %>
+				<% elsif activity.targetable.comments.count > 99 %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', status_path(activity.targetable_id), :class => "btn comment" %>
+				<% else %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(activity.targetable_id), :class => "btn comment" %>
+				<% end %>
+
+				<% if activity.votes.size > 0 && activity.votes.size <= 99 && current_member.voted_up_on?(activity) %>
+					<%= link_to favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" do %>
+						  <%= image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") %><%= activity.votes.size %>
+					<% end %>
+				<% elsif activity.votes.size > 99 && current_member.voted_up_on?(activity) %>
+					<%= link_to image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") +'99+', favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+				<% elsif activity.votes.size > 0 && activity.votes.size <= 99 %>
+					<%= link_to favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" do %>
+						  <%= image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") %><%= activity.votes.size %>
+					<% end %>
+				<% elsif activity.votes.size > 99 %>
+					<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") +'99+', favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+				<% else %>
+					<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+				<% end %>
+
+				<%= link_to image_tag("Re-Stream 3.png", class: "act_actions", title: "Restream", alt: "Restream"), "#", :class => "btn restream" %>
 			</span>
 		</div>
 	<% end %>

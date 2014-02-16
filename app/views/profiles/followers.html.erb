@@ -14,7 +14,9 @@
 
 <% if @followers.total_pages != @followers.current_page %>
     <div id="loading"></div>
-    <div class="load_more">
-        <%= link_to "Show More", "#", class: 'btn btn-info load_arrow' %>
-    </div>
+    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+    	<div class="com_show">
+    		Show More
+    	</div>
+    <% end %>
 <% end %>

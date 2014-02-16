@@ -13,6 +13,7 @@ gem 'acts-as-taggable-on'
 gem 'aws-sdk'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'acts_as_votable', '~> 0.8.0'
 
 group :development, :test do
 	gem 'shoulda'

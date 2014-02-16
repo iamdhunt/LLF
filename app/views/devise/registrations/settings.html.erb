@@ -2,13 +2,23 @@
 
 <div id="main_wrap">
 
+  <div id="edit_nav_wrap">
+      <span class="edit_nav">
+          <%= link_to "Change Avatar", avatar_path %>
+          <%= link_to "Edit Profile", edit_member_path %>
+          <span class="set_link">
+            <%= link_to "Account Settings", settings_path %>
+          </span>
+      </span>
+  </div>
+
   <div id="edit_wrap">
 
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,  class: 'form-horizontal ' }) do |f| %>
         <%= devise_error_messages! %> 
 
         <fieldset>
-          <legend class="descriptors">Update Your Name</legend>
+          <legend class="descriptors top_leg">Update Your Name</legend>
             <div class="edit_instructions">
               * = Required Field
             <ul>

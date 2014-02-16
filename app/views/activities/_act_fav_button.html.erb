@@ -1,0 +1,15 @@
+<% if activity.votes.size > 0 && activity.votes.size <= 99 && current_member.voted_up_on?(activity) %>
+	<%= link_to favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" do %>
+		  <%= image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") %><%= activity.votes.size %>
+	<% end %>
+<% elsif activity.votes.size > 99 && current_member.voted_up_on?(activity) %>
+	<%= link_to image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") +'99+', favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+<% elsif activity.votes.size > 0 && activity.votes.size <= 99 %>
+	<%= link_to favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" do %>
+		  <%= image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") %><%= activity.votes.size %>
+	<% end %>
+<% elsif activity.votes.size > 99 %>
+	<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") +'99+', favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+<% else %>
+	<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_activity_path(activity), method: :put, :remote => true, :class => "btn favorite" %>
+<% end %>

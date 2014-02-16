@@ -9,6 +9,15 @@ class RegistrationsController < Devise::RegistrationsController
 		end 
 	end
 
+	def avatar
+		@member = current_member
+		if @member 
+			render :avatar
+		else
+			render file: 'public/404', status: 404, formats: [:html]
+		end 
+	end
+
 	def update
     # required for settings form to submit when password is left blank
 	    if params[:member][:password].blank?

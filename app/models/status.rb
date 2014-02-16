@@ -11,4 +11,6 @@ class Status < ActiveRecord::Base
 
   validates :member_id, presence: true
 
+  private
+
 end

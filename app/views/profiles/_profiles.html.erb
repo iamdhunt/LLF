@@ -7,7 +7,7 @@
             <% if @member == current_member %>
                 <div class="change_av">
                     <div>
-                        <%= link_to "Change Avatar", edit_member_path %>
+                        <%= link_to "Change Avatar", avatar_path %>
                     </div> 
                 </div> 
             <% end %>
@@ -42,20 +42,42 @@
         
         <div id="right_profile">
         	<div class="profile_accounts">
-            	<div class="top_profile_accounts">
-                	<a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
-                <div class="bottom_profile_accounts">
-                	<a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                    <a href="#"></a>
-                </div>
+                <% if @member.facebook? %>
+                    <%= link_to image_tag("FB.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), @member.facebook, :class => "" %>
+                <% end %>
+                <% if @member.twitter? %>
+                    <%= link_to image_tag("Twitter.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), @member.twitter, :class => "" %>
+                <% end %>
+                <% if @member.linkedin? %>
+                    <%= link_to image_tag("Linkedin.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), @member.linkedin, :class => "" %>
+                <% end %>
+                <% if @member.google? %>
+                    <%= link_to image_tag("Google Plus.png", class: "acct_imgs", title: "Google+", alt: "Google+"), @member.google, :class => "" %>
+                <% end %>
+                <% if @member.soundcloud? %>
+                    <%= link_to image_tag("Soundcloud.png", class: "acct_imgs", title: "Soundcloud", alt: "Soundcloud"), @member.soundcloud, :class => "" %>
+                <% end %>
+                <% if @member.youtube? %>
+                    <%= link_to image_tag("Youtube.png", class: "acct_imgs", title: "Youtube", alt: "Youtube"), @member.youtube, :class => "" %>
+                <% end %>
+                <% if @member.vimeo? %>
+                    <%= link_to image_tag("Vimeo.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), @member.vimeo, :class => "" %>
+                <% end %>
+                <% if @member.instagram? %>
+                    <%= link_to image_tag("Instagram.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), @member.instagram, :class => "" %>
+                <% end %>
+                <% if @member.flickr? %>
+                    <%= link_to image_tag("Flickr.png", class: "acct_imgs", title: "Flickr", alt: "Flickr"), @member.flickr, :class => "" %>
+                <% end %>
+                <% if @member.pinterest? %>
+                    <%= link_to image_tag("Pinterest.png", class: "acct_imgs", title: "Pinterest", alt: "Pinterest"), @member.pinterest, :class => "" %>
+                <% end %>
+                <% if @member.blog? %>
+                    <%= link_to image_tag("Blog 2.png", class: "acct_imgs", title: "Blog", alt: "Blog"), @member.blog, :class => "" %>
+                <% end %>
+                <% if @member.website? %>
+                    <%= link_to image_tag("Personal Website.png", class: "acct_imgs", title: "Personal Website", alt: "Personal Website"), @member.website, :class => "" %>
+                <% end %>
             </div>
         	<div class="profile_pursuits">
                 <% if @member.pursuits %>
@@ -63,13 +85,13 @@
                 <% end %>
             </div>        
             <div class="profile_location">
-                <% if @member.city %>
+                <% if @member.city? %>
                     <%= link_to @member.city, "#" %>
                 <% end %>
-                <% if @member.state %>
+                <% if @member.state? %>
                     <%= link_to @member.state, "#" %>
                 <% end %>
-                <% if @member.country %>
+                <% if @member.country? %>
                     <%= link_to @member.country, "#" %>
                 <% end %>
             </div>

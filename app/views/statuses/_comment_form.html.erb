@@ -1,5 +1,8 @@
-<%= simple_form_for [@commentable, @comment], :html => { :id => 'comment_btn' } do |f| %>
-	<%= f.input :content, label: false, input_html: { class: 'forms act_comment', id: 'comment_box', rows: '1', maxlength: '280' } %>
-	<%= f.submit "Comment", :class => 'btn' %>
-	<span id="comment_length" style="display:none;">280</span>
-<% end %>
+<div id="comm_form_wrap">
+	<%= simple_form_for [@commentable, @comment], :html => { :id => 'comment_btn' } do |f| %>
+		<%= f.input :content, label: false, input_html: { class: 'forms act_comment', id: 'comment_box', rows: '1', maxlength: '280' } %>
+		<%= f.submit "Comment", :class => 'btn' %>
+		<span id="comment_length" style="display:none;"></span>
+		<span class="comm_counter">Comments &#8226; <%= @commentable.comments.count %></span>		
+	<% end %>
+</div>

@@ -17,8 +17,13 @@
 #comment_length {
 	color: #898989;
 	font-size: 1.3em;
+	vertical-align: middle;
+}
+.comm_counter {
 	float: right;
-	padding: .2em .3em 0 0;
+	color: #898989;
+	font-size: 1.1em;
+	padding: 5px 0 0 0;
 }
 .comment_av {
 	float: left;
@@ -54,5 +59,22 @@
 	vertical-align: 60%;
 }
 .com_count a:hover {
+	text-decoration: none;
+}
+.com_show {
+	width: 100%;
+	background-color: #49afcd;
+	text-align: center;
+	border-radius: 5px;
+	font-size: 1.2em;
+	padding: 8px 0;
+}
+.com_show:hover {
+	background-color: #2f96b4;
+}
+.com_show_wrap {
+	color: #fff;
+}
+.com_show_wrap:hover {
 	text-decoration: none;
 }
