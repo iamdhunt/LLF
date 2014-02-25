@@ -1707,6 +1707,7 @@ btn-follow.active,
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #F7803C;
   border-color: #F7803C;
+  border-radius: 5px;
 }
 .btn-warning:hover,
 .btn-warning:focus,
@@ -1770,6 +1771,7 @@ btn-follow.active,
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #49afcd;
   border: 1px solid #49afcd;
+  border-radius: 5px;
   *background-color: #2f96b4;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 

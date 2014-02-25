@@ -98,56 +98,67 @@ class Member < ActiveRecord::Base
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :twitter, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :linkedin, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :soundcloud, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :youtube, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :vimeo, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :instagram, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :flickr, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :google, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :pinterest, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+
   validates :blog, allow_blank: true,
                        length: {
                         minimum: 4,
                         message: 'must be longer than 4 characters.'
                        }
+                       
   validates :website, allow_blank: true,
                        length: {
                         minimum: 4,

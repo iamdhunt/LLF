@@ -64,8 +64,7 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      params[:page] ||= 1
-      @activities = Activity.for_member(current_member, params)
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(21)
       render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -83,7 +82,7 @@ class ProfilesController < ApplicationController
   end
 
   def media
-    @medium = Medium.new
+    @medium = current_member.medium.new
     @member = Member.find_by_user_name(params[:id])
     if @member 
       @media = @member.medium.order('created_at desc').page(params[:page]).per_page(25) 

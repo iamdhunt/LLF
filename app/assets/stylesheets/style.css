@@ -1149,7 +1149,6 @@ hr.contact {
 	color: #898989;
 	font-size: 1.5em;
 	float: left;
-	padding-top: .4em;
 }
 
 .update_text_bottom {
@@ -1184,6 +1183,7 @@ hr.contact {
 .action_wrap{
 	margin-top: .3em;
 	display: none;
+	padding-left: 2.5em;
 }
 
 .actions {

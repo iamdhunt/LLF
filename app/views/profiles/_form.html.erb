@@ -3,17 +3,11 @@
   <div class="act_icons_wrap">
 
     <span class='act_icons' id='att_med'>
-      <i class="icon-circle-arrow-up icon-grey"></i>Media
     </span>
 
   </div>
 
   <div class="act_icons_wrap" id="update_att">
-
-    <%= f.fields_for :document do |document_fields| %>
-      <%= document_fields.input :attachment, as: :file, label: false %>
-    <% end %>
-
   </div>
 
   <div class="">
@@ -22,11 +16,17 @@
 
         <div class="action_wrap" id="action_wrap">
           <span class="social_post">
+
           </span> 
           <span class="actions">
             <%= f.submit "Post to Stream", :class => 'btn btn-info' %>
           </span>
           <span id="stat_count"></span>
+          <span class='upd_att'>
+            <%= f.fields_for :document do |document_fields| %>
+              <%= document_fields.input :attachment, as: :file, label: false %>
+            <% end %>
+          </span>
         </div>
       
   </div>

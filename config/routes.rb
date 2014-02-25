@@ -13,24 +13,26 @@ LLF::Application.routes.draw do
     member do
       put "favorite", to: "media#upvote"
     end
-  end 
+  end
 
   match '/spotlights' => 'pages#spotlights'
   match '/contests' => 'pages#contests'
   match '/faqs' => 'pages#faqs'
-  match '/contact_us' => 'pages#contact_us'
+  match '/contact-us' => 'pages#contact_us', :as => 'contact_us'
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
-  match '/brand_spotlights' => 'pages#brand_spotlights'
-  match '/artist_spotlights' => 'pages#artist_spotlights'
-  match '/music_spotlights' => 'pages#music_spotlights'
-  match '/member_spotlights' => 'pages#member_spotlights'
+  match '/brand-spotlights' => 'pages#brand_spotlights', :as => 'brand_spotlights'
+  match '/artist-spotlights' => 'pages#artist_spotlights', :as => 'artist_spotlights'
+  match '/music-spotlights' => 'pages#music_spotlights', :as => 'music_spotlights'
+  match '/member-spotlights' => 'pages#member_spotlights', :as => 'member_spotlights'
 
   as :member do 
     get '/join', to: 'devise/registrations#new', as: :join
     get '/sign_in', to: 'devise/sessions#new', as: :sign_in
+    match '/sign-in' => 'devise/sessions#new', as: :sign_in
     get '/sign_out', to: 'devise/sessions#destroy', as: :sign_out
+    match '/sign-out' => 'devise/sessions#destroy', as: :sign_out
     get '/password/new', to: 'devise/passwords#new', as: :new_password
     get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
     get '/edit', to: 'devise/registrations#edit', as: :edit_member
@@ -70,6 +72,7 @@ LLF::Application.routes.draw do
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
     get '/stream/my_stream' => 'profiles#my_stream', as: 'profile_my_stream'
+    match '/stream/my-stream' => 'profiles#my_stream', as: 'profile_my_stream'
     get '/stream/favorites' => 'profiles#favorites', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'
     get '/following' => 'profiles#following', as: 'profile_following'

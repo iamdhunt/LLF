@@ -78,3 +78,6 @@
 .com_show_wrap:hover {
 	text-decoration: none;
 }
+#comm_form_wrap {
+	margin-top: 15px;
+}
