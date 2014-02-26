@@ -15,8 +15,6 @@ LLF::Application.routes.draw do
     end
   end
 
-  match '/spotlights' => 'pages#spotlights'
-  match '/contests' => 'pages#contests'
   match '/faqs' => 'pages#faqs'
   match '/contact-us' => 'pages#contact_us', :as => 'contact_us'
   match '/terms' => 'pages#terms'
