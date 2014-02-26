@@ -8,15 +8,7 @@
             </li>  
             
             <li>
-                <%= link_to '<i class="icon-camera icon-white"></i> Photos'.html_safe, "#", class: 'photos_subnav' %>
-            </li>
-              
-            <li>
-                <%= link_to '<i class="icon-music icon-white"></i> Audio'.html_safe, "#", class: 'music_subnav' %>
-            </li>
-
-            <li>
-                <%= link_to '<i class="icon-globe icon-white"></i> Social Media'.html_safe, "#", class: 'social_albums_subnav' %>
+                <%= link_to '<i class="icon-globe icon-white"></i> Social Media'.html_safe, profile_media_fav_path(@member), class: 'social_albums_subnav' %>
             </li> 
       
         </ul>

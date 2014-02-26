@@ -69,11 +69,12 @@ LLF::Application.routes.draw do
     get '' => 'profiles#show'
     get '/media' => 'profiles#media', as: 'profile_media'
     get '/media/new' => 'profiles#media_new', as: 'profile_media_new'
+    get '/media/favorites' => 'profiles#media_fav', as: 'profile_media_fav'
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
     get '/stream/my_stream' => 'profiles#my_stream', as: 'profile_my_stream'
     match '/stream/my-stream' => 'profiles#my_stream', as: 'profile_my_stream'
-    get '/stream/favorites' => 'profiles#favorites', as: 'profile_favorites'
+    get '/stream/favorites' => 'profiles#stream_fav', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'
     get '/following' => 'profiles#following', as: 'profile_following'
   end

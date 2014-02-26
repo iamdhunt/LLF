@@ -1,0 +1,50 @@
+<% title @member.full_name %>
+
+    <div id="stream_subnav_wrap">
+
+     	<ul class="sub_stream">
+            <% if @member == current_member %>
+
+        	<li>
+                <%= link_to '<i class="icon-th icon-white"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: 'my_stream' %>
+            </li>  
+
+            <% end %>
+            
+            <li>
+                <%= link_to '<i class="icon-user icon-white"></i> Personal'.html_safe, profile_personal_path(@member), class: 'personal' %>
+            </li>
+            
+            <li>
+                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_favorites_path(@member), class: 'favorties_subnav' %>
+            </li>  
+        </ul>
+        	       
+
+    <div style="clear:both;"></div>
+    </div>
+
+    <!--/stream_subnav_wrap-->
+    
+    <% if @activities.count > 0 %>
+        <div id="activity_stream_wrap">
+    	   <%= render :partial => "activities/activities" %>
+        </div>          
+        <% else %>
+            <div class="none_message">
+                No Posts Yet
+            </div>
+    <% end %>    
+
+    <%= will_paginate @activities, class: 'display_none' %>
+
+    <% if @activities.total_pages != @activities.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>
+
+<!--/activity_wrap-->

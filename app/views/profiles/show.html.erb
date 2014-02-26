@@ -46,16 +46,16 @@
     <% end %>
 
     <!--/act_update-->
-
-    <div id="activity_stream_wrap">
-        <% if @activities.count > 0 %>
-    	   <%= render :partial => "activities/activities" %>         
+    
+    <% if @activities.count > 0 %>
+        <div id="activity_stream_wrap">
+    	   <%= render :partial => "activities/activities" %>
+        </div>          
         <% else %>
             <div class="none_message">
                 No Posts Yet
             </div>
-        <% end %>    
-    </div>
+    <% end %>    
 
     <%= will_paginate @activities, class: 'display_none' %>
 

@@ -59,13 +59,13 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def favorites
+  def stream_fav
     @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(21)
-      render action: :show
+      @activities = @member.get_up_voted Activity.page(params[:page]).per_page(25)
+      render action: :show_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -87,6 +87,16 @@ class ProfilesController < ApplicationController
     if @member 
       @media = @member.medium.order('created_at desc').page(params[:page]).per_page(25) 
       render action: :media
+    else
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def media_fav
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      @media = @member.get_up_voted Medium.page(params[:page]).per_page(25)
+      render action: :media_fav
     else
       render file: 'public/404', status: 404, formats: [:html]
     end
