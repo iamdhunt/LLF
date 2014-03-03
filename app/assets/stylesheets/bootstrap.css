@@ -1730,7 +1730,6 @@ btn-follow.active,
   background-color: #da4f49;
   border-color: #da4f49;
   *background-color: #bd362f;
-  border-radius: 5px;
 }
 .btn-danger:hover,
 .btn-danger:focus,
