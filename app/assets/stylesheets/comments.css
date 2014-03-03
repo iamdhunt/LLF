@@ -65,14 +65,14 @@
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #f4f4f4;
+	background-color: #fff;
 	text-align: center;
 	font-size: 1.2em;
 	padding: 8px 0;
 	color: #898989;
-	-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
-       -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
-            box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0) inset;
+	border-color: #EFEFEF;
+	border-style: solid;
+	border-width: 2px 0 2px 0;
 }
 .com_show:before, .com_show:after {
 	 -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
@@ -94,6 +94,7 @@
 
 }
 .com_show:hover {
+	color: #49afcd;
 }
 .com_show_wrap {
 	color: #fff;
