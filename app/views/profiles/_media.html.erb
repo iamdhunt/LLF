@@ -6,19 +6,13 @@
     </div>
 
     <div id="fancyboxTitles" style="display: none;">
-        <div><%= medium.caption %></div>
+        <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
     </div>
 
     <% if medium.caption? %>
       <div class="media_act_cap">
-        <%= medium.caption %>
+        <%= Rinku.auto_link(medium.caption).html_safe %>
       </div> 
-    <% end %>
-
-    <% if can_edit_medium?(medium) %>
-      <div>
-        <%= link_to "Delete", medium, method: :delete, data: { confirm: "Are you sure?" }, class: 'label label-important delete_label' %>
-      </div>
     <% end %>
 
     <% if member_signed_in? %>
@@ -53,6 +47,19 @@
             <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_medium_path(medium), method: :put, :class => "btn favorite" %>
           <% end %>
 
+          <span class="btn-group">
+          <%= link_to image_tag("More.png", class: "act_actions", title: "More", alt: "More"), "#", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown"} %>
+          <ul class="dropdown-menu">            
+            <% if can_edit_medium?(medium) %>
+              <li class="del">
+                  <%= link_to "Delete", medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </li>
+            <% end %>
+            <li>
+              <%= link_to "Copy Share URL", "#" %>
+            </li>
+          </ul>
+        </span>
         </span>
 
       </div>

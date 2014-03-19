@@ -243,6 +243,10 @@
 	color: #fff;
 }
 
+.fancybox-title-outside-wrap a {
+	color: #49afcd;
+}
+
 .fancybox-title-inside-wrap {
 	padding-top: 10px;
 }

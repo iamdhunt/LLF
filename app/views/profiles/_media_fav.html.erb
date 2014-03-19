@@ -15,9 +15,9 @@
         <%= time_ago_in_words(medium.created_at) %>
       </span>
     </div>
-
+    
     <div class="act_media_content">
-      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'media_gall' %>
+      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: 'fancybox', rel: 'prof_gall' %>
     </div>
 
     <div id="fancyboxTitles" style="display: none;">
@@ -34,7 +34,7 @@
 
       <div class="">
 
-       <span id="comment_act_btn">
+        <span id="comment_act_btn">
 
           <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
             <%= link_to medium_path(medium), :class => "btn comment" do %>
@@ -63,24 +63,23 @@
           <% end %>
 
           <span class="btn-group">
-            <%= link_to image_tag("More.png", class: "act_actions", title: "More", alt: "More"), "#", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown"} %>
-            <ul class="dropdown-menu">            
-              <% if medium.member == current_member %>
-                <li class="del">
-                    <%= link_to "Delete", medium, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </li>
-              <% end %>
-              <li>
-                <%= link_to "Copy Share URL", "#" %>
-              </li>
-            </ul>
-          </span>
+          <%= link_to image_tag("More.png", class: "act_actions", title: "More", alt: "More"), "#", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown"} %>
+          <ul class="dropdown-menu">            
+            <% if can_edit_medium?(medium) %>
+              <li class="del">
+                  <%= link_to "Delete", medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </li>
+            <% end %>
+            <li>
+              <%= link_to "Copy Share URL", "#" %>
+            </li>
+          </ul>
+        </span>
         </span>
 
       </div>
-      
+
     <% end %>
-
   </div>
-
+    
 <% end %>

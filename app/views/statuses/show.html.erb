@@ -27,7 +27,7 @@
 			</div>
 
 			<div class="act_content">
-				<%= @status.content %>
+				<%= Rinku.auto_link(@status.content).html_safe %>
 			</div>
 
 			<div class="act_attachment">

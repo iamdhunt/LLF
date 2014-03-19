@@ -6,6 +6,12 @@ $(document).ready(function(){
 	    masonry: {
 		    columnWidth: 320
 		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
 		  itemSelector: '.list_act_wrap',
 	  });
 	});

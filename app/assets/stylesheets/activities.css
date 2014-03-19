@@ -13,6 +13,12 @@
 	color: #898989;
 	padding: 3px 0;
 	text-align: center;
+	word-wrap: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+   		-moz-hyphens: auto;
+        	hyphens: auto;
+    -ms-word-break: break-all;
 }
 .list_act_wrap {
 	width: 314px;
@@ -62,6 +68,12 @@
 }
 .act_content {
 	padding: 5px;
+	word-wrap: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+   		-moz-hyphens: auto;
+        	hyphens: auto;
+    -ms-word-break: break-all;
 }
 .act_delete {
 	float: right;
@@ -69,9 +81,13 @@
 	padding: 0 5px 0 0;
 	display: none;
 }
-.list_act_wrap:hover .act_delete {
+.act_status_top:hover .act_delete {
 	display: inline;
 }
+.act_media_top:hover .act_delete {
+	display: inline;
+}
+
 .act_title {
 	font-size: .9em;
 	margin: .867em 0 0 0;
@@ -147,4 +163,18 @@
 }
 .act_count {
 	color: #aeaeae;
+}
+.btn-group .dropdown-menu {
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	box-shadow: 0 1px 4px rgba(0,0,0,.25);
+	border-radius: 7px;
+	border: 1px solid #ddd;
+	text-align: center;
+}
+.btn-group .del {
+	color: #da4f49;
+	border-bottom: 1px solid #ddd;
+}
+.btn-group .del a {
+	color: #da4f49;
 }

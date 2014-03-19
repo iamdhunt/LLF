@@ -25,7 +25,7 @@
 	<div id="media_show_wrap">
 		<%= image_tag(@medium.asset.url(:large), class: 'thumbnail show_media') %>
 		<p class="view_caption">
-		  <%= @medium.caption %>
+		  <%= Rinku.auto_link(@medium.caption).html_safe %>
 		</p>	
 	</div>
 
