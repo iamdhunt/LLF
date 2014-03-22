@@ -151,6 +151,9 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
+    zclip-rails (0.0.2)
+      jquery-rails (>= 1.0.17)
+      railties (~> 3.1)
 
 PLATFORMS
   x86-mingw32
@@ -176,3 +179,4 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.0.3)
   will_paginate
+  zclip-rails

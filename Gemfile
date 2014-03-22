@@ -15,6 +15,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
+gem 'zclip-rails'
 
 group :development, :test do
 	gem 'shoulda'

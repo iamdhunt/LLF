@@ -46,5 +46,5 @@ $(document).ready(function(){
     	$('#activity_stream_wrap').infinitescroll('retrieve');
         	return false;
 	});
-	
+
 });
