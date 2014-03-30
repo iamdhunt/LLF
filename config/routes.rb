@@ -54,6 +54,8 @@ LLF::Application.routes.draw do
       match '/avatar' => 'registrations#avatar', as: :avatar
   end 
 
+  resources :members, :only => [:index]
+
   resources :statuses do
     resources :comments
   end 
@@ -77,7 +79,7 @@ LLF::Application.routes.draw do
     get '/following' => 'profiles#following', as: 'profile_following'
   end
 
-  resources :members, :only => [:index, :show], :path => '/' do
+  resources :members, :only => [:show], :path => '/' do
     resources :follows, :only => [:create, :destroy]
   end
 

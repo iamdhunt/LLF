@@ -16,11 +16,14 @@ gem 'bootstrap-will_paginate'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
 gem 'zclip-rails'
+gem 'sunspot_rails'
+
 
 group :development, :test do
 	gem 'shoulda'
 	gem 'factory_girl_rails'
 	gem 'sqlite3'
+	gem 'sunspot_solr'
 end 
 
 group :production do

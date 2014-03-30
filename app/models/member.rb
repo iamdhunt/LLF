@@ -217,4 +217,8 @@ class Member < ActiveRecord::Base
     end
   end 
 
+  searchable do
+    string :user_name 
+  end 
+
 end
