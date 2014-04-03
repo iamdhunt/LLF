@@ -37,6 +37,16 @@
 	text-decoration: none;
 	color: #6d6d6d;
 }
+#follow_item_wrap .location {
+	font-size: .85em;
+}
+#follow_item_wrap .location a {
+	color: #2f96b4;
+}
+#follow_item_wrap .location a:hover {
+	text-decoration: none;
+	color: #6d6d6d;
+}
 #follow_item_wrap .btn {
 	font-size: 13px;
 	padding: 2px 6px;

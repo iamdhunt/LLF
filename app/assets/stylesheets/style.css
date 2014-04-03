@@ -1003,7 +1003,7 @@ hr.contact {
 	color: #898989;
 	margin-top: .6em;
 	padding: 0 .667em;
-	font-size: 1.067em;
+	font-size: 1.1em;
 }
 .profile_location a {
 	color: #898989;
@@ -1011,7 +1011,7 @@ hr.contact {
 }
 
 .profile_location a:hover {
-	color: #942fc6;
+	color: #2f96b4;
 	text-decoration: none;
 }
 

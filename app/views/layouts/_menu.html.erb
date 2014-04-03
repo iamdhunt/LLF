@@ -30,8 +30,8 @@
        <div class="nav_links">
             <% if member_signed_in? %>
                 <ul>
-                    <li>
-                        Search
+                    <li class='nav_search'>
+                        <%= render partial: 'search/search' %>
                     </li>
                     <li><%= link_to image_tag("Messages.png", :class => "nav_icons messages", title: "Messages", id: "mes_tooltip"), "#" %></li>
                     <li class="dropdown not_drop"> <%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications", title: "Notifications", id: "not_tooltip"), "/page.html", :data => { :toggle=>"dropdown", :target=>"#" } %>

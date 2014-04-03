@@ -7,7 +7,7 @@ class MembersController < ApplicationController
   end
 
   def index
-    @members = Member.all
+    @member = Member.find(current_member)
   end
 
   def show

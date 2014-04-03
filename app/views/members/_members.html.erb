@@ -1,0 +1,23 @@
+<% @members.each do |member| %>
+	<div id="member_item_wrap">
+
+		<div class="avatar">
+			<%= follow_profile_link member %>
+		</div> 
+
+		<div class="bottom">
+			<div class="name">
+				<%= member.full_name %>
+			</div> 
+
+			<div class="username">
+				<%= "@" + member.user_name %>
+			</div> 
+
+			<div class="pursuits">
+				<%= member.pursuit_list.map { |p| link_to p.titleize, "#" }.join(', ').html_safe %>
+			</div> 
+		</div>
+
+	</div>
+<% end %>

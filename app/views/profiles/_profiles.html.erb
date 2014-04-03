@@ -81,18 +81,18 @@
             </div>
         	<div class="profile_pursuits">
                 <% if @member.pursuits %>
-                    <%= @member.pursuit_list.map { |p| link_to p.titleize, "#" }.join(', ').html_safe %>
+                    <%= @member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
                 <% end %>
             </div>        
             <div class="profile_location">
                 <% if @member.city? %>
-                    <%= link_to @member.city, "#" %>
+                    <%= link_to @member.city, :controller => "search", :action => "search", :search => @member.city %>
                 <% end %>
                 <% if @member.state? %>
-                    <%= link_to @member.state, "#" %>
+                    <%= link_to @member.state, :controller => "search", :action => "search", :search => @member.state %>
                 <% end %>
                 <% if @member.country? %>
-                    <%= link_to @member.country, "#" %>
+                    <%= link_to @member.country, :controller => "search", :action => "search", :search => @member.country %>
                 <% end %>
             </div>
         </div>

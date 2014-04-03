@@ -117,3 +117,6 @@
 .dropdown-menu > .active > a > [class*=" icon-grey"] {
 	background-image: url('/assets/glyphicons-halflings-white.png') !important;
 }
+.nav_search {
+	padding: 10px 0;
+}

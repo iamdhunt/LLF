@@ -17,6 +17,7 @@ gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
 gem 'zclip-rails'
 gem 'sunspot_rails'
+gem 'progress_bar'
 
 
 group :development, :test do

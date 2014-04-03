@@ -1,0 +1,32 @@
+<% title "LLF | Search" %>
+
+<div id ="main_wrap">
+	<div id="results_wrap">
+		<% if @members.empty? || @query == nil %>
+			<div id="search_header">
+				Results for <span class="query"><%= @query %></span>
+			</div>
+	        <div class="none_message">
+	            No Results Found
+	        </div>
+		<% elsif !@query.empty? %>	
+			<div id="search_header">
+				Results for <span class="query"><%= @query %></span>
+			</div>	
+			<div id="member_list_wrap">
+				<%= render partial: 'members' %>
+			</div>
+
+			<%= will_paginate @members, class: 'display_none' %>
+
+			<% if @members.total_pages != @members.current_page %>
+				<div id="loading"></div>
+				<%= link_to("#", class: "com_show_wrap load_arrow") do %>
+		        	<div class="com_show">
+		        		Show More
+		        	</div>
+		        <% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

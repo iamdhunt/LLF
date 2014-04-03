@@ -9,4 +9,13 @@
 	  </p>
 	<% end %>
 
+<% if @members.empty? || query == nil %>
+	<span>No results found.</span>
+<% elsif !query.empty? %>
+	<div><%= query %></div>	
+	<div id="member_list_wrap">
+		<%= render partial: 'members' %>
+	</div>
+<% end %>
+
 </div>

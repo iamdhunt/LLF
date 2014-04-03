@@ -6,4 +6,20 @@ $(document).ready(function(){
 			return copythis; 
 		}
 	});
+
+	$('input:text').focus(function () {
+	    $(this).select();
+	})
+
+	$('input:text').mouseup(function (e) {
+	    e.preventDefault();
+	});
+
+	$(".search").keypress(function(event) {
+	    if (event.which == 13) {
+	        event.preventDefault();
+	        $("form").submit();
+	    }
+	});
+
 });

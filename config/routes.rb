@@ -1,5 +1,7 @@
 LLF::Application.routes.draw do
 
+  get "search" => "search#search", :as => "search"
+
   resources :activities, only: [:index, :destroy] 
 
   resources :activities do
@@ -54,8 +56,6 @@ LLF::Application.routes.draw do
       match '/avatar' => 'registrations#avatar', as: :avatar
   end 
 
-  resources :members, :only => [:index]
-
   resources :statuses do
     resources :comments
   end 
@@ -79,10 +79,9 @@ LLF::Application.routes.draw do
     get '/following' => 'profiles#following', as: 'profile_following'
   end
 
-  resources :members, :only => [:show], :path => '/' do
+  resources :members, :only => [:index, :show], :path => '/' do
     resources :follows, :only => [:create, :destroy]
   end
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
