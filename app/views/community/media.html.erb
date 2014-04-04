@@ -1,0 +1,33 @@
+<% title "LLF | Community" %>
+
+<div id="banner"></div>
+
+<div id="main_wrap">
+
+	<div id="cty_menu">
+		<%= link_to "Community Stream", community_stream_path, class: 'cty_str_2' %>
+		<%= link_to "Community Media", community_media_path, class: 'cty_med_2' %>
+	</div>
+
+	<% if @media.count > 0 %>
+        <div id="media_list_wrap">
+            <%= render :partial => "media/media" %>       
+        </div>      
+    <% else %>
+        <div class="none_message">
+            No Media Yet
+        </div>
+    <% end %>
+
+    <%= will_paginate @media, class: 'display_none' %>
+
+    <% if @media.total_pages != @media.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>
+
+</div>

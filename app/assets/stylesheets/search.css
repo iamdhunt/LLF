@@ -1,14 +1,12 @@
 #search_header {
 	width: 100%;
-	background-color: #f4f4f4;
-	color: #898989;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 1px solid #dce1e6;
 	text-align: center;
 	font-size: 1.5em;
-	border-radius: 25px 25px 0 0;
-	padding: .85em 0;
-	-webkit-box-shadow: 0 1px 4px #ccc;
--moz-box-shadow: 0 1px 4px #ccc;
-box-shadow: 0 1px 4px #ccc;
+	margin-bottom: 20px;
+	padding: .25em 0;
 }
 
 #search_header .query {
@@ -17,5 +15,5 @@ box-shadow: 0 1px 4px #ccc;
 }
 
 #results_wrap {
-	margin-top: 34px;
+	margin-top: 30px;
 }

@@ -1954,3 +1954,10 @@ hr.contact {
 .set_link a {
 	border-right: none;
 }
+#banner {
+	background: url("/assets/Community Banner 2.png") center top no-repeat #fff;
+	background-size: cover;
+	height: 200px;
+	padding-top: 20px;
+	text-align: center;
+}

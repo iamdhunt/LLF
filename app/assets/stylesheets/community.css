@@ -1,0 +1,25 @@
+#cty_menu {
+	border-bottom: 1px solid #dce1e6;
+	padding: 20px 0 5px 0;
+}
+#cty_menu a {
+	font-weight: bold;
+	padding: 0 10px;
+	font-size: 1.1em;
+	color: #898989;
+}
+#cty_menu a:hover {
+	text-decoration: none;
+}
+#cty_menu .cty_str_1 {
+	color: #942fc6;
+}
+#cty_menu .cty_med_1:hover {
+	color: #F7803C;
+}
+#cty_menu .cty_str_2:hover {
+	color: #942fc6;
+}
+#cty_menu .cty_med_2 {
+	color: #F7803C;
+}

@@ -1,4 +1,7 @@
 class SearchController < ApplicationController
+
+before_filter :authenticate_member!
+
   def search
   	@search = Member.search do
       fulltext params[:search]
@@ -7,4 +10,5 @@ class SearchController < ApplicationController
     @query = params[:search]
     @members = @search.results
   end
+
 end

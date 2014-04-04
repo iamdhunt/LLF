@@ -2,6 +2,13 @@ LLF::Application.routes.draw do
 
   get "search" => "search#search", :as => "search"
 
+  get "community" => "community#community", :as => "community"
+
+  scope 'community' do
+    get '/media' => 'community#media', as: 'community_media'
+    get '/stream' => 'community#stream', as: 'community_stream'
+  end
+
   resources :activities, only: [:index, :destroy] 
 
   resources :activities do
