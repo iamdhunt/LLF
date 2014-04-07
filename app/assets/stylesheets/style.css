@@ -1961,3 +1961,23 @@ hr.contact {
 	padding-top: 20px;
 	text-align: center;
 }
+#stream_filters {
+	font-weight: bold;
+	padding: 10px 0 0 10px;
+}
+#stream_filters .filters {
+	padding: 0 10px 0 0;
+}
+#stream_filters .all {
+	color: #898989;
+}
+#stream_filters .status {
+	color: #49afcd;
+}
+#stream_filters .media {
+	color: #F7803C;
+}
+#stream_filters input[type="radio"] + label
+{
+    display:inline-block;
+}

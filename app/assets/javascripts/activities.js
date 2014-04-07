@@ -14,6 +14,14 @@ $(document).ready(function(){
 		  },
 		  itemSelector: '.list_act_wrap',
 	  });
+
+		  // bind filter on radio button click
+	  $('#stream_filters').on( 'click', 'input', function() {
+	    // get filter value from input value
+	    var filterValue = this.value;
+	    console.log( filterValue );
+	    $container.isotope({ filter: filterValue });
+	  });
 	});
 
 	$container.infinitescroll({
