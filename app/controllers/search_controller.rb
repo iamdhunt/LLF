@@ -9,6 +9,7 @@ before_filter :authenticate_member!
     end 
     @query = params[:search]
     @members = @search.results
+    @search_total = @members.total_entries
   end
 
 end

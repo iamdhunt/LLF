@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140216025705) do
+ActiveRecord::Schema.define(:version => 20140410005253) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -112,6 +112,10 @@ ActiveRecord::Schema.define(:version => 20140216025705) do
     t.string   "pinterest"
     t.string   "blog"
     t.string   "website"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
@@ -123,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20140216025705) do
     t.datetime "updated_at",  :null => false
     t.integer  "member_id"
     t.integer  "document_id"
+    t.integer  "restream_id"
   end
 
   add_index "statuses", ["member_id"], :name => "index_statuses_on_member_id"

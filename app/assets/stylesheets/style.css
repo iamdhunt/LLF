@@ -862,7 +862,7 @@ hr.contact {
 	height: 13.333em;
 	background-image: url('/assets/Container BG.png');	
 	color: #333;
-	margin-top: 1.2em;
+	margin-top: 1.5em;
 	position: relative;
 	border-width: 2px 2px 0 2px;
 	border-color: #EFEFEF;
@@ -1955,11 +1955,13 @@ hr.contact {
 	border-right: none;
 }
 #banner {
-	background: url("/assets/Community Banner 2.png") center top no-repeat #fff;
+	background-position: center top;
+	background-repeat: no-repeat;
 	background-size: cover;
 	height: 200px;
 	padding-top: 20px;
 	text-align: center;
+	border-bottom: 1px solid #EFEFEF;
 }
 #stream_filters {
 	font-weight: bold;

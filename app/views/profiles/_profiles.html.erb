@@ -1,4 +1,9 @@
 <% if @member %>
+
+<% if @member.banner? %>
+    <div id="banner" style="background-image: url(<%= @member.banner.url(:large) %>)"></div>
+<% end %>
+
 <div id="main_wrap">
 
     <div id="profile_wrap">
@@ -34,7 +39,7 @@
                 </div>
             <% end %>
             <div class="profile_bio">
-                <% if @member.bio %>
+                <% if @member.bio? %>
                     <%= @member.bio %>
                 <% end %>
             </div>
@@ -80,7 +85,7 @@
                 <% end %>
             </div>
         	<div class="profile_pursuits">
-                <% if @member.pursuits %>
+                <% if @member.pursuits? %>
                     <%= @member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
                 <% end %>
             </div>        

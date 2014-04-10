@@ -7,7 +7,7 @@ class Member < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
   					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
-            :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
+            :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
 
   validates :first_name, presence: true,
                           format: {
@@ -180,8 +180,13 @@ class Member < ActiveRecord::Base
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", av: "200x200#", comment: "22x22#"}
 
-  validates_attachment_size :avatar, :less_than=>10.megabyte
+  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
+
+  validates_attachment_size :avatar, :less_than_or_equal_to=>5.megabyte
   validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+
+  validates_attachment_size :banner, :less_than_or_equal_to=>5.megabyte
+  validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   def full_name
   		first_name + " " + last_name
