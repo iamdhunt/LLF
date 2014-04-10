@@ -18,6 +18,7 @@ gem 'rinku'
 gem 'zclip-rails'
 gem 'sunspot_rails'
 gem 'progress_bar'
+gem "swf_fu", "~> 2.0"
 
 
 group :development, :test do

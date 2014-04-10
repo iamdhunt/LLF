@@ -1,9 +1,22 @@
 <% @media.each do |medium| %>
 
   <div class="list_act_wrap">
-    <div class="act_media_content">
-      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: 'fancybox', rel: 'prof_gall' %>
-    </div>
+     <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="act_media_content">
+        <div class="mediaPlayer" id=<%= medium.id %>>
+            <div class="mediaContainer-<%= medium.id.to_s %>" ></div>
+            <div id="playButton">Play</div>
+            <div id="pauseButton">Pause</div>
+            <span class='mp3' data-href="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3"><span>
+        </div>       
+      </div>
+    <% end %>
+
+    <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+      <div class="act_media_content">
+        <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
+      </div>
+    <% end %>
 
     <div id="fancyboxTitles" style="display: none;">
         <div><%= Rinku.auto_link(medium.caption).html_safe %></div>

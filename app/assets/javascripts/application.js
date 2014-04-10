@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require js-routes
 //= require zclip
+//= require jquery.jplayer.js
+//= require swf_fu
+//= require soundmanager2-nodebug
 //= require_tree .

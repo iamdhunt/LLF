@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140410005253) do
+ActiveRecord::Schema.define(:version => 20140410044331) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(:version => 20140410005253) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"

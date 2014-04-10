@@ -57,10 +57,10 @@ class MediaController < ApplicationController
     respond_to do |format|
       if @medium.save
         current_member.create_activity(@medium, 'created')
-        format.html { redirect_to profile_media_path(current_member), notice: 'Media was successfully uploaded.' }
+        format.html { redirect_to profile_media_path(current_member) }
         format.json { render json: @medium, status: :created, location: @medium }
       else
-        format.html { redirect_to profile_media_new_path(current_member), alert: 'Please check you\'re uploading only images under 10Mbs.' }
+        format.html { redirect_to profile_media_new_path(current_member) }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
       end
     end
