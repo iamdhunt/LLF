@@ -1,6 +1,6 @@
 <% title "LLF | Community" %>
 
-<div id="banner"></div>
+<%= render :partial => "banner" %>
 
 <div id="main_wrap">
 
@@ -9,15 +9,9 @@
 		<%= link_to "Community Media", community_media_path, class: 'cty_med_2' %>
 	</div>
 
-	<% if @media.count > 0 %>
-        <div id="media_list_wrap">
-            <%= render :partial => "media/media" %>       
-        </div>      
-    <% else %>
-        <div class="none_message">
-            No Media Yet
-        </div>
-    <% end %>
+    <div id="media_list_wrap">
+        <%= render :partial => "media/media" %>       
+    </div>      
 
     <%= will_paginate @media, class: 'display_none' %>
 

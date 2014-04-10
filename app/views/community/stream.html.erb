@@ -1,6 +1,6 @@
 <% title "LLF | Community" %>
 
-<div id="banner"></div>
+<%= render :partial => "banner" %>
 
 <div id="main_wrap">
 
@@ -24,15 +24,9 @@
         </span>
     </div>
 
-	<% if @activities.count > 0 %>
-        <div id="activity_stream_wrap">
-    	   <%= render :partial => "activities/activities" %>
-        </div>          
-        <% else %>
-            <div class="none_message">
-                No Posts Yet
-            </div>
-    <% end %>    
+    <div id="activity_stream_wrap">
+	   <%= render :partial => "activities/activities" %>
+    </div>          
 
     <%= will_paginate @activities, class: 'display_none' %>
 

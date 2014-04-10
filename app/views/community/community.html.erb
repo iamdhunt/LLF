@@ -1,11 +1,11 @@
 <% title "LLF | Community" %>
 
-<div id="banner" style="background-image: url('/assets/Community Banner 2.png');"></div>
+<%= render :partial => "banner" %>
 
 <div id="main_wrap">
 
 	<div id="cty_menu">
-		<%= link_to "Community Stream", community_path, class: 'cty_str_1' %>
+		<%= link_to "Community Stream", community_stream_path, class: 'cty_str_1' %>
 		<%= link_to "Community Media", community_media_path, class: 'cty_med_1' %>
 	</div>
 
@@ -24,15 +24,9 @@
         </span>
     </div>
 
-	<% if @activities.count > 0 %>
-        <div id="activity_stream_wrap">
-    	   <%= render :partial => "activities/activities" %>
-        </div>          
-        <% else %>
-            <div class="none_message">
-                No Posts Yet
-            </div>
-    <% end %>    
+    <div id="activity_stream_wrap">
+	   <%= render :partial => "activities/activities" %>
+    </div>           
 
     <%= will_paginate @activities, class: 'display_none' %>
 
