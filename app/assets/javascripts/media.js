@@ -86,28 +86,4 @@ $(document).ready(function(){
 	    }
 	});
 
-	var mp3 = $('.mp3').attr('data-href');
-	var id = $('.mediaPlayer').attr('id');
-	var mediaPlayer = jQuery('.mediaContainer-'+id);
-	    mediaPlayer.jPlayer({
-	    	cssSelectorAncestor: ".mediaContainer-"+id,
-	        swfPath: 'http://www.jplayer.org/2.1.0/js',       
-	        solution:    "flash, html",  
-	        supplied : 'mp3',
-	        cssSelector: {
-	            play: '#playButton',
-	            pause: '#pauseButton',
-	        },
-	        ready: function() {jQuery(this).jPlayer("setMedia", {
-	            mp3: mp3,
-	        });}
-	        
-	    });
-	    $('#playButton').click(function() {
-	        $('.mediaContainer-'+id).jPlayer('play');
-	    });
-	    $('#pauseButton').click(function() {
-	        $('.mediaContainer-'+id).jPlayer('pause');
-	    });
-
 });

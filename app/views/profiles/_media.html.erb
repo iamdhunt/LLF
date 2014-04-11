@@ -3,12 +3,11 @@
   <div class="list_act_wrap">
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
-        <div class="mediaPlayer" id=<%= medium.id %>>
-            <div class="mediaContainer-<%= medium.id.to_s %>" ></div>
-            <div id="playButton">Play</div>
-            <div id="pauseButton">Pause</div>
-            <span class='mp3' data-href="http://www.jplayer.org/audio/mp3/TSP-01-Cro_magnon_man.mp3"><span>
-        </div>       
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360">
+            <%= link_to '', medium.asset.url %>
+          </div>
+        </div>
       </div>
     <% end %>
 
