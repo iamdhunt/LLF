@@ -1,6 +1,12 @@
 <% @media.each do |medium| %>
 
-  <div class="list_act_wrap">
+<% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+  <div class="list_act_wrap audio_fil">
+  <% end %>
+
+<% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+  <div class="list_act_wrap photo_fil">
+<% end %>
 
     <div class="act_media_top">
       <span class="">
@@ -15,10 +21,22 @@
         <%= time_ago_in_words(medium.created_at) %>
       </span>
     </div>
-    
-    <div class="act_media_content">
-      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: 'fancybox', rel: 'prof_gall' %>
-    </div>
+
+    <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="act_media_content">
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360 ui360-vis">
+            <%= link_to '', medium.asset.url %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+      <div class="act_media_content">
+        <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
+      </div>
+    <% end %>
 
     <div id="fancyboxTitles" style="display: none;">
         <div><%= Rinku.auto_link(medium.caption).html_safe %></div>

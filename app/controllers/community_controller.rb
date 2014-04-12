@@ -1,11 +1,11 @@
 class CommunityController < ApplicationController
 
   def community
-  	@activities = Activity.select("activities.*, COUNT(votes.id)").joins(:votes).group("activities.id").order("created_at desc").page(params[:page]).per_page(72)
+  	@activities = Activity.select("activities.*, COUNT(votes.id) vote_count").joins(:votes).group("activities.id").order("created_at desc").page(params[:page]).per_page(72)
   end
 
   def stream
-  	@activities = Activity.select("activities.*, COUNT(votes.id)").joins(:votes).group("activities.id").order("created_at desc").page(params[:page]).per_page(72)
+  	@activities = Activity.select("activities.*, COUNT(votes.id) vote_count").joins(:votes).group("activities.id").order("created_at desc").page(params[:page]).per_page(72)
   end
 
   def media

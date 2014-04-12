@@ -64,7 +64,7 @@ class ProfilesController < ApplicationController
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @activities = @member.get_up_voted Activity.page(params[:page]).per_page(36)
+      @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(36)
       render action: :show_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -98,7 +98,7 @@ class ProfilesController < ApplicationController
   def media_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @media = @member.get_up_voted Medium.page(params[:page]).per_page(30)
+      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(30)
       render action: :media_fav
     else
       render file: 'public/404', status: 404, formats: [:html]

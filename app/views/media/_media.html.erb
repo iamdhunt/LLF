@@ -18,7 +18,11 @@
 
     <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
-        <%= link_to 'Audio', medium.asset.url, class: "fancybox", rel: 'media_gall' %>
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360 ui360-vis">
+            <%= link_to '', medium.asset.url %>
+          </div>
+        </div>
       </div>
     <% end %>
 

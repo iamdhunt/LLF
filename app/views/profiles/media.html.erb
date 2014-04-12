@@ -25,6 +25,21 @@
         </div>
     <% end %>
 
+    <div id="stream_filters">
+        <span class="filters all">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %>
+            <label for="filter__">All</label>
+        </span>
+        <span class="filters photos">
+            <%= radio_button_tag(:filter, ".photo_fil") %>
+            <label for="filter__">Photos</label>
+        </span>
+        <span class="filters audio">
+            <%= radio_button_tag(:filter, ".audio_fil") %>
+            <label for="filter__">Audio</label>
+        </span>
+    </div>
+
     <% if @media.count > 0 %>
         <div id="media_list_wrap">
         	<%= render :partial => "media" %>       

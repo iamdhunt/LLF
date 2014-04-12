@@ -99,4 +99,24 @@
 #med_art {
 	width: 188px;
 	height: 188px;
+	background-size: cover;
+}
+#med_art_act {
+	width: 195px;
+	height: 195px;
+	background-size: cover;
+	margin-left: auto;
+	margin-right: auto;
+}
+.med_instructions {
+	font-size: .9em;
+	font-style: oblique;
+	color: #898989;
+	margin-bottom: 10px;
+}
+#stream_filters .photos {
+	color: #FF6660;
+}
+#stream_filters .audio {
+	color: #5D88EA;
 }

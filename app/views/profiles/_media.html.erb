@@ -1,10 +1,16 @@
 <% @media.each do |medium| %>
 
-  <div class="list_act_wrap">
+<% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+  <div class="list_act_wrap audio_fil">
+  <% end %>
+
+<% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+  <div class="list_act_wrap photo_fil">
+<% end %>
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
         <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
-          <div class="ui360">
+          <div class="ui360 ui360-vis">
             <%= link_to '', medium.asset.url %>
           </div>
         </div>
