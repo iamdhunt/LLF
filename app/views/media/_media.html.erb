@@ -1,6 +1,12 @@
 <% @media.each do |medium| %>
 
-  <div class="list_act_wrap">
+  <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+  <div class="list_act_wrap audio_fil">
+  <% end %>
+
+  <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+    <div class="list_act_wrap photo_fil">
+  <% end %>
 
     <div class="act_media_top">
       <span class="">

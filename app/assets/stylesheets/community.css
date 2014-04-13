@@ -1,6 +1,7 @@
 #cty_menu {
 	border-bottom: 1px solid #dce1e6;
 	padding: 20px 0 5px 0;
+	text-align: center;
 }
 #cty_menu a {
 	font-weight: bold;
@@ -22,4 +23,7 @@
 }
 #cty_menu .cty_med_2 {
 	color: #F7803C;
+}
+#community #stream_filters {
+	text-align: center;
 }

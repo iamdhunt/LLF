@@ -2,12 +2,31 @@
 
 <%= render :partial => "banner" %>
 
+<%= render :partial => "newsticker" %>
+
 <div id="main_wrap">
 
 	<div id="cty_menu">
 		<%= link_to "Community Stream", community_stream_path, class: 'cty_str_2' %>
 		<%= link_to "Community Media", community_media_path, class: 'cty_med_2' %>
 	</div>
+
+    <span id="community">
+        <div id="stream_filters">
+            <span class="filters all">
+                <%= radio_button_tag(:filter, "*", :checked => 'checked') %>
+                <label for="filter__">All</label>
+            </span>
+            <span class="filters photos">
+                <%= radio_button_tag(:filter, ".photo_fil") %>
+                <label for="filter__">Photos</label>
+            </span>
+            <span class="filters audio">
+                <%= radio_button_tag(:filter, ".audio_fil") %>
+                <label for="filter__">Audio</label>
+            </span>
+        </div>
+    </span>
 
     <div id="media_list_wrap">
         <%= render :partial => "media/media" %>       
