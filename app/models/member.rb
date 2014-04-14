@@ -202,7 +202,15 @@ class Member < ActiveRecord::Base
     activity.action = action 
     activity.save 
     activity
-  end 
+  end
+
+  searchable do
+    text :user_name, :first_name, :last_name, :pursuit_list, :boost => 5
+    text :city, :state, :country
+  end
+
+  handle_asynchronously :solr_index
+  handle_asynchronously :remove_from_index
 
   private
 
@@ -220,11 +228,6 @@ class Member < ActiveRecord::Base
       # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
       errors.add(:pursuit, "Too long (Maximum is 25 characters)") if pursuit.length > 25
     end
-  end 
-
-  searchable do
-    text :user_name, :first_name, :last_name, :pursuit_list, :boost => 5
-    text :city, :state, :country
   end 
 
 end

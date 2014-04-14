@@ -19,6 +19,7 @@ gem 'zclip-rails'
 gem 'sunspot_rails'
 gem 'progress_bar'
 gem "swf_fu", "~> 2.0"
+gem 'delayed_job_active_record'
 
 
 group :development, :test do
