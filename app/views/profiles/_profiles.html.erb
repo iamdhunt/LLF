@@ -85,7 +85,7 @@
                 <% end %>
             </div>
         	<div class="profile_pursuits">
-                <% if @member.pursuits? %>
+                <% if @member.pursuit_list %>
                     <%= @member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
                 <% end %>
             </div>        
