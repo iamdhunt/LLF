@@ -7,8 +7,7 @@ $(document).ready(function(){
 		rssSources: 'Billboard,Art News,ESPN,Businessweek,Complex,Yahoo Fashion,Yahoo Sports,Entrepreneur,Rolling Stone,Digital Arts,SB Nation,Yahoo Business,Pitchfork,Art in America,Extreme Sports,Young Entrepreneur,Magnetic Mag,American Photo,ESPN Action,Inc.,Pitchfork,Film Magazine,Wired,Pitchfork,Dezeen,Wired,Bleacher Report,Apparel News,Digital Arts,Forbes',
 		rssCats: 'Music,Arts,Sports,Entrepreneurial,Music,Arts,Sports,Entrepreneurial,Music,Arts,Sports,Entrepreneurial,Music,Arts,Sports,Entrepreneurial,Music,Arts,Sports,Entrepreneurial,Music,Arts,Entrepreneurial,Music,Arts,Entrepreneurial,Sports,Entrepreneurial,Arts,Entrepreneurial',
 		rssColors: 'F7B448,74cfae,EB6361,2D9FC4,F7B448,74cfae,EB6361,2D9FC4,F7B448,74cfae,EB6361,2D9FC4,F7B448,74cfae,EB6361,2D9FC4,F7B448,74cfae,EB6361,2D9FC4,F7B448,74cfae,2D9FC4,F7B448,74cfae,2D9FC4,EB6361,2D9FC4,74cfae,2D9FC4',
-		rssLimit:4,
-		feedsOrder:'newer',		
+		rssLimit:4,		
 		linkTarget:'_blank',
 		pausetime: 3500
 	});
