@@ -1,0 +1,86 @@
+<%= simple_form_for(@project, :html => { class: 'form-horizontal ' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="rq">
+    * = required field
+  </div>
+
+  <fieldset>
+    <legend class="leg">Name Your Project</legend>
+    <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms settings t_in', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Upload Some Images</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Recommended avatar dimensions of 200x200
+        </li>
+        <li>
+          &raquo; Recommended banner dimensions of 1400x200
+        </li>
+        <li>
+          &raquo; Maximum file size of 5MB
+        </li>
+        <li>
+          &raquo; Accepted file formats: (jpeg, png, gif)
+        </li>
+      </ul>
+    </div>
+    <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+    <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Choose Your Category & Tags</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Select the appropriate category for your project
+        </li>
+        <li>
+          &raquo; Provide up to three of the project's most relevant tags
+        </li>
+        <li>
+          &raquo; Comma separated, 15 characters per
+        </li>
+      </ul>
+    </div>
+    <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports', 'Other'], label: 'Category', error: false, input_html: { class: 'forms account settings', tabindex: '2' } %>
+    <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3'} %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Provide Some Links</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
+        </li>
+        <li>
+          &raquo; We only support YouTube/Vimeo
+        </li>
+      </ul>
+    </div>
+    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings w_in', tabindex: '4' } %>
+    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings vid_in', tabindex: '5' } %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Tell Us the Story</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Let the world know what's so awesome about your project
+        </li>
+      </ul>
+    </div>
+    <%= f.input :blurb, label: 'Blurb', error: false, input_html: { cols: '55', rows: '5', class: 'forms account settings', tabindex: '6', maxlength: '280' } %>
+    <%= f.input :about, label: 'About', error: false, input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '7' } %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-danger' %>
+  </div>
+<% end %>

@@ -1,0 +1,53 @@
+<% title @member.full_name %>
+
+    <div id="projects_subnav_wrap">
+
+        <ul class="sub_stream">
+            <li>
+                <%= link_to '<i class="icon-bullhorn icon-white"></i> My Projects'.html_safe, profile_projects_path(@member), class: 'all_media' %>
+            </li> 
+
+            <li>
+                <%= link_to '<i class="icon-check icon-white"></i> Projects I\'m Following'.html_safe, profile_projects_following_path(@member), class: 'media_fav_subnav' %>
+            </li> 
+            
+            <li>
+                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: 'media_fav_subnav' %>
+            </li> 
+      
+        </ul>
+                   
+
+    <div style="clear:both;"></div>
+    </div>
+
+    <!--/media_subnav_wrap-->
+
+    <% if @member == current_member %>
+        <div id="add_new">
+          <%= link_to 'Create Project', profile_projects_new_path, :class => "btn btn-danger add_media" %>
+        </div>
+    <% end %>
+
+    <% if @projects.count > 0 %>
+        <div id="prof_projs">
+            <div id="prs">
+               <%= render :partial => "projects" %>
+            </div>
+        </div>          
+        <% else %>
+            <div class="none_message">
+                No Projects Yet
+            </div>
+    <% end %>
+
+    <%= will_paginate @projects, class: 'display_none' %>
+
+    <% if @projects.total_pages != @projects.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>

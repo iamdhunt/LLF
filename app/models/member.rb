@@ -36,7 +36,7 @@ class Member < ActiveRecord::Base
   validates :user_name, presence: true,
                         uniqueness: true,
                         format: {
-                          with: /^[a-zA-Z0-9_-]+$/,
+                          with: /^[a-z0-9_-]+$/,
                           message: 'must be formatted correctly.'
                         },
                         length: {
@@ -52,7 +52,7 @@ class Member < ActiveRecord::Base
                               message: 'must not list more than 5 pursuits.'
                             },
                             format: {
-                              with: /^[a-zA-Z, ]+$/,
+                              with: /^[a-zA-Z ,-]+$/,
                               message: 'must be formatted correctly.'
                             }
   validate :each_pursuit
@@ -165,10 +165,12 @@ class Member < ActiveRecord::Base
                         message: 'must be longer than 4 characters.'
                        }
 
+  before_validation :clean_up_pursuits
   before_save :titleize, :to_lower
   before_create :titleize, :to_lower
 
   has_many :medium
+  has_many :projects
   has_many :statuses
   has_many :activities
   has_many :comments
@@ -221,6 +223,7 @@ class Member < ActiveRecord::Base
 
   def to_lower
     self.user_name = self.user_name.downcase
+    self.email = self.email.downcase
   end 
 
   def each_pursuit
@@ -228,6 +231,11 @@ class Member < ActiveRecord::Base
       # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
       errors.add(:pursuit, "Too long (Maximum is 25 characters)") if pursuit.length > 25
     end
-  end 
+  end
+
+  def clean_up_pursuits
+    # Make lowercase 
+    self.pursuit_list.map!(&:downcase) 
+  end
 
 end

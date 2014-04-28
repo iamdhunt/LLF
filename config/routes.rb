@@ -1,5 +1,14 @@
 LLF::Application.routes.draw do
 
+  resources :projects do
+    resources :comments
+    resources :follows, :controller => 'follows_projects', :only => [:create, :destroy]
+    member do
+      put "favorite", to: "projects#upvote"
+    end
+  end
+
+
   get "search" => "search#search", :as => "search"
 
   get "community" => "community#community", :as => "community"
@@ -84,10 +93,14 @@ LLF::Application.routes.draw do
     get '/stream/favorites' => 'profiles#stream_fav', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'
     get '/following' => 'profiles#following', as: 'profile_following'
+    get '/projects' => 'profiles#projects', as: 'profile_projects'
+    get '/projects/following' => 'profiles#projects_following', as: 'profile_projects_following'
+    get '/projects/favorites' => 'profiles#projects_fav', as: 'profile_projects_fav'
+    get '/projects/new' => 'profiles#projects_new', as: 'profile_projects_new'
   end
 
   resources :members, :only => [:index, :show], :path => '/' do
-    resources :follows, :only => [:create, :destroy]
+    resources :follows, :controller => 'follows_members', :only => [:create, :destroy]
   end
 
   # The priority is based upon order of creation:

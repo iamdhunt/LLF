@@ -1811,13 +1811,6 @@ hr.contact {
 	color: #9431c5;
 }
 
-.project_info {
-	font-size: 1.3em;
-	color: #333;
-	margin-left: 1.2em;
-	margin-top: .2em;
-}
-
 .goal_text {
 	margin-left: 1.7em;
 }
@@ -1835,22 +1828,6 @@ hr.contact {
 
 .project_account_wrap {
 	margin-top: .8em;
-}
-
-.project_tags {
-	margin-top: .4em;
-	text-align: center;
-}
-
-.project_tags a {
-	font-weight: bold;
-	color: #898989;
-	text-decoration: none;
-	margin-left: .1em;
-}
-
-.project_tags a:hover {
-		color: #9431c5;
 }
 
 #pledge_button {
@@ -1877,11 +1854,6 @@ hr.contact {
 
 .act_icons_2 {
 	margin-left: 1em;
-}
-
-.project_avatar {
-	margin-left: 3.5em;
-	margin-right: 1em;
 }
 
 .stream_av img {
@@ -1959,8 +1931,7 @@ hr.contact {
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 200px;
-	padding-top: 20px;
-	text-align: center;
+	padding: 10px 0 10px 0;
 }
 #stream_filters {
 	font-weight: bold;

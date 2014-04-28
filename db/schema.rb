@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140414025813) do
+ActiveRecord::Schema.define(:version => 20140426071408) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -136,6 +136,32 @@ ActiveRecord::Schema.define(:version => 20140414025813) do
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
   add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.integer  "member_id"
+    t.text     "category"
+    t.text     "tags"
+    t.text     "website"
+    t.text     "video"
+    t.text     "about"
+    t.text     "blurb"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.text     "title"
+    t.text     "video_html"
+    t.string   "test"
+    t.string   "test_html"
+  end
+
+  add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
 
   create_table "statuses", :force => true do |t|
     t.text     "content"

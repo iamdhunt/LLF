@@ -40,6 +40,10 @@
 		</div> 
 	<% end %>
 
+	<div class="actions_act" id="sbox">
+		<input class='as forms' value="<%= medium_url(activity.targetable_id) %>" />
+	</div>
+
 	<% if member_signed_in? %>
 		<div class="actions_act">
 			<span id="comment_act_btn">
@@ -49,7 +53,7 @@
 						<%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= activity.targetable.comments.count %>
 					<% end %>
 				<% elsif activity.targetable.comments.count > 99 %>
-					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', status_path(activity.targetable_id), :class => "btn comment" %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(activity.targetable_id), :class => "btn comment" %>
 				<% else %>
 					<%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(activity.targetable_id), :class => "btn comment" %>
 				<% end %>
@@ -70,21 +74,22 @@
 					<%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_activity_path(activity), method: :put, :class => "btn favorite" %>
 				<% end %>
 
-				<span class="btn-group">
-					<%= link_to image_tag("More.png", class: "act_actions", title: "More", alt: "More"), "#", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown"} %>
-					<ul class="dropdown-menu">
-						<% if activity.member == current_member %>
+				<%= link_to image_tag("Share 3.png", class: "act_actions", title: "Share", alt: "Share"), "#", :class => "btn share", :id => "ashare" %>
+
+				<% if activity.member == current_member %>
+					<span class="btn-group" id="<%= activity.targetable.id %>">
+						<%= link_to image_tag("More.png", class: "act_actions", title: "More", alt: "More"), "#", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown"} %>
+						<ul class="dropdown-menu">
 							<li class="del">
 							    <%= link_to "Delete", activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
 							</li>
-						<% end %>
-						<li>
-							<%= link_to "Copy Link", "#" %>
-						</li>
-					</ul>
-				</span>
+						</ul>
+					</span>
+				<% end %>
 			</span>
 		</div>
 	<% end %>
+
+	
 
 </div>

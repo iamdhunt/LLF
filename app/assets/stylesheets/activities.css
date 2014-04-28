@@ -5,7 +5,7 @@
 }
 #activity_stream_wrap {
 	position: relative;
-	padding: 10px 5px;
+	padding: 10px 0 10px 5px;
 }
 .media_act_cap {
 	font-size: .8em;
@@ -131,18 +131,7 @@
 	border-radius: 8px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
-#comment_btn .btn:hover {
-	color: #49afcd;
-}
-#comment_act_btn .comment:hover {
-	color: #49afcd;
-}
-#comment_act_btn .favorite:hover {
-	color: #eb2e35;
-}
-#comment_act_btn .restream:hover {
-	color: #9033be;
-}
+
 #comment_act_btn .btn {
 	color: #aeaeae;
 	padding: 0 3px;
@@ -173,8 +162,11 @@
 }
 .btn-group .del {
 	color: #da4f49;
-	border-bottom: 1px solid #ddd;
 }
 .btn-group .del a {
 	color: #da4f49;
+}
+.actions_act .as {
+	width: 100%;
+	padding: 3px;
 }

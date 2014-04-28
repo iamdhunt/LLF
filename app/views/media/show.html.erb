@@ -2,31 +2,46 @@
 
 <div id="main_wrap">
 
-	 <div class="act_media_top med_top">
-      <span class="">
-        <%= avatar_profile_link @medium.member, :class => "act_av" %>
-      </span>
+ <div class="act_media_top med_top">
+    <span class="">
+      <%= avatar_profile_link @medium.member, :class => "act_av" %>
+    </span>
 
-      <span class="act_name">
-        <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
-      </span>
+    <span class="act_name">
+      <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
+    </span>
 
-      <% if @medium.member == current_member %>
-        <div class="act_delete">
-            <%= link_to image_tag("delete-6-icon.png"), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-      <% end %> 
+    <% if @medium.member == current_member %>
+      <div class="act_delete">
+          <%= link_to image_tag("delete-6-icon.png"), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %> 
 
-      <span class="meta"> 
-        <%= time_ago_in_words(@medium.created_at) %>
-      </span>
-    </div>
+    <span class="meta"> 
+      <%= time_ago_in_words(@medium.created_at) %>
+    </span>
+  </div>
 
 	<div id="media_show_wrap">
-		<%= image_tag(@medium.asset.url(:large), class: 'thumbnail show_media') %>
+
+    <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="sh_aud">
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360 ui360-vis">
+            <%= link_to '', @medium.asset.url %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+		  <%= image_tag(@medium.asset.url(:large), class: 'thumbnail show_media') %>
+    <% end %>
+
 		<p class="view_caption">
 		  <%= Rinku.auto_link(@medium.caption).html_safe %>
-		</p>	
+		</p>
+
 	</div>
 
 <!--/media_show_wrap-->

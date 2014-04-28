@@ -1,0 +1,104 @@
+<%= simple_form_for(@project, :html => { class: 'form-horizontal ' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div id="ed_pr_head">
+    <div class="e1 list">
+      <%= @project.title %>
+    </div>
+    <% if @project.category? %>
+      <div class="e2 list">
+        <%= @project.category %>
+      </div>
+    <% end %>
+    <% if @project.tags? %>
+      <div class="e2 list">
+        <%= @project.tags %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="rq">
+    * = required field
+  </div>
+
+  <fieldset>
+    <legend class="descriptors">Upload Some Images</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Recommended avatar dimensions of 200x200
+        </li>
+        <li>
+          &raquo; Recommended banner dimensions of 1400x200
+        </li>
+        <li>
+          &raquo; Maximum file size of 5MB
+        </li>
+        <li>
+          &raquo; Accepted file formats: (jpeg, png, gif)
+        </li>
+      </ul>
+    </div>
+    <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+    <div class="edit_pr_av">
+      <% if f.object.avatar? %>
+        <%= image_tag f.object.avatar.url(:av) %>
+      <% end %>
+    </div>
+    <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+    <div class="edit_pr_av">
+      <% if f.object.banner? %>
+        <%= image_tag f.object.banner.url(:preview) %>
+      <% end %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Choose Your Tags</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Provide up to three of the project's most relevant tags
+        </li>
+        <li>
+          &raquo; Comma separated, 15 characters per
+        </li>
+      </ul>
+    </div>
+    <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '1'} %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Provide Some Links</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
+        </li>
+        <li>
+          &raquo; YouTube/Vimeo Share URL
+        </li>
+      </ul>
+    </div>
+    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings w_in', tabindex: '2' } %>
+    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings vid_in', tabindex: '3' } %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Tell Us the Story</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Let the world know what's so awesome about your project
+        </li>
+      </ul>
+    </div>
+    <%= f.input :blurb, label: 'Blurb', error: false, input_html: { cols: '55', rows: '5', class: 'forms account settings', tabindex: '4', maxlength: '280' } %>
+    <%= f.input :about, label: 'About', error: false, input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '5' } %>
+  </fieldset>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-danger pull-left' %>
+    <%= link_to "Back", project_path(@project), :class => 'btn btn-info pull-right' %>
+  </div>
+<% end %>

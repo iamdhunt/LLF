@@ -1,0 +1,167 @@
+<% title @project.title %>
+
+<div id="banner" style="background-image: url(<%= @project.banner.url(:large) %>)">
+  <div id="pb">
+    <div id="proj_av"><%= image_tag @project.avatar.url(:av), class: 'p_av' %></div>
+    <div id="info">
+      <ul>
+        <% if member_signed_in? %>
+          <li class='but p_f_but'>
+            <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
+          </li>
+        <% end %>
+        <li class='sub'>
+          <span class='acct' id='p_f_ct'>
+            <%= link_to ("#") do %>
+               Followers (<%= @project.followers_count %>)
+            <% end %>
+          </span>
+        </li>
+        <% if @project.tag_list %>
+          <li class='sub'>
+            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, "#" }.join(' ').html_safe %></span>
+          </li> 
+        <% end %> 
+        <% if @project.website? %>  
+          <li class='sub w'>
+            <span class='acct'><%= link_to "Project Website", @project.website  %></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+<div id="main_wrap" class="pr_wrap">
+
+  <div id="proj_info">
+    <span class="l">
+      <%= avatar_profile_link @project.member, :class => "pr_av" %>
+      <% if @project.category == 'Arts' %>
+        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
+      <% end %>
+      <% if @project.category == 'Entrepreneurial' %>
+        <%= image_tag("/assets/Biz Category.png", class: 'ims', title: 'Entrepreneurial') %>
+      <% end %>
+      <% if @project.category == 'Sports' %>
+        <%= image_tag("/assets/Sports Category.png", class: 'ims', title: 'Sports') %>
+      <% end %>
+      <% if @project.category == 'Music' %>
+        <%= image_tag("/assets/Music Category.png", class: 'ims', title: 'Music') %>
+      <% end %>
+      <% if @project.category == 'Other' %>
+        <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
+      <% end %>
+    </span>
+    <span class="proj_title"><%= @project.title %></span>
+    <span class="r">
+
+      <% if member_signed_in? %>
+        <span id="p_fav_but">
+          <%= render :partial => "fav_button", :locals => {:project => @project} %>
+        </span>
+
+        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#sharemodal", :data => {:toggle => "modal"} %>
+        <% if current_member == @project.member %>
+          <span class="btn-group">
+            <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+              <ul class="dropdown-menu">            
+                <li>
+                  <%= link_to "Edit", edit_project_path(@project), class: '' %>
+                </li>
+                <li class="del">
+                  <%= link_to "Delete", @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+                </li>
+              </ul>
+          </span>
+        <% end %>
+      <% end %>
+
+    </span>
+
+    <div style="clear:both;"></div>
+  </div>
+
+  <% if @project.video? %>
+    <div id="proj_video">
+      <%= @project.video_html %>
+    </div>
+  <% end %>
+
+  <div id="proj_menu">
+    <%= link_to "About", "#", class: '' %>
+    <span>
+     <%= link_to("#") do %>
+        Media <span class="nav_p_ct"></span>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to("#") do %>
+        Comment <span class="nav_p_ct"><%= @commentable.comments.count %></span>
+      <% end %>
+    </span>
+    <span>
+      <%= link_to("#") do %>
+        Followers <span class="nav_p_ct"><%= @project.followers_count %></span>
+      <% end %>
+    </span>
+  </div>
+
+  <div id="proj_about">
+    <%= @project.about %>
+  </div>
+
+  <div id="proj_med">
+  </div>
+
+  
+    <div id="proj_comm">
+      <% if member_signed_in? %>
+        <%= render "comment_form" %>
+      <% end %>
+      <div id="comments_wrap">
+        <%= render "comments" %>
+      </div>
+
+      <%= will_paginate @comments, class: 'display_none' %>
+
+        <% if @comments.total_pages != @comments.current_page %>
+          <div id="loading"></div>  
+              <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                  Show More
+                </div>
+              <% end %>
+        <% end %>
+    </div>
+
+    <div>
+      <div id="proj_fol">
+        <%= render "followers" %>
+      </div>
+
+        <%= will_paginate @followers, class: 'display_none' %>
+
+        <% if @followers.total_pages != @followers.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+              <div class="com_show">
+                Show More
+              </div>
+            <% end %>
+        <% end %>
+    </div>
+  
+
+  <div id="sharemodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="sharemodallabel">Copy Project URL</h3>
+    </div>
+    <div class="modal-body pi">
+      <input class="pr_in forms" value="<%= project_url %>" />
+    </div>
+  </div>
+
+</div>

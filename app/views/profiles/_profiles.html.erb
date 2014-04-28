@@ -26,7 +26,7 @@
                     <%= link_to @member.following_by_type_count('Member'), profile_following_path(@member) %>
                 </span> 
                 <span class="follower_count" id="follows_count">
-                    <%= link_to @member.followers_by_type_count('Member'), profile_followers_path(@member) %>
+                    <%= link_to @member.followers_count, profile_followers_path(@member) %>
                 </span>
             </div>
             <div class="follow_count_text">
@@ -35,7 +35,7 @@
             </div>
             <% if signed_in? %>
                 <div id="member_actions" class="profile_buttons">
-                    <%= render :partial => "follows/follow_member", :locals => {:member => @member} %>
+                    <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
                 </div>
             <% end %>
             <div class="profile_bio">
@@ -122,7 +122,7 @@
                 </li>
                 
                 <li>
-                    <%= link_to 'Projects', '#', class: 'projects_wrap' %>
+                    <%= link_to 'Projects', profile_projects_path(@member), class: 'projects_wrap' %>
                 </li>
             </ul>
         

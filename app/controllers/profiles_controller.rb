@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
  layout "profile"
 
   def show
-  	@status = Status.new
+  	@status = current_member.statuses.new
     @status.build_document
   	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member       
@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   def stream
-    @status = Status.new
+    @status = current_member.statuses.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member 
@@ -35,7 +35,7 @@ class ProfilesController < ApplicationController
   end
 
   def personal
-    @status = Status.new
+    @status = current_member.statuses.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
@@ -47,7 +47,7 @@ class ProfilesController < ApplicationController
   end
 
   def my_stream
-    @status = Status.new
+    @status = current_member.statuses.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member 
@@ -60,7 +60,6 @@ class ProfilesController < ApplicationController
   end
 
   def stream_fav
-    @status = Status.new
     @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
@@ -124,5 +123,45 @@ class ProfilesController < ApplicationController
       render file: 'public/404', status: 404, formats: [:html]
     end
   end
+
+  def projects
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      @projects = @member.projects.paginate(page: params[:page], per_page: (24))
+      render action: :projects
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def projects_following
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      @following = @member.following_projects(:order => 'created_at DESC').paginate(page: params[:page], per_page: (24))
+      render action: :projects_following
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end 
+
+  def projects_fav
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      @projects = @member.get_up_voted Project.order("created_at desc").page(params[:page]).per_page(24)
+      render action: :projects_fav
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def projects_new
+    @project = current_member.projects.new
+    @member = Member.find_by_user_name(params[:id])
+    if @member && @member == current_member
+      render action: :projects_new
+    else
+      redirect_to profile_projects_path(@member)
+    end
+  end 
   
 end

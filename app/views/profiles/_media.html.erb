@@ -21,11 +21,13 @@
       <div class="act_media_content">
         <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
       </div>
+
+      <div id="fancyboxTitles" style="display: none;">
+          <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
+      </div>
     <% end %>
 
-    <div id="fancyboxTitles" style="display: none;">
-        <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
-    </div>
+    
 
     <% if medium.caption? %>
       <div class="media_act_cap">
