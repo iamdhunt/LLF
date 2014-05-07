@@ -3,10 +3,10 @@ class ProfilesController < ApplicationController
  layout "profile"
 
   def show
-  	@status = current_member.statuses.new
-    @status.build_document
   	@member = Member.find_by_user_name(params[:id]) 
-  	if @member == current_member       
+  	if @member == current_member
+      @status = current_member.statuses.new
+      @status.build_document      
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
   		render action: :show
@@ -19,10 +19,10 @@ class ProfilesController < ApplicationController
   end
 
   def stream
-    @status = current_member.statuses.new
-    @status.build_document
     @member = Member.find_by_user_name(params[:id])
-    if @member == current_member 
+    if @member == current_member
+      @status = current_member.statuses.new
+      status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
       render action: :show
@@ -35,10 +35,13 @@ class ProfilesController < ApplicationController
   end
 
   def personal
-    @status = current_member.statuses.new
-    @status.build_document
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @status = current_member.statuses.new
+      @status.build_document
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
+      render action: :show
+    elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
       render action: :show
     else 
@@ -47,10 +50,10 @@ class ProfilesController < ApplicationController
   end
 
   def my_stream
-    @status = current_member.statuses.new
-    @status.build_document
     @member = Member.find_by_user_name(params[:id])
-    if @member == current_member 
+    if @member == current_member
+      @status = current_member.statuses.new
+     @status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
       render action: :show
@@ -60,7 +63,6 @@ class ProfilesController < ApplicationController
   end
 
   def stream_fav
-    @status.build_document
     @member = Member.find_by_user_name(params[:id])
     if @member 
       @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(36)

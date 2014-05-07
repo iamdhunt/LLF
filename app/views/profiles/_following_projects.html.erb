@@ -1,6 +1,16 @@
 <% @following.each do |follow| %>
 
-<div id="p_list_wrap">
+	<% if follow.category == 'Arts' %>
+		<div id="p_list_wrap" class="art_fil">
+	<% elsif follow.category == 'Entrepreneurial' %>
+		<div id="p_list_wrap" class="biz_fil">
+	<% elsif follow.category == 'Sports' %>
+		<div id="p_list_wrap" class="sports_fil">
+	<% elsif follow.category == 'Music' %>
+		<div id="p_list_wrap" class="music_fil">
+	<% elsif follow.category == 'Other' %>
+		<div id="p_list_wrap" class="other_fil">
+	<% end %>		
 
 		<div id="p_list_top">
 			<span class="l">

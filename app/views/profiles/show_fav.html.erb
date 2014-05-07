@@ -26,18 +26,26 @@
 
     <!--/stream_subnav_wrap-->
 
-    <div id="stream_filters">
+    <div id="stream_filters" class="form-inline">
         <span class="filters all">
-            <%= radio_button_tag(:filter, "*", :checked => 'checked') %>
-            <label for="filter__">All</label>
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
         </span>
         <span class="filters stat_filter">
-            <%= radio_button_tag(:filter, ".status_fil") %>
-            <label for="filter__">Statuses</label>
+            <label for="filter_.status_fil">
+            <%= radio_button_tag(:filter, ".status_fil") %> Statuses
+            </label>
         </span>
         <span class="filters media">
-            <%= radio_button_tag(:filter, ".media_fil") %>
-            <label for="filter__">Media</label>
+            <label for="filter_.media_fil">
+            <%= radio_button_tag(:filter, ".media_fil") %> Media
+            </label>
+        </span>
+        <span class="filters project">
+            <label for="filter_.project_fil">
+            <%= radio_button_tag(:filter, ".project_fil") %> Projects
+            </label>
         </span>
     </div>
     

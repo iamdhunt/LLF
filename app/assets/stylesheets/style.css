@@ -1949,19 +1949,101 @@ hr.contact {
 	font-weight: bold;
 	padding: 10px 0 0 10px;
 }
+#stream_filters input[type="radio"] {
+	cursor: pointer;
+}
+#stream_filters input[type="radio"]{
+    vertical-align: baseline;
+}
+#stream_filters label {
+	background:#ebebeb;
+    color:#898989;
+    border-radius:8px;
+    padding: 5px 12px 8px 12px;
+    cursor:pointer;
+} 
+#stream_filters label:hover {
+	background-color: #e6e6e6;
+  	*background-color: #d9d9d9;
+}
+#stream_filters
+label:active,
+label.active {
+	background-color: #cccccc \9;
+	-webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  	-moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  	box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
 #stream_filters .filters {
 	padding: 0 10px 0 0;
 }
-#stream_filters .all {
-	color: #898989;
+#stream_filters .stat_filter label {
+	background: #a63ddb;
+	color: #fff;
 }
-#stream_filters .stat_filter {
-	color: #49afcd;
+#stream_filters .stat_filter label:hover {
+	background: #962bcc;
 }
-#stream_filters .media {
-	color: #F7803C;
+#stream_filters .media label {
+	background: #F7803C;
+	color: #fff;
 }
-#stream_filters input[type="radio"] + label
-{
-    display:inline-block;
+#stream_filters .media label:hover {
+	background: #e76f2a;
+}
+#stream_filters .project label {
+	background: #da4f49;
+	color: #fff;
+}
+#stream_filters .project label:hover {
+	background: #bd362f;
+}
+#stream_filters .photos label {
+	background: #FF6660;
+	color: #fff;
+}
+#stream_filters .photos label:hover {
+	background: #ec5651;
+}
+#stream_filters .audio label {
+	background: #5D88EA;
+	color: #fff;
+}
+#stream_filters .audio label:hover {
+	background: #4c78de;
+}
+#stream_filters .art_filter label {
+	background:#74cfae;
+    color:#fff;
+}
+#stream_filters .art_filter label:hover {
+	background:#5ec29e;
+}
+#stream_filters .biz_filter label {
+	background:#2d9fc4;
+    color:#fff;
+}
+#stream_filters .biz_filter label:hover {
+	background:#1a90b6;
+}
+#stream_filters .music_filter label {
+	background:#f7b448;
+    color:#fff;
+}
+#stream_filters .music_filter label:hover {
+	background:#e6a338;
+}
+#stream_filters .sports_filter label {
+	background:#eb6361;
+    color:#fff;
+}
+#stream_filters .sports_filter label:hover {
+	background:#dc5351;
+}
+#stream_filters .other_filter label {
+	background:#a63ddb;
+    color:#fff;
+}
+#stream_filters .other_filter label:hover {
+	background:#962bcc;
 }

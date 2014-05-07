@@ -55,6 +55,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
+        current_member.create_activity(@project, 'created')
         format.html { redirect_to @project }
         format.json { render json: @project, status: :created, location: @project }
       else

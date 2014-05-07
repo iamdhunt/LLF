@@ -427,3 +427,7 @@ vertical-align: baseline;
 .pr_wrap .com_con {
 	padding: 0 0 0 51px;
 }
+#pright #stream_filters {
+	text-align: center;
+	padding: 20px 0 0 0;
+}

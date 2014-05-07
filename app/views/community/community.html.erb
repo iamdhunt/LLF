@@ -21,18 +21,26 @@
             <div class="tab-pane active" id="stream">
             	<span id="community">
                     <div id="stream_filters">
-                        <div id="community_stream_filters">
+                        <div id="community_stream_filters" class="form-inline">
                             <span class="filters all">
-                                <%= radio_button_tag(:filter, "*") %>
-                                <label for="filter__">All</label>
+                                <label for="filter__">
+                                <%= radio_button_tag(:filter, "*") %> All
+                                </label>
                             </span>
                             <span class="filters stat_filter">
-                                <%= radio_button_tag(:filter, ".status_fil") %>
-                                <label for="filter__">Statuses</label>
+                                <label for="filter_.status_fil">
+                                <%= radio_button_tag(:filter, ".status_fil") %> Statuses
+                                </label>
                             </span>
                             <span class="filters media">
-                                <%= radio_button_tag(:filter, ".media_fil") %>
-                                <label for="filter__">Media</label>
+                                <label for="filter_.media_fil">
+                                <%= radio_button_tag(:filter, ".media_fil") %> Media
+                                </label>
+                            </span>
+                            <span class="filters project">
+                                <label for="filter_.project_fil">
+                                <%= radio_button_tag(:filter, ".project_fil") %> Projects
+                                </label>
                             </span>
                         </div>
                     </div>
@@ -57,18 +65,21 @@
             <div class="tab-pane" id="media">
                 <span id="community">
                     <div id="stream_filters">
-                        <div id="community_media_filters">
+                        <div id="community_media_filters" class="form-inline">
                             <span class="filters all">
-                                <%= radio_button_tag(:filter, "*") %>
-                                <label for="filter__">All</label>
+                                <label for="fil__">
+                                <%= radio_button_tag(:fil, "*") %> All
+                                </label>
                             </span>
                             <span class="filters photos">
-                                <%= radio_button_tag(:filter, ".photo_fil") %>
-                                <label for="filter__">Photos</label>
+                                <label for="filter_.photo_fil">
+                                <%= radio_button_tag(:filter, ".photo_fil") %> Photos
+                                </label>
                             </span>
                             <span class="filters audio">
-                                <%= radio_button_tag(:filter, ".audio_fil") %>
-                                <label for="filter__">Audio</label>
+                                <label for="filter_.audio_fil">
+                                <%= radio_button_tag(:filter, ".audio_fil") %> Audio
+                                </label>
                             </span>
                         </div>
                     </div>

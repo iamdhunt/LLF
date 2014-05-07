@@ -10,6 +10,12 @@
             <li>
                 <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_media_fav_path(@member), class: 'media_fav_subnav' %>
             </li> 
+
+            <% if @member == current_member %>
+                <li>
+                    <%= link_to '<i class="icon-circle-arrow-up icon-white"></i> Upload Media'.html_safe, profile_media_new_path, class: 'media_new_subnav' %>
+                </li>
+            <% end %>
       
         </ul>
                    
@@ -19,18 +25,21 @@
 
     <!--/media_subnav_wrap-->
 
-    <div id="stream_filters">
+    <div id="stream_filters" class="form-inline">
         <span class="filters all">
-            <%= radio_button_tag(:filter, "*", :checked => 'checked') %>
-            <label for="filter__">All</label>
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
         </span>
         <span class="filters photos">
-            <%= radio_button_tag(:filter, ".photo_fil") %>
-            <label for="filter__">Photos</label>
+            <label for="filter_.photo_fil">
+            <%= radio_button_tag(:filter, ".photo_fil") %> Photos
+            </label>
         </span>
         <span class="filters audio">
-            <%= radio_button_tag(:filter, ".audio_fil") %>
-            <label for="filter__">Audio</label>
+            <label for="filter_.audio_fil">
+            <%= radio_button_tag(:filter, ".audio_fil") %> Audio
+            </label>
         </span>
     </div>
 

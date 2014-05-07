@@ -14,6 +14,14 @@ $(document).ready(function() {
 		  layoutMode : 'fitRows',
 		  gutter: 10
 	  });
+
+	    	// bind filter on radio button click
+		$('#stream_filters').on( 'click', 'input', function() {
+		    // get filter value from input value
+		    var filterValue = this.value;
+		    console.log( filterValue );
+		    $container.isotope({ filter: filterValue });
+	  	});
 	});
 
 	$container.infinitescroll({

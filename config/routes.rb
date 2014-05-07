@@ -8,7 +8,6 @@ LLF::Application.routes.draw do
     end
   end
 
-
   get "search" => "search#search", :as => "search"
 
   get "community" => "community#community", :as => "community"
@@ -72,7 +71,6 @@ LLF::Application.routes.draw do
   end 
 
   resources :statuses
-    get 'stream', to: 'statuses#index', as: :stream
   
   get '/:id', to: 'profiles#show', as: 'profile'
 

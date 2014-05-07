@@ -13,7 +13,13 @@
             
             <li>
                 <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: 'media_fav_subnav' %>
-            </li> 
+            </li>
+
+            <% if @member == current_member %>
+                <li>
+                    <%= link_to '<i class="icon-edit icon-white"></i> Create Project'.html_safe, profile_projects_new_path, class: 'media_new_subnav' %>
+                </li>
+            <% end %>
       
         </ul>
                    
@@ -22,6 +28,39 @@
     </div>
 
     <!--/media_subnav_wrap-->
+
+    <div id="stream_filters" class="form-inline">
+        <span class="filters all">
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
+        </span>
+        <span class="filters art_filter">
+            <label for="filter_.art_fil">
+            <%= radio_button_tag(:filter, ".art_fil") %> Arts
+            </label>
+        </span>
+        <span class="filters biz_filter">
+            <label for="filter_.biz_fil">
+            <%= radio_button_tag(:filter, ".biz_fil") %> Entrepreneurial
+            </label>
+        </span>
+        <span class="filters music_filter">
+            <label for="filter_.music_fil">
+            <%= radio_button_tag(:filter, ".music_fil") %> Music
+            </label>
+        </span>
+        <span class="filters sports_filter">
+            <label for="filter_.sports_fil">
+            <%= radio_button_tag(:filter, ".sports_fil") %> Sports
+            </label>
+        </span>
+        <span class="filters other_filter">
+            <label for="filter_.other_fil">
+            <%= radio_button_tag(:filter, ".other_fil") %> Other
+            </label>
+        </span>
+    </div>
 
     <% if @following.count > 0 %>
         <div id="prof_projs">

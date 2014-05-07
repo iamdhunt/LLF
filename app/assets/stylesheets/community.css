@@ -80,3 +80,9 @@
 #community_media_wrap .act_name {
 	top: 12px;
 }
+#community_stream_filters {
+	padding-bottom: 10px;
+}
+#community_media_filters {
+	padding-bottom: 10px;
+}
