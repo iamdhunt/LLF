@@ -12,14 +12,12 @@
         <% end %>
         <li class='sub'>
           <span class='acct' id='p_f_ct'>
-            <%= link_to ("#") do %>
                Followers (<%= @project.followers_count %>)
-            <% end %>
           </span>
         </li>
         <% if @project.tag_list %>
           <li class='sub'>
-            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, "#" }.join(' ').html_safe %></span>
+            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @project.website? %>  
@@ -54,7 +52,7 @@
         <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
       <% end %>
     </span>
-    <span class="proj_title"><%= @project.title %></span>
+    <span class="proj_title"><%= @project.title.titleize %></span>
     <span class="r">
 
       <% if member_signed_in? %>
@@ -89,54 +87,62 @@
     </div>
   <% end %>
 
-  <div id="proj_menu">
-    <%= link_to "About", "#", class: '' %>
-    <span>
-     <%= link_to("#") do %>
-        Media <span class="nav_p_ct"></span>
-      <% end %>
-    </span>
-    <span>
-      <%= link_to("#") do %>
-        Comment <span class="nav_p_ct"><%= @commentable.comments.count %></span>
-      <% end %>
-    </span>
-    <span>
-      <%= link_to("#") do %>
-        Followers <span class="nav_p_ct"><%= @project.followers_count %></span>
-      <% end %>
-    </span>
-  </div>
-
-  <div id="proj_about">
-    <%= @project.about %>
-  </div>
-
-  <div id="proj_med">
-  </div>
-
-  
-    <div id="proj_comm">
-      <% if member_signed_in? %>
-        <%= render "comment_form" %>
-      <% end %>
-      <div id="comments_wrap">
-        <%= render "comments" %>
-      </div>
-
-      <%= will_paginate @comments, class: 'display_none' %>
-
-        <% if @comments.total_pages != @comments.current_page %>
-          <div id="loading"></div>  
-              <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                <div class="com_show">
-                  Show More
-                </div>
-              <% end %>
+  <div id="">
+    <ul class="nav nav-tabs" id="">
+      <li class="active">
+        <%= link_to "About", "#about", :data => {:toggle=>"tab"}, class: '' %>
+      </li>
+      <li>
+        <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
+          Media <span class=""></span>
         <% end %>
+      </li>
+      <li>
+        <%= link_to("#comments", :data => {:toggle=>"tab"}) do %>
+          Comments <span class="nav_p_ct"><%= @commentable.comments.count %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to("#followers", :data => {:toggle=>"tab"}) do %>
+          Followers <span class="nav_p_ct"><%= @project.followers_count %></span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="about">
+      <div id ="proj_about">
+        <%= @project.about %>
+      </div>
+    </div>
+    <div class="tab-pane" id="media">
+      Media
     </div>
 
-    <div>
+    <div class="tab-pane" id="comments">
+      <div id="proj_comm">
+        <% if member_signed_in? %>
+          <%= render "comment_form" %>
+        <% end %>
+        <div id="comments_wrap">
+          <%= render "comments" %>
+        </div>
+
+        <%= will_paginate @comments, class: 'display_none' %>
+
+          <% if @comments.total_pages != @comments.current_page %>
+            <div id="loading"></div>  
+                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="tab-pane" id="followers">
       <div id="proj_fol">
         <%= render "followers" %>
       </div>
@@ -144,15 +150,16 @@
         <%= will_paginate @followers, class: 'display_none' %>
 
         <% if @followers.total_pages != @followers.current_page %>
-            <div id="loading"></div>
-            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div id="p_fol_loading"></div>
+            <%= link_to("#", class: "com_show_wrap p_f_load_arrow") do %>
               <div class="com_show">
                 Show More
               </div>
             <% end %>
         <% end %>
     </div>
-  
+  </div>
+    
 
   <div id="sharemodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
     <div class="modal-header">

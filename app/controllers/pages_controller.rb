@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   end
 
   def faqs
+    @activities = Activity.select("activities.*, COUNT(votes.id) vote_count").joins(:votes).group("activities.id").order("created_at desc").limit(2)
+    @media = Medium.select("media.*, COUNT(votes.id) vote_count").joins(:votes).group("media.id").order('created_at desc').limit(2)
   end
 
   def contact_us

@@ -1,21 +1,25 @@
 <% @comments.each do |comment| %>
 	<div class="comments">
 		<span class="comment_av">
-			<%= comment_avatar_link comment.member, :class => "com_av" %>
+			<%= comment_avatar_link_2 comment.member, :class => "com_av" %>
 		</span>
 		<span>
-			<div class="comment_name">
-				<%= link_to comment.member.user_name, profile_path(comment.member) %>
+			<% if comment.member == @commentable.member %>
+				<div class="comment_name owner">
+			<% else %>
+				<div class="comment_name">
+			<% end %>
+					<%= link_to comment.member.user_name, profile_path(comment.member) %>
 			
-				<% if comment.member == current_member || @commentable.member == current_member %>
-					<span class="comment_del">
-						<%= link_to image_tag("delete-6-icon.png"), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+					<% if comment.member == current_member || @commentable.member == current_member %>
+						<span class="comment_del">
+							<%= link_to image_tag("delete-6-icon.png"), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+						</span>
+					<% end %>
+					<span class="meta">
+						<%= time_ago_in_words(comment.created_at) %>
 					</span>
-				<% end %>
-				<span class="meta">
-					<%= time_ago_in_words(comment.created_at) %>
-				</span>
-			</div>
+				</div>
 			<div class="com_con">
 				<%= Rinku.auto_link(comment.content).html_safe %>
 			</div>

@@ -180,7 +180,7 @@ class Member < ActiveRecord::Base
   acts_as_ordered_taggable_on :pursuits
   acts_as_voter
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", av: "200x200#", comment: "22x22#"}
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", av: "200x200#", comment: "22x22#", comment2: "40x40#"}
 
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
 

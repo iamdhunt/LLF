@@ -5,42 +5,90 @@
 <%= render :partial => "newsticker" %>
 
 <div id="main_wrap">
-
-	<div id="cty_menu">
-		<%= link_to "Community Stream", community_stream_path, class: 'cty_str_1' %>
-		<%= link_to "Community Media", community_media_path, class: 'cty_med_1' %>
-	</div>
-
-	<span id="community">
-        <div id="stream_filters">
-            <span class="filters all">
-                <%= radio_button_tag(:filter, "*", :checked => 'checked') %>
-                <label for="filter__">All</label>
-            </span>
-            <span class="filters stat_filter">
-                <%= radio_button_tag(:filter, ".status_fil") %>
-                <label for="filter__">Statuses</label>
-            </span>
-            <span class="filters media">
-                <%= radio_button_tag(:filter, ".media_fil") %>
-                <label for="filter__">Media</label>
-            </span>
+    <div id="community_wrap">
+        <div id="">
+            <ul class="nav nav-tabs" id="">
+                <li class="active">
+                    <%= link_to "Community Stream", "#stream", :data => {:toggle=>"tab"}, class: '' %>
+                </li>
+                <li>
+                    <%= link_to "Community Media", "#media", :data => {:toggle=>"tab"}, class: '' %>
+                </li>
+            </ul>
         </div>
-    </span>
 
-    <div id="activity_stream_wrap">
-	   <%= render :partial => "activities/activities" %>
-    </div>           
+        <div class="tab-content">
+            <div class="tab-pane active" id="stream">
+            	<span id="community">
+                    <div id="stream_filters">
+                        <div id="community_stream_filters">
+                            <span class="filters all">
+                                <%= radio_button_tag(:filter, "*") %>
+                                <label for="filter__">All</label>
+                            </span>
+                            <span class="filters stat_filter">
+                                <%= radio_button_tag(:filter, ".status_fil") %>
+                                <label for="filter__">Statuses</label>
+                            </span>
+                            <span class="filters media">
+                                <%= radio_button_tag(:filter, ".media_fil") %>
+                                <label for="filter__">Media</label>
+                            </span>
+                        </div>
+                    </div>
+                </span>
 
-    <%= will_paginate @activities, class: 'display_none' %>
+                <div id="community_stream_wrap">
+            	   <%= render :partial => "activities/activities" %>
+                </div>           
 
-    <% if @activities.total_pages != @activities.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
+                <%= will_paginate @activities, class: 'display_none' %>
+
+                <% if @activities.total_pages != @activities.current_page %>
+                    <div id="p_str_loading"></div>
+                    <%= link_to("#", class: "com_show_wrap p_s_load_arrow") do %>
+                        <div class="com_show">
+                            Show More
+                        </div>
+                    <% end %>
+                <% end %>
             </div>
-        <% end %>
-    <% end %>
 
+            <div class="tab-pane" id="media">
+                <span id="community">
+                    <div id="stream_filters">
+                        <div id="community_media_filters">
+                            <span class="filters all">
+                                <%= radio_button_tag(:filter, "*") %>
+                                <label for="filter__">All</label>
+                            </span>
+                            <span class="filters photos">
+                                <%= radio_button_tag(:filter, ".photo_fil") %>
+                                <label for="filter__">Photos</label>
+                            </span>
+                            <span class="filters audio">
+                                <%= radio_button_tag(:filter, ".audio_fil") %>
+                                <label for="filter__">Audio</label>
+                            </span>
+                        </div>
+                    </div>
+                </span>
+
+                <div id="community_media_wrap">
+                    <%= render :partial => "media/media" %>       
+                </div>      
+
+                <%= will_paginate @media, class: 'display_none' %>
+
+                <% if @media.total_pages != @media.current_page %>
+                    <div id="p_med_loading"></div>
+                    <%= link_to("#", class: "com_show_wrap p_m_load_arrow") do %>
+                        <div class="com_show">
+                            Show More
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>

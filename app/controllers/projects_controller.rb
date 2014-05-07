@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @tags = Project.tag_counts.order('count DESC').limit(10)
+    @search = Project.search do
+      fulltext params[:search]
+    end
+    @projects = @search.results
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +25,7 @@ class ProjectsController < ApplicationController
     @commentable = @project
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
-    @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (72))
+    @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
@@ -51,11 +55,11 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.html { redirect_to @project }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @project.errors, alert: 'Please make sure all required fields are filled in and all fields are formatted correctly.' }
       end
     end
   end
@@ -65,11 +69,11 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to @project }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
+        format.json { render json: @project.errors, alert: 'Please make sure all required fields are filled in and all fields are formatted correctly.' }
       end
     end
   end
@@ -81,8 +85,20 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url }
+      format.html { redirect_to profile_projects_path(current_member) }
       format.json { head :no_content }
+    end
+  end
+
+  def media
+    @project = Project.find(params[:id])
+    @commentable = @project
+    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+    @comment = Comment.new
+    @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (72))
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @project }
     end
   end
 

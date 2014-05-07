@@ -55,18 +55,24 @@ $(document).ready(function() {
 	  });
 	});
 
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if(e.target.hash == '#followers') {
+            $fcon.isotope('reLayout');
+        }
+    });
+
 	$fcon.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
 	    itemSelector : '#proj_fol #follow_item_wrap',     // selector for all items you'll retrieve
 	    loading: {
-	    	selector: '#loading',
+	    	selector: '#p_fol_loading',
 	    	finishedMsg: '',
 	        img: '/assets/ajax-loader (7).gif',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 
-	     	$('.load_arrow').fadeOut(); 
+	     	$('.p_f_load_arrow').fadeOut(); 
 	     }
 	    },
 
@@ -81,7 +87,7 @@ $(document).ready(function() {
 
 	$(window).unbind('.infscr');
 
-	$(".load_arrow").click(function(){
+	$(".p_f_load_arrow").click(function(){
     	$('#proj_fol').infinitescroll('retrieve');
         	return false;
 	});
@@ -116,4 +122,5 @@ $(document).ready(function() {
 	        $('.m').attr('src', m_src);
 	    }
 	);
+
 });

@@ -55,14 +55,20 @@ class Project < ActiveRecord::Base
 	    vimeo(:width => 660, :height => 400, :autoplay => false)
 	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
-	end
+	  end
+
+    searchable do
+      text :tag_list
+    end
+
+    handle_asynchronously :solr_index
+    handle_asynchronously :remove_from_index
 
   	private
 
     
 
 	  def titleize
-	    self.title = self.title.titleize
 	    self.about = self.about.titleize
 	    self.blurb = self.blurb.titleize
 	  end 

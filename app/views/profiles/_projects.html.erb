@@ -23,6 +23,9 @@
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
+		    		<% if current_member != project.member %>
+		    			<%= render :partial => "fav_button_projects", :locals => {:project => project} %>
+		    		<% end %>
 			      	<% if current_member == project.member %>
 				        <span class="btn-group">
 				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -51,7 +54,7 @@
 			</div>
 
 			<div class="pl_ts">
-				<%= project.tag_list.map { |t| link_to t.titleize, "#" }.join(' ').html_safe %>
+				<%= project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %>
 			</div>
 		</div>
 

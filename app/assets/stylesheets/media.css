@@ -2,6 +2,9 @@
 	padding: 10px 0 0 5px;
 	position: relative;
 }
+#media_list_wrap .dropdown-menu {
+	left: -50px;
+}
 #add_new {
 	padding: 10px 5px 0 5px;
 }

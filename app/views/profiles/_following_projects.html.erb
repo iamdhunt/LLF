@@ -55,7 +55,7 @@
 			</div>
 
 			<div class="pl_ts">
-				<%= follow.tag_list.map { |t| link_to t.titleize, "#" }.join(' ').html_safe %>
+				<%= follow.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %>
 			</div>
 		</div>
 
