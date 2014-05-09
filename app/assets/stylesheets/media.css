@@ -1,5 +1,5 @@
 #media_list_wrap {
-	padding: 10px 0 0 5px;
+	padding: 10px 0 60px 5px;
 	position: relative;
 }
 #media_list_wrap .dropdown-menu {
@@ -42,11 +42,11 @@
 
 #media_content_wrap {
 	background-image: url('/assets/Container BG.png');
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:0 2px 2px 2px;	
+	border: 1px solid #dce1e6;
 	padding: 40px 60px;
 	color: #333;
+	margin-top: 25px;
+	border-radius: 20px;
 }
 
 #media_show_wrap {
@@ -55,7 +55,7 @@
 	text-align: center;
 }
 .media_comment_wrap {
-	padding: 40px 60px;
+	padding: 0 60px 40px 60px;
 }
 #media_show_wrap img {
 	margin-left: auto;
@@ -119,4 +119,14 @@
 }
 .sh_aud {
 	padding: 8px 40%;
+}
+.media_btns {
+	text-align: center;
+}
+.media_btns .ims {
+	width: 30px;
+	height: 30px;
+}
+.m_show_wrap .modal.fade.in {
+top: 25%;
 }

@@ -1,23 +1,8 @@
 <% title @member.full_name + " | Upload Media" %>
 
-    <div id="media_subnav_wrap">
+    <%= render :partial => "media_nav" %>
 
-        <ul class="sub_stream">
-            <li>
-                <%= link_to '<i class="icon-th-large icon-white"></i> All Media'.html_safe, profile_media_path(@member), class: 'all_media' %>
-            </li>  
-            
-            <li>
-                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_media_fav_path(@member), class: 'media_fav_subnav' %>
-            </li> 
-      
-        </ul>
-                   
-
-    <div style="clear:both;"></div>
-    </div>
-
-    <!--/media_subnav_wrap-->
+    <!--/stream_wrap-->
 
     <div id="media_content_wrap">
 

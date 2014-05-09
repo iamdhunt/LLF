@@ -1,25 +1,8 @@
 <% title @member.full_name %>
 
-    <div id="projects_subnav_wrap">
+    <%= render :partial => "projects_nav" %>
 
-        <ul class="sub_stream">
-            <li>
-                <%= link_to '<i class="icon-bullhorn icon-white"></i> My Projects'.html_safe, profile_projects_path(@member), class: 'all_media' %>
-            </li> 
-
-            <li>
-                <%= link_to '<i class="icon-check icon-white"></i> Projects I\'m Following'.html_safe, profile_projects_following_path(@member), class: 'media_fav_subnav' %>
-            </li> 
-            
-            <li>
-                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: 'media_fav_subnav' %>
-            </li> 
-      
-        </ul>
-                   
-
-    <div style="clear:both;"></div>
-    </div>
+    <!--/nav_wrap-->
 
     <div id="p_form_wrap">
         <div id="edit_wrap">

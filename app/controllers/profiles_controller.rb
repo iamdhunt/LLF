@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
       @status = current_member.statuses.new
-      status.build_document 
+      @status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
       render action: :show

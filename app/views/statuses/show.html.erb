@@ -15,12 +15,6 @@
 					<%= link_to @status.member.user_name, profile_path(@status.member) %>
 				</span>
 
-				<% if @status.member == current_member %>
-					<div class="act_delete">
-					    <%= link_to image_tag("delete-6-icon.png"), status_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-					</div>
-				<% end %>
-
 				<span class="meta"> 
 					<%= time_ago_in_words(@status.created_at) %>
 				</span>
@@ -33,6 +27,20 @@
 			<div class="act_attachment">
 			    <%= status_document_link(@status) %>
 			</div>
+
+			<% if member_signed_in? %>
+
+			    <div class="status_btns">
+
+			        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+
+			        <% if current_member == @status.member %>
+			          <%= link_to image_tag("/assets/Trash 2.png", class: 'ims dl', title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
+			        <% end %>
+
+			    </div>
+
+			<% end %>
 
 			<% if member_signed_in? %>
 				<%= render "comment_form" %>
@@ -54,6 +62,16 @@
 				
 			<% end %>
 
+		</div>
+
+		<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+		    <div class="modal-header">
+		      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		      <h3 id="sharemodallabel">Copy Media URL</h3>
+		    </div>
+		    <div class="modal-body pi">
+		      <input class="pr_in forms" value="<%= status_url %>" />
+		    </div>
 		</div>
 
 	</div>

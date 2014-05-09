@@ -2,6 +2,7 @@ $(document).ready(function(){
 	var $container = $('#media_list_wrap');
 	var cap_max = 280;
 	var $cap = $('#cap_box')
+	var dl_src = $('.dl').attr('src')
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
@@ -93,5 +94,14 @@ $(document).ready(function(){
 	        });
 	    }
 	});
+
+	$('.dl').mouseenter(function(){
+	        $('.dl').attr('src','/assets/Trash 3.png');
+	    }
+	);
+  	$('.dl').mouseleave(function(){
+	        $('.dl').attr('src', dl_src);
+	    }
+	);
 
 });

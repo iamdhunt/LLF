@@ -1,0 +1,48 @@
+<div id="profile_nav_wrap">
+    <ul class="profile_nav">
+        <span class="s1">
+            <li>
+            	<%= link_to 'Stream', profile_stream_path(@member), class: 'stream_wrap' %>           
+            </li> 
+        </span>
+        <span class="m1">
+            <li>
+                <%= link_to 'Media', profile_media_path(@member), class: 'media_wrap' %>
+            </li>
+        </span>
+        <span class="mk1">
+            <li>
+                <%= link_to 'Market', '#', class: 'market_wrap' %>
+            </li>
+        </span>
+        <span class="e1">
+            <li>
+                <%= link_to 'Events', '#', class: 'events_wrap' %>
+            </li>
+        </span>
+        <span class="p2">
+            <li>
+                <%= link_to 'Projects', profile_projects_path(@member), class: 'projects_wrap' %>
+            </li>
+        </span>
+    </ul>
+</div>
+
+<div id="subnav_wrap">
+    <ul class="sub sub_projects">
+        <li>
+            <%= link_to '<i class="icon-bullhorn icon-grey"></i> My Projects'.html_safe, profile_projects_path(@member), class: 'all_media' %>
+        </li> 
+        <li>
+            <%= link_to '<i class="icon-check icon-grey"></i> Projects I\'m Following'.html_safe, profile_projects_following_path(@member), class: 'media_fav_subnav' %>
+        </li>        
+        <li>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: 'media_fav_subnav' %>
+        </li> 
+        <% if @member == current_member %>
+            <li>
+                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, profile_projects_new_path, class: 'media_new_subnav' %>
+            </li>
+        <% end %> 
+    </ul>
+</div>

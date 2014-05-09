@@ -10,8 +10,13 @@
 #edit_wrap .pr_upload {
 	margin-left: 10px;
 }
+#p_form_wrap {
+	margin-top: 25px;
+}
 #p_form_wrap #edit_wrap {
 	padding: 40px 60px 40px 60px;
+	border: 1px solid #dce1e6;
+	border-radius: 20px;
 }
 #proj_menu {
 	font-weight: bold;
@@ -53,6 +58,7 @@
 	color: #444444;
 	font-size: 1.3em;
 	line-height: 28px;
+	font-weight: bold;
 }
 #proj_info .l {
 	float: left;
@@ -63,9 +69,6 @@
 #proj_info .ims {
 	width: 30px;
 	height: 30px;
-}
-#proj_info .proj_title {
-	font-weight: bold;
 }
 #proj_info .btn-group {
 position: relative;
@@ -123,6 +126,18 @@ vertical-align: baseline;
     -background: transparent;
 	padding: 5px;
 	border-radius: 6px;
+}
+#pb #p_f_ct:hover {
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(73, 175, 205);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
+	cursor: default;
 }
 #pb .acct a {
 	color: #fff;
@@ -429,5 +444,4 @@ vertical-align: baseline;
 }
 #pright #stream_filters {
 	text-align: center;
-	padding: 20px 0 0 0;
 }

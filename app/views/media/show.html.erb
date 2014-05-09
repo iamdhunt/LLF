@@ -1,6 +1,6 @@
 <% title @medium.member.full_name + " | Media" %>
 
-<div id="main_wrap">
+<div id="main_wrap" class="m_show_wrap">
 
  <div class="act_media_top med_top">
     <span class="">
@@ -10,12 +10,6 @@
     <span class="act_name">
       <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
     </span>
-
-    <% if @medium.member == current_member %>
-      <div class="act_delete">
-          <%= link_to image_tag("delete-6-icon.png"), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </div>
-    <% end %> 
 
     <span class="meta"> 
       <%= time_ago_in_words(@medium.created_at) %>
@@ -46,6 +40,24 @@
 
 <!--/media_show_wrap-->
 
+  <% if member_signed_in? %>
+
+    <div class="media_btns">
+
+        <span id="m_fav_but">
+          <%= render :partial => "fav_button", :locals => {:medium => @medium} %>
+        </span>
+
+        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+
+        <% if current_member == @medium.member %>
+          <%= link_to image_tag("/assets/Trash 2.png", class: 'ims dl', title: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+    </div>
+
+  <% end %>
+
 	<% if member_signed_in? %>
 		<div class="media_comment_wrap">
 			<%= render "comment_form" %>
@@ -67,6 +79,16 @@
 
 		</div>
 	<% end %>
+
+  <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="sharemodallabel">Copy Media URL</h3>
+    </div>
+    <div class="modal-body pi">
+      <input class="pr_in forms" value="<%= medium_url %>" />
+    </div>
+  </div>
 
 </div>
 

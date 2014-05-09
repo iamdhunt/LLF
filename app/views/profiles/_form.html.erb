@@ -1,18 +1,8 @@
 <%= simple_form_for(@status, html: { multipart: true }) do |f| %>
 
-  <div class="act_icons_wrap">
-
-    <span class='act_icons' id='att_med'>
-    </span>
-
-  </div>
-
-  <div class="act_icons_wrap" id="update_att">
-  </div>
-
   <div class="">
       
-        <%= f.input :content, label: false, input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '1', maxlength: '280' } %>
+        <%= f.input :content, label: false, placeholder: 'What\'s New?', input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '1', maxlength: '280' } %>
 
         <div class="action_wrap" id="action_wrap">
           <span class="social_post">
@@ -29,9 +19,6 @@
           </span>
         </div>
       
-  </div>
-
-  <div class="act_buttons">
   </div>
 
 <% end %>

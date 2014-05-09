@@ -829,17 +829,14 @@ hr.contact {
 }
 
 .forms::-webkit-input-placeholder { 
-	color:#898989;
-	font-weight: bold; 
+	color:#898989; 
 	font-size: 1.3em;
 }
 
 .forms::-moz-placeholder { 
-	color:#898989;
-	font-weight: bold; 
+	color:#898989; 
 	font-size: 1.3em;
 }
-
 .forms {
 	border: 1px solid #e4e4e4;
 	-webkit-box-shadow: inset 1px 1px 4px #e4e4e4;
@@ -858,15 +855,20 @@ hr.contact {
 
 /*Profile CSS*/
 
+#pw {
+	width: 100%;
+	-webkit-box-shadow: 0 1px 4px #ccc;
+	-moz-box-shadow: 0 1px 4px #ccc;
+	box-shadow: 0 1px 4px #ccc;
+}
 #profile_wrap {
-	height: 13.333em;
-	background-image: url('/assets/Container BG.png');	
+	padding: 0 0 30px 0;	
 	color: #333;
-	margin-top: 1.5em;
 	position: relative;
-	border-width: 2px 2px 0 2px;
-	border-color: #EFEFEF;
-	border-style: solid;
+	margin-left: auto;
+	margin-right: auto;
+	width: 72%;
+	height: 150px;
 }
 #edit_wrap {
 	background-image: url('/assets/Container BG.png');	
@@ -881,7 +883,6 @@ hr.contact {
 
 #left_profile {
 	width: 20%;
-	height: 100%;
 	float: left;
 	position: relative;
 }
@@ -889,54 +890,115 @@ hr.contact {
 #left_profile img {
 	max-width: none;
 	max-height: none;
+	border-radius: 10px;
+	background-color: #fff;
+	padding: 8px;
 }
-
+#left_profile .mem_av {
+	position: absolute;
+	margin-top: -85px;
+}
 #center_profile {
-	width: 40%;
+	width: 60%;
 	float: left;
 	position: relative;
+	padding-left: 205px;
 }
 
 #right_profile {
 	width: 40%;
 	float: right;
 }
-
 .profile_name {
-	width: 100%;
-	height: 25%;
-	font-size: 2.500em;
-	color: #898989;
+	font-size: 1.8em;
+	color: #fff;
 	text-decoration: none;
-	margin-top: .1em;
-	margin-left: .5em;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
 }
-
-.profile_name a:hover {
-	color: #ababab;
+.profile_name:hover {
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+    cursor: default;
 }
-
+.p_name_wrap {
+	position: absolute;
+	top: -75px;
+	padding: 0 0 0 17px;
+}
 .profile_username {
-	height: 20%;
-	display: block;
-	font-size: 1.571em;
-	color: #93C;
-	margin-left: .9em;
+	font-size: 1.3em;
+	color: #fff;
 	text-decoration: none;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 129, 194);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 129, 194, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
 }
-
+.profile_username:hover {
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 129, 194);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 129, 194, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+    cursor: default;
+}
+.p_username_wrap {
+	position: absolute;
+	top: -35px;
+	padding: 0 0 0 18px;
+}
+.follow_count_text {
+	padding: .2em 0 0 1.2em;
+}
 .follow_count_text a{
 	color: #333;
 	font-weight: 500;
-	font-size: 1.2em;
-	margin-left: 1.1em;
+	font-size: 24px;
 	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	padding: 0 1.2em 0 0;
 }
-
-.follow_count_text a:hover {
-	color: #898989;
+.follow_count_text .ftext {
+	font-size: 14px;
+	color: #999;
+	font-weight: 700;
 }
-
+.follow_count_text a:hover .ftext {
+	color: #333;
+}
+.follow_count_text p {
+	margin-bottom: 4px;
+	line-height: 3px;
+}
 .follower_text {
 	margin-left: 1.2em;
 }
@@ -958,60 +1020,87 @@ hr.contact {
 }
 
 .profile_buttons {
-	width: 100%;
-	height: 15%;
-	display: block;
-	margin-top: .3em;
-	margin-left: 1.1em;
+	position: absolute;
+	top: -35px;
+	right: 0;
+	padding: 0 0 0 1.2em;
 }
 
 .profile_bio {
-	width:100%;
-	height: 25%;
 	display: block;
 	text-align: left;
-	padding-right: 1em;
-	margin-left: 1.2em;
-	margin-top: .3em;
+	padding: .3em 0 0 1.2em;
 }
 
 .profile_accounts {
-	height: 40%;
-	margin-top: .8em;
-	margin-bottom: .6em;
-	overflow: hidden;
-	padding: 0 3em;
+	margin-top: .2em;
 	text-align: center;
 }
 
 .profile_pursuits {
-	width: 100%;
-	height: 35%;
 	text-align: center;
-	padding: 0 .667em;
-	font-size: 1.2em;
+	padding: .2em 0 0 0;
+	font-size: .9em;
 }
-
+.profile_pursuits a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
+	line-height: 200%;
+}
 .profile_pursuits a:hover {
-	color: #898989;
 	text-decoration: none;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
 }
 .profile_location {
-	width: 100%;
-	height: 25%;
-	text-align: center;
 	color: #898989;
-	margin-top: .6em;
-	padding: 0 .667em;
-	font-size: 1.1em;
+	padding: .8em 0 0 1.2em;
+	font-size: .9em;
 }
 .profile_location a {
-	color: #898989;
+	color: #fff;
 	padding: 0 .15em;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 3px;
+	border-radius: 4px;
 }
-
 .profile_location a:hover {
-	color: #2f96b4;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 3px;
+	border-radius: 4px;
 	text-decoration: none;
 }
 
@@ -1039,30 +1128,25 @@ hr.contact {
 }
 
 #profile_nav_wrap {
-	color: #FFF;
-	position: relative;
-	overflow: hidden;
-	-webkit-box-shadow: 0 1px 3px -2px #000000;
-   	-moz-box-shadow: 0 1px 3px -2px #000000;
-    box-shadow: 0 1px 3px -2px #000000;
-    border-style: solid;
-    border-width: 0 0 0 2px;
-    border-color: #EFEFEF;
+	font-size: 1.333em;
+    margin-top: 25px;
+    text-align: center;
 }
-
-#profile_nav_wrap a {
-	color: #FFF;
-	text-decoration: none;
-	font-weight: 100;
+#profile_nav_wrap ul {
+	border-bottom: 1px solid #dce1e6;
+	padding: 12px;
 }
-
-.profile_nav li a{
-	float: left;
+#profile_nav_wrap ul li {
 	display: inline;
-	width: 25%;	
-	font-size: 1.133em;
-	padding: .4em .4em;
-	text-align: center;
+}
+.profile_nav li a{
+	color: #898989;	
+	padding: 7px 12px;
+	margin-right: 2px;
+}
+.profile_nav li a:hover {
+	color: #444;
+	text-decoration: none;
 }
 .settings_nav {
 	width: 100%;	
@@ -1072,76 +1156,63 @@ hr.contact {
 	text-align: center;
 	background: #8e8e8e;
 }
-.stream_wrap {
-	background-color: #8930c7;
+.profile_nav .s2 li a {
+	color: #444;
+	border-bottom: 4px solid #942fc6;
 }
-
-.stream_wrap:hover {
-	background-color: #7501B1;
+.profile_nav .m2 li a {
+	color: #444;
+	border-bottom: 4px solid #e76f2a;
 }
-
-.market_wrap {
-	background-color: #1b85a6;
+.profile_nav .p2 li a {
+	color: #444;
+	border-bottom: 4px solid #da4f49;
 }
-
-.market_wrap:hover {
-	background-color: #005e7d;
+.profile_nav .s1 li a:hover {
+	border-bottom: 4px solid #942fc6;
 }
-
-.media_wrap {
-	background-color: #F7803C;
+.profile_nav .m1 li a:hover {
+	border-bottom: 4px solid #e76f2a;
 }
-
-.media_wrap:hover {
-	background-color: #db5b00;
+.profile_nav .e1 li a:hover {
+	border-bottom: 4px solid #007236;
 }
-
-.events_wrap {
-	background-color: #6DA67A;
+.profile_nav .p1 li a:hover {
+	border-bottom: 4px solid #da4f49;
 }
-
-.events_wrap:hover {
-	background-color: #0f5f35;
+.profile_nav .mk1 li a:hover {
+	border-bottom: 4px solid #1b85a6;
 }
-
-.projects_wrap {
-	background-color: #c72835;
-}
-
-.projects_wrap:hover {
-	background-color: #9f0e1b;
-}
-
-#stream_subnav_wrap {
-	background-color: #bd8ed4;
-	border-style: solid;
-    border-width: 0 0 0 2px;
-    border-color: #EFEFEF;
-}
-
-.sub_stream {
-	padding: 0 2em;
-}
-
-
-.sub_stream li a {
-	float: left;
-	display: inline;	
-	padding: .4em .4em;
+#subnav_wrap {
 	text-align: center;
-	color: #FFF;
-	margin-right: .8em;
+    margin-top: 10px;
 }
-.sub_stream li a:hover {
+#subnav_wrap ul li {
+	display: inline;
+}
+.sub li a {	
+	padding: .4em .4em;
+	margin-right: .8em;
+	font-weight: bold;
+}
+.sub li a:hover {
 	text-decoration: none;
 }
-
+.sub_stream a {
+	color: #bd8ed4;
+}
+.sub_media a {
+	color: #f3ab77;
+}
+.sub_projects a {
+	color: #e25b60;
+}
 #act_update {
-	background-image: url('/assets/Container BG.png');
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:0 2px 2px 2px;	
-	padding: 1.333em 2em;
+	border: 2px solid #efefef;
+	background-image: url('/assets/Container BG Grey.png');	
+	padding: 40px 60px;
+	border-radius: 20px;
+	margin-top: 30px;
 }
 
 .update_text_wrap {
@@ -1157,12 +1228,11 @@ hr.contact {
 }
 
 .update_box_wrap {
-	float: right;
+	
 }
 
 #update_box {
-	margin-left: 2.5em;
-	width: 52em;
+	width: 100%;
 }
 
 .act_icons_wrap {
@@ -1183,7 +1253,6 @@ hr.contact {
 .action_wrap{
 	margin-top: .3em;
 	display: none;
-	padding-left: 2.5em;
 }
 
 .actions {
@@ -1201,13 +1270,6 @@ hr.contact {
 }
 .load_more a{
 	margin-left: 47%;
-}
-
-#media_subnav_wrap {
-	background-color: #f3ab77;
-	border-style: solid;
-    border-width: 0 0 0 2px;
-    border-color: #EFEFEF;
 }
 
 .all_media {
@@ -1947,7 +2009,8 @@ hr.contact {
 }
 #stream_filters {
 	font-weight: bold;
-	padding: 10px 0 0 10px;
+	text-align: center;
+	margin-top: 20px;
 }
 #stream_filters input[type="radio"] {
 	cursor: pointer;

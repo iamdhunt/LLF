@@ -1,48 +1,15 @@
 <% title @member.full_name %>
 
-    <div id="stream_subnav_wrap">
+    <%= render :partial => "stream_nav" %>
 
-     	<ul class="sub_stream">
-            <% if @member == current_member %>
-
-        	<li>
-                <%= link_to '<i class="icon-th icon-white"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: 'my_stream' %>
-            </li>  
-
-            <% end %>
-            
-            <li>
-                <%= link_to '<i class="icon-user icon-white"></i> Personal'.html_safe, profile_personal_path(@member), class: 'personal' %>
-            </li>
-            
-            <li>
-                <%= link_to '<i class="icon-heart icon-white"></i> Favorites'.html_safe, profile_favorites_path(@member), class: 'favorties_subnav' %>
-            </li>  
-        </ul>
-        	       
-
-    <div style="clear:both;"></div>
-    </div>
-
-    <!--/stream_subnav_wrap-->
+    <!--/stream_wrap-->
 
     <% if @member == current_member %>
-
-    <div id="act_update">
-
-    	<div class="update_text_wrap">
-        	<div class="update_text_top">What's</div>
-            <div class="update_text_bottom">New?</div>
+        <div id="act_update">
+            <div class="update_box_wrap" id="update_box_wrap">
+            	<%= render :partial => "profiles/form" %>
+            </div>
         </div>
-        
-        <div class="update_box_wrap" id="update_box_wrap">
-        	<%= render :partial => "profiles/form" %>
-        </div>
-
-    <div style="clear: both;"></div>
-
-    </div>
-
     <% end %>
 
     <!--/act_update-->

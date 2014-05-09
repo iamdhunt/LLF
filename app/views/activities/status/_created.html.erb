@@ -26,10 +26,6 @@
 	    <%= status_document_link activity.targetable %>
 	</div>
 
-	<div class="actions_act">
-		<input class='as forms' value="<%= status_url(activity.targetable_id) %>" />
-	</div>
-
 	<% if member_signed_in? %> 
 		<div class="actions_act">
 			<span id="comment_act_btn">
@@ -63,18 +59,22 @@
 				<%= link_to image_tag("Share 3.png", class: "act_actions", title: "Share", alt: "Share"), "#", :class => "btn share" %>
 
 				<% if activity.member == current_member %>
-					<span class="btn-group">
-						<%= link_to image_tag("More.png",  class: "act_actions", title: "More", alt: "More"), "/page.html", :class => "btn more dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-						<ul class="dropdown-menu">											
-							<li class="del">
-								<%= link_to "Delete", activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
-							</li>
-							
-						</ul>
+					<span class="ad">
+						<%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
 					</span>
 				<% end %>
 			</span>
 		</div>
 	<% end %>
+
+	<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	      <h3 id="sharemodallabel">Copy Project URL</h3>
+	    </div>
+	    <div class="modal-body pi">
+	      <input class="pr_in forms" value="<%= status_url(activity.targetable_id) %>" />
+	    </div>
+	</div>
 
 </div> 

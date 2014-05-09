@@ -60,7 +60,7 @@
           <%= render :partial => "fav_button", :locals => {:project => @project} %>
         </span>
 
-        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#sharemodal", :data => {:toggle => "modal"} %>
+        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
         <% if current_member == @project.member %>
           <span class="btn-group">
             <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -161,7 +161,7 @@
   </div>
     
 
-  <div id="sharemodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+  <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <h3 id="sharemodallabel">Copy Project URL</h3>

@@ -1,0 +1,45 @@
+<div id="profile_nav_wrap">
+    <ul class="profile_nav">
+        <span class="s2">
+            <li>
+            	<%= link_to 'Stream', profile_stream_path(@member), class: 'stream_wrap' %>           
+            </li> 
+        </span>
+        <span class="m1">
+            <li>
+                <%= link_to 'Media', profile_media_path(@member), class: 'media_wrap' %>
+            </li>
+        </span>
+        <span class="mk1">
+            <li>
+                <%= link_to 'Market', '#', class: 'market_wrap' %>
+            </li>
+        </span>
+        <span class="e1">
+            <li>
+                <%= link_to 'Events', '#', class: 'events_wrap' %>
+            </li>
+        </span>
+        <span class="p1">
+            <li>
+                <%= link_to 'Projects', profile_projects_path(@member), class: 'projects_wrap' %>
+            </li>
+        </span>
+    </ul>
+</div>
+
+<div id="subnav_wrap">
+    <ul class="sub sub_stream">
+        <% if @member == current_member %>
+            <li>
+                <%= link_to '<i class="icon-th icon-grey"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: 'my_stream' %>
+            </li>  
+        <% end %>    
+        <li>
+            <%= link_to '<i class="icon-user icon-grey"></i> Personal'.html_safe, profile_personal_path(@member), class: 'personal' %>
+        </li>       
+        <li>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_favorites_path(@member), class: 'favorties_subnav' %>
+        </li>  
+    </ul>
+</div>

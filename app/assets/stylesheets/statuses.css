@@ -61,3 +61,17 @@
 #status_show {
 	padding: 30px 21%;
 }
+.status_btns {
+	text-align: center;
+	margin-top: 20px;
+}
+.status_btns .ims {
+	width: 30px;
+	height: 30px;
+}
+#status_show .modal.fade.in {
+top: 25%;
+}
+#status_show #comm_form_wrap {
+	margin: 10px;
+}
