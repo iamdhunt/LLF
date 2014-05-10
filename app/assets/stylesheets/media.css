@@ -130,3 +130,13 @@
 .m_show_wrap .modal.fade.in {
 top: 25%;
 }
+.m_show_wrap .comment_del img {
+	width: 14px;
+	height: 14px;
+	margin-top: 2px;
+}
+.m_show_wrap .act_delete img {
+	width: 14px;
+	height: 14px;
+	margin-top: 1px;
+}

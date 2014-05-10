@@ -10,13 +10,13 @@
         <div id="profile_wrap">
         	<div id="left_profile">
                 <div class="mem_av">
-                	<%= avatar_profile @member %>
+                	<%= image_tag @member.avatar.url(:av) %>
                 </div>
             </div>
             
             <div id="center_profile">
                 <span class="p_name_wrap">
-                    <div class="profile_name"><%= @member.full_name %></div>
+                    <div class="profile_name"><%= link_to @member.full_name, @member %></div>
                 </span>
                 <span class="p_username_wrap">
                     <div class="profile_username"><%= "@" + @member.user_name %></div>
@@ -53,6 +53,9 @@
                 <% if signed_in? %>
                     <div id="member_actions" class="profile_buttons">
                         <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
+                        <% if current_member == @member %>
+                            <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Edit Profile", alt: "Edit Profile", :class => "btn" %>
+                        <% end %>
                     </div>
                 <% end %>
             	<div class="profile_accounts">

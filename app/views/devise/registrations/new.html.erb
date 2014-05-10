@@ -1,107 +1,45 @@
 <% title "LLF | Haven for the Bold" %>
 
-<div id="main_wrap">
-
+<div id="home_wrapper">
   <div id="home_wrap">
-
-      <%= image_tag("LLF 2 Home.png", :class => "home_image") %>
-      
+      <div class="home_form">
+        <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper_html => { :style => 'display: inline' }) do |f| %>
+          <span>
+            <%= f.input :first_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms l_reg', tabindex: '1', maxlength: '15' } %>
+          </span>
+          <span>
+            <%= f.input :last_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms r_reg', tabindex: '2', maxlength: '20' } %>
+          </span>
+          <span>
+            <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms l_reg', tabindex: '3', maxlength: '16' } %>
+          </span>
+          <span>
+            <%= f.input :email, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms r_reg', tabindex: '4'} %>
+          </span>
+          <span>
+            <%= f.input :email_confirmation, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms l_reg', tabindex: '5', autocomplete: 'off' } %>
+          </span>
+          <span>
+            <%= f.input :password, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms r_reg', tabindex: '6'} %>
+          </span>
+          <span class="r_bottom">
+            <span class="r_text">
+              By joining LLF, you agree to our <%= link_to "Terms", terms_path %> and to the details of our <%= link_to 'Privacy Policy', privacy_path %>.
+            </span>
+            <span class="r_submit">
+              <%= f.submit "Join the Community!", :class => 'btn btn-info btn-large' %>
+            </span>
+          </span>
+        <% end %>
+      </div>
   </div>
 
   <!--/content_wrap-->
 
 <!--/content_wrap-->
 
-<div id="registration_wrap">
-        
-  <div class="registration">
-	  
-    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-	  <%= devise_error_messages! %>
-       	
-        <div class="reg_left">
-        	
-          <%= f.input :first_name, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms', tabindex: '4', maxlength: '15', id: 'reg_first'} %>
-             <%= f.input :last_name, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '5', maxlength: '20', id: 'reg_last'} %>
-             <%= f.input :user_name, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '6', maxlength: '16', id: 'reg_username', :rel => "popover" } %>
-        
-        </div>
-        
-        <div class="reg_center">
-        	
-          <%= f.input :email, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms', tabindex: '7'} %>
-            <%= f.input :email_confirmation, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms reg_spacer', tabindex: '7', autocomplete: 'off' } %>
-            <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', id: 'reg_password', tabindex: '9'} %>
-            
-        </div>
-        
-        <div class="reg_right">
-        	
-          <%= f.text_field :pursuit_list, :placeholder => 'Favorite Pursuits', :class => 'forms reg_forms', :tabindex => '10', id: 'reg_pursuits' %>
-          <div class="pursuit_reg_label">
-            (i.e. Sports, Music, Skydiving, Branding, Pop Art)
-          </div>
-            <div class="reg_terms">
-              <p>By joining LLF, you agree to our <%= link_to "Terms", terms_path %> and <br /> to the details of our <%= link_to 'Privacy Policy', privacy_path %>.</p>
-            </div>
-              <%= f.submit "Join the Community!", :class => 'reg_button btn btn-info btn-large' %>
-          
-          </div>
-  	 
-     <% end %>
-
-
-    </div>
-
-    <div id="pop_username_reg" style="display: none">
-      <ul>
-        <li class="pop_content">&raquo; No special characters (!%*$#)</li><li class="pop_content">&raquo; No spaces allowed</li><li class="pop_content">&raquo; Maximum length of 16</li>
-      </ul>
-    </div>
-
-    <div id="pop_password_reg" style="display: none">
-      <ul>
-        <li class="pop_content">&raquo; Choose a strong password</li><li class="pop_content">&raquo; Max length of 20</li><li class="pop_content">&raquo; Minimum length of 6</li>
-      </ul>
-    </div>
-
-    <div id="pop_pursuits_reg" style="display: none">
-      The best way to connect with other members. Be as general or specific as you want.
-      <ul class="pursuits">
-        <li>
-          &raquo; Enter your top 5 Pursuits
-        </li>
-        <li>
-          &raquo; 25 characters per Pursuit
-        </li>
-        <li>
-          &raquo; Separate Pursuits by commas
-        </li>
-        <li>
-          &raquo; Only letters, spaces ok
-        </li>
-      </ul> 
-    </div>
-
-    <div id="pop_first_reg" style="display: none">
-      <ul class="names">
-        <li>&raquo; 1 First Name Max</li>
-      </ul>
-    </div>
-
-    <div id="pop_last_reg" style="display: none">
-      <ul class="names">
-        <li>&raquo; 2 Last Names Max</li>
-      </ul>
-    </div>
-   
-   <div style="clear:both;"></div> 
-         
+  <div id="home_bottom_wrap">
+    CONNECT x SHARE x DISCOVER         
   </div>        
-    
+</div>    
 <!--/registration-->
-
-</div>
-
-<!--/main_wrap-->
-

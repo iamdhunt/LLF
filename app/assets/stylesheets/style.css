@@ -245,15 +245,34 @@ table {
 /* Content */
 
 #home_wrap {
-	background-image: url('/assets/Container BG.png');
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:0 2px 2px 2px;	
-	padding: 0 0 1em 3em;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url('/assets/Home Banner.png');
 	color: #333;
-	position: relative;
+	width: 100%;
+	height: 320px;
+	padding: 3% 0;
 }
-
+.home_form {
+	margin-left: auto;
+	margin-right: auto;
+	width: 55%;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(199, 199, 199);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(199, 199, 199, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	border-radius: 20px;
+	padding: 25px;
+}
+.home_form ul li {
+	display: inline;
+}
 #content_wrap {
 	background-image: url('/assets/Container BG.png');
 	border-color:#EFEFEF;
@@ -310,118 +329,54 @@ table {
 
 /* Registration */
 
-#registration_wrap {
-	background-image:url('/assets/Container BG Grey.png') ;
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:0 2px 2px 2px;
-	padding: 20px 20px;
+#home_bottom_wrap {
+	width: 100%;
+	font-size: 5.2em;
+	color: #444;
+	text-align: center;
+	padding: 5% 0;
+	text-shadow: 2px 1px 0px #fff, 7px 6px 0px rgba(0,0,0,0.15);
 }
-
-.pursuit_reg_label {
-	font-size: .9em;
-	color: #898989;
-	display: block;
-	margin-top: .3em;
+.home_bottom {
+	margin-left: auto;
+	margin-right: auto;
+	width: 55%;
+	text-align: center;
+	
 }
-
-.reg_terms {
-	font-size: .9em;
-
-	margin-top: .7em;
-}
-
-.reg_button {
-	margin-top: .3em;
-}
-
-.bday_reg_label {
-	display: block;
-	color: #898989;
-	font-weight: bold;
-	margin: 1.5em 0 .4em .7em;	
-}
-
-.join {
-	margin-left: 0;
-}
-
-.join.reg_title {
-	color: #93C;
+.home_bottom .h_content {
+	display: inline-block;
+	width: 30%;
 	font-size: 2em;
-	font-weight: bold;
-}
-
-.free.reg_title {
-	font-size: 1.5em;
 	color: #898989;
 }
-
-.signed_on_text {
-	font-size: 0.8em;
-	color: #898989;
+.home_bottom .h_title {
+	color: #464149;
+	padding-bottom: 5px;
+	font-size: 1.3em;
 }
-
-#username_reg {
-	height: 2.5em;
-}
-
-.reg_left {
-	float: left;
-	width: 33%;
-	margin-top: .5em;
-}
-
-.reg_center {
-	float: left;
-	width: 33%;
-	margin-top: .5em;
-}
-
-.reg_right {
-	float: right;
-	width: 34%;
-	margin-top: .5em;
-}
-
 .reg_forms {
-	width: 79%;
-	height: 3.5em;
+	width: 43%;
+	height: 40px;
+}
+.l_reg {
+	margin: 5px 26px 5px 20px;
+}
+.r_reg {
+	margin: 5px 20px 5px 26px;
+}
+.r_bottom {
+	padding: 0 20px 5px 20px;
+}
+.r_text {
+	display: inline-block;
+	margin-right: 52px;
+	width: 43%;
+}
+.r_submit {
+
 }
 
-.reg_spacer {
-	margin: .8em 0 .8em 0;
-}
-
-.reg_name {
-	width: 79%;
-	height: 2.5em;
-	margin-bottom: .8em;
-}
-
-.dob_reg_fields {
-	height: 2.4em;
-	font-size: .8em;
-	width: 22%;
-	cursor: pointer;
-}
-
-#email {
-	margin-bottom: 1.9em;
-}
-
-#confirm_email {
-	margin-bottom: 1.9em;
-}
-
-#reg_button {
-	font-weight: bold;
-	font-size: 1.6em;
-	color: #93C;
-	cursor: pointer;
-	margin-top: 1.4em;
-	padding: 6px 18px 5px;
-}
 /* Widgets */
 
 #widget_wrap {
@@ -888,15 +843,19 @@ hr.contact {
 }
 
 #left_profile img {
-	max-width: none;
-	max-height: none;
-	border-radius: 10px;
-	background-color: #fff;
-	padding: 8px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
 }
 #left_profile .mem_av {
 	position: absolute;
 	margin-top: -85px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+	background-color: #fff;
+	padding: 8px;
+	-moz-box-shadow: 0 0 6px #ccc;
+	-webkit-box-shadow: 0 0 6px #ccc;
+	box-shadow: 0 0 6px #ccc;
 }
 #center_profile {
 	width: 60%;
@@ -909,7 +868,7 @@ hr.contact {
 	width: 40%;
 	float: right;
 }
-.profile_name {
+.profile_name a {
 	font-size: 1.8em;
 	color: #fff;
 	text-decoration: none;
@@ -925,7 +884,7 @@ hr.contact {
 	padding: 5px;
 	border-radius: 6px;
 }
-.profile_name:hover {
+.profile_name:hover a {
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
     /* RGBa with 0.6 opacity */
@@ -935,11 +894,10 @@ hr.contact {
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-    cursor: default;
 }
 .p_name_wrap {
 	position: absolute;
-	top: -75px;
+	top: -72px;
 	padding: 0 0 0 17px;
 }
 .profile_username {
@@ -1021,11 +979,15 @@ hr.contact {
 
 .profile_buttons {
 	position: absolute;
-	top: -35px;
+	top: -39px;
 	right: 0;
 	padding: 0 0 0 1.2em;
 }
-
+.profile_buttons .btn {
+	border: 1px solid #d7d7d7; 
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
 .profile_bio {
 	display: block;
 	text-align: left;

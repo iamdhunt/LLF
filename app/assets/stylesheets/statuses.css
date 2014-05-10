@@ -75,3 +75,13 @@ top: 25%;
 #status_show #comm_form_wrap {
 	margin: 10px;
 }
+#status_show .comment_del img {
+	width: 14px;
+	height: 14px;
+	margin-top: 2px;
+}
+#status_show .act_delete img {
+	width: 14px;
+	height: 14px;
+	margin-top: 1px;
+}

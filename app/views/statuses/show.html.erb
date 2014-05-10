@@ -15,6 +15,12 @@
 					<%= link_to @status.member.user_name, profile_path(@status.member) %>
 				</span>
 
+				<% if current_member == @status.member %>
+					<span class="act_delete">
+						<%= link_to image_tag("/assets/Delete.png", title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
+					</span>
+				<% end %>
+
 				<span class="meta"> 
 					<%= time_ago_in_words(@status.created_at) %>
 				</span>
@@ -32,11 +38,7 @@
 
 			    <div class="status_btns">
 
-			        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-			        <% if current_member == @status.member %>
-			          <%= link_to image_tag("/assets/Trash 2.png", class: 'ims dl', title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
-			        <% end %>
+			        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
 
 			    </div>
 

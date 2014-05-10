@@ -11,6 +11,12 @@
       <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
     </span>
 
+    <% if current_member == @medium.member %>
+      <span class="act_delete">
+        <%= link_to image_tag("/assets/Delete.png", title: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+    <% end %>
+
     <span class="meta"> 
       <%= time_ago_in_words(@medium.created_at) %>
     </span>
@@ -48,11 +54,7 @@
           <%= render :partial => "fav_button", :locals => {:medium => @medium} %>
         </span>
 
-        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-        <% if current_member == @medium.member %>
-          <%= link_to image_tag("/assets/Trash 2.png", class: 'ims dl', title: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
 
     </div>
 

@@ -84,14 +84,15 @@ vertical-align: baseline;
 #proj_av {
 	float: left;
 	margin-right: 8px;
-}
-.p_av {
 	background-color: #fff;
 	border-radius: 10px;
 	padding: 8px;
 	-moz-box-shadow: 0 0 6px #ccc;
 	-webkit-box-shadow: 0 0 6px #ccc;
 	box-shadow: 0 0 6px #ccc;
+}
+.p_av {
+	border-radius: 8px;
 }
 #pb {
 	width: 72%;
@@ -426,9 +427,9 @@ vertical-align: baseline;
 	font-weight: normal;
 }
 .pr_wrap .comment_del img {
-	width: 18px;
-	height: 18px;
-	margin-top: 3px;
+	width: 16px;
+	height: 16px;
+	margin-top: 6px;
 }
 .pr_wrap .com_av {
 	-webkit-border-radius: 60px;
