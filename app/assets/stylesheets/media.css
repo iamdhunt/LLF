@@ -140,3 +140,6 @@ top: 25%;
 	height: 14px;
 	margin-top: 1px;
 }
+#upload .modal-body {
+	max-height: 500px;
+}

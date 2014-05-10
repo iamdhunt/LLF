@@ -98,7 +98,11 @@ class ProfilesController < ApplicationController
 
   def media_fav
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(30)
+      render action: :media_fav
+    elsif @member
       @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(30)
       render action: :media_fav
     else

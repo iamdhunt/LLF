@@ -38,7 +38,7 @@
         </li>
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-circle-arrow-up icon-grey"></i> Upload Media'.html_safe, profile_media_new_path, class: 'media_new_subnav' %>
+                <%= link_to '<i class="icon-circle-arrow-up icon-grey"></i> Upload Media'.html_safe, "#upload", :data => {:toggle => "modal"}, class: 'media_new_subnav' %>
             </li>
         <% end %>  
     </ul>

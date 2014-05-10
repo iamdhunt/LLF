@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140426071408) do
+ActiveRecord::Schema.define(:version => 20140426065035) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -157,8 +157,6 @@ ActiveRecord::Schema.define(:version => 20140426071408) do
     t.datetime "avatar_updated_at"
     t.text     "title"
     t.text     "video_html"
-    t.string   "test"
-    t.string   "test_html"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
