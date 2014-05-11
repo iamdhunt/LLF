@@ -25,6 +25,9 @@ class ProjectsController < ApplicationController
     @commentable = @project
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
+    @uploadable = @project
+    @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
+    @upload = Upload.new
     @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
     respond_to do |format|
       format.html # show.html.erb
@@ -59,7 +62,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project }
         format.json { render json: @project, status: :created, location: @project }
       else
-        format.html { render action: "new" }
+        format.html { redirect_to profile_projects_new_path }
         format.json { render json: @project.errors, alert: 'Please make sure all required fields are filled in and all fields are formatted correctly.' }
       end
     end

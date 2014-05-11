@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140426065035) do
+ActiveRecord::Schema.define(:version => 20140511023719) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -188,6 +188,22 @@ ActiveRecord::Schema.define(:version => 20140426065035) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "uploads", :force => true do |t|
+    t.integer  "uploadable_id"
+    t.string   "uploadable_type"
+    t.integer  "member_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+    t.text     "caption"
+  end
+
+  add_index "uploads", ["member_id"], :name => "index_uploads_on_member_id"
+  add_index "uploads", ["uploadable_id", "uploadable_type"], :name => "index_uploads_on_uploadable_id_and_uploadable_type"
 
   create_table "votes", :force => true do |t|
     t.integer  "votable_id"

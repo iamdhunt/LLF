@@ -32,6 +32,7 @@ class Project < ActiveRecord::Base
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :tags
     has_many :comments, as: :commentable
+    has_many :uploads, as: :uploadable
 
   	before_validation :clean_up_tags
   	before_save :titleize

@@ -7,6 +7,7 @@ $(document).ready(function() {
   var m_src = $('.m').attr('src')
   var $container = $('#prs')
   var $fcon = $('#proj_fol')
+  var $mcon = $('#p_m_list_wrap')
 
   $container.imagesLoaded(function(){
 	  $container.isotope({
@@ -97,6 +98,58 @@ $(document).ready(function() {
 
 	$(".p_f_load_arrow").click(function(){
     	$('#proj_fol').infinitescroll('retrieve');
+        	return false;
+	});
+
+	$mcon.imagesLoaded(function(){
+	  $mcon.isotope({
+	    masonry: {
+		    columnWidth: 192
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
+		  itemSelector: '.list_act_wrap',
+	  });
+	});
+
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if(e.target.hash == '#media') {
+            $mcon.isotope('reLayout');
+        }
+    });
+	  
+	$mcon.infinitescroll({
+	    navSelector  : '.pagination',    // selector for the paged navigation 
+	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
+	    itemSelector : '#p_m_list_wrap .list_act_wrap',     // selector for all items you'll retrieve
+	    loading: {
+	    	selector: '#p_med_loading',
+	    	finishedMsg: '',
+	        img: '/assets/ajax-loader (7).gif',
+	        msgText: '',
+	      },
+	      errorCallback : function () { 
+	     	$('.p_m_load_arrow').fadeOut(); 
+	     }
+	    },
+
+	    function( newElements ) {
+	      var $newElems = $( newElements ).css({ opacity: 0 });
+	      $newElems.imagesLoaded(function(){
+	        $newElems.animate({ opacity: 1 });
+	        $mcon.isotope( 'appended', $newElems, true ); 
+	      });
+	    }
+	  );
+
+	$(window).unbind('.infscr');
+
+	$(".p_m_load_arrow").click(function(){
+    	$('#p_m_list_wrap').infinitescroll('retrieve');
         	return false;
 	});
 

@@ -38,9 +38,11 @@
       </div>
     <% end %>
 
-    <div id="fancyboxTitles" style="display: none;">
-        <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
-    </div>
+    <% if medium.caption? %>
+      <div id="fancyboxTitles" style="display: none;">
+          <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
+      </div>
+    <% end %>
 
     <% if medium.caption? %>
       <div class="media_act_cap">

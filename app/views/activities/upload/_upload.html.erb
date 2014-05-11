@@ -1,0 +1,57 @@
+<div class="list_act_wrap project_fil">
+
+	<div class="act_project_top">
+		<span class="">
+			<%= avatar_profile_link activity.member, :class => "act_av" %>
+		</span>
+
+		<span class="act_name">
+			<%= link_to activity.member.user_name, profile_path(activity.member) %>
+		</span>
+
+		<span class="meta"> 
+			<%= time_ago_in_words(activity.targetable.created_at) %>
+		</span>
+
+		<span class="act_title proj">
+			added media to a <%= link_to 'Project', profile_projects_path(activity.member) %>
+		</span>
+	</div>
+
+	<% if activity.targetable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="act_media_content">
+        <div id='med_art_act' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360 ui360-vis">
+            <%= link_to '', activity.targetable.asset.url %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if activity.targetable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+		<div class="act_media_content">
+			<%= link_to image_tag(activity.targetable.asset.url(:activity), class: ''), activity.targetable.asset.url(:large), class: 'fancybox' %>
+		</div>
+	<% end %>
+
+	<% if activity.targetable.caption? %>
+		<div class="media_act_cap">
+			<%= Rinku.auto_link(activity.targetable.caption).html_safe %>
+		</div> 
+	<% end %>
+
+	<div class="actions_act">
+			<span id="comment_act_btn">
+
+
+
+				<% if activity.member == current_member %>
+					<span class="ad">
+						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
+					</span>
+				<% end %>
+				
+			</span>
+		</div>
+
+</div> 

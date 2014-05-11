@@ -40,6 +40,7 @@
 .act_media_content {
 	text-align: center;
 	padding: 8px 0;
+	position: relative;
 }
 .act_av {
 	padding: 3px 5px;

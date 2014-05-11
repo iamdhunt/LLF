@@ -94,7 +94,7 @@
       </li>
       <li>
         <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
-          Media <span class=""></span>
+          Media <span class="nav_p_ct"><%= @uploadable.uploads.count %></span>
         <% end %>
       </li>
       <li>
@@ -116,8 +116,26 @@
         <%= @project.about %>
       </div>
     </div>
+
     <div class="tab-pane" id="media">
-      Media
+      <% if @project.member == current_member %>
+        <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
+      <% end %>
+
+      <div id="p_m_list_wrap">
+        <%= render :partial => "media" %>       
+      </div>
+
+      <%= will_paginate @uploads, class: 'display_none' %>
+
+      <% if @uploads.total_pages != @uploads.current_page %>
+          <div id="p_med_loading"></div>
+          <%= link_to("#", class: "com_show_wrap p_m_load_arrow") do %>
+              <div class="com_show">
+                  Show More
+              </div>
+          <% end %>
+      <% end %>
     </div>
 
     <div class="tab-pane" id="comments">
@@ -160,15 +178,39 @@
     </div>
   </div>
     
-
-  <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="sharemodallabel">Copy Project URL</h3>
-    </div>
-    <div class="modal-body pi">
-      <input class="pr_in forms" value="<%= project_url %>" />
+  <div class="s_modal">
+    <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Copy Project URL</h3>
+      </div>
+      <div class="modal-body pi">
+        <input class="pr_in forms" value="<%= project_url %>" />
+      </div>
     </div>
   </div>
+
+  <% if @project.member == current_member %>
+    <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Upload Project Media</h3>
+      </div>
+      <div class="modal-body pi">
+        <div class="med_instructions">
+          <ul>
+            <li>
+              &raquo; Maximum file size of 15MB
+            </li>
+            <li>
+              &raquo; Accepted file formats: (jpeg, png, gif, mp3)
+            </li>
+          </ul>
+        </div>
+
+        <%= render :partial => "media_form" %>
+      </div>
+    </div>
+  <% end %>
 
 </div>

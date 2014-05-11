@@ -6,6 +6,14 @@ module ApplicationHelper
 					image_tag form.object.send(paperclip_object).send(:url, :medium)
 			end 
 		end 
+	end
+
+	def bootstrap_paperclip_uploads(form, paperclip_object)
+		if form.object.send("#{paperclip_object}?")
+			content_tag(:div, class: '') do 
+					image_tag form.object.send(paperclip_object).send(:url, :upload)
+			end 
+		end 
 	end 
 
 	def status_document_link(status)
