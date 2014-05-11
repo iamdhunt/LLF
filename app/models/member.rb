@@ -174,6 +174,8 @@ class Member < ActiveRecord::Base
   has_many :statuses
   has_many :activities
   has_many :comments
+  has_many :uploads
+  has_many :updates
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable

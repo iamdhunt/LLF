@@ -28,6 +28,9 @@ class ProjectsController < ApplicationController
     @uploadable = @project
     @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
     @upload = Upload.new
+    @updateable = @project
+    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(40)
+    @update = Update.new
     @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
     respond_to do |format|
       format.html # show.html.erb

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140511023719) do
+ActiveRecord::Schema.define(:version => 20140511153157) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -188,6 +188,19 @@ ActiveRecord::Schema.define(:version => 20140511023719) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  create_table "updates", :force => true do |t|
+    t.text     "content"
+    t.string   "title"
+    t.integer  "updateable_id"
+    t.string   "updateable_type"
+    t.integer  "member_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "updates", ["member_id"], :name => "index_updates_on_member_id"
+  add_index "updates", ["updateable_id", "updateable_type"], :name => "index_updates_on_updateable_id_and_updateable_type"
 
   create_table "uploads", :force => true do |t|
     t.integer  "uploadable_id"

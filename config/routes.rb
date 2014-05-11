@@ -3,6 +3,7 @@ LLF::Application.routes.draw do
   resources :projects do
     resources :comments
     resources :uploads
+    resources :updates
     resources :follows, :controller => 'follows_projects', :only => [:create, :destroy]
     member do
       put "favorite", to: "projects#upvote"

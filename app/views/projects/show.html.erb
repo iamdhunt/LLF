@@ -98,6 +98,11 @@
         <% end %>
       </li>
       <li>
+        <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
+          Updates <span class="nav_p_ct"><%= @updateable.updates.count %></span>
+        <% end %>
+      </li>
+      <li>
         <%= link_to("#comments", :data => {:toggle=>"tab"}) do %>
           Comments <span class="nav_p_ct"><%= @commentable.comments.count %></span>
         <% end %>
@@ -136,6 +141,17 @@
               </div>
           <% end %>
       <% end %>
+    </div>
+
+    <div class="tab-pane" id="updates">
+      <% if @project.member == current_member %>
+        <%= link_to "Post Update", "#update", class: 'btn btn-info', :data => {:toggle => "modal"} %>
+      <% end %>
+
+      <div id="p_m_list_wrap">
+               
+      </div>
+
     </div>
 
     <div class="tab-pane" id="comments">
@@ -209,6 +225,18 @@
         </div>
 
         <%= render :partial => "media_form" %>
+      </div>
+    </div>
+  <% end %>
+
+  <% if @project.member == current_member %>
+    <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Upload Project Media</h3>
+      </div>
+      <div class="modal-body pi">
+        <%= render :partial => "update_form" %>
       </div>
     </div>
   <% end %>

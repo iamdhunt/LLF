@@ -449,6 +449,9 @@ vertical-align: baseline;
 .pr_wrap #media {
 	text-align: center;
 }
+.pr_wrap #updates {
+	text-align: center;
+}
 #p_m_list_wrap {
 	padding: 10px 0 60px 5px;
 	position: relative;
