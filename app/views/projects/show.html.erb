@@ -144,9 +144,15 @@
     </div>
 
     <div class="tab-pane" id="updates">
-      <% if @project.member == current_member %>
-        <%= link_to "Post Update", "#update", class: 'btn btn-info', :data => {:toggle => "modal"} %>
-      <% end %>
+      <div class="u_btn">
+        <% if @project.member == current_member %>
+          <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
+        <% end %>
+      </div>
+
+      <div id="u_list_wrap">
+        <%= render :partial => "updates" %>       
+      </div>
 
       <div id="p_m_list_wrap">
                
@@ -156,8 +162,10 @@
 
     <div class="tab-pane" id="comments">
       <div id="proj_comm">
-        <% if member_signed_in? %>
+        <% if current_member.following?(@project) || current_member == @project.member %>
           <%= render "comment_form" %>
+          <% else %>
+            <div class="c_message">Must be following project to leave a comment.</div>
         <% end %>
         <div id="comments_wrap">
           <%= render "comments" %>
@@ -231,10 +239,7 @@
 
   <% if @project.member == current_member %>
     <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Upload Project Media</h3>
-      </div>
+      
       <div class="modal-body pi">
         <%= render :partial => "update_form" %>
       </div>

@@ -449,7 +449,7 @@ vertical-align: baseline;
 .pr_wrap #media {
 	text-align: center;
 }
-.pr_wrap #updates {
+.pr_wrap .u_btn {
 	text-align: center;
 }
 #p_m_list_wrap {
@@ -476,4 +476,52 @@ vertical-align: baseline;
 }
 .act_media_content:hover .del_u_wrap {
 	display: inline;
+}
+.#act_media_content:hover .del_u_wrap {
+	display: inline;
+}
+.pr_wrap .c_message {
+	text-align: center;
+	font-size: 1.2em;
+	color: #444;
+}
+#update .p_m_text {
+	font-size: 1.2em;
+	color: #444;
+	margin-bottom: 10px;
+}
+#update .p_m_input {
+	width: 100%;
+	margin-bottom: 10px;
+}
+.pr_wrap .modal-body {
+	max-height: 500px;
+}
+.pr_wrap .u_tit {
+	float: left;
+}
+.pr_wrap .u_time {
+	float: right;
+}
+.pr_wrap .u_del {
+	float: right;
+	display: none;
+}
+.pr_wrap #update_wrap:hover .u_del {
+	display: inline;
+}
+.pr_wrap .u_del img {
+	width: 18px;
+	height: 18px;
+	margin: 2px 5px 0 5px;
+}
+.pr_wrap #u_top {
+	border-bottom: 1px solid #dce1e6;
+	padding: 10px 0;
+	color: #444;
+	font-size: 1.5em;
+}
+.pr_wrap #u_bottom {
+	font-size: 1.05em;
+	padding: 10px 0;
 }
