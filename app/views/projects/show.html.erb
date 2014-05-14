@@ -123,9 +123,11 @@
     </div>
 
     <div class="tab-pane" id="media">
-      <% if @project.member == current_member %>
-        <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
-      <% end %>
+      <div class="p_u_btn">
+        <% if @project.member == current_member %>
+          <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
+        <% end %>
+      </div>
 
       <div id="p_m_list_wrap">
         <%= render :partial => "media" %>       

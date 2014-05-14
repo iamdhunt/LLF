@@ -446,7 +446,7 @@ vertical-align: baseline;
 #pright #stream_filters {
 	text-align: center;
 }
-.pr_wrap #media {
+.pr_wrap .p_u_btn {
 	text-align: center;
 }
 .pr_wrap .u_btn {
@@ -464,21 +464,26 @@ vertical-align: baseline;
 #p_m_list_wrap .act_name {
 	top: 12px;
 }
-.del_u_wrap {
-	position: absolute;
-	top: 10px;
-	right: 3px;
+#p_m_t_wrap .p_m_t_icon {
+	vertical-align: top;
+	margin-left: 1px;
+}
+#p_m_t_wrap .del_u_wrap {
+	float: right;
 	display: none;
+	margin-left: 2px;
 }
-.del_u_wrap img {
-	width: 20px;
-	height: 20px;
+#p_m_t_wrap .del_u_wrap img {
+	width: 16px;
+	height: 16px;
 }
-.act_media_content:hover .del_u_wrap {
+#p_m_t_wrap:hover .del_u_wrap {
 	display: inline;
 }
-.#act_media_content:hover .del_u_wrap {
-	display: inline;
+#p_m_t_wrap .p_m_t {
+	float: right;
+	color: #898989;
+	font-weight: bold;
 }
 .pr_wrap .c_message {
 	text-align: center;

@@ -143,3 +143,6 @@ top: 25%;
 #upload .modal-body {
 	max-height: 500px;
 }
+#m_t_wrap .m_t {
+	float: right;
+}
