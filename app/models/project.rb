@@ -36,8 +36,6 @@ class Project < ActiveRecord::Base
     has_many :updates, as: :updateable
 
   	before_validation :clean_up_tags
-  	before_save :titleize
-  	before_create :titleize
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Projects Default.png'
@@ -64,11 +62,6 @@ class Project < ActiveRecord::Base
     end
 
   	private
-
-	  def titleize
-	    self.about = self.about.titleize
-	    self.blurb = self.blurb.titleize
-	  end 
 
 	  def each_tag
 	    tag_list.each do |tag|

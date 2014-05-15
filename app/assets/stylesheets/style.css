@@ -790,12 +790,12 @@ hr.contact {
 	padding: 6px 18px 5px;
 }
 
-.forms::-webkit-input-placeholder { 
+#home_wrapper .forms::-webkit-input-placeholder { 
 	color:#898989; 
 	font-size: 1.3em;
 }
 
-.forms::-moz-placeholder { 
+#home_wrapper .forms::-moz-placeholder { 
 	color:#898989; 
 	font-size: 1.3em;
 }

@@ -573,7 +573,7 @@ vertical-align: baseline;
 	margin: 0 0 5px 15px;
 }
 #edit_wrap .bl_in {
-	margin: 0 0 5px 15px;
+	margin: 0 0 5px 175px;
 }
 #p_form_wrap .redactor_toolbar {
 	position: relative;
@@ -582,17 +582,31 @@ vertical-align: baseline;
 	margin: 0 !important;
 	padding: 0 !important;
 	list-style: none !important;
-	font-size: 14px !important;
-	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
 	line-height: 1 !important;
-	background: #f4f4f4;
-	border-top: none;
-	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-	z-index: 3;
-	opacity: .9
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+#update .redactor_toolbar {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+	line-height: 1 !important;
+	background: #fff;
+	border-bottom: 1px solid #e5e5e5;
 }
 #p_form_wrap .redactor_box {
-	border: none;
+	border: 1px solid #e5e5e5;
+	border-radius: 20px;
+	min-height: 200px;
+}
+#update .redactor_box {
+	border: 1px solid #e5e5e5;
+	min-height: 200px;
 }
 #p_form_wrap .redactor_editor {
 	position: relative;
@@ -601,17 +615,58 @@ vertical-align: baseline;
 	padding: 10px 20px;
 	padding-bottom: 5px;
 	outline: none;
-	background: none;
 	background: #fff;
-	box-shadow: none !important;
 	white-space: normal;
-	border: 1px solid #e5e5e5;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	font-size: 1em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+#update .redactor_editor {
+	position: relative;
+	overflow: auto;
+	margin: 0 !important;
+	padding: 10px 20px;
+	padding-bottom: 5px;
+	outline: none;
+	background: #fff;
+	white-space: normal;
+	font-size: 1em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 #proj_about li {
 	display: list-item;
 	list-style: disc;
-	padding: .5em 0;
+	padding: .25em 0;
 }
 #proj_about ul {
 	padding: 0 2em;
+}
+#u_list_wrap ul {
+	padding: 0 2em;
+}
+#u_list_wrap li {
+	display: list-item;
+	list-style: disc;
+	padding: .25em 0;
+}
+#proj_about hr {
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+#u_list_wrap hr {
+	border: 0;
+	height: 0;
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.redactor_editor li {
+	list-style: disc;
 }

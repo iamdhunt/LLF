@@ -17,4 +17,6 @@
 //= require swf_fu
 //= require soundmanager2-nodebug
 //= require redactor-rails
+//= require redactor-rails/plugins/fontsize
+//= require redactor-rails/plugins/fontcolor
 //= require_tree .

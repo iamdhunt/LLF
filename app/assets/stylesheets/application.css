@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require redactor-rails
+ *= redactor-rails/plugins
  *= require_tree .
  */
 .act_content {

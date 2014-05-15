@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="act_content">
-		<%= Rinku.auto_link(activity.targetable.blurb).html_safe %>
+		<%= Rinku.auto_link(activity.targetable.blurb.titleize).html_safe %>
 	</div>
 
 	<% if member_signed_in? %> 
