@@ -575,3 +575,43 @@ vertical-align: baseline;
 #edit_wrap .bl_in {
 	margin: 0 0 5px 15px;
 }
+#p_form_wrap .redactor_toolbar {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+	font-size: 14px !important;
+	font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif;
+	line-height: 1 !important;
+	background: #f4f4f4;
+	border-top: none;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	z-index: 3;
+	opacity: .9
+}
+#p_form_wrap .redactor_box {
+	border: none;
+}
+#p_form_wrap .redactor_editor {
+	position: relative;
+	overflow: auto;
+	margin: 0 !important;
+	padding: 10px 20px;
+	padding-bottom: 5px;
+	outline: none;
+	background: none;
+	background: #fff;
+	box-shadow: none !important;
+	white-space: normal;
+	border: 1px solid #e5e5e5;
+}
+#proj_about li {
+	display: list-item;
+	list-style: disc;
+	padding: .5em 0;
+}
+#proj_about ul {
+	padding: 0 2em;
+}

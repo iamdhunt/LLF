@@ -229,4 +229,8 @@ $(document).ready(function() {
 	    }
 	);
 
+  $('#p_about').redactor({
+    	buttons: ['bold', 'italic', 'unorderedlist', 'orderedlist', 'outdent', 'indent', 'alignment', 'horizontalrule']
+	});
+
 });

@@ -16,4 +16,5 @@
 //= require zclip
 //= require swf_fu
 //= require soundmanager2-nodebug
+//= require redactor-rails
 //= require_tree .

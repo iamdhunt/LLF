@@ -81,6 +81,13 @@ a:hover {
 	width: 100%;
 	height: auto;
 }
+strong, b {
+	font-weight: bold;
+}
+
+em, i {
+	font-style: italic;
+}
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
