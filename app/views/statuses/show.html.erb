@@ -8,7 +8,7 @@
 
 			<div class="act_status_top">
 				<span class="">
-					<%= avatar_profile_link @status.member, :class => "act_av" %>
+					<%= avatar_profile_link @status.member, :class => "act_av", title: @status.member.full_name, alt: @status.member.full_name %>
 				</span>
 
 				<span class="act_name">
@@ -17,7 +17,7 @@
 
 				<% if current_member == @status.member %>
 					<span class="act_delete">
-						<%= link_to image_tag("/assets/Delete.png", title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to image_tag("/assets/Delete 2.png", title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
 					</span>
 				<% end %>
 

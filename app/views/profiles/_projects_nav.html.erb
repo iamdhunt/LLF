@@ -41,7 +41,7 @@
         </li> 
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, profile_projects_new_path, class: 'media_new_subnav' %>
+                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, new_project_path, class: 'media_new_subnav' %>
             </li>
         <% end %> 
     </ul>

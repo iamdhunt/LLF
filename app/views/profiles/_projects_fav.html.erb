@@ -14,7 +14,7 @@
 
 		<div id="p_list_top">
 			<span class="l">
-		      <%= avatar_profile_link project.member, :class => "pr_av" %>
+		      <%= avatar_profile_link project.member, :class => "pr_av", title: project.member.full_name, alt: project.member.full_name %>
 		      <% if project.category == 'Arts' %>
 		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
 		      <% end %>
@@ -60,18 +60,24 @@
 			<%= avatar_project_link project, class: '' %>
 		</div>
 
-		<div id="pl_info">
-			<div class="pl_t">
-				<%= link_to project.title, project_path(project) %>
+		<div id="pl_middle">
+			<div id="pl_info">
+				<div class="pl_t">
+					<%= link_to project.title, project_path(project) %>
+				</div>
+
+				<div class="pl_ts">
+					<%= project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %>
+				</div>
 			</div>
 
-			<div class="pl_ts">
-				<%= project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %>
+			<div class="pl_bl">
+				<%= project.blurb %>
 			</div>
 		</div>
 
-		<div class="pl_bl">
-			<%= project.blurb %>
+		<div class="pl_tm">
+			<%= project.created_at.strftime("%b %d %Y") %>
 		</div>
 
 	</div>

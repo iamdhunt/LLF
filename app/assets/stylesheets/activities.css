@@ -33,9 +33,11 @@
 }
 .act_status_top {
 	border-bottom: 5px solid #d4d4d4;
+	cursor: default;
 }
 .act_media_top {
 	border-bottom: 5px solid #F7803C;
+	cursor: default;
 }
 .act_media_content {
 	text-align: center;
@@ -175,7 +177,8 @@
 	padding: 3px;
 }
 .act_project_top {
-border-bottom: 5px solid #da4f49;
+	border-bottom: 5px solid #da4f49;
+	cursor: default;
 }
 .act_project_top .proj a {
 	color: #c72835;

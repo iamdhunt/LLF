@@ -8,6 +8,11 @@ $(document).ready(function() {
   var $container = $('#prs')
   var $fcon = $('#proj_fol')
   var $mcon = $('#p_m_list_wrap')
+  var cap_max_tit = 60;
+  var $cap_tit = $('#p_cap_tit')
+  var cap_max_blb = 140;
+  var $cap_blb = $('#p_cap_blb')
+  var dom = document.getElementById('p_cap_blb');
 
   $container.imagesLoaded(function(){
 	  $container.isotope({
@@ -152,6 +157,46 @@ $(document).ready(function() {
     	$('#p_m_list_wrap').infinitescroll('retrieve');
         	return false;
 	});
+
+	$('.p_ct_tit').html(cap_max_tit);
+
+	$cap_tit.keyup(function(){	
+		var cap_length = $cap_tit.val().length;
+		var cap_remaining = cap_max_tit - cap_length;
+
+		$('.p_ct_tit').html(cap_remaining);
+
+		if (cap_remaining <= 10){
+			$('.p_ct_tit').css('color', '#c72835');
+		}else{
+			$('.p_ct_tit').css('color', '#444444');
+		};
+	});
+
+	if(dom != null) {
+		var cap_length = $cap_blb.val().length;
+		var cap_remaining = cap_max_blb - cap_length;
+		$('.p_ct_blb').html(cap_remaining);
+
+		if (cap_remaining <= 20){
+			$('.p_ct_blb').css('color', '#c72835');
+		}else{
+			$('.p_ct_blb').css('color', '#444444');
+		};
+
+		$cap_blb.keyup(function(){	
+			var cap_length = $cap_blb.val().length;
+			var cap_remaining = cap_max_blb - cap_length;
+
+			$('.p_ct_blb').html(cap_remaining);
+
+			if (cap_remaining <= 20){
+				$('.p_ct_blb').css('color', '#c72835');
+			}else{
+				$('.p_ct_blb').css('color', '#444444');
+			};
+		});
+	};
 
   $vid.autosize();
   $wi.autosize();

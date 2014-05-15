@@ -63,12 +63,7 @@ class Project < ActiveRecord::Base
       text :tag_list
     end
 
-    handle_asynchronously :solr_index
-    handle_asynchronously :remove_from_index
-
   	private
-
-    
 
 	  def titleize
 	    self.about = self.about.titleize

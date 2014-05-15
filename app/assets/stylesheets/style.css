@@ -845,6 +845,8 @@ hr.contact {
 #left_profile img {
 	-webkit-border-radius: 100px;
 	border-radius: 100px;
+	max-width: 190px;
+	max-height: 190px;
 }
 #left_profile .mem_av {
 	position: absolute;
@@ -852,7 +854,7 @@ hr.contact {
 	-webkit-border-radius: 100px;
 	border-radius: 100px;
 	background-color: #fff;
-	padding: 8px;
+	padding: 8px 8px 6px 8px;
 	-moz-box-shadow: 0 0 6px #ccc;
 	-webkit-box-shadow: 0 0 6px #ccc;
 	box-shadow: 0 0 6px #ccc;
@@ -1950,7 +1952,7 @@ hr.contact {
 }
 #edit_nav_wrap {
 	width: 100%;
-	margin-top: 1.5em;
+	margin-top: 25px;
 	border-color: #EFEFEF;
 	border-style: solid;
 	border-width: 2px 2px 0 2px;

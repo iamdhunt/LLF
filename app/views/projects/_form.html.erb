@@ -7,7 +7,8 @@
 
   <fieldset>
     <legend class="leg">Name Your Project</legend>
-    <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms settings t_in', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
+    <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
+    <div class="p_tit_ct"><span class="p_ct_tit"></span> <span class="p_ct_text">characters remaining</span></div>
   </fieldset>
 
   <fieldset>
@@ -76,7 +77,8 @@
         </li>
       </ul>
     </div>
-    <%= f.input :blurb, label: 'Blurb', error: false, input_html: { cols: '55', rows: '5', class: 'forms account settings', tabindex: '6', maxlength: '280' } %>
+    <%= f.input :blurb, label: 'Blurb', error: false, input_html: { cols: '55', rows: '3', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140' } %>
+      <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
     <%= f.input :about, label: 'About', error: false, input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '7' } %>
   </fieldset>
 

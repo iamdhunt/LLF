@@ -24,12 +24,14 @@
 	color: #898989;
 	font-size: 1.1em;
 	padding: 5px 0 0 0;
+	cursor: default;
 }
 .comment_av {
 	float: left;
 }
 .comment_name {
 	padding: 0 0 0 32px;
+	cursor: default;
 }
 .comment_name a {
 	font-weight: bold;

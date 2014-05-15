@@ -1,7 +1,7 @@
 <% @comments.each do |comment| %>
 	<div class="comments">
 		<span class="comment_av">
-			<%= comment_avatar_link comment.member, :class => "com_av" %>
+			<%= comment_avatar_link comment.member, :class => "com_av", title: comment.member.full_name, alt: comment.member.full_name %>
 		</span>
 		<span>
 			<div class="comment_name">

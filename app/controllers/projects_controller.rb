@@ -7,9 +7,20 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @tags = Project.tag_counts.order('count DESC').limit(10)
+    @projects = Project.order('created_at desc').page(params[:page]).per_page(54) 
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @projects }
+    end
+  end
+
+  def search
+    @tags = Project.tag_counts.order('count DESC').limit(10)
     @search = Project.search do
       fulltext params[:search]
     end
+    @query = params[:search]
     @projects = @search.results
 
     respond_to do |format|
@@ -65,7 +76,7 @@ class ProjectsController < ApplicationController
         format.html { redirect_to @project }
         format.json { render json: @project, status: :created, location: @project }
       else
-        format.html { redirect_to profile_projects_new_path }
+        format.html { render action: "new" }
         format.json { render json: @project.errors, alert: 'Please make sure all required fields are filled in and all fields are formatted correctly.' }
       end
     end

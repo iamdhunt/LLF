@@ -10,8 +10,9 @@
 
     <div id="m_t_wrap">
       <div class="m_t">
-        <%= time_ago_in_words(medium.created_at) %>
+        <span><%= image_tag "Time.png", class: 'm_t_icon' %><%= time_ago_in_words(medium.created_at) %>
       </div>
+      <div style="clear:both;"></div>
     </div>
 
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
@@ -29,7 +30,7 @@
         <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
       </div>
 
-      <% if medium.caption? %>
+      <% if medium.caption %>
         <div id="fancyboxTitles" style="display: none;">
             <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
         </div>
@@ -46,7 +47,7 @@
 
     <% if member_signed_in? %>
 
-      <div class="">
+      <div id="act_btn_wrap">
 
         <span id="comment_act_btn">
 

@@ -1,6 +1,7 @@
 LLF::Application.routes.draw do
 
   resources :projects do
+    get 'search', on: :collection
     resources :comments
     resources :uploads
     resources :updates
@@ -9,6 +10,8 @@ LLF::Application.routes.draw do
       put "favorite", to: "projects#upvote"
     end
   end
+
+
 
   get "search" => "search#search", :as => "search"
 

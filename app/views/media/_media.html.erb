@@ -10,7 +10,7 @@
 
     <div class="act_media_top">
       <span class="">
-        <%= avatar_profile_link medium.member, :class => "act_av" %>
+        <%= avatar_profile_link medium.member, :class => "act_av", title: medium.member.full_name, alt: medium.member.full_name %>
       </span>
 
       <span class="act_name">
@@ -50,7 +50,7 @@
 
     <% if member_signed_in? %>
 
-      <div class="">
+      <div id="act_btn_wrap">
 
        <span id="comment_act_btn">
 

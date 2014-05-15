@@ -15,7 +15,7 @@
 }
 #p_form_wrap #edit_wrap {
 	padding: 40px 60px 40px 60px;
-	border: 1px solid #dce1e6;
+	border: 1px solid #e5e5e5;
 	border-radius: 20px;
 }
 #proj_menu {
@@ -227,7 +227,7 @@ vertical-align: baseline;
 }
 #p_list_wrap {
 	width: 230px;
-	height: 502px;
+	height: 486px;
 	margin: 0 20px 30px 0;
 	-moz-box-shadow: 0 0 6px #ccc;
 	-webkit-box-shadow: 0 0 6px #ccc;
@@ -270,6 +270,9 @@ vertical-align: baseline;
 .pl_av {
 	width: 100%;
 	height: 188px;
+}
+#pl_middle {
+	min-height: 180px;
 }
 #pl_info {
 	text-align: center;
@@ -315,6 +318,14 @@ vertical-align: baseline;
 .pl_bl {
 	padding: 0 8px 8px 8px;
 	font-size: .85em;
+}
+.pl_tm {
+	text-align: center;
+	padding: 8px 8px 8px 8px;
+	font-weight: bold;
+	font-size: 1.05em;
+	color: #444;
+	border-top: 1px solid #dce1e6;
 }
 #p_list_wrap .dropdown-menu {
 	left: -130px;
@@ -421,6 +432,15 @@ vertical-align: baseline;
 }
 .pr_wrap .comment_name {
 	font-size: 1.3em;
+	cursor: default;
+}
+.pr_wrap .owner {
+	font-size: 14px;
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(218, 79, 73);
+	padding: 2px 6px;
+	border-radius: 7px;
 }
 .pr_wrap .meta {
 	font-size: 1em;
@@ -434,11 +454,6 @@ vertical-align: baseline;
 .pr_wrap .com_av {
 	-webkit-border-radius: 60px;
 	border-radius: 60px;
-}
-.pr_wrap .owner a {
-	font-weight: bold;
-	font-size: .867em;
-	color: #da4f49;
 }
 .pr_wrap .com_con {
 	padding: 0 0 0 51px;
@@ -465,8 +480,10 @@ vertical-align: baseline;
 	top: 12px;
 }
 #p_m_t_wrap .p_m_t_icon {
+	width: 12px;
+	height: 12px;
 	vertical-align: top;
-	margin-left: 1px;
+	margin: 1px 2px 0 0;
 }
 #p_m_t_wrap .del_u_wrap {
 	float: right;
@@ -474,8 +491,8 @@ vertical-align: baseline;
 	margin-left: 2px;
 }
 #p_m_t_wrap .del_u_wrap img {
-	width: 16px;
-	height: 16px;
+	width: 13px;
+	height: 13px;
 }
 #p_m_t_wrap:hover .del_u_wrap {
 	display: inline;
@@ -484,6 +501,7 @@ vertical-align: baseline;
 	float: right;
 	color: #898989;
 	font-weight: bold;
+	cursor: default;
 }
 .pr_wrap .c_message {
 	text-align: center;
@@ -529,4 +547,31 @@ vertical-align: baseline;
 .pr_wrap #u_bottom {
 	font-size: 1.05em;
 	padding: 10px 0;
+}
+#prs .none_message {
+	padding: 0;
+}
+#p_form_wrap .p_tit_ct {
+	margin: 0 0 30px 178px;
+}
+#p_form_wrap .p_blb_ct {
+	margin: 0 0 15px 178px;
+}
+#p_form_wrap .p_ct_tit {
+	color: #444;
+	font-size: 1.5em;
+}
+#p_form_wrap .p_ct_blb {
+	color: #444;
+	font-size: 1.5em;
+}
+#p_form_wrap .p_ct_text {
+	font-size: 1.2em;
+	color: #444;
+}
+#edit_wrap .t_in {
+	margin: 0 0 5px 15px;
+}
+#edit_wrap .bl_in {
+	margin: 0 0 5px 15px;
 }

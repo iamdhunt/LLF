@@ -213,9 +213,6 @@ class Member < ActiveRecord::Base
     text :city, :state, :country
   end
 
-  handle_asynchronously :solr_index
-  handle_asynchronously :remove_from_index
-
   private
 
   def titleize

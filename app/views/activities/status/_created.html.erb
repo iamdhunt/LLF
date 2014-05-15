@@ -2,7 +2,7 @@
 
 	<div class="act_status_top">
 		<span class="">
-			<%= avatar_profile_link activity.member, :class => "act_av" %>
+			<%= avatar_profile_link activity.member, :class => "act_av", title: activity.member.full_name, alt: activity.member.full_name %>
 		</span>
 
 		<span class="act_name">
@@ -27,7 +27,7 @@
 	</div>
 
 	<% if member_signed_in? %> 
-		<div class="actions_act">
+		<div id="act_btn_wrap">
 			<span id="comment_act_btn">
 
 				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>

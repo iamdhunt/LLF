@@ -17,7 +17,7 @@
         </li>
         <% if @project.tag_list %>
           <li class='sub'>
-            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %></span>
+            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @project.website? %>  
@@ -35,7 +35,7 @@
 
   <div id="proj_info">
     <span class="l">
-      <%= avatar_profile_link @project.member, :class => "pr_av" %>
+      <%= avatar_profile_link @project.member, :class => "pr_av", title: @project.member.full_name, alt: @project.member.full_name  %>
       <% if @project.category == 'Arts' %>
         <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
       <% end %>
