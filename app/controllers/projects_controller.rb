@@ -69,13 +69,14 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = current_member.projects.new(params[:project])
+    @project = Project.new(params[:project])
+    @project.member = current_member
 
     respond_to do |format|
       if @project.save
         current_member.create_activity(@project, 'created')
         format.html { redirect_to @project }
-        format.json { render json: @project, status: :created, location: @project }
+        format.json
       else
         format.html { render action: "new" }
         format.json { render json: @project.errors, alert: 'Please make sure all required fields are filled in and all fields are formatted correctly.' }
