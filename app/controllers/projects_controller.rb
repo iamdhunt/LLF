@@ -1,10 +1,4 @@
 class ProjectsController < ApplicationController
-  # used for sanitization user's input
-  REDACTOR_TAGS = %w(code span div label a br p b i del strike u img video audio
-              iframe object embed param blockquote mark cite small ul ol li
-              hr dl dt dd sup sub big pre code figure figcaption strong em
-              table tr td th tbody thead tfoot h1 h2 h3 h4 h5 h6)
-  REDACTOR_ATTRIBUTES = %w(href)
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
@@ -75,7 +69,6 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    params[:project][:about] = sanitize_redactor(params[:project][:about])
     @project = current_member.projects.new(params[:project])
 
     respond_to do |format|
@@ -93,7 +86,6 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
-    params[:project][:about] = sanitize_redactor(params[:project][:about])
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to @project }
@@ -155,15 +147,6 @@ class ProjectsController < ApplicationController
 
   def find_project
     @project = current_member.projects.find(params[:id])
-  end
-
-  def sanitize_redactor(orig_input)
-    stripped = view_context.strip_tags(orig_input)
-    if stripped.present? # this prevents from creating empty comments
-      view_context.sanitize(orig_input, tags: REDACTOR_TAGS, attributes: REDACTOR_ATTRIBUTES)
-    else
-      nil
-    end
   end
 
 end
