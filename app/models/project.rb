@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
-  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list, :test
+  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list
 
   	validates :about, presence: true
   	validates :blurb, presence: true,
