@@ -1,8 +1,9 @@
-class Project < ActiveRecord::Base
+class Event < ActiveRecord::Base
 	belongs_to :member
-  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list
 
-  	validates :about, presence: true
+	attr_accessible :blurb, :details, :category, :tags, :video, :website, :name, :avatar, :banner, :tag_list
+
+	validates :details, presence: true
   	validates :blurb, presence: true,
   						length: {
                           maximum: 140, 
@@ -19,7 +20,7 @@ class Project < ActiveRecord::Base
                               message: 'must be formatted correctly.'
                             }
     validate :each_tag
-  	validates :title, presence: true,
+  	validates :name, presence: true,
   						length: {
                           maximum: 60, 
                           message: 'must not be more than 60 characters.',
@@ -27,7 +28,7 @@ class Project < ActiveRecord::Base
                           message: 'must be longer than 2 characters.'
                         }
 
-  	acts_as_votable
+	acts_as_votable
     acts_as_followable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :tags
@@ -35,14 +36,14 @@ class Project < ActiveRecord::Base
     has_many :uploads, as: :uploadable
     has_many :updates, as: :updateable
 
-  	before_validation :clean_up_tags
+    before_validation :clean_up_tags
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Projects Default.png'
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
   								:default_url => '/assets/Projects Default Banner.png'
 
- 	  validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
+ 	validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   	validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte
@@ -55,13 +56,9 @@ class Project < ActiveRecord::Base
 	    vimeo(:width => 660, :height => 400, :autoplay => false)
 	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
-	  end
+	end
 
-    searchable do
-      text :tag_list
-    end
-
-  	private
+	private
 
 	  def each_tag
 	    tag_list.each do |tag|

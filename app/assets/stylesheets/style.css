@@ -1139,6 +1139,10 @@ hr.contact {
 	color: #444;
 	border-bottom: 4px solid #da4f49;
 }
+.profile_nav .e2 li a {
+	color: #444;
+	border-bottom: 4px solid #146f3f;
+}
 .profile_nav .s1 li a:hover {
 	border-bottom: 4px solid #942fc6;
 }
@@ -1149,7 +1153,7 @@ hr.contact {
 	border-bottom: 4px solid #007236;
 }
 .profile_nav .p1 li a:hover {
-	border-bottom: 4px solid #da4f49;
+	border-bottom: 4px solid #ca3730;
 }
 .profile_nav .mk1 li a:hover {
 	border-bottom: 4px solid #1b85a6;
@@ -1170,10 +1174,13 @@ hr.contact {
 	text-decoration: none;
 }
 .sub_stream a {
-	color: #bd8ed4;
+	color: #a96fc5;
 }
 .sub_media a {
-	color: #f3ab77;
+	color: #f59f60;
+}
+.sub_events a {
+	color: #44986c;
 }
 .sub_projects a {
 	color: #e25b60;

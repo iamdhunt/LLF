@@ -17,7 +17,7 @@
         </span>
         <span class="e1">
             <li>
-                <%= link_to 'Events', '#', class: 'events_wrap' %>
+                <%= link_to 'Events', profile_events_path(current_member), class: 'events_wrap' %>
             </li>
         </span>
         <span class="p1">
@@ -31,14 +31,14 @@
 <div id="subnav_wrap">
     <ul class="sub sub_media">
         <li>
-            <%= link_to '<i class="icon-th-large icon-grey"></i> All Media'.html_safe, profile_media_path(@member), class: 'all_media' %>
+            <%= link_to '<i class="icon-th-large icon-grey"></i> All Media'.html_safe, profile_media_path(@member), class: '' %>
         </li>          
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_media_fav_path(@member), class: 'media_fav_subnav' %>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_media_fav_path(@member), class: '' %>
         </li>
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-circle-arrow-up icon-grey"></i> Upload Media'.html_safe, "#upload", :data => {:toggle => "modal"}, class: 'media_new_subnav' %>
+                <%= link_to '<i class="icon-circle-arrow-up icon-grey"></i> Upload Media'.html_safe, "#upload", :data => {:toggle => "modal"}, class: '' %>
             </li>
         <% end %>  
     </ul>

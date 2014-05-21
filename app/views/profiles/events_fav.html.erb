@@ -1,6 +1,6 @@
 <% title @member.full_name %>
 
-    <%= render :partial => "projects_nav" %>
+    <%= render :partial => "events_nav" %>
 
     <!--/nav_wrap-->
 
@@ -37,21 +37,21 @@
         </span>
     </div>
 
-    <% if @projects.count > 0 %>
+    <% if @events.count > 0 %>
         <div id="prof_projs">
             <div id="prs">
-               <%= render :partial => "projects_fav" %>
+               <%= render :partial => "events_fav" %>
             </div>
         </div>          
-        <% else %>
-            <div class="none_message">
-                No Favorites Yet
-            </div>
+    <% else %>
+        <div class="none_message">
+            No Favorites Yet
+        </div>
     <% end %>
 
-    <%= will_paginate @projects, class: 'display_none' %>
+    <%= will_paginate @events, class: 'display_none' %>
 
-    <% if @projects.total_pages != @projects.current_page %>
+    <% if @events.total_pages != @events.current_page %>
         <div id="loading"></div>
         <%= link_to("#", class: "com_show_wrap load_arrow") do %>
             <div class="com_show">

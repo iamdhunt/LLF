@@ -90,7 +90,7 @@
   <div id="">
     <ul class="nav nav-tabs" id="">
       <li class="active">
-        <%= link_to "About", "#about", :data => {:toggle=>"tab"}, class: '' %>
+        <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
       </li>
       <li>
         <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
@@ -116,7 +116,7 @@
   </div>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="about">
+    <div class="tab-pane active" id="details">
       <div id ="proj_about">
         <%= raw(@project.about) %>
       </div>
@@ -164,7 +164,7 @@
 
     <div class="tab-pane" id="comments">
       <div id="proj_comm">
-        <% if current_member.following?(@project) || current_member == @project.member %>
+        <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
           <%= render "comment_form" %>
           <% else %>
             <div class="c_message">Must be following project to leave a comment.</div>

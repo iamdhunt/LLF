@@ -16,7 +16,7 @@
                     <%= link_to "Market", "#" %>
                 </li>
                 <li>
-                    <%= link_to "Events", "#" %>
+                    <%= link_to "Events", events_path %>
                 </li>
                 <li>
                     <%= link_to "Projects", projects_path %>
@@ -69,7 +69,10 @@
                                 <%= link_to '<i class="icon-music icon-grey menu_icons"></i> Media'.html_safe, profile_media_path(current_member), class: 'bottom_links' %>
                             </li>
                             <li class="grey_bottom">
-                                <%= link_to '<i class="icon-calendar icon-grey menu_icons"></i> Events'.html_safe, "#", class: 'bottom_links' %>
+                                <%= link_to '<i class="icon-shopping-cart icon-grey menu_icons"></i> Market'.html_safe, "#", class: 'bottom_links' %>
+                            </li>
+                            <li class="grey_bottom">
+                                <%= link_to '<i class="icon-calendar icon-grey menu_icons"></i> Events'.html_safe, profile_events_path(current_member), class: 'bottom_links' %>
                             </li>
                             <li class="grey_bottom">
                                 <%= link_to '<i class="icon-folder-open icon-grey menu_icons"></i> Projects'.html_safe, profile_projects_path(current_member), class: 'bottom_links' %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140511153157) do
+ActiveRecord::Schema.define(:version => 20140521082623) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -64,6 +64,29 @@ ActiveRecord::Schema.define(:version => 20140511153157) do
   end
 
   add_index "documents", ["member_id"], :name => "index_documents_on_member_id"
+
+  create_table "events", :force => true do |t|
+    t.integer  "member_id"
+    t.text     "category"
+    t.text     "tags"
+    t.text     "website"
+    t.text     "video"
+    t.text     "details"
+    t.text     "blurb"
+    t.text     "name"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  add_index "events", ["member_id"], :name => "index_events_on_member_id"
 
   create_table "follows", :force => true do |t|
     t.integer  "followable_id",                      :null => false

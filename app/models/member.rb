@@ -171,6 +171,7 @@ class Member < ActiveRecord::Base
 
   has_many :medium
   has_many :projects
+  has_many :events
   has_many :statuses
   has_many :activities
   has_many :comments
