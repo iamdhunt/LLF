@@ -1,9 +1,10 @@
 class Event < ActiveRecord::Base
 	belongs_to :member
 
-	attr_accessible :blurb, :details, :category, :tags, :video, :website, :name, :avatar, :banner, :tag_list
+	attr_accessible :blurb, :details, :category, :tags, :video, :website, :name, :avatar, :banner, :tag_list, :location, :address,
+                  :city, :zipcode
 
-	validates :details, presence: true
+	  validates :details, presence: true
   	validates :blurb, presence: true,
   						length: {
                           maximum: 140, 
@@ -27,6 +28,37 @@ class Event < ActiveRecord::Base
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
+    validates :location, presence: true,
+              length: {
+                          maximum: 40, 
+                          message: 'must not be more than 40 characters.',
+                          minimum: 2,
+                          message: 'must be longer than 2 characters.'
+                        }
+    validates :address, presence: true,
+                        format: {
+                          with: /^[a-zA-Z0-9 -.]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
+                        }
+    validates :city, presence: true,
+                        format: {
+                          with: /^[a-zA-Z -]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
+                        }
+    validates :zipcode, format: {
+                          with: /^[0-9 -]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 9, 
+                          message: 'must not be more than 9 characters.',
+                        }
+                        
 
 	acts_as_votable
     acts_as_followable

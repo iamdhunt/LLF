@@ -106,3 +106,43 @@
 	font-size: 1.05em;
 	padding: 10px 0;
 }
+.e_loc_ct {
+	margin: 0 0 15px 178px;
+}
+.e_ct_loc {
+	color: #444;
+	font-size: 1.5em;
+}
+.e_ct_text {
+	font-size: 1.2em;
+	color: #444;
+}
+#edit_wrap .loc_in {
+margin: 0 0 5px 15px;
+}
+.el_tm {
+	text-align: center;
+	padding: 0 8px 8px 8px;
+	color: #444;
+	font-weight: bold;
+}
+.e_loc {
+	text-align: center;
+	padding: 8px;
+	border-top: 1px solid #dce1e6;
+}
+.e_loc a {
+	font-size: .8em;
+	font-weight: bold;
+	color: #1a90b6;
+}
+.e_loc a:hover {
+	text-decoration: none;
+	color: #898989;
+}
+.e_loc > a:hover > [class^="icon-blue"],
+.e_loc > a:hover > [class*=" icon-blue"],
+.e_loc > .active > a > [class^="icon-blue"],
+.e_loc > .active > a > [class*=" icon-blue"] {
+	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
+}

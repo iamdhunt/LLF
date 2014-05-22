@@ -76,7 +76,13 @@
 			</div>
 		</div>
 
-		<div class="pl_tm">
+		<div class="e_loc">
+			<%= link_to(:controller => "events", :action => "search", :search => event.location) do %>
+                <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
+            <% end %>
+		</div>
+
+		<div class="el_tm">
 			<%= event.created_at.strftime("%b %d %Y") %>
 		</div>
 

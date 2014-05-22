@@ -25,6 +25,11 @@
             <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Event Website'.html_safe, @event.website  %></span>
           </li>
         <% end %>
+        <% if @event.location? %>  
+          <li class='sub w'>
+            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location, :controller => "projects", :action => "search", :search => @event.location  %></span>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

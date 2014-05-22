@@ -17,9 +17,16 @@ $(document).ready(function() {
 
   $container.imagesLoaded(function(){
 	  $container.isotope({
-	  	  itemSelector: '#p_list_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
+	    masonry: {
+		    columnWidth: 250
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
+		  itemSelector: '#p_list_wrap',
 	  });
 
 	    	// bind filter on radio button click
@@ -170,7 +177,7 @@ $(document).ready(function() {
 		if (cap_remaining <= 10){
 			$('.p_ct_tit').css('color', '#c72835');
 		}else{
-			$('.p_ct_tit').css('color', '#444444');
+			$('.p_ct_tit').css('color', '#8930c7');
 		};
 	});
 
@@ -182,7 +189,7 @@ $(document).ready(function() {
 		if (cap_remaining <= 20){
 			$('.p_ct_blb').css('color', '#c72835');
 		}else{
-			$('.p_ct_blb').css('color', '#444444');
+			$('.p_ct_blb').css('color', '#444');
 		};
 
 		$cap_blb.keyup(function(){	
@@ -194,7 +201,7 @@ $(document).ready(function() {
 			if (cap_remaining <= 20){
 				$('.p_ct_blb').css('color', '#c72835');
 			}else{
-				$('.p_ct_blb').css('color', '#444444');
+				$('.p_ct_blb').css('color', '#8930c7');
 			};
 		});
 	};

@@ -75,8 +75,24 @@
         </li>
       </ul>
     </div>
-    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings w_in', tabindex: '2' } %>
-    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings vid_in', tabindex: '3' } %>
+    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '2' } %>
+    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '3' } %>
+  </fieldset>
+
+  <fieldset>
+    <legend class="descriptors">Location, Location, Location</legend>
+    <div class="edit_instructions">
+      <ul>
+        <li>
+          &raquo; Where should we show up?
+        </li>
+      </ul>
+    </div>
+    <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms loc_in', tabindex: '4', id: 'e_loc_in', maxlength: '30' } %>
+    <div class="e_loc_ct"><span class="e_ct_loc"></span> <span class="e_ct_text">characters remaining</span></div>
+    <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '5', maxlength: '50' } %>
+    <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '6', maxlength: '50' } %>
+    <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '7', maxlength: '9' } %>
   </fieldset>
 
   <fieldset>
@@ -88,9 +104,9 @@
         </li>
       </ul>
     </div>
-    <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '4', maxlength: '140' } %>
-      <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
-    <%= f.input :details, label: 'Details', error: false, input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '5', id: 'p_about' } %>
+    <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '8', maxlength: '140' } %>
+      <div class="p_blb_ct"><span class="p_ct_blb"></span> <span class="p_ct_text">characters remaining</span></div>
+    <%= f.input :details, label: 'Details', error: false, input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '9', id: 'p_about' } %>
   </fieldset>
 
   <div class="form-actions">

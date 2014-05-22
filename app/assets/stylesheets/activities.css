@@ -218,10 +218,28 @@
 }
 .act_tm {
 	text-align: center;
-	padding: 8px 8px 8px 8px;
+	padding: 8px;
 	font-weight: bold;
 	font-size: 1.05em;
 	color: #444;
+}
+.act_loc {
+	text-align: center;
+	padding: 4px 5px 0 5px;
+}
+.act_loc a {
+	color: #1a90b6;
+	font-weight: bold;
+}
+.act_loc a:hover {
+	text-decoration: none;
+	color: #898989;
+}
+.act_loc > a:hover > [class^="icon-blue"],
+.act_loc > a:hover > [class*=" icon-blue"],
+.act_loc > .active > a > [class^="icon-blue"],
+.act_loc > .active > a > [class*=" icon-blue"] {
+	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
 .act_ts {
 	text-align: center;
