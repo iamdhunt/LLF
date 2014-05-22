@@ -216,3 +216,81 @@
 	text-align: center;
 	padding: 8px 0 3px 0;
 }
+.act_tm {
+	text-align: center;
+	padding: 8px 8px 8px 8px;
+	font-weight: bold;
+	font-size: 1.05em;
+	color: #444;
+}
+.act_ts {
+	text-align: center;
+}
+.act_ts a {
+	white-space: nowrap;
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 3px;
+	border-radius: 4px;
+	line-height: 200%;
+}
+.act_ts a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
+.act_event_top {
+	border-bottom: 5px solid #1b864d;
+	cursor: default;
+}
+.act_event_top .eve a {
+	color: #1b864d;
+	font-weight: bold;
+}
+.act_event_top .meta {
+	float: right;
+	padding: 0 5px 0 5px;
+	margin-top: 14px;
+}
+.act_event_top .eve a:hover {
+	text-decoration: none;
+	color: #055b2d;
+}
+.act_e_title {
+	text-align: center;
+	font-size: 1.05em;
+	padding: 2px 5px;
+	word-wrap: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+   		-moz-hyphens: auto;
+        	hyphens: auto;
+    -ms-word-break: break-all;
+}
+.act_e_title a {
+	color: #444444;
+	font-weight: bold;
+}
+.act_e_title a:hover {
+	color: #146f3f;
+	text-decoration: none;
+}
+.act_e_av {
+	text-align: center;
+	padding: 8px 0 3px 0;
+}

@@ -232,13 +232,11 @@ $(document).ready(function() {
 	);
 
   $('#p_about').redactor({
-    	buttons: ['bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'indent', 'horizontalrule'],
-    	plugins: ['fontsize']
+    	buttons: ['html', 'bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'horizontalrule']
 	});
 
   $('#p_update').redactor({
-    	buttons: ['bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'indent', 'horizontalrule'],
-    	plugins: ['fontsize']
+    	buttons: ['html', 'bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'horizontalrule']
 	});
 
 });

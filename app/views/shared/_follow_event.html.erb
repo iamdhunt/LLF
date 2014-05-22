@@ -1,0 +1,14 @@
+<% if current_member.following?(event) %>
+
+  <div class="">
+      <%= link_to('Following'.html_safe, event_follow_path(event.id, current_member.get_follow(event).id), :method => :delete, :remote => true, :class => "btn btn-event btn-large") %>
+   </div>
+
+
+  <% else %>
+
+    <div class="">
+      <%= link_to("Follow", event_follows_path(event.id), :method => :post, :remote => true, :class => "btn btn-large") %>
+    </div>
+
+<% end %>

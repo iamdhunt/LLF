@@ -1,0 +1,58 @@
+<% @uploads.each do |upload| %>
+
+<% if upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+  <div class="list_act_wrap audio_fil">
+  <% end %>
+
+<% if upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+  <div class="list_act_wrap photo_fil">
+<% end %>
+
+    <div id="p_m_t_wrap">
+      <% if upload.member == current_member %>
+          <span class="del_u_wrap">
+            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+          </span>
+      <% end %>
+
+      <span class="p_m_t">
+        <span><%= image_tag "Time.png", class: 'p_m_t_icon' %></span><%= time_ago_in_words(upload.created_at) %>
+      </span>
+      <div style="clear:both;"></div>
+
+
+    </div>
+
+     <% if upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="act_media_content">
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div class="ui360 ui360-vis">
+            <%= link_to '', upload.asset.url %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+      <div class="act_media_content">
+        <%= link_to image_tag(upload.asset.url(:list), class: ''), upload.asset.url(:large), class: "fancybox", rel: 'proj_gall' %>
+      </div>
+
+      <% if upload.caption %>
+        <div id="fancyboxTitles" style="display: none;">
+            <div><%= Rinku.auto_link(upload.caption).html_safe %></div>
+        </div>
+      <% end %>
+    <% end %>
+
+    
+
+    <% if upload.caption? %>
+      <div class="media_act_cap">
+        <%= Rinku.auto_link(upload.caption).html_safe %>
+      </div> 
+    <% end %>
+
+</div>
+    
+<% end %>

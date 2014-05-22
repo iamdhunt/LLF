@@ -30,6 +30,14 @@
 		<%= Rinku.auto_link(activity.targetable.blurb.titleize).html_safe %>
 	</div>
 
+	<div class="act_ts">
+		<%= activity.targetable.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %>
+	</div>
+
+	<div class="act_tm">
+		<%= activity.targetable.created_at.strftime("%b %d %Y") %>
+	</div>
+
 	<% if member_signed_in? %> 
 		<div id="act_btn_wrap">
 			<span id="comment_act_btn">

@@ -39,7 +39,7 @@ class Event < ActiveRecord::Base
     before_validation :clean_up_tags
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
-  								:default_url => '/assets/Projects Default.png'
+  								:default_url => '/assets/Events Default.png'
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
   								:default_url => '/assets/Projects Default Banner.png'
 

@@ -1,0 +1,85 @@
+<div class="list_act_wrap event_fil">
+
+	<div class="act_event_top">
+		<span class="">
+			<%= avatar_profile_link activity.member, :class => "act_av", title: activity.member.full_name, alt: activity.member.full_name %>
+		</span>
+
+		<span class="act_name">
+			<%= link_to activity.member.user_name, profile_path(activity.member) %>
+		</span>
+
+		<span class="meta"> 
+			<%= time_ago_in_words(activity.targetable.created_at) %>
+		</span>
+
+		<span class="act_title eve">
+			created a new <%= link_to 'Event', profile_events_path(activity.member) %>
+		</span>
+	</div>
+
+	<div class="act_e_av">
+	    <%= activity_event_link activity.targetable, class: '' %>
+	</div>
+
+	<div class="act_e_title">
+		<%= link_to activity.targetable.name, event_path(activity.targetable_id) %>
+	</div>
+
+	<div class="act_content">
+		<%= Rinku.auto_link(activity.targetable.blurb.titleize).html_safe %>
+	</div>
+
+	<% if member_signed_in? %> 
+		<div id="act_btn_wrap">
+			<span id="comment_act_btn">
+
+				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
+					<%= link_to event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+						<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
+					<% end %>
+				<% elsif activity.targetable.comments.count > 99 %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% else %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions"), event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% end %>
+
+				<% if activity.votes.size > 0 && activity.votes.size <= 99 && current_member.voted_up_on?(activity) %>
+					<%= link_to favorite_activity_path(activity), method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" do %>
+						  <%= image_tag("Favorite 3.png", class: "act_actions") %><%= activity.votes.size %>
+					<% end %>
+				<% elsif activity.votes.size > 99 && current_member.voted_up_on?(activity) %>
+					<%= link_to image_tag("Favorite 3.png", class: "act_actions") +'99+', favorite_activity_path(activity), method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" %>
+				<% elsif activity.votes.size > 0 && activity.votes.size <= 99 %>
+					<%= link_to favorite_activity_path(activity), method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+						  <%= image_tag("Favorite 5.png", class: "act_actions") %><%= activity.votes.size %>
+					<% end %>
+				<% elsif activity.votes.size > 99 %>
+					<%= link_to image_tag("Favorite 5.png", class: "act_actions") +'99+', favorite_activity_path(activity), method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" %>
+				<% else %>
+					<%= link_to image_tag("Favorite 5.png", class: "act_actions"), favorite_activity_path(activity), method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" %>
+				<% end %>
+
+				<%= link_to image_tag("Share 3.png", class: "act_actions"), "#", title: "Share", alt: "Share", :class => "btn share" %>
+
+				<% if activity.member == current_member %>
+					<span class="ad">
+						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
+					</span>
+				<% end %>
+				
+			</span>
+		</div>
+	<% end %>
+
+	<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	      <h3 id="sharemodallabel">Copy Event URL</h3>
+	    </div>
+	    <div class="modal-body pi">
+	      <input class="pr_in forms" value="<%= event_url(activity.targetable_id) %>" />
+	    </div>
+	</div>
+
+</div> 

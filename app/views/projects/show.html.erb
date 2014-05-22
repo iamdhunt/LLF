@@ -22,7 +22,7 @@
         <% end %> 
         <% if @project.website? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to "Project Website", @project.website  %></span>
+            <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, @project.website  %></span>
           </li>
         <% end %>
       </ul>
@@ -118,7 +118,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="details">
       <div id ="proj_about">
-        <%= raw(@project.about) %>
+        <%= raw Rinku.auto_link(@project.about) %>
       </div>
     </div>
 

@@ -1672,7 +1672,7 @@ input[type="button"].btn-block {
 .btn-danger.active,
 .btn-success.active,
 .btn-info.active,
-btn-follow.active,
+.btn-follow.active,
 .btn-inverse.active {
   color: rgba(255, 255, 255, 0.75);
 }
@@ -1752,6 +1752,7 @@ btn-follow.active,
   background-color: #5bb75b;
   border-color: #5bb75b;
   *background-color: #51a351;
+  border-radius: 5px;
 }
 .btn-success:hover,
 .btn-success:focus,
@@ -1765,6 +1766,28 @@ btn-follow.active,
 }
 .btn-success:active,
 .btn-success.active {
+  background-color: #408140 \9;
+}
+.btn-event {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #219e5c;
+  border-color: #219e5c;
+  *background-color: #219e5c;
+  border-radius: 5px;
+}
+.btn-event:hover,
+.btn-event:focus,
+.btn-event:active,
+.btn-event.active,
+.btn-event.disabled,
+.btn-event[disabled] {
+  color: #ffffff;
+  background-color: #1b864d;
+  *background-color: #1b864d;
+}
+.btn-event:active,
+.btn-event.active {
   background-color: #408140 \9;
 }
 .btn-info {
