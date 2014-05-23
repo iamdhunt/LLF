@@ -157,3 +157,85 @@ margin: 0 0 5px 15px;
 #edit_wrap .loc_in {
 	margin: 0 0 5px 15px;
 }
+#e_adr {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.e_adr1 a {
+	color: #444;
+	font-weight: 500;
+	font-size: 20px;
+	text-align: center;
+	display: inline-block;
+}
+.e_adr1 a:hover {
+	text-decoration: none;
+	color: #1a90b6;
+}
+.e_adr1 p {
+	margin-bottom: 0px;
+	line-height: 20px;
+}
+#ev_info {
+	text-align: center;
+	padding: 5px 0 5px 0;
+}
+#ev_info .proj_title {
+	color: #444444;
+	font-size: 1.3em;
+	line-height: 28px;
+	font-weight: bold;
+}
+#ev_info .l {
+	float: left;
+}
+#ev_info .r {
+	float: right;
+}
+#ev_info .ims {
+	width: 30px;
+	height: 30px;
+}
+#ev_info .btn-group {
+position: relative;
+display: inline;
+vertical-align: baseline;
+}
+#ev_info .dropdown-menu {
+	left: -100px;
+}
+#ev_info .btn-group .del {
+	border-bottom: none;
+	border-top: 1px solid #ddd;
+}
+#ev_nav {
+	margin-top: 30px;
+}
+#ev_nav .nav-tabs {
+	border-bottom: none;
+	text-align: center;
+}
+#ev_nav .nav-tabs li {
+	font-size: 1.75em;
+	float: none;
+	display: inline-block;
+}
+#ev_nav .nav-tabs > li > a {
+	padding: 20px;
+	line-height: 20px;
+	border: none;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #f4f4f4;
+	color: #898989;
+	margin-right: 15px;
+}
+#ev_nav .nav-tabs > li > a:hover {
+	color: #fff;
+	background-color: #219e5c;
+}
+#ev_nav .nav-tabs > .active > a {
+	background-color: #219e5c;
+	color: #fff;
+}

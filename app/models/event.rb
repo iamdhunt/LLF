@@ -51,7 +51,8 @@ class Event < ActiveRecord::Base
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
                         }
-    validates :zipcode, format: {
+    validates :zipcode, presence: true,
+                        format: {
                           with: /^[0-9 -]+$/,
                           message: 'must be formatted correctly.'
                         },length: {
@@ -60,7 +61,7 @@ class Event < ActiveRecord::Base
                         }
                         
 
-	acts_as_votable
+	  acts_as_votable
     acts_as_followable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :tags
@@ -75,7 +76,7 @@ class Event < ActiveRecord::Base
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
   								:default_url => '/assets/Events Banner Default.png'
 
- 	validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
+    validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   	validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte

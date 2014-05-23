@@ -10,11 +10,6 @@
             <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
           </li>
         <% end %>
-        <li class='sub'>
-          <span class='acct' id='p_f_ct'>
-               Followers (<%= @event.followers_count %>)
-          </span>
-        </li>
         <% if @event.tag_list %>
           <li class='sub'>
             <span class='acct'><%= @event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "search", :search => t }.join(' ').html_safe %></span>
@@ -27,7 +22,7 @@
         <% end %>
         <% if @event.location? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location, :controller => "projects", :action => "search", :search => @event.location  %></span>
+            <span class='lct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location, :controller => "projects", :action => "search", :search => @event.location  %></span>
           </li>
         <% end %>
       </ul>
@@ -38,7 +33,7 @@
 
 <div id="main_wrap" class="ev_wrap">
 
-  <div id="proj_info">
+  <div id="ev_info">
     <span class="l">
       <%= avatar_profile_link @event.member, :class => "pr_av", title: @event.member.full_name, alt: @event.member.full_name  %>
       <% if @event.category == 'Arts' %>
@@ -84,6 +79,16 @@
     </span>
 
     <div style="clear:both;"></div>
+  </div>
+
+  <div id="e_adr">
+    <div class="e_adr1">
+      <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
+          <span class=""><%= @event.address %></span>
+          <p><span class=""><%= @event.city %> <%= @event.zipcode %></span></p>
+          <p><span class="">Country</span></p>
+      <% end %>
+    </div>
   </div>
 
   <% if @event.video? %>
