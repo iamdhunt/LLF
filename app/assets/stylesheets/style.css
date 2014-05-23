@@ -1821,3 +1821,29 @@ label.active {
 #stream_filters .other_filter label:hover {
 	background:#962bcc;
 }
+.modal-header {
+	background-image: url('/assets/Modal BG.png');
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-top-left-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-top-right-radius: 5px;  
+}
+.modal-header h3 {
+	color: #fff;
+}
+.close {
+	color: #fff;
+	opacity: .7;
+	text-shadow: 0 1px 0 #aeaeae;
+	filter: alpha(opacity=70);
+}
+.close:hover {
+	color: #fff;
+	opacity: 1;
+	filter: alpha(opacity=100);
+}

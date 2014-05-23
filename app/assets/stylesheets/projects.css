@@ -228,9 +228,9 @@ vertical-align: baseline;
 #p_list_wrap {
 	width: 230px;
 	margin: 0 20px 30px 0;
-	-moz-box-shadow: 0 0 6px #ccc;
-	-webkit-box-shadow: 0 0 6px #ccc;
-	box-shadow: 0 0 6px #ccc;
+	-moz-box-shadow: 0 0 5px #aeaeae;
+	-webkit-box-shadow: 0 0 5px #aeaeae;
+	box-shadow: 0 0 5px #aeaeae;
 	border-radius: 8px;
 }
 #prof_projs #p_list_wrap {

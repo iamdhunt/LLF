@@ -130,7 +130,7 @@
       </div>
 
       <div id="p_m_list_wrap">
-        <%= render :partial => "media" %>       
+        <%= render :partial => "shared/media" %>       
       </div>
 
       <%= will_paginate @uploads, class: 'display_none' %>
@@ -153,7 +153,7 @@
       </div>
 
       <div id="u_list_wrap">
-        <%= render :partial => "updates" %>       
+        <%= render :partial => "shared/updates" %>       
       </div>
 
       <div id="p_m_list_wrap">
@@ -165,12 +165,12 @@
     <div class="tab-pane" id="comments">
       <div id="proj_comm">
         <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
-          <%= render "comment_form" %>
+          <%= render "shared/comment_form" %>
           <% else %>
             <div class="c_message">Must be following project to leave a comment.</div>
         <% end %>
         <div id="comments_wrap">
-          <%= render "comments" %>
+          <%= render "shared/comments" %>
         </div>
 
         <%= will_paginate @comments, class: 'display_none' %>
@@ -188,7 +188,7 @@
 
     <div class="tab-pane" id="followers">
       <div id="proj_fol">
-        <%= render "followers" %>
+        <%= render "shared/followers" %>
       </div>
 
         <%= will_paginate @followers, class: 'display_none' %>
@@ -234,7 +234,7 @@
           </ul>
         </div>
 
-        <%= render :partial => "media_form" %>
+        <%= render :partial => "shared/media_form" %>
       </div>
     </div>
   <% end %>

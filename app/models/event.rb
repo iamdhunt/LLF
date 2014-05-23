@@ -73,7 +73,7 @@ class Event < ActiveRecord::Base
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Events Default.png'
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-  								:default_url => '/assets/Projects Default Banner.png'
+  								:default_url => '/assets/Events Banner Default.png'
 
  	validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']

@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var $cap = $('#cap_box')
 	var dl_src = $('.dl').attr('src')
 
+	$cap.autosize();
+
 	$container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {

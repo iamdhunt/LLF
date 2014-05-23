@@ -146,3 +146,14 @@ margin: 0 0 5px 15px;
 .e_loc > .active > a > [class*=" icon-blue"] {
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
+#pl_info .el_t a {
+	color: #444444;
+	font-weight: bold;
+}
+#pl_info .el_t a:hover {
+	color: #1b864d;
+	text-decoration: none;
+}
+#edit_wrap .loc_in {
+	margin: 0 0 5px 15px;
+}
