@@ -1,0 +1,43 @@
+<fieldset>
+  <legend class="descriptors">Change Your Avatar</legend>
+  <div class="edit_instructions">
+    <ul>
+      <li>
+        &raquo; Recommended dimensions of 200x200
+      </li>
+      <li>
+        &raquo; Maximum file size of 5MB
+      </li>
+  </div>
+  <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
+
+  <div class="edit_av">
+    <% if f.object.avatar? %>
+      <%= image_tag f.object.avatar.url(:av) %>
+    <% end %>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend class="descriptors">Change Your Banner</legend>
+   <div class="edit_instructions">
+    <ul>
+      <li>
+        &raquo; Recommended dimensions of 1400x200
+      </li>
+      <li>
+        &raquo; Maximum file size of 5MB
+      </li>
+  </div>
+  <%= f.input :banner, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
+
+  <div class="edit_av">
+    <% if f.object.banner? %>
+      <%= image_tag f.object.banner.url(:preview) %>
+    <% end %>
+  </div>
+</fieldset>
+
+<div class="form-actions">
+  <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+</div>

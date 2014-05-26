@@ -218,10 +218,23 @@
 }
 .act_tm {
 	text-align: center;
-	padding: 8px;
+	padding: 2px 8px;
 	font-weight: bold;
 	font-size: 1.05em;
 	color: #444;
+}
+.act_tm1 {
+	text-align: center;
+	padding: 2px 8px 8px 8px;
+	font-weight: bold;
+	font-size: 1.05em;
+	color: #444;
+}
+.act_tm2 {
+	text-align: center;
+	padding: 0 8px 8px 8px;
+	color: #444;
+	font-style: oblique;
 }
 .act_loc {
 	text-align: center;

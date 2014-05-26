@@ -33,9 +33,7 @@
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
-		    		<% if current_member != project.member %>
-		    			<%= render :partial => "fav_button_projects", :locals => {:project => project} %>
-		    		<% end %>
+		    		<%= render :partial => "fav_button_projects", :locals => {:project => project} %>
 		    		<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
 			      	<% if current_member == project.member %>
 				        <span class="btn-group">
@@ -74,6 +72,14 @@
 				<%= project.blurb.titleize %>
 			</div>
 		</div>
+
+		<% if project.city? %>
+			<div class="e_loc">
+				<%= link_to(:controller => "projects", :action => "search", :search => project.city) do %>
+	                <i class="icon-map-marker icon-blue"></i> <%= project.city.titleize %>
+	            <% end %>
+			</div>
+		<% end %>
 
 		<div class="pl_tm">
 			<%= project.created_at.strftime("%b %d %Y") %>

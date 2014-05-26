@@ -76,6 +76,14 @@
 			</div>
 		</div>
 
+		<% if follow.city? %>
+			<div class="e_loc">
+				<%= link_to(:controller => "projects", :action => "search", :search => follow.city) do %>
+	                <i class="icon-map-marker icon-blue"></i> <%= follow.city.titleize %>
+	            <% end %>
+			</div>
+		<% end %>
+
 		<div class="pl_tm">
 			<%= follow.created_at.strftime("%b %d %Y") %>
 		</div>

@@ -86,3 +86,11 @@
 #community_media_filters {
 	padding-bottom: 10px;
 }
+.googlefont .smarticker-category a:hover {
+	text-decoration: none;
+	cursor: default;
+}
+.googlefont .smarticker-cats a:hover {
+	text-decoration: none;
+	cursor: default;
+}

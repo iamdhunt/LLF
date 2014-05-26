@@ -45,8 +45,8 @@
 	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(33, 158, 92);
-	padding: 2px 6px;
-	border-radius: 7px;
+	padding: 1px 3px;
+	border-radius: 5px;
 }
 .ev_wrap .meta {
 	font-size: 1em;
@@ -122,14 +122,20 @@ margin: 0 0 5px 15px;
 }
 .el_tm {
 	text-align: center;
-	padding: 0 8px 8px 8px;
+	padding: 0 8px 2px 8px;
 	color: #444;
 	font-weight: bold;
 }
+.el_tm2 {
+	text-align: center;
+	padding: 0 8px 8px 8px;
+	color: #444;
+	font-style: oblique;
+	font-size: .9em;
+}
 .e_loc {
 	text-align: center;
-	padding: 8px;
-	border-top: 1px solid #dce1e6;
+	padding: 0 8px 3px 8px;
 }
 .e_loc a {
 	font-size: .8em;
@@ -238,4 +244,36 @@ vertical-align: baseline;
 #ev_nav .nav-tabs > .active > a {
 	background-color: #219e5c;
 	color: #fff;
+}
+#when select {
+	width: 115px;
+}
+.dt {
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(247, 180, 72, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
+	margin-right: 8px;
+}
+.dt:hover {
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
+	cursor: default;
+}
+.t1 {
+	font-style: oblique;
 }

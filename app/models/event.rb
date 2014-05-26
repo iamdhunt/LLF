@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 	belongs_to :member
 
 	attr_accessible :blurb, :details, :category, :tags, :video, :website, :name, :avatar, :banner, :tag_list, :location, :address,
-                  :city, :zipcode
+                  :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
 
 	  validates :details, presence: true
   	validates :blurb, presence: true,
@@ -59,7 +59,24 @@ class Event < ActiveRecord::Base
                           maximum: 9, 
                           message: 'must not be more than 9 characters.',
                         }
-                        
+    validates :state, allow_blank: true, 
+                        format: {
+                          with: /^[a-zA-Z ]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
+                        }
+    validates :country, allow_blank: true,
+                        format: {
+                          with: /^[a-zA-Z ]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
+                        }
+    validates :start_date, presence: true
+    validates :end_date, presence: true                              
 
 	  acts_as_votable
     acts_as_followable

@@ -10,11 +10,6 @@
             <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
           </li>
         <% end %>
-        <li class='sub'>
-          <span class='acct' id='p_f_ct'>
-               Followers (<%= @project.followers_count %>)
-          </span>
-        </li>
         <% if @project.tag_list %>
           <li class='sub'>
             <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %></span>
@@ -23,6 +18,11 @@
         <% if @project.website? %>  
           <li class='sub w'>
             <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, @project.website  %></span>
+          </li>
+        <% end %>
+        <% if @project.city? %>  
+          <li class='sub w'>
+            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @project.city.titleize, :controller => "projects", :action => "search", :search => @project.city  %></span>
           </li>
         <% end %>
       </ul>

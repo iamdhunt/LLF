@@ -41,7 +41,15 @@
 	</div>
 
 	<div class="act_tm">
-		<%= activity.targetable.created_at.strftime("%b %d %Y") %>
+		<%= activity.targetable.start_date.strftime("%b %d %Y") %>
+	</div>
+
+	<div class="act_tm2">
+		<% if activity.targetable.start_time.strftime("%I:%M %p") == '12:00 AM' && activity.targetable.end_time.strftime("%I:%M %p") == '12:00 AM' %>
+	    	All Day
+	  	<% else %>
+	    	<%= activity.targetable.start_time.strftime("%I:%M %p") %> - <%= activity.targetable.end_time.strftime("%I:%M %p") %>
+	  	<% end %>
 	</div>
 
 	<% if member_signed_in? %> 

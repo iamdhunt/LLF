@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
-  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list
+  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list, :city
 
   	validates :about, presence: true
   	validates :blurb, presence: true,
@@ -25,6 +25,14 @@ class Project < ActiveRecord::Base
                           message: 'must not be more than 60 characters.',
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
+                        }
+    validates :city, presence: true, 
+                        format: {
+                          with: /^[a-zA-Z ]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
                         }
 
   	acts_as_votable

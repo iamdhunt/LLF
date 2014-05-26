@@ -835,8 +835,9 @@ hr.contact {
 #edit_wrap {
 	background-image: url('/assets/Container BG.png');	
 	color: #333;
-	border: 2px solid #EFEFEF;
-	padding: 90px 60px 40px 60px;
+	padding: 40px 60px 40px 60px;
+	border: 1px solid #e5e5e5;
+	border-radius: 20px;
 }
 .profile_av {
 	width: 100%;
@@ -1141,7 +1142,7 @@ hr.contact {
 }
 .profile_nav .e2 li a {
 	color: #444;
-	border-bottom: 4px solid #146f3f;
+	border-bottom: 4px solid #1b864d;
 }
 .profile_nav .s1 li a:hover {
 	border-bottom: 4px solid #942fc6;
@@ -1150,7 +1151,7 @@ hr.contact {
 	border-bottom: 4px solid #e76f2a;
 }
 .profile_nav .e1 li a:hover {
-	border-bottom: 4px solid #007236;
+	border-bottom: 4px solid #1b864d;
 }
 .profile_nav .p1 li a:hover {
 	border-bottom: 4px solid #ca3730;

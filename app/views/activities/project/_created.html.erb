@@ -34,7 +34,13 @@
 		<%= activity.targetable.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %>
 	</div>
 
-	<div class="act_tm">
+	<div class='act_loc'>
+		<%= link_to(:controller => "projects", :action => "search", :search => activity.targetable.city) do %>
+            <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.city.titleize %>
+        <% end %>
+	</div>
+
+	<div class="act_tm1">
 		<%= activity.targetable.created_at.strftime("%b %d %Y") %>
 	</div>
 

@@ -1,0 +1,32 @@
+<fieldset>
+  <legend class="descriptors top_leg">Update Your Name</legend>
+    <div class="edit_instructions">
+    <ul>
+      <li>
+        &raquo; 1 First Name Max
+      </li>
+      <li>
+        &raquo; 2 Last Names Max
+      </li>
+    </ul>
+  </div>
+  <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '15'} %>
+  <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'edit_last'} %>
+</fieldset>
+
+<fieldset>
+  <legend class="leg">Change Your Email</legend>
+  <%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
+</fieldset>
+
+<fieldset>
+  <legend class="leg">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
+  <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
+  <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
+</fieldset>
+
+
+<div class="form-actions">
+  <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+  <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'btn btn-danger pull-right' %>
+</div>

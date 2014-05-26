@@ -22,9 +22,21 @@
         <% end %>
         <% if @event.location? %>  
           <li class='sub w'>
-            <span class='lct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location, :controller => "projects", :action => "search", :search => @event.location  %></span>
+            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location.titleize, :controller => "events", :action => "search", :search => @event.location  %></span>
           </li>
         <% end %>
+          <li class='sub'>
+            <span class='acct dt'>
+              <%= @event.start_date.strftime("%b %d") %> <% unless @event.end_date == @event.start_date %> - <%= @event.end_date.strftime("%b %d") %><% end %>
+            </span>
+            <span class='acct dt t1'>
+              <% if @event.start_time.strftime("%I:%M %p") == '12:00 AM' && @event.end_time.strftime("%I:%M %p") == '12:00 AM' %>
+                All Day
+              <% else %>
+                <%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %>
+              <% end %>
+            </span>
+          </li>
       </ul>
     </div>
   </div>
@@ -83,10 +95,16 @@
 
   <div id="e_adr">
     <div class="e_adr1">
-      <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
+      <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}+#{@event.zipcode}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
           <span class=""><%= @event.address %></span>
-          <p><span class=""><%= @event.city %> <%= @event.zipcode %></span></p>
-          <p><span class="">Country</span></p>
+          <p>
+            <span class="">
+              <%= @event.city %><% if @event.state? %>, <%= @event.state %><% end %> <%= @event.zipcode %>
+            </span>
+          </p>
+          <% if @event.country? %>
+            <p><span class=""><%= @event.country %></span></p>
+          <% end %>
       <% end %>
     </div>
   </div>

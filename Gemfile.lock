@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.2.9)
     RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -93,7 +92,6 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.25)
     multi_json (1.8.0)
-    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     options (2.3.2)
     orm_adapter (0.4.0)

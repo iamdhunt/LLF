@@ -115,31 +115,6 @@ vertical-align: baseline;
         	hyphens: auto;
     -ms-word-break: break-all;
 }
-#pb #p_f_ct {
-	 /* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(73, 175, 205);
-    /* RGBa with 0.6 opacity */
-    background-color: rgba(73, 175, 205, 0.8);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
-    -background: transparent;
-	padding: 5px;
-	border-radius: 6px;
-}
-#pb #p_f_ct:hover {
-	 /* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(73, 175, 205);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
-    -background: transparent;
-	padding: 5px;
-	border-radius: 6px;
-	cursor: default;
-}
 #pb .acct a {
 	color: #fff;
 }
@@ -339,16 +314,15 @@ vertical-align: baseline;
 	text-decoration: none;
 }
 .pl_bl {
-	padding: 0 8px 8px 8px;
+	padding: 0 8px 6px 8px;
 	font-size: .85em;
 }
 .pl_tm {
 	text-align: center;
-	padding: 8px 8px 8px 8px;
+	padding: 0 8px 8px 8px;
 	font-weight: bold;
 	font-size: 1.05em;
 	color: #444;
-	border-top: 1px solid #dce1e6;
 }
 #p_list_wrap .dropdown-menu {
 	left: -130px;
@@ -462,8 +436,8 @@ vertical-align: baseline;
 	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(218, 79, 73);
-	padding: 2px 6px;
-	border-radius: 7px;
+	padding: 1px 3px;
+	border-radius: 5px;
 }
 .pr_wrap .meta {
 	font-size: 1em;

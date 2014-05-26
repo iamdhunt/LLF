@@ -51,7 +51,7 @@
       </fieldset>
     </div>
 
-    <div id="info" class="tab-pane">
+    <div id="basics" class="tab-pane">
       <fieldset>
         <legend class="descriptors">Choose Your Tags</legend>
         <div class="edit_instructions">
@@ -84,7 +84,24 @@
       </fieldset>
     </div>
 
-    <div id="location" class="tab-pane">
+    <div id="when" class="tab-pane">
+      <fieldset>
+        <legend class="descriptors">When should we show up?</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; 12am to 12am represents an all day event
+            </li>
+          </ul>
+        </div>
+        <%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
+        <%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
+        <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
+        <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
+      </fieldset>
+    </div>
+
+    <div id="where" class="tab-pane">
       <fieldset>
         <legend class="descriptors">Location, Location, Location</legend>
         <div class="edit_instructions">
@@ -98,7 +115,9 @@
         <div class="e_loc_ct"><span class="e_ct_loc"></span> <span class="e_ct_text">characters remaining</span></div>
         <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '5', maxlength: '50' } %>
         <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '6', maxlength: '50' } %>
-        <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '7', maxlength: '9' } %>
+        <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '7', maxlength: '50' } %>
+        <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '8', maxlength: '9' } %>
+        <%= f.input :country, label: 'Country', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '9', maxlength: '50' } %>
       </fieldset>
     </div>
 
@@ -112,9 +131,9 @@
             </li>
           </ul>
         </div>
-        <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '8', maxlength: '140' } %>
+        <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '10', maxlength: '140' } %>
           <div class="p_blb_ct"><span class="p_ct_blb"></span> <span class="p_ct_text">characters remaining</span></div>
-        <%= f.input :details, label: 'Details', error: false, input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '9', id: 'p_about' } %>
+        <%= f.input :details, label: 'Details', error: false, input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '11', id: 'p_about' } %>
       </fieldset>
     </div>
   </div>
