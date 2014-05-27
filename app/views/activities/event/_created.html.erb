@@ -31,11 +31,11 @@
 	</div>
 
 	<div class="act_ts">
-		<%= activity.targetable.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %>
+		<%= activity.targetable.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %>
 	</div>
 
 	<div class='act_loc'>
-		<%= link_to(:controller => "events", :action => "search", :search => activity.targetable.location) do %>
+		<%= link_to(:controller => "events", :action => "index", :search => activity.targetable.location) do %>
             <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.location.titleize %>
         <% end %>
 	</div>

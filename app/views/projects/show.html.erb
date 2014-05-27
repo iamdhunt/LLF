@@ -33,6 +33,10 @@
 
 <div id="main_wrap" class="pr_wrap">
 
+  <div id="proj_title">
+    <span class="proj_title"><%= @project.title.titleize %></span>
+  </div>
+
   <div id="proj_info">
     <span class="l">
       <%= avatar_profile_link @project.member, :class => "pr_av", title: @project.member.full_name, alt: @project.member.full_name  %>
@@ -52,9 +56,8 @@
         <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
       <% end %>
     </span>
-    <span class="proj_title"><%= @project.title.titleize %></span>
-    <span class="r">
 
+    <span class="r">
       <% if member_signed_in? %>
         <span id="p_fav_but">
           <%= render :partial => "fav_button", :locals => {:project => @project} %>
@@ -75,10 +78,7 @@
           </span>
         <% end %>
       <% end %>
-
     </span>
-
-    <div style="clear:both;"></div>
   </div>
 
   <% if @project.video? %>

@@ -76,7 +76,9 @@ class Event < ActiveRecord::Base
                           message: 'must not be more than 50 characters.',
                         }
     validates :start_date, presence: true
-    validates :end_date, presence: true                              
+    validates :end_date, presence: true
+    validates :start_time, presence: true
+    validates :end_time, presence: true                           
 
 	  acts_as_votable
     acts_as_followable
@@ -107,6 +109,17 @@ class Event < ActiveRecord::Base
 	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
 	end
+
+  searchable :auto_index => true, :auto_remove => true do
+    text :name, :boost => 5
+    text :tag_list, :boost => 2
+    text :city, :location
+    string :event_month
+  end
+
+  def event_month
+    start_date.strftime("%B")
+  end
 
 	private
 

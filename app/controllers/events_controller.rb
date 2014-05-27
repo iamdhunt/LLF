@@ -13,22 +13,16 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @tags = Event.tag_counts.order('count DESC').limit(10)
-    @events = Event.order('created_at desc').page(params[:page]).per_page(54) 
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @events }
-    end
-  end
-
-  def search
-    @tags = Event.tag_counts.order('count DESC').limit(10)
+    @tags = Event.tag_counts.order('count DESC').limit(12)
+    @events = Event.order('start_date asc').page(params[:page]).per_page(54)
     @search = Event.search do
       fulltext params[:search]
+      facet(:event_month)
+      with(:event_month, params[:month]) if params[:month].present?
     end
     @query = params[:search]
-    @events = @search.results
+    @facet = params[:month]
+    @results = @search.results
 
     respond_to do |format|
       format.html # index.html.erb

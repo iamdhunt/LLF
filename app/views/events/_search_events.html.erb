@@ -1,0 +1,99 @@
+<% @results.each do |event| %>
+	
+	<% if event.category == 'Arts' %>
+		<div id="p_list_wrap" class="art_fil">
+	<% elsif event.category == 'Entrepreneurial' %>
+		<div id="p_list_wrap" class="biz_fil">
+	<% elsif event.category == 'Sports' %>
+		<div id="p_list_wrap" class="sports_fil">
+	<% elsif event.category == 'Music' %>
+		<div id="p_list_wrap" class="music_fil">
+	<% elsif event.category == 'Other' %>
+		<div id="p_list_wrap" class="other_fil">
+	<% end %>
+		
+		<div id="p_list_top">
+			<span class="l">
+		      <%= avatar_profile_link event.member, :class => "pr_av", title: event.member.full_name, alt: event.member.full_name %>
+		      <% if event.category == 'Arts' %>
+		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
+		      <% end %>
+		      <% if event.category == 'Entrepreneurial' %>
+		        <%= image_tag("/assets/Biz Category.png", class: 'ims', title: 'Entrepreneurial') %>
+		      <% end %>
+		      <% if event.category == 'Sports' %>
+		        <%= image_tag("/assets/Sports Category.png", class: 'ims', title: 'Sports') %>
+		      <% end %>
+		      <% if event.category == 'Music' %>
+		        <%= image_tag("/assets/Music Category.png", class: 'ims', title: 'Music') %>
+		      <% end %>
+		      <% if event.category == 'Other' %>
+		        <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
+		      <% end %>
+		    </span>
+
+		    <span class="r">
+		    	<% if member_signed_in? %>
+			    	<span id="p_fav_str">
+					    <%= render :partial => "fav_button_stream", :locals => {:event => event} %>
+					</span>
+					<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
+			        <% if current_member == event.member %>
+				        <span class="btn-group">
+				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+				            <ul class="dropdown-menu">            
+				              <li>
+				                <%= link_to "Edit", edit_event_path(event), class: '' %>
+				              </li>
+				              <li class="del">
+				                <%= link_to "Delete", event, method: :delete, data: { confirm: 'Are you sure?' } %>
+				              </li>
+				            </ul>
+				        </span>
+			        <% end %>
+		      	<% end %>
+		    </span>
+		    <div style="clear:both;"></div>
+		</div>
+
+		<div class="p-av">
+			<%= avatar_event_link event, class: '' %>
+		</div>
+
+		<div id="pl_middle">
+			<div id="pl_info">
+				<div class="el_t">
+					<%= link_to event.name, event_path(event) %>
+				</div>
+
+				<div class="pl_ts">
+					<%= event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %>
+				</div>
+			</div>
+
+			<div class="pl_bl">
+				<%= event.blurb.titleize %>
+			</div>
+		</div>
+
+		<div class="e_loc">
+			<%= link_to(:controller => "events", :action => "index", :search => event.location) do %>
+                <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
+            <% end %>
+		</div>
+
+		<div class="el_tm">
+			<%= event.start_date.strftime("%b %d %Y") %>
+		</div>
+
+		<div class="el_tm2">
+		 	<% if event.start_time.strftime("%I:%M %p") == '12:00 AM' && event.end_time.strftime("%I:%M %p") == '12:00 AM' %>
+            	All Day
+          	<% else %>
+            	<%= event.start_time.strftime("%I:%M %p") %> - <%= event.end_time.strftime("%I:%M %p") %>
+          	<% end %>
+		</div>
+
+	</div>
+
+<% end %>

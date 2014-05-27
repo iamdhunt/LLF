@@ -4,7 +4,7 @@
 #prs {
 	padding: 20px 0 20px 20px;
 }
-#prof_projs #prs {
+#prof_projs {
 	padding: 15px 0 20px 10px;
 }
 #edit_wrap .pr_upload {
@@ -54,17 +54,18 @@
 	text-align: center;
 	padding: 5px 0 20px 0;
 }
-#proj_info .proj_title {
+#proj_title {
+	text-align: center;
 	color: #444444;
 	font-size: 1.3em;
 	line-height: 28px;
 	font-weight: bold;
 }
 #proj_info .l {
-	float: left;
+	padding: 0 10px;
 }
 #proj_info .r {
-	float: right;
+	padding: 0 10px;
 }
 #proj_info .ims {
 	width: 30px;
@@ -235,7 +236,7 @@ vertical-align: baseline;
 	border-radius: 8px;
 }
 #prof_projs #p_list_wrap {
-	margin: 0 10px 30px 0;
+	margin: 0 0 30px 0;
 }
 #p_list_wrap .p-av {
 	height: 230px;
@@ -374,6 +375,25 @@ vertical-align: baseline;
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
 }
+.swrap .sbody-1 a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 200%;
+}
+.swrap .sbody-1 a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(247, 180, 72, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
 .nav_p_ct {
 	font-size: .9em;
 	color: #fff;
@@ -544,9 +564,6 @@ vertical-align: baseline;
 .pr_wrap #u_bottom {
 	font-size: 1.05em;
 	padding: 10px 0;
-}
-#prs .none_message {
-	padding: 0;
 }
 #p_form_wrap .p_tit_ct {
 	margin: 0 0 30px 178px;

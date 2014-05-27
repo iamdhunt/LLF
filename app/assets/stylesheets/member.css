@@ -62,6 +62,11 @@
 	height: 25px;
 	vertical-align: top;
 }
+.mem_actions1 {
+	width: 28px;
+	height: 28px;
+	vertical-align: top;
+}
 #ue_nav {
 	margin-top: 30px;
 }
@@ -92,4 +97,7 @@
 #ue_nav .nav-tabs > .active > a {
 	background-color: #49afcd;
 	color: #fff;
+}
+.mt-btn .btn {
+	padding: 2.5px 12px;
 }

@@ -186,21 +186,22 @@ margin: 0 0 5px 15px;
 	text-align: center;
 	padding: 5px 0 5px 0;
 }
-#ev_info .proj_title {
+#ev_title {
+	text-align: center;
 	color: #444444;
 	font-size: 1.3em;
 	line-height: 28px;
 	font-weight: bold;
 }
-#ev_info .l {
-	float: left;
-}
-#ev_info .r {
-	float: right;
-}
 #ev_info .ims {
 	width: 30px;
 	height: 30px;
+}
+#ev_info .l {
+	padding: 0 10px;
+}
+#ev_info .r {
+	padding: 0 10px;
 }
 #ev_info .btn-group {
 position: relative;

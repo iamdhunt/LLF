@@ -12,7 +12,6 @@ LLF::Application.routes.draw do
   end
 
   resources :events do
-    get 'search', on: :collection
     resources :comments
     resources :uploads
     resources :updates

@@ -993,8 +993,7 @@ hr.contact {
 	right: 0;
 	padding: 0 0 0 1.2em;
 }
-.profile_buttons .btn {
-	border: 1px solid #d7d7d7; 
+.profile_buttons .btn { 
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }

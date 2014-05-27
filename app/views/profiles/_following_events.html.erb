@@ -67,7 +67,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= follow.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "search", :search => t }.join(' ').html_safe %>
+					<%= follow.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %>
 				</div>
 			</div>
 
@@ -78,7 +78,7 @@
 
 		<% if follow.location? %>
 			<div class="e_loc">
-				<%= link_to(:controller => "events", :action => "search", :search => follow.location) do %>
+				<%= link_to(:controller => "events", :action => "index", :search => follow.location) do %>
 	                <i class="icon-map-marker icon-blue"></i> <%= follow.location.titleize %>
 	            <% end %>
 			</div>

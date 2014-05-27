@@ -163,7 +163,7 @@ class ProfilesController < ApplicationController
   def events
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.events.paginate(page: params[:page], per_page: (24))
+      @events = @member.events.order("start_date asc").paginate(page: params[:page], per_page: (24))
       render action: :events
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -173,7 +173,7 @@ class ProfilesController < ApplicationController
   def events_past
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.events.paginate(page: params[:page], per_page: (24))
+      @events = @member.events.order("start_date asc").paginate(page: params[:page], per_page: (24))
       render action: :events_past
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -183,7 +183,7 @@ class ProfilesController < ApplicationController
   def events_following
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @following = @member.following_events(:order => 'created_at DESC').paginate(page: params[:page], per_page: (24))
+      @following = @member.following_events(:order => 'start_date asc').paginate(page: params[:page], per_page: (24))
       render action: :events_following
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -193,7 +193,7 @@ class ProfilesController < ApplicationController
   def events_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.get_up_voted Event.order("created_at desc").page(params[:page]).per_page(24)
+      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(24)
       render action: :events_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]

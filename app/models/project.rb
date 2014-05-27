@@ -65,8 +65,10 @@ class Project < ActiveRecord::Base
 	    simple_format
 	  end
 
-    searchable do
-      text :tag_list
+    searchable :auto_index => true, :auto_remove => true do
+      text :title, :boost => 5
+      text :tag_list, :boost => 2
+      text :city
     end
 
   	private

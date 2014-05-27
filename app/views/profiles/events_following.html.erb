@@ -39,9 +39,7 @@
 
     <% if @following.count > 0 %>
         <div id="prof_projs">
-            <div id="prs">
-               <%= render :partial => "following_events" %>
-            </div>
+            <%= render :partial => "following_events" %>
         </div>          
         <% else %>
             <div class="none_message">

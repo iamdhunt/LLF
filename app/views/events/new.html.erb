@@ -4,6 +4,26 @@
 
 	<div id="activity_wrap">
 
+		<div id="ev_nav">
+		    <ul class="nav nav-tabs" id="">
+		      <li class="active">
+		        <%= link_to "Basics", "#basics", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Images", "#images", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "When", "#when", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Where", "#where", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Event Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		    </ul>
+		</div>
+
 		<div id="p_form_wrap">
 			<div id="edit_wrap">
 				<%= render 'form' %>

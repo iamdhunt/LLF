@@ -209,7 +209,7 @@ class Member < ActiveRecord::Base
     activity
   end
 
-  searchable do
+  searchable :auto_index => true, :auto_remove => true do
     text :user_name, :first_name, :last_name, :pursuit_list, :boost => 5
     text :city, :state, :country
   end

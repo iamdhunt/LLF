@@ -17,41 +17,7 @@
   </div>
 
   <div class="tab-content">
-    <div id="images" class="tab-pane active">
-      <fieldset>
-        <legend class="descriptors">Upload Some Images</legend>
-        <div class="edit_instructions">
-          <ul>
-            <li>
-              &raquo; Recommended avatar dimensions of 200x200
-            </li>
-            <li>
-              &raquo; Recommended banner dimensions of 1400x200
-            </li>
-            <li>
-              &raquo; Maximum file size of 5MB
-            </li>
-            <li>
-              &raquo; Accepted file formats: (jpeg, png, gif)
-            </li>
-          </ul>
-        </div>
-        <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
-        <div class="edit_pr_av">
-          <% if f.object.avatar? %>
-            <%= image_tag f.object.avatar.url(:av) %>
-          <% end %>
-        </div>
-        <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
-        <div class="edit_pr_av">
-          <% if f.object.banner? %>
-            <%= image_tag f.object.banner.url(:preview) %>
-          <% end %>
-        </div>
-      </fieldset>
-    </div>
-
-    <div id="basics" class="tab-pane">
+    <div id="basics" class="tab-pane active">
       <fieldset>
         <legend class="descriptors">Choose Your Tags</legend>
         <div class="edit_instructions">
@@ -86,6 +52,40 @@
       <fieldset>
         <legend class="leg">Where are you located?</legend>
         <%= f.input :city, label: 'Project City', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '4', maxlength: '50' } %>
+      </fieldset>
+    </div>
+
+    <div id="images" class="tab-pane">
+      <fieldset>
+        <legend class="descriptors">Upload Some Images</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Recommended avatar dimensions of 200x200
+            </li>
+            <li>
+              &raquo; Recommended banner dimensions of 1400x200
+            </li>
+            <li>
+              &raquo; Maximum file size of 5MB
+            </li>
+            <li>
+              &raquo; Accepted file formats: (jpeg, png, gif)
+            </li>
+          </ul>
+        </div>
+        <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+        <div class="edit_pr_av">
+          <% if f.object.avatar? %>
+            <%= image_tag f.object.avatar.url(:av) %>
+          <% end %>
+        </div>
+        <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+        <div class="edit_pr_av">
+          <% if f.object.banner? %>
+            <%= image_tag f.object.banner.url(:preview) %>
+          <% end %>
+        </div>
       </fieldset>
     </div>
 

@@ -39,9 +39,7 @@
 
     <% if @events.count > 0 %>
         <div id="prof_projs">
-            <div id="prs">
-               <%= render :partial => "events_past" %>
-            </div>
+            <%= render :partial => "events_past" %>
         </div>          
         <% else %>
             <div class="none_message">

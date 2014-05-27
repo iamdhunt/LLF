@@ -39,10 +39,8 @@
 
     <% if @projects.count > 0 %>
         <div id="prof_projs">
-            <div id="prs">
-               <%= render :partial => "projects_fav" %>
-            </div>
-        </div>          
+            <%= render :partial => "projects_fav" %>
+        </div>         
         <% else %>
             <div class="none_message">
                 No Favorites Yet

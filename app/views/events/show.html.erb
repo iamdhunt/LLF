@@ -12,7 +12,7 @@
         <% end %>
         <% if @event.tag_list %>
           <li class='sub'>
-            <span class='acct'><%= @event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "search", :search => t }.join(' ').html_safe %></span>
+            <span class='acct'><%= @event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @event.website? %>  
@@ -22,7 +22,7 @@
         <% end %>
         <% if @event.location? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location.titleize, :controller => "events", :action => "search", :search => @event.location  %></span>
+            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @event.location.titleize, :controller => "events", :action => "index", :search => @event.location  %></span>
           </li>
         <% end %>
           <li class='sub'>
@@ -45,6 +45,10 @@
 
 <div id="main_wrap" class="ev_wrap">
 
+  <div id="ev_title">
+    <span class="proj_title"><%= @event.name.titleize %></span>
+  </div>
+
   <div id="ev_info">
     <span class="l">
       <%= avatar_profile_link @event.member, :class => "pr_av", title: @event.member.full_name, alt: @event.member.full_name  %>
@@ -64,9 +68,8 @@
         <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
       <% end %>
     </span>
-    <span class="proj_title"><%= @event.name.titleize %></span>
-    <span class="r">
 
+    <span class="r">
       <% if member_signed_in? %>
         <span id="p_fav_but">
           <%= render :partial => "fav_button", :locals => {:event => @event} %>
@@ -87,10 +90,7 @@
           </span>
         <% end %>
       <% end %>
-
     </span>
-
-    <div style="clear:both;"></div>
   </div>
 
   <div id="e_adr">
