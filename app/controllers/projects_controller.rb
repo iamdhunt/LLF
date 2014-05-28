@@ -15,20 +15,11 @@ class ProjectsController < ApplicationController
   def index
     @tags = Project.tag_counts.order('count DESC').limit(12)
     @projects = Project.order('created_at desc').page(params[:page]).per_page(54) 
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @projects }
-    end
-  end
-
-  def search
-    @tags = Project.tag_counts.order('count DESC').limit(10)
     @search = Project.search do
       fulltext params[:search]
     end
     @query = params[:search]
-    @projects = @search.results
+    @results = @search.results
 
     respond_to do |format|
       format.html # index.html.erb

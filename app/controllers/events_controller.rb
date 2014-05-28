@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @tags = Event.tag_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').page(params[:page]).per_page(54)
+    @events = Event.order('start_date asc').where("start_date >= ?", Date.today).page(params[:page]).per_page(54)
     @search = Event.search do
       fulltext params[:search]
       facet(:event_month)

@@ -1,5 +1,5 @@
-<% @projects.each do |project| %>
-
+<% @results.each do |project| %>
+	
 	<% if project.category == 'Arts' %>
 		<div id="p_list_wrap" class="art_fil">
 	<% elsif project.category == 'Entrepreneurial' %>
@@ -11,9 +11,10 @@
 	<% elsif project.category == 'Other' %>
 		<div id="p_list_wrap" class="other_fil">
 	<% end %>
-
+		
 		<div id="p_list_top">
 			<span class="l">
+		      <%= avatar_profile_link project.member, :class => "pr_av", title: project.member.full_name, alt: project.member.full_name %>
 		      <% if project.category == 'Arts' %>
 		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
 		      <% end %>
@@ -33,9 +34,11 @@
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
-		    		<%= render :partial => "fav_button_projects", :locals => {:project => project} %>
-		    		<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
-			      	<% if current_member == project.member %>
+			    	<span id="p_fav_str">
+					    <%= render :partial => "fav_button_stream", :locals => {:project => project} %>
+					</span>
+					<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
+			        <% if current_member == project.member %>
 				        <span class="btn-group">
 				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
 				            <ul class="dropdown-menu">            
@@ -47,8 +50,8 @@
 				              </li>
 				            </ul>
 				        </span>
-			      	<% end %>
-			    <% end %>
+			        <% end %>
+		      	<% end %>
 		    </span>
 		    <div style="clear:both;"></div>
 		</div>

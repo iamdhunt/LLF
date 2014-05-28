@@ -1,7 +1,6 @@
 LLF::Application.routes.draw do
 
   resources :projects do
-    get 'search', on: :collection
     resources :comments
     resources :uploads
     resources :updates

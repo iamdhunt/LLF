@@ -20,7 +20,7 @@
                     <ul>
                         <% @tags.each do |tag| %>
                             <li>
-                                <%= link_to(:controller => "projects", :action => "search", :search => tag.name) do %>
+                                <%= link_to(:controller => "projects", :action => "index", :search => tag.name) do %>
                                     <i class="icon-tag icon-white"></i> <%= tag.name.titleize %>
                                 <% end %>
                             </li>
@@ -70,7 +70,11 @@
             </div>
 
             <div id="prs">
-                <%= render partial: 'projects' %>
+                <% if @query == nil %>
+                    <%= render partial: 'projects' %>
+                <% else %>
+                    <%= render partial: 'search_projects' %>
+                <% end %>
             </div>
         </div>
     <div style="clear:both;"></div>
