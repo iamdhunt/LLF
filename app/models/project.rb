@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
                           message: 'must not be more than 280 characters.'
                         }
   	validates :category, presence: true
-  	validates :tag_list, presence: true,
+  	validates :tag_list, allow_blank: true,
   						length: {
                               maximum: 3,
                               message: 'must not list more than 3 tags.'
