@@ -164,4 +164,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def locations_count
+    locations_count = Hash.new{0}  
+    Event.all.each { |event| locations_count[event.location] += 1 }  
+    locations_count.sort_by { |key, value| value }  
+  end 
+
 end
