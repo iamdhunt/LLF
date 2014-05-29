@@ -17,6 +17,10 @@ class EventsController < ApplicationController
     @events = Event.order('start_date asc').where("start_date >= ?", Date.today).page(params[:page]).per_page(54)
     @search = Event.search do
       fulltext params[:search]
+      any_of do
+        with(:start_date).greater_than_or_equal_to(Date.today)
+        with(:end_date).greater_than_or_equal_to(Date.today)
+      end 
       facet(:event_month)
       with(:event_month, params[:month]) if params[:month].present?
     end

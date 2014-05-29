@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @markers = Project.marker_counts.order('count DESC').limit(12)
-    @projects = Project.order('created_at desc').page(params[:page]).per_page(54) 
+    @projects = Project.order('created_at desc').where(:created_at => 3.months.ago..Date.today).page(params[:page]).per_page(54) 
     @search = Project.search do
       fulltext params[:search]
     end

@@ -115,6 +115,8 @@ class Event < ActiveRecord::Base
     text :marker_list, :boost => 2
     text :city, :location
     string :event_month
+    date :start_date
+    date :end_date
   end
 
   def event_month

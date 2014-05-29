@@ -16,10 +16,10 @@
                 <div class="shead">
                     <i class="icon-calendar"></i> Dates
                 </div>
-                <div class="sbody">
+                <div class="sbody">             
                     <% for row in @search.facet(:event_month).rows %>
                         <span class="sbody-1"><%= link_to row.value, :month => row.value %></span>
-                    <% end %>
+                    <% end %>           
                 </div>
                 <div class="shead">
                     <i class="icon-tags"></i> Popular Tags
