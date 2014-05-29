@@ -10,9 +10,9 @@
             <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
           </li>
         <% end %>
-        <% if @project.tag_list %>
+        <% if @project.marker_list %>
           <li class='sub'>
-            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %></span>
+            <span class='acct'><%= @project.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :search => m }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @project.website? %>  

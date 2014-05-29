@@ -10,9 +10,9 @@
             <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
           </li>
         <% end %>
-        <% if @event.tag_list %>
+        <% if @event.marker_list %>
           <li class='sub'>
-            <span class='acct'><%= @event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %></span>
+            <span class='acct'><%= @event.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :search => m }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @event.website? %>  

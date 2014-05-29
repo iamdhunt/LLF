@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :member
 
-	attr_accessible :blurb, :details, :category, :tags, :video, :website, :name, :avatar, :banner, :tag_list, :location, :address,
+	attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
 
 	  validates :details, presence: true
@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
                           message: 'must not be more than 140 characters.'
                         }
   	validates :category, presence: true
-  	validates :tag_list, presence: true,
+  	validates :marker_list, presence: true,
   						length: {
                               maximum: 3,
                               message: 'must not list more than 3 tags.'
@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
                               with: /^[a-zA-Z ,-]+$/,
                               message: 'must be formatted correctly.'
                             }
-    validate :each_tag
+    validate :each_marker
   	validates :name, presence: true,
   						length: {
                           maximum: 60, 
@@ -83,12 +83,12 @@ class Event < ActiveRecord::Base
 	  acts_as_votable
     acts_as_followable
     acts_as_ordered_taggable
-  	acts_as_ordered_taggable_on :tags
+  	acts_as_ordered_taggable_on :markers
     has_many :comments, as: :commentable
     has_many :uploads, as: :uploadable
     has_many :updates, as: :updateable
 
-    before_validation :clean_up_tags
+    before_validation :clean_up_markers
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Events Default.png'
@@ -112,7 +112,7 @@ class Event < ActiveRecord::Base
 
   searchable :auto_index => true, :auto_remove => true do
     text :name, :boost => 5
-    text :tag_list, :boost => 2
+    text :marker_list, :boost => 2
     text :city, :location
     string :event_month
   end
@@ -123,16 +123,16 @@ class Event < ActiveRecord::Base
 
 	private
 
-	  def each_tag
-	    tag_list.each do |tag|
+	  def each_marker
+	    marker_list.each do |marker|
 	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-	      errors.add(:tag, "Too long (Maximum is 15 characters)") if tag.length > 15
+	      errors.add(:marker, "Too long (Maximum is 15 characters)") if marker.length > 15
 	    end
 	  end
 
-	  def clean_up_tags
+	  def clean_up_markers
 	    # Make lowercase 
-	    self.tag_list.map!(&:downcase) 
+	    self.marker_list.map!(&:downcase) 
 	  end
 
 end

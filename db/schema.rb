@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140525212547) do
+ActiveRecord::Schema.define(:version => 20140529070334) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20140525212547) do
   create_table "events", :force => true do |t|
     t.integer  "member_id"
     t.text     "category"
-    t.text     "tags"
     t.text     "website"
     t.text     "video"
     t.text     "details"
@@ -94,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20140525212547) do
     t.datetime "end_date"
     t.datetime "start_time"
     t.datetime "end_time"
+    t.text     "markers"
   end
 
   add_index "events", ["member_id"], :name => "index_events_on_member_id"
@@ -190,6 +190,7 @@ ActiveRecord::Schema.define(:version => 20140525212547) do
     t.text     "title"
     t.text     "video_html"
     t.text     "city"
+    t.text     "markers"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"

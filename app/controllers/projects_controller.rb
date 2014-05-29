@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @tags = Project.tag_counts.order('count DESC').limit(12)
+    @markers = Project.marker_counts.order('count DESC').limit(12)
     @projects = Project.order('created_at desc').page(params[:page]).per_page(54) 
     @search = Project.search do
       fulltext params[:search]

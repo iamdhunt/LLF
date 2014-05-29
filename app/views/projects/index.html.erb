@@ -18,10 +18,10 @@
                 </div>
                 <div class="sbody">
                     <ul>
-                        <% @tags.each do |tag| %>
+                        <% @markers.each do |marker| %>
                             <li>
-                                <%= link_to(:controller => "projects", :action => "index", :search => tag.name) do %>
-                                    <i class="icon-tag icon-white"></i> <%= tag.name.titleize %>
+                                <%= link_to(:controller => "projects", :action => "index", :search => marker.name) do %>
+                                    <i class="icon-tag icon-white"></i> <%= marker.name.titleize %>
                                 <% end %>
                             </li>
                         <% end %>

@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="act_ts">
-		<%= activity.targetable.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %>
+		<%= activity.targetable.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :search => m }.join(' ').html_safe %>
 	</div>
 
 	<div class='act_loc'>

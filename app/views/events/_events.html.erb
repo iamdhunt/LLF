@@ -67,7 +67,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= event.tag_list.map { |t| link_to t.titleize, :controller => "events", :action => "index", :search => t }.join(' ').html_safe %>
+					<%= event.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :search => m }.join(' ').html_safe %>
 				</div>
 			</div>
 
