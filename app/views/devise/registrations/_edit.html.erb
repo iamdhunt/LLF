@@ -1,0 +1,60 @@
+<fieldset>
+  <legend class="leg">Change Your Username</legend>
+  <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16'} %>
+</fieldset>
+
+<fieldset>
+  <legend class="descriptors">Update Your Pursuits</legend>
+  <div class="edit_instructions">
+    <ul>
+      <li>
+        &raquo; Enter your top 5 Pursuits
+      </li>
+      <li>
+        &raquo; 25 characters per Pursuit
+      </li>
+      <li>
+        &raquo; Separate Pursuits by commas
+      </li>
+      <li>
+        &raquo; Only letters, spaces ok
+      </li>
+    </ul>
+  </div>
+  <%= f.input :pursuit_list, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits'} %>
+</fieldset>
+
+<fieldset>
+  <legend class="descriptors">Social Networks</legend>
+  <div class="edit_instructions">
+    <ul>
+      <li>
+        &raquo; Paste or type the full url's to each network (i.e. https://www.facebook.com/livinglifefearless)
+      </li>
+    </ul>
+  </div>
+  <%= f.input :facebook, label: 'Facebook', error: false, input_html: { class: 'forms account settings', tabindex: '3' } %>
+  <%= f.input :twitter, label: 'Twitter', error: false, input_html: { class: 'forms account settings', tabindex: '4' } %>
+  <%= f.input :linkedin, label: 'Linkedin', error: false, input_html: { class: 'forms account settings', tabindex: '5' } %>
+  <%= f.input :soundcloud, label: 'Soundcloud', error: false, input_html: { class: 'forms account settings', tabindex: '6' } %>
+  <%= f.input :youtube, label: 'YouTube', error: false, input_html: { class: 'forms account settings', tabindex: '7' } %>
+  <%= f.input :vimeo, label: 'Vimeo', error: false, input_html: { class: 'forms account settings', tabindex: '8' } %>
+  <%= f.input :instagram, label: 'Instagram', error: false, input_html: { class: 'forms account settings', tabindex: '9' } %>
+  <%= f.input :flickr, label: 'Flickr', error: false, input_html: { class: 'forms account settings', tabindex: '10' } %>
+  <%= f.input :google, label: 'Google +', error: false, input_html: { class: 'forms account settings', tabindex: '11' } %>
+  <%= f.input :pinterest, label: 'Pinterest', error: false, input_html: { class: 'forms account settings', tabindex: '12' } %>
+  <%= f.input :blog, label: 'Blog', error: false, input_html: { class: 'forms account settings', tabindex: '13' } %>
+  <%= f.input :website, label: 'Website', error: false, input_html: { class: 'forms account settings', tabindex: '14' } %>
+</fieldset>
+
+<fieldset>
+  <legend class="leg">About Me</legend>
+  <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '3', maxlength: '140'} %>
+  <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '16', maxlength: '20'} %>
+  <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '17', maxlength: '12'} %>
+  <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '18', maxlength: '20'} %>
+</fieldset>
+
+<div class="form-actions">
+  <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+</div>

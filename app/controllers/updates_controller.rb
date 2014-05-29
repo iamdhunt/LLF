@@ -47,7 +47,7 @@ class UpdatesController < ApplicationController
 
   # alternative option:
   def load_updateable
-  	klass = [Project].detect { |c| params["#{c.name.underscore}_id"] }
+  	klass = [Project, Event].detect { |c| params["#{c.name.underscore}_id"] }
   	@updateable = klass.find(params["#{klass.name.underscore}_id"])
   end
 

@@ -8,24 +8,30 @@
         <div id="sleft">
             <div class="swrap">
                 <div class="shead">
-                    <i class="icon-tags"></i> Search Tags
+                    <i class="icon-search"></i> Search Projects
                 </div>
                 <div class="sbody">
                     <%= render :partial => "search" %>
                 </div>
                 <div class="shead">
-                    <i class="icon-fire"></i> Popular Tags
+                    <i class="icon-tags"></i> Popular Tags
                 </div>
                 <div class="sbody">
                     <ul>
                         <% @tags.each do |tag| %>
                             <li>
-                                <%= link_to(:controller => "projects", :action => "search", :search => tag.name) do %>
+                                <%= link_to(:controller => "projects", :action => "index", :search => tag.name) do %>
                                     <i class="icon-tag icon-white"></i> <%= tag.name.titleize %>
                                 <% end %>
                             </li>
                         <% end %>
                     </ul>
+                </div>
+                <div class="shead">
+                    <i class="icon-map-marker"></i> Popular Locations
+                </div>
+                <div class="sbody">
+
                 </div>
             </div>
         </div>
@@ -64,7 +70,11 @@
             </div>
 
             <div id="prs">
-                <%= render partial: 'projects' %>
+                <% if @query == nil %>
+                    <%= render partial: 'projects' %>
+                <% else %>
+                    <%= render partial: 'search_projects' %>
+                <% end %>
             </div>
         </div>
     <div style="clear:both;"></div>

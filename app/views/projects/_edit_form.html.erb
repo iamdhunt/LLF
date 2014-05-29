@@ -10,93 +10,101 @@
         <%= @project.category %>
       </div>
     <% end %>
-    <% if @project.tags? %>
-      <div class="e2 list">
-        <%= @project.tags %>
-      </div>
-    <% end %>
   </div>
 
   <div class="rq">
     * = required field
   </div>
 
-  <fieldset>
-    <legend class="descriptors">Upload Some Images</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Recommended avatar dimensions of 200x200
-        </li>
-        <li>
-          &raquo; Recommended banner dimensions of 1400x200
-        </li>
-        <li>
-          &raquo; Maximum file size of 5MB
-        </li>
-        <li>
-          &raquo; Accepted file formats: (jpeg, png, gif)
-        </li>
-      </ul>
-    </div>
-    <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
-    <div class="edit_pr_av">
-      <% if f.object.avatar? %>
-        <%= image_tag f.object.avatar.url(:av) %>
-      <% end %>
-    </div>
-    <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
-    <div class="edit_pr_av">
-      <% if f.object.banner? %>
-        <%= image_tag f.object.banner.url(:preview) %>
-      <% end %>
-    </div>
-  </fieldset>
+  <div class="tab-content">
+    <div id="basics" class="tab-pane active">
+      <fieldset>
+        <legend class="descriptors">Choose Your Tags</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Provide up to three of the project's most relevant tags
+            </li>
+            <li>
+              &raquo; Comma separated, 15 characters per
+            </li>
+          </ul>
+        </div>
+        <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '1'} %>
+      </fieldset>
 
-  <fieldset>
-    <legend class="descriptors">Choose Your Tags</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Provide up to three of the project's most relevant tags
-        </li>
-        <li>
-          &raquo; Comma separated, 15 characters per
-        </li>
-      </ul>
-    </div>
-    <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '1'} %>
-  </fieldset>
+      <fieldset>
+        <legend class="descriptors">Provide Some Links</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
+            </li>
+            <li>
+              &raquo; YouTube/Vimeo Share URL
+            </li>
+          </ul>
+        </div>
+        <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '2' } %>
+        <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '3' } %>
+      </fieldset>
 
-  <fieldset>
-    <legend class="descriptors">Provide Some Links</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
-        </li>
-        <li>
-          &raquo; YouTube/Vimeo Share URL
-        </li>
-      </ul>
+      <fieldset>
+        <legend class="leg">Where are you located?</legend>
+        <%= f.input :city, label: 'Project City', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '4', maxlength: '50' } %>
+      </fieldset>
     </div>
-    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings w_in', tabindex: '2' } %>
-    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings vid_in', tabindex: '3' } %>
-  </fieldset>
 
-  <fieldset>
-    <legend class="descriptors">Tell Us the Story</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Let the world know what's so awesome about your project (Required)
-        </li>
-      </ul>
+    <div id="images" class="tab-pane">
+      <fieldset>
+        <legend class="descriptors">Upload Some Images</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Recommended avatar dimensions of 200x200
+            </li>
+            <li>
+              &raquo; Recommended banner dimensions of 1400x200
+            </li>
+            <li>
+              &raquo; Maximum file size of 5MB
+            </li>
+            <li>
+              &raquo; Accepted file formats: (jpeg, png, gif)
+            </li>
+          </ul>
+        </div>
+        <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+        <div class="edit_pr_av">
+          <% if f.object.avatar? %>
+            <%= image_tag f.object.avatar.url(:av) %>
+          <% end %>
+        </div>
+        <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+        <div class="edit_pr_av">
+          <% if f.object.banner? %>
+            <%= image_tag f.object.banner.url(:preview) %>
+          <% end %>
+        </div>
+      </fieldset>
     </div>
-    <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '4', maxlength: '140' } %>
-      <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
-    <%= f.input :about, label: 'About', error: false, input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '5', id: 'p_about' } %>
-  </fieldset>
+
+    <div id="story" class="tab-pane">
+      <fieldset>
+        <legend class="descriptors">Tell Us the Story</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Let the world know what's so awesome about your project (Required)
+            </li>
+          </ul>
+        </div>
+        <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '5', maxlength: '140' } %>
+          <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
+        <%= f.input :about, label: 'About', error: false, input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '6', id: 'p_about' } %>
+      </fieldset>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit, class: 'btn btn-danger pull-left' %>

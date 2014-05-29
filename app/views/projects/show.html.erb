@@ -10,19 +10,19 @@
             <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
           </li>
         <% end %>
-        <li class='sub'>
-          <span class='acct' id='p_f_ct'>
-               Followers (<%= @project.followers_count %>)
-          </span>
-        </li>
         <% if @project.tag_list %>
           <li class='sub'>
-            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "search", :search => t }.join(' ').html_safe %></span>
+            <span class='acct'><%= @project.tag_list.map { |t| link_to t.titleize, :controller => "projects", :action => "index", :search => t }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @project.website? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to "Project Website", @project.website  %></span>
+            <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, @project.website  %></span>
+          </li>
+        <% end %>
+        <% if @project.city? %>  
+          <li class='sub w'>
+            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @project.city.titleize, :controller => "projects", :action => "index", :search => @project.city  %></span>
           </li>
         <% end %>
       </ul>
@@ -32,6 +32,10 @@
 </div>
 
 <div id="main_wrap" class="pr_wrap">
+
+  <div id="proj_title">
+    <span class="proj_title"><%= @project.title.titleize %></span>
+  </div>
 
   <div id="proj_info">
     <span class="l">
@@ -52,9 +56,8 @@
         <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
       <% end %>
     </span>
-    <span class="proj_title"><%= @project.title.titleize %></span>
-    <span class="r">
 
+    <span class="r">
       <% if member_signed_in? %>
         <span id="p_fav_but">
           <%= render :partial => "fav_button", :locals => {:project => @project} %>
@@ -75,10 +78,7 @@
           </span>
         <% end %>
       <% end %>
-
     </span>
-
-    <div style="clear:both;"></div>
   </div>
 
   <% if @project.video? %>
@@ -90,7 +90,7 @@
   <div id="">
     <ul class="nav nav-tabs" id="">
       <li class="active">
-        <%= link_to "About", "#about", :data => {:toggle=>"tab"}, class: '' %>
+        <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
       </li>
       <li>
         <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
@@ -116,9 +116,9 @@
   </div>
 
   <div class="tab-content">
-    <div class="tab-pane active" id="about">
+    <div class="tab-pane active" id="details">
       <div id ="proj_about">
-        <%= raw(@project.about) %>
+        <%= raw Rinku.auto_link(@project.about) %>
       </div>
     </div>
 
@@ -130,7 +130,7 @@
       </div>
 
       <div id="p_m_list_wrap">
-        <%= render :partial => "media" %>       
+        <%= render :partial => "shared/media" %>       
       </div>
 
       <%= will_paginate @uploads, class: 'display_none' %>
@@ -153,7 +153,7 @@
       </div>
 
       <div id="u_list_wrap">
-        <%= render :partial => "updates" %>       
+        <%= render :partial => "shared/updates" %>       
       </div>
 
       <div id="p_m_list_wrap">
@@ -164,13 +164,13 @@
 
     <div class="tab-pane" id="comments">
       <div id="proj_comm">
-        <% if current_member.following?(@project) || current_member == @project.member %>
-          <%= render "comment_form" %>
+        <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
+          <%= render "shared/comment_form" %>
           <% else %>
             <div class="c_message">Must be following project to leave a comment.</div>
         <% end %>
         <div id="comments_wrap">
-          <%= render "comments" %>
+          <%= render "shared/comments" %>
         </div>
 
         <%= will_paginate @comments, class: 'display_none' %>
@@ -188,7 +188,7 @@
 
     <div class="tab-pane" id="followers">
       <div id="proj_fol">
-        <%= render "followers" %>
+        <%= render "shared/followers" %>
       </div>
 
         <%= will_paginate @followers, class: 'display_none' %>
@@ -234,7 +234,7 @@
           </ul>
         </div>
 
-        <%= render :partial => "media_form" %>
+        <%= render :partial => "shared/media_form" %>
       </div>
     </div>
   <% end %>

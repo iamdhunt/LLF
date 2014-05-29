@@ -17,7 +17,7 @@
         </span>
         <span class="e1">
             <li>
-                <%= link_to 'Events', '#', class: 'events_wrap' %>
+                <%= link_to 'Events', profile_events_path(@member), class: 'events_wrap' %>
             </li>
         </span>
         <span class="p2">
@@ -31,17 +31,17 @@
 <div id="subnav_wrap">
     <ul class="sub sub_projects">
         <li>
-            <%= link_to '<i class="icon-bullhorn icon-grey"></i> My Projects'.html_safe, profile_projects_path(@member), class: 'all_media' %>
+            <%= link_to '<i class="icon-bullhorn icon-grey"></i> My Projects'.html_safe, profile_projects_path(@member), class: '' %>
         </li> 
         <li>
-            <%= link_to '<i class="icon-check icon-grey"></i> Projects I\'m Following'.html_safe, profile_projects_following_path(@member), class: 'media_fav_subnav' %>
+            <%= link_to '<i class="icon-check icon-grey"></i> Projects I\'m Following'.html_safe, profile_projects_following_path(@member), class: '' %>
         </li>        
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: 'media_fav_subnav' %>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: '' %>
         </li> 
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, new_project_path, class: 'media_new_subnav' %>
+                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, new_project_path, class: '' %>
             </li>
         <% end %> 
     </ul>

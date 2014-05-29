@@ -5,84 +5,100 @@
     * = required field
   </div>
 
-  <fieldset>
-    <legend class="leg">Name Your Project</legend>
-    <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
-    <div class="p_tit_ct"><span class="p_ct_tit"></span> <span class="p_ct_text">characters remaining</span></div>
-  </fieldset>
+  <div class="tab-content">
+      <div id="name" class="tab-pane active">
+        <fieldset>
+          <legend class="leg">Name Your Project</legend>
+          <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
+          <div class="p_tit_ct"><span class="p_ct_tit"></span> <span class="p_ct_text">characters remaining</span></div>
+        </fieldset>
+      </div>
 
-  <fieldset>
-    <legend class="descriptors">Upload Some Images</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Recommended avatar dimensions of 200x200
-        </li>
-        <li>
-          &raquo; Recommended banner dimensions of 1400x200
-        </li>
-        <li>
-          &raquo; Maximum file size of 5MB
-        </li>
-        <li>
-          &raquo; Accepted file formats: (jpeg, png, gif)
-        </li>
-      </ul>
-    </div>
-    <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
-    <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
-  </fieldset>
+      <div id="images" class="tab-pane">
+        <fieldset>
+          <legend class="descriptors">Upload Some Images</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Recommended avatar dimensions of 200x200
+              </li>
+              <li>
+                &raquo; Recommended banner dimensions of 1400x200
+              </li>
+              <li>
+                &raquo; Maximum file size of 5MB
+              </li>
+              <li>
+                &raquo; Accepted file formats: (jpeg, png, gif)
+              </li>
+            </ul>
+          </div>
+          <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+          <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+        </fieldset>
+      </div>
 
-  <fieldset>
-    <legend class="descriptors">Choose Your Category & Tags</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Select the appropriate category for your project
-        </li>
-        <li>
-          &raquo; Provide up to three of the project's most relevant tags
-        </li>
-        <li>
-          &raquo; Comma separated, 15 characters per
-        </li>
-      </ul>
-    </div>
-    <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports', 'Other'], label: 'Category', error: false, input_html: { class: 'forms account settings', tabindex: '2' } %>
-    <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3'} %>
-  </fieldset>
+      <div id="basics" class="tab-pane">
+        <fieldset>
+          <legend class="descriptors">Choose Your Category & Tags</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Select the appropriate category for your project
+              </li>
+              <li>
+                &raquo; Provide up to three of the project's most relevant tags
+              </li>
+              <li>
+                &raquo; Comma separated, 15 characters per
+              </li>
+            </ul>
+          </div>
+          <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports', 'Other'], label: 'Category', error: false, input_html: { class: 'forms account settings', tabindex: '2' } %>
+          <%= f.input :tag_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3'} %>
+        </fieldset>
 
-  <fieldset>
-    <legend class="descriptors">Provide Some Links</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
-        </li>
-        <li>
-          &raquo; We only support YouTube/Vimeo
-        </li>
-      </ul>
-    </div>
-    <%= f.input :website, label: 'Website', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings w_in', tabindex: '4' } %>
-    <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings vid_in', tabindex: '5' } %>
-  </fieldset>
+        <fieldset>
+          <legend class="descriptors">Provide Some Links</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
+              </li>
+              <li>
+                &raquo; We only support YouTube/Vimeo
+              </li>
+            </ul>
+          </div>
+          <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4' } %>
+          <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5' } %>
+        </fieldset>
 
-  <fieldset>
-    <legend class="descriptors">Tell Us the Story</legend>
-    <div class="edit_instructions">
-      <ul>
-        <li>
-          &raquo; Let the world know what's so awesome about your project (Required)
-        </li>
-      </ul>
-    </div>
-    <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140' } %>
-      <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
-    <%= f.input :about, label: 'About', error: false, placeholder: 'Now the long version...', input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '7', id: 'p_about' } %>
-  </fieldset>
+        <fieldset>
+          <legend class="leg">Where are you located?</legend>
+          <%= f.input :city, label: 'Project City', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '4', maxlength: '50' } %>
+        </fieldset>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-danger' %>
+      <div id="story" class="tab-pane">
+        <fieldset>
+          <legend class="descriptors">Tell Us the Story</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Let the world know what's so awesome about your project (Required)
+              </li>
+            </ul>
+          </div>
+          <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140' } %>
+            <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
+          <%= f.input :about, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '7', id: 'p_about' } %>
+        </fieldset>
+
+        <div class="form-actions">
+          <%= f.button :submit, class: 'btn btn-danger' %>
+        </div>
+      </div>
   </div>
+
 <% end %>

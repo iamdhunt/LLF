@@ -1,0 +1,59 @@
+<% title @member.full_name %>
+
+    <%= render :partial => "events_nav" %>
+
+    <!--/nav_wrap-->
+
+    <div id="stream_filters" class="form-inline">
+        <span class="filters all">
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
+        </span>
+        <span class="filters art_filter">
+            <label for="filter_.art_fil">
+            <%= radio_button_tag(:filter, ".art_fil") %> Arts
+            </label>
+        </span>
+        <span class="filters biz_filter">
+            <label for="filter_.biz_fil">
+            <%= radio_button_tag(:filter, ".biz_fil") %> Entrepreneurial
+            </label>
+        </span>
+        <span class="filters music_filter">
+            <label for="filter_.music_fil">
+            <%= radio_button_tag(:filter, ".music_fil") %> Music
+            </label>
+        </span>
+        <span class="filters sports_filter">
+            <label for="filter_.sports_fil">
+            <%= radio_button_tag(:filter, ".sports_fil") %> Sports
+            </label>
+        </span>
+        <span class="filters other_filter">
+            <label for="filter_.other_fil">
+            <%= radio_button_tag(:filter, ".other_fil") %> Other
+            </label>
+        </span>
+    </div>
+
+    <% if @events.count > 0 %>
+        <div id="prof_projs">
+            <%= render :partial => "events" %>
+        </div>          
+        <% else %>
+            <div class="none_message">
+                No Events Yet
+            </div>
+    <% end %>
+
+    <%= will_paginate @events, class: 'display_none' %>
+
+    <% if @events.total_pages != @events.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>

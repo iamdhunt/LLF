@@ -62,3 +62,42 @@
 	height: 25px;
 	vertical-align: top;
 }
+.mem_actions1 {
+	width: 28px;
+	height: 28px;
+	vertical-align: top;
+}
+#ue_nav {
+	margin-top: 30px;
+}
+#ue_nav .nav-tabs {
+	border-bottom: none;
+	text-align: center;
+}
+#ue_nav .nav-tabs li {
+	font-size: 1.75em;
+	float: none;
+	display: inline-block;
+}
+#ue_nav .nav-tabs > li > a {
+	padding: 20px;
+	line-height: 20px;
+	border: none;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #f4f4f4;
+	color: #898989;
+	margin-right: 15px;
+}
+#ue_nav .nav-tabs > li > a:hover {
+	color: #fff;
+	background-color: #49afcd;
+}
+#ue_nav .nav-tabs > .active > a {
+	background-color: #49afcd;
+	color: #fff;
+}
+.mt-btn .btn {
+	padding: 2.5px 12px;
+}

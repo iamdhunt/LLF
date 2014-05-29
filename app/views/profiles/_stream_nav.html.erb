@@ -17,7 +17,7 @@
         </span>
         <span class="e1">
             <li>
-                <%= link_to 'Events', '#', class: 'events_wrap' %>
+                <%= link_to 'Events', profile_events_path(@member), class: 'events_wrap' %>
             </li>
         </span>
         <span class="p1">
@@ -32,14 +32,14 @@
     <ul class="sub sub_stream">
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-th icon-grey"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: 'my_stream' %>
+                <%= link_to '<i class="icon-th icon-grey"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: '' %>
             </li>  
         <% end %>    
         <li>
-            <%= link_to '<i class="icon-user icon-grey"></i> Personal'.html_safe, profile_personal_path(@member), class: 'personal' %>
+            <%= link_to '<i class="icon-user icon-grey"></i> Personal'.html_safe, profile_personal_path(@member), class: '' %>
         </li>       
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_favorites_path(@member), class: 'favorties_subnav' %>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_favorites_path(@member), class: '' %>
         </li>  
     </ul>
 </div>

@@ -1,7 +1,6 @@
 LLF::Application.routes.draw do
 
   resources :projects do
-    get 'search', on: :collection
     resources :comments
     resources :uploads
     resources :updates
@@ -11,7 +10,15 @@ LLF::Application.routes.draw do
     end
   end
 
-
+  resources :events do
+    resources :comments
+    resources :uploads
+    resources :updates
+    resources :follows, :controller => 'follows_events', :only => [:create, :destroy]
+    member do
+      put "favorite", to: "events#upvote"
+    end
+  end
 
   get "search" => "search#search", :as => "search"
 
@@ -94,7 +101,10 @@ LLF::Application.routes.draw do
     get '/projects' => 'profiles#projects', as: 'profile_projects'
     get '/projects/following' => 'profiles#projects_following', as: 'profile_projects_following'
     get '/projects/favorites' => 'profiles#projects_fav', as: 'profile_projects_fav'
-    get '/projects/new' => 'profiles#projects_new', as: 'profile_projects_new'
+    get '/events' => 'profiles#events', as: 'profile_events'
+    get '/events/past' => 'profiles#events_past', as: 'profile_events_past'
+    get '/events/following' => 'profiles#events_following', as: 'profile_events_following'
+    get '/events/favorites' => 'profiles#events_fav', as: 'profile_events_fav'
   end
 
   resources :members, :only => [:index, :show], :path => '/' do

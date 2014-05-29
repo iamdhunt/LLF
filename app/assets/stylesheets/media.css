@@ -80,12 +80,10 @@
 }
 
 #cap_count {
-	color: #8930c7;
-	font-weight: bold;
+	color: #444;
 	font-size: 1.3em;
 }
 .cap_remain {
-	font-weight: bold;
 	font-size: 1.1em;
 }
 #media_list_wrap .list_act_wrap {

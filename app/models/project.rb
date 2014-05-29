@@ -1,12 +1,12 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
-  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list
+  	attr_accessible :about, :blurb, :category, :tags, :video, :website, :title, :avatar, :banner, :tag_list, :city
 
   	validates :about, presence: true
   	validates :blurb, presence: true,
   						length: {
-                          maximum: 280, 
-                          message: 'must not be more than 280 characters.'
+                          maximum: 140, 
+                          message: 'must not be more than 140 characters.'
                         }
   	validates :category, presence: true
   	validates :tag_list, allow_blank: true,
@@ -26,6 +26,14 @@ class Project < ActiveRecord::Base
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
+    validates :city, presence: true, 
+                        format: {
+                          with: /^[a-zA-Z ]+$/,
+                          message: 'must be formatted correctly.'
+                        },length: {
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.',
+                        }
 
   	acts_as_votable
     acts_as_followable
@@ -42,10 +50,10 @@ class Project < ActiveRecord::Base
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
   								:default_url => '/assets/Projects Default Banner.png'
 
- 	  validates_attachment_size :avatar, :less_than_or_equal_to=>5.megabyte
+ 	  validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
-  	validates_attachment_size :banner, :less_than_or_equal_to=>5.megabyte
+  	validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   	auto_html_for :video do
@@ -57,8 +65,10 @@ class Project < ActiveRecord::Base
 	    simple_format
 	  end
 
-    searchable do
-      text :tag_list
+    searchable :auto_index => true, :auto_remove => true do
+      text :title, :boost => 5
+      text :tag_list, :boost => 2
+      text :city
     end
 
   	private

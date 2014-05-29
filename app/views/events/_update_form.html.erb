@@ -1,0 +1,14 @@
+<%= simple_form_for [@updateable, @update] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="">
+  	<span class="p_m_text"></span>
+    <%= f.input :title, label: false, error: false, placeholder: 'Title...', input_html: { rows: '1', maxlength: '280', class: 'p_m_input' } %>
+    <span class="p_m_text"></span>
+    <%= f.input :content, label: false, error: false, input_html: { rows: '12', class: 'p_m_input', id: 'p_update' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Post', :class => "btn btn-event" %>
+  </div>
+<% end %>

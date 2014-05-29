@@ -4,6 +4,23 @@
 
 	<div id="activity_wrap">
 
+		<div id="pr_nav">
+		    <ul class="nav nav-tabs" id="">
+		      <li class="active">
+		        <%= link_to "Name Your Project", "#name", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Images", "#images", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Basics", "#basics", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Tell Us the Story", "#story", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		    </ul>
+		</div>
+
 		<div id="p_form_wrap">
 			<div id="edit_wrap">
 				<%= render 'form' %>

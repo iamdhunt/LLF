@@ -171,6 +171,7 @@ class Member < ActiveRecord::Base
 
   has_many :medium
   has_many :projects
+  has_many :events
   has_many :statuses
   has_many :activities
   has_many :comments
@@ -208,7 +209,7 @@ class Member < ActiveRecord::Base
     activity
   end
 
-  searchable do
+  searchable :auto_index => true, :auto_remove => true do
     text :user_name, :first_name, :last_name, :pursuit_list, :boost => 5
     text :city, :state, :country
   end
