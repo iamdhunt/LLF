@@ -33,7 +33,7 @@ h3 {
 
 h1 {
 	font-weight: bold;
-	color: #980adf;
+	color: #444;
 	font-size: 2em;
 	margin-bottom: 20px;
 	margin-top: 20px;
@@ -41,7 +41,7 @@ h1 {
 
 h2 {
 	font-weight: bold;
-	color: #9327c9;
+	color: #444;
 	font-size: 1.6em;
 	margin-bottom: 15px;
 	margin-top: 15px;
@@ -1143,6 +1143,10 @@ hr.contact {
 	color: #444;
 	border-bottom: 4px solid #1b864d;
 }
+.profile_nav .mk2 li a {
+	color: #444;
+	border-bottom: 4px solid #1b85a6;
+}
 .profile_nav .s1 li a:hover {
 	border-bottom: 4px solid #942fc6;
 }
@@ -1184,6 +1188,9 @@ hr.contact {
 }
 .sub_projects a {
 	color: #e25b60;
+}
+.sub_market a {
+	color: #1D9AC0;
 }
 #act_update {
 	border: 2px solid #efefef;
@@ -1253,25 +1260,6 @@ hr.contact {
 .all_media {
 	margin-left: 2em;
 }
-
-#events_subnav_wrap {
-	background-color: #44986c;
-	border-style: solid;
-    border-width: 0 0 0 2px;
-    border-color: #EFEFEF;
-}
-
-.at_a_glance {
-	margin-left: 2em;
-}
-
-#projects_subnav_wrap {
-	background-color: #e25b60;
-	border-style: solid;
-    border-width: 0 0 0 2px;
-    border-color: #EFEFEF;
-}
-
 .my_projects {
 	margin-left: 2em;
 }
@@ -1284,196 +1272,6 @@ hr.contact {
 	padding: 20px 20px;
 	color: #333;
 }
-
-.groups_dir_av {
-	width: 23%;
-	float: left;
-}
-
-.groups_dir_av img a {
-	width: 100%;
-	height: 100%;
-	opacity: .5;
-}
-
-.groups_dir_av img {
-	opacity: .8;
-}
-
-.groups_dir_av img:hover {
-	opacity: 1;
-}
-
-.groups_info_dir {
-	width: 77%;
-	float: right;
-	font-size: .8em;
-	padding: .7em 1em;
-}
-
-.groups_info_dir a {
-	font-weight: bold;
-	color: #898989;
-	font-size: 1.4em;
-}
-
-.groups_info_dir a:hover {
-	color: #8b1fc1;
-	text-decoration: none;
-}
-
-.group_dir td {
-	width: 50%;
-}
-
-.group_dir_info {
-	margin-left: .6em;
-}
-
-.group_nav li a{
-	float: left;
-	display: inline;
-	width: 25%;	
-	font-size: 1.133em;
-	padding: .4em .4em;
-	text-align: center;
-}
-
-#group_wrap {
-	height: 13.333em;
-	background-image: url('/assets/Container BG.png');	
-	color: #333;
-	margin-top: 5em;
-	position: relative;
-	overflow: hidden;
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:2px 2px 0 2px;
-}
-
-#left_group {
-	width: 20%;
-	height: 100%;
-	float: left;
-}
-
-#center_group {
-	width: 40%;
-	float: left;
-}
-
-#right_group {
-	width: 40%;
-	float: right;
-}
-
-.group_bio {
-	width:100%;
-	display: block;
-	text-align: center;
-	padding-right: 1em;
-	margin-left: 3em;
-	margin-top: 1.5em;
-	font-size: 1.2em;
-}
-
-.group_name a{
-	width: 100%;
-	font-size: 2.500em;
-	font-weight: bold;
-	color: #8b1fc1;
-	text-decoration: none;
-	margin-left: 5em;
-}
-
-.group_name a:hover {
-	color: #898989;
-}
-
-.group_name {
-	margin-top: 1em;
-}
-
-.group_buttons {
-	width: 100%;
-	display: block;
-	margin-top: 1.5em;
-	margin-left: 11.75em;
-}
-
-.group_name.entrepreneurs a{
-
-	margin-left: 2.9em;
-}
-
-.group_name.sports a{
-
-	margin-left: 2.5em;
-}
-
-.group_name.uniformed_services a{
-
-	margin-left: 3em;
-	font-size: 2.1em;
-}
-
-.group_name.music a{
-
-	margin-left: 4.6em;
-}
-
-#event_search_wrap {
-	margin-top: 6em;
-	background-color: #93C;
-	opacity: .85;
-	position: relative;
-	padding: .667em .467em;
-	color: #333;
-}
-
-#event_search_date {
-	width: 12%;
-}
-
-#event_search {
-	width: 15%;
-}
-
-#event_search_tags {
-	width: 10%;
-}
-
-.search_fields {
-	height: 2em;
-}
-
-#event_search_button {
-	padding: .4em .6em;
-}
-
-#event_dir_wrap {
-	padding: .667em .667em;
-	color: #333;
-	margin-top: 1.667em;
-	position: relative;
-}
-
-#project_search {
-	width: 27%;
-}
-
-#project_search_tags {
-	width: 27%;
-}
-
-#project_search_cat {
-	width: 15%;
-}
-
-#project_search_states {
-	width: 15%;
-}
-
 #market_wrap {
 	color: #333;
 	margin-top: 6em;

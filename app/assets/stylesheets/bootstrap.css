@@ -1790,6 +1790,28 @@ input[type="button"].btn-block {
 .btn-event.active {
   background-color: #408140 \9;
 }
+.btn-market {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #1b85a6;
+  border-color: #1b85a6;
+  *background-color: #1b85a6;
+  border-radius: 5px;
+}
+.btn-market:hover,
+.btn-market:focus,
+.btn-market:active,
+.btn-market.active,
+.btn-market.disabled,
+.btn-market[disabled] {
+  color: #ffffff;
+  background-color: #106e8b;
+  *background-color: #106e8b;
+}
+.btn-market:active,
+.btn-market.active {
+  background-color: #106e8b \9;
+}
 .btn-info {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140529070334) do
+ActiveRecord::Schema.define(:version => 20140530021329) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -24,6 +24,26 @@ ActiveRecord::Schema.define(:version => 20140529070334) do
 
   add_index "activities", ["member_id"], :name => "index_activities_on_member_id"
   add_index "activities", ["targetable_id", "targetable_type"], :name => "index_activities_on_targetable_id_and_targetable_type"
+
+  create_table "brands", :force => true do |t|
+    t.integer  "member_id"
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.text     "markers"
+    t.text     "video"
+  end
+
+  add_index "brands", ["member_id"], :name => "index_brands_on_member_id"
 
   create_table "comments", :force => true do |t|
     t.text     "content"

@@ -199,5 +199,32 @@ class ProfilesController < ApplicationController
       render file: 'public/404', status: 404, formats: [:html]
     end
   end 
+
+  def market
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      render action: :market
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def market_brands
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      render action: :market
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def market_listings
+    @member = Member.find_by_user_name(params[:id])
+    if @member 
+      render action: :market
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
   
 end

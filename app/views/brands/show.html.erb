@@ -1,0 +1,29 @@
+<% title @brand.name %>
+
+	<div id="banner" style="background-image: url(<%= @brand.banner.url(:large) %>)">
+	  <div id="bb">
+	   	<div class="bs_av"><%= image_tag @brand.logo.url(:av), class: 'p_av' %></div>
+	  </div>
+	</div>
+
+	<div id="main_wrap" class="">
+
+	  	<div id="b_info">
+	    	<span class="bn"><%= @brand.name.titleize %></span>
+	  	</div>
+
+	  	<div id="b_info">
+	    	<div class="bd"><%= @brand.description.titleize %></div>
+	  	</div>
+
+	  	<% if @brand.video? %>
+		    <div id="proj_video">
+		      <%= @brand.video_html %>
+		    </div>
+		<% end %>
+
+		<%= link_to 'Edit', edit_brand_path(@brand) %> |
+		<%= link_to 'Back', brands_path %>
+		<%= link_to "Delete", @brand, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+	</div>

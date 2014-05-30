@@ -334,6 +334,9 @@ vertical-align: baseline;
 	padding: 20px 0;
 	text-align: center;
 }
+#pright {
+	padding-left: 200px;
+}
 .swrap {
 	border-right: 1px solid #dce1e6;
 }

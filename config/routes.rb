@@ -1,5 +1,7 @@
 LLF::Application.routes.draw do
 
+  
+
   resources :projects do
     resources :comments
     resources :uploads
@@ -23,6 +25,12 @@ LLF::Application.routes.draw do
   get "search" => "search#search", :as => "search"
 
   get "community" => "community#community", :as => "community"
+
+  get "market" => "market#market", :as => "market"
+
+  scope 'market' do
+    resources :brands 
+  end 
 
   resources :activities, only: [:index, :destroy] 
 
@@ -105,6 +113,9 @@ LLF::Application.routes.draw do
     get '/events/past' => 'profiles#events_past', as: 'profile_events_past'
     get '/events/following' => 'profiles#events_following', as: 'profile_events_following'
     get '/events/favorites' => 'profiles#events_fav', as: 'profile_events_fav'
+    get '/market' => 'profiles#market', as: 'profile_market'
+    match '/favorite-brands' => 'profiles#market_brands', :as => 'profile_market_brands'
+    match '/favorite-listings' => 'profiles#market_listings', :as => 'profile_market_listings'
   end
 
   resources :members, :only => [:index, :show], :path => '/' do
