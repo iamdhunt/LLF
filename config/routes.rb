@@ -29,7 +29,11 @@ LLF::Application.routes.draw do
   get "market" => "market#market", :as => "market"
 
   scope 'market' do
-    resources :brands 
+    resources :brands do
+      member do
+        put "favorite", to: "brands#upvote"
+      end
+    end
   end 
 
   resources :activities, only: [:index, :destroy] 

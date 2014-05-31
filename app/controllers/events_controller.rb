@@ -14,18 +14,21 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').where("start_date >= ?", Date.today).page(params[:page]).per_page(54)
+    @events = Event.order('start_date asc').where("start_date >= ?", Time.zone.now.to_date).page(params[:page]).per_page(54)
     @search = Event.search do
       fulltext params[:search]
       any_of do
-        with(:start_date).greater_than_or_equal_to(Date.today)
-        with(:end_date).greater_than_or_equal_to(Date.today)
+        with(:start_date).greater_than_or_equal_to(Time.zone.now.to_date)
+        with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
       end 
       facet(:event_month)
       with(:event_month, params[:month]) if params[:month].present?
+      facet(:marker_list, :limit => 25, :sort => :count)
+      with(:marker_list, params[:tag]) if params[:tag].present?
     end
     @query = params[:search]
     @facet = params[:month]
+    @tag_facet = params[:tag]
     @results = @search.results
 
     respond_to do |format|

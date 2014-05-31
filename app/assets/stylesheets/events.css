@@ -278,3 +278,32 @@ vertical-align: baseline;
 .t1 {
 	font-style: oblique;
 }
+.elocs {
+	padding-top: 10px;
+}
+.eloc a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 200%;
+}
+.eloc a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(247, 180, 72);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(247, 180, 72, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
+.se_wrap .btags {
+	padding: 0;
+}
+#p_index #stream_filters {
+	margin-top: 10px;
+}

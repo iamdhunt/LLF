@@ -69,6 +69,7 @@ class Project < ActiveRecord::Base
       text :title, :boost => 5
       text :marker_list, :boost => 2
       text :city
+      string :marker_list, :multiple => true, :stored => true
     end
 
   	private

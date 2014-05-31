@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140530021329) do
+ActiveRecord::Schema.define(:version => 20140530014932) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20140530021329) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.text     "markers"
-    t.text     "video"
   end
 
   add_index "brands", ["member_id"], :name => "index_brands_on_member_id"

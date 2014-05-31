@@ -1,8 +1,5 @@
-#p_index {
-	padding-top: 40px;
-}
 #prs {
-	padding: 20px 0 20px 20px;
+	padding: 20px 0 20px 10px;
 }
 #prof_projs {
 	padding: 15px 0 20px 10px;
@@ -116,9 +113,6 @@ vertical-align: baseline;
         	hyphens: auto;
     -ms-word-break: break-all;
 }
-#pb .acct a {
-	color: #fff;
-}
 #pb #info .sub {
 	padding: 8px 0;
 }
@@ -126,6 +120,7 @@ vertical-align: baseline;
 	padding: 8px 0 4px 0;
 }
 #pb .acct a {
+	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
     /* RGBa with 0.6 opacity */
@@ -229,14 +224,11 @@ vertical-align: baseline;
 }
 #p_list_wrap {
 	width: 230px;
-	margin: 0 20px 30px 0;
-	-moz-box-shadow: 0 0 5px #aeaeae;
-	-webkit-box-shadow: 0 0 5px #aeaeae;
-	box-shadow: 0 0 5px #aeaeae;
-	border-radius: 8px;
-}
-#prof_projs #p_list_wrap {
 	margin: 0 0 30px 0;
+	-webkit-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+	-moz-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+	box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+	border-radius: 3px;
 }
 #p_list_wrap .p-av {
 	height: 230px;
@@ -317,6 +309,12 @@ vertical-align: baseline;
 .pl_bl {
 	padding: 0 8px 6px 8px;
 	font-size: .85em;
+	word-wrap: break-word;
+	word-break: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+	-ms-word-break: break-all;
 }
 .pl_tm {
 	text-align: center;
@@ -377,26 +375,6 @@ vertical-align: baseline;
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-}
-.swrap .sbody-1 a {
-	color: #fff;
-	 /* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(247, 180, 72);
-	padding: 3px 5px;
-	border-radius: 4px;
-	line-height: 200%;
-}
-.swrap .sbody-1 a:hover {
-	/* Fallback for web browsers that don't support RGBa */
-    background-color: rgb(247, 180, 72);
-    /* RGBa with 0.6 opacity */
-    background-color: rgba(247, 180, 72, 0.8);
-    /* For IE 5.5 - 7*/
-    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
-    /* For IE 8*/
-    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
-    -background: transparent;
-	text-decoration: none;
 }
 .nav_p_ct {
 	font-size: .9em;

@@ -1,9 +1,9 @@
 class Brand < ActiveRecord::Base
 	belongs_to :member
 
-	attr_accessible :name, :description, :markers, :marker_list, :video
-
+	attr_accessible :name, :description, :markers, :marker_list, :logo, :banner
 	validates :name, presence: true
+  validates :description, presence: true
 	validates :description, allow_blank: true,
   						length: {
                           maximum: 140, 
@@ -24,27 +24,24 @@ class Brand < ActiveRecord::Base
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
 
-  	has_attached_file :logo, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+  	has_attached_file :logo, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "110x110#"},
   								:default_url => '/assets/Products Default.png'
   	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
   								:default_url => '/assets/Market Default Banner.png'
 
- 	validates_attachment_size :logo, :less_than_or_equal_to=>10.megabyte
+ 	  validates_attachment_size :logo, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :logo, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   	validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
-  	auto_html_for :video do
-	    html_escape
-	    image
-	    youtube(:width => 650, :height => 300, :autoplay => false)
-	    vimeo(:width => 660, :height => 400, :autoplay => false)
-	    link :target => "_blank", :rel => "nofollow"
-	    simple_format
-	end
+    searchable :auto_index => true, :auto_remove => true do
+      text :name, :boost => 5
+      text :marker_list, :boost => 2
+      string :marker_list, :multiple => true, :stored => true
+    end
 
-  	private
+  private
 
 	  def each_marker
 	    marker_list.each do |marker|

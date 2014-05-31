@@ -1556,6 +1556,13 @@ label.active {
 #stream_filters .media label:hover {
 	background: #e76f2a;
 }
+#stream_filters .market label {
+	background: #1b85a6;
+	color: #fff;
+}
+#stream_filters .market label:hover {
+	background: #106e8b;
+}
 #stream_filters .event label {
 	background: #219e5c;
 	color: #fff;

@@ -4,80 +4,61 @@
 
 <div id="main_wrap">
 
+    <div id="sb_wrap">
+        <div class="sb">
+          <%= render :partial => "search" %>
+        </div>
+
+        <div class="btags">
+          <% for row in @search.facet(:marker_list).rows %>
+              <span class="btag"><%= link_to row.value, :tag => row.value %></span>
+          <% end %>
+        </div>
+    </div>
+
     <div id="p_index">
-        <div id="sleft">
-            <div class="swrap">
-                <div class="shead">
-                    <i class="icon-search"></i> Search Projects
-                </div>
-                <div class="sbody">
-                    <%= render :partial => "search" %>
-                </div>
-                <div class="shead">
-                    <i class="icon-tags"></i> Popular Tags
-                </div>
-                <div class="sbody">
-                    <ul>
-                        <% @markers.each do |marker| %>
-                            <li>
-                                <%= link_to(:controller => "projects", :action => "index", :search => marker.name) do %>
-                                    <i class="icon-tag icon-white"></i> <%= marker.name.titleize %>
-                                <% end %>
-                            </li>
-                        <% end %>
-                    </ul>
-                </div>
-                <div class="shead">
-                    <i class="icon-map-marker"></i> Popular Locations
-                </div>
-                <div class="sbody">
 
-                </div>
-            </div>
+        <div id="stream_filters" class="form-inline">
+            <span class="filters all">
+                <label for="filter__">
+                <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+                </label>
+            </span>
+            <span class="filters art_filter">
+                <label for="filter_.art_fil">
+                <%= radio_button_tag(:filter, ".art_fil") %> Arts
+                </label>
+            </span>
+            <span class="filters biz_filter">
+                <label for="filter_.biz_fil">
+                <%= radio_button_tag(:filter, ".biz_fil") %> Entrepreneurial
+                </label>
+            </span>
+            <span class="filters music_filter">
+                <label for="filter_.music_fil">
+                <%= radio_button_tag(:filter, ".music_fil") %> Music
+                </label>
+            </span>
+            <span class="filters sports_filter">
+                <label for="filter_.sports_fil">
+                <%= radio_button_tag(:filter, ".sports_fil") %> Sports
+                </label>
+            </span>
+            <span class="filters other_filter">
+                <label for="filter_.other_fil">
+                <%= radio_button_tag(:filter, ".other_fil") %> Other
+                </label>
+            </span>
         </div>
-        <div id="pright">
-            <div id="stream_filters" class="form-inline">
-                <span class="filters all">
-                    <label for="filter__">
-                    <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
-                    </label>
-                </span>
-                <span class="filters art_filter">
-                    <label for="filter_.art_fil">
-                    <%= radio_button_tag(:filter, ".art_fil") %> Arts
-                    </label>
-                </span>
-                <span class="filters biz_filter">
-                    <label for="filter_.biz_fil">
-                    <%= radio_button_tag(:filter, ".biz_fil") %> Entrepreneurial
-                    </label>
-                </span>
-                <span class="filters music_filter">
-                    <label for="filter_.music_fil">
-                    <%= radio_button_tag(:filter, ".music_fil") %> Music
-                    </label>
-                </span>
-                <span class="filters sports_filter">
-                    <label for="filter_.sports_fil">
-                    <%= radio_button_tag(:filter, ".sports_fil") %> Sports
-                    </label>
-                </span>
-                <span class="filters other_filter">
-                    <label for="filter_.other_fil">
-                    <%= radio_button_tag(:filter, ".other_fil") %> Other
-                    </label>
-                </span>
-            </div>
 
-            <div id="prs">
-                <% if @query == nil %>
-                    <%= render partial: 'projects' %>
-                <% else %>
-                    <%= render partial: 'search_projects' %>
-                <% end %>
-            </div>
+        <div id="prs">
+            <% if @facet == nil && @tag_facet == nil && @query == nil %>
+                <%= render partial: 'projects' %>
+            <% else %>
+                <%= render partial: 'search_projects' %>
+            <% end %>
         </div>
-    <div style="clear:both;"></div>
+        
     </div>
 
 </div>

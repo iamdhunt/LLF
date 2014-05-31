@@ -8,22 +8,54 @@
 
 	<div id="main_wrap" class="">
 
-	  	<div id="b_info">
-	    	<span class="bn"><%= @brand.name.titleize %></span>
-	  	</div>
+		<div id="b_info">
+		  	<div id="" class="bn_wrap">
+		    	<span class="bn"><%= @brand.name %></span>
+		  	</div>
 
-	  	<div id="b_info">
-	    	<div class="bd"><%= @brand.description.titleize %></div>
-	  	</div>
+		  	<div id="" class="b_mk">
+		  		<span class='b_mks'><%= @brand.marker_list.map { |m| link_to m.titleize, :controller => "brands", :action => "index", :search => m }.join(' ').html_safe %></span>
+		  	</div>
 
-	  	<% if @brand.video? %>
-		    <div id="proj_video">
-		      <%= @brand.video_html %>
-		    </div>
-		<% end %>
+		  	<div id="" class="">
+		    	<span class=""><%= avatar_profile_link @brand.member, :class => "pr_av", title: @brand.member.full_name, alt: @brand.member.full_name  %></span>
+		    	<% if member_signed_in? %>
+			        <span id="p_fav_but">
+			          <%= render :partial => "fav_button", :locals => {:brand => @brand} %>
+			        </span>
 
-		<%= link_to 'Edit', edit_brand_path(@brand) %> |
-		<%= link_to 'Back', brands_path %>
-		<%= link_to "Delete", @brand, method: :delete, data: { confirm: 'Are you sure?' } %>
+			        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+			        <% if current_member == @brand.member %>
+			          <span class="btn-group">
+			            <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+			              <ul class="dropdown-menu">            
+			                <li>
+			                  <%= link_to "Edit", edit_brand_path(@brand), class: '' %>
+			                </li>
+			                <li class="del">
+			                  <%= link_to "Delete", @brand, method: :delete, data: { confirm: 'Are you sure?' } %>
+			                </li>
+			              </ul>
+			          </span>
+			        <% end %>
+			     <% end %>
+		  	</div>
 
+		  	<div id="">
+		    	<div class="bd"><%= raw Rinku.auto_link(@brand.description) %></div>
+		  	</div>
+		</div>
+	  	
+	</div>
+
+	<div class="s_modal">
+	    <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	        <h3 id="sharemodallabel">Copy Brand URL</h3>
+	      </div>
+	      <div class="modal-body pi">
+	        <input class="pr_in forms" value="<%= brand_url %>" />
+	      </div>
+	    </div>
 	</div>

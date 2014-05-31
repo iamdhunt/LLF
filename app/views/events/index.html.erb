@@ -4,46 +4,26 @@
 
 <div id="main_wrap">
 
-    <div id="p_index">
-        <div id="sleft">
-            <div class="swrap">
-                <div class="shead">
-                    <i class="icon-search"></i> Search Events
-                </div>
-                <div class="sbody">
-                    <%= render :partial => "search" %>
-                </div>
-                <div class="shead">
-                    <i class="icon-th"></i> Dates
-                </div>
-                <div class="sbody">             
-                    <% for row in @search.facet(:event_month).rows %>
-                        <span class="sbody-1"><%= link_to row.value, :month => row.value %></span>
-                    <% end %>           
-                </div>
-                <div class="shead">
-                    <i class="icon-tags"></i> Popular Tags
-                </div>
-                <div class="sbody sbody-2">
-                    <ul>
-                        <% @markers.each do |marker| %>
-                            <li>
-                                <%= link_to(:controller => "events", :action => "index", :search => marker.name) do %>
-                                    <i class="icon-tag icon-white"></i> <%= marker.name.titleize %>
-                                <% end %>
-                            </li>
-                        <% end %>
-                    </ul>
-                </div>
-                <div class="shead">
-                    <i class="icon-map-marker"></i> Popular Locations
-                </div>
-                <div class="sbody">
-
-                </div>
-            </div>
+    <div id="sb_wrap" class="se_wrap">
+        <div class="sb">
+          <%= render :partial => "search" %>
         </div>
-        <div id="pright">
+
+        <div class="elocs">             
+            <% for row in @search.facet(:event_month).rows %>
+                <span class="eloc"><%= link_to row.value, :month => row.value %></span>
+            <% end %>           
+        </div>
+
+        <div class="btags">
+          <% for row in @search.facet(:marker_list).rows %>
+              <span class="btag"><%= link_to row.value, :tag => row.value %></span>
+          <% end %>
+        </div>
+    </div>
+
+    <div id="p_index">
+
             <div id="stream_filters" class="form-inline">
                 <span class="filters all">
                     <label for="filter__">
@@ -85,7 +65,5 @@
                 <% end %>
             </div>
         </div>
-    <div style="clear:both;"></div>
-    </div>
 
 </div>

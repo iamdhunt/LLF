@@ -9,6 +9,14 @@ class BrandsController < ApplicationController
   def index
     @markers = Brand.marker_counts.order('count DESC').limit(12)
     @brands = Brand.order('name asc').page(params[:page]).per_page(54)
+    @search = Brand.search do
+      fulltext params[:search]
+      facet(:marker_list, :limit => 25, :sort => :count)
+      with(:marker_list, params[:tag]) if params[:tag].present?
+    end
+    @query = params[:search]
+    @facet = params[:tag]
+    @results = @search.results
 
     respond_to do |format|
       format.html # index.html.erb
@@ -87,6 +95,19 @@ class BrandsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to brands_url }
       format.json { head :no_content }
+    end
+  end
+
+  def upvote
+    @brand = Brand.find(params[:id])
+    if current_member.voted_up_on? @brand
+      @brand.unliked_by current_member
+    else 
+      @brand.liked_by current_member
+    end
+    respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
     end
   end
 

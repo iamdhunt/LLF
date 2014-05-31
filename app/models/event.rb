@@ -114,6 +114,7 @@ class Event < ActiveRecord::Base
     text :name, :boost => 5
     text :marker_list, :boost => 2
     text :city, :location
+    string :marker_list, :multiple => true, :stored => true
     string :event_month
     date :start_date
     date :end_date

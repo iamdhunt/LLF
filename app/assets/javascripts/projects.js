@@ -14,11 +14,12 @@ $(document).ready(function() {
   var cap_max_blb = 140;
   var $cap_blb = $('#p_cap_blb')
   var dom = document.getElementById('p_cap_blb');
+  var dom1 = document.getElementById('p_cap_tit')
 
   $container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {
-		    columnWidth: 250
+		    columnWidth: 240
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping
@@ -180,6 +181,31 @@ $(document).ready(function() {
 			$('.p_ct_tit').css('color', '#8930c7');
 		};
 	});
+
+	if(dom1 != null) {
+		var tit_length = $cap_tit.val().length;
+		var tit_remaining = cap_max_tit - tit_length;
+		$('.p_ct_tit').html(tit_remaining);
+
+		if (tit_remaining <= 20){
+			$('.p_ct_tit').css('color', '#c72835');
+		}else{
+			$('.p_ct_tit').css('color', '#444');
+		};
+
+		$cap_tit.keyup(function(){	
+			var tit_length = $cap_tit.val().length;
+			var tit_remaining = cap_max_tit - tit_length;
+
+			$('.p_ct_tit').html(tit_remaining);
+
+			if (tit_remaining <= 20){
+				$('.p_ct_tit').css('color', '#c72835');
+			}else{
+				$('.p_ct_tit').css('color', '#8930c7');
+			};
+		});
+	};
 
 	if(dom != null) {
 		var cap_length = $cap_blb.val().length;
