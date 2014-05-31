@@ -41,10 +41,10 @@
         <div id="prof_projs">
             <%= render :partial => "projects" %>
         </div>          
-        <% else %>
-            <div class="none_message">
-                No Projects Yet
-            </div>
+    <% else %>
+        <div class="none_message">
+            No Projects Yet
+        </div>
     <% end %>
 
     <%= will_paginate @projects, class: 'display_none' %>
