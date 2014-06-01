@@ -23,6 +23,7 @@ class Brand < ActiveRecord::Base
     acts_as_votable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
+    has_many :listings
 
   	has_attached_file :logo, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "110x110#"},
   								:default_url => '/assets/Products Default.png'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140530014932) do
+ActiveRecord::Schema.define(:version => 20140601032106) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20140530014932) do
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
     t.text     "markers"
+    t.text     "video"
   end
 
   add_index "brands", ["member_id"], :name => "index_brands_on_member_id"
@@ -129,6 +130,28 @@ ActiveRecord::Schema.define(:version => 20140530014932) do
 
   add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
   add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
+
+  create_table "listings", :force => true do |t|
+    t.integer  "member_id"
+    t.text     "title"
+    t.text     "link"
+    t.text     "category"
+    t.text     "description"
+    t.decimal  "price",                :precision => 8, :scale => 2
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.string   "feature_file_name"
+    t.string   "feature_content_type"
+    t.integer  "feature_file_size"
+    t.datetime "feature_updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.text     "markers"
+  end
+
+  add_index "listings", ["member_id"], :name => "index_listings_on_member_id"
 
   create_table "media", :force => true do |t|
     t.integer  "member_id"

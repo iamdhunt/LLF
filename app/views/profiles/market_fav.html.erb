@@ -1,0 +1,24 @@
+<% title @member.full_name %>
+
+    <%= render :partial => "market_nav" %>
+
+    <% if @listings.count > 0 %>
+        <div id="b_index">
+            <%= render :partial => "listings/listings" %>
+        </div>         
+        <% else %>
+            <div class="none_message">
+                No Favorites Yet
+            </div>
+    <% end %>
+
+    <%= will_paginate @listings, class: 'display_none' %>
+
+    <% if @listings.total_pages != @listings.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>

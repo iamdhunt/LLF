@@ -134,10 +134,11 @@
           <div class="p_blb_ct"><span class="p_ct_blb"></span> <span class="p_ct_text">characters remaining</span></div>
         <%= f.input :details, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '7', id: 'p_about' } %>
       </fieldset>
+    </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, class: 'btn btn-event' %>
-      </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-event' %>
+      <%= link_to 'Back', @event, class: 'btn btn-info pull-right' %>
     </div>
   </div>
 

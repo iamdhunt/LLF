@@ -72,19 +72,19 @@
 		      	<div class="edit_instructions">
 		        	<ul>
 		          		<li>
-		           	 		&raquo; Let the world know what's so awesome about your brand
+		           	 		&raquo; Let the world know what's so awesome about your brand (Required)
 		          		</li>
 		        	</ul>
 		      	</div>
 		      	<%= f.input :description, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140' } %>
             	<div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
 		    </fieldset>
-
 		</div>
-	</div>
 
-	<div class="form-actions">
-    	<%= f.button :submit, class: 'btn btn-market' %>
-    </div>
+		<div class="form-actions">
+	    	<%= f.button :submit, class: 'btn btn-market' %>
+	    	<%= link_to 'Back', @brand, class: 'btn btn-info pull-right' %>
+	    </div>
+	</div>
 
 <% end %>

@@ -31,17 +31,14 @@
 <div id="subnav_wrap">
     <ul class="sub sub_market">
         <li>
-            <%= link_to '<i class="icon-th-list icon-grey"></i> My Market'.html_safe, profile_market_path(@member), class: '' %>
-        </li> 
+            <%= link_to '<i class="icon-th-list icon-grey"></i> Listings'.html_safe, profile_market_path(@member), class: '' %>
+        </li>         
         <li>
-            <%= link_to '<i class="icon-star icon-grey"></i> Favorite Brands'.html_safe, profile_market_brands_path(@member), class: '' %>
-        </li>        
-        <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorite Listings'.html_safe, profile_market_listings_path(@member), class: '' %>
+            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_market_fav_path(@member), class: '' %>
         </li> 
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-edit icon-grey"></i> Create Brand'.html_safe, new_brand_path, class: '' %>
+                <%= link_to '<i class="icon-edit icon-grey"></i> Create Listing'.html_safe, new_listing_path, class: '' %>
             </li>
         <% end %> 
     </ul>

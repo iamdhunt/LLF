@@ -203,27 +203,18 @@ class ProfilesController < ApplicationController
   def market
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @brands = @member.brands.order('name asc').page(params[:page]).per_page(24)
+      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(24)
       render action: :market
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
   end
 
-  def market_brands
+  def market_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @brands = @member.get_up_voted Brand.order("name asc").page(params[:page]).per_page(24)
-      render action: :market_brands
-    else 
-      render file: 'public/404', status: 404, formats: [:html]
-    end
-  end
-
-  def market_listings
-    @member = Member.find_by_user_name(params[:id])
-    if @member 
-      render action: :market_listings
+      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(24)
+      render action: :market_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end

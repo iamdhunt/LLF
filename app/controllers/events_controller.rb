@@ -95,6 +95,7 @@ class EventsController < ApplicationController
   # PUT /events/1.json
   def update
     params[:event][:details] = sanitize_redactor(params[:event][:details])
+    
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to @event }

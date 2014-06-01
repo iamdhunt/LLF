@@ -1,0 +1,94 @@
+<%= simple_form_for(@listing, :html => { class: 'form-horizontal ' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="rq">
+    * = required field
+  </div>
+
+  <div class="tab-content">
+
+    <div id="name" class="tab-pane active">
+
+        <fieldset>
+              <legend class="leg">Listing Name</legend>
+              <%= f.input :title, label: 'Name', error: false, input_html: { class: 'forms settings', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100'} %>
+        </fieldset>
+
+    </div>
+
+    <div id="price" class="tab-pane">
+
+        <fieldset>
+              <legend class="leg">Price</legend>
+              <%= f.input :price, label: '$', error: false, input_html: { class: 'forms settings', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '10'} %>
+        </fieldset>
+
+        <fieldset>
+              <legend class="descriptors">Link to Listing</legend>
+              <div class="edit_instructions">
+                <ul>
+                    <li>
+                      &raquo; Paste or type the full external url to the listing
+                    </li>
+                </ul>
+              </div>
+              <%= f.input :link, label: 'Link', error: false, input_html: { class: 'forms settings', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '10'} %>
+        </fieldset>
+
+    </div>
+
+    <div id="images" class="tab-pane">
+
+      <fieldset>
+        <legend class="descriptors">Upload Some Images</legend>
+          <div class="edit_instructions">
+            <ul>
+                <li>
+                  &raquo; Recommended dimensions of 300x300
+                </li>
+                <li>
+                  &raquo; Maximum file size of 10MB (jpeg, png, gif)
+                </li>
+            </ul>
+          </div>
+          <%= f.input :feature, as: :file, label: 'Feature Image', error: false, input_html: { class: 'account settings pr_upload'} %>
+          <%= f.input :image, as: :file, label: 'Additional Images', error: false, input_html: { class: 'account settings pr_upload'} %>
+      </fieldset>
+
+    </div>
+
+    <div id="basics" class="tab-pane">
+
+      <fieldset>
+        <legend class="descriptors">Choose Your Category & Tags</legend>
+        <div class="edit_instructions">
+          <ul>
+            <li>
+              &raquo; Select the appropriate category for your listing
+            </li>
+            <li>
+              &raquo; Provide up to five of the most relevant tags
+            </li>
+            <li>
+              &raquo; Comma separated, 15 characters per
+            </li>
+          </ul>
+        </div>
+        <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: 'Category', error: false, input_html: { class: 'forms settings', tabindex: '2' } %>
+        <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms settings', tabindex: '3'} %>
+      </fieldset>
+
+      <fieldset>
+          <legend class="leg">Description</legend>
+          <%= f.input :description, label: 'Description', error: false, input_html: { cols: '53', rows: '5', class: 'forms settings', tabindex: '7', id: '' } %>
+      </fieldset>
+
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-market' %>
+    </div>
+
+  </div>
+
+<% end %>

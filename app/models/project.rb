@@ -8,7 +8,10 @@ class Project < ActiveRecord::Base
                           maximum: 140, 
                           message: 'must not be more than 140 characters.'
                         }
-  	validates :category, presence: true
+  	validates :category, presence: true,
+              inclusion: {
+                in: %w(Arts Entrepreneurial Music Sports Other)
+              }
   	validates :marker_list, presence: true,
   						length: {
                               maximum: 3,

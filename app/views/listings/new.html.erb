@@ -1,0 +1,30 @@
+<% title "LLF | New Listing" %>
+
+<div id="main_wrap">
+
+	<div id="activity_wrap">
+		<div id="br_nav">
+		    <ul class="nav nav-tabs" id="">
+		      <li class="active">
+		        <%= link_to "Listing Name", "#name", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li >
+		        <%= link_to "Listing Price", "#price", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Images", "#images", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Basics", "#basics", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		    </ul>
+		</div>
+	
+		<div id="p_form_wrap">
+			<div id="edit_wrap">
+				<%= render 'form' %>
+			</div>
+		</div>
+	</div>
+
+</div>

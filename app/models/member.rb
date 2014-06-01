@@ -175,6 +175,7 @@ class Member < ActiveRecord::Base
   has_many :statuses
   has_many :activities
   has_many :brands
+  has_many :listings
   has_many :comments
   has_many :uploads
   has_many :updates

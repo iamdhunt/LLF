@@ -1566,6 +1566,7 @@ legend + .control-group {
   background-color: #f4f4f4;
   border: 1px solid #d7d7d7;
   *margin-left: .3em;
+  border-radius: 5px;
 }
 .btn:hover,
 .btn:focus,

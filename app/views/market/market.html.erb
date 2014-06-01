@@ -15,26 +15,12 @@
             <% end %>
         </div>
 
-        <div id="br_head" class="mk_head">
-            <%= link_to "Brands", brands_path %>
-        </div>
-
-        <div id="b_index">
-            <%= render partial: 'brands/brands' %>
-        </div>
-
-        <div id="br_head" class="mk_all">
-            <%= link_to(brands_path, class: "") do %>
-                View All &raquo;
-            <% end %>
-        </div>
-
         <div id="mkl_head" class="mk_head">
-            <%= link_to "Market", "#" %>
+            <%= link_to "Market", listings_path %>
         </div>
 
         <div id="mkl_head" class="mk_all">
-            <%= link_to("#", class: "") do %>
+            <%= link_to(listings_path, class: "") do %>
                 View All &raquo;
             <% end %>
         </div>

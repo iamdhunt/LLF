@@ -44,6 +44,12 @@
 		  	<div id="">
 		    	<div class="bd"><%= raw Rinku.auto_link(@brand.description) %></div>
 		  	</div>
+
+		  	<% if current_member == @brand.member %>
+			  	<div class="cl_btn">
+			  		<%= link_to 'Create Listing', new_listing_path, class: 'btn btn-market' %>
+			  	</div>
+		  	<% end %>
 		</div>
 	  	
 	</div>

@@ -7,7 +7,6 @@ class BrandsController < ApplicationController
   # GET /brands
   # GET /brands.json
   def index
-    @markers = Brand.marker_counts.order('count DESC').limit(12)
     @brands = Brand.order('name asc').page(params[:page]).per_page(54)
     @search = Brand.search do
       fulltext params[:search]
