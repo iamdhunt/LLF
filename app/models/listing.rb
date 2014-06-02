@@ -31,8 +31,8 @@ class Listing < ActiveRecord::Base
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
 
-  	has_attached_file :feature, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"}
-  	has_attached_file :image, styles: { large: "1400x200<", preview: "600x200>" }
+  	has_attached_file :feature, styles: { feature: "380x380#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#" }
+  	has_attached_file :image, styles: { list: "100x100#" }
 
  	validates_attachment_size :feature, :less_than_or_equal_to=>10.megabyte
   	validates_attachment_content_type :feature, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']

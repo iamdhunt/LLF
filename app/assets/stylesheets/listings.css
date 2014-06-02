@@ -1,0 +1,118 @@
+#pd_wrap {
+	padding: 20px;
+}
+#pd_top {
+	padding: 20px 0;
+}
+.pd_cat {
+	margin-bottom: 8px;
+}
+.pd_cat a {
+	color: #444;
+	font-size: 1.5em;
+}
+.pd_cat a:hover {
+	text-decoration: none;
+	color: #942fc6;
+}
+.pd_mk a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	padding: 5px;
+	border-radius: 6px;
+}
+.pd_mk a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
+.pd_left {
+	float: left;
+	width: 40%;
+}
+.pd_left .feature img {
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	box-shadow: 0 0 0 5px #e5e5e5;
+	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
+}
+.pd_right {
+	float: right;
+	width: 50%;
+	text-align: right;
+}
+.pd_right .title {
+	font-size: 2em;
+	color: #444;
+	padding-bottom: 7px;
+}
+.pd_right .price {
+	font-size: 2em;
+	color: #54b18c;
+	padding-bottom: 2px;
+}
+.pd_right .cta {
+	font-weight: bold;
+	padding-bottom: 8px;
+}
+.pd_right .btn-large {
+	padding: 9px 28px;
+}
+.pd_right .ims {
+	width: 35px;
+	height: 35px;
+}
+.pd_right .btn-group {
+	vertical-align: baseline;
+}
+.pd_right .btn-group .del {
+	border-top: 1px solid #ddd;
+}
+.pd_right .dropdown-menu {
+	left: -120px;
+}
+#pd_c_wrap #comment_btn .btn {
+	font-size: 1.05em;
+}
+#pd_c_wrap .comment_name {
+	font-size: 1.3em;
+	cursor: default;
+}
+#pd_c_wrap .com_con {
+	padding: 0 0 0 51px;
+	font-size: 1.05em;
+}
+#pd_c_wrap .meta {
+font-size: 1em;
+font-weight: normal;
+}
+#pd_c_wrap .owner {
+	font-size: 14px;
+	color: #fff;
+	background-color: rgb(27, 133, 166);
+	padding: 1px 3px;
+	border-radius: 5px;
+}
+#pd_c_wrap .comment_del img {
+	width: 16px;
+	height: 16px;
+	margin-top: 6px;
+}

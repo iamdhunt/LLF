@@ -28,6 +28,7 @@ LLF::Application.routes.draw do
 
   scope 'market' do
     resources :listings do
+      resources :comments
       member do
         put "favorite", to: "listings#upvote"
       end
