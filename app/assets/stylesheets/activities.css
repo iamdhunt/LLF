@@ -361,3 +361,22 @@
 	color: #737373;
 	text-decoration: none;
 }
+.act_l_av {
+	text-align: center;
+	padding: 8px 0 3px 0;
+}
+.act_l_av img {
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	box-shadow: 0 0 0 5px #e5e5e5;
+	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
+}
+.act_l_pr {
+	text-align: center;
+	font-size: 1.05em;
+	color: #54b18c;
+	font-weight: bold;
+}

@@ -1,4 +1,4 @@
-<%= simple_form_for(@listing, :html => { class: 'form-horizontal ' }) do |f| %>
+<%= simple_form_for(@listing, :html => { class: 'form-horizontal', :multipart => true }) do |f| %>
   <%= f.error_notification %>
 
   <div class="rq">
@@ -40,19 +40,37 @@
     <div id="images" class="tab-pane">
 
       <fieldset>
-        <legend class="descriptors">Upload Some Images</legend>
+        <legend class="descriptors">Feature Image/Audio</legend>
           <div class="edit_instructions">
             <ul>
                 <li>
-                  &raquo; Recommended dimensions of 300x300
+                  &raquo; Recommended dimensions of 380x380
                 </li>
+                <li>
+                  &raquo; Maximum file size of 15MB (jpeg, png, gif, mp3)
+                </li>
+            </ul>
+          </div>
+          <%= f.input :feature, as: :file, label: 'Feature Image', error: false, input_html: { class: 'account settings pr_upload'} %>
+      </fieldset>
+
+      <fieldset>
+        <legend class="descriptors">Additional Images</legend>
+          <div class="edit_instructions">
+            <ul>
                 <li>
                   &raquo; Maximum file size of 10MB (jpeg, png, gif)
                 </li>
             </ul>
           </div>
-          <%= f.input :feature, as: :file, label: 'Feature Image', error: false, input_html: { class: 'account settings pr_upload'} %>
-          <%= f.input :image, as: :file, label: 'Additional Images', error: false, input_html: { class: 'account settings pr_upload'} %>
+
+          <div class="no_label">
+            <%= f.simple_fields_for :assets do |asset_fields| %>
+              <% if asset_fields.object.new_record? %>
+                <%= asset_fields.file_field :asset %>
+              <% end %>
+            <% end %>
+          </div>
       </fieldset>
 
     </div>
@@ -80,7 +98,7 @@
 
       <fieldset>
           <legend class="leg">Description</legend>
-          <%= f.input :description, label: 'Description', error: false, input_html: { cols: '53', rows: '5', class: 'forms settings auto', tabindex: '6', id: '' } %>
+          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '6', id: '' } %>
       </fieldset>
 
       <div class="form-actions">

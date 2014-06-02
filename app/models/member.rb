@@ -17,8 +17,8 @@ class Member < ActiveRecord::Base
                         length: {
                           maximum: 1, :tokenizer => lambda {|str| str.scan(/\w+/) },
                           message: 'must not be more than one name.',
-                          maximum: 15, 
-                          message: 'must not be more than 15 characters.'
+                          maximum: 25, 
+                          message: 'must not be more than 25 characters.'
                         }
 
   validates :last_name, presence: true,
@@ -29,8 +29,8 @@ class Member < ActiveRecord::Base
                         length: {
                           maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
                           message: 'must not be more than 2 names.',
-                          maximum: 20, 
-                          message: 'must not be more than 20 characters.'
+                          maximum: 25, 
+                          message: 'must not be more than 25 characters.'
                         }
 
   validates :user_name, presence: true,
@@ -69,8 +69,8 @@ class Member < ActiveRecord::Base
                     message: 'must be formatted correctly.'
                   },
                   length: {
-                    maximum: 20,
-                    message: 'must not be longer than 20 characters.'
+                    maximum: 25,
+                    message: 'must not be longer than 25 characters.'
                   } 
 
   validates :state, allow_blank: true,
@@ -79,8 +79,8 @@ class Member < ActiveRecord::Base
                       message: 'must be formatted correctly.'
                     },
                     length: {
-                      maximum: 12,
-                      message: 'must not be longer than 12 characters.'
+                      maximum: 25,
+                      message: 'must not be longer than 25 characters.'
                     } 
 
   validates :country, allow_blank: true,
@@ -89,8 +89,8 @@ class Member < ActiveRecord::Base
                         message: 'must be formatted correctly.'
                       },
                       length: {
-                        maximum: 20,
-                        message: 'must not be longer than 20 characters.'
+                        maximum: 25,
+                        message: 'must not be longer than 25 characters.'
                       }
 
   validates :facebook, allow_blank: true,
@@ -179,13 +179,14 @@ class Member < ActiveRecord::Base
   has_many :comments
   has_many :uploads
   has_many :updates
+  has_many :assets
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable
   acts_as_ordered_taggable_on :pursuits
   acts_as_voter
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", av: "200x200#", comment: "22x22#", comment2: "40x40#"}
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"}
 
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
 

@@ -4,4 +4,27 @@
 
 <div id="main_wrap">
 
+	<div id="sb_wrap">
+	    <div class="sb">
+	    </div>
+
+	    <div class="btags">
+	  	</div>
+	</div>
+
+	<div id="li_index">
+	    <%= render partial: 'listings' %>
+	</div>
+
+	  <%= will_paginate @listings, class: 'display_none' %>
+
+	  <% if @listings.total_pages != @listings.current_page %>
+	    <div id="loading"></div>
+	    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+	          <div class="com_show">
+	            Show More
+	          </div>
+	        <% end %>
+	 <% end %>
+
 </div>

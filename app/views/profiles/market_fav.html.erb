@@ -3,8 +3,8 @@
     <%= render :partial => "market_nav" %>
 
     <% if @listings.count > 0 %>
-        <div id="b_index">
-            <%= render :partial => "listings/listings" %>
+        <div id="li_index">
+            <%= render :partial => "listings" %>
         </div>         
         <% else %>
             <div class="none_message">

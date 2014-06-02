@@ -26,15 +26,15 @@ class Event < ActiveRecord::Base
     validate :each_marker
   	validates :name, presence: true,
   						length: {
-                          maximum: 60, 
-                          message: 'must not be more than 60 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
     validates :location, presence: true,
               length: {
-                          maximum: 40, 
-                          message: 'must not be more than 40 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }

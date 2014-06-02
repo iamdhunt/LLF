@@ -1,17 +1,7 @@
 <fieldset>
-  <legend class="descriptors top_leg">Update Your Name</legend>
-    <div class="edit_instructions">
-    <ul>
-      <li>
-        &raquo; 1 First Name Max
-      </li>
-      <li>
-        &raquo; 2 Last Names Max
-      </li>
-    </ul>
-  </div>
-  <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '15'} %>
-  <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '20', id: 'edit_last'} %>
+  <legend class="descriptors leg">Update Your Name</legend>
+  <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '25'} %>
+  <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '25', id: 'edit_last'} %>
 </fieldset>
 
 <fieldset>

@@ -61,6 +61,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+a img:hover {
+	opacity: 0.75;
+}
+
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
@@ -877,6 +881,11 @@ hr.contact {
 #right_profile {
 	width: 40%;
 	float: right;
+}
+.profile_name {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .profile_name a {
 	font-size: 1.8em;

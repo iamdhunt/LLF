@@ -5,10 +5,10 @@
       <div class="home_form">
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper_html => { :style => 'display: inline' }) do |f| %>
           <span>
-            <%= f.input :first_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms l_reg', tabindex: '1', maxlength: '15' } %>
+            <%= f.input :first_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'First Name', input_html:{ class: 'forms reg_forms l_reg', tabindex: '1', maxlength: '25' } %>
           </span>
           <span>
-            <%= f.input :last_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms r_reg', tabindex: '2', maxlength: '20' } %>
+            <%= f.input :last_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Last Name', input_html:{ class: 'forms reg_forms r_reg', tabindex: '2', maxlength: '25' } %>
           </span>
           <span>
             <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms l_reg', tabindex: '3', maxlength: '16' } %>

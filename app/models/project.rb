@@ -24,8 +24,8 @@ class Project < ActiveRecord::Base
     validate :each_marker
   	validates :title, presence: true,
   						length: {
-                          maximum: 60, 
-                          message: 'must not be more than 60 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
@@ -34,8 +34,8 @@ class Project < ActiveRecord::Base
                           with: /^[a-zA-Z ]+$/,
                           message: 'must be formatted correctly.'
                         },length: {
-                          maximum: 50, 
-                          message: 'must not be more than 50 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                         }
 
   	acts_as_votable

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140601032106) do
+ActiveRecord::Schema.define(:version => 20140602042638) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(:version => 20140601032106) do
 
   add_index "activities", ["member_id"], :name => "index_activities_on_member_id"
   add_index "activities", ["targetable_id", "targetable_type"], :name => "index_activities_on_targetable_id_and_targetable_type"
+
+  create_table "assets", :force => true do |t|
+    t.integer  "member_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "asset_file_name"
+    t.string   "asset_content_type"
+    t.integer  "asset_file_size"
+    t.datetime "asset_updated_at"
+  end
+
+  add_index "assets", ["listing_id"], :name => "index_assets_on_listing_id"
+  add_index "assets", ["member_id"], :name => "index_assets_on_member_id"
 
   create_table "brands", :force => true do |t|
     t.integer  "member_id"

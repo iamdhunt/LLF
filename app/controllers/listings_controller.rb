@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.order('created_at desc').page(params[:page]).per_page(52)
+    @listings = Listing.order('created_at desc').page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,6 +33,7 @@ class ListingsController < ApplicationController
   # GET /listings/new.json
   def new
     @listing = Listing.new
+    6.times { @listing.assets.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +43,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    
+    6.times { @listing.assets.build }
   end
 
   # POST /listings

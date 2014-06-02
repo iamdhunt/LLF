@@ -269,12 +269,17 @@ vertical-align: baseline;
 	padding: 5px 0;
 	border-top: 1px solid #dce1e6;
 }
+#pl_info .pl_t {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 #pl_info .pl_t a {
 	color: #444444;
 	font-weight: bold;
 }
 #pl_info .pl_t a:hover {
-	color: #c72835;
+	color: #737373;
 	text-decoration: none;
 }
 #pl_info .pl_ts a {

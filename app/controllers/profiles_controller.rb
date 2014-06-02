@@ -133,7 +133,7 @@ class ProfilesController < ApplicationController
   def projects
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @projects = @member.projects.paginate(page: params[:page], per_page: (24))
+      @projects = @member.projects.order("created_at desc").paginate(page: params[:page], per_page: (24))
       render action: :projects
     else 
       render file: 'public/404', status: 404, formats: [:html]

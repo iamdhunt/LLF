@@ -136,6 +136,9 @@ margin: 0 0 5px 15px;
 .e_loc {
 	text-align: center;
 	padding: 0 8px 3px 8px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .e_loc a {
 	font-size: .8em;
@@ -152,12 +155,17 @@ margin: 0 0 5px 15px;
 .e_loc > .active > a > [class*=" icon-blue"] {
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
+#pl_info .el_t {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 #pl_info .el_t a {
 	color: #444444;
 	font-weight: bold;
 }
 #pl_info .el_t a:hover {
-	color: #1b864d;
+	color: #737373;
 	text-decoration: none;
 }
 #edit_wrap .loc_in {

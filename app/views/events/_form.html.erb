@@ -9,8 +9,7 @@
     <div id="basics" class="tab-pane active">
       <fieldset>
         <legend class="leg">Name Your Event</legend>
-        <%= f.input :name, label: 'Name', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '60'} %>
-        <div class="p_tit_ct"><span class="p_ct_tit"></span> <span class="p_ct_text">characters remaining</span></div>
+        <%= f.input :name, label: 'Name', error: false, input_html: { class: 'forms settings t_in', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100'} %>
       </fieldset>
 
       <fieldset>
@@ -100,8 +99,7 @@
             </li>
           </ul>
         </div>
-        <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms loc_in', tabindex: '4', id: 'e_loc_in', maxlength: '30' } %>
-        <div class="e_loc_ct"><span class="e_ct_loc"></span> <span class="e_ct_text">characters remaining</span></div>
+        <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings loc_in', tabindex: '4', id: '', maxlength: '100' } %>
         <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '5', maxlength: '50' } %>
         <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '6', maxlength: '50' } %>
         <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '7', maxlength: '50' } %>
