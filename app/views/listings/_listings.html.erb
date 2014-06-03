@@ -1,5 +1,19 @@
 <% @listings.each do |listing| %>
-	<div id="pdl_wrap">
+
+	<% if listing.category == "Women's" %>
+		<div id="pdl_wrap" class="women_fil">
+	<% elsif listing.category == "Men's" %>
+		<div id="pdl_wrap" class="men_fil">
+	<% elsif listing.category == 'Art' %>
+		<div id="pdl_wrap" class="art_fil">
+	<% elsif listing.category == 'Music' %>
+		<div id="pdl_wrap" class="music_fil">
+	<% elsif listing.category == 'Design' %>
+		<div id="pdl_wrap" class="design_fil">
+	<% elsif listing.category == 'Services' %>
+		<div id="pdl_wrap" class="services_fil">
+	<% end %>
+	
 		<div id="">
 			<div class="pdl_img">
 				<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
@@ -57,4 +71,5 @@
 		</div>
 
 	</div>
+
 <% end %>

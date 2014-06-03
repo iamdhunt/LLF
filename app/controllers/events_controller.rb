@@ -23,7 +23,7 @@ class EventsController < ApplicationController
       end 
       facet(:event_month)
       with(:event_month, params[:month]) if params[:month].present?
-      facet(:marker_list, :limit => 25, :sort => :count)
+      facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
     @query = params[:search]

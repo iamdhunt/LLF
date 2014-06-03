@@ -1,0 +1,9 @@
+<% @additional.each do |listing| %>
+
+	<span class="pds_img">
+		<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+			<%= link_to image_tag(listing.feature.url(:additional)), listing_path(listing), title: listing.title, alt: listing.title %>
+		<% end %>
+	</span>
+
+<% end %>

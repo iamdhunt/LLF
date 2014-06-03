@@ -6,11 +6,17 @@
 
     <div id="mk_wrap">
         <div id="ap_l_head" class="mk_head" >
-            <%= link_to "LLF Apparel", "#" %>
+            <%= link_to "LLF Apparel", profile_market_path(Member.find(1)) %>
+        </div>
+
+        <div id="li_index">
+            <div id="llf_lstgs">
+                <%= render partial: 'listings/llf_listings' %>
+            </div>
         </div>
 
         <div id="ap_l_head" class="mk_all">
-            <%= link_to("#", class: "") do %>
+            <%= link_to(profile_market_path(Member.find(1)), class: "") do %>
                 View All &raquo;
             <% end %>
         </div>
@@ -20,7 +26,9 @@
         </div>
 
         <div id="li_index">
-            <%= render partial: 'listings/listings' %>
+            <div id="lstgs">
+                <%= render partial: 'listings/listings' %>
+            </div>
         </div>
 
         <div id="mkl_head" class="mk_all">

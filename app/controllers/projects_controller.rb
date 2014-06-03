@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
     @projects = Project.order('created_at desc').where(:created_at => 3.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(54) 
     @search = Project.search do
       fulltext params[:search]
-      facet(:marker_list, :limit => 25, :sort => :count)
+      facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
     @query = params[:search]

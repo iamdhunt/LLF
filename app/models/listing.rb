@@ -31,7 +31,7 @@ class Listing < ActiveRecord::Base
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
 
-  	has_attached_file :feature, styles: { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#" }
+  	has_attached_file :feature, styles: { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", additional: "100x100#" }
   	has_attached_file :image, styles: { list: "100x100#" }
 
  	  validates_attachment_size :feature, :less_than_or_equal_to=>10.megabyte
@@ -47,6 +47,12 @@ class Listing < ActiveRecord::Base
     has_many :assets
 
     accepts_nested_attributes_for :assets, :allow_destroy => true
+
+    searchable :auto_index => true, :auto_remove => true do
+      text :title, :boost => 5
+      text :marker_list, :boost => 2
+      string :marker_list, :multiple => true, :stored => true
+    end
 
   	private
 

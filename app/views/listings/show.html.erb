@@ -78,9 +78,20 @@
           <%= link_to "Buy Now", @listing.link, class: 'btn btn-large btn-buy' %>
         </div>
 
-        <div>
+        <div class="desc">
           <%= @listing.description %>
         </div>
+
+        <% if @additional.count > 0 %>
+          <div class="additional">
+            More from <span class="u_name"><%= link_to @listing.member.user_name, profile_market_path(@listing.member) %></span>
+          </div>
+
+          <div id="adt_lstgs">
+              <%= render partial: 'additional' %>
+          </div>
+        <% end %>
+        
       </div>
 
       <div style="clear:both;"></div>

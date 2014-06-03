@@ -855,8 +855,8 @@ hr.contact {
 }
 
 #left_profile img {
-	-webkit-border-radius: 100px;
-	border-radius: 100px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
 	max-width: 190px;
 	max-height: 190px;
 }
@@ -882,11 +882,7 @@ hr.contact {
 	width: 40%;
 	float: right;
 }
-.profile_name {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
+
 .profile_name a {
 	font-size: 1.8em;
 	color: #fff;
@@ -1446,8 +1442,8 @@ hr.contact {
 	margin-left: 8px;
 	width: 35px;
 	height: 35px;
-	-webkit-border-radius: 30px; /* Saf3+, Chrome */
-	border-radius: 30px; /* Opera 10.5, IE 9 */
+	-webkit-border-radius: 100%; /* Saf3+, Chrome */
+	border-radius: 100%; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
 .scrollup{

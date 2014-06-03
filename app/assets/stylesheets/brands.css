@@ -238,6 +238,11 @@ margin: 0 0 30px 170px;
 	text-align: center;
 	padding-top: 40px;
 }
+.sb_text {
+	color: #444;
+	font-size: 1.2em;
+	padding-bottom: 4px;
+}
 .btags {
 	padding-top: 10px;
 }
