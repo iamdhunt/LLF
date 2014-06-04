@@ -455,7 +455,7 @@
 
 	left: 0px;
 
-	background: url('/assets/left-flc-w.png') no-repeat right center;
+	background: url('/assets/left-flc-w') no-repeat right center;
 
 	width: 20%;
 
@@ -475,7 +475,7 @@
 
 	z-index: 1;
 
-	background: url('/assets/right-flc-w.png') no-repeat right center;
+	background: url('/assets/right-flc-w') no-repeat right center;
 
 	width: 20%;
 

@@ -35,12 +35,6 @@ LLF::Application.routes.draw do
     end
   end 
 
-  resources :brands do
-    member do
-        put "favorite", to: "listings#upvote"
-      end
-    end
-
   resources :activities, only: [:index, :destroy] 
 
   resources :activities do
