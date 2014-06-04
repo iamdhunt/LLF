@@ -55,7 +55,7 @@
         </div>
 
         <div id="prs">
-            <% if @facet == nil && @tag_facet == nil && @query == nil %>
+            <% if @facet == nil && @query == nil %>
                 <%= render partial: 'projects' %>
             <% else %>
                 <%= render partial: 'search_projects' %>

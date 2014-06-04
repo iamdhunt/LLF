@@ -113,7 +113,7 @@
           </ul>
         </div>
         <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: 'Category', error: false, input_html: { class: 'forms settings', tabindex: '2' } %>
-        <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms settings auto', tabindex: '3'} %>
+        <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms settings auto', tabindex: '3', autocomplete: 'off'} %>
       </fieldset>
 
       <fieldset>

@@ -54,7 +54,7 @@
             </ul>
           </div>
           <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports', 'Other'], label: 'Category', error: false, input_html: { class: 'forms account settings', tabindex: '2' } %>
-          <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3'} %>
+          <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3', autocomplete: 'off'} %>
         </fieldset>
 
         <fieldset>

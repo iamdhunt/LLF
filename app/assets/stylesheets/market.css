@@ -1,24 +1,32 @@
 #mk_wrap {
-	padding: 40px 0 0 0;
+	padding: 40px 0 40px 0;
 }
 .mk_head a {
 	font-size: 5.2em;
-	color: #444;
 	text-shadow: 2px 1px 0px #fff, 7px 6px 0px rgba(0,0,0,0.15);
 }
 .mk_head {
 	padding: 10px 15px;
 }
-#ap_l_head a:hover {
+#ap_l_head a {
 	color: #942fc6;
+}
+#ap_l_head a:hover {
+	color: #444;
 	text-decoration: none;
 }
 #br_head a:hover {
 	color: #E63B42;
 	text-decoration: none;
 }
-#mkl_head a:hover {
+#mkl_head {
+	margin-top: 80px;
+}
+#mkl_head a {
 	color: #1b85a6;
+}
+#mkl_head a:hover {
+	color: #44;
 	text-decoration: none;
 }
 .mk_all {
