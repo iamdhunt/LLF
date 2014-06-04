@@ -5,7 +5,7 @@
 <div id="main_wrap">
 
 	<div id="sb_wrap">
-		<% if @facet == nil && @query == nil && @price_facet == nil %>
+		<% if @facet == nil && @query == nil %>
             <div id="bc_wrap">
     			<div class="breadcrumbs">
     				<span><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
@@ -75,7 +75,7 @@
         </div>
 
         <div id="lstgs">
-			<% if @facet == nil && @query == nil && @price_facet == nil %>
+			<% if @facet == nil && @query == nil %>
 		      <%= render partial: 'listings' %>
 		    <% else %>
 		        <%= render partial: 'search_listings' %>

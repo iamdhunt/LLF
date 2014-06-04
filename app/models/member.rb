@@ -169,17 +169,17 @@ class Member < ActiveRecord::Base
   before_save :titleize, :to_lower
   before_create :titleize, :to_lower
 
-  has_many :medium
-  has_many :projects
-  has_many :events
-  has_many :statuses
-  has_many :activities
-  has_many :brands
-  has_many :listings
-  has_many :comments
-  has_many :uploads
-  has_many :updates
-  has_many :assets
+  has_many :medium, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  has_many :events, :dependent => :destroy
+  has_many :statuses, :dependent => :destroy
+  has_many :activities, :dependent => :destroy
+  has_many :brands, :dependent => :destroy
+  has_many :listings, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :uploads, :dependent => :destroy
+  has_many :updates, :dependent => :destroy
+  has_many :assets, :dependent => :destroy
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable

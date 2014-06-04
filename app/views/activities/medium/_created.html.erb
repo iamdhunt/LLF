@@ -20,11 +20,15 @@
 
 	<% if activity.targetable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
-        <div id='med_art_act' style="background-image: url('/assets/Default Audio 1.png')">
-          <div class="ui360 ui360-vis">
-            <%= link_to '', activity.targetable.asset.url %>
-          </div>
-        </div>
+      	<% if activity.targetable.cover? %>
+          	<div id='med_art_act' style="background-image: url(<%= activity.targetable.cover.url(:activity) %>)">
+        <% else %>
+	        <div id='med_art_act' style="background-image: url('/assets/Default Audio 1.png')">
+	    <% end %>
+	          <div class="ui360 ui360-vis">
+	            <%= link_to '', activity.targetable.asset.url %>
+	          </div>
+	        </div>
       </div>
     <% end %>
 

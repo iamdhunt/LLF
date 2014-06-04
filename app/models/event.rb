@@ -87,9 +87,9 @@ class Event < ActiveRecord::Base
     acts_as_followable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
-    has_many :comments, as: :commentable
-    has_many :uploads, as: :uploadable
-    has_many :updates, as: :updateable
+    has_many :comments, as: :commentable, :dependent => :destroy
+    has_many :uploads, as: :uploadable, :dependent => :destroy
+    has_many :updates, as: :updateable, :dependent => :destroy
 
     before_validation :clean_up_markers
 

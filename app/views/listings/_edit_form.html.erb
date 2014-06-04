@@ -28,7 +28,7 @@
               <div class="edit_instructions">
                 <ul>
                     <li>
-                      &raquo; Paste or type the full external url to the listing
+                      &raquo; Paste or type the full external url to the listing (i.e. http://livinglifefearless.com/store)
                     </li>
                 </ul>
               </div>
@@ -51,9 +51,10 @@
                 </li>
             </ul>
           </div>
-          <%= f.input :feature, as: :file, label: 'Feature Image', error: false, input_html: { class: 'account settings pr_upload'} %>
+          <%= f.input :feature, as: :file, label: 'Feature Image/Audio', error: false, input_html: { class: 'account settings pr_upload'} %>
+          <%= f.input :cover, as: :file, label: 'Audio Cover Art', error: false, input_html: { class: 'account settings pr_upload'} %>
           <div class="edit_av_pd">
-            <% if f.object.feature? %>
+            <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
               <%= image_tag f.object.feature.url(:av) %>
             <% end %>
           </div>

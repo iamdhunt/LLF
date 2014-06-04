@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140602042638) do
+ActiveRecord::Schema.define(:version => 20140604224117) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -143,6 +143,10 @@ ActiveRecord::Schema.define(:version => 20140602042638) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "markers"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "listings", ["member_id"], :name => "index_listings_on_member_id"
@@ -156,6 +160,10 @@ ActiveRecord::Schema.define(:version => 20140602042638) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"
@@ -283,6 +291,10 @@ ActiveRecord::Schema.define(:version => 20140602042638) do
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
     t.text     "caption"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "uploads", ["member_id"], :name => "index_uploads_on_member_id"

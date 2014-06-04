@@ -1,7 +1,7 @@
 class Listing < ActiveRecord::Base
   	belongs_to :member
 
-  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes
+  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover
 
   	validates :title, presence: true
   	validates :link, presence: true
@@ -32,6 +32,7 @@ class Listing < ActiveRecord::Base
     before_validation :strip_commas_from_price
 
   	has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", additional: "100x100#" } : {} }
+    has_attached_file :cover, styles: { cover: "230x230#", small: "100x100#" }
 
  	  validates_attachment_size :feature, :less_than_or_equal_to=>15.megabyte
   	validates_attachment_content_type :feature, 
@@ -39,11 +40,14 @@ class Listing < ActiveRecord::Base
                                             'audio/mp3', 'audio/mpeg', 'audio/mpeg3', 'audio/mpg',
                                             'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']                       
 
+    validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
+    validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+
   	acts_as_votable
   	acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
-  	has_many :comments, as: :commentable
-    has_many :assets
+  	has_many :comments, as: :commentable, :dependent => :destroy
+    has_many :assets, :dependent => :destroy
 
     accepts_nested_attributes_for :assets, :allow_destroy => true
 

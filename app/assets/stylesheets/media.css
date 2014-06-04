@@ -159,3 +159,7 @@ top: 25%;
 #act_btn_wrap:hover .ad {
 	display: inline;
 }
+.cover_art {
+	margin-top: 6px;
+	font-style: oblique;
+}

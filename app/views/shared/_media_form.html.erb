@@ -4,6 +4,8 @@
   <div class="form-inputs">
     <%= f.input :asset, label: false, error: false, as: :file %>
     <%= bootstrap_paperclip_uploads f, :asset %>
+    <div class="cover_art">(Optional) Audio Cover Art</div>
+    <%= f.input :cover, label: false, error: false, as: :file %>
     <div class="cap">
     	<span id="cap_count"></span> <span class="cap_remain">characters remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 

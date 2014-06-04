@@ -54,16 +54,9 @@ $(document).ready(function() {
 
 	$mkcon.imagesLoaded(function(){
 	  $mkcon.isotope({
-	    masonry: {
-		    columnWidth: 241
-		  },
-		  onLayout: function($elems, instance) {
-		      // Add exponential z-index for dropdown cropping
-		      $elems.each(function(e){
-		      $(this).css({ zIndex: ($elems.length - e) });
-		    });
-		  },
-		  itemSelector: '#pdl_wrap',
+	   itemSelector: '#pdl_wrap',
+		  layoutMode : 'fitRows',
+		  gutter: 10
 	  });
 
 	});
