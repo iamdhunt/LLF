@@ -27,12 +27,6 @@
 	      <%= render :partial => "search" %>
 	    </div>
 
-        <div class="elocs">             
-            <% for row in @search.facet(:price).rows %>
-                <span class="li_price"><%= link_to row.value, :price => row.value %></span>
-            <% end %>           
-        </div>
-
 	    <div class="btags">
 	      <% for row in @search.facet(:marker_list).rows %>
 	          <span class="btag"><%= link_to row.value, :tag => row.value %></span>
