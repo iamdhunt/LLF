@@ -70,8 +70,9 @@ class Project < ActiveRecord::Base
 
     searchable :auto_index => true, :auto_remove => true do
       text :title, :boost => 5
-      text :marker_list, :boost => 2
-      text :city
+      text :marker_list, :boost => 3
+      text :city, :boost => 2
+      text :category
       string :marker_list, :multiple => true, :stored => true
     end
 

@@ -34,9 +34,21 @@
 		<%= activity.targetable.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :search => m }.join(' ').html_safe %>
 	</div>
 
-	<div class="act_l_av">
-	    <%= link_to image_tag(activity.targetable.feature.url(:index)), activity.targetable, title: activity.targetable.title, alt: activity.targetable.title %>
-	</div>
+	<% if activity.targetable.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+		<div class="act_l_av">
+	    	<%= link_to image_tag(activity.targetable.feature.url(:index)), activity.targetable, title: activity.targetable.title, alt: activity.targetable.title %>
+	    </div>
+    <% end %>
+
+    <% if activity.targetable.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+    	<div style="padding:8px 0 3px 11% ;" >
+	        <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
+	          <div class="ui360 ui360-vis lstgs">
+	            <%= link_to '', activity.targetable.feature.url %>
+	          </div>
+	        </div>
+	    </div>
+    <% end %>
 
 	<% if member_signed_in? %> 
 		<div id="act_btn_wrap">

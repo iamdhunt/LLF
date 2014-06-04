@@ -14,6 +14,9 @@
 #pd_top {
 	padding: 20px 0;
 }
+.pd_info_wrap {
+	padding-top: 15px; 
+}
 .pd_cat {
 	margin-bottom: 8px;
 }
@@ -169,7 +172,7 @@ font-weight: normal;
 }
 #pdl_wrap {
 	width: 230px;
-	margin-bottom: 30px;
+	margin: 0 11px 20px 0;
 }
 .pdl_img img {
 	-webkit-border-radius: 100%;
@@ -270,14 +273,19 @@ font-weight: normal;
 .rm_img {
 	vertical-align: bottom;
 }
-.back_link {
+#bc_wrap {
 	text-align: left;
-	font-size: 1.2em;
 }
-.back_link a {
+.breadcrumbs {
+	background: #ebebeb;
+	color: #898989;
 	font-weight: bold;
+	padding: 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block;
 }
-.back_link a:hover {
+.breadcrumbs a:hover {
 	text-decoration: none;
 	color: #898989;
 }
@@ -375,4 +383,48 @@ label.active {
 }
 #listings_filters .services_filter label:hover {
 	opacity: .7;
+}
+#lstgs_art {
+	width: 230px;
+	height: 230px;
+	background-size: cover;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	box-shadow: 0 0 0 5px #e5e5e5;
+	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
+}
+#lstgs_act {
+	width: 230px;
+	height: 230px;
+	background-size: cover;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	background-clip: padding-box;
+	box-shadow: 0 0 0 5px #e5e5e5;
+	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
+}
+.li_price a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(84, 177, 140);
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 200%;
+}
+.li_price a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(84, 177, 140);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(84, 177, 140, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
 }

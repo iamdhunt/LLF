@@ -12,9 +12,25 @@ class ListingsController < ApplicationController
       fulltext params[:search]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
+      facet(:price) do
+        row("$0 - $25") do
+          with(:price, 0.00..25.00)
+        end
+        row("$25 - $75") do
+          with(:price, 25.01..75.00)
+        end
+        row("$75 - $250") do
+          with(:price, 75.01..250.00)
+        end
+        row("$250+") do
+          with(:price).greater_than(250.00)
+        end
+      end
+      with(:price, params[:price]) if params[:price].present?
     end
     @query = params[:search]
     @facet = params[:tag]
+    @price_facet = params[:price]
     @results = @search.results
 
     respond_to do |format|

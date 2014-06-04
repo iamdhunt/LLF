@@ -4,6 +4,10 @@
 		<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
 			<%= link_to image_tag(listing.feature.url(:additional)), listing_path(listing), title: listing.title, alt: listing.title %>
 		<% end %>
+
+		<% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+               <%= link_to image_tag('Listing Audio More.png'), listing_path(listing) %>
+        <% end %>
 	</span>
 
 <% end %>

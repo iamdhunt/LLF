@@ -5,12 +5,18 @@
 <div id="main_wrap">
 
 	<div id="sb_wrap">
-		<% unless @facet == nil && @query == nil %>
-			<div class="back_link">
-				<%= link_to listings_path do %>
-					&laquo; Back to Listings
-				<% end %>
-			</div>
+		<% if @facet == nil && @query == nil && @price_facet == nil %>
+            <div id="bc_wrap">
+    			<div class="breadcrumbs">
+    				<span><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
+    			</div>
+            </div>
+        <% else %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span><%= link_to "Market", market_path %></span> &raquo; <span><%= link_to "Listings", listings_path %></span> &raquo; <span>Search</span>
+                </div>
+            </div>
 		<% end %>
 
         <div class="sb_text">
@@ -20,6 +26,12 @@
 	    <div class="sb">
 	      <%= render :partial => "search" %>
 	    </div>
+
+        <div class="elocs">             
+            <% for row in @search.facet(:price).rows %>
+                <span class="li_price"><%= link_to row.value, :price => row.value %></span>
+            <% end %>           
+        </div>
 
 	    <div class="btags">
 	      <% for row in @search.facet(:marker_list).rows %>
@@ -69,7 +81,7 @@
         </div>
 
         <div id="lstgs">
-			<% if @facet == nil && @query == nil %>
+			<% if @facet == nil && @query == nil && @price_facet == nil %>
 		      <%= render partial: 'listings' %>
 		    <% else %>
 		        <%= render partial: 'search_listings' %>

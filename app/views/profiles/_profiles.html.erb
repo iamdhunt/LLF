@@ -27,7 +27,7 @@
                         <p><span class="ftext">Following</span></p>
                     <% end %>
                     <%= link_to(profile_followers_path(@member)) do %>
-                        <span class="fcount"><%= @member.followers_count %></span>
+                        <span id="follows_count" class="fcount"><%= @member.followers_count %></span>
                         <p><span class="ftext">Followers</span></p>
                     <% end %>
                 </div>

@@ -1,7 +1,7 @@
 class Listing < ActiveRecord::Base
   	belongs_to :member
 
-  	attr_accessible :category, :description, :price, :title, :link, :feature, :image, :markers, :marker_list, :assets_attributes
+  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes
 
   	validates :title, presence: true
   	validates :link, presence: true
@@ -31,14 +31,13 @@ class Listing < ActiveRecord::Base
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
 
-  	has_attached_file :feature, styles: { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", additional: "100x100#" }
-  	has_attached_file :image, styles: { list: "100x100#" }
+  	has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", additional: "100x100#" } : {} }
 
- 	  validates_attachment_size :feature, :less_than_or_equal_to=>10.megabyte
-  	validates_attachment_content_type :feature, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
-
-  	validates_attachment_size :image, :less_than_or_equal_to=>10.megabyte
-  	validates_attachment_content_type :image, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']                       
+ 	  validates_attachment_size :feature, :less_than_or_equal_to=>15.megabyte
+  	validates_attachment_content_type :feature, 
+                                      :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 
+                                            'audio/mp3', 'audio/mpeg', 'audio/mpeg3', 'audio/mpg',
+                                            'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']                       
 
   	acts_as_votable
   	acts_as_ordered_taggable
@@ -51,7 +50,9 @@ class Listing < ActiveRecord::Base
     searchable :auto_index => true, :auto_remove => true do
       text :title, :boost => 5
       text :marker_list, :boost => 2
+      text :category
       string :marker_list, :multiple => true, :stored => true
+      float :price
     end
 
   	private

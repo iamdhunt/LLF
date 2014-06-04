@@ -10,12 +10,20 @@
 
     <div id="pd_top">
 
-      <div class="pd_cat">
-        <%= link_to @listing.category, :controller => "listings", :action => "index", :search => @listing.category %>
+      <div id="bc_wrap">
+        <div class="breadcrumbs">
+          <span><%= link_to "Market", market_path %></span> &raquo; <span><%= link_to "Listings", listings_path %></span> &raquo; <span><%= @listing.title %></span>
+        </div>
       </div>
 
-      <div class="pd_mk">
-        <%= @listing.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :search => m }.join(' ').html_safe %>
+      <div class="pd_info_wrap">
+        <div class="pd_cat">
+          <%= link_to @listing.category, :controller => "listings", :action => "index", :search => @listing.category %>
+        </div>
+
+        <div class="pd_mk">
+          <%= @listing.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :search => m }.join(' ').html_safe %>
+        </div>
       </div>
 
     </div>
@@ -29,13 +37,23 @@
           </div>
         <% end %>
 
-          <div class="img_wrap">
-            <% @listing.assets.each do | asset | %>
-              <span class="imgs">
-                  <%= link_to image_tag(asset.asset(:thumb)), asset.asset.url(:large), class: "fancybox", rel: 'product_gall' %>
-              </span>
-            <% end %>
+        <% if @listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+          <div class="feature act_media_content">
+            <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
+              <div class="ui360 ui360-vis lstgs">
+                <%= link_to '', @listing.feature.url %>
+              </div>
+            </div>
           </div>
+        <% end %>
+
+        <div class="img_wrap">
+          <% @listing.assets.each do | asset | %>
+            <span class="imgs">
+                <%= link_to image_tag(asset.asset(:thumb)), asset.asset.url(:large), class: "fancybox", rel: 'product_gall' %>
+            </span>
+          <% end %>
+        </div>
       </div>
 
       <div class="pd_right">
