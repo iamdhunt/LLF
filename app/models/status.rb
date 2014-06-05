@@ -7,7 +7,12 @@ class Status < ActiveRecord::Base
   accepts_nested_attributes_for :document
 
   validates :content, presence: true,
-  			length: { minimum: 2, maximum: 280 }
+  			length: { 
+  				minimum: 2,
+  				message: 'must be longer than 2 characters.', 
+  				maximum: 280,
+  				message: 'must not be more than 280 characters.' 
+  			}
 
   validates :member_id, presence: true
 

@@ -1,5 +1,15 @@
 <%= simple_form_for(@event, :html => { class: 'form-horizontal ' }) do |f| %>
-  <%= f.error_notification %>
+  <% if @event.errors.any? %>
+    <%= f.error_notification %>
+
+    <div id="error_list">
+      <ul>
+        <% @event.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="rq">
     * = required field

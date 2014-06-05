@@ -53,7 +53,7 @@ class Member < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: 'must be formatted correctly.'
+                              message: 'must be formatted correctly. Only letters.'
                             }
   validate :each_pursuit
 

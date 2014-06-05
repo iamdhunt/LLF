@@ -7,11 +7,11 @@ $(document).ready(function(){
 		}
 	});
 
-	$('input:text').focus(function () {
+	$('#search').focus(function () {
 	    $(this).select();
 	})
 
-	$('input:text').mouseup(function (e) {
+	$('#search').mouseup(function (e) {
 	    e.preventDefault();
 	});
 

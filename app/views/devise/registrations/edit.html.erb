@@ -18,26 +18,26 @@
 
   <div id="edit_wrap">
 
-    <div class="rq">
-      * = required field
-    </div>
-
     <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put,  class: 'form-horizontal ' }) do |f| %>
         <%= devise_error_messages! %>
 
-        <div class="tab-content">
-          <div id="avatar" class="tab-pane">
-            <%= render :partial => 'avatar', :locals => {:f => f} %>
-          </div>
+      <div class="rq">
+        * = required field
+      </div>
 
-          <div id="edit" class="tab-pane active">
-            <%= render :partial => 'edit', :locals => {:f => f} %>
-          </div>
-
-          <div id="settings" class="tab-pane">
-            <%= render :partial => 'settings', :locals => {:f => f} %>
-          </div>
+      <div class="tab-content">
+        <div id="avatar" class="tab-pane">
+          <%= render :partial => 'avatar', :locals => {:f => f} %>
         </div>
+
+        <div id="edit" class="tab-pane active">
+          <%= render :partial => 'edit', :locals => {:f => f} %>
+        </div>
+
+        <div id="settings" class="tab-pane">
+          <%= render :partial => 'settings', :locals => {:f => f} %>
+        </div>
+      </div>
 
     <% end %>
 

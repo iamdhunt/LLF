@@ -14,7 +14,7 @@ class Medium < ActiveRecord::Base
 										'audio/mp3', 'audio/mpeg', 'audio/mpeg3', 'audio/mpg',
 										'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']
 
-	validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
+	  validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
   	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] 
 	
 end
