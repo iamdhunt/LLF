@@ -109,9 +109,8 @@ class Event < ActiveRecord::Base
 	    image
 	    youtube(:width => 660, :height => 400, :autoplay => false)
 	    vimeo(:width => 660, :height => 400, :autoplay => false)
-	    link :target => "_blank", :rel => "nofollow"
 	    simple_format
-	end
+	  end
 
   searchable :auto_index => true, :auto_remove => true do
     text :name, :boost => 5

@@ -16,6 +16,13 @@ class Status < ActiveRecord::Base
 
   validates :member_id, presence: true
 
+  auto_html_for :content do
+      html_escape
+      youtube(:width => 305, :height => 250, :autoplay => false)
+      vimeo(:width => 305, :height => 250, :autoplay => false)
+      simple_format
+  end
+
   private
 
 end

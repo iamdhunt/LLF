@@ -24,6 +24,7 @@
 	width: 314px;
 	position: relative;
 	margin-bottom: 10px;
+	overflow: hidden;
 }
 .list_act_wrap .ad {
 	float: right;

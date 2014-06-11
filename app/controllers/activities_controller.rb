@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    @status = @activity.targetable
 		if @activity.targetable_type == 'Status'	
 			@status.destroy
 		end
