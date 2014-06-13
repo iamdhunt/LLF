@@ -22,8 +22,7 @@ gem "swf_fu", "~> 2.0"
 gem 'delayed_job_active_record'
 gem 'auto_html'
 gem 'redactor-rails'
-
-
+gem 'mailboxer'
 
 group :development, :test do
 	gem 'shoulda'

@@ -1,0 +1,19 @@
+<%= simple_form_for :conversation, url: :conversations do |f| %>
+	<div id="new_conv_wrap">
+		<div class="conv_in">
+			<div class="conv_fl">Participant Usernames</div>
+		  	<%= f.input :recipients, error: false, label: false, input_html: { class: 'forms', rows: '1' } %>
+		</div>
+		<div class="conv_in">
+			<div class="conv_fl">Subject</div>
+		  	<%= f.input :subject, error: false, label: false, input_html: { class: 'forms', rows: '1', maxlength: '100' } %>
+		</div>
+		<div class="conv_in">
+			<div class="conv_fl">Message</div>
+			<%= f.input :body, error: false, label: false, input_html: { class: 'forms', rows: '1' } %>
+		</div>
+	    <div class="">
+	    	<%= f.submit "Start Conversation", class: 'btn btn-success' %>
+	    </div>
+	</div>
+<% end %>

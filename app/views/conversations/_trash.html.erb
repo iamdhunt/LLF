@@ -1,0 +1,35 @@
+<% @trash.each do |conversation| %>
+
+	<% if conversation.is_unread?(current_member) %>
+		<div id="conv_wrap2">
+	<% else %>
+		<div id="conv_wrap">
+	<% end %>
+		    <div class="conv_subj">
+		  		<%= conversation.subject %>
+		    </div>
+
+		    <div> 
+			    <% conversation.recipients.each do |recipient| %>
+				    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
+				<% end %>
+		  	</div>
+
+		  	<div class="conv_body">
+			    <%= conversation.last_message.body %>
+		  	</div>
+
+		    <div class="conv_time">
+		  		<%= conversation.updated_at.localtime.strftime("%a, %m/%e %I:%M%P") %>
+		    </div>
+
+		    <div class="conv_actions">
+		    	<span class="c_actions">
+		    		<%= link_to({:controller => "conversations", :action => "untrash", :id => conversation.id}, :title=> "Untrash", :method=>'post') do %>
+		    			<i class="icon-refresh icon-grey"></i> Untrash
+		    		<% end %>
+		    	</span>
+		    </div>
+		</div>
+
+<% end %>

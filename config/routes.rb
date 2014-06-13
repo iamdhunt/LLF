@@ -74,6 +74,22 @@ LLF::Application.routes.draw do
   devise_for :members, :controllers => { :registrations => "registrations" }
   devise_for :members, skip: [:sessions]
 
+  resources :messages do
+    member do
+      post :new
+    end
+  end
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+    collection do
+      post :empty_trash
+    end
+  end
+
   as :member do
      get '/sign_in' => 'devise/sessions#new', as: :new_member_session
      post '/sign_in' => 'devise/sessions#create', as: :member_session

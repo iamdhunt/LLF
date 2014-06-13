@@ -1,0 +1,50 @@
+<% title conversation.subject  %>
+
+<div id="main_wrap">
+
+	<div class="convos_wrap">
+		<div class="breadcrumbs">
+			<span><%= link_to "Conversations", conversations_path %></span> &raquo; <span><%= conversation.subject %></span>
+		</div>
+
+		<div class="conv_header">
+			<span class="conv_tit">
+				<%= conversation.subject %>
+			</span>
+			<span class="delete">
+				<%= link_to({:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post') do %> 
+					<i class="icon-trash icon-grey"></i> Move to Trash
+				<% end %>
+			</span>
+		</div>
+
+		<div class="conv_pts">
+			 <% conversation.recipients.each do |recipient| %>
+			    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
+			<% end %>
+		</div>
+
+		<div>
+			<%= content_tag_for(:div, conversation.receipts_for(current_member), class: "mess_wrap") do |receipt| %>
+				<% message = receipt.message %>
+					<span class="comment_av">
+						<%= list_av message.sender, :class => "pr_av", title: message.sender.full_name, alt: message.sender.full_name  %>
+					</span>
+					<span>
+						<div class="comment_name"> 
+							<%= link_to message.sender.user_name, profile_path(message.sender) %>
+						</div>	
+						<div class="com_con">
+							<%= simple_format(message.body) %>
+							<span class="meta"><%= message.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %></span>
+						</div>
+					</span>		 
+			<% end %>
+		</div>
+
+		<div class="reply_wrap">
+			<%= render 'messages/form', conversation: conversation %>
+		</div>
+	</div>
+
+</div>
