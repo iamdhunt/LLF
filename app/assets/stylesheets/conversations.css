@@ -31,7 +31,7 @@
 	background-color: transparent;
 }
 #conv_wrap2 {
-	background-color: #f8f8f8;
+	background-color: #f6f6f6;
 	border-bottom: 2px dashed #e5e5e5;
 	padding: 10px 15px;
 }
@@ -54,6 +54,10 @@
 .conv_body {
 	font-size: 1.05em;
 	padding: 5px 0;
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 .conv_time {
 	color: #737373;
@@ -94,14 +98,15 @@
 	padding: 3px 0;
 }
 .conv_fl {
-	color: #444444;
+	color: #737373;
+	font-weight: bold;
 }
 .convos_wrap .modal-body {
 	max-height: 500px;
 	overflow: auto;
 }
 .conv_header {
-	padding: 12px 5px;
+	padding: 12px 5px 5px 5px;
 	color: #474747;
 }
 .conv_tit {
@@ -122,10 +127,7 @@
 	text-decoration: none;
 }
 .conv_pts {
-	padding: 10px 5px;
-	background-color: #f0f0f0;
-	border-radius: 10px;
-	-webkit-border-radius: 10px;
+	padding: 0 5px;
 }
 .mess_wrap {
 	border-bottom: 2px dashed #e5e5e5;
@@ -141,6 +143,17 @@
 .mess_wrap .comment_name a:hover {
 	color: #898989;
 }
+.mess_wrap .comment_name2 {
+	padding: 0 0 0 50px;
+}
+.mess_wrap .comment_name2 a {
+	font-size: 1em;
+	font-weight: bold;
+}
+.mess_wrap .comment_name2 a:hover {
+	color: #898989;
+	text-decoration: none;
+}
 .mess_wrap .com_con {
 	padding: 0 0 0 50px;
 	font-size: 1.1em;
@@ -153,10 +166,10 @@
 	color: #898989;
 	font-style: oblique;
 	font-weight: normal;
-	padding: 0;
+	padding: 3px 0 0 0;
 }
 .reply_wrap {
-	margin-top: 50px;
+	margin: 10px 0;
 }
 .reply_wrap .forms {
 	width: 100%;
@@ -171,4 +184,11 @@
 }
 .convos_wrap .breadcrumbs a {
 	color: #2FC671;
+}
+.convos_wrap .comment_del img {
+	width: 16px;
+	height: 16px;
+}
+.mess_wrap:hover .comment_del {
+	display: inline;
 }

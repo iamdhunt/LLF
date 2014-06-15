@@ -1,5 +1,4 @@
-<% @conversations.each do |conversation| %>
-
+<div class="conversation">
 	<% if conversation.is_unread?(current_member) %>
 		<div id="conv_wrap2">
 	<% else %>
@@ -36,5 +35,4 @@
 		    	</span>
 		    </div>
 		</div>
-
-<% end %>
+</div>

@@ -24,27 +24,24 @@
 			<% end %>
 		</div>
 
-		<div>
-			<%= content_tag_for(:div, conversation.receipts_for(current_member), class: "mess_wrap") do |receipt| %>
-				<% message = receipt.message %>
-					<span class="comment_av">
-						<%= list_av message.sender, :class => "pr_av", title: message.sender.full_name, alt: message.sender.full_name  %>
-					</span>
-					<span>
-						<div class="comment_name"> 
-							<%= link_to message.sender.user_name, profile_path(message.sender) %>
-						</div>	
-						<div class="com_con">
-							<%= simple_format(message.body) %>
-							<span class="meta"><%= message.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %></span>
-						</div>
-					</span>		 
-			<% end %>
-		</div>
-
 		<div class="reply_wrap">
 			<%= render 'messages/form', conversation: conversation %>
 		</div>
+
+		<div id="messages_wrap">
+			<%= render partial: 'receipts' %>
+		</div>
+
+		<%= will_paginate @receipts, class: 'display_none' %>
+
+		<% if @receipts.total_pages != @receipts.current_page %>
+		    <div id="loading"></div>
+		    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+		      <div class="com_show">
+		        Show More
+		      </div>
+		    <% end %>
+		<% end %>
 	</div>
 
 </div>

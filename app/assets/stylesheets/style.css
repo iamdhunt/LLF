@@ -1475,6 +1475,14 @@ hr.contact {
 	margin-left: 48%;
 	margin-top: 30px;
 }
+#tr_loading {
+	margin-left: 48%;
+	margin-top: 30px;
+}
+#st_loading {
+	margin-left: 48%;
+	margin-top: 30px;
+}
 .display_none {
 	display: none;
 }

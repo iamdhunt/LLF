@@ -3,7 +3,7 @@
 <% if @member.banner? %>
     <div id="banner" style="background-image: url(<%= @member.banner.url(:large) %>)"></div>
 <% else %>
-    <div id="banner" style="background-color: #ccc"></div>
+    <div id="banner" style="background-color: #e7e7e7"></div>
 <% end %>
 
     <div id="pw">
@@ -54,6 +54,7 @@
                     <div id="member_actions" class="profile_buttons">
                         <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
                         <% if current_member == @member %>
+                             <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#conversation", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
                             <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Edit Profile", alt: "Edit Profile", :class => "btn" %>
                         <% end %>
                     </div>
@@ -104,6 +105,26 @@
             </div>
            <div style="clear:both;"></div>      
         </div>
+    </div>
+
+    <div id="conversation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Start A New Conversation</h3>
+      </div>
+      <div class="modal-body pi">
+        <%= render :partial => "conversations/form" %>
+      </div>
+    </div>
+
+    <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Start A New Conversation</h3>
+      </div>
+      <div class="modal-body pi">
+        <%= render :partial => "conversations/profile_form" %>
+      </div>
     </div>
          
       

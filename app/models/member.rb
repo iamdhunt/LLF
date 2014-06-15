@@ -206,11 +206,11 @@ class Member < ActiveRecord::Base
   end 
 
   def name
-    email
+    user_name
   end 
 
   def mailboxer_email(object)
-   return email
+   return user_name
   end
 
   def create_activity(item, action)

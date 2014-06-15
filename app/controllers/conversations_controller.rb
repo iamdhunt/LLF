@@ -4,13 +4,13 @@ class ConversationsController < ApplicationController
 
     def index
     	@messages_count = current_member.mailbox.inbox({:read => false}).count
-   	 	@conversations ||= current_member.mailbox.inbox.all
-   	 	@sent ||= current_member.mailbox.sentbox.all
-   	 	@trash ||= current_member.mailbox.trash.all
+   	 	@conversations ||= current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
     end
 
     def show
-	    @receipts = mailbox.receipts_for(conversation)
+	    @receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(15)
 	  
 	    render :action => :show
 	    @receipts.mark_as_read
@@ -18,12 +18,12 @@ class ConversationsController < ApplicationController
 
     def create
 	    recipient_emails = conversation_params(:recipients).split(',')
-	    recipients = Member.where(email: recipient_emails).all
+	    recipients = Member.where(user_name: recipient_emails).all
 
 	    conversation = current_member.
 	      send_message(recipients, *conversation_params(:body, :subject)).conversation
 
-	    redirect_to :conversations
+	    redirect_to :back
 	end
 
     def reply
