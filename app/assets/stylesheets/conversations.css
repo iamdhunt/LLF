@@ -200,3 +200,53 @@
 	color: #898989;
 	font-style: oblique;
 }
+.not_head {
+	padding: 6px 12px;
+	border-bottom: 1px solid rgba(188, 190, 192, 1);
+	margin-bottom: 20px;
+}
+.not_t {
+	font-size: 1.5em;
+	color: #444;
+}
+.not_r {
+	float: right;
+	font-size: 1em;
+	color: #898989;
+	padding: 5px;
+}
+.not_r a {
+	color: #898989;
+	font-weight: bold;
+}
+.not_r a:hover {
+	color: #444;
+	text-decoration: none;
+}
+.not_r a:hover > [class^="icon-grey"],
+.not_r a:hover > [class*=" icon-grey"],
+.not_r > .active > a > [class^="icon-grey"],
+.not_r > .active > a > [class*=" icon-grey"] {
+	background-image: url('/assets/glyphicons-halflings-dark.png') !important;
+}
+.not_wrap {
+	padding: 10px 15px;
+	border-bottom: 2px dashed #ccc;
+}
+.not_content {
+	font-size: 1.05em;
+}
+.not_content a {
+	font-weight: bold;
+	color: #898989;
+}
+.not_content a:hover {
+	text-decoration: none;
+	color: #942fc6;
+}
+.not_meta {
+	float: right;
+	font-weight: bold;
+	color: #2FC671;
+	font-size: .85em;
+}

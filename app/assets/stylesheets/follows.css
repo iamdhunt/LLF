@@ -79,7 +79,7 @@
   	opacity: .8;
   	cursor: default;
   	background-color: rgb(34, 34, 34);
-	background-color: rgba(34, 34, 34, 0.6);
+	background-color: rgba(34, 34, 34, 0.8);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
 	-background: transparent;

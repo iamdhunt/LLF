@@ -78,6 +78,11 @@ LLF::Application.routes.draw do
       post :empty_trash
     end
   end
+  resources :notifications do
+    collection do
+      put 'update_all'
+    end
+  end
 
   as :member do
     get '/login' => 'devise/sessions#new', as: :new_member_session

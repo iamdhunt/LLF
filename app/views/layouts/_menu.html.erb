@@ -34,14 +34,7 @@
                         <%= render partial: 'search/search' %>
                     </li>
                     <li><%= link_to image_tag("Messages.png", :class => "nav_icons messages", title: "Conversations", id: "mes_tooltip"), conversations_path %></li>
-                    <li class="dropdown not_drop"> <%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications", title: "Notifications", id: "not_tooltip"), "/page.html", :data => { :toggle=>"dropdown", :target=>"#" } %>
-                        <ul class="dropdown-menu notif">
-                            <div class="notices"> 
-                            </div>
-                            <li class="">
-                                <%= link_to 'View All', '#', class: 'see_all' %>
-                            </li>
-                        </ul>
+                    <li> <%= link_to image_tag("Notification 2.png", :class => "nav_icons notifications", title: "Notifications"), notifications_path %>
                     </li>
                     <li class="dropdown mem_drop">
                         <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av dropdown-toggle", title: "User Menu", id: "user_tooltip"), "/page.html", :data => { :toggle=>"dropdown", :target=>"#" } %>
