@@ -75,13 +75,13 @@
                                 <%= link_to '<i class="icon-bullhorn icon-grey menu_icons"></i> Projects'.html_safe, profile_projects_path(current_member), class: 'bottom_links' %>
                             </li>
                             <li>
-                                <%= link_to '<i class="icon-off menu_icons"></i> Sign Out'.html_safe, sign_out_path, class: 'top_links sign_out' %>
+                                <%= link_to '<i class="icon-off menu_icons"></i> Logout'.html_safe, sign_out_path, class: 'top_links sign_out' %>
                             </li>
                         </ul>
                     </li>
                 </ul>
             <% else %>
-                <%= link_to "Sign In", sign_in_path, :class => "member_links" %>
+                <%= link_to "Login", sign_in_path, :class => "member_links" %>
                 <%= link_to "Join!", join_path, :class => "member_links" %>
             <% end %>
        </div>

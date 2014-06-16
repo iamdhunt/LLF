@@ -9,8 +9,12 @@
 .convos_wrap .nav-tabs {
 	font-size: 1.333em;
 	border-bottom: 1px solid #dce1e6;
+	padding: 20px 0 0 0;
 }
-
+.convos_wrap .nav-tabs li {
+	 display:inline-block;
+    *display:inline; /* ie7 fix */
+}
 .convos_wrap .nav-tabs li a {
 	color: #898989;
 	margin-right: 5px;
@@ -191,4 +195,8 @@
 }
 .mess_wrap:hover .comment_del {
 	display: inline;
+}
+.conv_instructions {
+	color: #898989;
+	font-style: oblique;
 }

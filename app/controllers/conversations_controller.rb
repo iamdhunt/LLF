@@ -11,9 +11,9 @@ class ConversationsController < ApplicationController
 
     def show
 	    @receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(15)
-	  
+
 	    render :action => :show
-	    @receipts.mark_as_read
+	    @receipts.mark_as_read 
 	end
 
     def create
@@ -74,6 +74,12 @@ class ConversationsController < ApplicationController
 		   else subkeys.map{|k| self[k] }
 		   end
 		 end
+		end
+
+		def check_current_subject_in_conversation
+		    if !conversation.is_participant?(current_member)
+		      redirect_to conversations_path
+		    end
 		end
 
 end

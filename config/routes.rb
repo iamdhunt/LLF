@@ -60,17 +60,6 @@ LLF::Application.routes.draw do
   match '/music-spotlights' => 'pages#music_spotlights', :as => 'music_spotlights'
   match '/member-spotlights' => 'pages#member_spotlights', :as => 'member_spotlights'
 
-  as :member do 
-    get '/join', to: 'devise/registrations#new', as: :join
-    get '/sign_in', to: 'devise/sessions#new', as: :sign_in
-    match '/sign-in' => 'devise/sessions#new', as: :sign_in
-    get '/sign_out', to: 'devise/sessions#destroy', as: :sign_out
-    match '/sign-out' => 'devise/sessions#destroy', as: :sign_out
-    get '/password/new', to: 'devise/passwords#new', as: :new_password
-    get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
-    get '/edit', to: 'devise/registrations#edit', as: :edit_member
-  end 
-
   devise_for :members, :controllers => { :registrations => "registrations" }
   devise_for :members, skip: [:sessions]
 
@@ -91,12 +80,18 @@ LLF::Application.routes.draw do
   end
 
   as :member do
-     get '/sign_in' => 'devise/sessions#new', as: :new_member_session
-     post '/sign_in' => 'devise/sessions#create', as: :member_session
-     delete '/sign_out' => 'devise/sessions#destroy', as: :destroy_member_session
-     post '/password' => 'devise/passwords#create', as: :password
-     put '/password' => 'devise/passwords#update'
-     put '/' => 'devise/registrations#update'
+    get '/login' => 'devise/sessions#new', as: :new_member_session
+    post '/login' => 'devise/sessions#create', as: :member_session
+    delete '/logout' => 'devise/sessions#destroy', as: :destroy_member_session
+    post '/password' => 'devise/passwords#create', as: :password
+    put '/password' => 'devise/passwords#update'
+    put '/' => 'devise/registrations#update'
+    get '/join', to: 'devise/registrations#new', as: :join
+    get '/login', to: 'devise/sessions#new', as: :sign_in
+    get '/logout', to: 'devise/sessions#destroy', as: :sign_out
+    get '/password/new', to: 'devise/passwords#new', as: :new_password
+    get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
+    get '/edit', to: 'devise/registrations#edit', as: :edit_member
    end 
 
   devise_scope :member do 
