@@ -233,8 +233,18 @@
 	padding: 10px 15px;
 	border-bottom: 2px dashed #ccc;
 }
+.not_wrap2 {
+	padding: 10px 15px;
+	border-bottom: 2px dashed #ccc;
+	background-color: #f6f6f6;
+}
+.not_wrap p {
+	margin-bottom: 0;
+	padding-top: 5px; 
+}
 .not_content {
 	font-size: 1.05em;
+	padding-right: 5px;
 }
 .not_content a {
 	font-weight: bold;
@@ -247,6 +257,6 @@
 .not_meta {
 	float: right;
 	font-weight: bold;
-	color: #2FC671;
+	color: #898989;
 	font-size: .85em;
 }

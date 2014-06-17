@@ -82,6 +82,9 @@
         	hyphens: auto;
     -ms-word-break: break-all;
 }
+.act_content .player {
+	margin-right: 50%;
+}
 .act_delete {
 	float: right;
 	margin-top: 12px;

@@ -12,4 +12,6 @@ class Activity < ActiveRecord::Base
   		order("created_at desc").
   		page(options[:page])
   end 
+
+  
 end

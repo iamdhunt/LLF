@@ -7,7 +7,7 @@
 		<div class="not_head">
 			<span class="not_t">Notifications (<%= @notifications_count %>)</span>
 			<span class="not_r">
-				<%= link_to update_all_notifications_path do %>
+				<%= link_to(update_all_notifications_path, :method => :put) do %>
 					<i class="icon-check icon-grey"></i> Mark all as read
 				<% end %>
 			</span>
@@ -16,7 +16,12 @@
 		<% @notifications.each do |notification|%>
 	      	<% @notification = notification %>
 	      	<div class="not_wrap">
-	      		<span class="not_content"><%= link_to notification.subject, "#{root_url}#{notification.subject}" %> <%= notification.body %></span>
+	      		<% if notification.is_unread?(current_member) %>
+		      		<span class="unread">
+		      			<i class="icon-exclamation-sign icon-red"></i>
+		      		</span>
+	      		<% end %>
+	      		<span class="not_content"><%= link_to(notification.subject, "#{root_url}#{notification.subject}") %> <%= Rinku.auto_link(notification.body).html_safe %></span>
 	      		<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
 	  		</div>
 	    <% end %>

@@ -15,8 +15,8 @@ class Follow < ActiveRecord::Base
 
   def create_notification
     subject = "#{follower.user_name}"
-    body = "is now following you."
-    followable.notify(notification_subject, body, self)
+    body = "is now following you"
+    followable.notify(subject, body, self)
   end
 
 end

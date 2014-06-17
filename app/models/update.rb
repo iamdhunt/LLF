@@ -8,4 +8,12 @@ class Update < ActiveRecord::Base
 
   	validates :content, presence: true,
   			length: { minimum: 2 }
+
+  	after_create :create_notification, on: :create
+
+	def create_notification
+		subject = "#{member.user_name}"
+		body = "posted a new update <b>#{title}:</b> <p><i>#{content}</i></p>"
+		updateable.followers.notify_all(subject, body, self)
+	end
 end

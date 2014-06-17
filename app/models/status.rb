@@ -23,6 +23,10 @@ class Status < ActiveRecord::Base
       simple_format
   end
 
+  def path
+    status_path(status)
+  end 
+
   private
 
 end

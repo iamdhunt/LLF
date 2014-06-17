@@ -87,6 +87,7 @@ class Event < ActiveRecord::Base
     acts_as_followable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
+    acts_as_messageable
     has_many :comments, as: :commentable, :dependent => :destroy
     has_many :uploads, as: :uploadable, :dependent => :destroy
     has_many :updates, as: :updateable, :dependent => :destroy
@@ -125,6 +126,10 @@ class Event < ActiveRecord::Base
 
   def event_month
     start_date.strftime("%B")
+  end
+
+  def follow_list
+      followers.map{|u| u.user_name }
   end
 
 	private

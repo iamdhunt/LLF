@@ -42,6 +42,7 @@ class Project < ActiveRecord::Base
     acts_as_followable
     acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
+    acts_as_messageable
     has_many :comments, as: :commentable, :dependent => :destroy
     has_many :uploads, as: :uploadable, :dependent => :destroy
     has_many :updates, as: :updateable, :dependent => :destroy
