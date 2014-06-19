@@ -19,7 +19,7 @@
       <div id="name" class="tab-pane active">
         <fieldset>
           <legend class="leg">Name Your Project</legend>
-          <%= f.input :title, label: 'Title', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '100'} %>
+          <%= f.input :name, label: 'Name', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
         </fieldset>
       </div>
 
@@ -89,8 +89,8 @@
               </li>
             </ul>
           </div>
-          <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4' } %>
-          <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5' } %>
+          <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4', autocomplete: 'off' } %>
+          <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5', autocomplete: 'off' } %>
         </fieldset>
 
         <fieldset>
@@ -109,7 +109,7 @@
               </li>
             </ul>
           </div>
-          <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140' } %>
+          <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140', autocomplete: 'off' } %>
             <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
           <%= f.input :about, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '7', id: 'p_about' } %>
         </fieldset>

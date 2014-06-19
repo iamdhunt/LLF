@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-	include ActionView::Helpers::UrlHelper
-
 	belongs_to :member
 	belongs_to :commentable, polymorphic: true
 	attr_accessible :content
@@ -10,13 +8,9 @@ class Comment < ActiveRecord::Base
 
 	after_create :create_notification, on: :create
 
-	def path
-    commentable_path(commentable)
-  end
-
 	def create_notification
 		subject = "#{member.user_name}"
-		body = "posted a <b>Comment</b> <p><i>#{content}</i></p>"
+		body = "wrote you a <b>Comment</b> <p><i>#{content}</i></p>"
 		commentable.member.notify(subject, body, self)
 	end
 end

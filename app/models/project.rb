@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
-  	attr_accessible :about, :blurb, :category, :markers, :video, :website, :title, :avatar, :banner, :marker_list, :city
+  	attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city
 
   	validates :about, presence: true
   	validates :blurb, presence: true,
@@ -22,7 +22,7 @@ class Project < ActiveRecord::Base
                               message: 'must be formatted correctly. Only letters.'
                             }
     validate :each_marker
-  	validates :title, presence: true,
+  	validates :name, presence: true,
   						length: {
                           maximum: 100, 
                           message: 'must not be more than 100 characters.',
@@ -48,6 +48,8 @@ class Project < ActiveRecord::Base
     has_many :updates, as: :updateable, :dependent => :destroy
 
   	before_validation :clean_up_markers
+    before_save :to_lower
+    before_create :to_lower
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Projects Default.png'
@@ -69,7 +71,7 @@ class Project < ActiveRecord::Base
 	  end
 
     searchable :auto_index => true, :auto_remove => true do
-      text :title, :boost => 5
+      text :name, :boost => 5
       text :marker_list, :boost => 3
       text :city, :boost => 2
       text :category
@@ -89,5 +91,9 @@ class Project < ActiveRecord::Base
 	    # Make lowercase 
 	    self.marker_list.map!(&:downcase) 
 	  end
+
+    def to_lower
+      self.name = self.name.downcase
+    end 
 
 end

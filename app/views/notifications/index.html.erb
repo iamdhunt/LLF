@@ -16,13 +16,33 @@
 		<% @notifications.each do |notification|%>
 	      	<% @notification = notification %>
 	      	<div class="not_wrap">
-	      		<% if notification.is_unread?(current_member) %>
-		      		<span class="unread">
-		      			<i class="icon-exclamation-sign icon-red"></i>
-		      		</span>
-	      		<% end %>
-	      		<span class="not_content"><%= link_to(notification.subject, "#{root_url}#{notification.subject}") %> <%= Rinku.auto_link(notification.body).html_safe %></span>
-	      		<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
+	      		<span class="not_icon">
+	      			<% if notification.notified_object_type == 'Comment' %>
+		  				<%= image_tag('N Comment.png') %>
+		  			<% end %>
+		  			<% if notification.notified_object_type == 'Upload' %>
+		  				<%= image_tag('N Upload.png') %>
+		  			<% end %>
+		  			<% if notification.notified_object_type == 'Update' %>
+		  				<%= image_tag('N Update.png') %>
+		  			<% end %>
+		  			<% if notification.notified_object_type == 'Follow' %>
+		  				<%= image_tag('N Follow.png') %>
+		  			<% end %>
+	      		</span>
+	      		<span>
+		      		<div class="not_content">
+		      			<% if notification.is_unread?(current_member) %>
+				      		<span class="unread">
+				      			<i class="icon-exclamation-sign icon-red"></i>
+				      		</span>
+			      		<% end %>
+		      			<%= link_to(notification.subject, "#{root_url}#{notification.subject}") %>&nbsp;<%= Rinku.auto_link(truncate(notification.body, :length => 400)).html_safe %>
+		      			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
+		      		</div>
+		      		
+		      	</span>
+		      	<div style="clear:both;"></div>
 	  		</div>
 	    <% end %>
 

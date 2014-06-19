@@ -233,18 +233,25 @@
 	padding: 10px 15px;
 	border-bottom: 2px dashed #ccc;
 }
-.not_wrap2 {
-	padding: 10px 15px;
-	border-bottom: 2px dashed #ccc;
-	background-color: #f6f6f6;
+.not_wrap .unread {
+	float: left;
+	margin-right: 2px;
 }
 .not_wrap p {
 	margin-bottom: 0;
-	padding-top: 5px; 
+	padding-top: 2px; 
+}
+.not_icon {
+	float: left;
+	padding-right: 5px;
+}
+.not_icon img {
+	width: 30px;
+	height: 30px;
 }
 .not_content {
 	font-size: 1.05em;
-	padding-right: 5px;
+	padding: 8px 0 0 35px;
 }
 .not_content a {
 	font-weight: bold;
@@ -254,9 +261,12 @@
 	text-decoration: none;
 	color: #942fc6;
 }
+.not_content b {
+	color: #4a4a4a;
+}
 .not_meta {
 	float: right;
 	font-weight: bold;
-	color: #898989;
+	color: #2FC671;
 	font-size: .85em;
 }

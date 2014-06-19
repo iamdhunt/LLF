@@ -14,5 +14,13 @@ class Upload < ActiveRecord::Base
 										'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']
 
 	validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
-  	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']									
+  	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+
+  	after_commit :create_notification, on: :create
+
+	def create_notification
+		subject = "#{member.user_name}"
+		body = "uploaded new Media in <b>#{uploadable.name}</b>"
+		uploadable.followers.each{ |follower| follower.notify(subject, body, self) }
+	end								
 end

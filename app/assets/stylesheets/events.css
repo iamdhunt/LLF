@@ -78,11 +78,18 @@
 .ev_wrap .modal-body {
 	max-height: 500px;
 }
+.ev_wrap #u_top {
+	padding-top: 10px;
+	font-size: 1.5em;
+}
 .ev_wrap .u_tit {
+	color: #219e5c;
 	float: left;
 }
 .ev_wrap .u_time {
-	float: right;
+	color: #898989;
+	font-size: 1.2em;
+	font-style: oblique;
 }
 .ev_wrap .u_del {
 	float: right;
@@ -96,15 +103,9 @@
 	height: 18px;
 	margin: 2px 5px 0 5px;
 }
-.ev_wrap #u_top {
-	padding: 10px 0;
-	color: #444;
-	font-size: 1.5em;
-	border-bottom: 1px solid #444;
-}
 .ev_wrap #u_bottom {
 	font-size: 1.05em;
-	padding: 10px 0;
+	padding: 10px 5px;
 }
 .e_loc_ct {
 	margin: 0 0 15px 178px;
@@ -202,8 +203,8 @@ margin: 0 0 5px 15px;
 	font-weight: bold;
 }
 #ev_info .ims {
-	width: 30px;
-	height: 30px;
+	width: 29px;
+	height: 29px;
 }
 #ev_info .l {
 	padding: 0 10px;

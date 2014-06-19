@@ -9,7 +9,7 @@
     <div class="cap">
     	<span id="cap_count"></span> <span class="cap_remain">characters remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box' } %>
+    <%= f.input :caption, label: false, error: false, input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
   </div>
 
   <div class="form-actions">

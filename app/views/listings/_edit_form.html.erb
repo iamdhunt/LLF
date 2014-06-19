@@ -21,7 +21,7 @@
 
         <fieldset>
               <legend class="leg">Listing Name</legend>
-              <%= f.input :title, label: 'Name', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100'} %>
+              <%= f.input :title, label: 'Name', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
         </fieldset>
 
     </div>
@@ -129,7 +129,7 @@
 
       <fieldset>
           <legend class="leg">Description</legend>
-          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '7', id: '' } %>
+          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '7', id: '', autocomplete: 'off' } %>
       </fieldset>
 
     </div>
