@@ -38,9 +38,11 @@
     </div>
 
     <% if @projects.count > 0 %>
-        <div id="prof_projs">
-            <%= render :partial => "projects" %>
-        </div>          
+        <div id="media_query_prev">
+            <div id="prof_projs">
+                <%= render :partial => "projects" %>
+            </div>       
+        </div>
     <% else %>
         <div class="none_message">
             No Projects Yet

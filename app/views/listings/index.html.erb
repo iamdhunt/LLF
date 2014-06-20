@@ -34,45 +34,60 @@
 	    </div>
 	</div>
 
-	<div id="li_index">
-
-		<div id="listings_filters" class="form-inline">
+    <div id="listings_filters" class="form-inline">
+        <span class="mkt_s">
             <span class="filters all">
                 <label for="filter__">
                 <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters women_filter">
                 <label for="filter_.women_fil">
                 <%= radio_button_tag(:filter, ".women_fil") %> Women's
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters men_filter">
                 <label for="filter_.men_fil">
                 <%= radio_button_tag(:filter, ".men_fil") %> Men's
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters art_filter">
                 <label for="filter_.art_fil">
                 <%= radio_button_tag(:filter, ".art_fil") %> Art
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters music_filter">
                 <label for="filter_.music_fil">
                 <%= radio_button_tag(:filter, ".music_fil") %> Music
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters design_filter">
                 <label for="filter_.design_fil">
                 <%= radio_button_tag(:filter, ".design_fil") %> Design
                 </label>
             </span>
+        </span>
+        <span class="mkt_s">
             <span class="filters services_filter">
                 <label for="filter_.services_fil">
                 <%= radio_button_tag(:filter, ".services_fil") %> Services
                 </label>
             </span>
-        </div>
+        </span>
+        <div style="clear:both;"></div>
+    </div>
+
+	<div id="li_index">
 
         <div id="lstgs">
 			<% if @facet == nil && @query == nil %>

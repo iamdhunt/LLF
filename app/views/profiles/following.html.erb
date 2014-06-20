@@ -10,8 +10,10 @@
 	</div>
 </div>
 
-<div id="follow_list_wrap">
-	<%= render :partial => "following" %>       
+<div id="media_query_follow">
+    <div id="follow_list_wrap">
+    	<%= render :partial => "following" %>       
+    </div>
 </div>
 
 <%= will_paginate @following, class: 'display_none' %>

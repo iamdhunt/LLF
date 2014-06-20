@@ -48,8 +48,10 @@
     </div>
     
     <% if @activities.count > 0 %>
-        <div id="activity_stream_wrap">
-    	   <%= render :partial => "activities/activities" %>
+        <div id="media_query_stream">
+            <div id="activity_stream_wrap">
+        	   <%= render :partial => "activities/activities" %>
+            </div>
         </div>          
         <% else %>
             <div class="none_message">

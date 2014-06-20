@@ -56,9 +56,11 @@
                     </div>
                 </span>
 
-                <div id="community_stream_wrap">
-            	   <%= render :partial => "activities/activities" %>
-                </div>           
+                <div id="media_query_stream">
+                    <div id="community_stream_wrap">
+                	   <%= render :partial => "activities/activities" %>
+                    </div>  
+                </div>        
 
                 <%= will_paginate @activities, class: 'display_none' %>
 
@@ -95,9 +97,11 @@
                     </div>
                 </span>
 
-                <div id="community_media_wrap">
-                    <%= render :partial => "media/media" %>       
-                </div>      
+                <div id="media_query_media">
+                    <div id="community_media_wrap">
+                        <%= render :partial => "media/media" %>       
+                    </div>  
+                </div>    
 
                 <%= will_paginate @media, class: 'display_none' %>
 

@@ -1,7 +1,10 @@
 <div id="nav_bar">	
    <div class="nav_container">
-        <div class="primary_nav"> 
-           <ul>
+        <div class="query_nav">
+            <%= render partial: 'layouts/query' %>
+        </div>
+        <div class="primary_nav">
+            <ul id="main_menu">
                 <li>
                     <% if member_signed_in? %>
                         <%= link_to "Home", profile_path(current_member) %>
@@ -24,7 +27,7 @@
                 <li>
                     <%= image_tag("Menu Logo.png", :class => "menu_logo") %>
                 </li>
-           </ul>
+            </ul>
        </div>
 
        <div class="nav_links">

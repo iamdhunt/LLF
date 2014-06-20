@@ -16,10 +16,10 @@
             
             <div id="center_profile">
                 <span class="p_name_wrap">
-                    <div class="profile_name"><%= link_to @member.full_name, @member %></div>
+                    <div class="profile_name"><%= link_to truncate(@member.full_name, :length => 25), @member %></div>
                 </span>
                 <span class="p_username_wrap">
-                    <div class="profile_username"><%= "@" + @member.user_name %></div>
+                    <div class="profile_username"><%= truncate("@" + @member.user_name, :length => 25) %></div>
                 </span>
                 <div class="follow_count_text">
                     <%= link_to(profile_following_path(@member)) do %>
@@ -52,7 +52,23 @@
             <div id="right_profile">
                 <% if signed_in? %>
                     <div id="member_actions" class="profile_buttons">
-                        <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
+                        <% unless current_member == @member %>
+                            <span class="member_follow">
+                                <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
+                            </span>
+                            <span>
+                                <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
+                                <span class="mt-btn"><%= link_to image_tag("Mention 3.png", class: "mem_actions1"), "#", title: "Mention", alt: "Mention", :class => "btn" %></span>
+                                <%= link_to image_tag("More.png", class: "mem_actions", title: "More", alt: "More"), "/page.html", :class => "btn dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                                    <ul class="dropdown-menu">            
+                                      <li class="open block">
+                                        <%= link_to "#" do %>
+                                            <i class="icon-ban-circle"></i> Block <%= "@" + @member.user_name %>
+                                        <% end %>
+                                      </li>
+                                    </ul>
+                            </span>
+                        <% end %>
                         <% if current_member == @member %>
                              <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#conversation", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
                             <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Edit Profile", alt: "Edit Profile", :class => "btn" %>

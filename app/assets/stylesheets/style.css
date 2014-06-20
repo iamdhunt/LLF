@@ -177,11 +177,9 @@ table {
 	padding-left: 10px;
 	line-height: 55px;
 }
-
 #nav_bar .primary_nav a:hover {
 	color: #9327c9;
 }
-
 #nav_bar .nav_links {
 	float: right;
 	text-decoration: none;
@@ -250,6 +248,12 @@ table {
 	height: 30px;
 	margin-top: 13px;
 	margin-left: 200px;
+	opacity: .8;
+}
+.query_menu_logo {
+	width: 30px;
+	height: 30px;
+	margin-top: 13px;
 	opacity: .8;
 }
 
@@ -898,7 +902,7 @@ hr.contact {
 	margin-left: auto;
 	margin-right: auto;
 	width: 72%;
-	height: 150px;
+	min-height: 150px;
 }
 #edit_wrap {
 	background-image: url('/assets/Container BG.png');	
@@ -1096,6 +1100,7 @@ hr.contact {
 	padding: 5px;
 	border-radius: 6px;
 	line-height: 200%;
+	white-space: nowrap;
 }
 .profile_pursuits a:hover {
 	text-decoration: none;
@@ -1128,6 +1133,8 @@ hr.contact {
     -background: transparent;
 	padding: 3px;
 	border-radius: 4px;
+	line-height: 175%;
+	white-space: nowrap;
 }
 .profile_location a:hover {
 	 /* Fallback for web browsers that don't support RGBa */
@@ -1242,6 +1249,7 @@ hr.contact {
 	padding: .4em .4em;
 	margin-right: .8em;
 	font-weight: bold;
+	white-space: nowrap;
 }
 .sub li a:hover {
 	text-decoration: none;
@@ -1736,4 +1744,163 @@ label.active {
 #error_list ul li {
 	list-style: disc;
 	padding: 2px;
+}
+
+@media all and (max-width: 1280px) and (min-width: 1024.1px) {
+    #main_wrap {
+      	width: 77%;
+    }
+    #activity_stream_wrap {
+    	padding: 10px 0 10px 10px;
+    }
+    .home_form {
+    	width: 60%;
+    }
+}
+@media all and (max-width: 1024px) and (min-width: 960.1px) {
+    #main_wrap {
+      	width: 98%;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #media_query_stream {
+    	padding-left: 15px;
+    }
+    #media_query_media {
+    	padding-left: 8px;
+    }
+    #media_query_prev {
+    	padding-left: 8px;
+    }
+    .home_form {
+    	width: 75%;
+    }
+    #home_bottom_wrap {
+    	font-size: 4em;
+    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
+    }
+    .scrollup {
+    	opacity: .7;
+    	right: 10px;
+    	z-index: 1000000000;
+    }
+    .menu_logo {
+    	margin-left: 60px;
+    }
+}
+@media all and (max-width: 960px) and (min-width: 800.1px) {
+    #main_wrap {
+      	width: 82%;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #media_query_stream {
+    	padding-left: 55px;
+    }
+    #media_query_media {
+    	padding-left: 0;
+    }
+    #media_query_prev {
+    	padding-left: 25px;
+    }
+    #media_query_follow {
+    	padding-left: 65px;
+    }
+    #li_index {
+    	padding-left: 30px;
+    }
+    .home_form {
+    	width: 60%;
+    }
+    .menu_logo {
+    	margin-left: 40px;
+    }
+}
+@media all and (max-width: 800px) and (min-width: 720.1px) {
+    #main_wrap {
+      	width: 90%;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #media_query_stream {
+    	padding-left: 25px;
+    }
+    #media_query_media {
+    	padding-left: 60px;
+    }
+    #media_query_prev {
+    	padding-left: 100px;
+    }
+    #media_query_follow {
+    	padding-left: 30px;
+    }
+    #li_index {
+    	padding-left: 100px;
+    }
+    .home_form {
+    	width: 60%;
+    }
+    .menu_logo {
+    	display: none;
+    }
+    .scrollup {
+    	opacity: .7;
+    	right: 10px;
+    	z-index: 1000000000;
+    }
+    #nav_bar .primary_nav {
+    	display: none;
+    }
+    #nav_bar .query_nav {
+    	display: inline-block;
+    }
+    #nav_bar .query_nav .dropdown-menu {
+    	left: 10px;
+    }
+}
+@media all and (max-width: 720px) and (min-width: 320px) {
+    #main_wrap {
+      	width: 98%;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #media_query_stream {
+    	padding-left: 18px;
+    }
+    #media_query_media {
+    	padding-left: 50px;
+    }
+    #media_query_prev {
+    	padding-left: 90px;
+    }
+    #media_query_follow {
+    	padding-left: 20px;
+    }
+    #li_index {
+    	padding-left: 100px;
+    }
+    .home_form {
+    	width: 60%;
+    }
+    .menu_logo {
+    	display: none;
+    }
+    .scrollup {
+    	opacity: .7;
+    	right: 10px;
+    	z-index: 1000000000;
+    }
+     #nav_bar .primary_nav {
+    	display: none;
+    }
+    #nav_bar .query_nav {
+    	display: inline-block;
+    }
+    #nav_bar .query_nav .dropdown-menu {
+    	left: 10px;
+    }
 }

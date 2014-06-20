@@ -1,22 +1,9 @@
-<% unless current_member == member %>
+<% if current_member.following?(member) %>
 
-  <% if current_member.following?(member) %>
+      <%= link_to image_tag("Following.png", class: "mem_actions"), member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" %>
 
-    <div class="">
-        <%= link_to image_tag("Following.png", class: "mem_actions"), member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" %>
-        <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
-        <span class="mt-btn"><%= link_to image_tag("Mention 3.png", class: "mem_actions1"), "#", title: "Mention", alt: "Mention", :class => "btn" %></span>
-     </div>
+<% else %>
 
-
-    <% else %>
-
-      <div class="">
-        <%= link_to image_tag("Follow.png", class: "mem_actions"), member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn" %>
-        <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
-        <span class="mt-btn"><%= link_to image_tag("Mention 3.png", class: "mem_actions1"), "#", title: "Mention", alt: "Mention", :class => "btn" %></span>
-      </div>
-
-  <% end %>
-
+      <%= link_to image_tag("Follow.png", class: "mem_actions"), member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn" %>
+      
 <% end %>

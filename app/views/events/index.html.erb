@@ -60,12 +60,14 @@
                 </span>
             </div>
 
-            <div id="prs">
-                <% if @facet == nil && @query == nil %>
-                    <%= render partial: 'events' %>
-                <% else %>
-                    <%= render partial: 'search_events' %>
-                <% end %>
+            <div id="media_query_prev">
+                <div id="prs">
+                    <% if @facet == nil && @query == nil %>
+                        <%= render partial: 'events' %>
+                    <% else %>
+                        <%= render partial: 'search_events' %>
+                    <% end %>
+                </div>
             </div>
             
     </div>

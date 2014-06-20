@@ -294,6 +294,10 @@ font-weight: normal;
 	text-align: center;
 	margin-top: 20px;
 }
+#listings_filters .mkt_s {
+	padding: 5px 0;
+	display: inline-block;
+}
 #listings_filters input[type="radio"] {
 	cursor: pointer;
 }
