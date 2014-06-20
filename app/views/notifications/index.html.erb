@@ -40,24 +40,24 @@
 				      		<% end %>
 			      			<%= link_to(notification.subject, "#{root_url}#{notification.subject}") %>&nbsp;<%= Rinku.auto_link(truncate(notification.body, :length => 400)).html_safe %>
 			      			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
-			      			<div class="view">
-				      			<% if notification.notified_object_type == 'Comment' %>
-					  				<%= link_to("#") do %>
-					  					<i class="icon-eye-open icon-green"></i> View
-					  				<% end %>
-					  			<% end %>
-					  			<% if notification.notified_object_type == 'Update' %>
-					  				<%= link_to("#") do %>
-					  					<i class="icon-eye-open icon-green"></i> View
-					  				<% end %>
-					  			<% end %>
-					  			<% if notification.notified_object_type == 'Upload' %>
-					  				<%= link_to("#") do %>
-					  					<i class="icon-eye-open icon-green"></i> View
-					  				<% end %>
-					  			<% end %>
-					  		</div>
 			      		</div>
+			      		<div class="view">
+			      			<% if notification.notified_object_type == 'Comment' %>
+				  				<%= link_to("#") do %>
+				  					<i class="icon-eye-open icon-green"></i> View
+				  				<% end %>
+				  			<% end %>
+				  			<% if notification.notified_object_type == 'Update' %>
+				  				<%= link_to("#") do %>
+				  					<i class="icon-eye-open icon-green"></i> View
+				  				<% end %>
+				  			<% end %>
+				  			<% if notification.notified_object_type == 'Upload' %>
+				  				<%= link_to("#") do %>
+				  					<i class="icon-eye-open icon-green"></i> View
+				  				<% end %>
+				  			<% end %>
+				  		</div>
 			      	</span>
 			      	<div style="clear:both;"></div>
 		  		</div>

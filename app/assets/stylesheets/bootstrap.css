@@ -1786,6 +1786,7 @@ input[type="button"].btn-block {
   color: #ffffff;
   background-color: #1b864d;
   *background-color: #1b864d;
+  border-color: #1b864d;
 }
 .btn-event:active,
 .btn-event.active {

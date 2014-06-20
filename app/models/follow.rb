@@ -7,7 +7,7 @@ class Follow < ActiveRecord::Base
   belongs_to :followable, :polymorphic => true
   belongs_to :follower,   :polymorphic => true
 
-  after_create :create_notification, on: :create
+  after_commit :create_notification, on: :create
 
   def block!
     self.update_attribute(:blocked, true)

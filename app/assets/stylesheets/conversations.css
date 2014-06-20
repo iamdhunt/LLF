@@ -264,20 +264,23 @@
 .not_content b {
 	color: #4a4a4a;
 }
-.not_content .view {
-	padding: 10px 0 0 5px;
+.not_wrap .view {
+	padding: 10px 0 0 40px;
 	font-size: .9em;
 }
-.not_content .view a {
+.not_wrap .view a {
 	color: #2FC671;
+	font-weight: bold;
+	font-style: normal;
 }
-.not_content .view a:hover {
+.not_wrap .view a:hover {
 	color: #898989;
+	text-decoration: none;
 }
-.not_content .view a:hover > [class^="icon-green"],
-.not_content .view a:hover > [class*=" icon-green"],
-.not_content .view > .active > a > [class^="icon-green"],
-.not_content .view > .active > a > [class*=" icon-green"] {
+.not_wrap .view a:hover > [class^="icon-green"],
+.not_wrap .view a:hover > [class*=" icon-green"],
+.not_wrap .view > .active > a > [class^="icon-green"],
+.not_wrap .view > .active > a > [class*=" icon-green"] {
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
 .not_meta {
