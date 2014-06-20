@@ -320,10 +320,14 @@ table {
 	padding-top: 3px;
 }
 .login_form .btn {
-	margin: 8px 0;
+	margin: 0 0 8px 0;
 }
 .login_form .btn-large {
 	padding: 8px 50px;
+	width: 100%;
+}
+.login_form .links {
+	margin-top: 3px;
 }
 #error_explanation {
 	padding: 0 20px;

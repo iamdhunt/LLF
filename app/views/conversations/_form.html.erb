@@ -2,7 +2,12 @@
 	<div id="new_conv_wrap">
 		<div class="conv_in">
 			<div class="conv_fl">Usernames</div>
-			<div class="conv_instructions"> &raquo;Seperate usernames by commas</div>
+			<div class="conv_instructions">
+				<ul>
+					<li>&raquo;Seperate usernames by commas</li>
+					<li>&raquo;14 members max</li>
+				</ul>
+			</div>
 		  	<%= f.input :recipients, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
 		</div>
 		<div class="conv_in">

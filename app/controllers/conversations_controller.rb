@@ -17,7 +17,7 @@ class ConversationsController < ApplicationController
 	end
 
     def create
-	    recipient_emails = conversation_params(:recipients).split(',')
+	    recipient_emails = conversation_params(:recipients).split(',').take(14)
 	    recipients = Member.where(user_name: recipient_emails).all
 
 	    conversation = current_member.
