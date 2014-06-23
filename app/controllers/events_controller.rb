@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').page(params[:page]).per_page(54)
+    @events = Event.order('start_date asc').where("start_date >= ?", Time.zone.now.to_date).page(params[:page]).per_page(54)
     @search = Event.search do
       fulltext params[:search]
       any_of do
