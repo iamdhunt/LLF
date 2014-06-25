@@ -62,6 +62,7 @@ class MediaController < ApplicationController
       else
         format.html { redirect_to profile_media_new_path(current_member) }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

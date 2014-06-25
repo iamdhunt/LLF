@@ -49,6 +49,10 @@
 	border-radius: 100%; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
+.act_av img {
+	width: 30px;
+	height: 30px;
+}
 .act_name {
 	font-weight: bold;
 	font-size: 1em;
@@ -79,6 +83,9 @@
    		-moz-hyphens: auto;
         	hyphens: auto;
     -ms-word-break: break-all;
+}
+#status_show .act_content {
+	text-align: center;
 }
 .act_content .player {
 	margin-right: 50%;

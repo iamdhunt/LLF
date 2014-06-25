@@ -12,7 +12,7 @@ class FollowsController < ApplicationController
 
   	def destroy
     	current_member.stop_following(followable)
-	    	respond_to do |format|
+	    respond_to do |format|
 	      format.html # index.html.erb
 	      format.js
 	    end

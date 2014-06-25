@@ -16,19 +16,26 @@
 	
 		<div id="">
 			<div class="pdl_img">
-				<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-					<%= link_to image_tag(listing.feature.url(:index)), listing_path(listing), title: listing.title, alt: listing.title %>
+				<% if current_member == listing.member %>
+					<div class="lst_del">
+						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
+					</div>
 				<% end %>
+				<div>
+					<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(listing.feature.url(:index)), listing_path(listing), title: listing.title, alt: listing.title %>
+					<% end %>
 
-				<% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-		          <div class="feature act_media_content">
-		            <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
-		              <div class="ui360 ui360-vis lstgs">
-		                <%= link_to '', listing.feature.url %>
-		              </div>
-		            </div>
-		          </div>
-		        <% end %>
+					<% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+			          <div class="feature act_media_content">
+			            <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
+			              <div class="ui360 ui360-vis lstgs">
+			                <%= link_to '', listing.feature.url %>
+			              </div>
+			            </div>
+			          </div>
+			        <% end %>
+			    </div>
 			</div>
 		</div>
 
@@ -46,18 +53,9 @@
 				    	<span id="p_fav_str">
 						    <%= render :partial => "fav_button_listings", :locals => {:listing => listing} %>
 						</span>
-						<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
 				        <% if current_member == listing.member %>
-					        <span class="btn-group">
-					          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-					            <ul class="dropdown-menu">            
-					              <li>
-					                <%= link_to "Edit", edit_listing_path(listing), class: '' %>
-					              </li>
-					              <li class="del">
-					                <%= link_to "Delete", listing, method: :delete, data: { confirm: 'Are you sure?' } %>
-					              </li>
-					            </ul>
+					        <span class="">
+					        	<%= link_to image_tag("/assets/Edit.png", class: 'ims-act'), edit_listing_path(listing), class: '' %>					            
 					        </span>
 				        <% end %>
 			      	<% end %>

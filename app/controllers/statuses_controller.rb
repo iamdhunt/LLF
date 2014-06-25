@@ -41,6 +41,7 @@ class StatusesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @status }
+      format.js
     end
   end
 
@@ -58,10 +59,12 @@ class StatusesController < ApplicationController
       if @status.save
         current_member.create_activity(@status, 'created')
         format.html { redirect_to :back }
-        format.json 
+        format.json
+        format.js
       else
         format.html { redirect_to profile_path(current_member), alert: 'Post wasn\'t created. Please try again and ensure image attchments are under 10Mbs.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

@@ -17,9 +17,19 @@
       </span>
     <% end %>
 
-    <span class="meta"> 
+    <span class="meta">
       <%= time_ago_in_words(@medium.created_at) %>
     </span>
+
+    <% if member_signed_in? %>
+      <span class="media_btns">
+          <span id="m_fav_but">
+            <%= render :partial => "fav_button", :locals => {:medium => @medium} %>
+          </span>
+
+          <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+      </span>
+    <% end %>
   </div>
 
 	<div id="media_show_wrap">
@@ -45,20 +55,6 @@
 	</div>
 
 <!--/media_show_wrap-->
-
-  <% if member_signed_in? %>
-
-    <div class="media_btns">
-
-        <span id="m_fav_but">
-          <%= render :partial => "fav_button", :locals => {:medium => @medium} %>
-        </span>
-
-        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-    </div>
-
-  <% end %>
 
 	<% if member_signed_in? %>
 		<div class="media_comment_wrap">

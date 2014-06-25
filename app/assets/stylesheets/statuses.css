@@ -62,12 +62,12 @@
 	padding: 30px 21%;
 }
 .status_btns {
-	text-align: center;
-	margin-top: 20px;
+	float: right;
 }
 .status_btns .ims {
-	width: 30px;
-	height: 30px;
+	width: 29px;
+	height: 29px;
+	margin-top: 3px;
 }
 #status_show .modal.fade.in {
 top: 25%;

@@ -119,11 +119,12 @@
 	padding: 8px 40%;
 }
 .media_btns {
-	text-align: center;
+	float: right;
 }
 .media_btns .ims {
-	width: 30px;
-	height: 30px;
+	width: 29px;
+	height: 29px;
+	margin-top: 3px;
 }
 .m_show_wrap .modal.fade.in {
 top: 25%;

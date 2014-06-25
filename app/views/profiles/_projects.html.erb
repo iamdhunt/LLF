@@ -34,7 +34,6 @@
 		    <span class="r">
 		    	<% if member_signed_in? %>
 		    		<%= render :partial => "fav_button_projects", :locals => {:project => project} %>
-		    		<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
 			      	<% if current_member == project.member %>
 				        <span class="btn-group">
 				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>

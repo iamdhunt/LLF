@@ -15,11 +15,17 @@ before_filter :find_member
   def create
     @comment = @commentable.comments.new(params[:comment])
     @comment.member = current_member
-    if @comment.save
-      redirect_to :back
-    else
-      redirect_to :back
-    end
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_to :back }
+        format.json
+        format.js
+      else
+        format.html { redirect_to :back }
+        format.json
+        format.js
+      end
+    end 
   end
 
   def destroy

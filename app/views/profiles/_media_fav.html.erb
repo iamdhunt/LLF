@@ -81,8 +81,6 @@
           <% else %>
             <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_medium_path(medium), method: :put, :class => "btn favorite" %>
           <% end %>
-
-          <%= link_to image_tag("Share 3.png", class: "act_actions", title: "Share", alt: "Share"), "#", :class => "btn share" %>
           
           <% if can_edit_medium?(medium) %>
             <span class="ad">

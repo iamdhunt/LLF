@@ -24,6 +24,12 @@
 				<span class="meta"> 
 					<%= time_ago_in_words(@status.created_at) %>
 				</span>
+
+				<% if member_signed_in? %>
+				    <div class="status_btns">
+				        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+				    </div>
+				<% end %>
 			</div>
 
 			<div class="act_content">
@@ -35,17 +41,9 @@
 			</div>
 
 			<% if member_signed_in? %>
-
-			    <div class="status_btns">
-
-			        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-			    </div>
-
-			<% end %>
-
-			<% if member_signed_in? %>
-				<%= render "comment_form" %>
+				<div id="">
+					<%= render "comment_form" %>
+				</div>
 
 				<div id="comments_wrap">
 					<%= render "comments" %>

@@ -59,18 +59,12 @@
                             <span>
                                 <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
                                 <span class="mt-btn"><%= link_to image_tag("Mention 3.png", class: "mem_actions1"), "#", title: "Mention", alt: "Mention", :class => "btn" %></span>
-                                <%= link_to image_tag("More.png", class: "mem_actions", title: "More", alt: "More"), "/page.html", :class => "btn dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                                    <ul class="dropdown-menu">            
-                                      <li class="open block">
-                                        <%= link_to "#" do %>
-                                            <i class="icon-ban-circle"></i> Block <%= "@" + @member.user_name %>
-                                        <% end %>
-                                      </li>
-                                    </ul>
+                                <%= link_to image_tag("Block.png", class: "mem_actions"), "#", :class => "btn", title: "Block @" + @member.user_name, alt: "Block @" + @member.user_name %>
                             </span>
                         <% end %>
                         <% if current_member == @member %>
-                             <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#conversation", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
+                            <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#conversation", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
+                            <%= link_to image_tag("Share 3.png", class: "mem_actions"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %>
                             <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Edit Profile", alt: "Edit Profile", :class => "btn" %>
                         <% end %>
                     </div>
@@ -133,15 +127,29 @@
       </div>
     </div>
 
-    <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+    <% unless @member == current_member %>
+        <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="sharemodallabel">Start A New Conversation</h3>
+          </div>
+          <div class="modal-body pi">
+            <%= render :partial => "conversations/profile_form" %>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="s_modal">
+    <div id="share-profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Start A New Conversation</h3>
+        <h3 id="sharemodallabel">Copy Member URL</h3>
       </div>
       <div class="modal-body pi">
-        <%= render :partial => "conversations/profile_form" %>
+        <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" />
       </div>
     </div>
+  </div>
          
       
     <!--/content_wrap-->

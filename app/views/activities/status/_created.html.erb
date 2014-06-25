@@ -56,8 +56,6 @@
 					<%= link_to image_tag("Favorite 5.png", class: "act_actions"), favorite_activity_path(activity), method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" %>
 				<% end %>
 
-				<%= link_to image_tag("Share 3.png", class: "act_actions"), "#", title: "Share", alt: "Share", :class => "btn share" %>
-
 				<% if activity.member == current_member %>
 					<span class="ad">
 						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>

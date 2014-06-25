@@ -113,7 +113,7 @@ class ProfilesController < ApplicationController
   def followers
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @followers = @member.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (72))
+      @followers = @member.followers(:order => 'follows.id DESC').paginate(page: params[:page], per_page: (72))
       render action: :followers
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -122,7 +122,7 @@ class ProfilesController < ApplicationController
 
   def following
     @member = Member.find_by_user_name(params[:id])
-    @following = @member.following_members(:order => 'created_at DESC').paginate(page: params[:page], per_page: (72))
+    @following = @member.following_members(:order => 'following.id DESC').paginate(page: params[:page], per_page: (72))
     if @member  
       render action: :following
     else

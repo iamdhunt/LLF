@@ -1,0 +1,3 @@
+$("#comm_form_wrap").html("<%= escape_javascript(render :partial => "statuses/comment_form") %>");
+$('#comment_box').val('');
+$("#comments_wrap").html("<%= escape_javascript(render :partial => "statuses/comments", :locals => {:comment => comment}) %>")
