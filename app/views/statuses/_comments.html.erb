@@ -1,5 +1,5 @@
 <% @comments.each do |comment| %>
-	<div class="comments">
+	<div id="<%= comment.id %>" class="comments">
 		<span class="comment_av">
 			<%= comment_avatar_link comment.member, :class => "com_av", title: comment.member.full_name, alt: comment.member.full_name %>
 		</span>
@@ -9,7 +9,7 @@
 				
 				<% if comment.member == current_member || @commentable.member == current_member %>
 					<span class="comment_del">
-						<%= link_to image_tag("Delete.png", title: 'Delete'), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to image_tag("Delete.png", title: 'Delete'), [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
 					</span>
 				<% end %>
 				<span class="meta">

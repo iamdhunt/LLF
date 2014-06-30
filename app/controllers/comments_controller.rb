@@ -32,10 +32,14 @@ before_filter :find_member
     @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.member == current_member || @commentable.member == current_member
-         @comment.destroy
-         format.html { redirect_to :back }
+        @comment.destroy
+        format.html { redirect_to :back }
+        format.json
+        format.js
       else
-         format.html { redirect_to :back, alert: 'You can\'t delete this comment.' }
+        format.html { redirect_to :back, alert: 'You can\'t delete this comment.' }
+        format.json
+        format.js
       end
     end 
   end

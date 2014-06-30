@@ -19,9 +19,11 @@ class UpdatesController < ApplicationController
       if @update.save
         format.html { redirect_to @updateable }
         format.json { render json: @updateable }
+        format.js
       else
         format.html { redirect_to @updateable }
         format.json { render json: @updateable.errors, status: :unprocessable_entity }
+        format.js
       end
     end 
   end
@@ -30,10 +32,14 @@ class UpdatesController < ApplicationController
     @update = Update.find(params[:id])
     respond_to do |format|
       if @update.member == current_member || @updateable.member == current_member
-         @update.destroy
-         format.html { redirect_to :back }
+        @update.destroy
+        format.html { redirect_to :back }
+        format.json
+        format.js
       else
-         format.html { redirect_to :back, alert: 'You can\'t delete this update.' }
+        format.html { redirect_to :back, alert: 'You can\'t delete this update.' }
+        format.json
+        format.js
       end
     end 
   end
