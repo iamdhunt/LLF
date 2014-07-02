@@ -152,8 +152,8 @@
         <% end %>
       </div>
 
-      <div id="u_list_wrap">
-        <%= render :partial => "shared/updates" %>       
+      <div id="u_list_wrap update_<%= updateable.id %>">
+        <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
       </div>
 
       <div id="p_m_list_wrap">
@@ -169,8 +169,8 @@
           <% else %>
             <div class="c_message">Must be following project to leave a comment.</div>
         <% end %>
-        <div id="comments_wrap">
-          <%= render "shared/comments" %>
+        <div id="comments_wrap comments_<%= @commentable.id %>" class="">
+          <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
         </div>
 
         <%= will_paginate @comments, class: 'display_none' %>

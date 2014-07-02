@@ -14,6 +14,7 @@ before_filter :find_member
 
   def create
     @comment = @commentable.comments.new(params[:comment])
+    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment.member = current_member
     respond_to do |format|
       if @comment.save

@@ -29,6 +29,7 @@ group :development, :test do
 	gem 'factory_girl_rails'
 	gem 'sqlite3'
 	gem 'sunspot_solr'
+	gem 'debugger'
 end 
 
 group :production do

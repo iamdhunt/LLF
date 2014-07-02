@@ -56,27 +56,28 @@
 
 <!--/media_show_wrap-->
 
-	<% if member_signed_in? %>
-		<div class="media_comment_wrap">
-			<%= render "comment_form" %>
+	<div class="media_comment_wrap">
+    <% if member_signed_in? %>
+		    <%= render "shared/comment_form" %>
+    <% else %>
+        <div class="c_message">Must be logged in to leave a comment.</div>
+    <% end %>
 
-      <div id="comments_wrap">
-  			<%= render "comments" %>
-      </div>
+    <div id="comments_wrap comments_<%= @commentable.id %>" class="act_cmts">
+      <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+    </div>
 
-      <%= will_paginate @comments, class: 'display_none' %>
+    <%= will_paginate @comments, class: 'display_none' %>
 
-      <% if @comments.total_pages != @comments.current_page %>
-        <div id="loading"></div>  
-            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-              <div class="com_show">
-                Show More
-              </div>
-            <% end %>           
-      <% end %>
-
-		</div>
-	<% end %>
+    <% if @comments.total_pages != @comments.current_page %>
+      <div id="loading"></div>  
+          <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+              Show More
+            </div>
+          <% end %>           
+    <% end %>
+	</div>
 
   <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
     <div class="modal-header">

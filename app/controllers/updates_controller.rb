@@ -14,6 +14,7 @@ class UpdatesController < ApplicationController
 
   def create
     @update = @updateable.updates.new(params[:update])
+    @updates = @updateable.updates
     @update.member = current_member
     respond_to do |format|
       if @update.save

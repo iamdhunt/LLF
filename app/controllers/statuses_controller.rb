@@ -26,7 +26,7 @@ class StatusesController < ApplicationController
     @commentable = @status
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = @commentable.comments.new
-    logger.info( @comments.inspect() )
+    logger.info( @comment.inspect() )
     respond_to do |format|
       format.html # show.html.erb
       format.json { redirect_to profile_path(current_member) }

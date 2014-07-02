@@ -159,7 +159,7 @@
     border-left: 6px solid transparent;
     content: '';
   }
-#pd_c_wrap .c_message {
+.c_message {
 	text-align: center;
 	font-size: 1.2em;
 	color: #444;

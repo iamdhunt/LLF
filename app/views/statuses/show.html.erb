@@ -44,22 +44,23 @@
 				<div id="">
 					<%= render "shared/comment_form" %>
 				</div>
+			<% else %>
+		        <div class="c_message">Must be logged in to leave a comment.</div>
+		    <% end %>
 
-				<div id="comments_wrap comments_<%=@comment.commentable.id %>" class="act_cmts">
-					<%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
-				</div>
+			<div id="comments_<%= @commentable.id %>" class="act_cmts .comments_wrap">
+				<%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+			</div>
 
-				<%= will_paginate @comments, class: 'display_none' %>
+			<%= will_paginate @comments, class: 'display_none' %>
 
-				<% if @comments.total_pages != @comments.current_page %>
-					<div id="loading"></div>	
-			        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-			        	<div class="com_show">
-			        		Show More
-			        	</div>
-			        <% end %>				    
-				<% end %>
-				
+			<% if @comments.total_pages != @comments.current_page %>
+				<div id="loading"></div>	
+		        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+		        	<div class="com_show">
+		        		Show More
+		        	</div>
+		        <% end %>				    
 			<% end %>
 
 		</div>
