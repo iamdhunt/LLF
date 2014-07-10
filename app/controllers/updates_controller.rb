@@ -14,7 +14,7 @@ class UpdatesController < ApplicationController
 
   def create
     @update = @updateable.updates.new(params[:update])
-    @updates = @updateable.updates
+    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
     @update.member = current_member
     respond_to do |format|
       if @update.save

@@ -10,6 +10,7 @@ $(document).ready(function() {
   var $container = $('#prs')
   var $fcon = $('#proj_fol')
   var $mcon = $('#p_m_list_wrap')
+  var $ucon = $('.u_list_wrap')
   var cap_max_blb = 140;
   var $cap_blb = $('#p_cap_blb')
   var dom = document.getElementById('p_cap_blb');
@@ -25,7 +26,7 @@ $(document).ready(function() {
 		      $(this).css({ zIndex: ($elems.length - e) });
 		    });
 		  },
-		  itemSelector: '#p_list_wrap',
+		  itemSelector: '.p_list_wrap',
 	  });
 
 	    	// bind filter on radio button click
@@ -40,7 +41,7 @@ $(document).ready(function() {
 	$container.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#prs #p_list_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '#prs .p_list_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#loading',
 	    	finishedMsg: '',
@@ -162,6 +163,37 @@ $(document).ready(function() {
 
 	$(".p_m_load_arrow").click(function(){
     	$('#p_m_list_wrap').infinitescroll('retrieve');
+        	return false;
+	});
+	  
+	$ucon.infinitescroll({
+	    navSelector  : '.pagination',    // selector for the paged navigation 
+	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
+	    itemSelector : '.u_list_wrap .update_wrap',     // selector for all items you'll retrieve
+	    loading: {
+	    	selector: '#p_upd_loading',
+	    	finishedMsg: '',
+	        img: '/assets/ajax-loader (7).gif',
+	        msgText: '',
+	      },
+	      errorCallback : function () { 
+	     	$('.p_u_load_arrow').fadeOut(); 
+	     }
+	    },
+
+	    function( newElements ) {
+	      var $newElems = $( newElements ).css({ opacity: 0 });
+	      $newElems.imagesLoaded(function(){
+	        $newElems.animate({ opacity: 1 });
+	        $ucon.isotope( 'appended', $newElems, true ); 
+	      });
+	    }
+	  );
+
+	$(window).unbind('.infscr');
+
+	$(".p_u_load_arrow").click(function(){
+    	$('.u_list_wrap').infinitescroll('retrieve');
         	return false;
 	});
 

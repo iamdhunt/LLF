@@ -1,1 +1,1 @@
-$("#m_fav_but").html("<%= escape_javascript(render :partial => "media/fav_button", :locals => {:medium => @medium}) %>")
+$("#med_fav_<%= @medium.id %>_<%= @medium.member.id %>").html("<%= escape_javascript(render :partial => 'media/favorite', :locals => {:medium => @medium}) %>")

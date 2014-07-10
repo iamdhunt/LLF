@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var $cv = $('#cv_form');
-	var $container = $('#messages_wrap');
+	var $container = $('.messages_wrap');
 	var $icon = $('.inbox_wrap');
 	var $scon = $('.sentbox_wrap');
 	var $tcon = $('.trash_wrap');
@@ -8,7 +8,7 @@ $(document).ready(function(){
 	$container.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#messages_wrap .mess_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '.messages_wrap .mess_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#loading',
 	    	finishedMsg: '',
@@ -32,7 +32,7 @@ $(document).ready(function(){
 	$(window).unbind('.infscr');
 
 	$(".load_arrow").click(function(){
-    	$('#messages_wrap').infinitescroll('retrieve');
+    	$('.messages_wrap').infinitescroll('retrieve');
         	return false;
 	});
 

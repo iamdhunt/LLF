@@ -39,8 +39,10 @@
 
     <% if @events.count > 0 %>
         <div id="media_query_prev">
-            <div id="prof_projs">
-                <%= render :partial => "events_fav" %>
+            <div id="prof_prs">
+                <div id="prs">
+                    <%= render :partial => "events_fav" %>
+                </div>
             </div>   
         </div>       
     <% else %>

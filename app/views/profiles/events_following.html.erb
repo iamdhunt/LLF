@@ -39,8 +39,10 @@
 
     <% if @following.count > 0 %>
         <div id="media_query_prev">
-            <div id="prof_projs">
-                <%= render :partial => "following_events" %>
+            <div id="prof_prs">
+                <div id="prs">
+                    <%= render :partial => "following_events" %>
+                </div>
             </div>     
         </div>     
         <% else %>

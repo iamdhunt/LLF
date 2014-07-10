@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
-	  	itemSelector: '#pdl_wrap',
+	  	itemSelector: '.pdl_wrap',
 		  layoutMode : 'fitRows',
 		  gutter: 10
 	  });
@@ -24,7 +24,7 @@ $(document).ready(function() {
 	$container.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#lstgs #pdl_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '#lstgs .pdl_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#loading',
 	    	finishedMsg: '',
@@ -54,7 +54,7 @@ $(document).ready(function() {
 
 	$mkcon.imagesLoaded(function(){
 	  $mkcon.isotope({
-	   itemSelector: '#pdl_wrap',
+	   itemSelector: '.pdl_wrap',
 		  layoutMode : 'fitRows',
 		  gutter: 10
 	  });

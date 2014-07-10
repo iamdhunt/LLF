@@ -1,6 +1,6 @@
 $(document).ready(function(){
-	var $scon = $('#community_stream_wrap');
-	var $mcon = $('#community_media_wrap');
+	var $scon = $('.community_stream_wrap');
+	var $mcon = $('.community_media_wrap');
 
 	$scon.imagesLoaded(function(){
 	  $scon.isotope({
@@ -28,7 +28,7 @@ $(document).ready(function(){
 	$scon.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#community_stream_wrap .list_act_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '.community_stream_wrap .list_act_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#p_str_loading',
 	    	finishedMsg: '',
@@ -52,7 +52,7 @@ $(document).ready(function(){
 	$(window).unbind('.infscr');
 
 	$(".p_s_load_arrow").click(function(){
-    	$('#community_stream_wrap').infinitescroll('retrieve');
+    	$('.community_stream_wrap').infinitescroll('retrieve');
         	return false;
 	});
 
@@ -88,7 +88,7 @@ $(document).ready(function(){
 	$mcon.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#community_media_wrap .list_act_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '.community_media_wrap .list_act_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#p_med_loading',
 	    	finishedMsg: '',
@@ -112,7 +112,7 @@ $(document).ready(function(){
 	$(window).unbind('.infscr');
 
 	$(".p_m_load_arrow").click(function(){
-    	$('#community_media_wrap').infinitescroll('retrieve');
+    	$('.community_media_wrap').infinitescroll('retrieve');
         	return false;
 	});
 

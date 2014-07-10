@@ -107,7 +107,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1.json
   def destroy
     @activity = Activity.find_by_targetable_id(params[:id])
-    @commentable = @event
+    @commentable = @listing
     @comments = @commentable.comments
     if @activity
       @activity.destroy
@@ -120,6 +120,7 @@ class ListingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to listings_url }
       format.json { head :no_content }
+      format.js
     end
   end
 

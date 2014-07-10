@@ -197,7 +197,7 @@ font-weight: normal;
 #edit_wrap .edit_av_pd {
 	margin: 0 0 30px 175px;
 }
-#pdl_wrap {
+.pdl_wrap {
 	width: 230px;
 	margin: 0 11px 20px 0;
 }
@@ -461,11 +461,11 @@ label.active {
     -background: transparent;
 	text-decoration: none;
 }
-#pdl_wrap .lst_del {
+.pdl_wrap .lst_del {
 	position: absolute;
 	display: none;
 	z-index: 999999999999;
 }
-#pdl_wrap:hover .lst_del {
+.pdl_wrap:hover .lst_del {
 	display: inline;
 }

@@ -1,17 +1,17 @@
 <% @listings.each do |listing| %>
 
 	<% if listing.category == "Women's" %>
-		<div id="pdl_wrap" class="women_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap women_fil">
 	<% elsif listing.category == "Men's" %>
-		<div id="pdl_wrap" class="men_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap men_fil">
 	<% elsif listing.category == 'Art' %>
-		<div id="pdl_wrap" class="art_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap art_fil">
 	<% elsif listing.category == 'Music' %>
-		<div id="pdl_wrap" class="music_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap music_fil">
 	<% elsif listing.category == 'Design' %>
-		<div id="pdl_wrap" class="design_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap design_fil">
 	<% elsif listing.category == 'Services' %>
-		<div id="pdl_wrap" class="services_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap services_fil">
 	<% end %>
 	
 		<div id="">
@@ -54,7 +54,7 @@
 				<div class="pdl_action">
 					<%= list_profile_link listing.member, :class => "pr_av", title: listing.member.full_name, alt: listing.member.full_name %>
 					<% if member_signed_in? %>
-				    	<span id="p_fav_str">
+				    	<span id="lstgs_fav_<%= listing.id %>_<%= listing.member.id %>">
 						    <%= render :partial => "listings/fav_button_stream", :locals => {:listing => listing} %>
 						</span>
 				        <% if current_member == listing.member %>

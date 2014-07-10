@@ -1,3 +1,2 @@
-$("#comm_form_wrap").html("<%= escape_javascript(render :partial => 'shared/comment_form') %>");
-$('#comment_box').val('');
-$("#comments_<%= @commentable.id %>").html("<%= escape_javascript(render :partial => 'shared/comments', :collection => @comments, :as => :comment) %>")
+$("#comments_<%= @commentable.id %>").html("<%= escape_javascript(render :partial => 'shared/comments', :collection => @comments, :as => :comment) %>");
+$('#comment_form')[0].reset();

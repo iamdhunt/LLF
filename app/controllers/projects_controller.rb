@@ -41,7 +41,7 @@ class ProjectsController < ApplicationController
     @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
     @upload = Upload.new
     @updateable = @project
-    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(40)
+    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
     @update = Update.new
     @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
     
@@ -127,6 +127,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to profile_projects_path(current_member) }
       format.json { head :no_content }
+      format.js
     end
   end
 

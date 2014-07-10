@@ -1,0 +1,3 @@
+$("#conv_<%= @conversation.id %>_<%= current_member.id %>").remove();
+$("#inbox_wrap").html("<%= escape_javascript(render partial: 'conversations/conversation', :collection => @conversations, :as => :conversation) %>");
+$("#sentbox_wrap").html("<%= escape_javascript(render partial: 'conversations/sent', :collection => @sent, :as => :conversation) %>");

@@ -28,8 +28,8 @@
 			<%= render 'messages/form', conversation: conversation %>
 		</div>
 
-		<div id="messages_wrap">
-			<%= render partial: 'receipts' %>
+		<div id="messages_<%= conversation.id %>" class="messages_wrap">
+			<%= render :partial => 'conversations/receipts', :collection => @receipts, :as => :receipt %>
 		</div>
 
 		<%= will_paginate @receipts, class: 'display_none' %>

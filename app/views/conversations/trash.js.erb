@@ -1,0 +1,2 @@
+$("#conv_<%= @conversation.id %>_<%= current_member.id %>").remove();
+$("#trash_wrap").html("<%= escape_javascript(render partial: 'conversations/trash', :collection => @trash, :as => :conversation) %>");

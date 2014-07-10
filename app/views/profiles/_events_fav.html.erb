@@ -1,15 +1,15 @@
 <% @events.each do |event| %>
 	
 	<% if event.category == 'Arts' %>
-		<div id="p_list_wrap" class="art_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil">
 	<% elsif event.category == 'Entrepreneurial' %>
-		<div id="p_list_wrap" class="biz_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil">
 	<% elsif event.category == 'Sports' %>
-		<div id="p_list_wrap" class="sports_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil">
 	<% elsif event.category == 'Music' %>
-		<div id="p_list_wrap" class="music_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil">
 	<% elsif event.category == 'Other' %>
-		<div id="p_list_wrap" class="other_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil">
 	<% end %>
 		
 		<div id="p_list_top">
@@ -34,8 +34,8 @@
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
-			    	<span id="p_fav_str">
-					    <%= render :partial => "fav_button_events", :locals => {:event => event} %>
+			    	<span id="evt_fav_<%= event.id %>_<%= event.member.id %>">
+					    <%= render :partial => "events/fav_button_stream", :locals => {:event => event} %>
 					</span>
 			        <% if current_member == event.member %>
 				        <span class="btn-group">
@@ -45,7 +45,7 @@
 				                <%= link_to "Edit", edit_event_path(event), class: '' %>
 				              </li>
 				              <li class="del">
-				                <%= link_to "Delete", event, method: :delete, data: { confirm: 'Are you sure?' } %>
+				                <%= link_to "Delete", event, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 				              </li>
 				            </ul>
 				        </span>

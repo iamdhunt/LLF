@@ -1,24 +1,24 @@
 <% @listings.each do |listing| %>
 
 	<% if listing.category == "Women's" %>
-		<div id="pdl_wrap" class="women_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap women_fil">
 	<% elsif listing.category == "Men's" %>
-		<div id="pdl_wrap" class="men_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap men_fil">
 	<% elsif listing.category == 'Art' %>
-		<div id="pdl_wrap" class="art_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap art_fil">
 	<% elsif listing.category == 'Music' %>
-		<div id="pdl_wrap" class="music_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap music_fil">
 	<% elsif listing.category == 'Design' %>
-		<div id="pdl_wrap" class="design_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap design_fil">
 	<% elsif listing.category == 'Services' %>
-		<div id="pdl_wrap" class="services_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap services_fil">
 	<% end %>
 	
 		<div id="">
 			<div class="pdl_img">
 				<% if current_member == listing.member %>
 					<div class="lst_del">
-						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
+						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
 					</div>
 				<% end %>
 				<div>
@@ -49,8 +49,8 @@
 			<div id="pdl_m">
 				<div class="pdl_action">
 					<% if member_signed_in? %>
-				    	<span id="p_fav_str">
-						    <%= render :partial => "fav_button_listings", :locals => {:listing => listing} %>
+				    	<span id="lstgs_fav_<%= listing.id %>_<%= listing.member.id %>">
+						    <%= render :partial => "listings/fav_button_stream", :locals => {:listing => listing} %>
 						</span>
 				        <% if current_member == listing.member %>
 					        <span class="">

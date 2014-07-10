@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
     end
 
     def show
-	    @receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(15)
+	    @receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(20)
 
 	    render :action => :show
 	    @receipts.mark_as_read 
@@ -23,29 +23,50 @@ class ConversationsController < ApplicationController
 	    conversation = current_member.
 	      send_message(recipients, *conversation_params(:body, :subject)).conversation
 
-	    redirect_to :back
+	    redirect_to conversation_path(conversation)
 	end
 
     def reply
-	  current_member.reply_to_conversation(conversation, *message_params(:body, :subject))
-	  redirect_to conversation_path
+    	@receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(20)
+	  	current_member.reply_to_conversation(conversation, *message_params(:body, :subject))
+	  
+	  	respond_to do |format|
+          format.html { conversation_path(conversation) }
+          format.js
+      	end
 	end
 
-	def trash  
-		conversation.move_to_trash(current_member)  
-		redirect_to :conversations 
+	def trash 
+		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15) 
+		conversation.move_to_trash(current_member)
+
+		respond_to do |format|
+          format.html { redirect_to :conversations }
+          format.js
+      	end   
 	end
 
-	def untrash  
+	def untrash
+		@conversations ||= current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
 		conversation.untrash(current_member)  
-		redirect_to :back 
+		
+		respond_to do |format|
+          format.html { redirect_to :back }
+          format.js
+      	end  
 	end
 
-	def empty_trash   
+	def empty_trash
+		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
 		current_member.mailbox.trash.each do |conversation|    
 			conversation.receipts_for(current_member).update_all(:deleted => true)
   		end
- 		redirect_to :conversations
+ 		
+ 		respond_to do |format|
+          format.html { redirect_to :conversations }
+          format.js
+      	end 
 	end
 
 	private

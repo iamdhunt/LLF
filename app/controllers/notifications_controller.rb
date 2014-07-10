@@ -10,7 +10,10 @@ class NotificationsController < ApplicationController
 	    @notifications = current_member.mailbox.notifications.all
 	    current_member.mark_as_read @notifications
 
-	    redirect_to notifications_path
+        respond_to do |format|
+          format.html { redirect_to notifications_path }
+          format.js
+        end
 	end
 
 end

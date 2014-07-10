@@ -48,7 +48,7 @@
 		        <div class="c_message">Must be logged in to leave a comment.</div>
 		    <% end %>
 
-			<div id="comments_<%= @commentable.id %>" class="act_cmts .comments_wrap">
+			<div id="comments_<%= @commentable.id %>" class="act_cmts comments_wrap">
 				<%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
 			</div>
 

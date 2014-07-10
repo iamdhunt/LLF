@@ -23,6 +23,7 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to :back }
       format.json { head :no_content }
+      format.js
     end
   end
 

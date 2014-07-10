@@ -1,13 +1,11 @@
-
-
-<div id="update_wrap">
+<div id="update__<%= update.updateable.id %>_<%= update.id %>" class="update_wrap">
 	<div id="u_top">
 		<div class="u_tit">
 			<%= update.title %>
 		</div>
 		<% if update.member == current_member %>
 			<span class="u_del">
-				<%= link_to image_tag("Delete 2.png", title: 'Delete'), [@updateable, update], method: :delete, data: { confirm: 'Are you sure?' } %>
+				<%= link_to image_tag("Delete 2.png", title: 'Delete'), [@updateable, update], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</span>
 		<% end %>
 		<div style="clear:both;"></div>
@@ -20,4 +18,3 @@
 		<%= raw Rinku.auto_link(update.content) %>
 	</div>
 </div>
-

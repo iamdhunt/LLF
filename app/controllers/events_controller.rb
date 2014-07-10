@@ -134,6 +134,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to profile_events_path(current_member) }
       format.json { head :no_content }
+      format.js
     end
   end
 

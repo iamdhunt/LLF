@@ -1,11 +1,11 @@
 <% @media.each do |medium| %>
 
 <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-  <div class="list_act_wrap audio_fil">
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
   <% end %>
 
 <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-  <div class="list_act_wrap photo_fil">
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
 <% end %>
 
     <div id="m_t_wrap">
@@ -65,25 +65,13 @@
             <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
           <% end %>
 
-          <% if medium.votes.size > 0 && medium.votes.size <= 99 && current_member.voted_up_on?(medium) %>
-            <%= link_to favorite_medium_path(medium), method: :put, :class => "btn favorite" do %>
-                <%= image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") %><%= medium.votes.size %>
-            <% end %>
-          <% elsif medium.votes.size > 99 && current_member.voted_up_on?(medium) %>
-            <%= link_to image_tag("Favorite 3.png", class: "act_actions", title: "Unfavorite", alt: "Unfavorite") +'99+', favorite_medium_path(medium), method: :put, :class => "btn favorite" %>
-          <% elsif medium.votes.size > 0 && medium.votes.size <= 99 %>
-            <%= link_to favorite_medium_path(medium), method: :put, :class => "btn favorite" do %>
-                <%= image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") %><%= medium.votes.size %>
-            <% end %>
-          <% elsif medium.votes.size > 99 %>
-            <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite") +'99+', favorite_medium_path(medium), method: :put, :class => "btn favorite" %>
-          <% else %>
-            <%= link_to image_tag("Favorite 5.png", class: "act_actions", title: "Favorite", alt: "Favorite"), favorite_medium_path(medium), method: :put, :class => "btn favorite" %>
-          <% end %>
+          <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+            <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
+          </span>
 
           <% if can_edit_medium?(medium) %>
             <span class="ad">
-              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
+              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
             </span>
           <% end %>
           

@@ -1,0 +1,47 @@
+
+<% @notification = notification %>
+<div class="not_wrap">
+	<span class="not_icon">
+		<% if notification.notified_object_type == 'Comment' %>
+			<%= image_tag('N Comment.png') %>
+		<% end %>
+		<% if notification.notified_object_type == 'Upload' %>
+			<%= image_tag('N Upload.png') %>
+		<% end %>
+		<% if notification.notified_object_type == 'Update' %>
+			<%= image_tag('N Update.png') %>
+		<% end %>
+		<% if notification.notified_object_type == 'Follow' %>
+			<%= image_tag('N Follow.png') %>
+		<% end %>
+	</span>
+	<span>
+		<div class="not_content">
+			<% if notification.is_unread?(current_member) %>
+      		<span class="unread">
+      			<i class="icon-exclamation-sign icon-red"></i>
+      		</span>
+  		<% end %>
+			<%= link_to(notification.subject, "#{root_url}#{notification.subject}") %>&nbsp;<%= Rinku.auto_link(truncate(notification.body, :length => 400)).html_safe %>
+			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
+		</div>
+		<div class="view">
+			<% if notification.notified_object_type == 'Comment' %>
+				<%= link_to(notification.notified_object.commentable) do %>
+					<i class="icon-eye-open icon-green"></i> View
+				<% end %>
+			<% end %>
+			<% if notification.notified_object_type == 'Update' %>
+				<%= link_to(notification.notified_object.updateable) do %>
+					<i class="icon-eye-open icon-green"></i> View
+				<% end %>
+			<% end %>
+			<% if notification.notified_object_type == 'Upload' %>
+				<%= link_to(notification.notified_object.uploadable) do %>
+					<i class="icon-eye-open icon-green"></i> View
+				<% end %>
+			<% end %>
+		</div>
+	</span>
+	<div style="clear:both;"></div>
+</div>

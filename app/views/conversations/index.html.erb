@@ -23,9 +23,7 @@
     		<div id="inbox" class="tab-pane active">
     			<div class="conv_btn"><%= link_to 'New Conversation', "#new", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
     			<div class="inbox_wrap">
-					<% @conversations.each do |conversation| %>
-						<%= render partial: 'conversations/conversation', object: conversation %>
-					<% end %>
+    				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
 				</div>
 
 				<%= will_paginate @conversations, class: 'display_none' %>
@@ -44,42 +42,7 @@
 				<div class="conv_btn"><%= link_to 'New Conversation', "#new", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
 
 				<div class="sentbox_wrap">
-					<% @sent.each do |conversation| %>
-						<div class="conversation">
-							<div id="conv_wrap">
-							    <div class="conv_subj">
-							  		<%= link_to conversation.subject, conversation_path(conversation) %>
-							    </div>
-
-							    <div> 
-								    <% conversation.recipients.each do |recipient| %>
-									    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
-									<% end %>
-							  	</div>
-
-							  	<div class="conv_body">
-								    <%= conversation.last_message.body %>
-							  	</div>
-
-							    <div class="conv_time">
-							  		<%= conversation.updated_at.localtime.strftime("%a, %m/%e %I:%M%P") %>
-							    </div>
-
-							    <div class="conv_actions">
-							    	<span class="c_actions">
-							    		<%= link_to(conversation_path(conversation), class: '') do %>
-							    			<i class="icon-share-alt icon-grey"></i> Reply
-							    		<% end %>
-							    	</span>
-							    	<span class="conv_del c_actions">
-							    		<%= link_to({:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post') do %>
-							    			<i class="icon-trash icon-grey"></i> Move to Trash
-							    		<% end %>
-							    	</span>
-							    </div>
-							</div>
-						</div>
-					<% end %>
+					<%= render partial: "conversations/sent", :collection => @sent, :as => :conversation %>
 				</div>
 
 				<%= will_paginate @sent, class: 'display_none' %>
@@ -95,44 +58,10 @@
 			</div>
 
 			<div id="trash" class="tab-pane">
-				<div class="conv_btn"><%= link_to 'Empty Trash', {:controller => "conversations", :action => "empty_trash"}, :method=>'post', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></div>
+				<div class="conv_btn"><%= link_to 'Empty Trash', {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></div>
 
 				<div id="trash_wrap">
-					<% @trash.each do |conversation| %>
-						<div class="conversation">
-							<% if conversation.is_unread?(current_member) %>
-								<div id="conv_wrap2">
-							<% else %>
-								<div id="conv_wrap">
-							<% end %>
-								    <div class="conv_subj">
-								  		<%= conversation.subject %>
-								    </div>
-
-								    <div> 
-									    <% conversation.recipients.each do |recipient| %>
-										    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
-										<% end %>
-								  	</div>
-
-								  	<div class="conv_body">
-									    <%= conversation.last_message.body %>
-								  	</div>
-
-								    <div class="conv_time">
-								  		<%= conversation.updated_at.localtime.strftime("%a, %m/%e %I:%M%P") %>
-								    </div>
-
-								    <div class="conv_actions">
-								    	<span class="c_actions">
-								    		<%= link_to({:controller => "conversations", :action => "untrash", :id => conversation.id}, :title=> "Untrash", :method=>'post') do %>
-								    			<i class="icon-refresh icon-grey"></i> Untrash
-								    		<% end %>
-								    	</span>
-								    </div>
-								</div>
-						</div>
-					<% end %>
+					<%= render partial: "conversations/trash", :collection => @trash, :as => :conversation %>
 				</div>
 
 				<%= will_paginate @trash, class: 'display_none' %>

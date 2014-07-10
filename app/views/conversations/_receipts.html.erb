@@ -1,21 +1,19 @@
-<% @receipts.each do |receipt| %>
-	<% message = receipt.message %>
-	<div class="mess_wrap">
+
+	<div id="receipt_<%= receipt.message.id %>_<%= receipt.message.sender.id %>" class="mess_wrap">
 		<span class="comment_av">
-			<%= list_av message.sender, :class => "pr_av", title: message.sender.full_name, alt: message.sender.full_name  %>
+			<%= list_av receipt.message.sender, :class => "pr_av", title: receipt.message.sender.full_name, alt: receipt.message.sender.full_name  %>
 		</span>
 		<span>
-			<% if message.sender == current_member %>
+			<% if receipt.message.sender == current_member %>
 				<div class="comment_name2">
 			<% else %>
 				<div class="comment_name">
 			<% end %>
-				<%= link_to message.sender.user_name, profile_path(message.sender) %>
+				<%= link_to receipt.message.sender.user_name, profile_path(receipt.message.sender) %>
 			</div>	
 			<div class="com_con">
-				<%= Rinku.auto_link(message.body).html_safe %>
-				<div class="meta"><%= message.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %></div>
+				<%= Rinku.auto_link(receipt.message.body).html_safe %>
+				<div class="meta"><%= receipt.message.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %></div>
 			</div>
 		</span>	
 	</div>	 
-<% end %>

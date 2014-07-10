@@ -59,6 +59,7 @@ class MediaController < ApplicationController
         current_member.create_activity(@medium, 'created')
         format.html { redirect_to profile_media_path(current_member) }
         format.json { render json: @medium, status: :created, location: @medium }
+        format.js
       else
         format.html { redirect_to profile_media_new_path(current_member) }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
@@ -99,6 +100,7 @@ class MediaController < ApplicationController
     respond_to do |format|
       format.html { redirect_to profile_media_path(current_member) }
       format.json { head :no_content }
+      format.js
     end
   end
 

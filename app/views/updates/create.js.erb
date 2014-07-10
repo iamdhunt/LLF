@@ -1,4 +1,4 @@
-$("#comm_form_wrap").html("<%= escape_javascript(render :partial => 'shared/comment_form') %>");
-$('#comment_box').val('');
-$('#comment_box').val('');
-$("#update_<%= updateable.id %>").html("<%= escape_javascript(render :partial => 'shared/comments', :collection => @updates, :as => :update) %>")
+$("#update_<%= @updateable.id %>").html("<%= escape_javascript(render :partial => 'shared/updates', :collection => @updates, :as => :update) %>");
+$('#update').modal('hide');
+$('.redactor_editor').html('');
+$('#update_form')[0].reset();

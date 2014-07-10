@@ -1,4 +1,4 @@
-<%= simple_form_for :message, url: [:reply_conversation] do |f| %>
+<%= simple_form_for :message, url: [:reply_conversation], :html => { :id => 'reply_form' }, remote: true do |f| %>
 
 	<%= f.input :body, error: false, label: false, placeholder: 'Reply to conversation...', input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
 	<%= f.submit "Reply", class: 'btn btn-success' %>

@@ -3,9 +3,13 @@
 <div id="banner" style="background-image: url(<%= @project.banner.url(:large) %>)">
   <div id="pb">
     <div id="proj_av"><%= image_tag @project.avatar.url(:av), class: 'p_av' %></div>
-    <div id="info">
+    <% if !member_signed_in? || @project.member == current_member %>
+      <div id="info2">
+    <% else %>
+      <div id="info">
+    <% end %>
       <ul>
-        <% if member_signed_in? %>
+        <% if member_signed_in? && @project.member != current_member %>
           <li class='but p_f_but'>
             <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
           </li>
@@ -152,14 +156,20 @@
         <% end %>
       </div>
 
-      <div id="u_list_wrap update_<%= updateable.id %>">
+      <div id="update_<%= @updateable.id %>" class="u_list_wrap">
         <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
       </div>
 
-      <div id="p_m_list_wrap">
-               
-      </div>
+      <%= will_paginate @updates, class: 'display_none' %>
 
+      <% if @updates.total_pages != @updates.current_page %>
+          <div id="p_upd_loading"></div>
+          <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
+              <div class="com_show">
+                  Show More
+              </div>
+          <% end %>
+      <% end %>
     </div>
 
     <div class="tab-pane" id="comments">
@@ -169,7 +179,7 @@
           <% else %>
             <div class="c_message">Must be following project to leave a comment.</div>
         <% end %>
-        <div id="comments_wrap comments_<%= @commentable.id %>" class="">
+        <div id="comments_<%= @commentable.id %>" class="comments_wrap">
           <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
         </div>
 
@@ -243,7 +253,7 @@
     <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
       
       <div class="modal-body pi">
-        <%= render :partial => "update_form" %>
+        <%= render :partial => "shared/update_form" %>
       </div>
     </div>
   <% end %>

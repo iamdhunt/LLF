@@ -133,10 +133,9 @@
 	background:  #efefef;
 	margin-top: 5px;
 }
-#comment_btn .btn {
+#comment_form .btn {
 	color: #aeaeae;
 	font-weight: bold;
-
 	padding: 0 3px;
 	border: solid 2px #dfdfdf;
 	background: #f6f6f6;

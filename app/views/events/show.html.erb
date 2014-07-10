@@ -3,9 +3,13 @@
 <div id="banner" style="background-image: url(<%= @event.banner.url(:large) %>)">
   <div id="pb">
     <div id="proj_av"><%= image_tag @event.avatar.url(:av), class: 'p_av' %></div>
-    <div id="info">
+    <% if !member_signed_in? || @event.member == current_member %>
+      <div id="info2">
+    <% else %>
+      <div id="info">
+    <% end %>
       <ul>
-        <% if member_signed_in? %>
+        <% if member_signed_in? && @event.member != current_member %>
           <li class='but p_f_but'>
             <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
           </li>
@@ -180,8 +184,8 @@
         <% end %>
       </div>
 
-      <div id="u_list_wrap">
-        <%= render :partial => "shared/updates" %>       
+      <div id="update_<%= @updateable.id %>" class="u_list_wrap">
+        <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
       </div>
 
       <div id="p_m_list_wrap">

@@ -1,0 +1,2 @@
+$("#messages_<%= conversation.id %>").append("<%= escape_javascript(render :partial => 'conversations/receipts') %>");
+$('#reply_form')[0].reset();

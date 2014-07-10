@@ -1,1 +1,1 @@
-$("#comment_act_btn").html("<%= j  %>");
+$("#act_fav_<%= @activity.id %>_<%= @activity.member.id %>").html("<%= escape_javascript(render :partial => 'activities/favorite', :locals => {:activity => @activity}) %>");
