@@ -68,8 +68,8 @@
         <div class="action">
           <%= list_av @listing.member, :class => "pr_av", title: @listing.member.full_name, alt: @listing.member.full_name  %>
           <% if member_signed_in? %>
-            <span id="p_fav_but">
-              <%= render :partial => "fav_button", :locals => {:listing => @listing} %>
+            <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+              <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
             </span>
             <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
             <% if current_member == @listing.member %>
@@ -124,12 +124,14 @@
 
       <div id="">
         <% if member_signed_in? %>
-          <%= render "shared/comment_form" %>
+          <div id="c_form_wrap">
+            <%= render "shared/comment_form" %>
+          </div>
         <% else %>
             <div class="c_message">Must be logged in to leave a comment.</div>
         <% end %>
 
-        <div id="comments_wrap comments_<%= @commentable.id %>" class="">
+        <div id="comments_<%= @commentable.id %>" class="">
           <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
         </div>
 
@@ -156,7 +158,7 @@
         <h3 id="sharemodallabel">Copy Listing URL</h3>
       </div>
       <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= listing_url %>" />
+        <input class="pr_in forms" value="<%= listing_url %>" autofocus />
       </div>
     </div>
   </div>

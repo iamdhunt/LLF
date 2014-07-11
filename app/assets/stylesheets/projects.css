@@ -542,16 +542,16 @@ vertical-align: baseline;
 .pr_wrap .u_btn {
 	text-align: center;
 }
-#p_m_list_wrap {
+.p_m_list_wrap {
 	padding: 10px 0 60px 5px;
 	position: relative;
 }
-#p_m_list_wrap .list_act_wrap {
+.p_m_list_wrap .list_act_wrap {
 	width: 188px;
 	position: relative;
 	margin-bottom: 16px;
 }
-#p_m_list_wrap .act_name {
+.p_m_list_wrap .act_name {
 	top: 12px;
 }
 #p_m_t_wrap .p_m_t_icon {

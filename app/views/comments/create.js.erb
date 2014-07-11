@@ -1,2 +1,4 @@
-$("#comments_<%= @commentable.id %>").html("<%= escape_javascript(render :partial => 'shared/comments', :collection => @comments, :as => :comment) %>");
+$("#comments_<%= @commentable.id %>").prepend("<%= escape_javascript(render :partial => @comment, :locals => {:comment => @comment}) %>");
+$('#comm_counter').html("<span id='comm_counter' class='comm_counter'>Comments &#8226; <%= @commentable.comments.count %></span>");
+$('#c_pe_ct').html("<%= @commentable.comments.count %>");
 $('#comment_form')[0].reset();

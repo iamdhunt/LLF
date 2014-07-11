@@ -95,7 +95,7 @@
 	float: right;
 	display: none;
 }
-.ev_wrap #update_wrap:hover .u_del {
+.ev_wrap .update_wrap:hover .u_del {
 	display: inline;
 }
 .ev_wrap .u_del img {

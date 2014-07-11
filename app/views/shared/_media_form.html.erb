@@ -1,4 +1,4 @@
-<%= simple_form_for [@uploadable, @upload] do |f| %>
+<%= simple_form_for [@uploadable, @upload], :html => { :multipart => true, :id => 'upload_form' }, remote: true do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">

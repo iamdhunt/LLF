@@ -19,9 +19,11 @@ before_filter :find_member
       if @upload.save
         format.html { redirect_to @uploadable }
         format.json { render json: @uploadable }
+        format.js
       else
         format.html { redirect_to @uploadable }
         format.json { render json: @uploadable.errors, status: :unprocessable_entity }
+        format.js
       end
     end 
   end
@@ -32,8 +34,10 @@ before_filter :find_member
       if @upload.member == current_member || @uploadable.member == current_member
          @upload.destroy
          format.html { redirect_to :back }
+         format.js
       else
          format.html { redirect_to :back, alert: 'You can\'t delete this upload.' }
+         format.js
       end
     end 
   end

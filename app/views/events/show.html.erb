@@ -75,8 +75,8 @@
 
     <span class="r">
       <% if member_signed_in? %>
-        <span id="p_fav_but">
-          <%= render :partial => "fav_button", :locals => {:event => @event} %>
+        <span id="evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
+          <%= render :partial => "events/fav_button", :locals => {:event => @event} %>
         </span>
 
         <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
@@ -126,17 +126,17 @@
       </li>
       <li>
         <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
-          Media <span class="nav_p_ct"><%= @uploadable.uploads.count %></span>
+          Media <span id="up_pe_ct" class="nav_p_ct"><%= @uploadable.uploads.count %></span>
         <% end %>
       </li>
       <li>
         <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
-          Updates <span class="nav_p_ct"><%= @updateable.updates.count %></span>
+          Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
         <% end %>
       </li>
       <li>
         <%= link_to("#comments", :data => {:toggle=>"tab"}) do %>
-          Comments <span class="nav_p_ct"><%= @commentable.comments.count %></span>
+          Comments <span id="c_pe_ct" class="nav_p_ct"><%= @commentable.comments.count %></span>
         <% end %>
       </li>
       <li>
@@ -161,8 +161,8 @@
         <% end %>
       </div>
 
-      <div id="p_m_list_wrap">
-        <%= render :partial => "shared/media" %>       
+      <div id="upload_<%= @uploadable.id %>" class="p_m_list_wrap">
+        <%= render :partial => "shared/media", :collection => @uploads, :as => :upload %>       
       </div>
 
       <%= will_paginate @uploads, class: 'display_none' %>
@@ -197,11 +197,13 @@
     <div class="tab-pane" id="comments">
       <div id="proj_comm">
         <% if member_signed_in? && current_member.following?(@event) || current_member == @event.member %>
-          <%= render "shared/comment_form" %>
+          <div id="c_form_wrap">
+            <%= render "shared/comment_form" %>
+          </div>
           <% else %>
             <div class="c_message">Must be following event to leave a comment.</div>
         <% end %>
-        <div id="comments_wrap comments_<%= @commentable.id %>" class="">
+        <div id="comments_<%= @commentable.id %>" class="">
           <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
         </div>
 
@@ -243,7 +245,7 @@
         <h3 id="sharemodallabel">Copy Event URL</h3>
       </div>
       <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= event_url %>" />
+        <input class="pr_in forms" value="<%= event_url %>" autofocus />
       </div>
     </div>
   </div>
@@ -275,7 +277,7 @@
     <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
       
       <div class="modal-body pi">
-        <%= render :partial => "update_form" %>
+        <%= render :partial => "shared/update_form" %>
       </div>
     </div>
   <% end %>

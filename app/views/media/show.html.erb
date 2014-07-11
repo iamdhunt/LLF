@@ -23,8 +23,8 @@
 
     <% if member_signed_in? %>
       <span class="media_btns">
-          <span id="m_fav_but">
-            <%= render :partial => "fav_button", :locals => {:medium => @medium} %>
+          <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>">
+            <%= render :partial => "media/fav_button", :locals => {:medium => @medium} %>
           </span>
 
           <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
@@ -58,12 +58,14 @@
 
 	<div class="media_comment_wrap">
     <% if member_signed_in? %>
+      <div id="c_form_wrap">
 		    <%= render "shared/comment_form" %>
+      </div>
     <% else %>
         <div class="c_message">Must be logged in to leave a comment.</div>
     <% end %>
 
-    <div id="comments_wrap comments_<%= @commentable.id %>" class="act_cmts">
+    <div id="comments_<%= @commentable.id %>" class="act_cmts">
       <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
     </div>
 
@@ -85,7 +87,7 @@
       <h3 id="sharemodallabel">Copy Media URL</h3>
     </div>
     <div class="modal-body pi">
-      <input class="pr_in forms" value="<%= medium_url %>" />
+      <input class="pr_in forms" value="<%= medium_url %>" autofocus />
     </div>
   </div>
 

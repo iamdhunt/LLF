@@ -9,7 +9,7 @@ $(document).ready(function() {
   var m_src = $('.m').attr('src')
   var $container = $('#prs')
   var $fcon = $('#proj_fol')
-  var $mcon = $('#p_m_list_wrap')
+  var $mcon = $('.p_m_list_wrap')
   var $ucon = $('.u_list_wrap')
   var cap_max_blb = 140;
   var $cap_blb = $('#p_cap_blb')
@@ -138,7 +138,7 @@ $(document).ready(function() {
 	$mcon.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 
 	    nextSelector : '.pagination .next_page a',  // selector for the NEXT link (to page 2)
-	    itemSelector : '#p_m_list_wrap .list_act_wrap',     // selector for all items you'll retrieve
+	    itemSelector : '.p_m_list_wrap .list_act_wrap',     // selector for all items you'll retrieve
 	    loading: {
 	    	selector: '#p_med_loading',
 	    	finishedMsg: '',
@@ -162,7 +162,7 @@ $(document).ready(function() {
 	$(window).unbind('.infscr');
 
 	$(".p_m_load_arrow").click(function(){
-    	$('#p_m_list_wrap').infinitescroll('retrieve');
+    	$('.p_m_list_wrap').infinitescroll('retrieve');
         	return false;
 	});
 	  
@@ -227,15 +227,6 @@ $(document).ready(function() {
   $ti.autosize();
   $blb.autosize();
   $cty.autosize();
-
-  $('.fav').mouseenter(function(){
-	        $('.fav').attr('src','/assets/Favorite.png');
-	    }
-	);
-  $('.fav').mouseleave(function(){
-	        $('.fav').attr('src', f_src);
-	    }
-	);
 
   $('.sh').mouseenter(function(){
 	        $('.sh').attr('src','/assets/Share 2.png');

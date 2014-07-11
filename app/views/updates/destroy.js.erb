@@ -1,1 +1,2 @@
-$('#update__<%= @update.updateable.id %>_<%= @update.id %>').remove();
+$('#update_<%= @update.updateable.id %>_<%= @update.id %>').remove();
+$('#ut_pe_ct').html("<%= @updateable.updates.count %>");

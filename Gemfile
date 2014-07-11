@@ -23,6 +23,7 @@ gem 'delayed_job_active_record'
 gem 'auto_html'
 gem 'redactor-rails'
 gem 'mailboxer'
+gem "remotipart", "~> 1.0"
 
 group :development, :test do
 	gem 'shoulda'

@@ -41,7 +41,7 @@
 			</div>
 
 			<% if member_signed_in? %>
-				<div id="">
+				<div id="c_form_wrap">
 					<%= render "shared/comment_form" %>
 				</div>
 			<% else %>
@@ -71,7 +71,7 @@
 		      <h3 id="sharemodallabel">Copy Media URL</h3>
 		    </div>
 		    <div class="modal-body pi">
-		      <input class="pr_in forms" value="<%= status_url %>" />
+		      <input class="pr_in forms" value="<%= status_url %>" autofocus />
 		    </div>
 		</div>
 

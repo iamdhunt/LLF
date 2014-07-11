@@ -1,1 +1,2 @@
 $("#evt_fav_<%= @event.id %>_<%= @event.member.id %>").html("<%= escape_javascript(render :partial => 'events/fav_button_stream', :locals => {:event => @event}) %>");
+$("#evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>").html("<%= escape_javascript(render :partial => 'events/fav_button', :locals => {:event => @event}) %>");

@@ -1,5 +1,3 @@
-
-
 <% if upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
   <div id="upload_<%= upload.uploadable.id %>_<%= upload.id %>" class="list_act_wrap audio_fil">
   <% end %>
@@ -11,7 +9,7 @@
     <div id="p_m_t_wrap">
       <% if upload.member == current_member %>
           <span class="del_u_wrap">
-            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
           </span>
       <% end %>
 
@@ -58,4 +56,3 @@
     <% end %>
 
   </div>
-    

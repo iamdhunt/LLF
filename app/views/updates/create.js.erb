@@ -1,4 +1,5 @@
-$("#update_<%= @updateable.id %>").html("<%= escape_javascript(render :partial => 'shared/updates', :collection => @updates, :as => :update) %>");
+$("#update_<%= @updateable.id %>").prepend("<%= escape_javascript(render :partial => @update, :locals => {:update => @update}) %>");
 $('#update').modal('hide');
 $('.redactor_editor').html('');
+$('#ut_pe_ct').html("<%= @updateable.updates.count %>");
 $('#update_form')[0].reset();

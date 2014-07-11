@@ -1,1 +1,3 @@
 $('#comment_<%= @comment.commentable.id %>_<%= @comment.id %>').remove();
+$('#comm_counter').html("<span id='comm_counter' class='comm_counter'>Comments &#8226; <%= @commentable.comments.count %></span>");
+$('#c_pe_ct').html("<%= @commentable.comments.count %>");

@@ -1,0 +1,5 @@
+$("#upload_<%= @uploadable.id %>").prepend("<%= escape_javascript(render :partial => @upload, :locals => {:upload => @upload}) %>");
+$('.p_m_list_wrap').isotope('reLayout');
+$('#up_pe_ct').html("<%= @uploadable.uploads.count %>");
+$('#upload').modal('hide');
+$('#upload_form')[0].reset();

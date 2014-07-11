@@ -1,0 +1,3 @@
+$('#upload_<%= @upload.uploadable.id %>_<%= @upload.id %>').remove();
+$('.p_m_list_wrap').isotope('reLayout');
+$('#up_pe_ct').html("<%= @uploadable.uploads.count %>");

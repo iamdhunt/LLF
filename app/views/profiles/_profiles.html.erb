@@ -59,7 +59,6 @@
                             <span>
                                 <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
                                 <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
-                                <%= link_to image_tag("Block.png", class: "mem_actions"), "#", :class => "btn", title: "Block @" + @member.user_name, alt: "Block @" + @member.user_name %>
                             </span>
                         <% end %>
                         <% if current_member == @member %>
@@ -146,7 +145,7 @@
         <h3 id="sharemodallabel">Copy Profile URL</h3>
       </div>
       <div class="modal-body pi">
-        <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" />
+        <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" autofocus />
       </div>
     </div>
   </div>
