@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -110,6 +111,7 @@ GEM
       rails (>= 3.2.0)
     mime-types (1.25)
     multi_json (1.8.0)
+    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     options (2.3.2)
     orm_adapter (0.4.0)
@@ -154,7 +156,7 @@ GEM
       mime-types
       orm_adapter
     redcarpet (3.1.1)
-    remotipart (1.0.2)
+    remotipart (1.2.1)
     rinku (1.7.3)
     rsolr (1.0.10)
       builder (>= 2.1.2)
@@ -205,9 +207,6 @@ GEM
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.5)
-    zclip-rails (0.0.2)
-      jquery-rails (>= 1.0.17)
-      railties (~> 3.1)
 
 PLATFORMS
   x86-mingw32
@@ -232,7 +231,7 @@ DEPENDENCIES
   progress_bar
   rails (= 3.2.13)
   redactor-rails
-  remotipart (~> 1.0)
+  remotipart (~> 1.2)
   rinku
   sass-rails (~> 3.2.3)
   shoulda
@@ -243,4 +242,3 @@ DEPENDENCIES
   swf_fu (~> 2.0)
   uglifier (>= 1.0.3)
   will_paginate
-  zclip-rails

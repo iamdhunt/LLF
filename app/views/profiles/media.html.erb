@@ -24,8 +24,8 @@
 
     <% if @media.count > 0 %>
         <div id="media_query_media">
-            <div id="media_list_wrap">
-            	<%= render :partial => "media" %>       
+            <div id="media_list_wrap" class="m_list">
+            	<%= render :partial => "profiles/media", :collection => @media, :as => :medium %>       
             </div>      
         </div>
     <% else %>
@@ -46,7 +46,7 @@
     <% end %>
 
     <% if current_member == @member %>
-        <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div id="media" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
               <h3 id="sharemodallabel">Upload New Media</h3>

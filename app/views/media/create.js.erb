@@ -1,3 +1,8 @@
-$("#media_list_wrap").html("<%= escape_javascript(render :partial => 'media' %>");
-$('#upload').modal('hide');
+$(".m_list").prepend("<%= escape_javascript(render :partial => @medium, :locals => {:medium => @medium}) %>");
+$('#media_list_wrap').imagesLoaded(function() {
+	$('#media_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+	soundManager.stopAll();
+	soundManager.reboot();
+});
+$('#media').modal('hide');
 $('#media_form')[0].reset();

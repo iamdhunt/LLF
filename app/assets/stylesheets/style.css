@@ -1753,6 +1753,25 @@ label.active {
 	list-style: disc;
 	padding: 2px;
 }
+#faq_wrap .none_message {
+	padding: 220px 0 0 0;
+	font-size: 80px;
+}
+.contact_links {
+	padding: 0 45px;
+}
+.contact_email {
+	text-align: center;
+	color: #444;
+	font-size: 1.5em;
+	padding: 15px 0 0 0;
+}
+.contact_email .pr_in {
+	text-align: center;
+	color: #444444;
+	width: 65%;
+	font-size: 1.3em;
+}
 
 @media all and (max-width: 1280px) and (min-width: 1024.1px) {
     #main_wrap {

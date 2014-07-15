@@ -1,2 +1,2 @@
-$("#not_count").html("<span class='not_t'>Notifications (0)</span>");
+$("#not_count").html("<span class='not_t'>Notifications (<%= current_member.mailbox.notifications({:read => false}).count %>)</span>");
 $("#notifications").html("<%= escape_javascript(render partial: 'notifications/notifications', :collection => @notifications, :as => :notification) %>");

@@ -1,2 +1,7 @@
-$("#update_box_wrap").html("<%= escape_javascript(render :partial => 'profiles/form') %>");
-$('#update_box').val('');
+var $container = $('#activity_stream_wrap') 
+$('#activity_stream_wrap').prepend("<%= escape_javascript(render :partial => 'activities/status/created', :locals => {:activity => @activity}) %>");
+$('#activity_stream_wrap').imagesLoaded(function() {
+	$('#activity_stream_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+});
+$('#stat_count').html("280");
+$('#status_form')[0].reset();

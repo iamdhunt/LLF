@@ -50,7 +50,7 @@
     <% if @activities.count > 0 %>
         <div id="media_query_stream">
             <div id="activity_stream_wrap">
-        	   <%= render :partial => "activities/activities" %>
+        	   <%= render :partial => "activities/activities", locals: { activity: @activity} %>
             </div>
         </div>          
         <% else %>

@@ -43,7 +43,9 @@ $(document).ready(function(){
 	      var $newElems = $( newElements ).css({ opacity: 0 });
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
-	        $container.isotope( 'appended', $newElems, true ); 
+	        $container.isotope( 'appended', $newElems, true );
+	        soundManager.stopAll();
+	        soundManager.reboot();
 	      });
 	    }
 	  );

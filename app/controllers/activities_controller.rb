@@ -2,15 +2,12 @@ class ActivitiesController < ApplicationController
 
   before_filter :authenticate_member!
   before_filter :find_activity, only: [:destroy]
+  respond_to :html, :json
 
   def index
   	params[:page] ||= 1
   	@activities = Activity.for_member(current_member, params)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js
-    end
+    respond_with @activities
   end
 
   def destroy

@@ -154,7 +154,9 @@ $(document).ready(function() {
 	      var $newElems = $( newElements ).css({ opacity: 0 });
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
-	        $mcon.isotope( 'appended', $newElems, true ); 
+	        $mcon.isotope( 'appended', $newElems, true );
+	        soundManager.stopAll();
+	        soundManager.reboot();
 	      });
 	    }
 	  );

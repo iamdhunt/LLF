@@ -15,7 +15,6 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
-gem 'zclip-rails'
 gem 'sunspot_rails'
 gem 'progress_bar'
 gem "swf_fu", "~> 2.0"
@@ -23,7 +22,7 @@ gem 'delayed_job_active_record'
 gem 'auto_html'
 gem 'redactor-rails'
 gem 'mailboxer'
-gem "remotipart", "~> 1.0"
+gem "remotipart", "~> 1.2"
 
 group :development, :test do
 	gem 'shoulda'

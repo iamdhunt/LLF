@@ -201,7 +201,11 @@
             <%= render "shared/comment_form" %>
           </div>
           <% else %>
-            <div class="c_message">Must be following event to leave a comment.</div>
+            <div id="c_form_wrap">
+              <div class="c_message">
+                <span>Must be following event to leave a comment.</span>
+              </div>
+            </div>
         <% end %>
         <div id="comments_<%= @commentable.id %>" class="">
           <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>

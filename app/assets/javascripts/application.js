@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require js-routes
-//= require zclip
 //= require swf_fu
 //= require soundmanager2-nodebug
 //= require redactor-rails

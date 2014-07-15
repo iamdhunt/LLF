@@ -1,1 +1,2 @@
 $(".p_f_but").html("<%= escape_javascript(render :partial => 'shared/follow_project', :locals => {:project => @followable}) %>");
+$("#c_form_wrap").html("<%= escape_javascript(render :partial => 'shared/comment_form') %>");

@@ -1,0 +1,73 @@
+<% title @member.full_name %>
+
+    <%= render :partial => "stream_nav" %>
+
+    <!--/stream_wrap-->
+
+    <% if @member == current_member %>
+        <div id="act_update">
+            <div class="update_box_wrap" id="update_box_wrap">
+            	<%= render :partial => "profiles/form" %>
+            </div>
+        </div>
+    <% end %>
+
+    <!--/act_update-->
+
+    <div id="stream_filters" class="form-inline">
+        <span class="filters all">
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
+        </span>
+        <span class="filters stat_filter">
+            <label for="filter_.status_fil">
+            <%= radio_button_tag(:filter, ".status_fil") %> Statuses
+            </label>
+        </span>
+        <span class="filters media">
+            <label for="filter_.media_fil">
+            <%= radio_button_tag(:filter, ".media_fil") %> Media
+            </label>
+        </span>
+        <span class="filters market">
+            <label for="filter_.market_fil">
+            <%= radio_button_tag(:filter, ".market_fil") %> Market
+            </label>
+        </span>
+        <span class="filters event">
+            <label for="filter_.event_fil">
+            <%= radio_button_tag(:filter, ".event_fil") %> Events
+            </label>
+        </span>
+        <span class="filters project">
+            <label for="filter_.project_fil">
+            <%= radio_button_tag(:filter, ".project_fil") %> Projects
+            </label>
+        </span>
+    </div>
+    
+    <% if @activities.count > 0 %>
+        <div id="media_query_stream">
+            <div id="activity_stream_wrap">
+        	   <%= render :partial => "activities/activities", locals: { activity: @activity} %>
+            </div>
+        </div>          
+        <% else %>
+            <div class="none_message">
+                No Posts Yet
+            </div>
+    <% end %>    
+
+    <%= will_paginate @activities, class: 'display_none' %>
+
+    <% if @activities.total_pages != @activities.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+                Show More
+            </div>
+        <% end %>
+    <% end %>
+
+<!--/activity_wrap-->

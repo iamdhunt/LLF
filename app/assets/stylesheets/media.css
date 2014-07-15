@@ -5,6 +5,13 @@
 #media_list_wrap .dropdown-menu {
 	left: -50px;
 }
+#m_fav_list_wrap {
+	padding: 10px 0 60px 5px;
+	position: relative;
+}
+#m_fav_list_wrap .dropdown-menu {
+	left: -50px;
+}
 #add_new {
 	padding: 10px 5px 0 5px;
 }
@@ -92,6 +99,14 @@
 	margin-bottom: 16px;
 }
 #media_list_wrap .act_name {
+	top: 12px;
+}
+#m_fav_list_wrap .list_act_wrap {
+	width: 188px;
+	position: relative;
+	margin-bottom: 16px;
+}
+#m_fav_list_wrap .act_name {
 	top: 12px;
 }
 .med_top {

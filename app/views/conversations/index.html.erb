@@ -7,7 +7,7 @@
 			<ul class="nav nav-tabs" id="">
 		      <li class="active">
 		        <%= link_to("#inbox", :data => {:toggle=>"tab"}, class: '') do %>
-		        	Inbox (<%= @messages_count %>)
+		        	Inbox <span id="conv_ct">(<%= current_member.mailbox.inbox({:read => false}).count %>)</span>
 		        <% end %>
 		      </li>
 		      <li>
@@ -60,7 +60,7 @@
 			<div id="trash" class="tab-pane">
 				<div class="conv_btn"><%= link_to 'Empty Trash', {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></div>
 
-				<div id="trash_wrap">
+				<div class="trash_wrap">
 					<%= render partial: "conversations/trash", :collection => @trash, :as => :conversation %>
 				</div>
 

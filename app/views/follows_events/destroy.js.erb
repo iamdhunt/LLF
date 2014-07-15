@@ -1,1 +1,2 @@
-$(".p_f_but").html("<%= escape_javascript(render :partial => "shared/follow_event", :locals => {:event => @followable}) %>")
+$(".p_f_but").html("<%= escape_javascript(render :partial => 'shared/follow_event', :locals => {:event => @followable}) %>");
+$("#c_form_wrap").html("<div class='c_message'><span>Must be following event to leave a comment.</span></div>");

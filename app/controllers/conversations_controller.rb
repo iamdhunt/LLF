@@ -28,7 +28,7 @@ class ConversationsController < ApplicationController
 
     def reply
     	@receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(20)
-	  	current_member.reply_to_conversation(conversation, *message_params(:body, :subject))
+	  	@receipt = current_member.reply_to_conversation(conversation, *message_params(:body, :subject))
 	  
 	  	respond_to do |format|
           format.html { conversation_path(conversation) }
@@ -37,7 +37,8 @@ class ConversationsController < ApplicationController
 	end
 
 	def trash 
-		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15) 
+		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
+		@sent = current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15) 
 		conversation.move_to_trash(current_member)
 
 		respond_to do |format|
@@ -47,8 +48,8 @@ class ConversationsController < ApplicationController
 	end
 
 	def untrash
-		@conversations ||= current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
-   	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
+		@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@sent = current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
 		conversation.untrash(current_member)  
 		
 		respond_to do |format|

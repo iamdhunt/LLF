@@ -51,7 +51,6 @@ LLF::Application.routes.draw do
   end
 
   match '/faqs' => 'pages#faqs'
-  match '/contact-us' => 'pages#contact_us', :as => 'contact_us'
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'

@@ -176,10 +176,14 @@
       <div id="proj_comm">
         <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
           <div id="c_form_wrap">
-            <%= render "shared/comment_form" %>
+            <%= render :partial => "shared/comment_form" %>
           </div>
           <% else %>
-            <div class="c_message">Must be following project to leave a comment.</div>
+            <div id="c_form_wrap">
+              <div class="c_message">
+                <span>Must be following project to leave a comment.</span>
+              </div>
+            </div>
         <% end %>
         <div id="comments_<%= @commentable.id %>" class="comments_wrap">
           <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>

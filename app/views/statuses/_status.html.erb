@@ -1,0 +1,67 @@
+<div id="status_<%= status.id %>_<%= status.member.id %>" class="list_act_wrap status_fil">
+
+	<div class="act_status_top">
+		<span class="">
+			<%= avatar_profile_link status.member, :class => "act_av", title: status.member.full_name, alt: status.member.full_name %>
+		</span>
+
+		<span class="act_name">
+			<%= link_to status.member.user_name, profile_path(status.member) %>
+		</span>
+
+		<span class="meta"> 
+			<%= time_ago_in_words(status.created_at) %>
+		</span>
+
+		<span class="act_title stat">
+			wrote a new <%= link_to 'Status', status_path(activity.targetable_id) %>
+		</span>
+	</div>
+
+	<div class="act_content">
+		<%= Rinku.auto_link(activity.targetable.content_html).html_safe %>
+	</div>
+
+	<div class="act_attachment">
+	    <%= status_document_link activity.targetable %>
+	</div>
+
+	<% if member_signed_in? %> 
+		<div id="act_btn_wrap">
+			<span id="comment_act_btn">
+
+				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
+					<%= link_to status_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+						<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
+					<% end %>
+				<% elsif activity.targetable.comments.count > 99 %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', status_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% else %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions"), status_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% end %>
+
+				<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
+					<%= render :partial => "activities/favorite", :locals => {:activity => activity} %>	
+				</span>
+
+				<% if activity.member == current_member %>
+					<span class="ad">
+						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
+					</span>
+				<% end %>
+				
+			</span>
+		</div>
+	<% end %>
+
+	<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	      <h3 id="sharemodallabel">Copy Project URL</h3>
+	    </div>
+	    <div class="modal-body pi">
+	      <input class="pr_in forms" value="<%= status_url(activity.targetable_id) %>" />
+	    </div>
+	</div>
+
+</div> 

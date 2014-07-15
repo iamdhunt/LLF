@@ -27,7 +27,7 @@
         
         <div id="footer_top" class="box_font"> 
             <%= link_to "FAQ's", faqs_path %> &#8226; 
-            <%= link_to "Contact Us", contact_us_path %> &#8226; 
+            <%= link_to "Contact Us", "#contact", :data => {:toggle => "modal"} %> &#8226; 
             <%= link_to "Terms", terms_path %> &#8226; 
             <%= link_to "Privacy", privacy_path %> &#8226; 
             <a href="http://livinglifefearless.com/blog">BLOG</a> &#8226; 
@@ -44,6 +44,34 @@
 
     <a href="#" class="scrollup" title="Top" alt="Top">Scroll</a>
 
+</div>
+
+<div class="s_modal">
+    <div id="contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="sharemodallabel">Contact Us</h3>
+      </div>
+      <div class="modal-body pi">
+        <div class="contact_links">
+          <%= link_to image_tag("Bold.png", class: "acct_imgs", title: "BOLD.TV", alt: "BOLD.TV"), "http://havenforthebold.tv/" %>
+          <%= link_to image_tag("FB 2.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "https://www.facebook.com/livinglifefearless" %>
+          <%= link_to image_tag("Twitter 3.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "https://twitter.com/llfofficial" %>
+          <%= link_to image_tag("Linkedin 3.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), "http://www.linkedin.com/company/2641480" %>
+          <%= link_to image_tag("Pinterest 3.png", class: "acct_imgs", title: "Pinterest", alt: "Pinterest"), "http://pinterest.com/llfofficial/" %>
+          <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "YouTube", alt: "YouTube"), "http://www.youtube.com/thellfofficial/videos" %>
+          <%= link_to image_tag("Soundcloud 3.png", class: "acct_imgs", title: "Soundcloud", alt: "Soundcloud"), "https://soundcloud.com/livinglifefearless" %>
+          <%= link_to image_tag("Flickr 3.png", class: "acct_imgs", title: "Flickr", alt: "Flickr"), "http://www.flickr.com/photos/thellfofficial/" %>
+          <%= link_to image_tag("Instagram 3.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://instagram.com/llfofficial/" %>
+          <%= link_to image_tag("Blog 3.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://feeds.feedburner.com/livinglifefearless" %>
+        </div>
+        
+        <div class="contact_email">
+          <input class="pr_in forms" value="llf.support@gmail.com" autofocus />
+          
+        </div>
+      </div>
+    </div>
 </div>
 
 <!--/pagewrap-->
