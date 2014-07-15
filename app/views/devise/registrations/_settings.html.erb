@@ -1,7 +1,6 @@
 <fieldset>
   <legend class="descriptors leg">Update Your Name</legend>
-  <%= f.input :first_name, label: 'First Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '25'} %>
-  <%= f.input :last_name, label: 'Last Name', error: false, input_html: { class: 'forms account settings', tabindex: '8', maxlength: '25', id: 'edit_last'} %>
+  <%= f.input :full_name, label: 'Full Name', error: false, input_html: { class: 'forms account settings', tabindex: '7', id: 'edit_first', maxlength: '50'}, autocomplete: 'off' %>
 </fieldset>
 
 <fieldset>

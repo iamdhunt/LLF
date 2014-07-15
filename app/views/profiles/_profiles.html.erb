@@ -16,10 +16,10 @@
             
             <div id="center_profile">
                 <span class="p_name_wrap">
-                    <div class="profile_name"><%= link_to truncate(@member.full_name, :length => 25), @member %></div>
+                    <div class="profile_name"><%= link_to truncate(@member.full_name, :length => 25), @member, title: @member.full_name, alt: @member.full_name  %></div>
                 </span>
                 <span class="p_username_wrap">
-                    <div class="profile_username"><%= truncate("@" + @member.user_name, :length => 25) %></div>
+                    <div class="profile_username" title="<%= @member.name %>", alt="<%= @member.name %>"><%= truncate("@" + @member.user_name, :length => 25) %></div>
                 </span>
                 <div class="follow_count_text">
                     <%= link_to(profile_following_path(@member)) do %>

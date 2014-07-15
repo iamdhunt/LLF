@@ -1,4 +1,7 @@
-<% title current_member.full_name + " | Edit Profile" %>
+<% if current_member.full_name? %>
+  <% title current_member.full_name + " | Edit Profile" %>
+<% end %>
+
 
 <div id="main_wrap">
 

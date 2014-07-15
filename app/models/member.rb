@@ -6,31 +6,13 @@ class Member < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
-  					:first_name, :last_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
+  					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
             :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
 
-  validates :first_name, presence: true,
-                          format: {
-                          with: /^[a-zA-Z ]+$/,
-                          message: 'must be formatted correctly.'
-                        },
+  validates :full_name, presence: true,
                         length: {
-                          maximum: 1, :tokenizer => lambda {|str| str.scan(/\w+/) },
-                          message: 'must not be more than one name.',
-                          maximum: 25, 
-                          message: 'must not be more than 25 characters.'
-                        }
-
-  validates :last_name, presence: true,
-                        format: {
-                          with: /^[a-zA-Z -]+$/,
-                          message: 'must be formatted correctly.'
-                        },
-                        length: {
-                          maximum: 2, :tokenizer => lambda {|str| str.scan(/\w+/) },
-                          message: 'must not be more than 2 names.',
-                          maximum: 25, 
-                          message: 'must not be more than 25 characters.'
+                          maximum: 50, 
+                          message: 'must not be more than 50 characters.'
                         }
 
   validates :user_name, presence: true,
@@ -42,7 +24,11 @@ class Member < ActiveRecord::Base
                         length: {
                           maximum: 16,
                           message: 'must not be longer than 16 characters'
-                        }                    
+                        },
+                        exclusion: {
+                          in: %w(faqs community market events projects members terms privacy blog login logout join),
+                          message: 'is already taken.'
+                        }                 
 
   validates :email, confirmation: true
 
@@ -166,8 +152,8 @@ class Member < ActiveRecord::Base
                        }
 
   before_validation :clean_up_pursuits
-  before_save :titleize, :to_lower
-  before_create :titleize, :to_lower
+  before_save :to_lower
+  before_create :to_lower
 
   has_many :medium, :dependent => :destroy
   has_many :projects, :dependent => :destroy
@@ -187,7 +173,8 @@ class Member < ActiveRecord::Base
   acts_as_voter
   acts_as_messageable
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"}
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"},
+                    :default_url => '/assets/Default Av.png'
 
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
 
@@ -196,10 +183,6 @@ class Member < ActiveRecord::Base
 
   validates_attachment_size :banner, :less_than_or_equal_to=>5.megabyte
   validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
-
-  def full_name
-  		first_name + " " + last_name
-  end
 
   def to_param
     user_name
@@ -222,16 +205,11 @@ class Member < ActiveRecord::Base
   end
 
   searchable :auto_index => true, :auto_remove => true do
-    text :user_name, :first_name, :last_name, :pursuit_list, :boost => 5
+    text :user_name, :full_name, :pursuit_list, :boost => 5
     text :city, :state, :country
   end
 
   private
-
-  def titleize
-    self.first_name = self.first_name.titleize
-    self.last_name = self.last_name.titleize
-  end 
 
   def to_lower
     self.user_name = self.user_name.downcase

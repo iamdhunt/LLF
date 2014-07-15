@@ -48,8 +48,6 @@ class Project < ActiveRecord::Base
     has_many :updates, as: :updateable, :dependent => :destroy
 
   	before_validation :clean_up_markers
-    before_save :to_lower
-    before_create :to_lower
 
   	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
   								:default_url => '/assets/Projects Default.png'
@@ -91,9 +89,5 @@ class Project < ActiveRecord::Base
 	    # Make lowercase 
 	    self.marker_list.map!(&:downcase) 
 	  end
-
-    def to_lower
-      self.name = self.name.downcase
-    end 
 
 end

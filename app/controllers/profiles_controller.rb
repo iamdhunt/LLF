@@ -2,8 +2,6 @@ class ProfilesController < ApplicationController
  
  layout "profile"
 
- respond_to :html, :json, only: [:show, :stream, :my_stream]
-
   def show
   	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member
@@ -11,7 +9,7 @@ class ProfilesController < ApplicationController
       @status.build_document      
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
-      respond_with @activities
+      render action: :show
   	elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
       render action: :show
@@ -27,7 +25,7 @@ class ProfilesController < ApplicationController
       @status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
-      respond_with @activities
+      render action: :show
     elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
     else 
@@ -57,7 +55,7 @@ class ProfilesController < ApplicationController
       @status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
-      respond_with @activities
+      render action: :show
     else 
       redirect_to profile_stream_path(@member)
     end

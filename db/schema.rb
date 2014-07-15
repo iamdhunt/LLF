@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140618100618) do
+ActiveRecord::Schema.define(:version => 20140715100250) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -215,8 +215,6 @@ ActiveRecord::Schema.define(:version => 20140618100618) do
   add_index "media", ["member_id"], :name => "index_media_on_member_id"
 
   create_table "members", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "user_name"
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
@@ -255,6 +253,7 @@ ActiveRecord::Schema.define(:version => 20140618100618) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.string   "full_name"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
