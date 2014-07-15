@@ -1896,7 +1896,7 @@ label.active {
     	width: 98%;
     }
     #media_query_stream {
-    	padding-left: 18px;
+    	padding-left: 55px;
     }
     #media_query_media {
     	padding-left: 50px;
@@ -1929,5 +1929,8 @@ label.active {
     }
     #nav_bar .query_nav .dropdown-menu {
     	left: 10px;
+    }
+    .login_bg {
+    	background-image: url('/assets/Login Banner 2.png');
     }
 }
