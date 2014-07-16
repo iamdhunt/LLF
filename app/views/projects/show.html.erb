@@ -9,7 +9,7 @@
       <div id="info">
     <% end %>
       <ul>
-        <% if member_signed_in? %>
+        <% if member_signed_in? && @project.member != current_member %>
           <li class='but p_f_but'>
             <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
           </li>

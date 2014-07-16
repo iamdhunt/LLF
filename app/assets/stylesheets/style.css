@@ -1888,7 +1888,7 @@ label.active {
     	left: 10px;
     }
 }
-@media all and (max-width: 720px) and (min-width: 320px) {
+@media all and (max-width: 720px) and (min-width: 320.1px) {
     #main_wrap {
       	width: 98%;
     }
@@ -1932,5 +1932,10 @@ label.active {
     }
     .login_bg {
     	background-image: url('/assets/Login Banner 2.png');
+    }
+}
+@media all and (max-width: 320px) and (min-width: 0px) {
+	#media_query_stream {
+    	padding-left: 55px;
     }
 }
