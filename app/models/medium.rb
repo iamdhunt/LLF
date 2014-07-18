@@ -4,6 +4,8 @@ class Medium < ActiveRecord::Base
   	has_many :comments, as: :commentable, :dependent => :destroy
   	acts_as_votable
 
+  	before_save :make_it_permalink
+
   	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", av: "200x200#"}  : {} }
   	has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#" }
 
@@ -16,5 +18,16 @@ class Medium < ActiveRecord::Base
 
 	  validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
   	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] 
+
+	def to_param
+		permalink
+	end
+
+	private
+
+	def make_it_permalink
+		# this can create permalink with random 8 digit alphanumeric
+		self.permalink = SecureRandom.urlsafe_base64(12)
+	end
 	
 end

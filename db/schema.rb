@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140715100250) do
+ActiveRecord::Schema.define(:version => 20140717032353) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20140715100250) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.text     "markers"
+    t.string   "permalink"
   end
 
   add_index "events", ["member_id"], :name => "index_events_on_member_id"
@@ -147,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20140715100250) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "permalink"
   end
 
   add_index "listings", ["member_id"], :name => "index_listings_on_member_id"
@@ -210,6 +212,7 @@ ActiveRecord::Schema.define(:version => 20140715100250) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.string   "permalink"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"
@@ -281,6 +284,7 @@ ActiveRecord::Schema.define(:version => 20140715100250) do
     t.text     "city"
     t.text     "markers"
     t.text     "name"
+    t.string   "permalink"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
@@ -292,6 +296,7 @@ ActiveRecord::Schema.define(:version => 20140715100250) do
     t.integer  "member_id"
     t.integer  "document_id"
     t.integer  "restream_id"
+    t.string   "permalink"
   end
 
   add_index "statuses", ["member_id"], :name => "index_statuses_on_member_id"

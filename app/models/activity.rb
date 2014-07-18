@@ -16,6 +16,5 @@ class Activity < ActiveRecord::Base
     end
   		collection.page(options[:page])
   end 
-
   
 end

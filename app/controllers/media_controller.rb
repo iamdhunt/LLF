@@ -2,7 +2,7 @@ class MediaController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_filter :find_member
-  before_filter :find_media, only: [:edit, :update, :destroy]
+  before_filter :find_media, only: [:edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -22,7 +22,7 @@ class MediaController < ApplicationController
   # GET /media/1
   # GET /media/1.json
   def show
-    @medium = Medium.find(params[:id])
+    @medium = Medium.find_by_permalink(params[:id])
     @commentable = @medium
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
@@ -56,7 +56,7 @@ class MediaController < ApplicationController
 
     respond_to do |format|
       if @medium.save
-        current_member.create_activity(@medium, 'created')
+        @activity = current_member.create_activity(@medium, 'created')
         format.html { redirect_to profile_media_path(current_member) }
         format.json { render json: @medium, status: :created, location: @medium }
         format.js
@@ -86,6 +86,7 @@ class MediaController < ApplicationController
   # DELETE /media/1
   # DELETE /media/1.json
   def destroy
+    @medium = current_member.medium.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @medium
     @comments = @commentable.comments
@@ -105,7 +106,7 @@ class MediaController < ApplicationController
   end
 
   def upvote
-    @medium = Medium.find(params[:id])
+    @medium = Medium.find_by_permalink(params[:id])
     if current_member.voted_up_on? @medium
       @medium.unliked_by current_member
     else 
@@ -127,7 +128,7 @@ class MediaController < ApplicationController
   end 
 
   def find_media
-    @medium = current_member.medium.find(params[:id])
+    @medium = current_member.medium.find_by_permalink(params[:id])
   end 
 
 end

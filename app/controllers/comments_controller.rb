@@ -58,6 +58,10 @@ before_filter :find_member
   	@commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
 
+  #def load_commentable
+  #  @commentable = params[:commentable_type].camelize.constantize.find(params[:commentable_id])
+  #end
+
   def find_member
     @member = Member.find_by_user_name(params[:user_name])
   end 

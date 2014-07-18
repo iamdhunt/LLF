@@ -13,4 +13,8 @@ class ApplicationController < ActionController::Base
       profile_path(current_member)
     end
 
+    def target_activity(targetable, action = params[:action])
+    current_member.activities.create! action: action, targetable: targetable
+  end
+
 end

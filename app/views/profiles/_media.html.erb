@@ -69,7 +69,7 @@
 
           <% if can_edit_medium?(medium) %>
             <span class="ad">
-              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
+              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium_path(medium.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
             </span>
           <% end %>
           

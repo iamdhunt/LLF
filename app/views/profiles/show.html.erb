@@ -47,17 +47,11 @@
         </span>
     </div>
     
-    <% if @activities.count > 0 %>
-        <div id="media_query_stream">
-            <div id="activity_stream_wrap">
-        	   <%= render :partial => "activities/activities", locals: { activity: @activity} %>
-            </div>
-        </div>          
-        <% else %>
-            <div class="none_message">
-                No Posts Yet
-            </div>
-    <% end %>    
+    <div id="media_query_stream">
+        <div id="activity_stream_wrap">
+    	   <%= render :partial => "activities/activities", locals: { activity: @activity} %>
+        </div>
+    </div>             
 
     <%= will_paginate @activities, class: 'display_none' %>
 

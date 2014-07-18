@@ -22,7 +22,7 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-    @status = Status.find(params[:id])
+    @status = Status.find_by_permalink(params[:id])
     @commentable = @status
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = @commentable.comments.new
@@ -114,7 +114,7 @@ class StatusesController < ApplicationController
     end 
 
     def find_status
-      @status = current_member.statuses.find(params[:id])
+      @status = current_member.statuses.find_by_permalink(params[:id])
     end 
 
     def sortable_date
