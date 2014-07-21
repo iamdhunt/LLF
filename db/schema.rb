@@ -11,19 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140717032353) do
+ActiveRecord::Schema.define(:version => 20140721061610) do
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
     t.string   "action"
     t.integer  "targetable_id"
     t.string   "targetable_type"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "targetable_permalink"
   end
 
   add_index "activities", ["member_id"], :name => "index_activities_on_member_id"
   add_index "activities", ["targetable_id", "targetable_type"], :name => "index_activities_on_targetable_id_and_targetable_type"
+  add_index "activities", ["targetable_permalink"], :name => "index_activities_on_targetable_permalink"
 
   create_table "assets", :force => true do |t|
     t.integer  "member_id"

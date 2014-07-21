@@ -16,5 +16,12 @@ class Activity < ActiveRecord::Base
     end
   		collection.page(options[:page])
   end 
+
+  private
+
+  def make_it_permalink
+    # this can create permalink with random 8 digit alphanumeric
+    self.targetable_permalink = SecureRandom.hex(12)
+  end
   
 end
