@@ -4,7 +4,7 @@ class Status < ActiveRecord::Base
   belongs_to :document
   has_many :comments, as: :commentable, dependent: :destroy
 
-  before_create :make_it_permalink
+  before_save :make_it_permalink
 
   accepts_nested_attributes_for :document
 

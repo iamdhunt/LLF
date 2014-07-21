@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
 
-  before_create :make_it_permalink
+  before_save :make_it_permalink
 
   	attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city
 
