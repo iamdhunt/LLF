@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :member
 
-  before_save :make_it_permalink
+  before_create :make_it_permalink
 
 	attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time

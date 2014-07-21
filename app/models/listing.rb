@@ -1,7 +1,7 @@
 class Listing < ActiveRecord::Base
   	belongs_to :member
 
-    before_save :make_it_permalink
+    before_create :make_it_permalink
 
   	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover
 

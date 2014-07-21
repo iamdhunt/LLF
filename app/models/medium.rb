@@ -4,7 +4,7 @@ class Medium < ActiveRecord::Base
   	has_many :comments, as: :commentable, :dependent => :destroy
   	acts_as_votable
 
-  	before_save :make_it_permalink
+  	before_create :make_it_permalink
 
   	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", av: "200x200#"}  : {} }
   	has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#" }
