@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by_permalink(params[:id])
     @commentable = @event
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
@@ -140,7 +140,7 @@ class EventsController < ApplicationController
   end
 
   def upvote
-    @event = Event.find(params[:id])
+    @event = Event.find_by_permalink(params[:id])
     if current_member.voted_up_on? @event
       @event.unliked_by current_member
     else 
@@ -158,7 +158,7 @@ class EventsController < ApplicationController
   end 
 
   def find_event
-    @event = current_member.events.find(params[:id])
+    @event = current_member.events.find_by_permalink(params[:id])
   end
 
   def sanitize_redactor(orig_input)

@@ -52,7 +52,7 @@ before_filter :find_member
   # alternative option:
   def load_uploadable
   	klass = [Project, Event].detect { |c| params["#{c.name.underscore}_id"] }
-  	@uploadable = klass.find(params["#{klass.name.underscore}_id"])
+  	@uploadable = klass.find_by_permalink(params["#{klass.name.underscore}_id"])
   end
 
   def find_member

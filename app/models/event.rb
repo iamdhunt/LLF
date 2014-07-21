@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
 	belongs_to :member
 
-  before_save :make_it_permalink
+  before_create :make_it_permalink
 
 	attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
@@ -134,7 +134,9 @@ class Event < ActiveRecord::Base
       followers.map{|u| u.user_name }
   end
 
-  
+  def to_param
+    permalink
+  end   
 
 	private
 
@@ -152,7 +154,7 @@ class Event < ActiveRecord::Base
 
     def make_it_permalink
       # this can create permalink with random 8 digit alphanumeric
-      self.permalink = SecureRandom.urlsafe_base64(12)
+      self.permalink = SecureRandom.hex(12)
     end
 
 end

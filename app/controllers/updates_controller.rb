@@ -55,7 +55,7 @@ class UpdatesController < ApplicationController
   # alternative option:
   def load_updateable
   	klass = [Project, Event].detect { |c| params["#{c.name.underscore}_id"] }
-  	@updateable = klass.find(params["#{klass.name.underscore}_id"])
+  	@updateable = klass.find_by_permalink(params["#{klass.name.underscore}_id"])
   end
 
   def find_member

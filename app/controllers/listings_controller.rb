@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @listing = Listing.find(params[:id])
+    @listing = Listing.find_by_permalink(params[:id])
     @additional = @listing.member.listings.order("RANDOM()").limit(6)
     @commentable = @listing
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
@@ -106,6 +106,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
+    @listing = current_member.listings.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @listing
     @comments = @commentable.comments
@@ -125,7 +126,7 @@ class ListingsController < ApplicationController
   end
 
   def upvote
-    @listing = Listing.find(params[:id])
+    @listing = Listing.find_by_permalink(params[:id])
     if current_member.voted_up_on? @listing
       @listing.unliked_by current_member
     else 
@@ -144,6 +145,6 @@ class ListingsController < ApplicationController
     end 
 
     def find_listing
-      @listing = current_member.listings.find(params[:id])
+      @listing = current_member.listings.find_by_permalink(params[:id])
     end
 end

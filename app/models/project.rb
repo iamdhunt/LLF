@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
 	belongs_to :member
+
+  before_create :make_it_permalink
+
   	attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city
 
   	validates :about, presence: true
@@ -76,6 +79,10 @@ class Project < ActiveRecord::Base
       string :marker_list, :multiple => true, :stored => true
     end
 
+    def to_param
+      permalink
+    end  
+
   	private
 
 	  def each_marker
@@ -89,5 +96,10 @@ class Project < ActiveRecord::Base
 	    # Make lowercase 
 	    self.marker_list.map!(&:downcase) 
 	  end
+
+    def make_it_permalink
+      # this can create permalink with random 8 digit alphanumeric
+      self.permalink = SecureRandom.hex(12)
+    end
 
 end

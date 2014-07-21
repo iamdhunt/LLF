@@ -1,6 +1,8 @@
 class Listing < ActiveRecord::Base
   	belongs_to :member
 
+    before_create :make_it_permalink
+
   	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover
 
   	validates :title, presence: true
@@ -59,6 +61,10 @@ class Listing < ActiveRecord::Base
       float :price
     end
 
+    def to_param
+      permalink
+    end
+
   	private
 
 	  def each_marker
@@ -74,7 +80,12 @@ class Listing < ActiveRecord::Base
 	  end
 
 	  def strip_commas_from_price
-		self.price = self.price.to_s.gsub(/,/, '').to_f
+		  self.price = self.price.to_s.gsub(/,/, '').to_f
 	  end
+
+    def make_it_permalink
+      # this can create permalink with random 8 digit alphanumeric
+      self.permalink = SecureRandom.hex(12)
+    end
 
 end

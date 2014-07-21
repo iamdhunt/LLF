@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_status, only: [:edit, :update, :destroy]
+  before_filter :find_status, only: [:edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -26,7 +26,6 @@ class StatusesController < ApplicationController
     @commentable = @status
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = @commentable.comments.new
-    logger.info( @comment.inspect() )
     respond_to do |format|
       format.html # show.html.erb
       format.json { redirect_to profile_path(current_member) }
@@ -91,6 +90,7 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
+    @status = current_member.statuses.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @status
     @comments = @commentable.comments

@@ -9,7 +9,7 @@
     <div id="p_m_t_wrap">
       <% if upload.member == current_member %>
           <span class="del_u_wrap">
-            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
           </span>
       <% end %>
 

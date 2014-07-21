@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_project, only: [:edit, :update, :destroy]
+  before_filter :find_project, only: [:edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
     @commentable = @project
     @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
     @comment = Comment.new
@@ -103,6 +103,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @project = current_member.projects.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @project
     @comments = @commentable.comments
@@ -132,7 +133,7 @@ class ProjectsController < ApplicationController
   end
 
   def upvote
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
     if current_member.voted_up_on? @project
       @project.unliked_by current_member
     else 
@@ -150,7 +151,7 @@ class ProjectsController < ApplicationController
   end 
 
   def find_project
-    @project = current_member.projects.find(params[:id])
+    @project = current_member.projects.find_by_permalink(params[:id])
   end
 
   def sanitize_redactor(orig_input)

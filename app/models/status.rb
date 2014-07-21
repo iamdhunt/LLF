@@ -4,7 +4,7 @@ class Status < ActiveRecord::Base
   belongs_to :document
   has_many :comments, as: :commentable, dependent: :destroy
 
-  before_save :make_it_permalink
+  before_create :make_it_permalink
 
   accepts_nested_attributes_for :document
 
@@ -37,7 +37,7 @@ class Status < ActiveRecord::Base
 
   def make_it_permalink
     # this can create permalink with random 8 digit alphanumeric
-    self.permalink = SecureRandom.urlsafe_base64(12)
+    self.permalink = SecureRandom.hex(12)
   end
 
 end

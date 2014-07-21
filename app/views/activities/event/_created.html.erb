@@ -23,7 +23,7 @@
 	</div>
 
 	<div class="act_e_title">
-		<%= link_to activity.targetable.name, event_path(activity.targetable_id) %>
+		<%= link_to activity.targetable.name, event_path(activity.targetable.permalink) %>
 	</div>
 
 	<div class="act_content">
@@ -57,13 +57,13 @@
 			<span id="comment_act_btn">
 
 				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
-					<%= link_to event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+					<%= link_to event_path(activity.targetable.permalink), title: "Comment", alt: "Comment", :class => "btn comment" do %>
 						<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
 					<% end %>
 				<% elsif activity.targetable.comments.count > 99 %>
-					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', event_path(activity.targetable.permalink), title: "Comment", alt: "Comment", :class => "btn comment" %>
 				<% else %>
-					<%= link_to image_tag("Comment 3.png", class: "act_actions"), event_path(activity.targetable_id), title: "Comment", alt: "Comment", :class => "btn comment" %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions"), event_path(activity.targetable.permalink), title: "Comment", alt: "Comment", :class => "btn comment" %>
 				<% end %>
 
 				<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
@@ -86,7 +86,7 @@
 	      <h3 id="sharemodallabel">Copy Event URL</h3>
 	    </div>
 	    <div class="modal-body pi">
-	      <input class="pr_in forms" value="<%= event_url(activity.targetable_id) %>" />
+	      <input class="pr_in forms" value="<%= event_url(activity.targetable.permalink) %>" />
 	    </div>
 	</div>
 
