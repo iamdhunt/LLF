@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'devise'
 gem 'paperclip'
-gem "acts_as_follower", '~> 0.1.1'
+gem 'acts_as_follower', '~> 0.1.1'
 gem 'js-routes'
 gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'aws-sdk'
@@ -17,12 +17,13 @@ gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
 gem 'sunspot_rails'
 gem 'progress_bar'
-gem "swf_fu", "~> 2.0"
+gem 'swf_fu', '~> 2.0'
 gem 'delayed_job_active_record'
 gem 'auto_html'
 gem 'redactor-rails'
 gem 'mailboxer'
-gem "remotipart", "~> 1.2"
+gem 'remotipart', '~> 1.2'
+gem 'pusher'
 
 group :development, :test do
 	gem 'shoulda'

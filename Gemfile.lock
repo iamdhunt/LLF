@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    RedCloth (4.2.9)
     RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -93,6 +94,7 @@ GEM
       activerecord (>= 3.0.0)
     highline (1.6.21)
     hike (1.2.3)
+    httpclient (2.3.4.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.4)
@@ -110,6 +112,7 @@ GEM
       rails (>= 3.2.0)
     mime-types (1.25)
     multi_json (1.8.0)
+    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     options (2.3.2)
     orm_adapter (0.4.0)
@@ -124,6 +127,10 @@ GEM
     progress_bar (1.0.0)
       highline (~> 1.6.1)
       options (~> 2.3.0)
+    pusher (0.14.0)
+      httpclient (~> 2.3.0)
+      multi_json (~> 1.0)
+      signature (~> 0.1.6)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -169,6 +176,7 @@ GEM
     shoulda-context (1.1.5)
     shoulda-matchers (2.3.0)
       activesupport (>= 3.0.0)
+    signature (0.1.7)
     simple_form (2.1.0)
       actionpack (~> 3.0)
       activemodel (~> 3.0)
@@ -227,6 +235,7 @@ DEPENDENCIES
   paperclip
   pg
   progress_bar
+  pusher
   rails (= 3.2.13)
   redactor-rails
   remotipart (~> 1.2)
