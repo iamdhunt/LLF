@@ -1,2 +1,4 @@
-$("#messages_<%= conversation.id %>").prepend("<%= escape_javascript(render :partial => @receipt, :locals => {:receipt => @receipt}) %>");
+<% publish_to "/messages/new" do %>
+	$("#messages_<%= conversation.id %>").prepend("<%= escape_javascript(render :partial => @receipt, :locals => {:receipt => @receipt}) %>");
+<% end %>
 $('#reply_form')[0].reset();

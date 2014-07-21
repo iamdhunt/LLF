@@ -23,7 +23,8 @@ gem 'auto_html'
 gem 'redactor-rails'
 gem 'mailboxer'
 gem 'remotipart', '~> 1.2'
-gem 'pusher'
+gem 'private_pub'
+gem 'thin'
 
 group :development, :test do
 	gem 'shoulda'

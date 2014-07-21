@@ -4,11 +4,7 @@
 			<%= list_av receipt.message.sender, :class => "pr_av", title: receipt.message.sender.full_name, alt: receipt.message.sender.full_name  %>
 		</span>
 		<span>
-			<% if receipt.message.sender == current_member %>
-				<div class="comment_name2">
-			<% else %>
-				<div class="comment_name">
-			<% end %>
+			<div class="comment_name2">
 				<%= link_to receipt.message.sender.user_name, profile_path(receipt.message.sender) %>
 			</div>	
 			<div class="com_con">

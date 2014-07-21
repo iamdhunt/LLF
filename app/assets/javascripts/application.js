@@ -17,4 +17,5 @@
 //= require soundmanager2-nodebug
 //= require redactor-rails
 //= require jquery.remotipart
+//= require private_pub
 //= require_tree .
