@@ -21,10 +21,10 @@
 
 		<div class="tab-content">
     		<div id="inbox" class="tab-pane active">
-    			<div class="conv_btn"><%= link_to 'New Conversation', "#new", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
-    			<div class="inbox_wrap">
+    			<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
+    			<%= content_tag :div, class: "inbox_wrap", data: {url: polling_conversations_url} do %>
     				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
-				</div>
+				<% end %>
 
 				<%= will_paginate @conversations, class: 'display_none' %>
 
@@ -39,7 +39,7 @@
 			</div>
 
 			<div id="sentbox" class="tab-pane">
-				<div class="conv_btn"><%= link_to 'New Conversation', "#new", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
+				<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
 
 				<div class="sentbox_wrap">
 					<%= render partial: "conversations/sent", :collection => @sent, :as => :conversation %>
@@ -78,7 +78,7 @@
 
 		</div>
 
-		<div id="new" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+		<div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
 		  <div class="modal-header">
 		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		    <h3 id="sharemodallabel">Start A New Conversation</h3>

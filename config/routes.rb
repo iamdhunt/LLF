@@ -75,6 +75,7 @@ LLF::Application.routes.draw do
     end
     collection do
       post :empty_trash
+      get :polling
     end
   end
   resources :notifications do

@@ -1,4 +1,4 @@
-<%= simple_form_for :conversation, url: :conversations do |f| %>
+<%= simple_form_for :conversation, url: :conversations, :html => { :id => 'conv_form' }, remote: true do |f| %>
 	<div id="new_conv_wrap">
 		<div class="conv_in">
 			<div class="conv_fl">Usernames</div>

@@ -62,9 +62,9 @@
                             </span>
                         <% end %>
                         <% if current_member == @member %>
-                            <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#conversation", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
+                            <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
                             <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
-                            <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Edit Profile", alt: "Edit Profile", :class => "btn" %>
+                            <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn" %>
                         <% end %>
                     </div>
                 <% end %>
@@ -116,7 +116,7 @@
         </div>
     </div>
 
-    <div id="conversation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+    <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 id="sharemodallabel">Start A New Conversation</h3>

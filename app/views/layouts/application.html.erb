@@ -9,6 +9,12 @@
 </head>
 <body>
 
+<% if member_signed_in? %>
+  <%= javascript_tag do %>
+    window.messageCount = <%= current_member.mailbox.inbox({:read => false}).count %>
+  <% end %>
+<% end %>
+
 <%= render :partial => "layouts/menu" %>
  
 <div id="pagewrap" style="padding-top:54px;">

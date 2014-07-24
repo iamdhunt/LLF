@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
 
     def index
     	@messages_count = current_member.mailbox.inbox({:read => false}).count
-   	 	@conversations ||= current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
    	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
    	 	@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
     end
@@ -20,10 +20,12 @@ class ConversationsController < ApplicationController
 	    recipient_emails = conversation_params(:recipients).split(',').take(14)
 	    recipients = Member.where(user_name: recipient_emails).all
 
-	    conversation = current_member.
-	      send_message(recipients, *conversation_params(:body, :subject)).conversation
+	    @conversation = current_member.send_message(recipients, *conversation_params(:body, :subject)).conversation
 
-	    redirect_to conversation_path(conversation)
+	    respond_to do |format|
+          format.html { redirect_to conversation_path(conversation) }
+          format.js
+      	end  
 	end
 
     def reply
@@ -32,7 +34,7 @@ class ConversationsController < ApplicationController
 	  
 	  	respond_to do |format|
           format.html { conversation_path(conversation) }
-          format.js
+          format.js 
       	end
 	end
 
@@ -69,6 +71,10 @@ class ConversationsController < ApplicationController
           format.js
       	end 
 	end
+
+	def polling 
+		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i)
+	end 
 
 	private
  

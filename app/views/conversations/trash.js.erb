@@ -1,4 +1,5 @@
 $("#conv_<%= @conversation.id %>_<%= current_member.id %>").remove();
 $('#conv_ct').html("(<%= current_member.mailbox.inbox({:read => false}).count %>)");
+$('.m_alert').html("<% unless current_member.mailbox.inbox({:read => false}).count == 0 %><div id='m_alert'></div><% end %>");
 $(".trash_wrap").html("<%= escape_javascript(render partial: 'conversations/trash', :collection => @trash, :as => :conversation) %>");
 $(".sentbox_wrap").html("<%= escape_javascript(render partial: 'conversations/sent', :collection => @sent, :as => :conversation) %>");

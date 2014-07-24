@@ -1,0 +1,3 @@
+$(".sentbox_wrap").prepend("<%= escape_javascript(render :partial => 'conversations/conversation', :locals => {:conversation => @conversation}) %>");
+$('#message').modal('hide');
+$('#conv_form')[0].reset();

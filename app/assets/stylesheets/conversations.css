@@ -26,6 +26,7 @@
   border: none;
   border-bottom: 4px solid #9933cc; 
   cursor: pointer;
+  -moz-border-bottom-colors: #93C;
 }
 .convos_wrap .nav-tabs > li > a:hover,
 .nav-tabs > li > a:focus {
@@ -35,8 +36,8 @@
 	background-color: transparent;
 }
 #conv_wrap2 {
-	background-color: #f6f6f6;
-	border-bottom: 2px dashed #e5e5e5;
+	background-color: #e5e5e5;
+	border-bottom: 2px dashed #fff;
 	padding: 10px 15px;
 }
 #conv_wrap {

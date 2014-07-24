@@ -1,0 +1,2 @@
+$(".inbox_wrap").prepend("<%= escape_javascript(render @conversations, :locals => {:conversation => @conversation}) %>");
+InboxPoller.poll();
