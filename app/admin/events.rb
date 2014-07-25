@@ -26,5 +26,27 @@ ActiveAdmin.register Event do
 		column :created_at
 		default_actions
 	end
+
+	controller do
+
+		def show
+			@event = Event.find_by_permalink(params[:id])
+		end
+
+		def edit
+			@event = Event.find_by_permalink(params[:id])
+		end
+
+		def destroy
+			@event = Event.find_by_permalink(params[:id])
+			@event.destroy
+
+			respond_to do |format|
+		      format.html { redirect_to llf_adm_events_path, alert: "Event was successfully destroyed." }
+		      format.json { head :no_content }
+		    end
+		end
+
+	end
   
 end

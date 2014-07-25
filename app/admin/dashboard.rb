@@ -14,34 +14,34 @@ ActiveAdmin.register_page "Dashboard" do
         table_for Member.order("created_at desc").limit(15) do
             column :id
             column :user_name do |member|
-                link_to member.user_name, [:admin, member]
+                link_to member.user_name, [:llf_adm, member]
             end
             column :full_name
             column :email
             column :created_at
         end
-        strong { link_to "View All Members", admin_members_path }
+        strong { link_to "View All Members", llf_adm_members_path }
     end
 
     section "Recent Listings" do
         table_for Listing.order("created_at desc").limit(15) do
             column :id
             column :title do |listing|
-                link_to listing.title, [:admin, listing]
+                link_to listing.title, [:llf_adm, listing]
             end
             column :link
             column :category
             column :price
             column :created_at
         end
-        strong { link_to "View All Listings", admin_listings_path }
+        strong { link_to "View All Listings", llf_adm_listings_path }
     end 
 
     section "Recent Events" do
         table_for Event.order("created_at desc").limit(15) do
             column :id
             column :name do |event|
-                link_to event.name, [:admin, event]
+                link_to event.name, [:llf_adm, event]
             end
             column :category
             column :start_date
@@ -50,21 +50,21 @@ ActiveAdmin.register_page "Dashboard" do
             column :end_time
             column :created_at
         end
-        strong { link_to "View All Events", admin_events_path }
+        strong { link_to "View All Events", llf_adm_events_path }
     end 
 
     section "Recent Projects" do
         table_for Project.order("created_at desc").limit(15) do
             column :id
             column :name do |project|
-                link_to project.name, [:admin, project]
+                link_to project.name, [:llf_adm, project]
             end
             column :category
             column :website
             column :city
             column :created_at
         end
-        strong { link_to "View All Projects", admin_projects_path }
+        strong { link_to "View All Projects", llf_adm_projects_path }
     end 
 
     section "Recent Statuses" do
@@ -73,7 +73,7 @@ ActiveAdmin.register_page "Dashboard" do
             column :content
             column :created_at
         end
-        strong { link_to "View All Statuses", admin_statuses_path }
+        strong { link_to "View All Statuses", llf_adm_statuses_path }
     end 
 
     section "Recent Media" do
@@ -84,7 +84,7 @@ ActiveAdmin.register_page "Dashboard" do
             column :asset_file_size
             column :created_at
         end
-        strong { link_to "View All Media", admin_media_path }
+        strong { link_to "View All Media", llf_adm_media_path }
     end 
 
     # Here is an example of a simple dashboard with columns and panels.

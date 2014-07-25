@@ -73,7 +73,7 @@ class ConversationsController < ApplicationController
 	end
 
 	def polling 
-		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i)
+		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i).order('created_at desc')
 	end 
 
 	private

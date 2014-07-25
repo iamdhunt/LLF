@@ -17,5 +17,27 @@ ActiveAdmin.register Listing do
 		column :created_at
 		default_actions
 	end
+
+	controller do
+
+		def show
+			@listing = Listing.find_by_permalink(params[:id])
+		end
+
+		def edit
+			@listing = Listing.find_by_permalink(params[:id])
+		end
+
+		def destroy
+			@listing = Listing.find_by_permalink(params[:id])
+			@listing.destroy
+
+			respond_to do |format|
+		      format.html { redirect_to llf_adm_listings_path, alert: "Listing was successfully destroyed." }
+		      format.json { head :no_content }
+		    end
+		end
+
+	end
   
 end

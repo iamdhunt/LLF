@@ -17,5 +17,27 @@ ActiveAdmin.register Project do
 		column :created_at
 		default_actions
 	end
+
+	controller do
+
+		def show
+			@project = Project.find_by_permalink(params[:id])
+		end
+
+		def edit
+			@project = Project.find_by_permalink(params[:id])
+		end
+
+		def destroy
+			@project = Project.find_by_permalink(params[:id])
+			@project.destroy
+
+			respond_to do |format|
+		      format.html { redirect_to llf_adm_projects_path, alert: "Project was successfully destroyed." }
+		      format.json { head :no_content }
+		    end
+		end
+
+	end
   
 end
