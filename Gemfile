@@ -25,6 +25,7 @@ gem 'mailboxer'
 gem 'remotipart', '~> 1.2'
 gem 'private_pub'
 gem 'thin'
+gem 'activeadmin'
 
 group :development, :test do
 	gem 'shoulda'
@@ -52,7 +53,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

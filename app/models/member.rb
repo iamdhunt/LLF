@@ -26,7 +26,7 @@ class Member < ActiveRecord::Base
                           message: 'must not be longer than 16 characters'
                         },
                         exclusion: {
-                          in: %w(faqs community market events projects members terms privacy blog login logout join),
+                          in: %w(faqs community market events projects members terms privacy blog login logout join admin grla rbreed frls),
                           message: 'is already taken.'
                         }                 
 

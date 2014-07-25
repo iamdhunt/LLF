@@ -1,5 +1,14 @@
 LLF::Application.routes.draw do
 
+ devise_scope :member do 
+      root :to => 'devise/registrations#new'
+      match '/settings' => 'registrations#settings', as: :settings
+      match '/avatar' => 'registrations#avatar', as: :avatar
+  end
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :projects do
     resources :comments
     resources :uploads
@@ -60,7 +69,9 @@ LLF::Application.routes.draw do
   match '/member-spotlights' => 'pages#member_spotlights', :as => 'member_spotlights'
 
   devise_for :members, :controllers => { :registrations => "registrations" }
+  ActiveAdmin.routes(self)
   devise_for :members, skip: [:sessions]
+  ActiveAdmin.routes(self)
 
   resources :messages do
     member do
@@ -97,13 +108,7 @@ LLF::Application.routes.draw do
     get '/password/new', to: 'devise/passwords#new', as: :new_password
     get '/password/edit', to: 'devise/passwords#edit', as: :edit_password
     get '/edit', to: 'devise/registrations#edit', as: :edit_member
-   end 
-
-  devise_scope :member do 
-      root :to => 'devise/registrations#new'
-      match '/settings' => 'registrations#settings', as: :settings
-      match '/avatar' => 'registrations#avatar', as: :avatar
-  end 
+   end  
 
   resources :statuses do
     resources :comments

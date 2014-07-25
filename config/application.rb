@@ -61,6 +61,9 @@ module LLF
 
     config.assets.initialize_on_precompile = true
 
+    # add active admin assets to precompile list, loaded from vendor/assets
+    config.assets.precompile += %w( active_admin.js active_admin.css.scss )
+
     ActsAsTaggableOn.remove_unused_tags = true
     ActsAsTaggableOn.force_lowercase = true
   end
