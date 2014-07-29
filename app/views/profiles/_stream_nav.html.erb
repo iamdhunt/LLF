@@ -29,12 +29,7 @@
 </div>
 
 <div id="subnav_wrap">
-    <ul class="sub sub_stream">
-        <% if @member == current_member %>
-            <li>
-                <%= link_to '<i class="icon-th icon-grey"></i> My Stream'.html_safe, profile_my_stream_path(current_member), class: '' %>
-            </li>  
-        <% end %>    
+    <ul class="sub sub_stream">   
         <li>
             <%= link_to '<i class="icon-user icon-grey"></i> Personal'.html_safe, profile_personal_path(@member), class: '' %>
         </li>       

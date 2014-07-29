@@ -23,12 +23,16 @@ class MediaController < ApplicationController
   # GET /media/1.json
   def show
     @medium = Medium.find_by_permalink(params[:id])
-    @commentable = @medium
-    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
-    @comment = Comment.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @medium }
+    if @medium
+      @commentable = @medium
+      @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+      @comment = Comment.new
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @medium }
+      end
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 

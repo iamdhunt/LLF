@@ -23,12 +23,16 @@ class StatusesController < ApplicationController
   # GET /statuses/1.json
   def show
     @status = Status.find_by_permalink(params[:id])
-    @commentable = @status
-    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
-    @comment = @commentable.comments.new
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { redirect_to profile_path(current_member) }
+    if @satus
+      @commentable = @status
+      @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+      @comment = @commentable.comments.new
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { redirect_to profile_path(current_member) }
+      end
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 

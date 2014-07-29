@@ -7,6 +7,11 @@ class ConversationsController < ApplicationController
    	 	@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
    	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
    	 	@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
+
+   	 	respond_to do |format|
+   	 	  format.html
+		  format.js
+		end
     end
 
     def show
@@ -74,6 +79,14 @@ class ConversationsController < ApplicationController
 
 	def polling 
 		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i).order('created_at desc')
+	end 
+
+	def refresh
+		@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+
+		respond_to do |format|
+		  format.js
+		end
 	end 
 
 	private

@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
   def index
     @markers = Project.marker_counts.order('count DESC').limit(12)
     @projects = Project.order('created_at desc').where(:created_at => 3.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(54) 
-    @search = Project.search do
+    @search = Project.solr_search do
       fulltext params[:search]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
@@ -34,20 +34,24 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find_by_permalink(params[:id])
-    @commentable = @project
-    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
-    @comment = Comment.new
-    @uploadable = @project
-    @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
-    @upload = Upload.new
-    @updateable = @project
-    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
-    @update = Update.new
-    @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @project }
+    if @project
+      @commentable = @project
+      @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+      @comment = Comment.new
+      @uploadable = @project
+      @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
+      @upload = Upload.new
+      @updateable = @project
+      @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
+      @update = Update.new
+      @followers = @project.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
+      
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @project }
+      end
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 

@@ -1,0 +1,6 @@
+$("#activity_stream_wrap").html("<%= escape_javascript(render partial: 'activities/activities', :collection => @activities, :as => :activity) %>");
+$('#activity_stream_wrap').imagesLoaded(function() {
+	$('#activity_stream_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+	soundManager.stopAll();
+	soundManager.reboot();
+});

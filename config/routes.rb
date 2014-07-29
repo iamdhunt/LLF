@@ -86,7 +86,8 @@ LLF::Application.routes.draw do
     end
     collection do
       post :empty_trash
-      get :polling
+      post :polling
+      post :refresh
     end
   end
   resources :notifications do
@@ -125,8 +126,6 @@ LLF::Application.routes.draw do
     get '/media/favorites' => 'profiles#media_fav', as: 'profile_media_fav'
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
-    get '/stream/my_stream' => 'profiles#my_stream', as: 'profile_my_stream'
-    match '/stream/my-stream' => 'profiles#my_stream', as: 'profile_my_stream'
     get '/stream/favorites' => 'profiles#stream_fav', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'
     get '/following' => 'profiles#following', as: 'profile_following'

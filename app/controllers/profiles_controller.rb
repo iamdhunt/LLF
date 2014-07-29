@@ -2,6 +2,10 @@ class ProfilesController < ApplicationController
  
  layout "profile"
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, formats: [:html]
+  end
+
   def show
   	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member
@@ -9,10 +13,13 @@ class ProfilesController < ApplicationController
       @status.build_document      
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
-      render action: :show
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
   	elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
-      render action: :show
     else 
   		render file: 'public/404', status: 404, formats: [:html]
   	end
@@ -25,7 +32,11 @@ class ProfilesController < ApplicationController
       @status.build_document 
       params[:page] ||= 1
       @activities = Activity.for_member(current_member, params)
-      render action: :show
+      
+      respond_to do |format|
+        format.html
+        format.js
+      end
     elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
     else 
@@ -39,25 +50,10 @@ class ProfilesController < ApplicationController
       @status = current_member.statuses.new
       @status.build_document
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
-      render action: :show
     elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
-      render action: :show
     else 
       render file: 'public/404', status: 404, formats: [:html]
-    end
-  end
-
-  def my_stream
-    @member = Member.find_by_user_name(params[:id])
-    if @member == current_member
-      @status = current_member.statuses.new
-      @status.build_document 
-      params[:page] ||= 1
-      @activities = Activity.for_member(current_member, params)
-      render action: :show
-    else 
-      redirect_to profile_stream_path(@member)
     end
   end
 

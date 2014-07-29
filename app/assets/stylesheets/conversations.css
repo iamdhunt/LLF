@@ -290,3 +290,20 @@
 	color: #898989;
 	font-size: .85em;
 }
+.refresh {
+	margin-bottom: 5px;
+}
+.refresh a {
+	color: #898989;
+	font-weight: bold;
+}
+.refresh a:hover {
+	color: #444;
+	text-decoration: none;
+}
+.refresh a:hover > [class^="icon-grey"],
+.refresh a:hover > [class*=" icon-grey"],
+.refresh > .active > a > [class^="icon-grey"],
+.refresh > .active > a > [class*=" icon-grey"] {
+	background-image: url('/assets/glyphicons-halflings-dark.png') !important;
+}

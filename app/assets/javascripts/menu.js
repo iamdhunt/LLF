@@ -14,6 +14,13 @@ $(document).ready(function(){
 	    }
 	});
 
+	$("#update_box").keypress(function(event) {
+	    if (event.which == 13) {
+	        event.preventDefault();
+	        $("#status_form").submit();
+	    }
+	});
+
 	$(".modal").on('shown', function() {
         $(this).find("[autofocus]:first").focus();
     });
@@ -28,6 +35,18 @@ $(document).ready(function(){
     	$('#m_alert').attr( "class", "m_alert4" );
     } else {
     	$('#m_alert').attr( "class", "m_alert4" );
+    }
+
+    if (messageCount > 0 && messageCount < 5) {
+    	$('#n_alert').attr( "class", "n_alert1" );
+    } else if (messageCount >= 5 && messageCount < 10) {
+    	$('#n_alert').attr( "class", "n_alert2" );
+    } else if (messageCount >= 15 && messageCount < 25) {
+    	$('#n_alert').attr( "class", "n_alert3" );
+    } else if (messageCount >= 25) {
+    	$('#n_alert').attr( "class", "n_alert4" );
+    } else {
+    	$('#n_alert').attr( "class", "n_alert4" );
     }
 
 });

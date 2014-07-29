@@ -5,7 +5,7 @@
 	<%= link_to 'Post to Stream', profile_path(current_member), :class => 'btn btn-info' %>
 
 	<div id="activity_stream_wrap">		
-			<%= render partial: "activities" %>
+			<%= render partial: "activities", :collection => @activities, :as => :activity %>
 	</div>
 
 	<%= will_paginate @activities, class: 'display_none'%>

@@ -4,6 +4,16 @@
 
     <!--/stream_wrap-->
 
+    <% if @member == current_member %>
+        <div id="act_update">
+            <div class="update_box_wrap" id="update_box_wrap">
+            	<%= render :partial => "profiles/form" %>
+            </div>
+        </div>
+    <% end %>
+
+    <!--/act_update-->
+
     <div id="stream_filters" class="form-inline">
         <span class="filters all">
             <label for="filter__">
@@ -37,17 +47,11 @@
         </span>
     </div>
     
-    <% if @activities.count > 0 %>
-        <div id="media_query_stream">
-            <div id="activity_stream_wrap">
-        	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
-            </div>          
+    <div id="media_query_stream">
+        <div id="activity_stream_wrap">
+    	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
         </div>
-        <% else %>
-            <div class="none_message">
-                No Favorites Yet
-            </div>
-    <% end %>    
+    </div>             
 
     <%= will_paginate @activities, class: 'display_none' %>
 

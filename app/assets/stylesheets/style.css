@@ -130,6 +130,27 @@ table {
 	height: 55px;
 }
 
+#error_txt {
+	font-weight: bold;
+	text-align: center;
+	margin-top: 40px;
+}
+
+#error_txt .txt_1 {
+	font-size: 40px;
+	color: #942fc6;
+	font-style: italic;
+}
+
+#error_txt .txt_2 {
+	font-size: 30px;
+	color: #636363;
+	font-style: italic;
+}
+#error_img {
+	text-align: center;
+}
+
 /* Specific CSS */
 
 #main_wrap {
@@ -137,6 +158,12 @@ table {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 150px;
+	width: 72%;
+}
+#error_wrap {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 	width: 72%;
 }
 
@@ -1777,6 +1804,9 @@ label.active {
     #main_wrap {
       	width: 77%;
     }
+    #error_wrap {
+      	width: 77%;
+    }
     #activity_stream_wrap {
     	padding: 10px 0 10px 10px;
     }
@@ -1786,6 +1816,9 @@ label.active {
 }
 @media all and (max-width: 1024px) and (min-width: 960.1px) {
     #main_wrap {
+      	width: 98%;
+    }
+    #error_wrap {
       	width: 98%;
     }
     #profile_wrap {
@@ -1820,6 +1853,9 @@ label.active {
     #main_wrap {
       	width: 82%;
     }
+    #error_wrap {
+      	width: 82%;
+    }
     #profile_wrap {
     	width: 98%;
     }
@@ -1847,6 +1883,9 @@ label.active {
 }
 @media all and (max-width: 800px) and (min-width: 720.1px) {
     #main_wrap {
+      	width: 90%;
+    }
+    #error_wrap {
       	width: 90%;
     }
     #profile_wrap {
@@ -1890,6 +1929,9 @@ label.active {
 }
 @media all and (max-width: 720px) and (min-width: 320.1px) {
     #main_wrap {
+      	width: 98%;
+    }
+    #error_wrap {
       	width: 98%;
     }
     #profile_wrap {

@@ -1,0 +1,2 @@
+$('#conv_ct').html("(<%= current_member.mailbox.inbox({:read => false}).count %>)");
+$(".inbox_wrap").html("<%= escape_javascript(render partial: 'conversations/conversation', :collection => @conversations, :as => :conversation) %>");

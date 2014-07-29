@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   def index
     @markers = Event.marker_counts.order('count DESC').limit(12)
     @events = Event.order('start_date asc').where("start_date >= ?", Time.zone.now.to_date).page(params[:page]).per_page(54)
-    @search = Event.search do
+    @search = Event.solr_search do
       fulltext params[:search]
       any_of do
         with(:start_date).greater_than_or_equal_to(Time.zone.now.to_date)
@@ -41,19 +41,23 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find_by_permalink(params[:id])
-    @commentable = @event
-    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
-    @comment = Comment.new
-    @uploadable = @event
-    @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
-    @upload = Upload.new
-    @updateable = @event
-    @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(40)
-    @update = Update.new
-    @followers = @event.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @event }
+    if @event
+      @commentable = @event
+      @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+      @comment = Comment.new
+      @uploadable = @event
+      @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
+      @upload = Upload.new
+      @updateable = @event
+      @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(40)
+      @update = Update.new
+      @followers = @event.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @event }
+      end
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 

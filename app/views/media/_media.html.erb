@@ -1,89 +1,85 @@
-<% @media.each do |medium| %>
+<% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+<div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
+<% end %>
+
+<% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
+<% end %>
+
+  <div class="act_media_top">
+    <span class="">
+      <%= avatar_profile_link medium.member, :class => "act_av", title: medium.member.full_name, alt: medium.member.full_name %>
+    </span>
+
+    <span class="act_name">
+      <%= link_to medium.member.user_name, profile_path(medium.member) %> 
+    </span> 
+
+    <span class="meta"> 
+      <%= time_ago_in_words(medium.created_at) %>
+    </span>
+  </div>
 
   <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
+    <div class="act_media_content">
+      <% if medium.cover? %>
+        <div id='med_art' style="background-image: url(<%= medium.cover.url(:media) %>)">
+      <% else %>
+        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+      <% end %>
+        <div class="ui360 ui360-vis">
+          <%= link_to '', medium.asset.url %>
+        </div>
+      </div>
+    </div>
   <% end %>
 
   <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-    <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
-  <% end %>
-
-    <div class="act_media_top">
-      <span class="">
-        <%= avatar_profile_link medium.member, :class => "act_av", title: medium.member.full_name, alt: medium.member.full_name %>
-      </span>
-
-      <span class="act_name">
-        <%= link_to medium.member.user_name, profile_path(medium.member) %> 
-      </span> 
-
-      <span class="meta"> 
-        <%= time_ago_in_words(medium.created_at) %>
-      </span>
+    <div class="act_media_content">
+      <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'media_gall' %>
     </div>
 
-    <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-      <div class="act_media_content">
-        <% if medium.cover? %>
-          <div id='med_art' style="background-image: url(<%= medium.cover.url(:media) %>)">
+    <div id="fancyboxTitles" style="display: none;">
+      <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
+    </div>
+  <% end %>
+
+  <% if medium.caption? %>
+    <div class="media_act_cap">
+      <%= Rinku.auto_link(medium.caption).html_safe %>
+    </div> 
+  <% end %>
+
+  <% if member_signed_in? %>
+
+    <div id="act_btn_wrap">
+
+     <span id="comment_act_btn">
+
+        <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
+          <%= link_to medium_path(medium), :class => "btn comment" do %>
+            <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
+          <% end %>
+        <% elsif medium.comments.count > 99 %>   
+          <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(medium), :class => "btn comment" %>
         <% else %>
-          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
         <% end %>
-          <div class="ui360 ui360-vis">
-            <%= link_to '', medium.asset.url %>
-          </div>
-        </div>
-      </div>
-    <% end %>
 
-    <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-      <div class="act_media_content">
-        <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'media_gall' %>
-      </div>
-
-      <div id="fancyboxTitles" style="display: none;">
-        <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
-      </div>
-    <% end %>
-
-    <% if medium.caption? %>
-      <div class="media_act_cap">
-        <%= Rinku.auto_link(medium.caption).html_safe %>
-      </div> 
-    <% end %>
-
-    <% if member_signed_in? %>
-
-      <div id="act_btn_wrap">
-
-       <span id="comment_act_btn">
-
-          <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
-            <%= link_to medium_path(medium), :class => "btn comment" do %>
-              <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
-            <% end %>
-          <% elsif medium.comments.count > 99 %>   
-            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(medium), :class => "btn comment" %>
-          <% else %>
-            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
-          <% end %>
-
-          <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
-            <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
-          </span>
-        
-          <% if can_edit_medium?(medium) %>
-            <span class="ad">
-              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium_path(medium.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
-            </span>
-          <% end %>
-          
+        <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+          <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
         </span>
-
-      </div>
       
-    <% end %>
+        <% if can_edit_medium?(medium) %>
+          <span class="ad">
+            <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium_path(medium.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
+          </span>
+        <% end %>
+        
+      </span>
 
-  </div>
+    </div>
+    
+  <% end %>
 
-<% end %>
+</div>

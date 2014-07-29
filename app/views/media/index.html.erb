@@ -9,7 +9,7 @@
     <% end %>
 
     <div id="media_list_wrap">
-      <%= render partial: 'media' %>
+      <%= render partial: 'media', :collection => @media, :as => :medium %>
     </div>
 
 <!--/activity_wrap-->

@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.order('created_at desc').page(params[:page]).per_page(60)
-    @search = Listing.search do
+    @search = Listing.solr_search do
       fulltext params[:search]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
@@ -43,14 +43,18 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listing = Listing.find_by_permalink(params[:id])
-    @additional = @listing.member.listings.order("RANDOM()").limit(6)
-    @commentable = @listing
-    @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
-    @comment = Comment.new
+    if @listing
+      @additional = @listing.member.listings.order("RANDOM()").limit(6)
+      @commentable = @listing
+      @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
+      @comment = Comment.new
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @listing }
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @listing }
+      end
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
     end
   end
 

@@ -22,6 +22,7 @@
 		<div class="tab-content">
     		<div id="inbox" class="tab-pane active">
     			<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
+    			<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :conversations, :action => :index, remote: true %></div> 
     			<%= content_tag :div, class: "inbox_wrap", data: {url: polling_conversations_url} do %>
     				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
 				<% end %>
