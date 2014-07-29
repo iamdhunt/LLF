@@ -9,6 +9,8 @@ class MembersController < ApplicationController
   def index
     @member = Member.find(current_member)
     @member = Member.all
+
+    redirect_to root_path
   end
 
   def show

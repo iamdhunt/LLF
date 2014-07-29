@@ -6,6 +6,8 @@ class ActivitiesController < ApplicationController
   def index
   	params[:page] ||= 1
   	@activities = Activity.for_member(current_member, params)
+
+    redirect_to root_path
   end
 
   def destroy

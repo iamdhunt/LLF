@@ -13,10 +13,7 @@ class MediaController < ApplicationController
   def index
     @media = Medium.order('created_at desc').page(params[:page]).per_page(30)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @media }
-    end
+    redirect_to root_path
   end
 
   # GET /media/1

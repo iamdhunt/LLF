@@ -13,10 +13,8 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.order('created_at desc').page(params[:page]).per_page(21)
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js
-    end
+    
+    redirect_to root_path
   end
 
   # GET /statuses/1
