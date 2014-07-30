@@ -337,6 +337,13 @@ vertical-align: baseline;
     -background: transparent;
 	text-decoration: none;
 }
+#results_wrap .eloc a {
+	background-color: rgb(47, 150, 180);
+}
+#results_wrap .eloc a:hover {
+	background-color: rgb(47, 150, 180);
+	background-color: rgba(47, 150, 180, 0.8);
+}
 .se_wrap .btags {
 	padding: 0;
 }

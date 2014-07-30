@@ -13,11 +13,15 @@
   <%= javascript_tag do %>
     window.messageCount = <%= current_member.mailbox.inbox({:read => false}).count %>
   <% end %>
+
+  <%= javascript_tag do %>
+    window.notificationCount = <%= current_member.mailbox.notifications({:read => false}).count %>
+  <% end %>
 <% end %>
 
 <%= render :partial => "layouts/menu" %>
  
-<div id="pagewrap" style="padding-top:54px;">
+<div id="pagewrap">
 	<% unless notice.blank? && alert.blank? %>
 		<% flash.each do |type, message| %>
 		  <div class="alert <%= flash_class type %>">

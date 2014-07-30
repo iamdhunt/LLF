@@ -62,13 +62,37 @@
 
             <div id="media_query_prev">
                 <div id="prs">
-                    <% if @facet == nil && @query == nil %>
+                    <% if @facet == nil && @query == nil && @tag_facet == nil %>
                         <%= render partial: 'events' %>
                     <% else %>
                         <%= render partial: 'search_events' %>
                     <% end %>
                 </div>
             </div>
+
+            <% if @facet == nil && @query == nil && @tag_facet == nil %>
+                <%= will_paginate @events, class: 'display_none' %>
+
+                <% if @events.total_pages != @events.current_page %>
+                <div id="loading"></div>
+                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                      <div class="com_show">
+                        Show More
+                      </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= will_paginate @results, class: 'display_none' %>
+
+                <% if @results.total_pages != @results.current_page %>
+                <div id="loading"></div>
+                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                      <div class="com_show">
+                        Show More
+                      </div>
+                    <% end %>
+                <% end %>
+            <% end %>
             
     </div>
 

@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_status, only: [:edit, :update]
+  before_filter :find_status, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -20,8 +20,8 @@ class StatusesController < ApplicationController
   # GET /statuses/1
   # GET /statuses/1.json
   def show
-    @status = Status.find_by_permalink(params[:id])
-    if @satus
+    @status = Status.find(params[:id])
+    if @status
       @commentable = @status
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
       @comment = @commentable.comments.new
@@ -92,7 +92,6 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status = current_member.statuses.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @status
     @comments = @commentable.comments
@@ -116,7 +115,7 @@ class StatusesController < ApplicationController
     end 
 
     def find_status
-      @status = current_member.statuses.find_by_permalink(params[:id])
+      @status = current_member.statuses.find(params[:id])
     end 
 
     def sortable_date

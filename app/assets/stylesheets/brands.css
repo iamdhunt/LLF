@@ -238,6 +238,9 @@ margin: 0 0 30px 170px;
 	text-align: center;
 	padding-top: 40px;
 }
+#results_wrap #sb_wrap {
+	padding-top: 10px;
+}
 .sb_text {
 	color: #444;
 	font-size: 1.2em;

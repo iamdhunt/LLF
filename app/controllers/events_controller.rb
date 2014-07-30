@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_event, only: [:edit, :update]
+  before_filter :find_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @markers = Event.marker_counts.order('count DESC').limit(12)
     @events = Event.order('start_date asc').where("start_date >= ?", Time.zone.now.to_date).page(params[:page]).per_page(54)
     @search = Event.solr_search do
-      fulltext params[:search]
+      fulltext params[:search_events]
       any_of do
         with(:start_date).greater_than_or_equal_to(Time.zone.now.to_date)
         with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
@@ -26,10 +26,10 @@ class EventsController < ApplicationController
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
-    @query = params[:search]
+    @query = params[:search_events]
     @facet = params[:month]
     @tag_facet = params[:tag]
-    @results = @search.results
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   # GET /events/1
   # GET /events/1.json
   def show
-    @event = Event.find_by_permalink(params[:id])
+    @event = Event.find(params[:id])
     if @event
       @commentable = @event
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
@@ -114,7 +114,6 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = current_member.events.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @event
     @comments = @commentable.comments
@@ -144,7 +143,7 @@ class EventsController < ApplicationController
   end
 
   def upvote
-    @event = Event.find_by_permalink(params[:id])
+    @event = Event.find(params[:id])
     if current_member.voted_up_on? @event
       @event.unliked_by current_member
     else 
@@ -162,7 +161,7 @@ class EventsController < ApplicationController
   end 
 
   def find_event
-    @event = current_member.events.find_by_permalink(params[:id])
+    @event = current_member.events.find(params[:id])
   end
 
   def sanitize_redactor(orig_input)

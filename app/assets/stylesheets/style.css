@@ -152,7 +152,9 @@ table {
 }
 
 /* Specific CSS */
-
+#pagewrap {
+	padding-top: 54px;
+}
 #main_wrap {
 	position: relative;
 	margin-left: auto;
@@ -2008,6 +2010,9 @@ label.active {
     #pagewrap {
     	padding-top: 0;
     }
+    #media_query_stream {
+    	padding-left: 100px;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
     .login_bg {
@@ -2018,6 +2023,9 @@ label.active {
     }
     #pagewrap {
     	padding-top: 0;
+    }
+    #media_query_stream {
+    	padding-left: 100px;
     }
 }
 

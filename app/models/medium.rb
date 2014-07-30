@@ -19,10 +19,6 @@ class Medium < ActiveRecord::Base
 	  validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
   	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] 
 
-	def to_param
-		permalink
-	end
-
 	private
 
 	def make_it_permalink

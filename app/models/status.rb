@@ -25,10 +25,6 @@ class Status < ActiveRecord::Base
       simple_format
   end
 
-  def to_param
-    permalink
-  end
-
   def path
     status_path(status)
   end 

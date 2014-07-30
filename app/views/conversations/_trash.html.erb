@@ -25,7 +25,7 @@
 
 			    <div class="conv_actions">
 			    	<span class="c_actions">
-			    		<%= link_to({:controller => "conversations", :action => "untrash", :id => conversation.id}, :title=> "Untrash", remote: true, :method=>'post') do %>
+			    		<%= link_to({:controller => "conversations", :action => "untrash", :id => conversation.id}, :title=> "Untrash", :method=>'post') do %>
 			    			<i class="icon-refresh icon-grey"></i> Untrash
 			    		<% end %>
 			    	</span>

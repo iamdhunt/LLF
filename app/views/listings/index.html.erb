@@ -99,15 +99,27 @@
 
 	</div>
 
-	  <%= will_paginate @listings, class: 'display_none' %>
+        <% if @facet == nil && @query == nil %>
+            <%= will_paginate @listings, class: 'display_none' %>
 
-	  <% if @listings.total_pages != @listings.current_page %>
-	    <div id="loading"></div>
-	    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-	          <div class="com_show">
-	            Show More
-	          </div>
-	        <% end %>
-	 <% end %>
+            <% if @listings.total_pages != @listings.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
+            <% end %>
+        <% else %>
+            <%= will_paginate @results, class: 'display_none' %>
 
+            <% if @results.total_pages != @results.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
+            <% end %>
+        <% end %>
 </div>

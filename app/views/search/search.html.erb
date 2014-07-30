@@ -6,13 +6,39 @@
 			<div id="search_header">
 				Results for <span class="query"><%= @query %></span>
 			</div>
+			<div id="sb_wrap" class="se_wrap">
+		        <div class="elocs">             
+		            <% for row in @search.facet(:city).rows %>
+		                <span class="eloc"><%= link_to(row.value, params.merge({:city => row.value})) %></span>
+		            <% end %>           
+		        </div>
+
+		        <div class="btags">
+		          <% for row in @search.facet(:pursuit_list).rows %>
+		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+		          <% end %>
+		        </div>
+		    </div>
 	        <div class="none_message">
 	            No Results Found
 	        </div>
 		<% elsif !@query.empty? %>	
 			<div id="search_header">
 				Results for <span class="query"><%= @query %></span>
-			</div>	
+			</div>
+			<div id="sb_wrap" class="se_wrap">
+		        <div class="elocs">             
+		            <% for row in @search.facet(:city).rows %>
+		                <span class="eloc"><%= link_to(row.value, params.merge({:city => row.value})) %></span>
+		            <% end %>           
+		        </div>
+
+		        <div class="btags">
+		          <% for row in @search.facet(:pursuit_list).rows %>
+		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+		          <% end %>
+		        </div>
+		    </div>
 			<div id="member_list_wrap">
 				<%= render partial: 'members' %>
 			</div>

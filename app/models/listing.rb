@@ -62,7 +62,7 @@ class Listing < ActiveRecord::Base
     end
 
     def to_param
-      permalink
+      "#{id}-#{title.parameterize}"
     end
 
   	private

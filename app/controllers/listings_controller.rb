@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.order('created_at desc').page(params[:page]).per_page(60)
     @search = Listing.solr_search do
-      fulltext params[:search]
+      fulltext params[:search_listings]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
       facet(:price) do
@@ -28,10 +28,10 @@ class ListingsController < ApplicationController
       end
       with(:price, params[:price]) if params[:price].present?
     end
-    @query = params[:search]
+    @query = params[:search_listings]
     @facet = params[:tag]
     @price_facet = params[:price]
-    @results = @search.results
+    @results = Listing.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,7 +42,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    @listing = Listing.find_by_permalink(params[:id])
+    @listing = Listing.find(params[:id])
     if @listing
       @additional = @listing.member.listings.order("RANDOM()").limit(6)
       @commentable = @listing
@@ -110,7 +110,6 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
-    @listing = current_member.listings.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @listing
     @comments = @commentable.comments
@@ -130,7 +129,7 @@ class ListingsController < ApplicationController
   end
 
   def upvote
-    @listing = Listing.find_by_permalink(params[:id])
+    @listing = Listing.find(params[:id])
     if current_member.voted_up_on? @listing
       @listing.unliked_by current_member
     else 
@@ -149,6 +148,6 @@ class ListingsController < ApplicationController
     end 
 
     def find_listing
-      @listing = current_member.listings.find_by_permalink(params[:id])
+      @listing = current_member.listings.find(params[:id])
     end
 end

@@ -50,7 +50,7 @@
                     <li>
                         <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
                             <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
-                            <span>
+                            <span class="n_alert">
                                 <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
                                     <div id="n_alert"></div>
                                 <% end %>

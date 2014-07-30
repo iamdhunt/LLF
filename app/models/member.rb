@@ -160,7 +160,6 @@ class Member < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   has_many :statuses, :dependent => :destroy
   has_many :activities, :dependent => :destroy
-  has_many :brands, :dependent => :destroy
   has_many :listings, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :uploads, :dependent => :destroy
@@ -207,6 +206,8 @@ class Member < ActiveRecord::Base
   searchable :auto_index => true, :auto_remove => true do
     text :user_name, :full_name, :pursuit_list, :boost => 5
     text :city, :state, :country
+    string :pursuit_list, :multiple => true, :stored => true
+    string :city
   end
 
   private

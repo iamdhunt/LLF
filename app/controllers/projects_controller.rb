@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_project, only: [:edit, :update]
+  before_filter :find_project, only: [:edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
@@ -16,13 +16,13 @@ class ProjectsController < ApplicationController
     @markers = Project.marker_counts.order('count DESC').limit(12)
     @projects = Project.order('created_at desc').where(:created_at => 3.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(54) 
     @search = Project.solr_search do
-      fulltext params[:search]
+      fulltext params[:search_projects]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
-    @query = params[:search]
+    @query = params[:search_projects]
     @facet = params[:tag]
-    @results = @search.results
+    @results = Project.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @project = Project.find_by_permalink(params[:id])
+    @project = Project.find(params[:id])
     if @project
       @commentable = @project
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
@@ -107,7 +107,6 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = current_member.projects.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
     @commentable = @project
     @comments = @commentable.comments
@@ -137,7 +136,7 @@ class ProjectsController < ApplicationController
   end
 
   def upvote
-    @project = Project.find_by_permalink(params[:id])
+    @project = Project.find(params[:id])
     if current_member.voted_up_on? @project
       @project.unliked_by current_member
     else 
@@ -155,7 +154,7 @@ class ProjectsController < ApplicationController
   end 
 
   def find_project
-    @project = current_member.projects.find_by_permalink(params[:id])
+    @project = current_member.projects.find(params[:id])
   end
 
   def sanitize_redactor(orig_input)

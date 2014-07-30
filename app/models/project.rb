@@ -80,7 +80,7 @@ class Project < ActiveRecord::Base
     end
 
     def to_param
-      permalink
+      "#{id}-#{name.parameterize}"
     end  
 
   	private

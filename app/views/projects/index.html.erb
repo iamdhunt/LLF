@@ -63,6 +63,30 @@
                 <% end %>
             </div>
         </div>
+
+        <% if @facet == nil && @query == nil %>
+                <%= will_paginate @projects, class: 'display_none' %>
+
+                <% if @projects.total_pages != @projects.current_page %>
+                <div id="loading"></div>
+                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                      <div class="com_show">
+                        Show More
+                      </div>
+                    <% end %>
+                <% end %>
+            <% else %>
+                <%= will_paginate @results, class: 'display_none' %>
+
+                <% if @results.total_pages != @results.current_page %>
+                <div id="loading"></div>
+                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                      <div class="com_show">
+                        Show More
+                      </div>
+                    <% end %>
+                <% end %>
+            <% end %>
         
     </div>
 
