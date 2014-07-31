@@ -21,15 +21,19 @@ ActiveAdmin.register Listing do
 	controller do
 
 		def show
-			@listing = Listing.find_by_permalink(params[:id])
+			@listing = Listing.find(params[:id])
 		end
 
 		def edit
-			@listing = Listing.find_by_permalink(params[:id])
+			@listing = Listing.find(params[:id])
 		end
 
 		def destroy
-			@listing = Listing.find_by_permalink(params[:id])
+			@listing = Listing.find(params[:id])
+			@activity = Activity.find_by_targetable_id(params[:id])
+		    if @activity
+		      @activity.destroy
+		    end
 			@listing.destroy
 
 			respond_to do |format|

@@ -21,15 +21,19 @@ ActiveAdmin.register Project do
 	controller do
 
 		def show
-			@project = Project.find_by_permalink(params[:id])
+			@project = Project.find(params[:id])
 		end
 
 		def edit
-			@project = Project.find_by_permalink(params[:id])
+			@project = Project.find(params[:id])
 		end
 
 		def destroy
-			@project = Project.find_by_permalink(params[:id])
+			@project = Project.find(params[:id])
+			@activity = Activity.find_by_targetable_id(params[:id])
+		    if @activity
+		      @activity.destroy
+		    end
 			@project.destroy
 
 			respond_to do |format|

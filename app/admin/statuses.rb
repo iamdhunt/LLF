@@ -15,15 +15,19 @@ ActiveAdmin.register Status do
 	controller do
 
 		def show
-			@status = Status.find_by_permalink(params[:id])
+			@status = Status.find(params[:id])
 		end
 
 		def edit
-			@status = Status.find_by_permalink(params[:id])
+			@status = Status.find(params[:id])
 		end
 
 		def destroy
-			@status = Status.find_by_permalink(params[:id])
+			@status = Status.find(params[:id])
+			@activity = Activity.find_by_targetable_id(params[:id])
+		    if @activity
+		      @activity.destroy
+		    end
 			@status.destroy
 
 			respond_to do |format|

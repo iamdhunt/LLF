@@ -19,15 +19,19 @@ ActiveAdmin.register Medium do
 	controller do
 
 		def show
-			@medium = Medium.find_by_permalink(params[:id])
+			@medium = Medium.find(params[:id])
 		end
 
 		def edit
-			@medium = Medium.find_by_permalink(params[:id])
+			@medium = Medium.find(params[:id])
 		end
 
 		def destroy
-			@medium = Medium.find_by_permalink(params[:id])
+			@medium = Medium.find(params[:id])
+			@activity = Activity.find_by_targetable_id(params[:id])
+		    if @activity
+		      @activity.destroy
+		    end
 			@medium.destroy
 
 			respond_to do |format|

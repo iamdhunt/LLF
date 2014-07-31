@@ -37,25 +37,29 @@
                         <%= render partial: 'search/search' %>
                     </li>
                     <li>
-                        <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
-                            <%= image_tag("Messages.png", class: "nav_icons messages") %>
-                            
-                        <% end %> 
-                        <span class="m_alert">
-                            <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>
-                                <div id="m_alert" class=""></div>
-                            <% end %>
-                        </span>
-                    </li>
-                    <li>
-                        <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
-                            <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
-                            <span class="n_alert">
-                                <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
-                                    <div id="n_alert"></div>
+                        <div class="alert_wrap">
+                            <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
+                                <%= image_tag("Messages.png", class: "nav_icons messages") %>
+                                
+                            <% end %> 
+                            <span class="m_alert">
+                                <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>
+                                    <div id="m_alert" class=""></div>
                                 <% end %>
                             </span>
-                        <% end %> 
+                        </div>
+                    </li>
+                    <li>
+                        <div class="alert_wrap">
+                            <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
+                                <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
+                                <span class="n_alert">
+                                    <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
+                                        <div id="n_alert"></div>
+                                    <% end %>
+                                </span>
+                            <% end %>
+                        </div>
                     </li>
                     <li class="dropdown mem_drop">
                         <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av dropdown-toggle", title: "User Menu", id: "user_tooltip"), "/page.html", :data => { :toggle=>"dropdown", :target=>"#" } %>

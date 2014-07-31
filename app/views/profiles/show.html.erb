@@ -48,7 +48,9 @@
     </div>
 
     <% if @member == current_member %>
-        <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :profiles, :action => :show, remote: true %></div>
+        <div class="refresh_wrap">
+            <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :profiles, :action => :show, remote: true %></div>
+        </div>
     <% end %>
     
     <div id="media_query_stream">

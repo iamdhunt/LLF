@@ -15,7 +15,9 @@
 			</span>
 		</div>
 
-		<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :notifications, :action => :index, remote: true %></div>
+		<div class="refresh_wrap">
+			<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :notifications, :action => :index, remote: true %></div>
+		</div>
 
 		<div id="notifications">
 			<%= render partial: "notifications/notifications", :collection => @notifications, :as => :notification %>

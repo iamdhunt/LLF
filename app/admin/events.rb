@@ -30,15 +30,19 @@ ActiveAdmin.register Event do
 	controller do
 
 		def show
-			@event = Event.find_by_permalink(params[:id])
+			@event = Event.find(params[:id])
 		end
 
 		def edit
-			@event = Event.find_by_permalink(params[:id])
+			@event = Event.find(params[:id])
 		end
 
 		def destroy
-			@event = Event.find_by_permalink(params[:id])
+			@event = Event.find(params[:id])
+			@activity = Activity.find_by_targetable_id(params[:id])
+		    if @activity
+		      @activity.destroy
+		    end
 			@event.destroy
 
 			respond_to do |format|

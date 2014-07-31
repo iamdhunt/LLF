@@ -207,7 +207,7 @@
 	height: 14px;
 	position: absolute;
 	top: 16px;
-	right: 156px;
+	right: 0;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-webkit-box-shadow: 0 1px 4px rgba(235, 223, 223, .25);
@@ -231,7 +231,7 @@
 	height: 14px;
 	position: absolute;
 	top: 17px;
-	right: 120px;
+	right: 0;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-webkit-box-shadow: 0 1px 4px rgba(235, 223, 223, .25);
@@ -249,4 +249,7 @@
 }
 .n_alert4 {
 	background-color: #E24248;
+}
+.alert_wrap {
+	position: relative;
 }
