@@ -2070,5 +2070,13 @@ label.active {
     	padding-left: 110px;
     }
 }
-
-
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	#main_wrap {
+      	width: 98%;
+    }
+}
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	#main_wrap {
+      	width: 98%;
+    }
+}
