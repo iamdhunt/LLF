@@ -56,7 +56,9 @@
                     </div>
                 </span>
 
-                <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
+                <div id="media_query_stream">
+                    <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
+                </div>
 
                 <div id="media_query_stream">
                     <div id="activity_stream_wrap" class="community_stream_wrap">
@@ -99,7 +101,9 @@
                     </div>
                 </span>
 
-                <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
+                <div id="media_query_media">
+                    <div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
+                </div>
 
                 <div id="media_query_media">
                     <div id="media_list_wrap" class="community_media_wrap">

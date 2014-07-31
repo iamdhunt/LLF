@@ -2011,10 +2011,10 @@ label.active {
     	padding-top: 0;
     }
     #media_query_stream {
-    	padding-left: 130px;
+    	padding-left: 145px;
     }
-    #refresh_wrap {
-    	padding-left: 130px;
+    #media_query_media {
+    	padding-left: 50px;
     }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
@@ -2028,10 +2028,10 @@ label.active {
     	padding-top: 0;
     }
     #media_query_stream {
-    	padding-left: 130px;
+    	padding-left: 145px;
     }
-    #refresh_wrap {
-    	padding-left: 130px;
+    #media_query_media {
+    	padding-left: 50px;
     }
 }
 
