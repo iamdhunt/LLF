@@ -2070,18 +2070,8 @@ label.active {
     	padding-left: 110px;
     }
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+@media only screen and (min-device-width : 600px) and (max-device-width: 1280px) {
 	#main_wrap {
-      	width: 98%;
-    }
+		width: 98%;
+	}
 }
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-	#main_wrap {
-      	width: 98%;
-    }
-}
-@media amzn-kf8 and (device-aspect-ratio:1280/800) { 
-	#main_wrap {
-      	width: 98%;
-    }
-} 
