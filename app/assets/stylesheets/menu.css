@@ -207,7 +207,7 @@
 	height: 14px;
 	position: absolute;
 	top: 16px;
-	right: 0;
+	right: 10px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-webkit-box-shadow: 0 1px 4px rgba(235, 223, 223, .25);
@@ -231,7 +231,7 @@
 	height: 14px;
 	position: absolute;
 	top: 17px;
-	right: 0;
+	right: 10px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-webkit-box-shadow: 0 1px 4px rgba(235, 223, 223, .25);
