@@ -19,11 +19,11 @@ class Event < ActiveRecord::Base
   	validates :marker_list, presence: true,
   						length: {
                               maximum: 3,
-                              message: 'must not list more than 3 tags.'
+                              message: '(tags) must not list more than 3 tags.'
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: 'must be formatted correctly. Only letters.'
+                              message: '(tags) must be formatted correctly. Only letters.'
                             }
     validate :each_marker
   	validates :name, presence: true,
@@ -143,7 +143,7 @@ class Event < ActiveRecord::Base
 	  def each_marker
 	    marker_list.each do |marker|
 	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-	      errors.add(:marker, "Too long (Maximum is 15 characters)") if marker.length > 15
+	      errors.add(:marker, "(tag) too long (Maximum is 15 characters)") if marker.length > 15
 	    end
 	  end
 
