@@ -1,7 +1,7 @@
 class MarketController < ApplicationController
 
 	def market
-		@member = Member.find(1)
+		@member = Member.find(9)
 		@llf = @member.listings.order('created_at desc').limit(8)
 		@listings = Listing.order('created_at desc').limit(24)
 
