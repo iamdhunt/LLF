@@ -107,11 +107,9 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    @project = current_member.projects.find(params[:id])
+    @project = Project.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    @activity.destroy
     @project.destroy
 
     respond_to do |format|

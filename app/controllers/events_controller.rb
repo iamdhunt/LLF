@@ -114,11 +114,9 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = current_member.events.find(params[:id])
+    @event = Event.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    @activity.destroy
     @event.destroy
 
     respond_to do |format|

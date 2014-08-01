@@ -110,11 +110,9 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
-    @listing = current_member.listings.find(params[:id])
+    @listing = Listing.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    @activity.destroy
     @listing.destroy
 
     respond_to do |format|

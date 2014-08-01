@@ -92,11 +92,9 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status = current_member.statuses.find(params[:id])
+    @status = Status.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    @activity.destroy
     @status.destroy
 
     respond_to do |format|
