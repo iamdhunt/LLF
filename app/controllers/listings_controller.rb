@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_listing, only: [:edit, :update, :destroy]
+  before_filter :find_listing, only: [:edit, :update]
 
   # GET /listings
   # GET /listings.json
@@ -110,14 +110,10 @@ class ListingsController < ApplicationController
   # DELETE /listings/1
   # DELETE /listings/1.json
   def destroy
+    @listing = current_member.listings.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @commentable = @listing
-    @comments = @commentable.comments
     if @activity
       @activity.destroy
-    end
-    if @comments
-      @comments.destroy
     end
     @listing.destroy
 

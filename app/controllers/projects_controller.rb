@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_project, only: [:edit, :update, :destroy]
+  before_filter :find_project, only: [:edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -107,24 +107,10 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
+    @project = current_member.projects.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @commentable = @project
-    @comments = @commentable.comments
-    @uploadable = @project
-    @uploads = @uploadable.uploads
-    @updateable = @project
-    @updates = @updateable.updates
     if @activity
       @activity.destroy
-    end
-    if @comments
-      @comments.destroy
-    end
-    if @uploads
-      @uploads.destroy
-    end
-    if @updates
-      @updates.destroy
     end
     @project.destroy
 

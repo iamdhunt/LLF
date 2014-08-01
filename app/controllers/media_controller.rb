@@ -2,7 +2,7 @@ class MediaController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_filter :find_member
-  before_filter :find_media, only: [:edit, :update, :destroy]
+  before_filter :find_media, only: [:edit, :update]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -87,15 +87,11 @@ class MediaController < ApplicationController
   # DELETE /media/1
   # DELETE /media/1.json
   def destroy
+    @medium = current_member.medium.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @commentable = @medium
-    @comments = @commentable.comments
     if @activity
       @activity.destroy
     end 
-    if @comments
-      @comments.destroy
-    end
     @medium.destroy
 
     respond_to do |format|

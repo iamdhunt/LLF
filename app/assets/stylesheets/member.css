@@ -16,6 +16,9 @@
 	color: #4a4a4a;
 	font-size: 1.4em;
 	padding: 4px 0 0 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 #member_item_wrap .username {
 	color: #942fc6;
