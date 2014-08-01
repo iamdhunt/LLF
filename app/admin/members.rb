@@ -20,5 +20,17 @@ ActiveAdmin.register Member do
 		column :last_sign_in_at
 		default_actions
 	end
+
+	controller do
+
+		def show
+			@member = Member.find_by_user_name(params[:id])
+		end
+
+		def edit
+			@member = Member.find_by_user_name(params[:id])
+		end
+
+	end
   
 end
