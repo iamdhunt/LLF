@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   def index
     @listings = Listing.order('created_at desc').page(params[:page]).per_page(60)
     @search = Listing.solr_search do
-      fulltext params[:search_listings]
+      fulltext params[:listings]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
       facet(:price) do
@@ -28,7 +28,7 @@ class ListingsController < ApplicationController
       end
       with(:price, params[:price]) if params[:price].present?
     end
-    @query = params[:search_listings]
+    @query = params[:listings]
     @facet = params[:tag]
     @price_facet = params[:price]
     @results = Listing.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)

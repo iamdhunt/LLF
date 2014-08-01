@@ -37,10 +37,12 @@
                         <%= render partial: 'search/search' %>
                     </li>
                     <li>
+                        <%= link_to image_tag("Discover 2.png", class: "nav_icons discover"), search_path, title: "Discover", alt: "Discover", :class => "" %>
+                    </li>
+                    <li>
                         <div class="alert_wrap">
                             <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
-                                <%= image_tag("Messages.png", class: "nav_icons messages") %>
-                                
+                                <%= image_tag("Messages.png", class: "nav_icons messages") %>    
                             <% end %> 
                             <span class="m_alert">
                                 <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>

@@ -26,6 +26,7 @@ gem 'remotipart', '~> 1.2'
 gem 'private_pub'
 gem 'thin'
 gem 'activeadmin'
+gem 'randumb'
 
 group :development, :test do
 	gem 'shoulda'

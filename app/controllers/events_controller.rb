@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @markers = Event.marker_counts.order('count DESC').limit(12)
     @events = Event.order('start_date asc').where("start_date >= ?", Time.zone.now.to_date).page(params[:page]).per_page(54)
     @search = Event.solr_search do
-      fulltext params[:search_events]
+      fulltext params[:events]
       any_of do
         with(:start_date).greater_than_or_equal_to(Time.zone.now.to_date)
         with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
-    @query = params[:search_events]
+    @query = params[:events]
     @facet = params[:month]
     @tag_facet = params[:tag]
     @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)

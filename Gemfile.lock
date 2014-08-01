@@ -212,6 +212,10 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.3.2)
+    randumb (0.5.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      rake
     rdoc (3.12.2)
       json (~> 1.4)
     redactor-rails (0.4.5)
@@ -302,6 +306,7 @@ DEPENDENCIES
   private_pub
   progress_bar
   rails (= 3.2.13)
+  randumb
   redactor-rails
   remotipart (~> 1.2)
   rinku

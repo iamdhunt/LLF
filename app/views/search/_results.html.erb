@@ -1,0 +1,34 @@
+<% @results.each do |member| %>
+	<div id="member_item_wrap">
+
+		<div class="avatar">
+			<%= follow_profile_link member %>
+		</div> 
+
+		<div class="bottom">
+			<div class="name">
+				<%= member.full_name %>
+			</div> 
+
+			<div class="username">
+				<%= "@" + member.user_name %>
+			</div> 
+
+			<div class="pursuits">
+				<%= member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
+			</div> 
+			<div class="location">
+				<% if member.city? %>
+                    <%= link_to member.city, :controller => "search", :action => "search", :search => member.city %>
+                <% end %>
+                <% if member.state? %>
+                    <%= link_to member.state, :controller => "search", :action => "search", :search => member.state %>
+                <% end %>
+                <% if member.country? %>
+                    <%= link_to member.country, :controller => "search", :action => "search", :search => member.country %>
+                <% end %>
+			</div>
+		</div>
+
+	</div>
+<% end %>

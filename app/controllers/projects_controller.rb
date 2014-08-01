@@ -16,11 +16,11 @@ class ProjectsController < ApplicationController
     @markers = Project.marker_counts.order('count DESC').limit(12)
     @projects = Project.order('created_at desc').where(:created_at => 3.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(54) 
     @search = Project.solr_search do
-      fulltext params[:search_projects]
+      fulltext params[:projects]
       facet(:marker_list, :limit => 48, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
     end
-    @query = params[:search_projects]
+    @query = params[:projects]
     @facet = params[:tag]
     @results = Project.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
 

@@ -1,13 +1,13 @@
 class MarketController < ApplicationController
 
 	def market
-		@member = Member.find(9)
+		@member = Member.where({ user_name: "llfofficial"}).first
 		@llf = @member.listings.order('created_at desc').limit(8)
 		@listings = Listing.order('created_at desc').limit(24)
 
 		respond_to do |format|
 	      format.html # index.html.erb
-	      format.json { render json: @brands }
+	      format.json {  }
 	    end
 	end 
 	

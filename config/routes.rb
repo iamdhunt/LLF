@@ -29,7 +29,7 @@ LLF::Application.routes.draw do
     end
   end
 
-  get "search" => "search#search", :as => "search"
+  get "discover" => "search#search", :as => "search"
 
   get "community" => "community#community", :as => "community"
 

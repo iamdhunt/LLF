@@ -16,18 +16,18 @@
 			</div> 
 
 			<div class="pursuits">
-				<%= follower.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
+				<%= follower.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(', ').html_safe %>
 			</div>
 
 			<div class="location">
 				<% if follower.city? %>
-	                <%= link_to follower.city, :controller => "search", :action => "search", :search => follower.city %>
+	                <%= link_to follower.city, :controller => "search", :action => "search", :discover => follower.city %>
 	            <% end %>
 	            <% if follower.state? %>
-	                <%= link_to follower.state, :controller => "search", :action => "search", :search => follower.state %>
+	                <%= link_to follower.state, :controller => "search", :action => "search", :discover => follower.state %>
 	            <% end %>
 	            <% if follower.country? %>
-	                <%= link_to follower.country, :controller => "search", :action => "search", :search => follower.country %>
+	                <%= link_to follower.country, :controller => "search", :action => "search", :discover => follower.country %>
 	            <% end %>
 			</div>
 		</div>

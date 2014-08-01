@@ -1,12 +1,15 @@
-<% title "LLF | Search" %>
+<% title "LLF | Discover" %>
+
+<%= render :partial => "banner" %>
 
 <div id ="main_wrap">
 	<div id="results_wrap">
-		<% if @members.empty? || @query == nil %>
-			<div id="search_header">
-				Results for <span class="query"><%= @query %></span>
-			</div>
+		<% if @query == nil && @facet == nil && @tag_facet == nil %>
 			<div id="sb_wrap" class="se_wrap">
+				<div class="sb_text">
+		            Start looking by the most popular cities & pursuits.</br>
+		            Or enter something in the bar.
+		        </div>
 		        <div class="elocs">             
 		            <% for row in @search.facet(:city).rows %>
 		                <span class="eloc"><%= link_to(row.value, params.merge({:city => row.value})) %></span>
@@ -19,14 +22,15 @@
 		          <% end %>
 		        </div>
 		    </div>
-	        <div class="none_message">
-	            No Results Found
-	        </div>
-		<% elsif !@query.empty? %>	
-			<div id="search_header">
-				Results for <span class="query"><%= @query %></span>
+		    <div id="member_list_wrap">
+				<%= render partial: 'members' %>
 			</div>
+		<% else %>	
 			<div id="sb_wrap" class="se_wrap">
+				<div class="sb_text">
+		            Start looking by the most popular cities & pursuits.</br>
+		            Or enter something in the bar.
+		        </div>
 		        <div class="elocs">             
 		            <% for row in @search.facet(:city).rows %>
 		                <span class="eloc"><%= link_to(row.value, params.merge({:city => row.value})) %></span>
@@ -40,12 +44,12 @@
 		        </div>
 		    </div>
 			<div id="member_list_wrap">
-				<%= render partial: 'members' %>
+				<%= render partial: 'results' %>
 			</div>
 
-			<%= will_paginate @members, class: 'display_none' %>
+			<%= will_paginate @results, class: 'display_none' %>
 
-			<% if @members.total_pages != @members.current_page %>
+			<% if @results.total_pages != @results.current_page %>
 				<div id="loading"></div>
 				<%= link_to("#", class: "com_show_wrap load_arrow") do %>
 		        	<div class="com_show">

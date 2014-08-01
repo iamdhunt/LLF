@@ -33,14 +33,14 @@ class Event < ActiveRecord::Base
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
-    validates :location, presence: true,
+    validates :location, allow_blank: true,
               length: {
                           maximum: 100, 
                           message: 'must not be more than 100 characters.',
                           minimum: 2,
                           message: 'must be longer than 2 characters.'
                         }
-    validates :address, presence: true,
+    validates :address, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z0-9 -.]+$/,
                           message: 'must be formatted correctly.'
@@ -48,7 +48,7 @@ class Event < ActiveRecord::Base
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
                         }
-    validates :city, presence: true,
+    validates :city, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z -]+$/,
                           message: 'must be formatted correctly.'
@@ -56,7 +56,7 @@ class Event < ActiveRecord::Base
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
                         }
-    validates :zipcode, presence: true,
+    validates :zipcode, allow_blank: true,
                         format: {
                           with: /^[0-9 -]+$/,
                           message: 'must be formatted correctly.'

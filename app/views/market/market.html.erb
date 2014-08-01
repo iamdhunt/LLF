@@ -6,7 +6,7 @@
 
     <div id="mk_wrap">
         <div id="ap_l_head" class="mk_head" >
-            <%= link_to "LLF Apparel", profile_market_path(Member.find(1)) %>
+            <%= link_to "LLF Apparel", profile_market_path(Member.where({ user_name: "llfofficial"}).first) %>
         </div>
 
         <div id="li_index">
@@ -16,7 +16,7 @@
         </div>
 
         <div id="ap_l_head" class="mk_all">
-            <%= link_to(profile_market_path(Member.find(1)), class: "") do %>
+            <%= link_to(profile_market_path(Member.where({ user_name: "llfofficial"}).first), class: "") do %>
                 View All &raquo;
             <% end %>
         </div>
