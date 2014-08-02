@@ -21,6 +21,9 @@
 	color: #4a4a4a;
 	font-size: 1.4em;
 	padding: 4px 0 0 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 #follow_item_wrap .username {
 	color: #942fc6;
