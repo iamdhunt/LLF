@@ -565,42 +565,38 @@ table {
 
 #footer_wrap {
 	position: absolute;
-    left: 0;
     bottom: 0;
-	height:30px;
 	width:100%;
 	text-align:center;
-	background-color: #9327c9;
+	background-color: #fff;
+	-webkit-box-shadow: 0 -1px 4px #ccc;
+	-moz-box-shadow: 0 -1px 4px #ccc;
+	box-shadow: 0 -1px 4px #ccc;
 }
 
 #footer_top {
-	height:50%;
-	width:100%;
-	font-size:14px;
-	color: #EBEBEB;
+	font-size:1em;
+	color: #94999c;
+	padding: 12px 0 4px 0;
 }
 
 #footer_bottom {
-	height:50%;
-	width:100%;
-	font-size:12px;
-	color: #EBEBEB;
-	font-family: Arial, Helvetica, sans-serif;
+	font-size:.8em;
+	color: #94999c;
+	padding: 4px 0 12px 0;
 }
-
+.bottom_links{
+	padding: 0 6px;
+}
 #footer_wrap #footer_top a {
 	text-decoration: none;
-	color: #EBEBEB;
+	color: #94999c;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: 100;
 }
 
 #footer_wrap #footer_top a:hover {
-	color: #FFF;
-}
-
-#footer_wrap #footer_top .bold_tv {
-	color: #EBEBEB;
+	color: #9933cc;
 }
 
 /*Spotlights*/
@@ -1548,7 +1544,7 @@ hr.contact {
     height:40px;
     opacity:0.6;
     position:fixed;
-    bottom:50px;
+    bottom:150px;
     right:100px;
     display: none;
     text-indent:-9999px;

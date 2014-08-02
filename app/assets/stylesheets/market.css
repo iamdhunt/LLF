@@ -19,9 +19,6 @@
 	color: #E63B42;
 	text-decoration: none;
 }
-#mkl_head {
-	margin-top: 80px;
-}
 #mkl_head a {
 	color: #1b85a6;
 }
@@ -31,6 +28,7 @@
 }
 .mk_all {
 	float: right;
+	margin-top: 25px;
 }
 .mk_all a {
 	color: #444;
