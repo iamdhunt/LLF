@@ -29,6 +29,9 @@
 	color: #942fc6;
 	font-size: 1.1em;
 	padding: 0 0 7px 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 #follow_item_wrap .pursuits {
 	font-size: .85em;
