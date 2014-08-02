@@ -107,7 +107,16 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1
   # DELETE /projects/1.json
   def destroy
-    
+    @project = Project.find(params[:id])
+    @activity = Activity.find_by_targetable_id(params[:id])
+    @activity.destroy
+    @project.destroy
+
+    respond_to do |format|
+      format.html { redirect_to profile_projects_path(current_member) }
+      format.json { head :no_content }
+      format.js
+    end
   end
 
   def upvote
