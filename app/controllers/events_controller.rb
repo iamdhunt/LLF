@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_event, only: [:edit, :update]
+  before_filter :find_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -114,11 +114,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event = Event.find(params[:id])
-    @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    
     @event.destroy
 
     respond_to do |format|

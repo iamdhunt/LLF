@@ -2,6 +2,7 @@ class Medium < ActiveRecord::Base
   	belongs_to :member
   	attr_accessible :caption, :asset, :cover
   	has_many :comments, as: :commentable, :dependent => :destroy
+  	has_many :activities, as: :targetable, :dependent => :destroy
   	acts_as_votable
 
   	before_create :make_it_permalink

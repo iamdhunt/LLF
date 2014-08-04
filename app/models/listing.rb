@@ -50,6 +50,7 @@ class Listing < ActiveRecord::Base
   	acts_as_ordered_taggable_on :markers
   	has_many :comments, as: :commentable, :dependent => :destroy
     has_many :assets, :dependent => :destroy
+    has_many :activities, as: :targetable, :dependent => :destroy
 
     accepts_nested_attributes_for :assets, :allow_destroy => true
 

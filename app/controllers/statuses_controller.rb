@@ -2,7 +2,7 @@ class StatusesController < ApplicationController
 
   before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy] 
   before_filter :find_member
-  before_filter :find_status, only: [:edit, :update]
+  before_filter :find_status, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
@@ -92,11 +92,7 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status = Status.find(params[:id])
-    @activity = Activity.find_by_targetable_id(params[:id])
-    if @activity
-      @activity.destroy
-    end
+    
     @status.destroy
 
     respond_to do |format|

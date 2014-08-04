@@ -49,6 +49,7 @@ class Project < ActiveRecord::Base
     has_many :comments, as: :commentable, :dependent => :destroy
     has_many :uploads, as: :uploadable, :dependent => :destroy
     has_many :updates, as: :updateable, :dependent => :destroy
+    has_many :activities, as: :targetable, :dependent => :destroy
 
   	before_validation :clean_up_markers
 
