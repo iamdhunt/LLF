@@ -94,7 +94,9 @@ class StatusesController < ApplicationController
   def destroy
     @status = Status.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @activity.destroy
+    if @activity
+      @activity.destroy
+    end
     @status.destroy
 
     respond_to do |format|

@@ -109,7 +109,9 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @activity.destroy
+    if @activity
+      @activity.destroy
+    end
     @project.destroy
 
     respond_to do |format|

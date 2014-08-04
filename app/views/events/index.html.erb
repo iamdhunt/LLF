@@ -5,6 +5,14 @@
 <div id="main_wrap">
 
     <div id="sb_wrap" class="se_wrap">
+        <% if @facet != nil || @query != nil || @tag_facet != nil %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span><%= link_to "Events", events_path %></span> &raquo; <span>Discover</span>
+                </div>
+            </div>
+        <% end %>
+
         <div class="sb_text">
             Look up an event name, tag, or location
         </div>

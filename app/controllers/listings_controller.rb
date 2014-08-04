@@ -112,7 +112,9 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @activity.destroy
+    if @activity
+      @activity.destroy
+    end
     @listing.destroy
 
     respond_to do |format|

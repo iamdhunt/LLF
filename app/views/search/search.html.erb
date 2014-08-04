@@ -22,11 +22,18 @@
 		          <% end %>
 		        </div>
 		    </div>
-		    <div id="member_list_wrap">
-				<%= render partial: 'members' %>
+		    <div id="media_query_follow">
+			    <div id="member_list_wrap">
+					<%= render partial: 'members' %>
+				</div>
 			</div>
 		<% else %>	
 			<div id="sb_wrap" class="se_wrap">
+				<div id="bc_wrap">
+	    			<div class="breadcrumbs">
+	    				<span><%= link_to "Discover", search_path %></span> &raquo; <span>Results</span>
+	    			</div>
+	            </div>
 				<div class="sb_text">
 		            Start looking by the most popular cities & pursuits.</br>
 		            Or enter something in the bar.
@@ -43,8 +50,10 @@
 		          <% end %>
 		        </div>
 		    </div>
-			<div id="member_list_wrap">
-				<%= render partial: 'results' %>
+			<div id="media_query_follow">
+				<div id="member_list_wrap">
+					<%= render partial: 'results' %>
+				</div>
 			</div>
 
 			<%= will_paginate @results, class: 'display_none' %>

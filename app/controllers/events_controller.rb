@@ -116,7 +116,9 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     @activity = Activity.find_by_targetable_id(params[:id])
-    @activity.destroy
+    if @activity
+      @activity.destroy
+    end
     @event.destroy
 
     respond_to do |format|

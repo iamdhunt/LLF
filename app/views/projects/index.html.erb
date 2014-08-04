@@ -5,6 +5,14 @@
 <div id="main_wrap">
 
     <div id="sb_wrap">
+        <% if @facet != nil || @query != nil %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span><%= link_to "Projects", projects_path %></span> &raquo; <span>Discover</span>
+                </div>
+            </div>
+        <% end %>
+
         <div class="sb_text">
             Look up a project name, tag, or city
         </div>
