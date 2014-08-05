@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: '(tags) must be formatted correctly. Only letters.'
+                              message: '(tags) must not include any special characters or numbers.'
                             }
     validate :each_marker
   	validates :name, presence: true,
@@ -43,7 +43,7 @@ class Event < ActiveRecord::Base
     validates :address, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z0-9 -.]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters.'
                         },length: {
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
@@ -51,7 +51,7 @@ class Event < ActiveRecord::Base
     validates :city, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z -]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters or numbers.'
                         },length: {
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
@@ -59,7 +59,7 @@ class Event < ActiveRecord::Base
     validates :zipcode, allow_blank: true,
                         format: {
                           with: /^[0-9 -]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters or letters.'
                         },length: {
                           maximum: 9, 
                           message: 'must not be more than 9 characters.',
@@ -67,7 +67,7 @@ class Event < ActiveRecord::Base
     validates :state, allow_blank: true, 
                         format: {
                           with: /^[a-zA-Z ]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters or numbers.'
                         },length: {
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',
@@ -75,7 +75,7 @@ class Event < ActiveRecord::Base
     validates :country, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z ]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters or numbers.'
                         },length: {
                           maximum: 50, 
                           message: 'must not be more than 50 characters.',

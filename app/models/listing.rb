@@ -19,7 +19,7 @@ class Listing < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: 'must be formatted correctly. Only letters.'
+                              message: 'must not include any special characters or numbers.'
                             }
     validates :price, presence: true,
     					length: {
@@ -27,7 +27,7 @@ class Listing < ActiveRecord::Base
                             },
                             format: {
                               with: /^[0-9 ,.]+$/,
-                              message: 'must be formatted correctly. Only numbers.'
+                              message: 'must not include any special characters or letters.'
                             }
 
     before_validation :clean_up_markers

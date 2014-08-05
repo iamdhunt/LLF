@@ -22,7 +22,7 @@ class Project < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: '(tags) must be formatted correctly. Only letters.'
+                              message: '(tags) must not include any special characters or numbers.'
                             }
     validate :each_marker
   	validates :name, presence: true,
@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
     validates :city, presence: true, 
                         format: {
                           with: /^[a-zA-Z ]+$/,
-                          message: 'must be formatted correctly.'
+                          message: 'must not include any special characters or numbers.'
                         },length: {
                           maximum: 100, 
                           message: 'must not be more than 100 characters.',

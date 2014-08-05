@@ -18,8 +18,8 @@ class Member < ActiveRecord::Base
   validates :user_name, presence: true,
                         uniqueness: true,
                         format: {
-                          with: /^[a-z0-9_-]+$/,
-                          message: 'must be formatted correctly.'
+                          with: /^[a-zA-Z0-9_-]+$/,
+                          message: 'can not include spaces or special characters.'
                         },
                         length: {
                           maximum: 16,
@@ -52,7 +52,7 @@ class Member < ActiveRecord::Base
  validates :city, allow_blank: true,
                   format: {
                     with: /^[a-zA-Z- ]+$/,
-                    message: 'must be formatted correctly.'
+                    message: 'must not include any special characters or numbers.'
                   },
                   length: {
                     maximum: 25,
@@ -62,7 +62,7 @@ class Member < ActiveRecord::Base
   validates :state, allow_blank: true,
                     format: {
                       with: /^[a-zA-Z- ]+$/,
-                      message: 'must be formatted correctly.'
+                      message: 'must not include any special characters or numbers.'
                     },
                     length: {
                       maximum: 25,
@@ -72,7 +72,7 @@ class Member < ActiveRecord::Base
   validates :country, allow_blank: true,
                       format: {
                         with: /^[a-zA-Z- ]+$/,
-                        message: 'must be formatted correctly.'
+                        message: 'must not include any special characters or numbers.'
                       },
                       length: {
                         maximum: 25,
