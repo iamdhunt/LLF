@@ -161,8 +161,10 @@
         <% end %>
       </div>
 
-      <div id="upload_<%= @uploadable.id %>" class="p_m_list_wrap">
-        <%= render :partial => "shared/media", :collection => @uploads, :as => :upload %>       
+      <div id="media_query_media">
+        <div id="upload_<%= @uploadable.id %>" class="p_m_list_wrap">
+          <%= render :partial => "shared/media", :collection => @uploads, :as => :upload %>       
+        </div>
       </div>
 
       <%= will_paginate @uploads, class: 'display_none' %>
@@ -225,8 +227,10 @@
     </div>
 
     <div class="tab-pane" id="followers">
-      <div id="proj_fol">
-        <%= render "shared/followers" %>
+      <div id="media_query_follow">
+        <div id="proj_fol">
+          <%= render "shared/followers" %>
+        </div>
       </div>
 
         <%= will_paginate @followers, class: 'display_none' %>
