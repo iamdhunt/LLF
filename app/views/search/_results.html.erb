@@ -15,17 +15,17 @@
 			</div> 
 
 			<div class="pursuits">
-				<%= member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :search => p }.join(', ').html_safe %>
+				<%= member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(', ').html_safe %>
 			</div> 
 			<div class="location">
 				<% if member.city? %>
-                    <%= link_to member.city, :controller => "search", :action => "search", :search => member.city %>
+                    <%= link_to member.city, :controller => "search", :action => "search", :discover => member.city %>
                 <% end %>
                 <% if member.state? %>
-                    <%= link_to member.state, :controller => "search", :action => "search", :search => member.state %>
+                    <%= link_to member.state, :controller => "search", :action => "search", :discover => member.state %>
                 <% end %>
                 <% if member.country? %>
-                    <%= link_to member.country, :controller => "search", :action => "search", :search => member.country %>
+                    <%= link_to member.country, :controller => "search", :action => "search", :discover => member.country %>
                 <% end %>
 			</div>
 		</div>
