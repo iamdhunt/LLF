@@ -46,7 +46,7 @@
         <div class="edit_instructions">
           <ul>
             <li>
-              &raquo; Paste or type the full url's (i.e. http://havenforthebold.tv/)
+              &raquo; Paste or type the full url's (i.e. http://beboldbefearless.co/)
             </li>
             <li>
               &raquo; We only support YouTube/Vimeo
@@ -92,10 +92,10 @@
             </li>
           </ul>
         </div>
-        <%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
-        <%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
-        <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
-        <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '5', maxlength: '50' } %>
+        <%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
+        <%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '7', maxlength: '50' } %>
+        <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '8', maxlength: '50' } %>
+        <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '9', maxlength: '50' } %>
       </fieldset>
     </div>
 
@@ -109,12 +109,12 @@
             </li>
           </ul>
         </div>
-        <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings loc_in', tabindex: '4', id: '', maxlength: '100' } %>
-        <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '5', maxlength: '50' } %>
-        <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '6', maxlength: '50' } %>
-        <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '7', maxlength: '50' } %>
-        <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '7', maxlength: '9' } %>
-        <%= f.input :country, label: 'Country', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '9', maxlength: '50' } %>
+        <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings loc_in', tabindex: '10', id: '', maxlength: '100' } %>
+        <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '11', maxlength: '50' } %>
+        <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '12', maxlength: '50' } %>
+        <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '13', maxlength: '50' } %>
+        <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '14', maxlength: '9' } %>
+        <%= f.input :country, label: 'Country', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '15', maxlength: '50' } %>
       </fieldset>
     </div>
 
@@ -128,9 +128,9 @@
             </li>
           </ul>
         </div>
-        <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '6', maxlength: '140', autocomplete: 'off' } %>
+        <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '16', maxlength: '140', autocomplete: 'off' } %>
           <div class="p_blb_ct"><span class="p_ct_blb"></span> <span class="p_ct_text">characters remaining</span></div>
-        <%= f.input :details, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '7', id: 'p_about' } %>
+        <%= f.input :details, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '55', rows: '10', class: 'forms account settings', tabindex: '17', id: 'p_about' } %>
       </fieldset>
 
       <div class="form-actions">
