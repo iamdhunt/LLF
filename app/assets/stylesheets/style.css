@@ -1995,6 +1995,9 @@ label.active {
     #media_query_follow {
     	padding-left: 80px;
     }
+    .menu_logo {
+    	margin-left: 125px;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
     .login_bg {
@@ -2020,6 +2023,9 @@ label.active {
     }
     #media_query_follow {
     	padding-left: 80px;
+    }
+    .menu_logo {
+    	margin-left: 125px;
     }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
@@ -2047,6 +2053,9 @@ label.active {
     #media_query_follow {
     	padding-left: 80px;
     }
+    .menu_logo {
+    	margin-left: 125px;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
     .login_bg {
@@ -2072,6 +2081,9 @@ label.active {
     }
     #media_query_follow {
     	padding-left: 80px;
+    }
+    .menu_logo {
+    	margin-left: 125px;
     }
 }
 
