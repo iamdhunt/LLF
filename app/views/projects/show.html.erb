@@ -21,7 +21,7 @@
         <% end %> 
         <% if @project.website? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, @project.website  %></span>
+            <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, "http://#{@project.website.sub(/^https?\:\/\//, '')}" %></span>
           </li>
         <% end %>
         <% if @project.city? %>  

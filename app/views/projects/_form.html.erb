@@ -77,10 +77,13 @@
               <li>
                 &raquo; We only support YouTube/Vimeo
               </li>
+              <li>
+                &raquo; Include the http://
+              </li>
             </ul>
           </div>
-          <%= f.input :website, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4', autocomplete: 'off' } %>
-          <%= f.input :video, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5', autocomplete: 'off' } %>
+          <%= f.input :website, as: :url, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4', autocomplete: 'off' }, placeholder: 'http://' %>
+          <%= f.input :video, as: :url, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5', autocomplete: 'off' }, placeholder: 'http://' %>
         </fieldset>
 
         <fieldset>

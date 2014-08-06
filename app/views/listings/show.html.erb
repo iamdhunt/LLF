@@ -45,7 +45,7 @@
               <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
             <% end %>
               <div class="ui360 ui360-vis lstgs">
-                <%= link_to '', @listing.feature.url %>
+                <%= link_to '', "http://#{@listing.feature.url.sub(/^https?\:\/\//, '')}" %>
               </div>
             </div>
           </div>
