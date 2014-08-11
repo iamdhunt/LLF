@@ -18,11 +18,11 @@
 
       <div class="pd_info_wrap">
         <div class="pd_cat">
-          <%= link_to @listing.category, :controller => "listings", :action => "index", :search => @listing.category %>
+          <%= @listing.category %>
         </div>
 
         <div class="pd_mk">
-          <%= @listing.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :search => m }.join(' ').html_safe %>
+          <%= @listing.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :listings => m }.join(' ').html_safe %>
         </div>
       </div>
 

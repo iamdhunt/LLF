@@ -65,7 +65,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= project.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :search => m }.join(' ').html_safe %>
+					<%= project.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :projects => m }.join(' ').html_safe %>
 				</div>
 			</div>
 
@@ -76,7 +76,7 @@
 
 		<% if project.city? %>
 			<div class="e_loc">
-				<%= link_to(:controller => "projects", :action => "index", :search => project.city) do %>
+				<%= link_to(:controller => "projects", :action => "index", :projects => project.city) do %>
 	                <i class="icon-map-marker icon-blue"></i> <%= project.city.titleize %>
 	            <% end %>
 			</div>

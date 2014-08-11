@@ -66,7 +66,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= event.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :search => m }.join(' ').html_safe %>
+					<%= event.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :events => m }.join(' ').html_safe %>
 				</div>
 			</div>
 
@@ -76,7 +76,7 @@
 		</div>
 
 		<div class="e_loc">
-			<%= link_to(:controller => "events", :action => "index", :search => event.location) do %>
+			<%= link_to(:controller => "events", :action => "index", :events => event.location) do %>
                 <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
             <% end %>
 		</div>
