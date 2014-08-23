@@ -49,7 +49,7 @@ class EventsController < ApplicationController
       @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
       @upload = Upload.new
       @updateable = @event
-      @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(40)
+      @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
       @update = Update.new
       @followers = @event.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
       respond_to do |format|

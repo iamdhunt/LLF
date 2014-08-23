@@ -34,11 +34,13 @@
 		<%= activity.targetable.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :search => m }.join(' ').html_safe %>
 	</div>
 
-	<div class='act_loc'>
-		<%= link_to(:controller => "projects", :action => "index", :search => activity.targetable.city) do %>
-            <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.city.titleize %>
-        <% end %>
-	</div>
+	<% if activity.targetable.city? %>
+		<div class='act_loc'>
+			<%= link_to(:controller => "projects", :action => "index", :search => activity.targetable.city) do %>
+	            <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.city.titleize %>
+	        <% end %>
+		</div>
+	<% end %>
 
 	<div class="act_tm1">
 		<%= activity.targetable.created_at.strftime("%b %d %Y") %>

@@ -74,11 +74,13 @@
 			</div>
 		</div>
 
-		<div class="e_loc">
-			<%= link_to(:controller => "events", :action => "index", :events => event.location) do %>
-                <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
-            <% end %>
-		</div>
+		<% if event.location? %>
+			<div class="e_loc">
+				<%= link_to(:controller => "events", :action => "index", :events => event.location) do %>
+	                <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
+	            <% end %>
+			</div>
+		<% end %>
 
 		<div class="el_tm">
 			<%= event.start_date.strftime("%b %d %Y") %>

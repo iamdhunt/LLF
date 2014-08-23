@@ -29,9 +29,9 @@
 	box-shadow: 0 1px 4px rgba(0,0,0,.25);
 	border-radius: 7px;
 	border: none;
-}
-.member li {
-	width: 100%;
+	max-width: 177px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .member li a {
 	padding: 1px 20px;
@@ -48,6 +48,9 @@
 .member .top_menu {
 	padding: 7px 0;
 	border-bottom: 1px solid #dddddd;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .member .a {
 	border-bottom: 1px solid #dddddd;
