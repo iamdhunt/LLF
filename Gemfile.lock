@@ -132,6 +132,9 @@ GEM
     faye-websocket (0.7.4)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.1)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     foreigner (1.6.1)
       activerecord (>= 3.0.0)
     formtastic (2.2.1)
@@ -298,6 +301,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   factory_girl_rails
+  figaro
   jquery-rails (~> 2.3.0)
   js-routes
   mailboxer

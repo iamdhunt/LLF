@@ -774,3 +774,9 @@ vertical-align: baseline;
 	background-color: #da4f49;
 	color: #fff;
 }
+#projects {
+	background-image: url('/assets/Projects Input.png');
+	background-position: 4px 46%;
+	background-repeat: no-repeat;
+    padding-left: 23px;
+}

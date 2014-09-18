@@ -1,4 +1,3 @@
-$("#not_count").html("<span class='not_t'>Notifications (<%= current_member.mailbox.notifications({:read => false}).count %>)</span>");
 $("#notifications").html("<%= escape_javascript(render partial: 'notifications/notifications', :collection => @notifications, :as => :notification) %>");
 $(".n_alert").html("<% unless current_member.mailbox.notifications({:read => false}).count == 0 %><div id='n_alert'></div><% end %>");
 init_ncount();

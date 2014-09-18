@@ -38,3 +38,9 @@
 .mk_index {
 	margin-top: 80px;
 }
+#listings {
+	background-image: url('/assets/Market Input.png');
+	background-position: 4px 37%;
+	background-repeat: no-repeat;
+    padding-left: 23px;
+}

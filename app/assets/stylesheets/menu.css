@@ -29,17 +29,18 @@
 	box-shadow: 0 1px 4px rgba(0,0,0,.25);
 	border-radius: 7px;
 	border: none;
-	max-width: 177px;
-	overflow: hidden;
-	text-overflow: ellipsis;
+}
+.mem_drop {
+	float: right;
 }
 .member li a {
 	padding: 1px 20px;
+	text-align: left;
 }
 .member .menu_name {
 	font-weight: bold;
 	color: #942fc6;
-	font-size: 1.2em;
+	font-size: 1.1em;
 }
 .member .sign_out {
 	border-top: 1px solid #dddddd;
@@ -48,9 +49,6 @@
 .member .top_menu {
 	padding: 7px 0;
 	border-bottom: 1px solid #dddddd;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 .member .a {
 	border-bottom: 1px solid #dddddd;
@@ -122,6 +120,9 @@
 }
 .nav_search {
 	padding: 10px 0;
+	float: left;
+	display: inline-block;
+	width: 52%;
 }
 #member_actions .dropdown-menu {
 	top: 38px;
@@ -255,4 +256,25 @@
 }
 .alert_wrap {
 	position: relative;
+}
+.pra1 .nav_icons {
+	width: 24px;
+	height: 24px;
+	margin: 16px 0 0 8px;
+}
+not_li2:after {
+	background: rgba(0, 0, 0, .1);
+	content: '';
+	height: 100%;
+	right: 170px;
+	position: absolute;
+	top: 0;
+	width: 2px;
+}
+#discover {
+	width: 100%;
+	background-image: url('/assets/Discover Input 2.png');
+	background-position: 5px 45%;
+	background-repeat: no-repeat;
+    padding-left: 60px;
 }

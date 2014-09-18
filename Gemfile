@@ -27,6 +27,7 @@ gem 'private_pub'
 gem 'thin'
 gem 'activeadmin'
 gem 'randumb'
+gem 'figaro'
 
 group :development, :test do
 	gem 'shoulda'

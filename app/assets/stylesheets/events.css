@@ -350,3 +350,9 @@ vertical-align: baseline;
 #p_index #stream_filters {
 	margin-top: 10px;
 }
+#events {
+	background-image: url('/assets/Events Input.png');
+	background-position: 4px;
+	background-repeat: no-repeat;
+    padding-left: 26px;
+}
