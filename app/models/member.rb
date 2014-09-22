@@ -154,6 +154,7 @@ class Member < ActiveRecord::Base
   before_validation :clean_up_pursuits
   before_save :to_lower
   before_create :to_lower
+  after_create :send_welcome
 
   has_many :medium, :dependent => :destroy
   has_many :projects, :dependent => :destroy
@@ -227,6 +228,10 @@ class Member < ActiveRecord::Base
   def clean_up_pursuits
     # Make lowercase 
     self.pursuit_list.map!(&:downcase) 
+  end
+
+  def send_welcome
+    MemberMailer.signup_confirmation(self).deliver
   end
 
 end
