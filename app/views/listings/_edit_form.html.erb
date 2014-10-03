@@ -29,8 +29,15 @@
     <div id="price" class="tab-pane">
 
         <fieldset>
-              <legend class="leg">Price</legend>
-              <%= f.input :price, as: :text, label: '$', error: false, input_html: { class: 'forms settings', id: '', cols: '20', rows: '1', tabindex: '1', maxlength: '10'} %>
+              <legend class="descriptors">Price</legend>
+              <div class="edit_instructions">
+                <ul>
+                    <li>
+                      &raquo; Max $10,000 price tag
+                    </li>
+                </ul>
+              </div>
+              <%= f.input :price, as: :text, label: '$', error: false, input_html: { class: 'forms settings', id: '', cols: '20', rows: '1', tabindex: '1', maxlength: '9'} %>
         </fieldset>
 
         <fieldset>

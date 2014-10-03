@@ -38,13 +38,14 @@ LLF::Application.configure do
   # Change mail delvery to either :smtp, :sendmail, :file, :test
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
+    address: "mail.livinglifefearless.co",
+    port: 25,
     domain: "l-l-f.co",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: ENV["EMAIL_USERNAME"],
+    password: ENV["EMAIL_PASSWORD"],
+    openssl_verify_mode: 'none'
   }
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

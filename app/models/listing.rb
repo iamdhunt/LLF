@@ -23,12 +23,13 @@ class Listing < ActiveRecord::Base
                             }
     validates :price, presence: true,
     					length: {
-                              maximum: 10
+                              maximum: 9
                             },
                             format: {
                               with: /^[0-9 ,.]+$/,
                               message: 'must not include any special characters or letters.'
                             }
+    validates_numericality_of :price, :less_than_or_equal_to => 10000, message: 'can\'t be greater than 10,000.'
 
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
