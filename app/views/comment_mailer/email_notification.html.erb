@@ -41,7 +41,7 @@
 										        				<tr>
 										          					<td style="margin-top:20px;vertical-align:top;font-size:18px;font-weight:bold;line-height:100%;padding-bottom:5px;text-align:left;border-collapse:collapse">
 										            					<h1 style="margin-top:5px;font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:24px;font-weight:bold;line-height:130%;letter-spacing:normal;margin-right:0;margin-bottom:15px;margin-left:0;text-align:left;color:#384047;text-decoration:none">
-																			Welcome to the community!!!
+																			<b style="color:#942fc6;"><%= @sender.full_name %> <i>(<%= @sender.user_name %>)</i></b> has left you a comment
 										            					</h1>
 										            				</td>
 										        				</tr>
@@ -63,22 +63,25 @@
 								            			<table border="0" cellpadding="0" cellspacing="0">
 								            				<tbody>
 								            					<tr>
-								              						<td colspan="2" style="border-top:1px solid #e2e5e8;border-bottom:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;padding-top:0;padding-bottom:10px;border-collapse:collapse;width:600px">
+								            						<td style="width:100%;border-top:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;padding-top:20px;border-collapse:collapse">
+														                <span style="font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:16px;font-weight:bold;line-height:130%;letter-spacing:normal;margin-right:0;margin-left:0;text-align:left;display:block">
+														                	<%= @sender.full_name %>&nbsp;&nbsp;<span style="font-family:Helvetica,sans-serif;line-height:160%;font-size:15px;margin-top:5px;margin-bottom:15px;color:#8d9aa5"><%= @sender.user_name %></span>
+														                </span>
+														                <span style="font-family:Helvetica,sans-serif;line-height:160%;font-size:13px;margin-top:2px;display:block">
+														                	<%= @comment.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %>
+														                </span>
+														            </td>
+								            					</tr>
+								            					<tr>
+								              						<td colspan="2" style="border-bottom:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;padding-top:0;padding-bottom:10px;border-collapse:collapse;width:600px">
 								                						<p style="margin-bottom:1em;"></p>
-								                						<p style="margin-bottom:1em;">
-								                							Hey there <b><%= @member.full_name %> <i>(<%= @member.user_name %>)</i></b>
-								                						</p>
-																		<p style="margin-bottom:1em;">
-																			Welcome to the LLF Community!! We are super excited to see what awesomeness you're bringing with you! If you need any help getting started, our <a href="http://l-l-f.co/faqs" style="font-weight:bold;text-decoration:none;color:#942fc6;" target="_blank">FAQ's</a> are a great place to start.
+																		<p style="color: #8d9aa5;background: #f3f5f6;padding-top:15px;padding-bottom:15px;padding-right:20px;padding-left:20px;border-top-left-radius:7px;border-top-right-radius:7px;border-bottom-left-radius:7px;border-bottom-right-radius:7px;">
+																			<i>"<%= @comment.content %>"</i>
 																		</p>
-																		<p style="margin-bottom:1em;">
-																			To jumpstart your experience we suggest discovering some people to follow that share your same pursuits and once your stream is starting to flow (pun intended), you should check out some of the epic events, projects, and listings.
+																		<p style="">
+																			<%= link_to "Reply to comment", polymorphic_url(@commentable), {:style => 'font-family:Helvetica,sans-serif;margin-top:15px;margin-bottom:10px;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#942fc6;color:white!important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#701A99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px', target: "_blank"} %>
 																		</p>
-																		<p style="margin-bottom:1em;">
-																			<b>Be Bold. Be Fearless.</b>
-																		</p>
-																			<%= link_to "View your profile", profile_url(@member), {:style => 'font-family:Helvetica,sans-serif;margin-top:15px;margin-bottom:10px;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#942fc6;color:white!important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#701A99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px', target: "_blank"} %>
-								                						<p style="margin-bottom:1em;"></p>
+								                						<p style=""></p>
 
 								              						</td>
 								            					</tr>

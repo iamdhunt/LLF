@@ -1,0 +1,9 @@
+Hey there <%= @member.full_name %> (<%= @member.user_name %>),
+
+<%= @sender.full_name %> (<%= @sender.user_name %>) has left you a comment:
+
+"<%= @comment.content %>"
+
+Reply to comment: <%= polymorphic_url(@commentable) %>
+
+support@livinglifefearless.co | BLOG: http://beboldbefearless.co/ VIDEOS: http://beboldbefearless.tv/ 
