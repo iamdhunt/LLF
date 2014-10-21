@@ -1,0 +1,145 @@
+<div marginwidth="0" marginheight="0" style="background:#edeff0;width:100%!important;margin:0;padding:0">
+
+	<center>
+
+    	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="background:#edeff0;font-family:Helvetica,sans-serif;height:100%!important;margin:0;padding:0;width:100%!important;font-size:14px;color:#9ba6b0;table-layout:fixed;">
+      		<tbody>
+
+      			<tr>
+
+        			<td align="center" style="vertical-align:top;padding-bottom:15px;border-collapse:collapse">
+          
+		          		<table border="0" cellpadding="0" cellspacing="0" style="width:90%;max-width:600px;margin-right:5%;margin-left:5%;display:block">
+		            
+		            		<tbody>
+
+		            			<tr>
+		                			<td align="center" style="vertical-align:top;border-collapse:collapse">		               
+		                				<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+		                    				<tbody>
+		                    					<tr>
+		                    						<td align="left" width="180" style="width:180px;vertical-align:top;padding-top:21px;padding-bottom:21px;border-collapse:collapse">
+		                        						<a href="http://l-l-f.co" target="_blank"><img width="180" height="22" style="width:180px;min-height:22px;border:0;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/Blog+Logo+2.png"></a>
+		                    						</td>
+								                    <td>
+								                      &nbsp;&nbsp;
+								                    </td>
+		                    					</tr>
+		                					</tbody>
+		                				</table>
+		              				</td>
+		            			</tr>
+
+								<tr>
+									<td align="center" style="vertical-align:top;border-collapse:collapse">
+										<table border="0" cellpadding="0" cellspacing="0" style="background-color:#fff;border-top-left-radius:5px;border-top-right-radius:5px;width:100%">
+										    <tbody>
+										  		<tr>
+										    		<td align="center" style="vertical-align:top;border-collapse:collapse;padding-top:3%;padding-right:7%;padding-left:7%">
+										      			<table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+										        			<tbody>
+										        				<tr>
+										          					<td style="margin-top:20px;vertical-align:top;font-size:18px;font-weight:bold;line-height:100%;padding-bottom:5px;text-align:left;border-collapse:collapse">
+										          						 <h4 style="font-family:Helvetica,sans-serif;color:#8d9aa5;display:block;font-size:14px;font-weight:normal;line-height:150%;letter-spacing:normal;margin-right:0;margin-bottom:0;margin-left:0;text-align:left">
+														                  <%= @message.sender.full_name %> (<%= @message.sender.user_name %>) has started a new conversation
+														                </h4>
+										            					<h1 style="margin-top:5px;font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:24px;font-weight:bold;line-height:130%;letter-spacing:normal;margin-right:0;margin-bottom:15px;margin-left:0;text-align:left;color:#384047;text-decoration:none">
+																			<%= @message.subject %>
+										            					</h1>
+										            				</td>
+										        				</tr>
+										        			</tbody>
+										    			</table>
+										    		</td>
+										    	</tr>
+											</tbody>
+										</table>
+									</td>
+								</tr>
+
+								<tr>
+									<td align="center" style="vertical-align:top">
+								    	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color:#fff;border-bottom-left-radius:5px;border-bottom-right-radius:5px;width:100%">
+								        	<tbody>
+								        		<tr>
+								        			<td align="center" style="vertical-align:top;border-collapse:collapse;padding-left:7%;padding-right:7%;padding-bottom:6%">
+								            			<table border="0" cellpadding="0" cellspacing="0">
+								            				<tbody>
+								            					<tr>
+								            						<td style="width:100%;border-top:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;padding-top:20px;border-collapse:collapse">
+														                <span style="font-family:Helvetica,sans-serif;color:#384047;display:block;font-size:16px;font-weight:bold;line-height:130%;letter-spacing:normal;margin-right:0;margin-left:0;text-align:left;display:block">
+														                	<%= @message.sender.full_name %>&nbsp;&nbsp;<span style="font-family:Helvetica,sans-serif;line-height:160%;font-size:15px;margin-top:5px;margin-bottom:15px;color:#8d9aa5"><%= @message.sender.user_name %></span>
+														                </span>
+														                <span style="font-family:Helvetica,sans-serif;line-height:160%;font-size:13px;margin-top:2px;display:block">
+														                	<%= @message.created_at.localtime.strftime("%a, %m/%e %I:%M%P") %>
+														                </span>
+														            </td>
+								            					</tr>
+								            					<tr>
+								              						<td colspan="2" style="border-bottom:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:left;padding-top:0;padding-bottom:10px;border-collapse:collapse;width:600px">
+								                						<p style="margin-bottom:1em;"></p>
+																		<p style="color: #8d9aa5;background: #f3f5f6;padding-top:15px;padding-bottom:15px;padding-right:20px;padding-left:20px;border-top-left-radius:7px;border-top-right-radius:7px;border-bottom-left-radius:7px;border-bottom-right-radius:7px;">
+																			<i>"<%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>"</i>
+																		</p>
+																		<p style="">
+																			<%= link_to "Join the conversation", conversations_url, {:style => 'font-family:Helvetica,sans-serif;margin-top:15px;margin-bottom:10px;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#942fc6;color:white!important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#701A99;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px', target: "_blank"} %>
+																		</p>
+								                						<p style=""></p>
+
+								              						</td>
+								            					</tr>
+								            				</tbody>
+								            			</table>
+								        			</td>
+								        		</tr>
+								    		</tbody>
+								    	</table>
+								    </td>
+								</tr>
+
+					            <tr>
+					              	<td align="left" style="vertical-align:top;border-collapse:collapse">
+						                <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+						                  	<tbody>
+						                  		<tr>
+								                    <td style="text-align:center;vertical-align:top;padding-top:25px;border-collapse:collapse">
+								                    	<p style="font-family:Helvetica,sans-serif;line-height:160%;font-family:Helvetica,sans-serif;color:#b7c0c7;font-size:12px;margin-top:0;margin-bottom:0">
+								                      		© LLF
+								                      	</p>
+								                      	<p style="font-family:Helvetica,sans-serif;line-height:160%;color:#b7c0c7;font-size:12px;margin-top:0;margin-bottom:0">
+								                      		<a href="mailto:support@livinglifefearless.co" style="font-weight:bold;text-decoration:none;color:#9ba6b0" target="_blank">support@livinglifefearless.co</a>&nbsp;&nbsp;<span style="color:#b7c0c7">|</span>&nbsp;&nbsp;<a href="http://beboldbefearless.co/" style="font-weight:bold;text-decoration:none;color:#9ba6b0" target="_blank">Blog</a> <a href="http://beboldbefearless.tv/" style="font-weight:bold;text-decoration:none;color:#9ba6b0" target="_blank">Videos</a>
+								                      	</p>
+								                    </td>
+						                  		</tr>
+						                	</tbody>
+						                </table>
+
+						                <table border="0" cellpadding="0" cellspacing="0" style="width:100%">
+						                  	<tbody>
+						                  		<tr>
+						                    		<td style="vertical-align:top;text-align:center;padding-top:30px;padding-bottom:5px;border-collapse:collapse">
+								                    	<a href="https://www.facebook.com/livinglifefearless" target="_blank"><img width="39" height="42" style="width:39px;min-height:42px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_fb.png"></a>
+								                      	<a href="https://twitter.com/llfofficial" target="_blank"><img width="39" height="42" style="width:39px;min-height:42px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_tw.png"></a>
+								                      	<a href="http://instagram.com/llfofficial" target="_blank"><img width="39" height="42" style="min-height:42px;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_ig.png"></a>
+						                    		</td>
+						                  		</tr>
+						                	</tbody>
+						            	</table> 
+					              	</td>
+					            </tr>
+
+          					</tbody>
+
+          				</table>
+          
+        			</td>
+
+      			</tr>
+
+    		</tbody>
+
+    	</table>
+
+  	</center>
+
+</div>

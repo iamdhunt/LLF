@@ -1,0 +1,9 @@
+<%= @message.sender.full_name %> (<%= @message.sender.user_name %>) has started a new conversation
+
+<%= @message.subject %>
+
+<%= @message.body.html_safe? ? @message.body : strip_tags(@message.body) %>
+
+Join the conversation: <%= conversations_url %>
+
+support@livinglifefearless.co | BLOG: http://beboldbefearless.co/ VIDEOS: http://beboldbefearless.tv/
