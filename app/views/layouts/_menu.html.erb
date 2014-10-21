@@ -8,8 +8,6 @@
                 <li>
                     <% if member_signed_in? %>
                         <%= link_to "Home", profile_path(current_member) %>
-                    <% else %>
-                        <%= link_to "Home", root_path %>
                     <% end %>
                 </li>
                 <li>
@@ -109,7 +107,7 @@
         <% else %>
             <div class="nav_links">
                 <%= link_to "Login", sign_in_path, :class => "member_links" %>
-                <%= link_to "Join!", root_path, :class => "member_links" %>
+                <%= link_to "Join!", join_path, :class => "member_links" %>
             </div>
         <% end %>
     </div>
