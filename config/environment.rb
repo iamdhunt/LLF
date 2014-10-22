@@ -5,7 +5,7 @@ require File.expand_path('../application', __FILE__)
 LLF::Application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-address: "mail.livinglifefearless.co",
+	address: "mail.livinglifefearless.co",
     port: 25,
     domain: "l-l-f.co",
     authentication: "plain",
