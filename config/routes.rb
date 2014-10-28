@@ -1,11 +1,19 @@
 LLF::Application.routes.draw do
 
- devise_scope :member do 
-      match '/settings' => 'registrations#settings', as: :settings
-      match '/avatar' => 'registrations#avatar', as: :avatar
+  devise_scope :member do
+    match '/settings' => 'registrations#settings', as: :settings
+    match '/avatar' => 'registrations#avatar', as: :avatar
+    authenticated :member do
+      root :to => 'devise/registrations#new'
+    end
+    unauthenticated :member do
+      root :to => 'community#community'
+    end
   end
 
-  root :to => 'community#community'
+  
+
+  
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

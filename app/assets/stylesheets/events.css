@@ -351,8 +351,8 @@ vertical-align: baseline;
 	margin-top: 10px;
 }
 #events {
-	background-image: url('/assets/Events Input.png');
-	background-position: 4px;
+	background-image: url('/assets/Search.png');
+	background-position: 4px 38%;
 	background-repeat: no-repeat;
-    padding-left: 26px;
+    padding-left: 24px;
 }

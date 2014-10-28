@@ -5,7 +5,7 @@
 <div id="main_wrap">
 
 	<div id="sb_wrap">
-		<% if @facet == nil && @query == nil %>
+		<% if @facet == nil && @query == nil && @price_range == nil %>
             <div id="bc_wrap">
     			<div class="breadcrumbs">
     				<span><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
@@ -27,10 +27,18 @@
 	      <%= render :partial => "search" %>
 	    </div>
 
+        <div class="btags">
+            <% for row in @search.facet(:price).rows %>
+                <span class="bprice">
+                    <%= link_to (row.value).to_s.prepend("$").gsub(/\.0\.\./," - $").gsub(/\.0/,""), :price_range => row.value, :search => params[:listings] %>
+                </span>
+            <% end %>
+        </div>
+
 	    <div class="btags">
-	      <% for row in @search.facet(:marker_list).rows %>
-	          <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
-	      <% end %>
+	        <% for row in @search.facet(:marker_list).rows %>
+	           <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+	        <% end %>
 	    </div>
 	</div>
 
@@ -90,7 +98,7 @@
 	<div id="li_index">
 
         <div id="lstgs">
-			<% if @facet == nil && @query == nil %>
+			<% if @facet == nil && @query == nil && @price_range == nil %>
 		      <%= render partial: 'listings' %>
 		    <% else %>
 		        <%= render partial: 'search_listings' %>
@@ -99,7 +107,7 @@
 
 	</div>
 
-        <% if @facet == nil && @query == nil %>
+        <% if @facet == nil && @query == nil && @price_range == nil %>
             <%= will_paginate @listings, class: 'display_none' %>
 
             <% if @listings.total_pages != @listings.current_page %>

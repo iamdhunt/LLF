@@ -29,7 +29,7 @@ class Listing < ActiveRecord::Base
                               with: /^[0-9 ,.]+$/,
                               message: 'must not include any special characters or letters.'
                             }
-    validates_numericality_of :price, :less_than_or_equal_to => 10000, message: 'can\'t be greater than 10,000.'
+    validates_numericality_of :price, :less_than_or_equal_to => 1499, message: 'can\'t be greater than 1,499.'
 
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
@@ -59,7 +59,7 @@ class Listing < ActiveRecord::Base
       text :title, :boost => 5
       text :marker_list, :boost => 2
       string :marker_list, :multiple => true, :stored => true
-      float :price
+      double :price
     end
 
     def to_param
