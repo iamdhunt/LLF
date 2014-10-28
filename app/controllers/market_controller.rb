@@ -1,7 +1,7 @@
 class MarketController < ApplicationController
 
 	def market
-		@member = Member.where({ user_name: "llfofficial"}).first
+		@member = Member.where({ user_name: "iamdhunt"}).first
 		@llf = @member.listings.order('created_at desc').limit(8)
 		@listings = Listing.order('created_at desc').limit(24)
 
