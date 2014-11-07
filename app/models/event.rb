@@ -50,7 +50,7 @@ class Event < ActiveRecord::Base
                         }
     validates :city, allow_blank: true,
                         format: {
-                          with: /^[a-zA-Z -]+$/,
+                          with: /^[a-zA-Z -']+$/,
                           message: 'must not include any special characters or numbers.'
                         },length: {
                           maximum: 50, 
