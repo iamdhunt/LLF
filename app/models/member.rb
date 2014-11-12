@@ -166,6 +166,7 @@ class Member < ActiveRecord::Base
   has_many :uploads, :dependent => :destroy
   has_many :updates, :dependent => :destroy
   has_many :assets, :dependent => :destroy
+  has_many :mentions, as: :mentionable, dependent: :destroy
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable
