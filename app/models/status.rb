@@ -7,7 +7,6 @@ class Status < ActiveRecord::Base
   has_many :mentions, dependent: :destroy
 
   before_create :make_it_permalink
-  after_create :create_mention
 
   accepts_nested_attributes_for :document
 
@@ -45,11 +44,13 @@ class Status < ActiveRecord::Base
     matcher = /@(\w+)/i
     finder = :find_by_user_name
 
-    text = self.send(content)
+    text = self.send(:content)
 
-    text.scan(matcher)
     if text =~ matcher
-      alert "@ mentions present"
+      text.scan(matcher)
+      
+    else
+      alert("no mentions present")
     end
   end
 
