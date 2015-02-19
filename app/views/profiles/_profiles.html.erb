@@ -38,13 +38,13 @@
                 </div>
                 <div class="profile_location">
                     <% if @member.city? %>
-                        <%= link_to @member.city, :controller => "search", :action => "search", :discover => @member.city %>
+                        <%= link_to @member.city.titleize, :controller => "search", :action => "search", :discover => @member.city %>
                     <% end %>
                     <% if @member.state? %>
-                        <%= link_to @member.state, :controller => "search", :action => "search", :discover => @member.state %>
+                        <%= link_to @member.state.titleize, :controller => "search", :action => "search", :discover => @member.state %>
                     <% end %>
                     <% if @member.country? %>
-                        <%= link_to @member.country, :controller => "search", :action => "search", :discover => @member.country %>
+                        <%= link_to @member.country.titleize, :controller => "search", :action => "search", :discover => @member.country %>
                     <% end %>
                 </div>
             </div>

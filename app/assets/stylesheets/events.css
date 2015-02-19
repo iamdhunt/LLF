@@ -351,8 +351,9 @@ vertical-align: baseline;
 	margin-top: 10px;
 }
 #events {
-	background-image: url('/assets/Search.png');
+	background-image url('/assets/Search.png');
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
-    padding-left: 24px;
+    padding-left 24px;
+    text-align: center;
 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141110173943) do
+ActiveRecord::Schema.define(:version => 20141112115538) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -297,15 +297,6 @@ ActiveRecord::Schema.define(:version => 20141110173943) do
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true
   add_index "members", ["reset_password_token"], :name => "index_members_on_reset_password_token", :unique => true
 
-  create_table "mentions", :force => true do |t|
-    t.integer  "mentionable_id"
-    t.string   "mentionable_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "index_mentions_on_mentionable_id_and_mentionable_type"
-
   create_table "projects", :force => true do |t|
     t.integer  "member_id"
     t.text     "category"
@@ -332,6 +323,19 @@ ActiveRecord::Schema.define(:version => 20141110173943) do
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
+
+  create_table "references", :force => true do |t|
+    t.integer  "referencer_id"
+    t.string   "referencer_type"
+    t.integer  "referenceable_id"
+    t.string   "referenceable_type"
+    t.string   "attribute_name"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "references", ["referenceable_id", "referenceable_type"], :name => "index_references_on_referenceable_id_and_referenceable_type"
+  add_index "references", ["referencer_id", "referencer_type"], :name => "index_references_on_referencer_id_and_referencer_type"
 
   create_table "statuses", :force => true do |t|
     t.text     "content"

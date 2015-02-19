@@ -1,1 +1,2 @@
-$(".member_follow").html("<%= escape_javascript(render :partial => "shared/follow_member", :locals => {:member => @followable}) %>")
+$(".member_follow").html("<%= escape_javascript(render :partial => 'shared/follow_member', :locals => {:member => @followable}) %>");
+$("#gl_follow_<%= @followable.id %>").html("<%= escape_javascript(render :partial => 'shared/follow_member2', :locals => {:member => @followable}) %>");

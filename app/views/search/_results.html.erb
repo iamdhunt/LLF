@@ -1,4 +1,4 @@
-<% @results.each do |member| %>
+
 	<div id="member_item_wrap">
 
 		<div class="avatar">
@@ -11,24 +11,23 @@
 			</div> 
 
 			<div class="username">
-				<%= "@" + member.user_name %>
+				<%= member.user_name %>
 			</div> 
+
+			<% if current_member != member && member_signed_in? %>
+                <span id="gl_follow_<%= member.id %>" class="gl_follow">
+                    <%= render :partial => "shared/follow_member2", :locals => {:member => member} %>
+                </span>
+            <% end %>
 
 			<div class="pursuits">
 				<%= member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(', ').html_safe %>
 			</div> 
 			<div class="location">
 				<% if member.city? %>
-                    <%= link_to member.city, :controller => "search", :action => "search", :discover => member.city %>
-                <% end %>
-                <% if member.state? %>
-                    <%= link_to member.state, :controller => "search", :action => "search", :discover => member.state %>
-                <% end %>
-                <% if member.country? %>
-                    <%= link_to member.country, :controller => "search", :action => "search", :discover => member.country %>
+                    <%= link_to member.city.titleize, :controller => "search", :action => "search", :discover => member.city %>
                 <% end %>
 			</div>
 		</div>
 
 	</div>
-<% end %>
