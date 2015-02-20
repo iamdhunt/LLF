@@ -15,24 +15,29 @@
 		<div id="p_list_top">
 			<span class="l">
 		      <% if event.category == 'Arts' %>
-		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
+		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
 		      <% end %>
 		      <% if event.category == 'Entrepreneurial' %>
-		        <%= image_tag("/assets/Biz Category.png", class: 'ims', title: 'Entrepreneurial') %>
+		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
 		      <% end %>
 		      <% if event.category == 'Sports' %>
-		        <%= image_tag("/assets/Sports Category.png", class: 'ims', title: 'Sports') %>
+		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
 		      <% end %>
 		      <% if event.category == 'Music' %>
-		        <%= image_tag("/assets/Music Category.png", class: 'ims', title: 'Music') %>
+		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
 		      <% end %>
 		      <% if event.category == 'Other' %>
-		        <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
+		        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
 		      <% end %>
 		    </span>
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
+		    		<% unless event.member == current_member %>
+			    		<span id="evt_fol_<%= event.id %>_<%= event.member.id %>">
+						    <%= render :partial => "shared/follow_event2", :locals => {:event => event} %>
+						</span>
+					<% end %>
 			    	<span id="evt_fav_<%= event.id %>_<%= event.member.id %>">
 					    <%= render :partial => "events/fav_button_stream", :locals => {:event => event} %>
 					</span>
