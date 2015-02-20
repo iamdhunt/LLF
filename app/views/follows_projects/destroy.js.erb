@@ -1,2 +1,3 @@
 $(".p_f_but").html("<%= escape_javascript(render :partial => 'shared/follow_project', :locals => {:project => @followable}) %>");
+$("#prj_fol_<%= @followable.id %>_<%= @followable.member.id %>").html("<%= escape_javascript(render :partial => 'shared/follow_project2', :locals => {:project => @followable}) %>");
 $("#c_form_wrap").html("<div class='c_message'><span>Must be following event to leave a comment.</span></div>");

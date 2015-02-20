@@ -1,0 +1,5 @@
+<% if current_member.following?(project) %>
+     <%= link_to image_tag("Follow E-P 2.png", class: "ims-act"), project_follow_path(project.id, current_member.get_follow(project).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "" %>
+  <% else %>
+      <%= link_to image_tag("Follow E-P 1.png", class: "ims-act"), project_follows_path(project.id), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "" %>
+<% end %>

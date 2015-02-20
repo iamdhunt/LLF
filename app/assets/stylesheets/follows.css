@@ -26,15 +26,15 @@
 	text-overflow: ellipsis;
 }
 #follow_item_wrap .username {
-	color: #942fc6;
+	color: #9444CC;
 	font-size: 1.1em;
-	padding: 0 0 7px 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 #follow_item_wrap .pursuits {
 	font-size: .85em;
+	padding-top: 2px;
 }
 #follow_item_wrap .pursuits a {
 	color: #333;
@@ -45,6 +45,7 @@
 }
 #follow_item_wrap .location {
 	font-size: .85em;
+	padding-top: 2px;
 }
 #follow_item_wrap .location a {
 	color: #1a90b6;
