@@ -3,6 +3,8 @@ class Upload < ActiveRecord::Base
 	belongs_to :uploadable, polymorphic: true
 	attr_accessible :asset, :caption, :cover
 
+	auto_strip_attributes :caption
+
 	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", av: "200x200#"}  : {} }
 	has_attached_file :cover, styles: { media: "188x188#" }
 

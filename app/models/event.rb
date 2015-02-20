@@ -116,6 +116,15 @@ class Event < ActiveRecord::Base
 	    simple_format
 	  end
 
+    auto_strip_attributes :website, :zipcode, :details
+    auto_strip_attributes :name, :squish => true
+    auto_strip_attributes :location, :squish => true
+    auto_strip_attributes :address, :squish => true
+    auto_strip_attributes :city, :squish => true
+    auto_strip_attributes :state, :squish => true
+    auto_strip_attributes :country, :squish => true
+    auto_strip_attributes :blurb, :squish => true
+
   searchable :auto_index => true, :auto_remove => true do
     text :name, :boost => 5
     text :marker_list, :boost => 2
@@ -123,6 +132,7 @@ class Event < ActiveRecord::Base
     text :category
     string :marker_list, :multiple => true, :stored => true
     string :event_month
+    string :location
     date :start_date
     date :end_date
   end

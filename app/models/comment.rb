@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
 
 	after_create :send_email, :create_notification, on: :create, unless: Proc.new { |comment| comment.member.id == comment.commentable.member.id }
 	
+	auto_strip_attributes :content
+
 	def create_notification
 		subject = "#{member.user_name}"
 		body = "wrote you a <b>Comment</b> <p><i>#{content}</i></p>"

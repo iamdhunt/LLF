@@ -5,7 +5,7 @@
 <div id="main_wrap">
 
     <div id="sb_wrap" class="se_wrap">
-        <% if @facet != nil || @query != nil || @tag_facet != nil %>
+        <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
                     <span><%= link_to "Events", events_path %></span> &raquo; <span>Discover</span>
@@ -23,6 +23,12 @@
         <div class="elocs">             
             <% for row in @search.facet(:event_month).rows %>
                 <span class="eloc"><%= link_to(row.value, params.merge({:month => row.value})) %></span>
+            <% end %>           
+        </div>
+
+        <div class="loc_nm">             
+            <% for row in @search.facet(:location).rows %>
+                <span class="eloc"><%= link_to(row.value.titleize, params.merge({:locations => row.value})) %></span>
             <% end %>           
         </div>
 
@@ -70,7 +76,7 @@
 
             <div id="media_query_prev">
                 <div id="prs">
-                    <% if @facet == nil && @query == nil && @tag_facet == nil %>
+                    <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
                         <%= render partial: 'events' %>
                     <% else %>
                         <%= render partial: 'search_events' %>
@@ -78,7 +84,7 @@
                 </div>
             </div>
 
-            <% if @facet == nil && @query == nil && @tag_facet == nil %>
+            <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
                 <%= will_paginate @events, class: 'display_none' %>
 
                 <% if @events.total_pages != @events.current_page %>

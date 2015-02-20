@@ -28,6 +28,7 @@ gem 'thin'
 gem 'activeadmin'
 gem 'randumb'
 gem 'figaro'
+gem "auto_strip_attributes", "~> 2.0"
 
 group :development, :test do
 	gem 'shoulda'

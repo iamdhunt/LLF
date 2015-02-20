@@ -11,16 +11,16 @@
             <%= f.input :full_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Full Name', input_html:{ class: 'forms reg_forms l_reg', tabindex: '1', maxlength: '25' } %>
           </span>
           <span>
-            <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms r_reg', tabindex: '3', maxlength: '16' } %>
+            <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms r_reg', tabindex: '2', maxlength: '16' } %>
           </span>
           <span>
-            <%= f.input :email, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms l_reg', tabindex: '4'} %>
+            <%= f.input :email, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms l_reg', tabindex: '3'} %>
           </span>
           <span>
-            <%= f.input :email_confirmation, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms r_reg', tabindex: '5', autocomplete: 'off' } %>
+            <%= f.input :email_confirmation, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms r_reg', tabindex: '4', autocomplete: 'off' } %>
           </span>
           <span>
-            <%= f.input :password, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms l_reg', tabindex: '6'} %>
+            <%= f.input :password, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms l_reg', tabindex: '5'} %>
           </span>
           <span class="r_reg">
             <%= f.submit "Join the Community!", :class => 'btn btn-info btn-large' %>

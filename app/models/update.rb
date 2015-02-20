@@ -3,6 +3,9 @@ class Update < ActiveRecord::Base
 	belongs_to :updateable, polymorphic: true
 	attr_accessible :title, :content
 
+	auto_strip_attributes :content
+	auto_strip_attributes :title, :squish => true
+
 	validates :title, presence: true,
   			length: { minimum: 2, maximum: 60 }
 

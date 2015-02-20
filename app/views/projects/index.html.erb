@@ -5,7 +5,7 @@
 <div id="main_wrap">
 
     <div id="sb_wrap">
-        <% if @facet != nil || @query != nil %>
+        <% if @facet != nil || @query != nil || @city_facet != nil %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
                     <span><%= link_to "Projects", projects_path %></span> &raquo; <span>Discover</span>
@@ -21,9 +21,15 @@
         </div>
 
         <div class="btags">
-          <% for row in @search.facet(:marker_list).rows %>
+            <div class="loc_nm">             
+                <% for row in @search.facet(:city).rows %>
+                    <span class="eloc"><%= link_to(row.value.titleize, params.merge({:city => row.value})) %></span>
+                <% end %>           
+            </div>
+
+            <% for row in @search.facet(:marker_list).rows %>
               <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
-          <% end %>
+            <% end %>
         </div>
     </div>
 
@@ -64,7 +70,7 @@
 
         <div id="media_query_prev">
             <div id="prs">
-                <% if @facet == nil && @query == nil %>
+                <% if @facet == nil && @query == nil && @city_facet == nil %>
                     <%= render partial: 'projects' %>
                 <% else %>
                     <%= render partial: 'search_projects' %>
@@ -72,29 +78,29 @@
             </div>
         </div>
 
-        <% if @facet == nil && @query == nil %>
-                <%= will_paginate @projects, class: 'display_none' %>
+        <% if @facet == nil && @query == nil && @city_facet == nil %>
+            <%= will_paginate @projects, class: 'display_none' %>
 
-                <% if @projects.total_pages != @projects.current_page %>
-                <div id="loading"></div>
-                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                      <div class="com_show">
-                        Show More
-                      </div>
-                    <% end %>
-                <% end %>
-            <% else %>
-                <%= will_paginate @results, class: 'display_none' %>
-
-                <% if @results.total_pages != @results.current_page %>
-                <div id="loading"></div>
-                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                      <div class="com_show">
-                        Show More
-                      </div>
-                    <% end %>
+            <% if @projects.total_pages != @projects.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
                 <% end %>
             <% end %>
+        <% else %>
+            <%= will_paginate @results, class: 'display_none' %>
+
+            <% if @results.total_pages != @results.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
+            <% end %>
+        <% end %>
         
     </div>
 

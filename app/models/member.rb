@@ -8,6 +8,12 @@ class Member < ActiveRecord::Base
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
   					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
             :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
+  
+  auto_strip_attributes :email, :email_confirmation, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
+  auto_strip_attributes :city, :squish => true
+  auto_strip_attributes :state, :squish => true
+  auto_strip_attributes :country, :squish => true
+  auto_strip_attributes :full_name, :squish => true
 
   validates :full_name, presence: true,
                         length: {

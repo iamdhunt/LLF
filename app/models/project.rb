@@ -5,6 +5,11 @@ class Project < ActiveRecord::Base
 
   	attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city
 
+    auto_strip_attributes :about, :website
+    auto_strip_attributes :name, :squish => true
+    auto_strip_attributes :city, :squish => true
+    auto_strip_attributes :blurb, :squish => true
+
   	validates :about, presence: true
   	validates :blurb, presence: true,
   						length: {
@@ -78,6 +83,7 @@ class Project < ActiveRecord::Base
       text :city, :boost => 2
       text :category
       string :marker_list, :multiple => true, :stored => true
+      string :city
     end
 
     def to_param

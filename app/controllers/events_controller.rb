@@ -22,13 +22,16 @@ class EventsController < ApplicationController
         with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
       end 
       facet(:event_month)
-      with(:event_month, params[:month]) if params[:month].present?
+        with(:event_month, params[:month]) if params[:month].present?
       facet(:marker_list, :limit => 48, :sort => :count)
-      with(:marker_list, params[:tag]) if params[:tag].present?
+        with(:marker_list, params[:tag]) if params[:tag].present?
+      facet(:location, :limit => 24, :sort => :count)
+        with(:location, params[:locations]) if params[:locations].present?
     end
     @query = params[:events]
     @facet = params[:month]
     @tag_facet = params[:tag]
+    @location_facet = params[:locations]
     @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
 
     respond_to do |format|

@@ -56,6 +56,8 @@ GEM
       redcarpet
       rinku
       tag_helper
+    auto_strip_attributes (2.0.6)
+      activerecord (>= 3.0)
     aws-sdk (1.20.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4, < 1.6.0)
@@ -294,6 +296,7 @@ DEPENDENCIES
   acts_as_follower (~> 0.1.1)
   acts_as_votable (~> 0.8.0)
   auto_html
+  auto_strip_attributes (~> 2.0)
   aws-sdk
   bootstrap-will_paginate
   coffee-rails (~> 3.2.1)

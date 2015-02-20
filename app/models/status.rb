@@ -5,6 +5,8 @@ class Status < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :activities, as: :targetable, :dependent => :destroy
 
+  auto_strip_attributes :content
+
   before_create :make_it_permalink
 
   accepts_nested_attributes_for :document
@@ -38,19 +40,5 @@ class Status < ActiveRecord::Base
     # this can create permalink with random 8 digit alphanumeric
     self.permalink = SecureRandom.hex(12)
   end
-
-  def create_mention(mentionable, mention)
-    matcher = /@(\w+)/i
-    finder = :find_by_user_name
-
-    text = self.send(:content)
-
-    if text =~ matcher
-      text.scan(matcher)
-      
-    else
-      alert("no mentions present")
-    end
-  end
-
+  
 end

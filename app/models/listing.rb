@@ -5,6 +5,9 @@ class Listing < ActiveRecord::Base
 
   	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover
 
+    auto_strip_attributes :description, :link
+    auto_strip_attributes :title, :squish => true
+
   	validates :title, presence: true
   	validates :link, presence: true
   	validates :feature, presence: true
