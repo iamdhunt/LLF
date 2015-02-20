@@ -16,24 +16,29 @@
 			<span class="l">
 		      <%= avatar_profile_link project.member, :class => "pr_av", title: project.member.full_name, alt: project.member.full_name %>
 		      <% if project.category == 'Arts' %>
-		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
+		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
 		      <% end %>
 		      <% if project.category == 'Entrepreneurial' %>
-		        <%= image_tag("/assets/Biz Category.png", class: 'ims', title: 'Entrepreneurial') %>
+		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
 		      <% end %>
 		      <% if project.category == 'Sports' %>
-		        <%= image_tag("/assets/Sports Category.png", class: 'ims', title: 'Sports') %>
+		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
 		      <% end %>
 		      <% if project.category == 'Music' %>
-		        <%= image_tag("/assets/Music Category.png", class: 'ims', title: 'Music') %>
+		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
 		      <% end %>
 		      <% if project.category == 'Other' %>
-		        <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
+		        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
 		      <% end %>
 		    </span>
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
+		    		<% unless project.member == current_member %>
+			    		<span id="prj_fol_<%= project.id %>_<%= project.member.id %>">
+						    <%= render :partial => "shared/follow_project2", :locals => {:project => project} %>
+						</span>
+					<% end %>
 			    	<span id="prj_fav_<%= project.id %>_<%= project.member.id %>">
 					    <%= render :partial => "projects/fav_button_stream", :locals => {:project => project} %>
 					</span>

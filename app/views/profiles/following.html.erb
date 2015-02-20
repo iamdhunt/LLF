@@ -12,7 +12,7 @@
 
 <div id="media_query_follow">
     <div id="follow_list_wrap">
-    	<%= render :partial => "following" %>       
+    	<%= render :partial => "following", :collection => @following, :as => :follow %>       
     </div>
 </div>
 

@@ -12,19 +12,19 @@
 		        </div>
 		        <div class="elocs">             
 		            <% for row in @search.facet(:city).rows %>
-		                <span class="eloc"><%= link_to(row.value, params.merge({:city => row.value})) %></span>
+		                <span class="eloc"><%= link_to(row.value.titleize, params.merge({:city => row.value})) %></span>
 		            <% end %>           
 		        </div>
 
 		        <div class="btags">
 		          <% for row in @search.facet(:pursuit_list).rows %>
-		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:pursuit => row.value})) %></span>
 		          <% end %>
 		        </div>
 		    </div>
 		    <div id="media_query_follow">
 			    <div id="member_list_wrap">
-					<%= render partial: 'members' %>
+					<%= render partial: 'members', :collection => @members, :as => :member %>
 				</div>
 			</div>
 		<% else %>	
@@ -46,13 +46,13 @@
 
 		        <div class="btags">
 		          <% for row in @search.facet(:pursuit_list).rows %>
-		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+		              <span class="btag"><%= link_to(row.value.titleize, params.merge({:pursuit => row.value})) %></span>
 		          <% end %>
 		        </div>
 		    </div>
 			<div id="media_query_follow">
 				<div id="member_list_wrap">
-					<%= render partial: 'results' %>
+					<%= render partial: 'results', :collection => @results, :as => :member %>
 				</div>
 			</div>
 

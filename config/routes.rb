@@ -1,5 +1,9 @@
 LLF::Application.routes.draw do
 
+  get "mentions/new"
+
+  get "mentions/destroy"
+
   devise_scope :member do
     match '/settings' => 'registrations#settings', as: :settings
     match '/avatar' => 'registrations#avatar', as: :avatar
@@ -9,11 +13,7 @@ LLF::Application.routes.draw do
     unauthenticated :member do
       root :to => 'community#community'
     end
-  end
-
-  
-
-  
+  end 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -122,6 +122,7 @@ LLF::Application.routes.draw do
 
   resources :statuses do
     resources :comments
+    resources :mentions
   end 
 
   resources :statuses

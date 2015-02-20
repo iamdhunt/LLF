@@ -26,15 +26,15 @@
 	text-overflow: ellipsis;
 }
 #follow_item_wrap .username {
-	color: #942fc6;
+	color: #9444CC;
 	font-size: 1.1em;
-	padding: 0 0 7px 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 #follow_item_wrap .pursuits {
 	font-size: .85em;
+	padding-top: 2px;
 }
 #follow_item_wrap .pursuits a {
 	color: #333;
@@ -45,6 +45,7 @@
 }
 #follow_item_wrap .location {
 	font-size: .85em;
+	padding-top: 2px;
 }
 #follow_item_wrap .location a {
 	color: #1a90b6;
@@ -84,9 +85,26 @@
   	margin: 0 auto;
   	opacity: .8;
   	cursor: default;
-  	background-color: rgb(34, 34, 34);
-	background-color: rgba(34, 34, 34, 0.8);
+  	background-color: rgb(148, 68, 204);
+	background-color: rgba(148, 68, 204, 1);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
 	-background: transparent;
+}
+.gl_fol {
+	width: 15px;
+	height: 14px;
+	vertical-align: text-top;
+}
+.btn_gl_fol {
+	color: #898989;
+}
+.btn_gl_fol:hover {
+	color: #898989;
+}
+.btn_gl_fol:active {
+	color: #898989;
+}
+.gl_follow .btn {
+	margin: 3px 0 1px 0;
 }
