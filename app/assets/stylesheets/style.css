@@ -137,20 +137,24 @@ table {
 }
 
 #error_txt .txt_1 {
-	font-size: 40px;
+	font-size: 150px;
 	color: #942fc6;
-	font-style: italic;
 }
 
 #error_txt .txt_2 {
 	font-size: 30px;
 	color: #636363;
-	font-style: italic;
+	padding: 0 30%;
 }
 #error_img {
 	text-align: center;
+	margin-top: 30px;
 }
-
+.error_logo {
+	position: absolute;
+	bottom: -112px;
+	left: 120px;
+}
 /* Specific CSS */
 #pagewrap {
 	padding-top: 54px;
@@ -166,7 +170,6 @@ table {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 72%;
 }
 
 /* Navigation Bar*/
