@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>The change you wanted was rejected (422)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
+  <head>
+    <title>422 Request Was Rejected</title>
+    <span style="display:none;"><% title '422 Request Was Rejected' %></span>
 
-<body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
-  </div>
-</body>
+    <STYLE TYPE="text/css" MEDIA=screen>
+      <!--
+      #footer_wrap {position: absolute;bottom: 0;width:100%;text-align:center;background-color: #8D18C7;}
+      #footer_wrap:before {content: "";display: block;position: absolute;top: 0;left: -10px;height: .25em;width: 5em;box-shadow: 5em 0 0 0 #F7B448, 10em 0 0 0 #74cfae, 15em 0 0 0 #EB6361, 20em 0 0 0 #2D9FC4, 25em 0 0 0 #F7B448, 30em 0 0 0 #74cfae, 35em 0 0 0 #F7B448, 40em 0 0 0 #74cfae, 45em 0 0 0 #EB6361, 50em 0 0 0 #2D9FC4, 55em 0 0 0 #F7B448, 60em 0 0 0 #74cfae, 65em 0 0 0 #F7B448, 70em 0 0 0 #74cfae, 75em 0 0 0 #EB6361, 80em 0 0 0 #2D9FC4, 85em 0 0 0 #F7B448, 90em 0 0 0 #74cfae, 95em 0 0 0 #F7B448, 100em 0 0 0 #74cfae, 105em 0 0 0 #EB6361, 110em 0 0 0 #2D9FC4, 115em 0 0 0 #F7B448, 120em 0 0 0 #74cfae;background: #2D9FC4;}
+      #footer_top {font-size:1em;color: #ffffff;padding: 12px 0 4px 0;}
+      #footer_bottom {font-size:.8em;color: #ffffff;padding: 4px 0 12px 0;}
+      .bottom_links{padding: 0 6px;}
+      #footer_wrap #footer_top a {text-decoration: none;color: #ffffff;font-family: Arial, Helvetica, sans-serif;font-weight: 100;}
+      #footer_wrap #footer_top a:hover {font-weight: bold;}
+      .contact_email {text-align: center;color: #444;font-size: 1.5em;margin-top: 25px;}
+      .contact_email .pr_in {text-align: center;color: #444444;width: 40%;font-size: 1.3em;}
+      .forms {border: 1px solid #e4e4e4;-webkit-box-shadow: inset 1px 1px 4px #e4e4e4;-moz-box-shadow: inset 1px 1px 4px #e4e4e4;box-shadow: inset 1px 1px 4px #e4e4e4;background: #fff;}
+      .pr_in {width: 95%;font-size: 1.5em;padding: 3px;}
+      -->
+    </STYLE>
+  </head>
+
+  <body style="margin:0;font-family:Helvetica, Arial, sans-serif;background-color:#fff;">
+    <div style="position:relative;margin-left:auto;margin-right:auto;">
+
+      <div style="text-align:center;">
+          <div style="color:#942fc6;font-size:150px;font-weight:bold;">
+            422
+        </div>
+
+        <div style="color:#636363;font-weight:bold;font-size:30px;padding:0 35%;">
+          The change you wanted was rejected. Maybe you don't have access to that.
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:60px;opacity:.9;">
+          <a href="previous.html" onClick="history.back();return false;"><img src="/images/Stock Badge.png" alt="Go Back" title="Go Back"></a>
+      </div>
+
+      <div class="contact_email">
+        <input class="pr_in forms" value="support@livinglifefearless.co" onclick="this.select()" />
+      </div>
+
+      <div style="position:absolute;top:260px;left:800px;">
+        <img width="80px" height="130px;" src="/images/404 Arrow.png">
+      </div>
+      <div style="position:absolute;top:385px;left:734px;">
+        <img width="100px" height="" src="/images/404 Text.png">
+      </div>
+      <div style="position:absolute;bottom:-67px;left:150px;">
+        <img width="" height="" src="/images/404 Logo.png">
+      </div>
+    </div>
+
+    <div id="footer_wrap">
+      
+      <div id="footer_top" class="box_font"> 
+        <span class="bottom_links"><a href="http://l-l-f.co/faqs">FAQ'S</a></span>  
+        <span class="bottom_links"><a href="http://l-l-f.co/terms">TERMS</a></span>
+        <span class="bottom_links"><a href="http://l-l-f.co/privacy">PRIVACY</a></span>
+            <span class="bottom_links">|</span>
+        <span class="bottom_links"><a href="http://beboldbefearless.co/">BLOG</a></span>  
+      </div>
+      
+      <div id="footer_bottom" class="box_font">
+        LLF &copy; 2014 
+      </div>
+        <div style="clear:both;"></div>
+    </div>
+  </body>
 </html>

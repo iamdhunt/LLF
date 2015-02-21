@@ -248,6 +248,10 @@ ActiveRecord::Schema.define(:version => 20141112115538) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "permalink"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"
@@ -320,6 +324,8 @@ ActiveRecord::Schema.define(:version => 20141112115538) do
     t.text     "markers"
     t.text     "name"
     t.string   "permalink"
+    t.string   "test"
+    t.string   "test_html"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
