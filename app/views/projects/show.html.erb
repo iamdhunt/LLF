@@ -85,6 +85,12 @@
     </span>
   </div>
 
+  <div class="prj_fav_ct">
+    <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
+      <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
+    </span>
+  </div>
+
   <% if @project.video? %>
     <div id="proj_video">
       <%= @project.video_html %>
@@ -233,7 +239,7 @@
         <h3 id="sharemodallabel">Copy Project URL</h3>
       </div>
       <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= project_url %>" autofocus />
+        <input class="pr_in forms" value="<%= project_url %>" onclick="this.select()" />
       </div>
     </div>
   </div>

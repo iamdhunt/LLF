@@ -2,39 +2,40 @@
 
 <%= render :partial => "banner" %>
 
-<div id="main_wrap">
+<div id="mk_wrap">
 
-    <div id="mk_wrap">
-        <div id="ap_l_head" class="mk_head" >
-            <%= link_to "LLF Apparel", profile_market_path(Member.where({ user_name: "llfofficial"}).first) %>
+    <div id="mk_head" >
+        <div>
+            <span class="h pl">
+                POPULAR
+            </span>
         </div>
+    </div>
 
-        <div id="li_index">
-            <div id="llf_lstgs">
-                <%= render partial: 'listings/llf_listings' %>
-            </div>
+    <div id="li_index">
+        <div id="pop_lstgs">
+            <%= render partial: 'listings/pop_listings' %>
         </div>
+    </div>
 
-        <div id="ap_l_head" class="mk_all">
-            <%= link_to(profile_market_path(Member.where({ user_name: "llfofficial"}).first), class: "") do %>
-                View All &raquo;
-            <% end %>
+    <div id="mk_head" >
+        <div>
+            <span class="h mk">
+                <%= link_to(listings_path, class: "") do %>
+                    MARKET
+                <% end %>
+            </span>
+            <span class="mk_l v_a">
+                <%= link_to(listings_path, class: "") do %>
+                    view all &raquo;
+                <% end %>
+            </span>
         </div>
+    </div>
 
-        <div id="mkl_head" class="mk_head mk_index">
-            <%= link_to "Market", listings_path %>
-        </div>
-
-        <div id="li_index">
-            <div id="lstgs" class="">
-                <%= render partial: 'listings/listings' %>
-            </div>
-        </div>
-
-        <div id="mkl_head" class="mk_all">
-            <%= link_to(listings_path, class: "") do %>
-                View All &raquo;
-            <% end %>
+    <div id="li_index">
+        <div id="lstgs" class="">
+            <%= render partial: 'listings/listings' %>
         </div>
     </div>
 

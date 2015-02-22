@@ -37,27 +37,29 @@
         </span>
     </div>
     
-    <% if @activities.count > 0 %>
-        <div id="media_query_stream">
-            <div id="activity_stream_wrap">
-        	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
-            </div>          
-        </div>
-        <% else %>
-            <div class="none_message">
-                No Favorites Yet
+    <div id="ac_wrap">
+        <% if @activities.count > 0 %>
+            <div id="media_query_stream">
+                <div id="activity_stream_wrap">
+            	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
+                </div>          
             </div>
-    <% end %>    
+            <% else %>
+                <div class="none_message">
+                    No Favorites Yet
+                </div>
+        <% end %>    
 
-    <%= will_paginate @activities, class: 'display_none' %>
+        <%= will_paginate @activities, class: 'display_none' %>
 
-    <% if @activities.total_pages != @activities.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
-            </div>
+        <% if @activities.total_pages != @activities.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 
 <!--/activity_wrap-->

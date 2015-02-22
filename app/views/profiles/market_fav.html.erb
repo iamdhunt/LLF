@@ -56,11 +56,13 @@
     </div>
 
     <% if @listings.count > 0 %>
-        <div id="li_index">
-            <div id="lstgs">
-                <%= render :partial => "listings_fav" %>
-            </div>
-        </div>         
+        <div id="li_wrap">
+            <div id="li_index">
+                <div id="lstgs">
+                    <%= render :partial => "listings_fav" %>
+                </div>
+            </div> 
+        </div>        
         <% else %>
             <div class="none_message">
                 No Favorites Yet

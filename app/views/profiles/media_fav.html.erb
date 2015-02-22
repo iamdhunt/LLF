@@ -22,28 +22,30 @@
         </span>
     </div>
 
-    <% if @media.count > 0 %>
-        <div id="media_query_media">
-            <div id="m_fav_list_wrap">
-            	<%= render :partial => "media_fav" %>       
-            </div>      
-        </div>
-    <% else %>
-        <div class="none_message">
-            No Favorites Yet
-        </div>
-    <% end %>
-
-    <%= will_paginate @media, class: 'display_none' %>
-
-    <% if @media.total_pages != @media.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
+    <div id="md_wrap">
+        <% if @media.count > 0 %>
+            <div id="media_query_media">
+                <div id="m_fav_list_wrap">
+                	<%= render :partial => "media_fav" %>       
+                </div>      
+            </div>
+        <% else %>
+            <div class="none_message">
+                No Favorites Yet
             </div>
         <% end %>
-    <% end %>
+
+        <%= will_paginate @media, class: 'display_none' %>
+
+        <% if @media.total_pages != @media.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
+        <% end %>
+    </div>
 
     <% if current_member == @member %>
         <div id="media" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">

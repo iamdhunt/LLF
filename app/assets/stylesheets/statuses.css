@@ -59,7 +59,139 @@
 	top: 12px;
 }
 #status_show {
-	padding: 30px 21%;
+	padding: 30px 0;
+	position: relative;
+	width: 100%;
+}
+#ss_l {
+	float: left;
+	padding-right: 10px;
+	width: 200px;
+	border-right: 1px solid #dce1e6;
+	height: 100%;
+}
+#ss_l .mem_av img {
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+	max-width: 190px;
+	max-height: 190px;
+	-webkit-border-radius: 100px;
+	border-radius: 100px;
+	background-color: #fff;
+	padding: 8px;
+	-moz-box-shadow: 0 0 6px #ccc;
+	-webkit-box-shadow: 0 0 6px #ccc;
+	box-shadow: 0 0 6px #ccc;
+}
+#ss_l .mem_av {
+	margin-bottom: 5px;
+}
+#ss_l .fn {
+	font-size: 1.6em;
+	color: #4a4a4a;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#ss_l .un {
+	font-size: 1.3em;
+	color: #9444cc;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#ss_l .bi {
+	padding-left: 10px;
+}
+#ss_l .ps a {
+	color: #fff;
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 170%;
+	white-space: nowrap;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+}
+#ss_l .ps a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
+#ss_l .cy a {
+	color: #fff;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(47, 150, 180);
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 200%;
+}
+#ss_l .cy a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(47, 150, 180);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(47, 150, 180, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
+#ss_l .btn {
+	font-size: 13px;
+	padding: 2px 6px;
+}
+#ss_r {
+	margin-left: 220px;	
+}
+#ss_r .act_content {
+	text-align: left;
+	padding: 5px 0 0 0;
+}
+#ss_r .t {
+	color: #999999;
+	font-size: .9em;
+}
+#ss_r .t a {
+	color: #999999;
+}
+#ss_r .t a:hover {
+	text-decoration: none;
+}
+#ss_r .act_attachment {
+	text-align: left;
+	padding-bottom: 10px;
+}
+#ss_r .dl {
+	float: right;
+}
+#ss_r .dl img {
+	width: 15px;
+	height: 15px;
+	opacity: .6;
+}
+#ss_r .sh_aud {
+	padding: 8px 0;
+}
+#status_show #ss_r #comm_form_wrap {
+	margin: 0;
+}
+#status_show #ss_r .comments {
+	border-bottom: 1px solid #dddddd;
 }
 .status_btns {
 	float: right;

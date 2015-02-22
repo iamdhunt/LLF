@@ -5,9 +5,11 @@
     <!--/stream_wrap-->
 
     <% if @member == current_member %>
-        <div id="act_update">
-            <div class="update_box_wrap" id="update_box_wrap">
-            	<%= render :partial => "profiles/form" %>
+        <div id="act_update_wrap">
+            <div id="act_update">
+                <div class="update_box_wrap" id="update_box_wrap">
+                	<%= render :partial => "profiles/form" %>
+                </div>
             </div>
         </div>
     <% end %>
@@ -47,21 +49,24 @@
         </span>
     </div>
     
-    <div id="media_query_stream">
-        <div id="activity_stream_wrap">
-    	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
-        </div>
-    </div>             
-
-    <%= will_paginate @activities, class: 'display_none' %>
-
-    <% if @activities.total_pages != @activities.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
+    <div id="ac_wrap">
+        <div id="media_query_stream">
+            <div id="activity_stream_wrap">
+        	   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
             </div>
+        </div>            
+
+        <%= will_paginate @activities, class: 'display_none' %>
+
+        <% if @activities.total_pages != @activities.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
+
+    </div>
 
 <!--/activity_wrap-->

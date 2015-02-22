@@ -4,65 +4,82 @@
 
 	<div id="status_show">
 
-		<div class="list_act_wrap">
+		<div id="ss_l">
+			<div class="mem_av">
+				<%= avatar_profile @status.member, :class => "", title: @status.member.full_name, alt: @status.member.full_name %>
+			</div>
 
-			<div class="act_status_top">
-				<span class="">
-					<%= avatar_profile_link @status.member, :class => "act_av", title: @status.member.full_name, alt: @status.member.full_name %>
-				</span>
+			<div class="bi">
+				<div class="fn">
+					<%= @status.member.full_name %>
+				</div>
 
-				<span class="act_name">
-					<%= link_to @status.member.user_name, profile_path(@status.member) %>
-				</span>
+				<div class="un">
+					<%= @status.member.user_name %>
+				</div>
 
-				<% if current_member == @status.member %>
-					<span class="act_delete">
-						<%= link_to image_tag("/assets/Delete 2.png", title: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %>
-					</span>
-				<% end %>
+				<% if current_member != @status.member && member_signed_in? %>
+	                <div id="gl_follow_<%= @status.member.id %>" class="gl_follow">
+	                    <%= render :partial => "shared/follow_member2", :locals => {:member => @status.member} %>
+	                </div>
+	            <% end %>
 
-				<span class="meta"> 
-					<%= time_ago_in_words(@status.created_at) %>
-				</span>
+				<% if @status.member.city? %>
+					<div class="cy">
+                        <%= link_to @status.member.city.titleize, :controller => "search", :action => "search", :discover => @status.member.city %>
+                    </div>
+                <% end %>
+
+                <% if @status.member.pursuit_list %>
+					<div class="ps">
+                        <%= @status.member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(' ').html_safe %>
+                    </div>
+                <% end %>
+			</div>
+		</div>
+
+		<div id="ss_r">
+			<div class="">
+				<div class="t">
+					<%= @status.created_at.localtime.strftime("%A, %m/%e %I:%M%P") %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"} %>
+					<% if current_member == @status.member %>
+						<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+					<% end %>
+				</div>
+
+				<div class="act_content">
+					<%= Rinku.auto_link(@status.content_html).html_safe %>
+				</div>
+
+				<div class="act_attachment">
+				    <%= status_document_link(@status) %>
+				</div>
 
 				<% if member_signed_in? %>
-				    <div class="status_btns">
-				        <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-				    </div>
-				<% end %>
-			</div>
+					<div id="c_form_wrap">
+						<%= render "shared/comment_form" %>
+					</div>
+				<% else %>
+			        <div class="c_message">Must be logged in to leave a comment.</div>
+			    <% end %>
 
-			<div class="act_content">
-				<%= Rinku.auto_link(@status.content_html).html_safe %>
-			</div>
-
-			<div class="act_attachment">
-			    <%= status_document_link(@status) %>
-			</div>
-
-			<% if member_signed_in? %>
-				<div id="c_form_wrap">
-					<%= render "shared/comment_form" %>
+				<div id="comments_<%= @commentable.id %>" class="act_cmts comments_wrap">
+					<%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
 				</div>
-			<% else %>
-		        <div class="c_message">Must be logged in to leave a comment.</div>
-		    <% end %>
 
-			<div id="comments_<%= @commentable.id %>" class="act_cmts comments_wrap">
-				<%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+				<%= will_paginate @comments, class: 'display_none' %>
+
+				<% if @comments.total_pages != @comments.current_page %>
+					<div id="loading"></div>	
+			        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+			        	<div class="com_show">
+			        		Show More
+			        	</div>
+			        <% end %>				    
+				<% end %>
+
 			</div>
-
-			<%= will_paginate @comments, class: 'display_none' %>
-
-			<% if @comments.total_pages != @comments.current_page %>
-				<div id="loading"></div>	
-		        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-		        	<div class="com_show">
-		        		Show More
-		        	</div>
-		        <% end %>				    
-			<% end %>
-
+			<div style="clear:both;"></div>
 		</div>
 
 		<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
@@ -71,10 +88,11 @@
 		      <h3 id="sharemodallabel">Copy Media URL</h3>
 		    </div>
 		    <div class="modal-body pi">
-		      <input class="pr_in forms" value="<%= status_url %>" autofocus />
+		      <input class="pr_in forms" value="<%= status_url %>" onclick="this.select()" />
 		    </div>
 		</div>
 
+		<div style="clear:both;"></div>
 	</div>
 
 </div>

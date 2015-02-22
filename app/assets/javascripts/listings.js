@@ -2,6 +2,7 @@ $(document).ready(function() {
 	var $ai = $('.auto')
 	var $container = $('#lstgs')
 	var $mkcon = $('#llf_lstgs')
+	var $mkcon2 = $('#pop_lstgs')
    
 	$ai.autosize();
 
@@ -54,6 +55,15 @@ $(document).ready(function() {
 
 	$mkcon.imagesLoaded(function(){
 	  $mkcon.isotope({
+	   itemSelector: '.pdl_wrap',
+		  layoutMode : 'fitRows',
+		  gutter: 10
+	  });
+
+	});
+
+	$mkcon2.imagesLoaded(function(){
+	  $mkcon2.isotope({
 	   itemSelector: '.pdl_wrap',
 		  layoutMode : 'fitRows',
 		  gutter: 10

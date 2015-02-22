@@ -1,94 +1,125 @@
-<% title @medium.member.full_name + " | Media" %>
+<% title @medium.member.full_name + " | Media"%>
 
-<div id="main_wrap" class="m_show_wrap">
+<div id="main_wrap">
 
- <div class="act_media_top med_top">
-    <span class="">
-      <%= avatar_profile_link @medium.member, :class => "act_av", title: @medium.member.full_name, alt: @medium.member.full_name %>
-    </span>
+  <div id="status_show">
 
-    <span class="act_name">
-      <%= link_to @medium.member.user_name, profile_path(@medium.member) %> 
-    </span>
+    <div id="ss_l">
+      <div class="mem_av">
+        <%= avatar_profile @medium.member, :class => "", title: @medium.member.full_name, alt: @medium.member.full_name %>
+      </div>
 
-    <% if current_member == @medium.member %>
-      <span class="act_delete">
-        <%= link_to image_tag("/assets/Delete 2.png", title: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </span>
-    <% end %>
-
-    <span class="meta">
-      <%= time_ago_in_words(@medium.created_at) %>
-    </span>
-
-    <% if member_signed_in? %>
-      <span class="media_btns">
-          <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>">
-            <%= render :partial => "media/fav_button", :locals => {:medium => @medium} %>
-          </span>
-
-          <%= link_to image_tag("/assets/Share 4.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-      </span>
-    <% end %>
-  </div>
-
-	<div id="media_show_wrap">
-
-    <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-      <div class="sh_aud">
-        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
-          <div class="ui360 ui360-vis">
-            <%= link_to '', @medium.asset.url %>
-          </div>
+      <div class="bi">
+        <div class="fn">
+          <%= @medium.member.full_name %>
         </div>
+
+        <div class="un">
+          <%= @medium.member.user_name %>
+        </div>
+
+        <% if current_member != @medium.member && member_signed_in? %>
+                  <div id="gl_follow_<%= @medium.member.id %>" class="gl_follow">
+                      <%= render :partial => "shared/follow_member2", :locals => {:member => @medium.member} %>
+                  </div>
+              <% end %>
+
+        <% if @medium.member.city? %>
+          <div class="cy">
+                        <%= link_to @medium.member.city.titleize, :controller => "search", :action => "search", :discover => @medium.member.city %>
+                    </div>
+                <% end %>
+
+                <% if @medium.member.pursuit_list %>
+          <div class="ps">
+                        <%= @medium.member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(' ').html_safe %>
+                    </div>
+                <% end %>
       </div>
-    <% end %>
-
-    <% if @medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-		  <%= image_tag(@medium.asset.url(:large), class: 'thumbnail show_media') %>
-    <% end %>
-
-		<p class="view_caption">
-		  <%= Rinku.auto_link(@medium.caption).html_safe %>
-		</p>
-
-	</div>
-
-<!--/media_show_wrap-->
-
-	<div class="media_comment_wrap">
-    <% if member_signed_in? %>
-      <div id="c_form_wrap">
-		    <%= render "shared/comment_form" %>
-      </div>
-    <% else %>
-        <div class="c_message">Must be logged in to leave a comment.</div>
-    <% end %>
-
-    <div id="comments_<%= @commentable.id %>" class="act_cmts">
-      <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
     </div>
 
-    <%= will_paginate @comments, class: 'display_none' %>
+    <div id="ss_r">
+      <div class="">
+        <div class="t">
+          <%= @medium.created_at.localtime.strftime("%A, %m/%e %I:%M%P") %>
+          <% if member_signed_in? %> &#8226; <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>"><%= render :partial => "media/fav_link", :locals => {:medium => @medium} %></span>
+          <% else %>
+            &#8226; Favorite (<%= @medium.votes.size %>)
+          <% end %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"} %>
+          <% if current_member == @medium.member %>
+            <span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% end %>
+        </div>
 
-    <% if @comments.total_pages != @comments.current_page %>
-      <div id="loading"></div>  
-          <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-              Show More
+        <div class="act_content">
+          <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+            <div class="sh_aud">
+              <% if @medium.cover? %>
+                <div id='med_art' style="background-image: url(<%= @medium.cover.url(:media) %>)">
+              <% else %>
+                <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+              <% end %>
+                <div class="ui360 ui360-vis">
+                  <%= link_to '', @medium.asset.url %>
+                </div>
+              </div>
             </div>
-          <% end %>           
-    <% end %>
-	</div>
+          <% end %>
 
-  <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="sharemodallabel">Copy Media URL</h3>
+          <% if @medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+            <%= image_tag(@medium.asset.url(:large), class: 'show_media') %>
+          <% end %>
+        </div>
+
+        <% if @medium.caption? %>
+          <p class="view_caption">
+            <%= Rinku.auto_link(@medium.caption).html_safe %>
+          </p>
+        <% end %>
+
+        <% unless @medium.caption? %>
+          <p>
+          </p>
+        <% end %>
+
+        <% if member_signed_in? %>
+          <div id="c_form_wrap">
+            <%= render "shared/comment_form" %>
+          </div>
+        <% else %>
+              <div class="c_message">Must be logged in to leave a comment.</div>
+          <% end %>
+
+        <div id="comments_<%= @commentable.id %>" class="act_cmts comments_wrap">
+          <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+        </div>
+
+        <%= will_paginate @comments, class: 'display_none' %>
+
+        <% if @comments.total_pages != @comments.current_page %>
+          <div id="loading"></div>  
+              <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                  Show More
+                </div>
+              <% end %>           
+        <% end %>
+
+      </div>
+      <div style="clear:both;"></div>
     </div>
-    <div class="modal-body pi">
-      <input class="pr_in forms" value="<%= medium_url %>" autofocus />
+
+    <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Copy Media URL</h3>
+        </div>
+        <div class="modal-body pi">
+          <input class="pr_in forms" value="<%= status_url %>" onclick="this.select()" />
+        </div>
     </div>
+
+    <div style="clear:both;"></div>
   </div>
 
 </div>

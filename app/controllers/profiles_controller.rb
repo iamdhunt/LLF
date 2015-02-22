@@ -81,10 +81,10 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
       @medium = current_member.medium.new
-      @media = @member.medium.order('created_at desc').page(params[:page]).per_page(40) 
+      @media = @member.medium.order('created_at desc').page(params[:page]).per_page(42) 
       render action: :media
     elsif @member
-      @media = @member.medium.order('created_at desc').page(params[:page]).per_page(40) 
+      @media = @member.medium.order('created_at desc').page(params[:page]).per_page(42) 
       render action: :media
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -95,10 +95,10 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
       @medium = current_member.medium.new
-      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(40)
+      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(42)
       render action: :media_fav
     elsif @member
-      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(40)
+      @media = @member.get_up_voted Medium.order("created_at desc").page(params[:page]).per_page(42)
       render action: :media_fav
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -198,7 +198,7 @@ class ProfilesController < ApplicationController
   def market
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(24)
+      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(20)
       render action: :market
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -208,7 +208,7 @@ class ProfilesController < ApplicationController
   def market_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(24)
+      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(20)
       render action: :market_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]

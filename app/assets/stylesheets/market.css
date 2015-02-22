@@ -1,42 +1,42 @@
 #mk_wrap {
-	padding: 40px 0 40px 0;
+	position: relative;
+	margin: 20px 0 150px 0;
 }
-.mk_head a {
-	font-size: 5.2em;
-	text-shadow: 2px 1px 0px #fff, 7px 6px 0px rgba(0,0,0,0.15);
+#mk_head {
+	width: 100%;
+	padding: 10px 3%;
 }
-.mk_head {
-	padding: 10px 15px;
+#mk_head .h {
+	font-size: 3em;
 }
-#ap_l_head a {
+#mk_head .ap a {
 	color: #812aac;
 }
-#ap_l_head a:hover {
-	color: #444;
+#mk_head .ap a:hover {
 	text-decoration: none;
 }
-#br_head a:hover {
-	color: #E63B42;
-	text-decoration: none;
+#mk_head .pl {
+	color: #EB2E35;
 }
-#mkl_head a {
+#mk_head .mk a {
 	color: #1b85a6;
 }
-#mkl_head a:hover {
-	color: #444;
+#mk_head .mk a {
 	text-decoration: none;
 }
-.mk_all {
+#mk_head .v_a {
 	float: right;
-	margin-top: 25px;
+	font-size: 1.25em;
+	padding: 28px 20px 0 0;
 }
-.mk_all a {
-	color: #444;
-	font-weight: bold;
-	font-size: 1.5em;
+#mk_head .v_a a:hover {
+	text-decoration: none;
 }
-.mk_index {
-	margin-top: 80px;
+#mk_head .ap_l a {
+	color: #812aac;
+}
+#mk_head .mk_l a {
+	color: #1b85a6;
 }
 #listings {
 	background-position: 4px 38%;

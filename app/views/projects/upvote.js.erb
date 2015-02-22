@@ -1,2 +1,3 @@
 $("#prj_fav_<%= @project.id %>_<%= @project.member.id %>").html("<%= escape_javascript(render :partial => 'projects/fav_button_stream', :locals => {:project => @project}) %>");
 $("#pjt_sh_fav_<%= @project.id %>_<%= @project.member.id %>").html("<%= escape_javascript(render :partial => 'projects/fav_button', :locals => {:project => @project}) %>");
+$("#prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>").html("<%= escape_javascript(render :partial => 'projects/fav_count', :locals => {:project => @project}) %>");

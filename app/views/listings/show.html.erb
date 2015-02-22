@@ -6,7 +6,7 @@
     <div id="banner" style="background-image: url('/assets/Market Banner.png');"></div>
   <% end %>
 
-  <div id="main_wrap">
+  <div id="li_sh_wrap">
 
     <div id="pd_top">
 
@@ -88,6 +88,12 @@
           <% end %>
         </div>
 
+        <div class="lst_fav_ct">
+          <span id="lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+            <%= render :partial => "listings/fav_count", :locals => {:listing => @listing} %>
+          </span>
+        </div>
+
         <div class="price">
           <% if @listing.price == 0 %>
             Free
@@ -158,7 +164,7 @@
         <h3 id="sharemodallabel">Copy Listing URL</h3>
       </div>
       <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= listing_url %>" autofocus />
+        <input class="pr_in forms" value="<%= listing_url %>" onclick="this.select()" />
       </div>
     </div>
   </div>

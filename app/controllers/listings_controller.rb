@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
     @listings = Listing.order('created_at desc').page(params[:page]).per_page(60)
     @search = Listing.solr_search do
       fulltext params[:listings]
-      facet(:marker_list, :limit => 48, :sort => :count)
+      facet(:marker_list, :limit => 65, :sort => :count)
       with(:marker_list, params[:tag]) if params[:tag].present?
       facet :price, :range => 0..1500, :range_interval => 75
       with(:price, Range.new(*params[:price_range].split("..").map(&:to_i))) if params[:price_range].present?
@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     if @listing
-      @additional = @listing.member.listings.order("RANDOM()").limit(6)
+      @additional = @listing.member.listings.order("RANDOM()").limit(5)
       @commentable = @listing
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
       @comment = Comment.new

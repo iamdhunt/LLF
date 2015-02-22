@@ -22,22 +22,24 @@
         </span>
     </div>
 
+    <div id="md_wrap">
         <div id="media_query_media">
             <div id="media_list_wrap" class="m_list">
             	<%= render :partial => "profiles/media", :collection => @media, :as => :medium %>       
             </div>      
         </div>
 
-    <%= will_paginate @media, class: 'display_none' %>
+        <%= will_paginate @media, class: 'display_none' %>
 
-    <% if @media.total_pages != @media.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
-            </div>
+        <% if @media.total_pages != @media.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
         <% end %>
-    <% end %>
+    </div>
 
     <% if current_member == @member %>
         <div id="media" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">

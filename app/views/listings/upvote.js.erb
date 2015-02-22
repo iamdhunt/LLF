@@ -1,2 +1,3 @@
 $("#lstgs_fav_<%= @listing.id %>_<%= @listing.member.id %>").html("<%= escape_javascript(render :partial => 'listings/fav_button_stream', :locals => {:listing => @listing}) %>");
 $("#lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>").html("<%= escape_javascript(render :partial => 'listings/fav_button', :locals => {:listing => @listing}) %>");
+$("#lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>").html("<%= escape_javascript(render :partial => 'listings/fav_count', :locals => {:listing => @listing}) %>");

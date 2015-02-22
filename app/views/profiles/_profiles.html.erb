@@ -145,18 +145,18 @@
             <h3 id="sharemodallabel">Copy Profile URL</h3>
           </div>
           <div class="modal-body pi">
-            <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" autofocus />
+            <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
           </div>
         </div>
     </div>
          
       
     <!--/content_wrap-->
-    <div id="main_wrap">
 
-        <%= yield %>
+    <%= yield %>
 
-    </div>
 <% else %>
- <%= render partial: 'pages/error' %>
+
+    <%= render partial: 'pages/error' %>
+
 <% end %>

@@ -97,6 +97,12 @@
     </span>
   </div>
 
+  <div class="evt_fav_ct">
+    <span id="ev_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
+      <%= render :partial => "events/fav_count", :locals => {:event => @event} %>
+    </span>
+  </div>
+
   <div id="e_adr">
     <div class="e_adr1">
       <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}+#{@event.zipcode}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
@@ -261,7 +267,7 @@
         <h3 id="sharemodallabel">Copy Event URL</h3>
       </div>
       <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= event_url %>" autofocus />
+        <input class="pr_in forms" value="<%= event_url %>" onclick="this.select()" />
       </div>
     </div>
   </div>

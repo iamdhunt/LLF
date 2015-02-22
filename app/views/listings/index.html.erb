@@ -2,132 +2,131 @@
 
 <%= render :partial => "market/banner" %>
 
-<div id="main_wrap">
-
-	<div id="sb_wrap">
-		<% if @facet == nil && @query == nil && @price_range == nil %>
-            <div id="bc_wrap">
-    			<div class="breadcrumbs">
-    				<span><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
-    			</div>
-            </div>
-        <% else %>
-            <div id="bc_wrap">
-                <div class="breadcrumbs">
-                    <span><%= link_to "Market", market_path %></span> &raquo; <span><%= link_to "Listings", listings_path %></span> &raquo; <span>Discover</span>
-                </div>
-            </div>
-		<% end %>
-
-        <div class="sb_text">
-            Look up a listing name or tag
+<div id="sb_wrap">
+	<% if @facet == nil && @query == nil && @price_range == nil %>
+        <div id="bc_wrap">
+			<div class="breadcrumbs">
+				<span><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
+			</div>
         </div>
-
-	    <div class="sb">
-	      <%= render :partial => "search" %>
-	    </div>
-
-        <div class="btags">
-            <% for row in @search.facet(:price).rows %>
-                <span class="bprice">
-                    <%= link_to (row.value).to_s.prepend("$").gsub(/\.0\.\./," - $").gsub(/\.0/,""), :price_range => row.value, :search => params[:listings] %>
-                </span>
-            <% end %>
+    <% else %>
+        <div id="bc_wrap">
+            <div class="breadcrumbs">
+                <span><%= link_to "Market", market_path %></span> &raquo; <span><%= link_to "Listings", listings_path %></span> &raquo; <span>Discover</span>
+            </div>
         </div>
+	<% end %>
 
-	    <div class="btags">
-	        <% for row in @search.facet(:marker_list).rows %>
-	           <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
-	        <% end %>
-	    </div>
-	</div>
-
-    <div id="listings_filters" class="form-inline">
-        <span class="mkt_s">
-            <span class="filters all">
-                <label for="filter__">
-                <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters women_filter">
-                <label for="filter_.women_fil">
-                <%= radio_button_tag(:filter, ".women_fil") %> Women's
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters men_filter">
-                <label for="filter_.men_fil">
-                <%= radio_button_tag(:filter, ".men_fil") %> Men's
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters art_filter">
-                <label for="filter_.art_fil">
-                <%= radio_button_tag(:filter, ".art_fil") %> Art
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters music_filter">
-                <label for="filter_.music_fil">
-                <%= radio_button_tag(:filter, ".music_fil") %> Music
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters design_filter">
-                <label for="filter_.design_fil">
-                <%= radio_button_tag(:filter, ".design_fil") %> Design
-                </label>
-            </span>
-        </span>
-        <span class="mkt_s">
-            <span class="filters services_filter">
-                <label for="filter_.services_fil">
-                <%= radio_button_tag(:filter, ".services_fil") %> Services
-                </label>
-            </span>
-        </span>
-        <div style="clear:both;"></div>
+    <div class="sb_text">
+        Look up a listing name or tag
     </div>
 
-	<div id="li_index">
+    <div class="sb">
+      <%= render :partial => "search" %>
+    </div>
+
+    <div class="btags">
+        <% for row in @search.facet(:price).rows %>
+            <span class="bprice">
+                <%= link_to (row.value).to_s.prepend("$").gsub(/\.0\.\./," - $").gsub(/\.0/,""), :price_range => row.value, :search => params[:listings] %>
+            </span>
+        <% end %>
+    </div>
+
+    <div class="btags">
+        <% for row in @search.facet(:marker_list).rows %>
+           <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+        <% end %>
+    </div>
+</div>
+
+<div id="listings_filters" class="form-inline">
+    <span class="mkt_s">
+        <span class="filters all">
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters women_filter">
+            <label for="filter_.women_fil">
+            <%= radio_button_tag(:filter, ".women_fil") %> Women's
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters men_filter">
+            <label for="filter_.men_fil">
+            <%= radio_button_tag(:filter, ".men_fil") %> Men's
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters art_filter">
+            <label for="filter_.art_fil">
+            <%= radio_button_tag(:filter, ".art_fil") %> Art
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters music_filter">
+            <label for="filter_.music_fil">
+            <%= radio_button_tag(:filter, ".music_fil") %> Music
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters design_filter">
+            <label for="filter_.design_fil">
+            <%= radio_button_tag(:filter, ".design_fil") %> Design
+            </label>
+        </span>
+    </span>
+    <span class="mkt_s">
+        <span class="filters services_filter">
+            <label for="filter_.services_fil">
+            <%= radio_button_tag(:filter, ".services_fil") %> Services
+            </label>
+        </span>
+    </span>
+    <div style="clear:both;"></div>
+</div>
+
+<div id="li_wrap">
+    <div id="li_index">
 
         <div id="lstgs">
-			<% if @facet == nil && @query == nil && @price_range == nil %>
-		      <%= render partial: 'listings' %>
-		    <% else %>
-		        <%= render partial: 'search_listings' %>
-		    <% end %>
-		</div>
+    		<% if @facet == nil && @query == nil && @price_range == nil %>
+    	      <%= render partial: 'listings' %>
+    	    <% else %>
+    	        <%= render partial: 'search_listings' %>
+    	    <% end %>
+    	</div>
 
-	</div>
+    </div>
 
-        <% if @facet == nil && @query == nil && @price_range == nil %>
-            <%= will_paginate @listings, class: 'display_none' %>
+    <% if @facet == nil && @query == nil && @price_range == nil %>
+        <%= will_paginate @listings, class: 'display_none' %>
 
-            <% if @listings.total_pages != @listings.current_page %>
-            <div id="loading"></div>
-            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                  <div class="com_show">
-                    Show More
-                  </div>
-                <% end %>
-            <% end %>
-        <% else %>
-            <%= will_paginate @results, class: 'display_none' %>
-
-            <% if @results.total_pages != @results.current_page %>
-            <div id="loading"></div>
-            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                  <div class="com_show">
-                    Show More
-                  </div>
-                <% end %>
+        <% if @listings.total_pages != @listings.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+              <div class="com_show">
+                Show More
+              </div>
             <% end %>
         <% end %>
+    <% else %>
+        <%= will_paginate @results, class: 'display_none' %>
+
+        <% if @results.total_pages != @results.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+              <div class="com_show">
+                Show More
+              </div>
+            <% end %>
+        <% end %>
+    <% end %>
 </div>

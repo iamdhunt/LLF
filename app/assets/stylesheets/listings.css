@@ -1,12 +1,26 @@
 #lstgs {
-	padding: 20px 0 20px 5px;
+	padding: 20px 0 20px 55px;
 }
 #llf_lstgs {
-	padding: 20px 0 20px 5px;
+	padding: 20px 0 20px 55px;
+}
+#pop_lstgs {
+	padding: 20px 0 20px 55px;
 }
 #adt_lstgs {
 	padding: 10px 0;
 	text-align: default;
+}
+#li_wrap {
+	position: relative;
+	margin: 0 0 150px 0;
+}
+#li_sh_wrap {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 150px;
+	width: 95%;
 }
 #pd_wrap {
 	padding: 20px;
@@ -201,7 +215,7 @@ font-weight: normal;
 }
 .pdl_wrap {
 	width: 230px;
-	margin: 0 11px 20px 0;
+	margin: 0 20px 20px 0;
 }
 .pdl_img img {
 	-webkit-border-radius: 100%;
@@ -470,4 +484,8 @@ label.active {
 }
 .pdl_wrap:hover .lst_del {
 	display: inline;
+}
+.lst_fav_ct {
+	font-size: 1.5em;
+	color: #444;
 }

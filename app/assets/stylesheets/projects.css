@@ -49,7 +49,7 @@
 }
 #proj_info {
 	text-align: center;
-	padding: 5px 0 20px 0;
+	padding: 5px 0 2px 0;
 }
 #proj_title {
 	text-align: center;
@@ -778,4 +778,11 @@ vertical-align: baseline;
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
     text-align: center;
+}
+.prj_fav_ct {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.2em;
+	color: #444; 
+	margin-bottom: 5px;
 }
