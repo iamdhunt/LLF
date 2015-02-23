@@ -606,7 +606,7 @@ table {
 }
 
 #footer_wrap #footer_top a:hover {
-	font-weight: bold;
+	text-decoration: none;
 }
 
 /*Spotlights*/

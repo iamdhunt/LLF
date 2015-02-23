@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   end
 
   def faqs
-    @activities = Activity.select("activities.*, COUNT(votes.id) vote_count").joins(:votes).group("activities.id").order("created_at desc").limit(2)
-    @media = Medium.select("media.*, COUNT(votes.id) vote_count").joins(:votes).group("media.id").order('created_at desc').limit(2)
   end
   
   def terms
@@ -18,15 +16,13 @@ class PagesController < ApplicationController
   def rules
   end
 
-  def brand_spotlights
+  def community
+    @activities = Activity.joins(:votes).group("activities.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(2)
+    @media = Medium.joins(:votes).group("media.id").having("count(votes.id) >= ?", 1).order('created_at desc').where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(2)
   end
 
-  def artist_spotlights
-  end
-
-  def music_spotlights
-  end
-
-  def member_spotlights
+  def trending
+    @activities = Activity.joins(:votes).group("activities.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 6.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @media = Medium.joins(:votes).group("media.id").having("count(votes.id) >= ?", 1).order('created_at desc').where(:created_at => 6.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(70)
   end
 end

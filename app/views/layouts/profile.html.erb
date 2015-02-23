@@ -17,6 +17,14 @@
   <%= javascript_tag do %>
     window.notificationCount = <%= current_member.mailbox.notifications({:read => false}).count %>
   <% end %>
+<% else %>
+  <%= javascript_tag do %>
+    window.messageCount = 0
+  <% end %>
+
+  <%= javascript_tag do %>
+    window.notificationCount = 0
+  <% end %>
 <% end %>
 
 <%= render :partial => "layouts/menu" %>

@@ -11,7 +11,7 @@ LLF::Application.routes.draw do
       root :to => 'devise/registrations#new'
     end
     unauthenticated :member do
-      root :to => 'community#community'
+      root :to => 'pages#trending'
     end
   end 
 
@@ -39,8 +39,6 @@ LLF::Application.routes.draw do
   end
 
   get "discover" => "search#search", :as => "search"
-
-  get "community" => "community#community", :as => "community"
 
   get "market" => "market#market", :as => "market"
 
@@ -72,6 +70,7 @@ LLF::Application.routes.draw do
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
+  match '/community' => 'pages#trending'
   match '/brand-spotlights' => 'pages#brand_spotlights', :as => 'brand_spotlights'
   match '/artist-spotlights' => 'pages#artist_spotlights', :as => 'artist_spotlights'
   match '/music-spotlights' => 'pages#music_spotlights', :as => 'music_spotlights'
