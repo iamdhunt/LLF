@@ -2,7 +2,7 @@
 
 <%= render :partial => "banner" %>
 
-<div id ="main_wrap">
+<div id ="">
 	<div id="results_wrap">
 		<% if @query == nil && @facet == nil && @tag_facet == nil %>
 			<div id="sb_wrap" class="se_wrap">
@@ -22,9 +22,12 @@
 		          <% end %>
 		        </div>
 		    </div>
-		    <div id="media_query_follow">
-			    <div id="member_list_wrap">
-					<%= render partial: 'members', :collection => @members, :as => :member %>
+
+		    <div id="m_wrap">
+			    <div id="media_query_follow">
+				    <div id="member_list_wrap">
+						<%= render partial: 'members', :collection => @members, :as => :member %>
+					</div>
 				</div>
 			</div>
 		<% else %>	
@@ -50,22 +53,25 @@
 		          <% end %>
 		        </div>
 		    </div>
-			<div id="media_query_follow">
-				<div id="member_list_wrap">
-					<%= render partial: 'results', :collection => @results, :as => :member %>
+
+		    <div id="m_wrap">
+				<div id="media_query_follow">
+					<div id="member_list_wrap">
+						<%= render partial: 'results', :collection => @results, :as => :member %>
+					</div>
 				</div>
+
+				<%= will_paginate @results, class: 'display_none' %>
+
+				<% if @results.total_pages != @results.current_page %>
+					<div id="loading"></div>
+					<%= link_to("#", class: "com_show_wrap load_arrow") do %>
+			        	<div class="com_show">
+			        		Show More
+			        	</div>
+			        <% end %>
+				<% end %>
 			</div>
-
-			<%= will_paginate @results, class: 'display_none' %>
-
-			<% if @results.total_pages != @results.current_page %>
-				<div id="loading"></div>
-				<%= link_to("#", class: "com_show_wrap load_arrow") do %>
-		        	<div class="com_show">
-		        		Show More
-		        	</div>
-		        <% end %>
-			<% end %>
 		<% end %>
 	</div>
 </div>

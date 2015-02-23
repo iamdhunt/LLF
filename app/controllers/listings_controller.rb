@@ -11,9 +11,9 @@ class ListingsController < ApplicationController
     @search = Listing.solr_search do
       fulltext params[:listings]
       facet(:marker_list, :limit => 65, :sort => :count)
-      with(:marker_list, params[:tag]) if params[:tag].present?
+        with(:marker_list, params[:tag]) if params[:tag].present?
       facet :price, :range => 0..1500, :range_interval => 75
-      with(:price, Range.new(*params[:price_range].split("..").map(&:to_i))) if params[:price_range].present?
+        with(:price, Range.new(*params[:price_range].split("..").map(&:to_i))) if params[:price_range].present?
     end
     @query = params[:listings]
     @facet = params[:tag]

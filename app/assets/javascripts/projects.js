@@ -18,7 +18,7 @@ $(document).ready(function() {
   $container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {
-		    columnWidth: 240
+		    columnWidth: 245
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping

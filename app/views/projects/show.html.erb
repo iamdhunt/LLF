@@ -35,245 +35,247 @@
   <div style="clear:both;"></div>
 </div>
 
-<div id="main_wrap" class="pr_wrap">
+<div id="pr_ev">
+  <div id="main_wrap" class="pr_wrap">
 
-  <div id="proj_title">
-    <span class="proj_title"><%= @project.name %></span>
-  </div>
+    <div id="proj_title">
+      <span class="proj_title"><%= @project.name %></span>
+    </div>
 
-  <div id="proj_info">
-    <span class="l">
-      <%= avatar_profile_link @project.member, :class => "pr_av", title: @project.member.full_name, alt: @project.member.full_name  %>
-      <% if @project.category == 'Arts' %>
-        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
-      <% end %>
-      <% if @project.category == 'Entrepreneurial' %>
-        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
-      <% end %>
-      <% if @project.category == 'Sports' %>
-        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
-      <% end %>
-      <% if @project.category == 'Music' %>
-        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
-      <% end %>
-      <% if @project.category == 'Other' %>
-        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
-      <% end %>
-    </span>
+    <div id="proj_info">
+      <span class="l">
+        <%= avatar_profile_link @project.member, :class => "pr_av", title: @project.member.full_name, alt: @project.member.full_name  %>
+        <% if @project.category == 'Arts' %>
+          <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
+        <% end %>
+        <% if @project.category == 'Entrepreneurial' %>
+          <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
+        <% end %>
+        <% if @project.category == 'Sports' %>
+          <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
+        <% end %>
+        <% if @project.category == 'Music' %>
+          <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
+        <% end %>
+        <% if @project.category == 'Other' %>
+          <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
+        <% end %>
+      </span>
 
-    <span class="r">
-      <% if member_signed_in? %>
-        <span id="pjt_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
-          <%= render :partial => "projects/fav_button", :locals => {:project => @project} %>
-        </span>
-
-        <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-        <% if current_member == @project.member %>
-          <span class="btn-group">
-            <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-              <ul class="dropdown-menu">            
-                <li>
-                  <%= link_to "Edit", edit_project_path(@project), class: '' %>
-                </li>
-                <li class="del">
-                  <%= link_to "Delete", @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-                </li>
-              </ul>
+      <span class="r">
+        <% if member_signed_in? %>
+          <span id="pjt_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
+            <%= render :partial => "projects/fav_button", :locals => {:project => @project} %>
           </span>
-        <% end %>
-      <% end %>
-    </span>
-  </div>
 
-  <div class="prj_fav_ct">
-    <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
-      <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
-    </span>
-  </div>
-
-  <% if @project.video? %>
-    <div id="proj_video">
-      <%= @project.video_html %>
-    </div>
-  <% end %>
-
-  <div id="">
-    <ul class="nav nav-tabs" id="">
-      <li class="active">
-        <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
-          Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
-      </li>
-      <li>
-        <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
-          Media <span id="up_pe_ct" class="nav_p_ct"><%= @uploadable.uploads.count %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to("#comments", :data => {:toggle=>"tab"}) do %>
-          Comments <span id="c_pe_ct" class="nav_p_ct"><%= @commentable.comments.count %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to("#followers", :data => {:toggle=>"tab"}) do %>
-          Followers <span id="f_pe_ct" class="nav_p_ct"><%= @project.followers_count %></span>
-        <% end %>
-      </li>
-    </ul>
-  </div>
-
-  <div class="tab-content">
-
-    <div class="tab-pane active" id="updates">
-      <div class="u_btn">
-        <% if @project.member == current_member %>
-          <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
-        <% end %>
-      </div>
-
-      <div id="update_<%= @updateable.id %>" class="u_list_wrap">
-        <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
-      </div>
-
-      <%= will_paginate @updates, class: 'display_none' %>
-
-      <% if @updates.total_pages != @updates.current_page %>
-          <div id="p_upd_loading"></div>
-          <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
-              <div class="com_show">
-                  Show More
-              </div>
+          <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+          <% if current_member == @project.member %>
+            <span class="btn-group">
+              <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                <ul class="dropdown-menu">            
+                  <li>
+                    <%= link_to "Edit", edit_project_path(@project), class: '' %>
+                  </li>
+                  <li class="del">
+                    <%= link_to "Delete", @project, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </li>
+                </ul>
+            </span>
           <% end %>
-      <% end %>
-    </div> 
-
-    <div class="tab-pane" id="details">
-      <div id ="proj_about">
-        <%= raw Rinku.auto_link(@project.about) %>
-      </div>
+        <% end %>
+      </span>
     </div>
 
-    <div class="tab-pane" id="media">
-      <div class="p_u_btn">
-        <% if @project.member == current_member %>
-          <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
-        <% end %>
+    <div class="prj_fav_ct">
+      <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
+        <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
+      </span>
+    </div>
+
+    <% if @project.video? %>
+      <div id="proj_video">
+        <%= @project.video_html %>
       </div>
+    <% end %>
 
-      <div id="media_query_media">
-        <div id="upload_<%= @uploadable.id %>" class="p_m_list_wrap">
-          <%= render :partial => "shared/media", :collection => @uploads, :as => :upload %>       
-        </div>
-      </div>
-
-      <%= will_paginate @uploads, class: 'display_none' %>
-
-      <% if @uploads.total_pages != @uploads.current_page %>
-          <div id="p_med_loading"></div>
-          <%= link_to("#", class: "com_show_wrap p_m_load_arrow") do %>
-              <div class="com_show">
-                  Show More
-              </div>
+    <div id="">
+      <ul class="nav nav-tabs" id="">
+        <li class="active">
+          <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
+            Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
           <% end %>
-      <% end %>
+        </li>
+        <li>
+          <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
+        </li>
+        <li>
+          <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
+            Media <span id="up_pe_ct" class="nav_p_ct"><%= @uploadable.uploads.count %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to("#comments", :data => {:toggle=>"tab"}) do %>
+            Comments <span id="c_pe_ct" class="nav_p_ct"><%= @commentable.comments.count %></span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to("#followers", :data => {:toggle=>"tab"}) do %>
+            Followers <span id="f_pe_ct" class="nav_p_ct"><%= @project.followers_count %></span>
+          <% end %>
+        </li>
+      </ul>
     </div>
 
-    <div class="tab-pane" id="comments">
-      <div id="proj_comm">
-        <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
-          <div id="c_form_wrap">
-            <%= render :partial => "shared/comment_form" %>
-          </div>
-          <% else %>
-            <div id="c_form_wrap">
-              <div class="c_message">
-                <span>Must be following project to leave a comment.</span>
-              </div>
-            </div>
-        <% end %>
-        <div id="comments_<%= @commentable.id %>" class="comments_wrap">
-          <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+    <div class="tab-content">
+
+      <div class="tab-pane active" id="updates">
+        <div class="u_btn">
+          <% if @project.member == current_member %>
+            <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
+          <% end %>
         </div>
 
-        <%= will_paginate @comments, class: 'display_none' %>
+        <div id="update_<%= @updateable.id %>" class="u_list_wrap">
+          <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
+        </div>
 
-          <% if @comments.total_pages != @comments.current_page %>
-            <div id="loading"></div>  
-                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                  <div class="com_show">
+        <%= will_paginate @updates, class: 'display_none' %>
+
+        <% if @updates.total_pages != @updates.current_page %>
+            <div id="p_upd_loading"></div>
+            <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
+                <div class="com_show">
                     Show More
-                  </div>
-                <% end %>
-          <% end %>
-      </div>
-    </div>
-
-    <div class="tab-pane" id="followers">
-      <div id="media_query_follow">
-        <div id="proj_fol">
-          <%= render "shared/followers" %>
-        </div>
-      </div>
-
-        <%= will_paginate @followers, class: 'display_none' %>
-
-        <% if @followers.total_pages != @followers.current_page %>
-            <div id="p_fol_loading"></div>
-            <%= link_to("#", class: "com_show_wrap p_f_load_arrow") do %>
-              <div class="com_show">
-                Show More
-              </div>
+                </div>
             <% end %>
         <% end %>
-    </div>
+      </div> 
 
-  </div>
-    
-  <div class="s_modal">
-    <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Copy Project URL</h3>
+      <div class="tab-pane" id="details">
+        <div id ="proj_about">
+          <%= raw Rinku.auto_link(@project.about) %>
+        </div>
       </div>
-      <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= project_url %>" onclick="this.select()" />
-      </div>
-    </div>
-  </div>
 
-  <% if @project.member == current_member %>
-    <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Upload Project Media</h3>
-      </div>
-      <div class="modal-body pi">
-        <div class="med_instructions">
-          <ul>
-            <li>
-              &raquo; Maximum file size of 15MB
-            </li>
-            <li>
-              &raquo; Accepted file formats: (jpeg, png, gif, mp3)
-            </li>
-          </ul>
+      <div class="tab-pane" id="media">
+        <div class="p_u_btn">
+          <% if @project.member == current_member %>
+            <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
+          <% end %>
         </div>
 
-        <%= render :partial => "shared/media_form" %>
-      </div>
-    </div>
-  <% end %>
+        <div id="media_query_media">
+          <div id="upload_<%= @uploadable.id %>" class="p_m_list_wrap">
+            <%= render :partial => "shared/media", :collection => @uploads, :as => :upload %>       
+          </div>
+        </div>
 
-  <% if @project.member == current_member %>
-    <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <%= will_paginate @uploads, class: 'display_none' %>
+
+        <% if @uploads.total_pages != @uploads.current_page %>
+            <div id="p_med_loading"></div>
+            <%= link_to("#", class: "com_show_wrap p_m_load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
+        <% end %>
+      </div>
+
+      <div class="tab-pane" id="comments">
+        <div id="proj_comm">
+          <% if member_signed_in? && current_member.following?(@project) || current_member == @project.member %>
+            <div id="c_form_wrap">
+              <%= render :partial => "shared/comment_form" %>
+            </div>
+            <% else %>
+              <div id="c_form_wrap">
+                <div class="c_message">
+                  <span>Must be following project to leave a comment.</span>
+                </div>
+              </div>
+          <% end %>
+          <div id="comments_<%= @commentable.id %>" class="comments_wrap">
+            <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+          </div>
+
+          <%= will_paginate @comments, class: 'display_none' %>
+
+            <% if @comments.total_pages != @comments.current_page %>
+              <div id="loading"></div>  
+                  <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                    <div class="com_show">
+                      Show More
+                    </div>
+                  <% end %>
+            <% end %>
+        </div>
+      </div>
+
+      <div class="tab-pane" id="followers">
+        <div id="media_query_follow">
+          <div id="proj_fol">
+            <%= render "shared/followers" %>
+          </div>
+        </div>
+
+          <%= will_paginate @followers, class: 'display_none' %>
+
+          <% if @followers.total_pages != @followers.current_page %>
+              <div id="p_fol_loading"></div>
+              <%= link_to("#", class: "com_show_wrap p_f_load_arrow") do %>
+                <div class="com_show">
+                  Show More
+                </div>
+              <% end %>
+          <% end %>
+      </div>
+
+    </div>
       
-      <div class="modal-body pi">
-        <%= render :partial => "shared/update_form" %>
+    <div class="s_modal">
+      <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Copy Project URL</h3>
+        </div>
+        <div class="modal-body pi">
+          <input class="pr_in forms" value="<%= project_url %>" onclick="this.select()" />
+        </div>
       </div>
     </div>
-  <% end %>
 
+    <% if @project.member == current_member %>
+      <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Upload Project Media</h3>
+        </div>
+        <div class="modal-body pi">
+          <div class="med_instructions">
+            <ul>
+              <li>
+                &raquo; Maximum file size of 15MB
+              </li>
+              <li>
+                &raquo; Accepted file formats: (jpeg, png, gif, mp3)
+              </li>
+            </ul>
+          </div>
+
+          <%= render :partial => "shared/media_form" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @project.member == current_member %>
+      <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        
+        <div class="modal-body pi">
+          <%= render :partial => "shared/update_form" %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
 </div>

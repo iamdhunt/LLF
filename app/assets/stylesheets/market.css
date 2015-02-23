@@ -16,7 +16,7 @@
 	text-decoration: none;
 }
 #mk_head .pl {
-	color: #EB2E35;
+	color: #E83E44;
 }
 #mk_head .mk a {
 	color: #1b85a6;
@@ -27,7 +27,7 @@
 #mk_head .v_a {
 	float: right;
 	font-size: 1.25em;
-	padding: 28px 20px 0 0;
+	padding: 26px 20px 0 0;
 }
 #mk_head .v_a a:hover {
 	text-decoration: none;

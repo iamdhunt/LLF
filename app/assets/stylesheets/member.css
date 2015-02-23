@@ -1,9 +1,13 @@
+#m_wrap {
+	position: relative;
+	margin: 0 0 150px 0;
+}
 #member_wrap {
 	margin-top: 1.2em;
 }
 #member_list_wrap {
 	color: #333;
-	padding: 5px;
+	padding: 5px 0 5px 30px;
 	position: relative;
 }
 #member_item_wrap {	

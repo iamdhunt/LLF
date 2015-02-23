@@ -37,27 +37,29 @@
         </span>
     </div>
 
-    <% if @following.count > 0 %>
-        <div id="media_query_prev">
-            <div id="prof_prs">
-                <div id="prs">
-                    <%= render :partial => "following_projects" %>
+    <div id="prs_wrap">
+        <% if @following.count > 0 %>
+            <div id="media_query_prev">
+                <div id="prof_prs">
+                    <div id="prs">
+                        <%= render :partial => "following_projects" %>
+                    </div>
+                </div>  
+            </div>        
+            <% else %>
+                <div class="none_message">
+                    No Following Any Yet
                 </div>
-            </div>  
-        </div>        
-        <% else %>
-            <div class="none_message">
-                No Following Any Yet
-            </div>
-    <% end %>
-
-    <%= will_paginate @following, class: 'display_none' %>
-
-    <% if @following.total_pages != @following.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
-            </div>
         <% end %>
-    <% end %>
+
+        <%= will_paginate @following, class: 'display_none' %>
+
+        <% if @following.total_pages != @following.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
+        <% end %>
+    </div>

@@ -10,19 +10,21 @@
 	</div>
 </div>
 
-<div id="media_query_follow">
-    <div id="follow_list_wrap">
-    	<%= render :partial => "followers", :collection => @followers, :as => :follower %>       
+<div id="m_wrap">
+    <div id="media_query_follow">
+        <div id="follow_list_wrap">
+        	<%= render :partial => "followers", :collection => @followers, :as => :follower %>       
+        </div>
     </div>
-</div>
 
-<%= will_paginate @followers, class: 'display_none' %>
+    <%= will_paginate @followers, class: 'display_none' %>
 
-<% if @followers.total_pages != @followers.current_page %>
-    <div id="loading"></div>
-    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-    	<div class="com_show">
-    		Show More
-    	</div>
+    <% if @followers.total_pages != @followers.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+        	<div class="com_show">
+        		Show More
+        	</div>
+        <% end %>
     <% end %>
-<% end %>
+</div>

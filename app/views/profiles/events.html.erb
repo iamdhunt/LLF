@@ -37,27 +37,29 @@
         </span>
     </div>
 
-    <% if @events.count > 0 %>
-        <div id="media_query_prev">
-            <div id="prof_prs">
-                <div id="prs">
-                    <%= render :partial => "events" %>
+    <div id="prs_wrap">
+        <% if @events.count > 0 %>
+            <div id="media_query_prev">
+                <div id="prof_prs">
+                    <div id="prs">
+                        <%= render :partial => "events" %>
+                    </div>
                 </div>
-            </div>
-        </div>         
-        <% else %>
-            <div class="none_message">
-                No Events Yet
-            </div>
-    <% end %>
-
-    <%= will_paginate @events, class: 'display_none' %>
-
-    <% if @events.total_pages != @events.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-            <div class="com_show">
-                Show More
-            </div>
+            </div>         
+            <% else %>
+                <div class="none_message">
+                    No Events Yet
+                </div>
         <% end %>
-    <% end %>
+
+        <%= will_paginate @events, class: 'display_none' %>
+
+        <% if @events.total_pages != @events.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
+        <% end %>
+    </div>

@@ -19,7 +19,7 @@ class ProfilesController < ApplicationController
         format.js
       end
   	elsif @member 
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
     else 
   		render file: 'public/404', status: 404, formats: [:html]
   	end
@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
         format.js
       end
     elsif @member 
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -49,9 +49,9 @@ class ProfilesController < ApplicationController
     if @member == current_member
       @status = current_member.statuses.new
       @status.build_document
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
     elsif @member 
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(36)
+      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -60,7 +60,7 @@ class ProfilesController < ApplicationController
   def stream_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(36)
+      @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(40)
       render action: :show_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -128,7 +128,7 @@ class ProfilesController < ApplicationController
   def projects
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @projects = @member.projects.order("created_at desc").paginate(page: params[:page], per_page: (24))
+      @projects = @member.projects.order("created_at desc").paginate(page: params[:page], per_page: (30))
       render action: :projects
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -138,7 +138,7 @@ class ProfilesController < ApplicationController
   def projects_following
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @following = @member.following_projects(:order => 'created_at DESC').paginate(page: params[:page], per_page: (24))
+      @following = @member.following_projects(:order => 'created_at DESC').paginate(page: params[:page], per_page: (30))
       render action: :projects_following
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -148,7 +148,7 @@ class ProfilesController < ApplicationController
   def projects_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @projects = @member.get_up_voted Project.order("created_at desc").page(params[:page]).per_page(24)
+      @projects = @member.get_up_voted Project.order("created_at desc").page(params[:page]).per_page(30)
       render action: :projects_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -158,7 +158,7 @@ class ProfilesController < ApplicationController
   def events
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (24))
+      @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
       render action: :events
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -168,7 +168,7 @@ class ProfilesController < ApplicationController
   def events_past
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.events.order("start_date asc").where("start_date < ? AND end_date < ?", Date.today, Date.today).paginate(page: params[:page], per_page: (24))
+      @events = @member.events.order("start_date asc").where("start_date < ? AND end_date < ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
       render action: :events_past
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -178,7 +178,7 @@ class ProfilesController < ApplicationController
   def events_following
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @following = @member.following_events(:order => 'start_date asc').where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (24))
+      @following = @member.following_events(:order => 'start_date asc').paginate(page: params[:page], per_page: (30))
       render action: :events_following
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -188,7 +188,7 @@ class ProfilesController < ApplicationController
   def events_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(24)
+      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(30)
       render action: :events_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -198,7 +198,7 @@ class ProfilesController < ApplicationController
   def market
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(20)
+      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(25)
       render action: :market
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -208,7 +208,7 @@ class ProfilesController < ApplicationController
   def market_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(20)
+      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(25)
       render action: :market_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]

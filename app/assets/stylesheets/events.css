@@ -15,16 +15,31 @@
 .ev_wrap .nav-tabs li a {
 	color: #898989;
 }
-.ev_wrap .nav-tabs > .active > a,
-.nav-tabs > .active > a:hover,
-.nav-tabs > .active > a:focus {
-  color: #444444;
-  border: none;
-  border-bottom: 4px solid #146f3f; 
-  cursor: pointer;
+.ev_wrap .nav-tabs > .active > a {
+	color: #444444;
+	border: none;
+	border-bottom: 4px solid #146f3f; 
+	cursor: pointer;
 }
-.ev_wrap .nav-tabs > li > a:hover,
-.nav-tabs > li > a:focus {
+.ev_wrap .nav-tabs > .active > a:hover {
+	color: #444444;
+	border: none;
+	border-bottom: 4px solid #146f3f; 
+	cursor: pointer;
+}
+.ev_wrap .nav-tabs > .active > a:focus {
+	color: #444444;
+	border: none;
+	border-bottom: 4px solid #146f3f; 
+	cursor: pointer;
+}
+.ev_wrap .nav-tabs > li > a:hover {
+	border: none;
+	border-bottom: 4px solid #146f3f;
+	color: #444444;
+	background-color: transparent;
+}
+.ev_wrap .nav-tabs > li > a:focus {
 	border: none;
 	border-bottom: 4px solid #146f3f;
 	color: #444444;
@@ -377,7 +392,8 @@ vertical-align: baseline;
 }
 .evt_fav_ct {
 	text-align: center;
-	font-size: 1.3em;
+	font-size: 1.2em;
+	font-weight: bold;
 	color: #444;
 	margin-bottom: 5px;
 }
