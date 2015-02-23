@@ -25,11 +25,6 @@ $(document).ready(function(){
 
 		$('#stat_count').html(text_remaining);
 
-		if (text_remaining <= 20){
-			$('#stat_count').css('color', '#c72835');
-		}else{
-			$('#stat_count').css('color', '#898989');
-		};
 	});	
 	
 	$b.click(function(){

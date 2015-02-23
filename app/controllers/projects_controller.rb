@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     @query = params[:projects]
     @facet = params[:tag]
     @city_facet = params[:city]
-    @results = Project.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
+    @results = Project.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb

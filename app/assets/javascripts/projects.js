@@ -204,23 +204,12 @@ $(document).ready(function() {
 		var cap_remaining = cap_max_blb - cap_length;
 		$('.p_ct_blb').html(cap_remaining);
 
-		if (cap_remaining <= 20){
-			$('.p_ct_blb').css('color', '#c72835');
-		}else{
-			$('.p_ct_blb').css('color', '#444');
-		};
-
 		$cap_blb.keyup(function(){	
 			var cap_length = $cap_blb.val().length;
 			var cap_remaining = cap_max_blb - cap_length;
 
 			$('.p_ct_blb').html(cap_remaining);
 
-			if (cap_remaining <= 20){
-				$('.p_ct_blb').css('color', '#c72835');
-			}else{
-				$('.p_ct_blb').css('color', '#8930c7');
-			};
 		});
 	};
 

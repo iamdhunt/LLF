@@ -50,7 +50,7 @@ $(document).ready(function(){
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
 	        $container.isotope( 'appended', $newElems, true );
-	        soundManager.stopall();
+	        soundManager.stopAll();
 	        soundManager.reboot(); 
 	      });
 	    }
@@ -106,6 +106,7 @@ $(document).ready(function(){
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
 	        $cfav.isotope( 'appended', $newElems, true );
+	        soundManager.stopAll();
 	        soundManager.reboot(); 
 	      });
 	    }
@@ -126,11 +127,6 @@ $(document).ready(function(){
 
 		$('#cap_count').html(cap_remaining);
 
-		if (cap_remaining <= 20){
-			$('#cap_count').css('color', '#c72835');
-		}else{
-			$('#cap_count').css('color', '#8930c7');
-		};
 	});
 
 	$(".fancybox").fancybox({

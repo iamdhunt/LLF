@@ -22,11 +22,6 @@ $(document).ready(function(){
 
 		$('#comment_length').html(text_remaining);
 
-		if (text_remaining <= 20){
-			$('#comment_length').css('color', '#c72835');
-		}else{
-			$('#comment_length').css('color', '#898989');
-		};
 	});
 
 	$container.infinitescroll({

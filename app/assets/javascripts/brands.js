@@ -13,11 +13,6 @@ $(document).ready(function(){
 
 		$('.b_ct_nam').html(cap_remaining);
 
-		if (cap_remaining <= 10){
-			$('.b_ct_nam').css('color', '#c72835');
-		}else{
-			$('.b_ct_nam').css('color', '#8930c7');
-		};
 	});
 
 	if(dom != null) {

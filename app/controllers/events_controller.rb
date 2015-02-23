@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @facet = params[:month]
     @tag_facet = params[:tag]
     @location_facet = params[:locations]
-    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(54)
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb
