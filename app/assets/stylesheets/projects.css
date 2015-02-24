@@ -808,6 +808,13 @@ vertical-align: baseline;
 	color: #444; 
 	margin-bottom: 5px;
 }
+.prj_fav_ct a {
+	color: #444;
+}
+.prj_fav_ct a:hover {
+	text-decoration: none;
+	color: #da4f49;
+}
 #pr_ev_nav {
 	width: 72%;
 	margin-left: auto;

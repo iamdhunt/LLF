@@ -397,3 +397,10 @@ vertical-align: baseline;
 	color: #444;
 	margin-bottom: 5px;
 }
+.evt_fav_ct a {
+	color: #444;
+}
+.evt_fav_ct a:hover {
+	text-decoration: none;
+	color: #219e5c;
+}

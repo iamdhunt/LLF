@@ -99,6 +99,12 @@
     </div>
 
     <div class="evt_fav_ct">
+      <span>
+        <%= link_to profile_events_path(@event.member), title: "View All Events", alt: "View All Events" do %>
+          Events: <%= @event.member.events.count %>
+        <% end %>
+      </span>
+      &nbsp;
       <span id="ev_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
         <%= render :partial => "events/fav_count", :locals => {:event => @event} %>
       </span>

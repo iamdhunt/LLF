@@ -58,7 +58,7 @@
 						</span>
 				        <% if current_member == listing.member %>
 					        <span class="">
-					        	<%= link_to image_tag("/assets/Edit.png", class: 'ims-act'), edit_listing_path(listing), class: '' %>					            
+					        	<%= link_to image_tag("/assets/Edit.png", class: 'ims-act'), edit_listing_path(listing), title: 'Options', alt: 'Options', class: '' %>					            
 					        </span>
 				        <% end %>
 			      	<% end %>

@@ -112,7 +112,7 @@
 
         <% if @additional.count > 0 %>
           <div class="additional">
-            More from <span class="u_name"><%= link_to @listing.member.user_name, profile_market_path(@listing.member) %></span>
+            More from <span class="u_name"><%= link_to @listing.member.user_name, profile_market_path(@listing.member), title: 'View All Listings', alt: 'View All Listings' %></span>
           </div>
 
           <div id="adt_lstgs">

@@ -1,4 +1,4 @@
-<% title @medium.member.full_name + " | Media"%>
+<% title @medium.member.full_name + " x Media"%>
 
 <div id="main_wrap">
 
@@ -45,7 +45,8 @@
           <% if member_signed_in? %> &#8226; <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>"><%= render :partial => "media/fav_link", :locals => {:medium => @medium} %></span>
           <% else %>
             &#8226; Favorite (<%= @medium.votes.size %>)
-          <% end %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"} %>
+          <% end %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Media', alt: 'Share Media' %>
+          &#8226; <%= link_to "View All Media", profile_media_path(@medium.member) %>
           <% if current_member == @medium.member %>
             <span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
           <% end %>

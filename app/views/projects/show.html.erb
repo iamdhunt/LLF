@@ -87,6 +87,12 @@
     </div>
 
     <div class="prj_fav_ct">
+      <span>
+        <%= link_to profile_projects_path(@project.member), title: "View All Projects", alt: "View All Projects" do %>
+          Projects: <%= @project.member.projects.count %>
+        <% end %>
+      </span>
+      &nbsp;
       <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
         <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
       </span>

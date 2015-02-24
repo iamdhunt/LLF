@@ -219,24 +219,6 @@ $(document).ready(function() {
   $blb.autosize();
   $cty.autosize();
 
-  $('.sh').mouseenter(function(){
-	        $('.sh').attr('src','/assets/Share 2.png');
-	    }
-	);
-  $('.sh').mouseleave(function(){
-	        $('.sh').attr('src', s_src);
-	    }
-	);
-
-  $('.m').mouseenter(function(){
-	        $('.m').attr('src','/assets/More 3.png');
-	    }
-	);
-  $('.m').mouseleave(function(){
-	        $('.m').attr('src', m_src);
-	    }
-	);
-
   $('#p_about').redactor({
     	buttons: ['html', 'bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'horizontalrule']
 	});
