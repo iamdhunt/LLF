@@ -8,6 +8,8 @@
                 <li>
                     <% if member_signed_in? %>
                         <%= link_to "Home", profile_path(current_member) %>
+                    <% else %>       
+                        <%= image_tag("favicon 3.ico", :class => "menu_logo") %>
                     <% end %>
                 </li>
                 <li>
@@ -22,11 +24,6 @@
                 <li>
                     <%= link_to "Projects", projects_path %>
                 </li> 
-                <% unless member_signed_in? %>       
-                    <li>
-                        <%= image_tag("Menu Logo.png", :class => "menu_logo") %>
-                    </li>
-                <% end %>
             </ul>
         </div>
 
