@@ -6,10 +6,12 @@
 	<div id="results_wrap">
 		<% if @query == nil && @facet == nil && @tag_facet == nil %>
 			<div id="sb_wrap" class="se_wrap">
-				<div class="sb_text">
-		            Start looking by the most popular cities & pursuits.</br>
-		            Or enter something in the bar.
-		        </div>
+				<% if member_signed_in? %>
+					<div class="sb_text">
+			            Start looking by the most popular cities & pursuits.</br>
+			            Or enter something in the bar.
+			        </div>
+		        <% end %>
 		        <div class="elocs">             
 		            <% for row in @search.facet(:city).rows %>
 		                <span class="eloc"><%= link_to(row.value.titleize, params.merge({:city => row.value})) %></span>

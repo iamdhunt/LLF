@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
 
-  before_filter :authenticate_member!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_member!, only: [:new, :create, :edit, :update, :destroy]
   before_filter :find_member
   before_filter :find_media, only: [:edit, :update, :destroy]
 
@@ -11,9 +11,12 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.order('created_at desc').page(params[:page]).per_page(30)
+    @media = Medium.order_by_rand.limit(105).all
 
-    redirect_to root_path
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
   end
 
   # GET /media/1

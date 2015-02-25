@@ -119,8 +119,7 @@
 	background-image: url('/assets/glyphicons-halflings-white.png') !important;
 }
 .nav_search {
-	padding: 10px 0;
-	float: left;
+	padding-top: 12px;
 	display: inline-block;
 	width: 52%;
 }
@@ -258,19 +257,12 @@
 	height: 24px;
 	margin: 16px 0 0 8px;
 }
-not_li2:after {
-	background: rgba(0, 0, 0, .1);
-	content: '';
-	height: 100%;
-	right: 170px;
-	position: absolute;
-	top: 0;
-	width: 2px;
-}
 #discover {
-	width: 100%;
+	display: block;
 	background-image: url('/assets/Discover Input 4.png');
 	background-position: 5px 45%;
 	background-repeat: no-repeat;
     padding-left: 60px;
+    margin: 0 auto;
+    width: 474px;
 }

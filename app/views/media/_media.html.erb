@@ -6,20 +6,6 @@
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
 <% end %>
 
-  <div class="act_media_top">
-    <span class="">
-      <%= avatar_profile_link medium.member, :class => "act_av", title: medium.member.full_name, alt: medium.member.full_name %>
-    </span>
-
-    <span class="act_name">
-      <%= link_to medium.member.user_name, profile_path(medium.member) %> 
-    </span> 
-
-    <span class="meta"> 
-      <%= time_ago_in_words(medium.created_at) %>
-    </span>
-  </div>
-
   <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
     <div class="act_media_content">
       <% if medium.cover? %>
@@ -46,12 +32,13 @@
     </div> 
   <% end %>
 
-  <% if member_signed_in? %>
-
     <div id="act_btn_wrap">
 
-     <span id="comment_act_btn">
+   <span id="comment_act_btn">
 
+      <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
+
+      <% if member_signed_in? %>
         <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
           <%= link_to medium_path(medium), :class => "btn comment" do %>
             <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
@@ -71,11 +58,10 @@
             <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium_path(medium.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
           </span>
         <% end %>
-        
-      </span>
+      <% end %>
+      
+    </span>
 
     </div>
-    
-  <% end %>
 
 </div>

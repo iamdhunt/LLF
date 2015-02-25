@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141112115538) do
+ActiveRecord::Schema.define(:version => 20150225142713) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -252,6 +252,7 @@ ActiveRecord::Schema.define(:version => 20141112115538) do
     t.string   "audio_content_type"
     t.integer  "audio_file_size"
     t.datetime "audio_updated_at"
+    t.text     "markers"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"

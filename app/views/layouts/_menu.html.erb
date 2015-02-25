@@ -5,25 +5,30 @@
         </div>
         <div class="primary_nav">
             <ul id="main_menu">
-                <li>
+                <li class="h_i">
                     <% if member_signed_in? %>
-                        <%= link_to "Home", profile_path(current_member) %>
+                        <%= link_to image_tag("favicon 3.ico", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
                     <% else %>       
                         <%= image_tag("favicon 3.ico", :class => "menu_logo") %>
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to "Community", community_path %>
+                    <%= link_to "Community", community_path, alt: 'Community' %>
+                </li>
+                <% unless member_signed_in? %>
+                    <li>
+                        <%= link_to "Media", media_path, alt: 'Media' %>
+                    </li>
+                <% end %>
+                <li>
+                    <%= link_to "Market", market_path, alt: 'Market' %>
                 </li>
                 <li>
-                    <%= link_to "Market", market_path %>
+                    <%= link_to "Events", events_path, alt: 'Events' %>
                 </li>
                 <li>
-                    <%= link_to "Events", events_path %>
+                    <%= link_to "Projects", projects_path, alt: 'Projects' %>
                 </li>
-                <li>
-                    <%= link_to "Projects", projects_path %>
-                </li> 
             </ul>
         </div>
 
@@ -74,6 +79,9 @@
                 <ul>
                     <li>
                         <%= link_to image_tag("Discover 4.png", class: "nav_icons discover"), search_path, title: "Discover", alt: "Discover", :class => "" %>
+                    </li>
+                    <li>
+                        <%= link_to image_tag("Media 4.png", class: "nav_icons discover"), media_path, title: "Media", alt: "Media", :class => "" %>
                     </li>
                     <li>
                         <div class="alert_wrap">

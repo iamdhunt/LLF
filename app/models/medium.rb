@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
   	belongs_to :member
-  	attr_accessible :caption, :asset, :cover
+  	attr_accessible :caption, :asset, :cover, :markers, :marker_list
   	has_many :comments, as: :commentable, :dependent => :destroy
   	has_many :activities, as: :targetable, :dependent => :destroy
   	acts_as_votable
@@ -8,9 +8,21 @@ class Medium < ActiveRecord::Base
   	auto_strip_attributes :caption
 
   	before_create :make_it_permalink
+  	before_validation :clean_up_markers
 
   	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", av: "200x200#"}  : {} }
   	has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#" }
+
+  	validates :marker_list, allow_blank: true,
+					length: {
+                      maximum: 5,
+                      message: '(tags) must not list more than 5 tags.'
+                    },
+                    format: {
+                      with: /^[a-zA-Z ,-]+$/,
+                      message: '(tags) must not include any special characters or numbers.'
+                    }
+    validate :each_marker
 
   	validates_attachment_presence :asset                    
 	validates_attachment_size :asset, :less_than=>15.megabyte
@@ -24,9 +36,21 @@ class Medium < ActiveRecord::Base
 
 	private
 
-	def make_it_permalink
-		# this can create permalink with random 8 digit alphanumeric
-		self.permalink = SecureRandom.hex(12)
-	end
+		def each_marker
+		    marker_list.each do |marker|
+		      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
+		      errors.add(:marker, "(tag) too long (Maximum is 15 characters)") if marker.length > 15
+		    end
+	  	end
+
+	  	def clean_up_markers
+		    # Make lowercase 
+		    self.marker_list.map!(&:downcase) 
+		  end
+
+		def make_it_permalink
+			# this can create permalink with random 8 digit alphanumeric
+			self.permalink = SecureRandom.hex(12)
+		end
 	
 end

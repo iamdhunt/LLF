@@ -6,13 +6,6 @@
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
 <% end %>
 
-    <div id="m_t_wrap">
-      <div class="m_t">
-        <span><%= image_tag "Time.png", class: 'm_t_icon' %><%= time_ago_in_words(medium.created_at) %>
-      </div>
-      <div style="clear:both;"></div>
-    </div>
-
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
         <% if medium.cover? %>

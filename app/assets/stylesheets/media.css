@@ -100,7 +100,7 @@
 #media_list_wrap .list_act_wrap {
 	width: 188px;
 	position: relative;
-	margin-bottom: 16px;
+	margin-bottom: 15px;
 }
 #media_list_wrap .act_name {
 	top: 12px;
@@ -108,7 +108,7 @@
 #m_fav_list_wrap .list_act_wrap {
 	width: 188px;
 	position: relative;
-	margin-bottom: 16px;
+	margin-bottom: 15px;
 }
 #m_fav_list_wrap .act_name {
 	top: 12px;
@@ -188,4 +188,7 @@ top: 25%;
 }
 .md_rfrsh {
 	margin-left: 10px;
+}
+#comment_act_btn .pr_av {
+	vertical-align: bottom;
 }
