@@ -1,9 +1,14 @@
 class Medium < ActiveRecord::Base
   	belongs_to :member
+
   	attr_accessible :caption, :asset, :cover, :markers, :marker_list
+
   	has_many :comments, as: :commentable, :dependent => :destroy
   	has_many :activities, as: :targetable, :dependent => :destroy
+  	
   	acts_as_votable
+  	acts_as_ordered_taggable
+  	acts_as_ordered_taggable_on :markers
 
   	auto_strip_attributes :caption
 

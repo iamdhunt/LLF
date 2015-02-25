@@ -5,6 +5,7 @@
   <div id="status_show">
 
     <div id="ss_l">
+
       <div class="mem_av">
         <%= avatar_profile @medium.member, :class => "", title: @medium.member.full_name, alt: @medium.member.full_name %>
       </div>
@@ -19,23 +20,24 @@
         </div>
 
         <% if current_member != @medium.member && member_signed_in? %>
-                  <div id="gl_follow_<%= @medium.member.id %>" class="gl_follow">
-                      <%= render :partial => "shared/follow_member2", :locals => {:member => @medium.member} %>
-                  </div>
-              <% end %>
+            <div id="gl_follow_<%= @medium.member.id %>" class="gl_follow">
+                <%= render :partial => "shared/follow_member2", :locals => {:member => @medium.member} %>
+            </div>
+        <% end %>
 
         <% if @medium.member.city? %>
           <div class="cy">
-                        <%= link_to @medium.member.city.titleize, :controller => "search", :action => "search", :discover => @medium.member.city %>
-                    </div>
-                <% end %>
+              <%= link_to @medium.member.city.titleize, :controller => "search", :action => "search", :discover => @medium.member.city %>
+          </div>
+        <% end %>
 
-                <% if @medium.member.pursuit_list %>
+        <% if @medium.member.pursuit_list %>
           <div class="ps">
-                        <%= @medium.member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(' ').html_safe %>
-                    </div>
-                <% end %>
+              <%= @medium.member.pursuit_list.map { |p| link_to p.titleize, :controller => "search", :action => "search", :discover => p }.join(' ').html_safe %>
+          </div>
+        <% end %>
       </div>
+
     </div>
 
     <div id="ss_r">
@@ -52,7 +54,16 @@
           <% end %>
         </div>
 
+
+
         <div class="act_content">
+
+          <% if @medium.marker_list %>
+            <div class="t_s">
+                <%= @medium.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "search", :action => "search", :discover => m }.join(' ').html_safe %>
+            </div>
+          <% end %>
+
           <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
             <div class="sh_aud">
               <% if @medium.cover? %>

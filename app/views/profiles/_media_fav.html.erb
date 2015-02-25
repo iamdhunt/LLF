@@ -67,6 +67,12 @@
 
       </div>
 
+      <% if medium.marker_list %>
+        <div class="t_s">
+            <%= medium.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "search", :action => "search", :discover => m }.join(' ').html_safe %>
+        </div>
+      <% end %>
+
   </div>
     
 <% end %>

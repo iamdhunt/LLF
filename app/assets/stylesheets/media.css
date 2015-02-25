@@ -20,7 +20,7 @@
 	padding: 10px 5px 0 5px;
 }
 .cap {
-	padding: 4px 0 6px 0;	
+	padding: 12px 0 4px 0;	
 }
 .cap_label {
 	font-size: 1.2em;
@@ -102,6 +102,38 @@
 	position: relative;
 	margin-bottom: 15px;
 }
+#media_list_wrap .list_act_wrap .t_s {
+	font-size: 12px;
+	margin-top: 2px;
+}
+#media_list_wrap .list_act_wrap .t_s a {
+	color: #fff;
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 185%;
+	white-space: nowrap;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+}
+#media_list_wrap .list_act_wrap .t_s a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
+}
 #media_list_wrap .act_name {
 	top: 12px;
 }
@@ -109,6 +141,38 @@
 	width: 188px;
 	position: relative;
 	margin-bottom: 15px;
+}
+#m_fav_list_wrap .list_act_wrap .t_s {
+	font-size: 12px;
+	margin-top: 2px;
+}
+#m_fav_list_wrap .list_act_wrap .t_s a {
+	color: #fff;
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 185%;
+	white-space: nowrap;
+	 /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(34, 34, 34);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(34, 34, 34, 0.6);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+}
+#m_fav_list_wrap .list_act_wrap .t_s a:hover {
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(147, 39, 201);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(147, 39, 201, 0.8);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
+	text-decoration: none;
 }
 #m_fav_list_wrap .act_name {
 	top: 12px;
@@ -131,8 +195,10 @@
 .med_instructions {
 	font-size: .9em;
 	font-style: oblique;
-	color: #898989;
-	margin-bottom: 10px;
+	color: #444;
+}
+.med_instructions .m_ts {
+	margin-top: 12px;
 }
 .sh_aud {
 	padding: 8px 40%;
