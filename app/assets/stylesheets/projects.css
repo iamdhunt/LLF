@@ -334,7 +334,7 @@ vertical-align: baseline;
 	text-decoration: none;
 }
 #pl_info .pl_ts a {
-	font-size: .8em;
+	font-size: 12px;
 	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
@@ -345,7 +345,7 @@ vertical-align: baseline;
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 3px;
+	padding: 3px 5px;
 	border-radius: 4px;
 	line-height: 200%;
 	white-space: nowrap;
@@ -582,16 +582,19 @@ vertical-align: baseline;
 	vertical-align: top;
 	margin: 1px 2px 0 0;
 }
-#p_m_t_wrap .del_u_wrap {
-	float: right;
+.act_media_content .shu_d {
+	position: absolute;
+	z-index: 1000000;
+	right: 2px;
+	top: 10px;
+	opacity: 1;
 	display: none;
-	margin-left: 2px;
 }
-#p_m_t_wrap .del_u_wrap img {
-	width: 13px;
-	height: 13px;
+.act_media_content .shu_d img {
+	width: 20px;
+	height: 20px;
 }
-#p_m_t_wrap:hover .del_u_wrap {
+.act_media_content:hover .shu_d {
 	display: inline;
 }
 #p_m_t_wrap .p_m_t {
@@ -800,6 +803,12 @@ vertical-align: baseline;
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
     text-align: center;
+}
+#projects::-webkit-input-placeholder {
+	font-size: 1.1em;
+}
+#projects::-moz-placeholder {
+	font-size: 1.1em;
 }
 .prj_fav_ct {
 	text-align: center;

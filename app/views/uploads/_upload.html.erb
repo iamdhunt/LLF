@@ -7,22 +7,17 @@
 <% end %>
 
     <div id="p_m_t_wrap">
-      <% if upload.member == current_member %>
-          <span class="del_u_wrap">
-            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
-          </span>
-      <% end %>
-
-      <span class="p_m_t">
-        <span><%= image_tag "Time.png", class: 'p_m_t_icon' %></span><%= time_ago_in_words(upload.created_at) %>
-      </span>
-      <div style="clear:both;"></div>
-
-
+      
     </div>
 
      <% if upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
+        <% if upload.member == current_member %>
+            <span class="shu_d">
+              <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+            </span>
+        <% end %>
+
         <% if upload.cover? %>
           <div id='med_art' style="background-image: url(<%= upload.cover.url(:media) %>)">
         <% else %>
@@ -37,6 +32,11 @@
 
     <% if upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
       <div class="act_media_content">
+        <% if upload.member == current_member %>
+            <span class="shu_d">
+              <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+            </span>
+        <% end %>
         <%= link_to image_tag(upload.asset.url(:list), class: ''), upload.asset.url(:large), class: "fancybox", rel: 'proj_gall' %>
       </div>
 

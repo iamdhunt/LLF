@@ -390,6 +390,12 @@ vertical-align: baseline;
 	background-repeat: no-repeat;
     text-align: center;
 }
+#events::-webkit-input-placeholder {
+	font-size: 1.1em;
+}
+#events::-moz-placeholder {
+	font-size: 1.1em;
+}
 .evt_fav_ct {
 	text-align: center;
 	font-size: 1.2em;

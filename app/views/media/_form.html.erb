@@ -26,5 +26,6 @@
 
   <div class="form-actions">
     <%= f.button :submit, 'Upload', :class => "btn btn-warning" %>
+    <%= link_to 'Cancel', {:controller => :profiles, :action => :media_cancel}, remote: true, :class => "btn btn-danger pull-right" %>
   </div>
 <% end %>

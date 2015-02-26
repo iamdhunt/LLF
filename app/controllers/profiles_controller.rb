@@ -105,6 +105,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def media_cancel
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+      format.js
+    end
+  end 
+
   def followers
     @member = Member.find_by_user_name(params[:id])
     if @member 

@@ -16,7 +16,7 @@
         <% end %>
         <% if @project.marker_list %>
           <li class='sub'>
-            <span class='acct'><%= @project.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :projects => m }.join(' ').html_safe %></span>
+            <span class='acct'><%= @project.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "projects", :action => "index", :projects => m }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @project.website? %>  

@@ -105,6 +105,7 @@
         	hyphens: auto;
     -ms-word-break: break-all;
     text-align: center;
+    font-size: 14px;
 }
 #status_show .act_content {
 	text-align: center;
@@ -299,7 +300,8 @@
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 3px;
+	padding: 3px 5px;
+	font-size: 13px;
 	border-radius: 4px;
 	line-height: 200%;
 }

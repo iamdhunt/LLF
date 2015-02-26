@@ -58,7 +58,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= follow.marker_list.map { |m| link_to m.titleize, :controller => "projects", :action => "index", :projects => m }.join(' ').html_safe %>
+					<%= follow.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "projects", :action => "index", :projects => m }.join(' ').html_safe %>
 				</div>
 			</div>
 

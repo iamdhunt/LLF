@@ -25,16 +25,18 @@ LLF::Application.routes.draw do
     resources :follows, :controller => 'follows_projects', :only => [:create, :destroy]
     member do
       put "favorite", to: "projects#upvote"
+      get 'uploads/cancel', to: "uploads#cancel"
     end
   end
 
   resources :events do
     resources :comments
-    resources :uploads
+    resources :uploads 
     resources :updates
     resources :follows, :controller => 'follows_events', :only => [:create, :destroy]
     member do
       put "favorite", to: "events#upvote"
+      get 'uploads/cancel', to: "uploads#cancel"
     end
   end
 
@@ -63,6 +65,7 @@ LLF::Application.routes.draw do
     resources :comments
     member do
       put "favorite", to: "media#upvote"
+      put "cancel", to: "media#cancel"
     end
   end
 
@@ -132,6 +135,7 @@ LLF::Application.routes.draw do
     get '' => 'profiles#show'
     get '/media' => 'profiles#media', as: 'profile_media'
     get '/media/new' => 'profiles#media_new', as: 'profile_media_new'
+    get '/media/cancel' => 'profiles#media_cancel'
     get '/media/favorites' => 'profiles#media_fav', as: 'profile_media_fav'
     get '/stream' => 'profiles#stream', as: 'profile_stream'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'

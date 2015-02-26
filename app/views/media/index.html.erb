@@ -4,17 +4,78 @@
 
 <div id="md_wrap">
 
-  <div id="sb_wrap" class="se_wrap">
+  <div id="sb_wrap" class="">
+      <% if @facet != nil || @query != nil %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span><%= link_to "Media", media_path %></span> &raquo; <span>Discover</span>
+                </div>
+            </div>
+        <% end %>
+
       <div class="sb_text">
           Browse the most popular tags.</br>
           Or enter something specific below.
       </div>
+
+      <div class="sb">
+        <%= render :partial => "search" %>
+      </div>
+
+       <div class="btags">
+          <% for row in @search.facet(:marker_list).rows %>
+              <span class="btag"><%= link_to('+ ' + row.value.titleize, params.merge({:tag => row.value})) %></span>
+          <% end %>
+        </div>
   </div>
 
+  <% if @facet != nil || @query != nil %>
+    <div id="stream_filters" class="form-inline">
+          <span class="filters all">
+              <label for="filter__">
+              <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+              </label>
+          </span>
+          <span class="filters photos">
+              <label for="filter_.photo_fil">
+              <%= radio_button_tag(:filter, ".photo_fil") %> Photos
+              </label>
+          </span>
+          <span class="filters audio">
+              <label for="filter_.audio_fil">
+              <%= radio_button_tag(:filter, ".audio_fil") %> Audio
+              </label>
+          </span>
+      </div>
+  <% end %>
+
   <div id="media_query_media">
-    <div id="media_list_wrap">
-      <%= render partial: 'media', :collection => @media, :as => :medium %>
-    </div>
+      <div id="media_list_wrap">
+
+        <% if @facet == nil && @query == nil %>
+
+          <%= render partial: 'media', :collection => @media, :as => :medium %>
+
+        <% else %>
+
+          <%= render partial: 'results', :collection => @results, :as => :medium %>
+
+        <% end %>
+
+      </div>
   </div>
+
+  <% if @facet != nil || @query != nil %>
+      <%= will_paginate @results, class: 'display_none' %>
+
+      <% if @results.total_pages != @results.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+              <div class="com_show">
+                Show More
+              </div>
+            <% end %>
+      <% end %>
+  <% end %>
 
 </div>

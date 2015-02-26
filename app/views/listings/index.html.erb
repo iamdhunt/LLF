@@ -35,7 +35,7 @@
 
     <div class="btags">
         <% for row in @search.facet(:marker_list).rows %>
-           <span class="btag"><%= link_to(row.value.titleize, params.merge({:tag => row.value})) %></span>
+           <span class="btag"><%= link_to('+ ' + row.value.titleize, params.merge({:tag => row.value})) %></span>
         <% end %>
     </div>
 </div>

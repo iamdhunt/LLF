@@ -43,3 +43,9 @@
 	background-repeat: no-repeat;
     text-align: center;
 }
+#listings::-webkit-input-placeholder {
+	font-size: 1.1em;
+}
+#listings::-moz-placeholder {
+	font-size: 1.1em;
+}

@@ -55,7 +55,7 @@
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 5px;
+	padding: 5px 8px;
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
 }
@@ -282,7 +282,7 @@ font-weight: normal;
 	padding: 4px 0;
 }
 #pdl_b .pdl_mks a {
-	font-size: .8em;
+	font-size: 12px;
 	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
@@ -293,7 +293,7 @@ font-weight: normal;
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 3px;
+	padding: 3px 5px;
 	border-radius: 4px;
 	line-height: 200%;
 	white-space: nowrap;

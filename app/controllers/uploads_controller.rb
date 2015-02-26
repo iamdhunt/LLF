@@ -8,6 +8,15 @@ before_filter :find_member
     redirect_to root_path
   end
 
+  def show
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+      format.js
+    end
+  end
+
   def new
   	@upload = @uploadable.uploads.new
   end
@@ -40,6 +49,15 @@ before_filter :find_member
          format.js
       end
     end 
+  end
+
+  def cancel
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+      format.js
+    end
   end
 
   private

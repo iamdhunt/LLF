@@ -44,6 +44,12 @@
 		</div> 
 	<% end %>
 
+	<% if activity.targetable.marker_list %>
+      <div class="t_s">
+        <%= activity.targetable.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "media", :action => "index", :media => m }.join(' ').html_safe %>
+      </div>
+    <% end %>
+
 	<% if member_signed_in? %>
 		<div id="act_btn_wrap">
 			<span id="comment_act_btn">

@@ -22,7 +22,7 @@
         </div>
 
         <div class="pd_mk">
-          <%= @listing.marker_list.map { |m| link_to m.titleize, :controller => "listings", :action => "index", :listings => m }.join(' ').html_safe %>
+          <%= @listing.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "listings", :action => "index", :listings => m }.join(' ').html_safe %>
         </div>
       </div>
 

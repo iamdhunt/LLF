@@ -16,7 +16,7 @@
         <% end %>
         <% if @event.marker_list %>
           <li class='sub'>
-            <span class='acct'><%= @event.marker_list.map { |m| link_to m.titleize, :controller => "events", :action => "index", :events => m }.join(' ').html_safe %></span>
+            <span class='acct'><%= @event.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "events", :action => "index", :events => m }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @event.website? %>  

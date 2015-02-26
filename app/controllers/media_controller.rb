@@ -11,7 +11,15 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
-    @media = Medium.order_by_rand.limit(105).all
+    @search = Medium.solr_search do
+      fulltext params[:media]
+      facet(:marker_list, :limit => 85, :sort => :count)
+        with(:marker_list, params[:tag]) if params[:tag].present?
+    end
+    @query = params[:media]
+    @facet = params[:tag]
+    @results = Medium.where(id: @search.results.map(&:id)).page(params[:page]).per_page(63)
+    @media = Medium.order_by_rand.limit(63).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -69,6 +77,15 @@ class MediaController < ApplicationController
         format.json { render json: @medium.errors, status: :unprocessable_entity }
         format.js
       end
+    end
+  end
+
+  def cancel
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+      format.js
     end
   end
 
