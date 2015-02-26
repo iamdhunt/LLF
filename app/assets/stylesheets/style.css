@@ -185,6 +185,7 @@ table {
 	position: fixed;
 	top: 0;
 	opacity: .9;
+	text-align: center;
 }
 #nav_bar .nav_container {
 	width: auto;
@@ -247,7 +248,11 @@ table {
 .nav_icons.notifications {
 	margin-right: 10px;
 }
-
+.nav_icons.media {
+	height: 35px;
+width: 35px;
+margin: 10px 5px 0 10px;
+}
 #login_wrap {
 	float: right;
 	height: 55px;

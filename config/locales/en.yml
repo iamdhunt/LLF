@@ -6,7 +6,7 @@ en:
 
   datetime:
     distance_in_words:
-      half_a_minute: "half a minute"
+      half_a_minute: "30s"
       less_than_x_seconds:
         one:   "less than 1s"
         other: "less than %{count}s"

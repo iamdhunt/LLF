@@ -1,21 +1,7 @@
 <div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap market_fil">
 
-	<div class="act_market_top">
-		<span class="">
-			<%= avatar_profile_link activity.member, :class => "act_av", title: activity.member.full_name, alt: activity.member.full_name %>
-		</span>
-
-		<span class="act_name">
-			<%= link_to activity.member.user_name, profile_path(activity.member) %>
-		</span>
-
-		<span class="meta"> 
-			<%= time_ago_in_words(activity.targetable.created_at) %>
-		</span>
-
-		<span class="act_title mrk">
-			created a new <%= link_to 'Listing', profile_market_path(activity.member) %>
-		</span>
+	<div id="a_top">
+		<span class="at_l">listing</span>
 	</div>
 
 	<div class="act_m_title">
@@ -51,10 +37,13 @@
 	        </div>
 	    <% end %>
 	</div>
+ 
+	<div id="act_btn_wrap">
+		<span id="comment_act_btn">
 
-	<% if member_signed_in? %> 
-		<div id="act_btn_wrap">
-			<span id="comment_act_btn">
+			<span><%= list_profile_link activity.targetable.member, :class => "pr_av", title: activity.targetable.member.full_name, alt: activity.targetable.member.full_name %></span>
+
+			<% if member_signed_in? %>
 
 				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
 					<%= link_to listing_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
@@ -75,10 +64,13 @@
 						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
 					</span>
 				<% end %>
-				
-			</span>
-		</div>
-	<% end %>
+
+			<% end %>
+
+			<span class="a_t"><span class="l"><%= time_ago_in_words(activity.targetable.created_at) %></span></span>
+			
+		</span>
+	</div>
 
 	<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
 	    <div class="modal-header">
