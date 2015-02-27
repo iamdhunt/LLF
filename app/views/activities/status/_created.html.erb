@@ -1,7 +1,7 @@
 <div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap status_fil">
 
 	<div id="a_top">
-		<span class="at_s">status</span>
+		<span class="at_s"><%= link_to 'status', status_path(activity.targetable) %></span>
 	</div>
 
 	<div class="act_content">

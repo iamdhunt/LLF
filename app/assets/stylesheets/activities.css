@@ -422,18 +422,38 @@
 	font-size: 1.3em;
 	font-weight: bold;
 }
-#a_top .at_m {
+#a_top .at_m a {
 	color: #F7803C;
 }
-#a_top .at_e {
+#a_top .at_m a:hover {
+	color: #F7803C;
+	text-decoration: none;
+}
+#a_top .at_e a {
 	color: #328E5D;
 }
-#a_top .at_p {
+#a_top .at_e a:hover {
+	color: #328E5D;
+	text-decoration: none;
+}
+#a_top .at_p a {
 	color: #da4f49;
 }
-#a_top .at_l {
+#a_top .at_p a:hover {
+	color: #da4f49;
+	text-decoration: none;
+}
+#a_top .at_l a {
 	color: #1688AB;
 }
-#a_top .at_s {
+#a_top .at_l a:hover {
+	color: #1688AB;
+	text-decoration: none;
+}
+#a_top .at_s a {
 	color: #a63ddb;
+}
+#a_top .at_s a:hover {
+	color: #a63ddb;
+	text-decoration: none;
 }

@@ -1,7 +1,7 @@
 <div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap media_fil">
 
 	<div id="a_top">
-		<span class="at_m">media</span>
+		<span class="at_m"><%= link_to 'media', profile_media_path(activity.targetable.member) %></span>
 	</div>
 
 	<% if activity.targetable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
