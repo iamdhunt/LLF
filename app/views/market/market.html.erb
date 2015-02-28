@@ -2,6 +2,14 @@
 
 <%= render :partial => "banner" %>
 
+<div id="sb_wrap">
+    <div id="bc_wrap">
+        <div class="breadcrumbs">
+            <span>Market</span> &raquo; <span><%= link_to "Listings", listings_path %></span>
+        </div>
+    </div>
+</div>
+
 <div id="mk_wrap">
 
     <div id="mk_head" >
@@ -18,7 +26,7 @@
         </div>
     </div>
 
-    <div id="mk_head" >
+    <div id="mk_head" class="mk_2">
         <div>
             <span class="h mk">
                 <%= link_to(listings_path, class: "") do %>
