@@ -1968,11 +1968,12 @@ label.active {
     }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
-	#media_query_stream {
-    	padding-left: 55px;
-    }
+	.login_wrap {
+		width: 50%;
+	}
     .login_bg {
     	background-image: url('/assets/Login Banner 2.png');
+    	padding: 10% 0;
     }
     #nav_bar {
     	position: relative;
@@ -1980,11 +1981,9 @@ label.active {
     #pagewrap {
     	padding-top: 0;
     }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
+
     #media_query_media {
-    	padding-left: 100px;
+    	padding-left: 120px;
     }
     #li_index {
     	padding-left: 115px;
@@ -1997,8 +1996,12 @@ label.active {
     }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
+    .login_wrap {
+		width: 50%;
+	}
     .login_bg {
     	background-image: url('/assets/Login Banner 2.png');
+    	padding: 8% 0;
     }
     #nav_bar {
     	position: relative;
@@ -2006,11 +2009,9 @@ label.active {
     #pagewrap {
     	padding-top: 0;
     }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
+
     #media_query_media {
-    	padding-left: 100px;
+    	padding-left: 120px;
     }
     #li_index {
     	padding-left: 115px;
