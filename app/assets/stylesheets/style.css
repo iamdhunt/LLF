@@ -1828,15 +1828,21 @@ label.active {
     #pagewrap {
     	padding-top: 0;
     }
-
-    #media_query_media {
-    	padding-left: 140px;
+    #media_query_stream {
+    	padding-left: 150px;
     }
-
+    #media_query_media {
+    	padding-left: 120px;
+    }
+    #li_index {
+    	padding-left: 100px;
+    }
     #media_query_prev {
     	padding-left: 100px;
     }
-
+    #media_query_follow {
+    	padding-left: 50px;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
     .login_wrap {
@@ -1852,15 +1858,19 @@ label.active {
     #pagewrap {
     	padding-top: 0;
     }
-
-    #media_query_media {
-    	padding-left: 140px;
+    #media_query_stream {
+    	padding-left: 150px;
     }
- 
+    #media_query_media {
+    	padding-left: 120px;
+    }
+ 	#li_index {
+    	padding-left: 100px;
+    }
     #media_query_prev {
     	padding-left: 100px;
     }
     #media_query_follow {
-    	padding-left: 80px;
+    	padding-left: 50px;
     }
 }
