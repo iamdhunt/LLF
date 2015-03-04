@@ -1891,6 +1891,9 @@ label.active {
     #nav_bar {
     	position: relative;
     }
+    #pagewrap {
+    	padding-top: 0;
+    }
 }
 @media all and (max-width: 800px) and (min-width: 720.1px) {
     #main_wrap {
@@ -1927,6 +1930,9 @@ label.active {
     }
     #nav_bar {
     	position: relative;
+    }
+    #pagewrap {
+    	padding-top: 0;
     }
 
 }
@@ -1966,6 +1972,9 @@ label.active {
     #nav_bar {
     	position: relative;
     }
+    #pagewrap {
+    	padding-top: 0;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) {
 	.login_wrap {
@@ -1973,7 +1982,7 @@ label.active {
 	}
     .login_bg {
     	background-image: url('/assets/Login Banner 2.png');
-    	padding: 10% 0;
+    	padding: 12% 0;
     }
     #nav_bar {
     	position: relative;
@@ -1983,17 +1992,13 @@ label.active {
     }
 
     #media_query_media {
-    	padding-left: 120px;
+    	padding-left: 140px;
     }
-    #li_index {
-    	padding-left: 115px;
-    }
+
     #media_query_prev {
     	padding-left: 100px;
     }
-    #media_query_follow {
-    	padding-left: 80px;
-    }
+
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
     .login_wrap {
@@ -2001,7 +2006,7 @@ label.active {
 	}
     .login_bg {
     	background-image: url('/assets/Login Banner 2.png');
-    	padding: 8% 0;
+    	padding: 12% 0;
     }
     #nav_bar {
     	position: relative;
@@ -2011,17 +2016,15 @@ label.active {
     }
 
     #media_query_media {
-    	padding-left: 120px;
+    	padding-left: 140px;
     }
-    #li_index {
-    	padding-left: 115px;
-    }
+ 
     #media_query_prev {
     	padding-left: 100px;
     }
-    #media_query_follow {
-    	padding-left: 80px;
-    }
+ 	#home_wrap {
+ 		height: 40%;
+ 	}
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
     .login_bg {
