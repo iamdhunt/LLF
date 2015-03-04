@@ -4,9 +4,9 @@ class ConversationsController < ApplicationController
 
     def index
     	@messages_count = current_member.mailbox.inbox({:read => false}).count
-   	 	@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
-   	 	@sent ||= current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
-   	 	@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
+   	 	@conversations = current_member.mailbox.inbox.order('updated_at desc').page(params[:page]).per_page(15)
+   	 	@sent ||= current_member.mailbox.sentbox.order('updated_at desc').page(params[:page]).per_page(15)
+   	 	@trash ||= current_member.mailbox.trash.order('updated_at desc').page(params[:page]).per_page(15)
 
    	 	respond_to do |format|
    	 	  format.html
@@ -15,7 +15,7 @@ class ConversationsController < ApplicationController
     end
 
     def show
-	    @receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(20)
+	    @receipts = conversation.receipts_for(current_member).order('updated_at desc').page(params[:page]).per_page(20)
 
 	    render :action => :show
 	    @receipts.mark_as_read 
@@ -44,8 +44,8 @@ class ConversationsController < ApplicationController
 	end
 
 	def trash 
-		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
-		@sent = current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15) 
+		@trash ||= current_member.mailbox.trash.order('updated_at desc').page(params[:page]).per_page(15)
+		@sent = current_member.mailbox.sentbox.order('updated_at desc').page(params[:page]).per_page(15) 
 		conversation.move_to_trash(current_member)
 
 		respond_to do |format|
@@ -55,8 +55,8 @@ class ConversationsController < ApplicationController
 	end
 
 	def untrash
-		@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
-   	 	@sent = current_member.mailbox.sentbox.order('created_at desc').page(params[:page]).per_page(15)
+		@conversations = current_member.mailbox.inbox.order('updated_at desc').page(params[:page]).per_page(15)
+   	 	@sent = current_member.mailbox.sentbox.order('updated_at desc').page(params[:page]).per_page(15)
 		conversation.untrash(current_member)  
 		
 		respond_to do |format|
@@ -66,7 +66,7 @@ class ConversationsController < ApplicationController
 	end
 
 	def empty_trash
-		@trash ||= current_member.mailbox.trash.order('created_at desc').page(params[:page]).per_page(15)
+		@trash ||= current_member.mailbox.trash.order('updated_at desc').page(params[:page]).per_page(15)
 		current_member.mailbox.trash.each do |conversation|    
 			conversation.receipts_for(current_member).update_all(:deleted => true)
   		end
@@ -78,11 +78,11 @@ class ConversationsController < ApplicationController
 	end
 
 	def polling 
-		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i).order('created_at desc')
+		@conversations = current_member.mailbox.inbox.where('conversation_id > ?', params[:after].to_i).order('updated_at desc')
 	end 
 
 	def refresh
-		@conversations = current_member.mailbox.inbox.order('created_at desc').page(params[:page]).per_page(15)
+		@conversations = current_member.mailbox.inbox.order('updated_at desc').page(params[:page]).per_page(15)
 
 		respond_to do |format|
 		  format.js
