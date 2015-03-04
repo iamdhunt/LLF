@@ -1843,6 +1843,9 @@ label.active {
     #media_query_follow {
     	padding-left: 50px;
     }
+    #profile_wrap {
+    	width: 98%;
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
     .login_wrap {
@@ -1872,5 +1875,8 @@ label.active {
     }
     #media_query_follow {
     	padding-left: 50px;
+    }
+    #profile_wrap {
+    	width: 98%;
     }
 }
