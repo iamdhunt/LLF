@@ -1934,6 +1934,13 @@ label.active {
     #e_wrapper {
 		width: 98%;
 	}
+	.home_form {
+    	width: 75%;
+    }
+    #home_bottom_wrap {
+    	font-size: 4em;
+    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
+    }
 }
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
     .login_wrap {
@@ -1973,4 +1980,11 @@ label.active {
     #e_wrapper {
 		width: 98%;
 	}
+	.home_form {
+    	width: 75%;
+    }
+    #home_bottom_wrap {
+    	font-size: 4em;
+    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
+    }
 }
