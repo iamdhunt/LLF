@@ -2,22 +2,21 @@
   <% title "Edit Profile" %>
 <% end %>
 
-
-<div id="main_wrap">
+<div id="e_wrapper">
 
   <div id="ue_nav">
-        <ul class="nav nav-tabs" id="">
-          <li>
-            <%= link_to "Avatar/Banner", "#avatar", :data => {:toggle=>"tab"}, class: '' %>
-          </li>
-          <li class="active">
-            <%= link_to "Edit Profile", "#edit", :data => {:toggle=>"tab"}, class: '' %>
-          </li>
-          <li>
-            <%= link_to "Account Settings", "#settings", :data => {:toggle=>"tab"}, class: '' %>
-          </li>
-        </ul>
-    </div>
+      <ul class="nav nav-tabs" id="">
+        <li>
+          <%= link_to "Avatar/Banner", "#avatar", :data => {:toggle=>"tab"}, class: '' %>
+        </li>
+        <li class="active">
+          <%= link_to "Edit Profile", "#edit", :data => {:toggle=>"tab"}, class: '' %>
+        </li>
+        <li>
+          <%= link_to "Account Settings", "#settings", :data => {:toggle=>"tab"}, class: '' %>
+        </li>
+      </ul>
+  </div>
 
   <div id="edit_wrap">
 
@@ -46,8 +45,8 @@
 
   </div>
 
-<!--activity_wrap-->
+<!--edit_wrap-->
 
 </div>
 
-<!--/main_wrap-->
+<!--e_wrapper-->
