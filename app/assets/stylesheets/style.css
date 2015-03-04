@@ -1896,3 +1896,81 @@ label.active {
 		width: 98%;
 	}
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
+	.login_wrap {
+		width: 50%;
+	}
+    .login_bg {
+    	background-image: url('/assets/Login Banner 2.png');
+    	padding: 12% 0;
+    }
+    #nav_bar {
+    	position: relative;
+    }
+    #pagewrap {
+    	padding-top: 0;
+    }
+    #media_query_stream {
+    	padding-left: 150px;
+    }
+    #media_query_media {
+    	padding-left: 106px;
+    }
+    #li_index {
+    	padding-left: 67px;
+    }
+    #media_query_prev {
+    	padding-left: 64px;
+    }
+    #media_query_follow {
+    	padding-left: 50px;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #discover {
+    	width: 100%;
+    }
+    #e_wrapper {
+		width: 98%;
+	}
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+    .login_wrap {
+		width: 50%;
+	}
+    .login_bg {
+    	background-image: url('/assets/Login Banner 2.png');
+    	padding: 12% 0;
+    }
+    #nav_bar {
+    	position: relative;
+    }
+    #pagewrap {
+    	padding-top: 0;
+    }
+    #media_query_stream {
+    	padding-left: 150px;
+    }
+    #media_query_media {
+    	padding-left: 106px;
+    }
+ 	#li_index {
+    	padding-left: 67px;
+    }
+    #media_query_prev {
+    	padding-left: 64px;
+    }
+    #media_query_follow {
+    	padding-left: 50px;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+    #discover {
+    	width: 100%;
+    }
+    #e_wrapper {
+		width: 98%;
+	}
+}

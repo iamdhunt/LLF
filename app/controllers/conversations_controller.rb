@@ -15,7 +15,7 @@ class ConversationsController < ApplicationController
     end
 
     def show
-	    @receipts = conversation.receipts_for(current_member).page(params[:page]).per_page(20)
+	    @receipts = conversation.receipts_for(current_member).order('mailboxer_receipts.created_at desc').page(params[:page]).per_page(20)
 
 	    render :action => :show
 	    @receipts.mark_as_read 
