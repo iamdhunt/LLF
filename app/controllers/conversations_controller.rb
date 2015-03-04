@@ -34,7 +34,7 @@ class ConversationsController < ApplicationController
 	end
 
     def reply
-    	@receipts = conversation.receipts_for(current_member).order('created_at desc').page(params[:page]).per_page(20)
+    	@receipts = conversation.receipts_for(current_member).order('mailboxer_receipts.created_at desc').page(params[:page]).per_page(20)
 	  	@receipt = current_member.reply_to_conversation(conversation, *message_params(:body, :subject))
 	  
 	  	respond_to do |format|
