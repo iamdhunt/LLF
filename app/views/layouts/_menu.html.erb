@@ -32,10 +32,11 @@
             </ul>
         </div>
 
+        <div class='nav_search'>
+            <%= render partial: 'search/search' %>
+        </div>
+
         <% if member_signed_in? %>
-            <div class='nav_search'>
-                <%= render partial: 'search/search' %>
-            </div>
 
             <div class="mem_drop">
                 <span class="btn-group">
