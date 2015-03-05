@@ -1852,6 +1852,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -1898,6 +1901,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -1944,6 +1950,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -1990,6 +1999,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -2021,6 +2033,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -2052,6 +2067,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -2083,6 +2101,9 @@ label.active {
     }
     #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;
@@ -2112,8 +2133,11 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-    #discover {
+   #discover {
     	width: 100%;
+    	background-image: none;
+		background-position: 0;
+		padding-left: 0;
     }
     #e_wrapper {
 		width: 98%;

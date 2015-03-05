@@ -68,4 +68,8 @@ $(document).ready(function(){
 
     init_ncount();
 
+    if(isMobile.any()) {
+       $( "#discover" ).attr( "placeholder", "Discover People/Brands" );
+    }
+
 });
