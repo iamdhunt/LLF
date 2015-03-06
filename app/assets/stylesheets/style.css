@@ -1142,9 +1142,9 @@ hr.contact {
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 5px;
-	border-radius: 6px;
-	line-height: 200%;
+	padding: 3px 5px;
+	border-radius: 4px;
+	line-height: 190%;
 	white-space: nowrap;
 }
 .profile_pursuits a:hover {
@@ -1176,9 +1176,9 @@ hr.contact {
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 3px;
+	padding: 3px 5px;
 	border-radius: 4px;
-	line-height: 175%;
+	line-height: 190%;
 	white-space: nowrap;
 }
 .profile_location a:hover {
@@ -1872,7 +1872,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -1935,7 +1935,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -1998,7 +1998,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2061,7 +2061,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2109,7 +2109,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2157,7 +2157,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2205,7 +2205,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2253,7 +2253,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2301,7 +2301,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2349,7 +2349,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2358,7 +2358,7 @@ label.active {
 		width: 98%;
 	}
 }
-@media amzn-kf8 and (device-aspect-ratio:1280/800) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : portrait) {
     .login_wrap {
 		width: 50%;
 	}
@@ -2416,7 +2416,7 @@ label.active {
 		line-height: 200%;
 	}
 	#ss_l .ps a {
-		line-height: 200%;
+		line-height: 190%;
 	}
 	#ss_r .t_s a {
 		line-height: 200%;
@@ -2424,56 +2424,7 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
-}
-@media screen and (min-width: 600px) and (max-width: 1024px) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 200%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
+	#pb {
+		padding-left: 10%;
 	}
 }
