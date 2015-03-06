@@ -2208,3 +2208,36 @@ label.active {
     	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
     }
 }
+@media amzn-kf8 and (device-aspect-ratio:1280/800) {
+    .login_wrap {
+		width: 50%;
+	}
+    .login_bg {
+    	background-image: url('/assets/Login Banner 2.png');
+    	padding: 12% 0;
+    }
+    #nav_bar {
+    	position: relative;
+    }
+    #pagewrap {
+    	padding-top: 0;
+    }
+    #profile_wrap {
+    	width: 98%;
+    }
+   #discover {
+    	width: 210px;
+    	background-size: 20px 20px;
+		padding-left: 30px;
+    }
+    #e_wrapper {
+		width: 98%;
+	}
+	.home_form {
+    	width: 75%;
+    }
+    #home_bottom_wrap {
+    	font-size: 4em;
+    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
+    }
+}
