@@ -1,37 +1,41 @@
 <% title "Notifications"  %>
 
-<div id="main_wrap">
+<div id="mquery">
 
-	<div class="convos_wrap">
+	<div id="main_wrap">
 
-		<div class="not_head">
-			<span id="not_count">
-				<span class="not_t">Notifications</span>
-			</span>
-			<span class="not_r">
-				<%= link_to(update_all_notifications_path, remote: true, :method => :put) do %>
-					<i class="icon-check icon-grey"></i> Mark all as read
-				<% end %>
-			</span>
+		<div class="convos_wrap">
+
+			<div class="not_head">
+				<span id="not_count">
+					<span class="not_t">Notifications</span>
+				</span>
+				<span class="not_r">
+					<%= link_to(update_all_notifications_path, remote: true, :method => :put) do %>
+						<i class="icon-check icon-grey"></i> Mark all as read
+					<% end %>
+				</span>
+			</div>
+
+			<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :notifications, :action => :index, remote: true %></div>
+
+			<div id="notifications">
+				<%= render partial: "notifications/notifications", :collection => @notifications, :as => :notification %>
+				
+			</div>
+
+			<%= will_paginate @notifications, class: 'display_none' %>
+
+			<% if @notifications.total_pages != @notifications.current_page %>
+				<div id="loading"></div>
+				<%= link_to("#", class: "com_show_wrap load_arrow") do %>
+		        	<div class="com_show">
+		        		Show More
+		        	</div>
+		        <% end %>
+			<% end %>
+
 		</div>
-
-		<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :notifications, :action => :index, remote: true %></div>
-
-		<div id="notifications">
-			<%= render partial: "notifications/notifications", :collection => @notifications, :as => :notification %>
-			
-		</div>
-
-		<%= will_paginate @notifications, class: 'display_none' %>
-
-		<% if @notifications.total_pages != @notifications.current_page %>
-			<div id="loading"></div>
-			<%= link_to("#", class: "com_show_wrap load_arrow") do %>
-	        	<div class="com_show">
-	        		Show More
-	        	</div>
-	        <% end %>
-		<% end %>
 
 	</div>
 

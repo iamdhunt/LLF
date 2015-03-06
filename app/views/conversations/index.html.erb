@@ -1,92 +1,96 @@
 <% title "Conversations"  %>
 
-<div id="main_wrap">
+<div id="mquery">
 
-	<div class="convos_wrap">
-		<div>
-			<ul class="nav nav-tabs" id="">
-		      <li class="active">
-		        <%= link_to("#inbox", :data => {:toggle=>"tab"}, class: '') do %>
-		        	Inbox <span id="conv_ct">(<%= current_member.mailbox.inbox({:read => false}).count %>)</span>
-		        <% end %>
-		      </li>
-		      <li>
-		        <%= link_to "Sentbox", "#sentbox", :data => {:toggle=>"tab"}, class: '' %>
-		      </li>
-		      <li>
-		        <%= link_to "Trash", "#trash", :data => {:toggle=>"tab"}, class: '' %>
-		      </li>
-		    </ul>
-		</div>
+	<div id="main_wrap">
 
-		<div class="tab-content">
-    		<div id="inbox" class="tab-pane active">
-    			<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
-    			<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :conversations, :action => :index, remote: true %></div>
-    			<%= content_tag :div, class: "inbox_wrap", data: {url: polling_conversations_url} do %>
-    				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
-				<% end %>
-
-				<%= will_paginate @conversations, class: 'display_none' %>
-
-				<% if @conversations.total_pages != @conversations.current_page %>
-				    <div id="loading"></div>
-				    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-				      <div class="com_show">
-				        Show More
-				      </div>
-				    <% end %>
-				<% end %>
+		<div class="convos_wrap">
+			<div>
+				<ul class="nav nav-tabs" id="">
+			      <li class="active">
+			        <%= link_to("#inbox", :data => {:toggle=>"tab"}, class: '') do %>
+			        	Inbox <span id="conv_ct">(<%= current_member.mailbox.inbox({:read => false}).count %>)</span>
+			        <% end %>
+			      </li>
+			      <li>
+			        <%= link_to "Sentbox", "#sentbox", :data => {:toggle=>"tab"}, class: '' %>
+			      </li>
+			      <li>
+			        <%= link_to "Trash", "#trash", :data => {:toggle=>"tab"}, class: '' %>
+			      </li>
+			    </ul>
 			</div>
 
-			<div id="sentbox" class="tab-pane">
-				<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
+			<div class="tab-content">
+	    		<div id="inbox" class="tab-pane active">
+	    			<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
+	    			<div class="refresh"><%= link_to '<i class="icon-refresh icon-grey menu_icons"></i> Refresh'.html_safe, :controller => :conversations, :action => :index, remote: true %></div>
+	    			<%= content_tag :div, class: "inbox_wrap", data: {url: polling_conversations_url} do %>
+	    				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
+					<% end %>
 
-				<div class="sentbox_wrap">
-					<%= render partial: "conversations/sent", :collection => @sent, :as => :conversation %>
+					<%= will_paginate @conversations, class: 'display_none' %>
+
+					<% if @conversations.total_pages != @conversations.current_page %>
+					    <div id="loading"></div>
+					    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+					      <div class="com_show">
+					        Show More
+					      </div>
+					    <% end %>
+					<% end %>
 				</div>
 
-				<%= will_paginate @sent, class: 'display_none' %>
+				<div id="sentbox" class="tab-pane">
+					<div class="conv_btn"><%= link_to 'New Conversation', "#message", :data => {:toggle => "modal"}, class: 'btn btn-success' %></div>
 
-				<% if @sent.total_pages != @sent.current_page %>
-				    <div id="st_loading"></div>
-				    <%= link_to("#", class: "com_show_wrap st_load_arrow") do %>
-				      <div class="com_show">
-				        Show More
-				      </div>
-				    <% end %>
-				<% end %>
-			</div>
+					<div class="sentbox_wrap">
+						<%= render partial: "conversations/sent", :collection => @sent, :as => :conversation %>
+					</div>
 
-			<div id="trash" class="tab-pane">
-				<div class="conv_btn"><%= link_to 'Empty Trash', {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></div>
+					<%= will_paginate @sent, class: 'display_none' %>
 
-				<div class="trash_wrap">
-					<%= render partial: "conversations/trash", :collection => @trash, :as => :conversation %>
+					<% if @sent.total_pages != @sent.current_page %>
+					    <div id="st_loading"></div>
+					    <%= link_to("#", class: "com_show_wrap st_load_arrow") do %>
+					      <div class="com_show">
+					        Show More
+					      </div>
+					    <% end %>
+					<% end %>
 				</div>
 
-				<%= will_paginate @trash, class: 'display_none' %>
+				<div id="trash" class="tab-pane">
+					<div class="conv_btn"><%= link_to 'Empty Trash', {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></div>
 
-				<% if @trash.total_pages != @trash.current_page %>
-				    <div id="tr_loading"></div>
-				    <%= link_to("#", class: "com_show_wrap tr_load_arrow") do %>
-				      <div class="com_show">
-				        Show More
-				      </div>
-				    <% end %>
-				<% end %>
+					<div class="trash_wrap">
+						<%= render partial: "conversations/trash", :collection => @trash, :as => :conversation %>
+					</div>
+
+					<%= will_paginate @trash, class: 'display_none' %>
+
+					<% if @trash.total_pages != @trash.current_page %>
+					    <div id="tr_loading"></div>
+					    <%= link_to("#", class: "com_show_wrap tr_load_arrow") do %>
+					      <div class="com_show">
+					        Show More
+					      </div>
+					    <% end %>
+					<% end %>
+				</div>
+
 			</div>
 
-		</div>
+			<div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+			  <div class="modal-header">
+			    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			    <h3 id="sharemodallabel">Start A New Conversation</h3>
+			  </div>
+			  <div class="modal-body pi">
+			    <%= render :partial => "form" %>
+			  </div>
+			</div>
 
-		<div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-		  <div class="modal-header">
-		    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		    <h3 id="sharemodallabel">Start A New Conversation</h3>
-		  </div>
-		  <div class="modal-body pi">
-		    <%= render :partial => "form" %>
-		  </div>
 		</div>
 
 	</div>
