@@ -1,49 +1,53 @@
 <% title conversation.subject  %>
 
-<div id="main_wrap">
+<div id="mquery">
 
-	<div class="convos_wrap">
-		<div class="breadcrumbs">
-			<span><%= link_to "Conversations", conversations_path %></span> &raquo; <span><%= conversation.subject %></span>
-		</div>
+	<div id="main_wrap">
 
-		<div class="conv_header">
-			<span class="conv_tit">
-				<%= conversation.subject %>
-			</span>
-			<span class="delete">
-				<%= link_to({:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post') do %> 
-					<i class="icon-trash icon-grey"></i> Move to Trash
+		<div class="convos_wrap">
+			<div class="breadcrumbs">
+				<span><%= link_to "Conversations", conversations_path %></span> &raquo; <span><%= conversation.subject %></span>
+			</div>
+
+			<div class="conv_header">
+				<span class="conv_tit">
+					<%= conversation.subject %>
+				</span>
+				<span class="delete">
+					<%= link_to({:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", :method=>'post') do %> 
+						<i class="icon-trash icon-grey"></i> Move to Trash
+					<% end %>
+				</span>
+			</div>
+
+			<div class="conv_pts">
+				 <% conversation.recipients.each do |recipient| %>
+				    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
 				<% end %>
-			</span>
-		</div>
+			</div>
 
-		<div class="conv_pts">
-			 <% conversation.recipients.each do |recipient| %>
-			    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
+			<div class="reply_wrap">
+				<%= render 'messages/form', conversation: conversation %>
+			</div>
+
+			<div id="messages_<%= conversation.id %>" class="messages_wrap">
+				<%= render :partial => 'conversations/receipts', :collection => @receipts, :as => :receipt %>
+			</div>
+
+			<%= will_paginate @receipts, class: 'display_none' %>
+
+			<% if @receipts.total_pages != @receipts.current_page %>
+			    <div id="loading"></div>
+			    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+			      <div class="com_show">
+			        Show More
+			      </div>
+			    <% end %>
 			<% end %>
 		</div>
 
-		<div class="reply_wrap">
-			<%= render 'messages/form', conversation: conversation %>
-		</div>
+		<%= subscribe_to "/conversations/#{conversation.id}" %>
 
-		<div id="messages_<%= conversation.id %>" class="messages_wrap">
-			<%= render :partial => 'conversations/receipts', :collection => @receipts, :as => :receipt %>
-		</div>
-
-		<%= will_paginate @receipts, class: 'display_none' %>
-
-		<% if @receipts.total_pages != @receipts.current_page %>
-		    <div id="loading"></div>
-		    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-		      <div class="com_show">
-		        Show More
-		      </div>
-		    <% end %>
-		<% end %>
 	</div>
-
-	<%= subscribe_to "/conversations/#{conversation.id}" %>
 
 </div>
