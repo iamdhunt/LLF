@@ -69,7 +69,7 @@ $(document).ready(function(){
     init_ncount();
 
     if(isMobile.any()) {
-       $( "#discover" ).attr( "placeholder", "Discover People/Brands" );
+       $( "#discover" ).attr( "placeholder", "Discover people & brands" );
     }
 
 });
