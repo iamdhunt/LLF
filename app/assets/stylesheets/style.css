@@ -2425,10 +2425,10 @@ label.active {
 		width: 98%;
 	}
 	#pb {
-		padding-left: 10%;
+		padding-left: 15%;
 	}
 }
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : landscape) {
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) and (orientation : landscape) {
     .login_wrap {
 		width: 50%;
 	}
@@ -2493,8 +2493,5 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
-	}
-	#pb {
-		padding-left: 10%;
 	}
 }
