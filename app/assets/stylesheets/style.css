@@ -1818,7 +1818,9 @@ label.active {
 	font-size: 1.3em;
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) {
+/iphone/
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:640px) and (orientation : portrait) {
 	.login_wrap {
 		width: 50%;
 	}
@@ -1881,7 +1883,7 @@ label.active {
 		width: 98%;
 	}
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) and (orientation : landscape) {
     .login_wrap {
 		width: 50%;
 	}
@@ -1944,70 +1946,8 @@ label.active {
 		width: 98%;
 	}
 }
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : portrait) {
-	.login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
-    #media_query_media {
-    	padding-left: 106px;
-    }
-    #li_index {
-    	padding-left: 67px;
-    }
-    #media_query_prev {
-    	padding-left: 64px;
-    }
-    #media_query_follow {
-    	padding-left: 50px;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-}
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1136px) and (orientation : landscape) {
     .login_wrap {
 		width: 50%;
 	}
