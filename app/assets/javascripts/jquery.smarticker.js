@@ -1,5 +1,5 @@
 /*
- * SmarTicker Version 1.4
+ * SmarTicker Version 1.5
  * http://powerup.ir/projects/smarticker
  * Copyright (c) 2014 Meghdad Hadidi
  */
@@ -49,10 +49,10 @@
 				if(settings.rssCats) fdsCat = settings.rssCats.split(',');
 				if(settings.rssSources) fdsSource = settings.rssSources.split(',');
 				if(settings.rssColors) fdsColor = settings.rssColors.split(',');
+				if(settings.imagesPath[settings.imagesPath.length-1] != '/' && settings.imagesPath != '') settings.imagesPath = settings.imagesPath+'/';
 
 
 				var feedCounter = 0;
-				feedRead();
 
 				function feedRead(){
 
@@ -137,6 +137,12 @@
 				            	var itemObj = $('<li style="display:none" ' + fdsColor[feedCounter] + ' ' + fdsCat[feedCounter] + ' ' + fdsSource[feedCounter] + '><a target="'+settings.linkTarget+'" href="'+item.link+'"></a></li>');
 				            	itemObj.find('a').text(item.title);
 				            	var target = element;
+				            	var date;
+				            	if(item.pubdate != undefined || item.pubdate != '' || item.pubdate != NaN) date = item.pubdate;
+				            	date =  new Date(date);
+								var months = Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+								var dateString = date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+								if(settings.showDate != '' || settings.showDate != false && item.pubdate != undefined) $('<span class="item-date">'+dateString+'</span>').appendTo(itemObj);
 				            	if(element.find('ul').length > 0) target = element.find('ul');
 				            	if(settings.feedsOrder == 'older') itemObj.appendTo(target);
 				            	else itemObj.prependTo(target);
@@ -157,6 +163,8 @@
 					});
 
 				}
+
+				feedRead();
 
 			}
 
@@ -180,7 +188,11 @@
 							if(settings.subcategory == true){
 								smartickerCats.prependTo(element).addClass('sec1-2');
 								$.each(unique(newsItems, 'subcategory'), function(i,e){
-									smartickerCats.find('ul').append('<li data-subcategory="'+e+'"><a>'+e+'</a></li>');
+									var newE = e;
+									if(e.indexOf('.png') != -1 || e.indexOf('.jpg') != -1 || e.indexOf('.gif') != -1){
+										newE = '<img src="'+settings.imagesPath+e+'" />'
+									}
+									smartickerCats.find('ul').append('<li data-subcategory="'+e+'"><a>'+newE+'</a></li>');
 								});
 								if(settings.theme == 1 || settings.theme == 2){
 									smartickerCats.find('ul').wrap('<div class="catlist"></div>');
@@ -192,7 +204,11 @@
 							if(settings.category == true && unique(newsItems, 'category').length > 0){
 								smartickerCategory.prependTo(element).addClass('sec1-2');
 								$.each(unique(newsItems, 'category'), function(i,e){
-									smartickerCategory.find('ul').append('<li data-category="'+e+'"><a>'+e+'</a></li>');
+									var newE = e;
+									if(e.indexOf('.png') != -1 || e.indexOf('.jpg') != -1 || e.indexOf('.gif') != -1){
+										newE = '<img src="'+settings.imagesPath+e+'" />'
+									}
+									smartickerCategory.find('ul').append('<li data-category="'+e+'"><a>'+newE+'</a></li>');
 								});
 							}
 
@@ -224,7 +240,9 @@
 								}
 								// Start running SmarTicker
 								nextCategory();
+
 								$('.next-news',element).on('click',function(){
+									if(newsItems.length < 2) return false;
 									settings.pause = 1;
 									settings.nx = 'next';
 									settings.clearTimeouts();
@@ -232,6 +250,7 @@
 									if(!$('.pause-news').hasClass('play-news')) settings.pause = 0;
 								});
 								$('.prev-news',element).on('click',function(){
+									if(newsItems.length < 2) return false;
 									settings.pause = 1;
 									settings.nx = 'prev';
 									settings.clearTimeouts();
@@ -240,6 +259,7 @@
 									if(!$('.pause-news').hasClass('play-news')) settings.pause = 0;
 								});
 								$('.pause-news',element).on('click',function(){
+									if(newsItems.length < 2) return false;
 									if($(this).hasClass('play-news')){
 										settings.pause = 0;
 										nextCategory();
@@ -257,6 +277,7 @@
 								});
 							}
 							if(settings.layout == 'vertical'){
+								logThis('Excuse me! Vertical layout is not available in this version, Please use Horizontal layout!');
 							}
 							else{
 								logThis('Layout type not valid! It must be Vertical Or Horizontal');
@@ -279,6 +300,7 @@
 						}
 
 						function changeIndex(){
+							if(newsItems.length < 2) return false;
 							if(settings.nx != 'start'){
 								settings.lastIndex = settings.newsRollerIndex;
 							}
@@ -529,6 +551,7 @@
 										$('.activeRollerItem',element)
 										.delay(1000)
 										.animate({right:10},300,function(){
+											if(newsItems.length < 2) return false;
 											setNextTimeout();
 										});
 									});
@@ -540,12 +563,14 @@
 										$('.activeRollerItem',element)
 										.delay(1000)
 										.animate({left:10},300,function(){
+											if(newsItems.length < 2) return false;
 											setNextTimeout();
 										});
 									});
 								}
 							}
 							else{
+								if(newsItems.length < 2) return false;
 								setNextTimeout();
 							}
 						}
@@ -556,7 +581,7 @@
 						}
 
 						function logThis(message){
-							if(console.log && settings.developerMode == true){
+							if(settings.developerMode == true){
 								console.log(message);
 							}
 						}
@@ -588,12 +613,14 @@
 					rssCats: '',
 					rssSources: '',
 					rssColors: '',
+					showDate:false,
 					googleApi:true,
 					feedLoader:'',
 					feedsOrder:'older',
 					linkTarget:'_blank',
 					controllerType: false,
 					googleFont: true,
+					imagesPath:'',
 					developerMode: false
 				}
 			})(jQuery);

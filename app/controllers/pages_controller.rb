@@ -6,6 +6,24 @@ class PagesController < ApplicationController
 
   def faqs
   end
+
+  def faqs_basics
+  end
+
+  def faqs_community
+  end
+
+  def faqs_media
+  end
+
+  def faqs_events
+  end
+
+  def faqs_projects
+  end
+
+  def faqs_market
+  end
   
   def terms
   end

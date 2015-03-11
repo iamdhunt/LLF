@@ -1,0 +1,142 @@
+#error_wrap {
+	position: relative;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 100vh;
+	padding: 5% 0;
+}
+#e_404 #error_wrap {
+	background-image: url("/assets/404.png");
+}
+#er_info {
+	padding: 30px;
+	background-color: rgba(199, 199, 199, 0.7);
+	border-radius: 20px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.p_h_wrap {
+	padding-bottom: .5em;
+}
+.p_head {
+	font-size: 1.5em;
+	color: #444;
+	padding-bottom: .5em;
+}
+#content_wrap .accordion-header {
+	font-size: 1.2em;
+	font-weight: bold;
+	background: none;
+	border-radius: 0;
+	padding: 10px 0;
+	color: #898989;
+	border-bottom: 1px solid #f1f1f1;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+}
+#content_wrap .accordion-header:hover {
+	color: #333;
+}
+#content_wrap .focus {
+	background: #f1f1f1 !important;
+	color: #333 !important;
+}
+#content_wrap .opened {
+	background: #f1f1f1 !important;
+	color: #333 !important;
+}
+#content_wrap .accordion-content {
+	border: none;
+}
+.accordion-header:hover > [class^="icon-grey"],
+.accordion-header:hover > [class*=" icon-grey"] {
+	background-image: url('/assets/glyphicons-halflings-dark.png') !important;
+}
+.accordion-header.opened.focus > [class^="icon-grey"],
+.accordion-header.opened.focus > [class*="icon-grey"] {
+	background-image: url('/assets/glyphicons-halflings-dark.png') !important;
+}
+#faq_bg {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("/assets/FAQs Main 1.png");
+	width: 100%;
+	height: 100vh;
+	padding: 5% 0;
+}
+.faq_wrap {
+	text-align: center;
+}
+.faq_wrap a {
+	font-size: 3em;
+}
+.faq_wrap a img:hover {
+	opacity: 1;
+}
+.faq_wrap a:hover {
+	text-decoration: none;
+}
+.faq_wrap table {
+	margin-left: auto;
+	margin-right: auto;
+}
+.fq_list {
+	padding: 3em 4em;
+	text-align: center;
+}
+.fq_list a {
+	padding: 30px;
+	background-color: rgba(199, 199, 199, 0.7);
+	border-radius: 20px;
+	color: #fff;
+}
+.fq_list a:hover {
+	background-color: rgba(199, 199, 199, 0.85);
+}
+.faq_wrap .tb a {
+	padding: 30px 86px;
+}
+.faq_wrap .cmy a {
+	background-color: rgba(148, 47, 198, 0.7);
+}
+.faq_wrap .cmy a:hover {
+	background-color: rgba(148, 47, 198, 0.85);
+}
+.faq_wrap .md a {
+	background-color: rgba(231, 111, 42, 0.7);
+	padding: 30px 97px;
+}
+.faq_wrap .md a:hover {
+	background-color: rgba(231, 111, 42, 0.85);
+}
+.faq_wrap .evt a {
+	background-color: rgba(27, 134, 77, 0.7);
+	padding: 30px 79px;
+}
+.faq_wrap .evt a:hover {
+	background-color: rgba(27, 134, 77, 0.85);
+}
+.faq_wrap .prj a {
+	background-color: rgba(218, 79, 73, 0.7);
+	padding: 30px 48px;
+}
+.faq_wrap .prj a:hover {
+	background-color: rgba(218, 79, 73, 0.85);
+}
+.faq_wrap .mkt a {
+	background-color: rgba(27, 133, 166, 0.7);
+	padding: 30px 75px;
+}
+.faq_wrap .mkt a:hover {
+	background-color: rgba(27, 133, 166, 0.85);
+}
+.fq_icon {
+	width: 60px;
+	height: 60px;
+	vertical-align: sub;
+}

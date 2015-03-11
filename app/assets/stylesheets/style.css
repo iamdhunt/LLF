@@ -133,7 +133,6 @@ table {
 #error_txt {
 	font-weight: bold;
 	text-align: center;
-	margin-top: 40px;
 }
 
 #error_txt .txt_1 {
@@ -143,8 +142,8 @@ table {
 
 #error_txt .txt_2 {
 	font-size: 30px;
-	color: #636363;
-	padding: 0 30%;
+	color: #fff;
+	padding: 0 25%;
 }
 #error_img {
 	text-align: center;
@@ -165,11 +164,6 @@ table {
 	margin-right: auto;
 	margin-bottom: 150px;
 	width: 72%;
-}
-#error_wrap {
-	position: relative;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 /* Navigation Bar*/
@@ -381,14 +375,13 @@ margin: 10px 5px 0 10px;
 #error_explanation ul {
 	padding: 0 20px;
 }
-#content_wrap {
-	background-image: url('/assets/Container BG.png');
-	border-color:#EFEFEF;
-	border-style:solid;
-	border-width:0 2px 2px 2px;	
-	padding: 1.333em 1.333em;
-	color: #333;
+#content_wrap {	
+	padding: 3em 0 150px 0;
 	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+
 }
 
 #signin_wrap {
@@ -1191,8 +1184,6 @@ hr.contact {
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
-	padding: 3px;
-	border-radius: 4px;
 	text-decoration: none;
 }
 
@@ -1880,6 +1871,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) and (orientation : landscape) {
     .login_wrap {
@@ -1942,6 +1939,12 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
+	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
 	}
 }
 
@@ -2007,6 +2010,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) {
     .login_wrap {
@@ -2054,6 +2063,12 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
+	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
 	}
 }
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
@@ -2103,6 +2118,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
     .login_wrap {
@@ -2151,6 +2172,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
     .login_wrap {
@@ -2198,6 +2225,12 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
+	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
 	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2048px) {
@@ -2265,6 +2298,12 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
+	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
 	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : portrait) {
@@ -2336,6 +2375,12 @@ label.active {
 	#pb {
 		padding-left: 15%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) and (orientation : landscape) {
     .login_wrap {
@@ -2403,6 +2448,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) and (orientation : portrait) {
     .login_wrap {
@@ -2455,6 +2506,12 @@ label.active {
 	#mquery #main_wrap {
 		width: 98%;
 	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1280px) and (orientation : landscape) {
     .login_wrap {
@@ -2506,5 +2563,11 @@ label.active {
 	}
 	#mquery #main_wrap {
 		width: 98%;
+	}
+	#content_wrap {	
+		width: 98%;
+	}
+	#faq_bg {
+		background-image: url("/assets/FAQs Main 2.png");
 	}
 }

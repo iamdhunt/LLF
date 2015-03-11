@@ -7,9 +7,9 @@
             <ul id="main_menu">
                 <li class="h_i">
                     <% if member_signed_in? %>
-                        <%= link_to image_tag("favicon 3.ico", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
+                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
                     <% else %>       
-                        <%= image_tag("favicon 3.ico", :class => "menu_logo") %>
+                        <%= image_tag("Favicon.png", :class => "menu_logo") %>
                     <% end %>
                 </li>
                 <li>

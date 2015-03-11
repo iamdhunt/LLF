@@ -1,15 +1,52 @@
 <% title "LLF x FAQ's" %>
 
-<div id="">
+<div id="faq_bg">
 
-	<div id="faq_wrap">
-		<div class="none_message">
-            Coming Soon!
-        </div>
-	</div> 
-  
-<!--/content_wrap-->
+		<div class="faq_wrap">
+
+			<table style="">
+			  <tr>
+			    <td class="fq_list tb">
+			    	<%= link_to faqs_basics_path, title: "Basics FAQ's", alt: "Basics FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> BASICS
+			   		<% end %>
+			    </td>		
+			    <td class="fq_list cmy">
+			    	<%= link_to faqs_community_path, title: "Community FAQ's", alt: "Community FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> COMMUNITY
+			   		<% end %>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td class="fq_list md">
+			    	<%= link_to faqs_media_path, title: "Media FAQ's", alt: "Media FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> MEDIA
+			   		<% end %>
+			    </td>		
+			    <td class="fq_list evt">
+			    	<%= link_to faqs_events_path, title: "Events FAQ's", alt: "Events FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> EVENTS
+			   		<% end %>
+			    </td>
+			  </tr>
+			  <tr>
+			    <td class="fq_list prj">
+			    	<%= link_to faqs_projects_path, title: "Projects FAQ's", alt: "Projects FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> PROJECTS
+			   		<% end %>
+			    </td>		
+			    <td class="fq_list mkt">
+			    	<%= link_to faqs_market_path, title: "Market FAQ's", alt: "Market FAQ's", :class => "" do %>
+			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> MARKET
+			   		<% end %>
+			    </td>
+			  </tr>
+			</table>
+
+		</div>
+
+<!--/faq_wrap-->
 
 </div>
 
-<!--/main_wrap-->
+<!--/faq_bg-->
