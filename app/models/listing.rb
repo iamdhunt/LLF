@@ -21,7 +21,7 @@ class Listing < ActiveRecord::Base
                               message: 'must not list more than 5 tags.'
                             },
                             format: {
-                              with: /^[a-zA-Z ,-]+$/,
+                              with: /^[a-zA-Z0-9 ,-]+$/,
                               message: 'must not include any special characters or numbers.'
                             }
     validates :price, presence: true,
@@ -74,7 +74,7 @@ class Listing < ActiveRecord::Base
 	  def each_marker
 	    marker_list.each do |marker|
 	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-	      errors.add(:marker, "Too long (Maximum is 15 characters)") if marker.length > 15
+	      errors.add(:marker, "Too long (Maximum is 30 characters)") if marker.length > 30
 	    end
 	  end
 

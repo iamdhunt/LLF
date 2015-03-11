@@ -24,12 +24,6 @@
       <div class="act_media_content">
         <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
       </div>
-
-      <% if medium.caption %>
-        <div id="fancyboxTitles" style="display: none;">
-            <div><%= Rinku.auto_link(medium.caption).html_safe %></div>
-        </div>
-      <% end %>
     <% end %>
 
     <% if medium.caption? %>
@@ -40,7 +34,7 @@
 
     <% if medium.marker_list %>
       <div class="t_s">
-        <%= medium.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "media", :action => "index", :media => m }.join(' ').html_safe %>
+        <%= medium.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "media", :action => "index", :media => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
       </div>
     <% end %>
 

@@ -103,11 +103,14 @@
               &raquo; Select the appropriate category for your listing
             </li>
             <li>
-              &raquo; Provide up to five of the most relevant tags
+              &raquo; Provide up to 5 of the most relevant tags
             </li>
             <li>
-              &raquo; Comma separated, 15 characters per
+              &raquo; Comma separated, 30 characters per
             </li>
+            <li>
+                &raquo; Alphanumeric, no special characters
+              </li>
           </ul>
         </div>
         <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: 'Category', error: false, input_html: { class: 'forms settings', tabindex: '4' } %>

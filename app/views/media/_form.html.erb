@@ -18,11 +18,14 @@
         &raquo; Provide up to 5 of the most relevant tags
       </li>
       <li>
-        &raquo; Comma separated, 15 characters per
+        &raquo; Comma separated, 30 characters per 
+      </li>
+      <li>
+        &raquo; Alphanumeric, no special characters
       </li>
     </ul>
   </div>
-  <%= f.input :marker_list, label: false, error: false, placeholder: 'Tags (Recommended)', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
+  <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
 
   <div class="form-actions">
     <%= f.button :submit, 'Upload', :class => "btn btn-warning" %>

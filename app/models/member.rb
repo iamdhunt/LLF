@@ -227,7 +227,7 @@ class Member < ActiveRecord::Base
   def each_pursuit
     pursuit_list.each do |pursuit|
       # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-      errors.add(:pursuit, "Too long (Maximum is 25 characters)") if pursuit.length > 25
+      errors.add(:pursuit, "Too long (Maximum is 30 characters)") if pursuit.length > 30
     end
   end
 

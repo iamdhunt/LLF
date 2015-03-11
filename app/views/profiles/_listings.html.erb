@@ -76,7 +76,7 @@
 
 			<div id="pdl_b">
 				<div class="pdl_mks">
-					<%= listing.marker_list.map { |m| link_to '+ ' + m.titleize, :controller => "listings", :action => "index", :listings => m }.join(' ').html_safe %>
+					<%= listing.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
 				</div>
 			</div>
 		</div>

@@ -47,4 +47,8 @@ module ApplicationHelper
 		end
 	end
 
+	def truncate_tag(tag)
+	  tag.size > 17 ? tag[0,14] + "..." : tag
+	end
+
 end
