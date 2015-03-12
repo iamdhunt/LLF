@@ -10,7 +10,8 @@ $(document).ready(function(){
 		rssLimit:4,		
 		linkTarget:'_blank',
 		pausetime: 3500,
-		shuffle: true
+		shuffle: true,
+		shadow: false
 	});
 
 });
