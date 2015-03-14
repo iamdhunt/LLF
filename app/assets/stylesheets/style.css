@@ -1804,7 +1804,7 @@ label.active {
 	font-size: 80px;
 }
 .contact_links {
-	padding: 0 45px;
+	text-align: center;
 }
 .contact_email {
 	text-align: center;
