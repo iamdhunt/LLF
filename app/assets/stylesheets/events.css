@@ -54,14 +54,14 @@
 .ev_wrap .comment_name {
 	font-size: 1.3em;
 	cursor: default;
+	margin-bottom: 2px;
 }
 .ev_wrap .owner {
-	font-size: 14px;
+	font-size: 12px;
 	color: #fff;
-	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(33, 158, 92);
-	padding: 1px 3px;
-	border-radius: 5px;
+	padding: 1px 4px;
+	border-radius: 4px;
 }
 .ev_wrap .meta {
 	font-size: 1em;

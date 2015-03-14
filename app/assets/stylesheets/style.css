@@ -290,6 +290,16 @@ margin: 10px 5px 0 10px;
 }
 
 /* Content */
+#home_wrapper {
+	position: relative;
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("/assets/Registration.png");
+	width: 100%;
+	height: 100vh;
+	padding: 5% 0;
+}
 
 #home_wrap {
 	background-position: center top;
@@ -410,10 +420,10 @@ margin: 10px 5px 0 10px;
 }
 
 #content_wrap li {
-	list-style-position: inside;
-	list-style-type: circle;
+	list-style-position: outside;
+	list-style-type: disc;
 	margin-bottom: 10px;
-	margin-left: 20px;
+	margin-left: 35px;
 }
 
 #contest_content li {
@@ -1877,6 +1887,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) and (orientation : landscape) {
     .login_wrap {
@@ -1945,6 +1958,9 @@ label.active {
 	}
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
+	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
 	}
 }
 
@@ -2016,6 +2032,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) {
     .login_wrap {
@@ -2069,6 +2088,9 @@ label.active {
 	}
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
+	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
 	}
 }
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
@@ -2124,6 +2146,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
     .login_wrap {
@@ -2178,6 +2203,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
     .login_wrap {
@@ -2231,6 +2259,9 @@ label.active {
 	}
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
+	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
 	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2048px) {
@@ -2304,6 +2335,9 @@ label.active {
 	}
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
+	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
 	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : portrait) {
@@ -2381,6 +2415,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) and (orientation : landscape) {
     .login_wrap {
@@ -2454,6 +2491,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) and (orientation : portrait) {
     .login_wrap {
@@ -2512,6 +2552,9 @@ label.active {
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
 	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
+	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1280px) and (orientation : landscape) {
     .login_wrap {
@@ -2569,5 +2612,8 @@ label.active {
 	}
 	#faq_bg {
 		background-image: url("/assets/FAQs Main 2.png");
+	}
+	#home_wrapper {
+		background-image: url("/assets/Registration 2.png");
 	}
 }

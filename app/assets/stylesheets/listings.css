@@ -186,6 +186,7 @@
 #pd_c_wrap .comment_name {
 	font-size: 1.3em;
 	cursor: default;
+	margin-bottom: 2px;
 }
 #pd_c_wrap .com_con {
 	padding: 0 0 0 51px;
@@ -196,11 +197,11 @@ font-size: 1em;
 font-weight: normal;
 }
 #pd_c_wrap .owner {
-	font-size: 14px;
+	font-size: 12px;
 	color: #fff;
 	background-color: rgb(27, 133, 166);
-	padding: 1px 3px;
-	border-radius: 5px;
+	padding: 1px 4px;
+	border-radius: 4px;
 }
 #pd_c_wrap .comment_del img {
 	width: 16px;

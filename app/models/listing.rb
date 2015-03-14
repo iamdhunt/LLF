@@ -32,7 +32,7 @@ class Listing < ActiveRecord::Base
                               with: /^[0-9 ,.]+$/,
                               message: 'must not include any special characters or letters.'
                             }
-    validates_numericality_of :price, :less_than_or_equal_to => 1499, message: 'can\'t be greater than 1,499.'
+    validates_numericality_of :price, :less_than_or_equal_to => 1500, message: 'can\'t be greater than 1,500.'
 
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price

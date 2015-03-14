@@ -14,6 +14,13 @@ class Update < ActiveRecord::Base
 
   	after_commit :create_notification, on: :create
 
+  	auto_html_for :content do
+	    image
+	    youtube(:width => 660, :height => 400, :autoplay => false)
+	    vimeo(:width => 660, :height => 400, :autoplay => false)
+	    simple_format
+	end
+
 	def create_notification
 		subject = "#{member.user_name}"
 		body = "posted a new update <i>\"#{title}\"</i> in <b>#{updateable.name}</b> <p><i>#{content}</i></p>"
