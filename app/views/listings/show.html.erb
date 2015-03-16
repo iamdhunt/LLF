@@ -6,165 +6,169 @@
     <div id="banner" style="background-image: url('/assets/Market Banner.png');"></div>
   <% end %>
 
-  <div id="li_sh_wrap">
+  <div id="lstgs_wrap">
 
-    <div id="pd_top">
+    <div id="li_sh_wrap">
 
-      <div id="bc_wrap">
-        <div class="breadcrumbs">
-          <span><%= link_to "Market", market_path %></span> &raquo; <span><%= link_to "Listings", listings_path %></span> &raquo; <span><%= @listing.title %></span>
-        </div>
-      </div>
+      <div id="pd_top">
 
-      <div class="pd_info_wrap">
-        <div class="pd_cat">
-          <%= @listing.category %>
-        </div>
-
-        <div class="pd_mk">
-          <%= @listing.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
-        </div>
-      </div>
-
-    </div>
-
-    <div id="pd_wrap">
-
-      <div class="pd_left">
-        <% if @listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-          <div class="feature">
-            <%= link_to image_tag(@listing.feature.url(:feature)), @listing.feature.url(:large), class: "fancybox", rel: "product_gall" %>
+        <div id="bc_wrap">
+          <div class="breadcrumbs">
+            <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span><%= @listing.title %></span>
           </div>
-        <% end %>
+        </div>
 
-        <% if @listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-          <div class="feature act_media_content">
-            <% if @listing.cover? %>
-              <div id='lstgs_art' style="background-image: url(<%= @listing.cover.url(:cover) %>)">
-            <% else %>
-              <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
-            <% end %>
-              <div class="ui360 ui360-vis lstgs">
-                <%= link_to '', "http://#{@listing.feature.url.sub(/^https?\:\/\//, '')}" %>
+        <div class="pd_info_wrap">
+          <div class="pd_cat">
+            <%= @listing.category %>
+          </div>
+
+          <div class="pd_mk">
+            <%= @listing.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "listings", :action => "index", :listings => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="pd_wrap">
+
+        <div class="pd_left">
+          <% if @listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+            <div class="feature">
+              <%= link_to image_tag(@listing.feature.url(:feature)), @listing.feature.url(:large), class: "fancybox", rel: "product_gall" %>
+            </div>
+          <% end %>
+
+          <% if @listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+            <div class="feature act_media_content">
+              <% if @listing.cover? %>
+                <div id='lstgs_art' style="background-image: url(<%= @listing.cover.url(:cover) %>)">
+              <% else %>
+                <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
+              <% end %>
+                <div class="ui360 ui360-vis lstgs">
+                  <%= link_to '', "http://#{@listing.feature.url.sub(/^https?\:\/\//, '')}" %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-
-        <div class="img_wrap">
-          <% @listing.assets.each do | asset | %>
-            <span class="imgs">
-                <%= link_to image_tag(asset.asset(:thumb)), asset.asset.url(:large), class: "fancybox", rel: 'product_gall' %>
-            </span>
           <% end %>
-        </div>
-      </div>
 
-      <div class="pd_right">
-        <div class="title">
-          <%= @listing.title %>
-        </div>
-
-        <div class="action">
-          <%= list_av @listing.member, :class => "pr_av", title: @listing.member.full_name, alt: @listing.member.full_name  %>
-          <% if member_signed_in? %>
-            <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
-              <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
-            </span>
-            <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-            <% if current_member == @listing.member %>
-              <span class="btn-group">
-                <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                  <ul class="dropdown-menu">            
-                    <li>
-                      <%= link_to "Edit", edit_listing_path(@listing), class: '' %>
-                    </li>
-                    <li class="del">
-                      <%= link_to "Delete", @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </li>
-                  </ul>
+          <div class="img_wrap">
+            <% @listing.assets.each do | asset | %>
+              <span class="imgs">
+                  <%= link_to image_tag(asset.asset(:thumb)), asset.asset.url(:large), class: "fancybox", rel: 'product_gall' %>
               </span>
             <% end %>
+          </div>
+        </div>
+
+        <div class="pd_right">
+          <div class="title">
+            <%= @listing.title %>
+          </div>
+
+          <div class="action">
+            <%= list_av @listing.member, :class => "pr_av", title: @listing.member.full_name, alt: @listing.member.full_name  %>
+            <% if member_signed_in? %>
+              <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+                <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
+              </span>
+              <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+              <% if current_member == @listing.member %>
+                <span class="btn-group">
+                  <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                    <ul class="dropdown-menu">            
+                      <li>
+                        <%= link_to "Edit", edit_listing_path(@listing), class: '' %>
+                      </li>
+                      <li class="del">
+                        <%= link_to "Delete", @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </li>
+                    </ul>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+
+          <div class="lst_fav_ct">
+            <span id="lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+              <%= render :partial => "listings/fav_count", :locals => {:listing => @listing} %>
+            </span>
+          </div>
+
+          <div class="price">
+            <% if @listing.price == 0 %>
+              Free
+            <% else %>
+              <%= number_to_currency(@listing.price) %>
+            <% end %>
+          </div>
+
+          <div class="cta">
+            <%= link_to "Buy Now", @listing.link, class: 'btn btn-large btn-buy' %>
+          </div>
+
+          <div class="desc">
+            <%= @listing.description %>
+          </div>
+
+          <% if @additional.count > 0 %>
+            <div class="additional">
+              More from <span class="u_name"><%= link_to @listing.member.user_name, profile_market_path(@listing.member), title: 'View All Listings', alt: 'View All Listings' %></span>
+            </div>
+
+            <div id="adt_lstgs">
+                <%= render partial: 'additional' %>
+            </div>
           <% end %>
+          
         </div>
 
-        <div class="lst_fav_ct">
-          <span id="lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
-            <%= render :partial => "listings/fav_count", :locals => {:listing => @listing} %>
-          </span>
-        </div>
+        <div style="clear:both;"></div>
 
-        <div class="price">
-          <% if @listing.price == 0 %>
-            Free
+      </div>
+
+      <div id="pd_c_wrap">
+
+        <div id="">
+          <% if member_signed_in? %>
+            <div id="c_form_wrap">
+              <%= render "shared/comment_form" %>
+            </div>
           <% else %>
-            <%= number_to_currency(@listing.price) %>
+              <div class="c_message">Must be logged in to leave a comment.</div>
           <% end %>
-        </div>
 
-        <div class="cta">
-          <%= link_to "Buy Now", @listing.link, class: 'btn btn-large btn-buy' %>
-        </div>
-
-        <div class="desc">
-          <%= @listing.description %>
-        </div>
-
-        <% if @additional.count > 0 %>
-          <div class="additional">
-            More from <span class="u_name"><%= link_to @listing.member.user_name, profile_market_path(@listing.member), title: 'View All Listings', alt: 'View All Listings' %></span>
+          <div id="comments_<%= @commentable.id %>" class="">
+            <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
           </div>
 
-          <div id="adt_lstgs">
-              <%= render partial: 'additional' %>
-          </div>
-        <% end %>
-        
-      </div>
+          <%= will_paginate @comments, class: 'display_none' %>
 
-      <div style="clear:both;"></div>
-
-    </div>
-
-    <div id="pd_c_wrap">
-
-      <div id="">
-        <% if member_signed_in? %>
-          <div id="c_form_wrap">
-            <%= render "shared/comment_form" %>
-          </div>
-        <% else %>
-            <div class="c_message">Must be logged in to leave a comment.</div>
-        <% end %>
-
-        <div id="comments_<%= @commentable.id %>" class="">
-          <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
+            <% if @comments.total_pages != @comments.current_page %>
+              <div id="loading"></div>  
+                  <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                    <div class="com_show">
+                      Show More
+                    </div>
+                  <% end %>
+            <% end %>
         </div>
 
-        <%= will_paginate @comments, class: 'display_none' %>
-
-          <% if @comments.total_pages != @comments.current_page %>
-            <div id="loading"></div>  
-                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                  <div class="com_show">
-                    Show More
-                  </div>
-                <% end %>
-          <% end %>
       </div>
 
     </div>
 
-  </div>
-
-  <div class="s_modal">
-    <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Copy Listing URL</h3>
-      </div>
-      <div class="modal-body pi">
-        <input class="pr_in forms" value="<%= listing_url %>" onclick="this.select()" />
+    <div class="s_modal">
+      <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Copy Listing URL</h3>
+        </div>
+        <div class="modal-body pi">
+          <input class="pr_in forms" value="<%= listing_url %>" onclick="this.select()" />
+        </div>
       </div>
     </div>
+
   </div>

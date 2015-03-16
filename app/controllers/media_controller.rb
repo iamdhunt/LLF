@@ -129,6 +129,15 @@ class MediaController < ApplicationController
     end
   end
 
+  def popular
+    @media = Medium.joins(:votes).group("media.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(63)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @media }
+    end
+  end 
+
   def url_options
     { user_name: params[:user_name] }.merge(super)
   end 

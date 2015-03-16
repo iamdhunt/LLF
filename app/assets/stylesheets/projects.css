@@ -853,3 +853,9 @@ vertical-align: baseline;
 #proj_fol {
 	padding-left: 30px;
 }
+.breadcrumbs .pjts a {
+	color: rgb(218, 79, 73);
+}
+.breadcrumbs .pjts a:hover {
+	color: #898989;
+}

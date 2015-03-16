@@ -8,7 +8,21 @@
         <% if @facet != nil || @query != nil || @city_facet != nil %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
-                    <span><%= link_to "Projects", projects_path %></span> &raquo; <span>Discover</span>
+                    <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span>Discover</span>
+                </div>
+
+                <div class="popular">
+                  <%= link_to popular_projects_path, title: 'Popular Projects', alt: 'Popular Projects' do %>
+                    <i class="icon-heart icon-white"></i> Popular
+                  <% end %>
+                </div>
+            </div>
+        <% else %>
+            <div id="bc_wrap">
+                <div class="popular">
+                  <%= link_to popular_projects_path, title: 'Popular Projects', alt: 'Popular Projects' do %>
+                    <i class="icon-heart icon-white"></i> Popular
+                  <% end %>
                 </div>
             </div>
         <% end %>

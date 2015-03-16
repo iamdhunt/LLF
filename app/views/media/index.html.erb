@@ -2,16 +2,31 @@
 
 <%= render :partial => "banner" %>
 
-<div id="md_wrap">
+<div id="md_wrap" class="md_index">
 
   <div id="sb_wrap" class="">
+
       <% if @facet != nil || @query != nil %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
-                    <span><%= link_to "Media", media_path %></span> &raquo; <span>Discover</span>
+                    <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Discover</span>
+                </div>
+
+                <div class="popular">
+                  <%= link_to popular_media_path, title: 'Popular Media', alt: 'Popular Media' do %>
+                    <i class="icon-heart icon-white"></i> Popular
+                  <% end %>
                 </div>
             </div>
-        <% end %>
+      <% else %>
+            <div id="bc_wrap">
+                <div class="popular">
+                  <%= link_to popular_media_path, title: 'Popular Media', alt: 'Popular Media' do %>
+                    <i class="icon-heart icon-white"></i> Popular
+                  <% end %>
+                </div>
+            </div>
+      <% end %>
 
       <div class="sb_text">
           Browse the most popular tags.</br>
@@ -27,6 +42,7 @@
               <span class="btag"><%= link_to('+ ' + row.value.titleize, params.merge({:tag => row.value}), title: row.value.titleize, alt: row.value.titleize) %></span>
           <% end %>
         </div>
+
   </div>
 
   <% if @facet != nil || @query != nil %>

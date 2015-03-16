@@ -66,7 +66,7 @@
 				</div>
 
 				<div class="pl_ts">
-					<%= event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+					<%= event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "events", :action => "index", :events => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
 				</div>
 			</div>
 

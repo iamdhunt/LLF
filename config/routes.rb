@@ -1,9 +1,5 @@
 LLF::Application.routes.draw do
 
-  get "mentions/new"
-
-  get "mentions/destroy"
-
   devise_scope :member do
     match '/settings' => 'registrations#settings', as: :settings
     match '/avatar' => 'registrations#avatar', as: :avatar
@@ -23,6 +19,9 @@ LLF::Application.routes.draw do
     resources :uploads
     resources :updates
     resources :follows, :controller => 'follows_projects', :only => [:create, :destroy]
+    collection do
+      get 'popular', to: "projects#popular", :as => 'popular'
+    end
     member do
       put "favorite", to: "projects#upvote"
       get 'uploads/cancel', to: "uploads#cancel"
@@ -34,6 +33,9 @@ LLF::Application.routes.draw do
     resources :uploads 
     resources :updates
     resources :follows, :controller => 'follows_events', :only => [:create, :destroy]
+    collection do
+      get 'popular', to: "events#popular", :as => 'popular'
+    end
     member do
       put "favorite", to: "events#upvote"
       get 'uploads/cancel', to: "uploads#cancel"
@@ -47,6 +49,9 @@ LLF::Application.routes.draw do
   scope 'market' do
     resources :listings do
       resources :comments
+        collection do
+          get 'popular', to: "listings#popular", :as => 'popular'
+        end
       member do
         put "favorite", to: "listings#upvote"
       end
@@ -63,6 +68,9 @@ LLF::Application.routes.draw do
 
   resources :media do
     resources :comments
+    collection do
+      get 'popular', to: "media#popular", :as => 'popular'
+    end
     member do
       put "favorite", to: "media#upvote"
       put "cancel", to: "media#cancel"

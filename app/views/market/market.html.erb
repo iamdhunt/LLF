@@ -2,49 +2,60 @@
 
 <%= render :partial => "banner" %>
 
-<div id="sb_wrap">
-    <div id="bc_wrap">
-        <div class="breadcrumbs">
-            <span>Market</span> &raquo; <span><%= link_to "Listings", listings_path %></span>
-        </div>
-    </div>
-</div>
+<div id="lstgs_wrap">
 
-<div id="mk_wrap">
-
-    <div id="mk_head" >
-        <div>
-            <span class="h pl">
-                POPULAR
-            </span>
+    <div id="sb_wrap">
+        <div id="bc_wrap">
+            <div class="breadcrumbs">
+                <span>Market</span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span>
+            </div>
         </div>
     </div>
 
-    <div id="li_index">
-        <div id="pop_lstgs">
-            <%= render partial: 'listings/pop_listings' %>
-        </div>
-    </div>
+    <div id="mk_wrap">
 
-    <div id="mk_head" class="mk_2">
-        <div>
-            <span class="h mk">
-                <%= link_to(listings_path, class: "") do %>
-                    MARKET
-                <% end %>
-            </span>
-            <span class="mk_l v_a">
-                <%= link_to(listings_path, class: "") do %>
-                    view all &raquo;
-                <% end %>
-            </span>
+        <div id="mk_head" >
+            <div>
+                <span class="h pl">
+                    <%= link_to(popular_listings_path, class: "") do %>
+                        POPULAR
+                    <% end %>       
+                </span>
+                <span class="pl_l v_a">
+                    <%= link_to(popular_listings_path, class: "") do %>
+                        view all &raquo;
+                    <% end %>
+                </span>
+            </div>
         </div>
-    </div>
 
-    <div id="li_index">
-        <div id="lstgs" class="">
-            <%= render partial: 'listings/listings' %>
+        <div id="li_index">
+            <div id="pop_lstgs">
+                <%= render partial: 'listings/pop_listings' %>
+            </div>
         </div>
+
+        <div id="mk_head" class="mk_2">
+            <div>
+                <span class="h mk">
+                    <%= link_to(listings_path, class: "") do %>
+                        MARKET
+                    <% end %>
+                </span>
+                <span class="mk_l v_a">
+                    <%= link_to(listings_path, class: "") do %>
+                        view all &raquo;
+                    <% end %>
+                </span>
+            </div>
+        </div>
+
+        <div id="li_index">
+            <div id="lstgs" class="">
+                <%= render partial: 'listings/listings' %>
+            </div>
+        </div>
+
     </div>
 
 </div>

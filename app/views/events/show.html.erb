@@ -16,7 +16,7 @@
         <% end %>
         <% if @event.marker_list %>
           <li class='sub'>
-            <span class='acct'><%= @event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
+            <span class='acct'><%= @event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "events", :action => "index", :events => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
           </li> 
         <% end %> 
         <% if @event.website? %>  

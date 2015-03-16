@@ -140,6 +140,15 @@ class EventsController < ApplicationController
     end
   end
 
+  def popular
+    @events = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
  private
   def find_member
     @member = Member.find_by_user_name(params[:user_name])

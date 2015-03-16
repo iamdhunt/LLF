@@ -17,12 +17,12 @@
 	</div>
 
 	<div class="act_ts">
-		<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+		<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "events", :action => "index", :events => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
 	</div>
 
 	<% if activity.targetable.location? %>
 		<div class='act_loc'>
-			<%= link_to(:controller => "events", :action => "index", :search => activity.targetable.location) do %>
+			<%= link_to(:controller => "events", :action => "index", :events => activity.targetable.location) do %>
 	            <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.location.titleize %>
 	        <% end %>
 		</div>

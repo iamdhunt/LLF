@@ -1,0 +1,54 @@
+<% title "LLF x Popular Media" %>
+
+<%= render :partial => "banner" %>
+
+<div id="md_wrap" class="pop_wrap_m">
+
+  <div id="sb_wrap" class="">
+
+    <div id="bc_wrap">
+        <div class="breadcrumbs">
+            <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Popular</span>
+        </div>
+    </div>
+
+  </div>
+
+  <div id="stream_filters" class="form-inline">
+        <span class="filters all">
+            <label for="filter__">
+            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+            </label>
+        </span>
+        <span class="filters photos">
+            <label for="filter_.photo_fil">
+            <%= radio_button_tag(:filter, ".photo_fil") %> Photos
+            </label>
+        </span>
+        <span class="filters audio">
+            <label for="filter_.audio_fil">
+            <%= radio_button_tag(:filter, ".audio_fil") %> Audio
+            </label>
+        </span>
+    </div>
+
+  <div id="media_query_media">
+      <div id="media_list_wrap">
+
+          <%= render partial: 'media', :collection => @media, :as => :medium %>
+
+      </div>
+  </div>
+
+  <%= will_paginate @media, class: 'display_none' %>
+
+  <% if @media.total_pages != @media.current_page %>
+    <div id="loading"></div>
+    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+          <div class="com_show">
+            Show More
+          </div>
+        <% end %>
+  <% end %>
+
+</div>

@@ -18,13 +18,16 @@
 #mk_head .ap a:hover {
 	text-decoration: none;
 }
-#mk_head .pl {
+#mk_head .pl a {
 	color: #E83E44;
+}
+#mk_head .pl a:hover {
+	text-decoration: none;
 }
 #mk_head .mk a {
 	color: #1b85a6;
 }
-#mk_head .mk a {
+#mk_head .mk a:hover {
 	text-decoration: none;
 }
 #mk_head .v_a {
@@ -41,6 +44,10 @@
 #mk_head .mk_l a {
 	color: #1b85a6;
 }
+#mk_head .pl_l a {
+	color: #E83E44;
+}
+
 #listings {
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
@@ -51,4 +58,10 @@
 }
 #listings::-moz-placeholder {
 	font-size: 1.1em;
+}
+.breadcrumbs .lstgs a {
+	color: rgb(27, 133, 166);
+}
+.breadcrumbs .lstgs a:hover {
+	color: #898989;
 }

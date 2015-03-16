@@ -300,3 +300,27 @@ top: 25%;
 #media::-moz-placeholder {
 	font-size: 1.1em;
 }
+.pop_wrap_m #sb_wrap {
+	width: 98%;
+}
+.breadcrumbs .mda a {
+	color: rgb(231, 111, 42);
+}
+.breadcrumbs .mda a:hover {
+	color: #898989;
+}
+.popular {
+	background-color: #E83E44;
+	font-weight: bold;
+	padding: 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	display: inline-block;
+}
+.popular a {
+	color: #fff;
+}
+.popular a:hover {
+	opacity: .85;
+	text-decoration: none;
+}
