@@ -2,14 +2,27 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :asset, label: false, error: false, as: :file %>
+
+    <div class="custom-file-upload fu1_wrap">
+      <label for="file-upload" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Browse
+        <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
+      </label>
+    </div>
     <%= bootstrap_paperclip_media f, :asset %>
+
     <div class="cover_art">(Optional) Audio Cover Art</div>
-    <%= f.input :cover, label: false, error: false, as: :file %>
+
+    <div class="custom-file-upload fu2_wrap">
+      <label for="file-upload2" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Browse
+        <%= f.input :cover, label: false, error: false, as: :file, :input_html => { id: 'file-upload2', class: 'cfu' } %>
+      </label>
+    </div>
+
     <div class="cap">
     	<span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
     <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
+
   </div>
 
   <div class="med_instructions">
@@ -25,10 +38,12 @@
       </li>
     </ul>
   </div>
+
   <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
 
   <div class="form-actions">
     <%= f.button :submit, 'Upload', :class => "btn btn-warning" %>
-    <%= link_to 'Cancel', {:controller => :profiles, :action => :media_cancel}, remote: true, :class => "btn btn-danger pull-right" %>
+    <%= link_to 'Cancel', {:controller => :profiles, :action => :media_cancel}, remote: true, :class => "btn btn-danger pull-right", id: "mda_cancel" %>
   </div>
+
 <% end %>

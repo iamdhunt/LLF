@@ -57,6 +57,7 @@
     <div id="images" class="tab-pane">
 
       <fieldset>
+
         <legend class="descriptors">Feature Image/Audio</legend>
           <div class="edit_instructions">
             <ul>
@@ -68,13 +69,41 @@
                 </li>
             </ul>
           </div>
-          <%= f.input :feature, as: :file, label: 'Feature Image/Audio', error: false, input_html: { class: 'account settings pr_upload'} %>
-          <%= f.input :cover, as: :file, label: 'Audio Cover Art', error: false, input_html: { class: 'account settings pr_upload'} %>
-          <div class="edit_av_pd">
-            <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-              <%= image_tag f.object.feature.url(:av) %>
-            <% end %>
+
+          <div class="custom-file-upload fu1_wrap">
+            <label for="file-upload" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Feature Media *
+              <%= f.input :feature, as: :file, label: false, error: false, input_html: { id: 'file-upload', class: 'account settings pr_upload'} %>
+            </label>
           </div>
+
+          <div class="custom-file-upload fu2_wrap">
+            <label for="file-upload2" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Audio Cover
+              <%= f.input :cover, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account settings pr_upload'} %>
+            </label>
+          </div>
+
+          <div class="">
+
+            <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+              <%= image_tag f.object.feature.url(:additional) %>
+            <% end %>
+
+            <% if f.object.feature? && f.object.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+              <div class="act_media_content">
+                <% if f.object.cover? %>
+                  <div id='med_art' style="background-image: url(<%= f.object.cover.url(:form) %>)">
+                <% else %>
+                  <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+                <% end %>
+                  <div class="ui360 ui360-vis lstgs">
+                    <%= link_to '', f.object.feature.url %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+
       </fieldset>
 
       <fieldset>
@@ -84,16 +113,18 @@
                 <li>
                   &raquo; Maximum file size of 10MB (jpeg, png, gif)
                 </li>
+                <li>
+                  &raquo; Select up to 8 images
+                </li>
             </ul>
           </div>
 
-          <div class="no_label">
-            <div>
-              <%= f.simple_fields_for :assets do |asset_fields| %>
-                <% if asset_fields.object.new_record? %>
-                  <%= asset_fields.file_field :asset %>
-                <% end %>
-              <% end %>
+          <div class="">
+
+            <div class="custom-file-upload fu3_wrap">
+              <label for="file-upload3" class="cfu_label ed_l"><i class="icon-arrow-up icon-white"></i> Browse
+                <%= file_field_tag('listing_assets_asset', multiple: true, name: "listing[assets_attributes][][asset]", id: 'file-upload3', class: '') %>
+              </label>
             </div>
 
             <div>
@@ -108,7 +139,9 @@
                 <% end %>
               <% end %>
             </div>
+
           </div>
+
       </fieldset>
 
     </div>

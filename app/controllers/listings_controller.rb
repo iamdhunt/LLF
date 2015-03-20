@@ -49,7 +49,6 @@ class ListingsController < ApplicationController
   # GET /listings/new.json
   def new
     @listing = Listing.new
-    6.times { @listing.assets.build }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -59,7 +58,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    6.times { @listing.assets.build }
+    1.upto(1) { @listing.assets.build }
   end
 
   # POST /listings
@@ -101,7 +100,7 @@ class ListingsController < ApplicationController
     @listing.destroy
 
     respond_to do |format|
-      format.html { redirect_to listings_url }
+      format.html { redirect_to profile_market_path(current_member) }
       format.json { head :no_content }
       format.js
     end

@@ -38,7 +38,6 @@
 	margin-bottom: 10px;
 	overflow: hidden;
 }
-
 #status_show .list_act_wrap {
 	width: 600px;
 }
@@ -95,6 +94,12 @@
    		-moz-hyphens: auto;
         	hyphens: auto;
     -ms-word-break: break-all;
+}
+.status_fil .act_content a {
+	font-weight: bold;
+}
+.media_act_cap a {
+	font-weight: bold;
 }
 .act_ep_content {
 	padding: 5px;

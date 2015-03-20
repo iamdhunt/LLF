@@ -1,3 +1,6 @@
+$('i', '.custom-file-upload').removeClass("icon-ok");
+$('i', '.custom-file-upload').addClass("icon-arrow-up");
+$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 $("#upload_<%= @uploadable.id %>").prepend("<%= escape_javascript(render :partial => @upload, :locals => {:upload => @upload}) %>");
 $('.p_m_list_wrap').imagesLoaded(function() {
 	$('.p_m_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });

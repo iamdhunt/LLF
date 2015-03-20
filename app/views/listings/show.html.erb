@@ -47,14 +47,14 @@
                 <div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
               <% end %>
                 <div class="ui360 ui360-vis lstgs">
-                  <%= link_to '', "http://#{@listing.feature.url.sub(/^https?\:\/\//, '')}" %>
+                  <%= link_to '', @listing.feature.url %>
                 </div>
               </div>
             </div>
           <% end %>
 
           <div class="img_wrap">
-            <% @listing.assets.each do | asset | %>
+            <% @listing.assets.first(8).each do | asset | %>
               <span class="imgs">
                   <%= link_to image_tag(asset.asset(:thumb)), asset.asset.url(:large), class: "fancybox", rel: 'product_gall' %>
               </span>
@@ -105,7 +105,7 @@
           </div>
 
           <div class="cta">
-            <%= link_to "Buy Now", @listing.link, class: 'btn btn-large btn-buy' %>
+            <%= link_to "Buy Now", "http://#{@listing.link.sub(/^https?\:\/\//, '')}", class: 'btn btn-large btn-buy' %>
           </div>
 
           <div class="desc">

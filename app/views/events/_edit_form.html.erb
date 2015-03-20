@@ -83,18 +83,31 @@
             </li>
           </ul>
         </div>
-        <%= f.input :avatar, as: :file, label: 'Avatar', error: false, input_html: { class: 'account pr_upload'} %>
+
+         <div class="custom-file-upload fu1_wrap">
+            <label for="file-upload" class="cfu_label ed"><i class="icon-arrow-up icon-white"></i> Upload Avatar
+              <%= f.input :avatar, as: :file, label: false, error: false, input_html: { id: 'file-upload', class: 'account pr_upload'} %>
+            </label>
+        </div>
+
         <div class="edit_av_f">
             <% if f.object.avatar? %>
               <%= image_tag f.object.avatar.url(:av) %>
             <% end %>
         </div>
-        <%= f.input :banner, as: :file, label: 'Banner', error: false, input_html: { class: 'account pr_upload'} %>
+
+        <div class="custom-file-upload fu2_wrap">
+            <label for="file-upload2" class="cfu_label ed"><i class="icon-arrow-up icon-white"></i> Upload Banner
+              <%= f.input :banner, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account pr_upload'} %>
+            </label>
+        </div>
+
         <div class="edit_av_f">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
             <% end %>
         </div>
+
       </fieldset>
     </div>
 
@@ -108,8 +121,8 @@
             </li>
           </ul>
         </div>
-        <%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
-        <%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '7', maxlength: '50' } %>
+        <%= f.input :start_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
+        <%= f.input :end_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '7', maxlength: '50' } %>
         <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '8', maxlength: '50' } %>
         <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '9', maxlength: '50' } %>
       </fieldset>

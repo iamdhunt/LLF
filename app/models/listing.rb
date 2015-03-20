@@ -37,8 +37,8 @@ class Listing < ActiveRecord::Base
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
 
-  	has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", additional: "100x100#" } : {} }
-    has_attached_file :cover, styles: { cover: "230x230#", small: "100x100#" }
+  	has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} }
+    has_attached_file :cover, styles: { cover: "230x230#", form: "188x188#", small: "100x100#" }
 
  	  validates_attachment_size :feature, :less_than_or_equal_to=>15.megabyte
   	validates_attachment_content_type :feature, 

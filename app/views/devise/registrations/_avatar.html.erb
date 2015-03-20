@@ -9,7 +9,12 @@
         &raquo; Maximum file size of 5MB
       </li>
   </div>
-  <%= f.input :avatar, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
+  
+  <div class="custom-file-upload fu1_wrap">
+      <label for="file-upload" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Browse
+        <%= f.input :avatar, as: :file, label: false, error: false, input_html: { id: 'file-upload', class: 'account upload cfu'} %>
+      </label>
+  </div>
 
   <div class="edit_av">
     <% if f.object.avatar? %>
@@ -29,7 +34,12 @@
         &raquo; Maximum file size of 5MB
       </li>
   </div>
-  <%= f.input :banner, as: :file, label: false, error: false, input_html: { class: 'account upload'} %>
+
+  <div class="custom-file-upload fu2_wrap">
+      <label for="file-upload2" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Browse
+        <%= f.input :banner, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account upload cfu'} %>
+      </label>
+  </div>
 
   <div class="edit_av">
     <% if f.object.banner? %>

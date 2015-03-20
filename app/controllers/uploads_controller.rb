@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
 
 before_filter :authenticate_member!
-before_filter :load_uploadable
+before_filter :load_uploadable, only: [:index, :show, :new, :create, :destroy]
 before_filter :find_member
 
   def index

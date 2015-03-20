@@ -1,8 +1,13 @@
+$('i', '.custom-file-upload').removeClass("icon-ok");
+$('i', '.custom-file-upload').addClass("icon-arrow-up");
+$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 $(".m_list").prepend("<%= escape_javascript(render :partial => @medium, :locals => {:medium => @medium}) %>");
 $('#media_list_wrap').imagesLoaded(function() {
 	$('#media_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
 	soundManager.stopAll();
 	soundManager.reboot();
 });
+$('#file-upload').replaceWith( $('#file-upload').val('').clone( true ) );
+$('#file-upload2').replaceWith( $('#file-upload2').val('').clone( true ) );
 $('#media').modal('hide');
 $('#media_form')[0].reset();
