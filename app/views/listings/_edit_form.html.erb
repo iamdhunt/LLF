@@ -49,7 +49,7 @@
                     </li>
                 </ul>
               </div>
-              <%= f.input :link, as: :url, label: 'Link', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '1' } %>
+              <%= f.input :link, as: :url, label: 'Link', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '1', autocomplete: 'off' } %>
         </fieldset>
 
     </div>
@@ -85,7 +85,9 @@
           <div class="">
 
             <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-              <%= image_tag f.object.feature.url(:additional) %>
+              <div class="e_fi">
+                <%= image_tag f.object.feature.url(:additional) %>
+              </div>
             <% end %>
 
             <% if f.object.feature? && f.object.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
@@ -123,7 +125,7 @@
 
             <div class="custom-file-upload fu3_wrap">
               <label for="file-upload3" class="cfu_label ed_l"><i class="icon-arrow-up icon-white"></i> Browse
-                <%= file_field_tag('listing_assets_asset', multiple: true, name: "listing[assets_attributes][][asset]", id: 'file-upload3', class: '') %>
+                <%= file_field_tag "assets[]", type: :file, multiple: true, id: 'file-upload3' %>
               </label>
             </div>
 

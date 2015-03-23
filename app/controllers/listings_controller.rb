@@ -58,7 +58,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/1/edit
   def edit
-    1.upto(1) { @listing.assets.build }
+    
   end
 
   # POST /listings
@@ -69,6 +69,14 @@ class ListingsController < ApplicationController
     respond_to do |format|
       if @listing.save
         current_member.create_activity(@listing, 'created')
+
+        if params[:assets]
+          #===== The magic is here ;)
+          params[:assets].each { |asset|
+            @listing.assets.create(asset: asset)
+          }
+        end
+
         format.html { redirect_to @listing }
         format.json { render json: @listing, status: :created, location: @listing }
       else
@@ -84,6 +92,14 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.update_attributes(params[:listing])
+
+        if params[:assets]
+          #===== The magic is here ;)
+          params[:assets].each { |asset|
+            @listing.assets.create(asset: asset)
+          }
+        end
+        
         format.html { redirect_to @listing }
         format.json { head :no_content }
       else

@@ -49,7 +49,7 @@
                     </li>
                 </ul>
               </div>
-              <%= f.input :link, as: :url, label: 'Link', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '3'} %>
+              <%= f.input :link, as: :url, label: 'Link', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '3', autocomplete: 'off'} %>
         </fieldset>
 
     </div>
@@ -98,7 +98,7 @@
 
           <div class="custom-file-upload fu3_wrap">
             <label for="file-upload3" class="cfu_label"><i class="icon-arrow-up icon-white"></i> Browse
-              <%= file_field_tag('listing_assets_asset', multiple: true, name: "listing[assets_attributes][][asset]", id: 'file-upload3', class: '') %>
+              <%= file_field_tag "assets[]", type: :file, multiple: true, id: 'file-upload3' %>
             </label>
           </div>
 

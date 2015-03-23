@@ -40,7 +40,8 @@ class Medium < ActiveRecord::Base
   validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] 
 
   searchable :auto_index => true, :auto_remove => true do
-      text :marker_list
+      text :marker_list, :boost => 5
+      text :caption
       string :marker_list, :multiple => true, :stored => true
     end
 

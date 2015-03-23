@@ -86,6 +86,9 @@
 #p_form_wrap .act_media_content {
     padding: 15px 0;
 }
+#p_form_wrap .e_fi {
+    padding: 15px 0;
+}
 #filename {
   padding: 5px 6px;
   float: left;
