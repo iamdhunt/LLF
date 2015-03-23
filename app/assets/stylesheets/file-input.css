@@ -1,37 +1,3 @@
-.custom-file-upload-hidden {
-    display: none;
-    visibility: hidden;
-    position: absolute;
-    left: -9999px;
-}
-.file-upload-wrapper {
-    position: relative; 
-}
-.file-upload-input {
-    @include transition(all 0.2s ease-in); 
-    float: left; /* IE 9 Fix */
-}
-.file-upload-button {
-    cursor: pointer;
-    display: inline-block;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    margin-left: -1px;
-    background-color: #f06048;
-    float: left;
-    border-radius: 5px;
-    @include transition(all 0.2s ease-in);
-}
-.file-upload-button:hover {
-    background-color: #E54D34;
-}
-#avatar .custom-file-upload {
-    margin: 0 0 30px 180px;
-}
-
-
-
 .custom-file-upload {
     display: inline-block;
     width: auto;

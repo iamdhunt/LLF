@@ -71,7 +71,6 @@ class ListingsController < ApplicationController
         current_member.create_activity(@listing, 'created')
 
         if params[:assets]
-          #===== The magic is here ;)
           params[:assets].each { |asset|
             @listing.assets.create(asset: asset)
           }
@@ -94,12 +93,11 @@ class ListingsController < ApplicationController
       if @listing.update_attributes(params[:listing])
 
         if params[:assets]
-          #===== The magic is here ;)
           params[:assets].each { |asset|
             @listing.assets.create(asset: asset)
           }
         end
-        
+
         format.html { redirect_to @listing }
         format.json { head :no_content }
       else
