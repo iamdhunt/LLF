@@ -444,6 +444,10 @@ label.active {
 	box-shadow: 0 0 0 5px #e5e5e5;
 	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
 }
+.list_act_wrap #lstgs_art {
+	margin-left: auto;
+	margin-right: auto;
+}
 #lstgs_act {
 	width: 230px;
 	height: 230px;

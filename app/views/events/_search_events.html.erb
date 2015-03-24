@@ -50,7 +50,7 @@
 				                <%= link_to "Edit", edit_event_path(event), class: '' %>
 				              </li>
 				              <li class="del">
-				                <%= link_to "Delete", event_path(event.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+				                <%= link_to "Delete", event_path(event.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 				              </li>
 				            </ul>
 				        </span>

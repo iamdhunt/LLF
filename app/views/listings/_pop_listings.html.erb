@@ -16,11 +16,6 @@
 	
 		<div id="">
 			<div class="pdl_img">
-				<% if current_member == listing.member %>
-					<div class="lst_del">
-						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing_path(listing.id), method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
-					</div>
-				<% end %>
 				<div>
 					<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
 						<%= link_to image_tag(listing.feature.url(:index)), listing_path(listing), title: listing.title, alt: listing.title %>

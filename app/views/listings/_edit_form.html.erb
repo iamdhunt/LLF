@@ -86,7 +86,7 @@
 
             <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
               <div class="e_fi">
-                <%= image_tag f.object.feature.url(:additional) %>
+                <%= image_tag f.object.feature.url(:form) %>
               </div>
             <% end %>
 

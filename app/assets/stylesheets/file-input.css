@@ -1,3 +1,6 @@
+#avatar .custom-file-upload {
+    margin: 0 0 30px 180px;
+}
 .custom-file-upload {
     display: inline-block;
     width: auto;
