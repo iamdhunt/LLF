@@ -34,7 +34,7 @@ class Comment < ActiveRecord::Base
 	    return unless mention?
 
 	    people_mentioned.each do |member|
-	    	Mention.create!(:comment_id => self.id, :member_id => member.id, :mentionable_type => 'Comment', :mentionable_id => member.id)
+	    	Mention.create!(:comment_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Comment', :mentionable_id => member.id, :mentionable_type => 'Member')
 	    end
 	end
 

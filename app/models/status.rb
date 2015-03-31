@@ -52,7 +52,7 @@ class Status < ActiveRecord::Base
     return unless mention?
 
     people_mentioned.each do |member|
-      Mention.create!(:status_id => self.id, :member_id => member.id, :mentionable_type => 'Status', :mentionable_id => member.id)
+      Mention.create!(:status_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Status', :mentionable_id => member.id, :mentionable_type => 'Member')
     end
   end
 

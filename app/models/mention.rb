@@ -1,11 +1,14 @@
 class Mention < ActiveRecord::Base
-	attr_accessible :status_id, :comment_id, :member_id, :mentionable_type, :mentionable_id
+	attr_accessible :mentioner_id, :mentioner_type, :mentionable_type, :mentionable_id, :status_id, :comment_id
 
+	belongs_to :mentioner, polymorphic: true
     belongs_to :mentionable, polymorphic: true
 
+
     def create_notification
-		subject = "#{mentionable.member.user_name}"
-		body = "has <b>mentioned</b> you in a #{mentionable.type} <p><i>#{mentionable.content}</i></p>"
-		commentable.member.notify(subject, body, self)
+		subject = "#{mentioner.member.user_name}"
+		body = "<b>mentioned</b> you in a #{mentioner_type} <p><i>#{mentioner.content}</i></p>"
+		mention.mentionable.notify(subject, body, self)
 	end
+
 end
