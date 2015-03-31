@@ -45,6 +45,13 @@
 	font-size: .933em;
 	padding: 0 0 0 32px;
 }
+.com_con a {
+	font-weight: bold;
+}
+.com_con a:hover {
+	text-decoration: none;
+	color: #898989;
+}
 .com_av {
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */
 	border-radius: 100%; /* Opera 10.5, IE 9 */

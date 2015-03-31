@@ -23,7 +23,7 @@ class Update < ActiveRecord::Base
 
 	def create_notification
 		subject = "#{member.user_name}"
-		body = "posted a new update <i>\"#{title}\"</i> in <b>#{updateable.name}</b> <p><i>#{content}</i></p>"
+		body = "posted a new <b>update</b> <i>\"#{title}\"</i> in <b>#{updateable.name}</b> <p><i>#{content}</i></p>"
 		updateable.followers.each{ |follower| follower.notify(subject, body, self) }
 	end
 end

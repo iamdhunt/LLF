@@ -22,7 +22,7 @@ class Upload < ActiveRecord::Base
 
 	def create_notification
 		subject = "#{member.user_name}"
-		body = "uploaded new Media in <b>#{uploadable.name}</b>"
+		body = "<b>uploaded</b> new media in <b>#{uploadable.name}</b>"
 		uploadable.followers.each{ |follower| follower.notify(subject, body, self) }
 	end								
 end

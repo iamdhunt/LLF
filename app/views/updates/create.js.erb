@@ -1,7 +1,4 @@
 $("#update_<%= @updateable.id %>").prepend("<%= escape_javascript(render :partial => 'shared/updates', :locals => {:update => @update}) %>");
-$('#update').modal('hide');
-$('#update_title').val('');
-$('.redactor_editor').html('');
-$('.redactor_box').redactor('set', '');
 $('#ut_pe_ct').html("<%= @updateable.updates.count %>");
+$('#update').modal('hide');
 $('#update_form')[0].reset();

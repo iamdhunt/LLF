@@ -291,6 +291,9 @@
 	font-weight: bold;
 	font-style: normal;
 }
+.not_wrap .view a {
+	color: #2FC671;
+}
 .not_wrap .view a:hover {
 	color: #898989;
 	text-decoration: none;

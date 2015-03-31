@@ -2,17 +2,10 @@
 <% @notification = notification %>
 <div class="not_wrap">
 	<span class="not_icon">
-		<% if notification.notified_object_type == 'Comment' %>
-			<%= image_tag('N Comment.png') %>
-		<% end %>
-		<% if notification.notified_object_type == 'Upload' %>
-			<%= image_tag('N Upload.png') %>
-		<% end %>
-		<% if notification.notified_object_type == 'Update' %>
-			<%= image_tag('N Update.png') %>
-		<% end %>
-		<% if notification.notified_object_type == 'Follow' %>
-			<%= image_tag('N Follow.png') %>
+		<% if notification.notified_object_type != 'Follow' %>
+			<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
+		<% else %>
+			<%= link_to image_tag(notification.notified_object.follower.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.follower), title: notification.notified_object.follower.full_name, alt: notification.notified_object.follower.full_name %>
 		<% end %>
 	</span>
 	<span>
@@ -34,17 +27,17 @@
 			<div class="view">
 				<% if notification.notified_object_type == 'Comment' %>
 					<%= link_to(notification.notified_object.commentable) do %>
-						<i class="icon-eye-open icon-green"></i> View
+						View Comment 
 					<% end %>
 				<% end %>
 				<% if notification.notified_object_type == 'Update' %>
 					<%= link_to(notification.notified_object.updateable) do %>
-						<i class="icon-eye-open icon-green"></i> View
+						View Update
 					<% end %>
 				<% end %>
 				<% if notification.notified_object_type == 'Upload' %>
 					<%= link_to(notification.notified_object.uploadable) do %>
-						<i class="icon-eye-open icon-green"></i> View
+						View Upload
 					<% end %>
 				<% end %>
 			</div>
