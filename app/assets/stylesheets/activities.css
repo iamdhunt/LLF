@@ -98,8 +98,16 @@
 .status_fil .act_content a {
 	font-weight: bold;
 }
+.status_fil .act_content a:hover {
+	text-decoration: none;
+	color: #898989;
+}
 .media_act_cap a {
 	font-weight: bold;
+}
+.media_act_cap a:hover {
+	text-decoration: none;
+	color: #898989;
 }
 .act_ep_content {
 	padding: 5px;

@@ -249,3 +249,10 @@ top: 25%;
 	height: 14px;
 	margin-top: 1px;
 }
+#status_show .act_content a {
+	font-weight: bold;
+}
+#status_show .act_content a:hover {
+	text-decoration: none;
+	color: #898989;
+}
