@@ -10,14 +10,14 @@ class Comment < ActiveRecord::Base
 	validates :content, presence: true,
 				length: { minimum: 2, maximum: 280 }
 
-	after_create :send_email, :create_notification, on: :create, unless: Proc.new { |comment| comment.member.id == comment.commentable.member.id }
+	after_create :create_notification, :send_email, unless: Proc.new { |comment| comment.member.id == comment.commentable.member.id }
 	after_save :save_mentions
 
 	auto_strip_attributes :content
 
 	def create_notification
 		subject = "#{member.user_name}"
-		body = "left a <b>comment</b> on your <b>#{comment.commentable_type.downcase}</b> <p><i>#{content}</i></p>"
+		body = "left a <b>comment</b> on your <b>#{commentable_type.downcase}</b> <p><i>#{content}</i></p>"
 		commentable.member.notify(subject, body, self)
 	end
 

@@ -7,8 +7,7 @@ class Follow < ActiveRecord::Base
   belongs_to :followable, :polymorphic => true
   belongs_to :follower,   :polymorphic => true
 
-  after_commit :create_notification, on: :create
-  after_create :send_email, unless: Proc.new { |follows| follows.followable_type != 'Member' }
+  after_create :create_notification, :send_email, unless: Proc.new { |follows| follows.followable_type != 'Member' }
 
   def block!
     self.update_attribute(:blocked, true)

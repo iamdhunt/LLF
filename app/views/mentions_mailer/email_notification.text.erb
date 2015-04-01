@@ -1,0 +1,9 @@
+Hey there <%= @member.full_name %> (<%= @member.user_name %>),
+
+<%= @sender.full_name %> (<%= @sender.user_name %>) mentioned you in a <%= @type.downcase %>:
+
+"<%= @mentioner.content %>"
+
+Reply to mention: <%= polymorphic_url(@mention_link) %>
+
+support@livinglifefearless.co | http://beboldbefearless.co/  

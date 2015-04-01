@@ -1,6 +1,6 @@
 Hey there <%= @member.full_name %> (<%= @member.user_name %>),
 
-<%= @sender.full_name %> (<%= @sender.user_name %>) left a comment on your <%= @type %>:
+<%= @sender.full_name %> (<%= @sender.user_name %>) left a comment on your <%= @type.downcase %>:
 
 "<%= @comment.content %>"
 

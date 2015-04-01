@@ -11,7 +11,11 @@ class CommentMailer < ActionMailer::Base
     @sender = comment.member
     @comment = comment
     @commentable = commentable
-    @type = comment.commentable_type
-    mail to: commentable.member.email, subject: "#{comment.member.full_name} (#{comment.member.user_name}) left a comment on your #{comment.commentable_type}"
+    if comment.commentable_type != 'Medium'
+      @type = comment.commentable_type
+    else 
+      @type = 'Media'
+    end
+    mail to: commentable.member.email, subject: "#{comment.member.full_name} (#{comment.member.user_name}) left a comment on your #{@type.downcase}"
   end
 end

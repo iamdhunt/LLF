@@ -35,8 +35,10 @@
 				<% if notification.notified_object_type == 'Follow' %>
 					is now <%= link_to "following", profile_path(notification.notified_object.follower), title: 'View Follower', alt: 'View Follower' %> you
 				<% end %>
-				<% if notification.notified_object_type == 'Comment' %>
+				<% if notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type != 'Medium' %>
 					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to notification.notified_object.commentable_type.downcase, notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> 
+				<% elsif notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type == 'Medium' %>
+					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to 'media', notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Update' %>
 					posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.title, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %>
