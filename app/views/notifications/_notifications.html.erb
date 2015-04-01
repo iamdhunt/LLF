@@ -2,10 +2,12 @@
 <% @notification = notification %>
 <div class="not_wrap">
 	<span class="not_icon">
-		<% if notification.notified_object_type != 'Follow' %>
+		<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %>
 			<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
-		<% else %>
+		<% elsif notification.notified_object_type == 'Follow' %>
 			<%= link_to image_tag(notification.notified_object.follower.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.follower), title: notification.notified_object.follower.full_name, alt: notification.notified_object.follower.full_name %>
+		<% else %>
+			<%= link_to image_tag(notification.notified_object.mentioner.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.mentioner.member), title: notification.notified_object.mentioner.member.full_name, alt: notification.notified_object.mentioner.member.full_name %>
 		<% end %>
 	</span>
 	<span>
@@ -15,10 +17,12 @@
       			<i class="icon-exclamation-sign icon-red"></i>
       		</span>
   		<% end %>
-  			<% if notification.notified_object_type != 'Follow' %> 
+  			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %> 
 				<%= link_to notification.notified_object.member.user_name, profile_path(notification.notified_object.member) %>
-			<% else %>
+			<% elsif notification.notified_object_type == 'Follow' %>
 				<%= link_to notification.notified_object.follower.user_name, profile_path(notification.notified_object.follower) %>
+			<% else %>
+				<%= link_to notification.notified_object.mentioner.member.user_name, profile_path(notification.notified_object.mentioner.member.user_name) %>
 			<% end %>
 			<%= Rinku.auto_link(truncate(notification.body, :length => 400)).html_safe %>
 			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
@@ -38,6 +42,15 @@
 				<% if notification.notified_object_type == 'Upload' %>
 					<%= link_to(notification.notified_object.uploadable) do %>
 						View Upload
+					<% end %>
+				<% end %>
+				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
+					<%= link_to(notification.notified_object.mentioner) do %>
+						View Mention 
+					<% end %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
+					<%= link_to(notification.notified_object.mentioner.commentable) do %>
+						View Mention 
 					<% end %>
 				<% end %>
 			</div>

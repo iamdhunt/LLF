@@ -17,7 +17,7 @@ class Comment < ActiveRecord::Base
 
 	def create_notification
 		subject = "#{member.user_name}"
-		body = "wrote you a <b>comment</b> <p><i>#{content}</i></p>"
+		body = "left a <b>comment</b> <p><i>#{content}</i></p>"
 		commentable.member.notify(subject, body, self)
 	end
 
