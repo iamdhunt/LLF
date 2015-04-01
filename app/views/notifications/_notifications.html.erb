@@ -1,6 +1,8 @@
 <% if notification.notified_object %>
 <% @notification = notification %>
+
 <div class="not_wrap">
+
 	<span class="not_icon">
 		<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %>
 			<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
@@ -10,52 +12,70 @@
 			<%= link_to image_tag(notification.notified_object.mentioner.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.mentioner.member), title: notification.notified_object.mentioner.member.full_name, alt: notification.notified_object.mentioner.member.full_name %>
 		<% end %>
 	</span>
+
 	<span>
 		<div class="not_content">
 			<% if notification.is_unread?(current_member) %>
-      		<span class="unread">
-      			<i class="icon-exclamation-sign icon-red"></i>
-      		</span>
-  		<% end %>
-  			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %> 
-				<%= link_to notification.notified_object.member.user_name, profile_path(notification.notified_object.member) %>
-			<% elsif notification.notified_object_type == 'Follow' %>
-				<%= link_to notification.notified_object.follower.user_name, profile_path(notification.notified_object.follower) %>
-			<% else %>
-				<%= link_to notification.notified_object.mentioner.member.user_name, profile_path(notification.notified_object.mentioner.member.user_name) %>
-			<% end %>
-			<%= Rinku.auto_link(truncate(notification.body, :length => 400)).html_safe %>
-			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
-		</div>
-		
-			<div class="view">
+	      		<span class="unread">
+	      			<i class="icon-exclamation-sign icon-red"></i>
+	      		</span>
+	  		<% end %>
+
+	  		<span class="u_n">
+	  			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %> 
+					<%= link_to notification.notified_object.member.user_name, profile_path(notification.notified_object.member) %>
+				<% elsif notification.notified_object_type == 'Follow' %>
+					<%= link_to notification.notified_object.follower.user_name, profile_path(notification.notified_object.follower) %>
+				<% else %>
+					<%= link_to notification.notified_object.mentioner.member.user_name, profile_path(notification.notified_object.mentioner.member.user_name) %>
+				<% end %>
+			</span>
+
+			<span class="sub">
+				<% if notification.notified_object_type == 'Follow' %>
+					is now <%= link_to "following", profile_path(notification.notified_object.follower), title: 'View Follower', alt: 'View Follower' %> you
+				<% end %>
 				<% if notification.notified_object_type == 'Comment' %>
-					<%= link_to(notification.notified_object.commentable) do %>
-						View Comment 
-					<% end %>
+					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to notification.notified_object.commentable_type.downcase, notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> 
 				<% end %>
 				<% if notification.notified_object_type == 'Update' %>
-					<%= link_to(notification.notified_object.updateable) do %>
-						View Update
-					<% end %>
+					posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.title, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Upload' %>
-					<%= link_to(notification.notified_object.uploadable) do %>
-						View Upload
-					<% end %>
+					<%= link_to "uploaded", notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %> new media in the <%= notification.notified_object.uploadable_type.downcase %> <%= link_to notification.notified_object.uploadable.title, notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
-					<%= link_to(notification.notified_object.mentioner) do %>
-						View Mention 
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
+				<% end %>
+			</span>
+
+			<p><i>
+				<% if notification.notified_object_type == 'Comment' %>
+					<%= Rinku.auto_link(notification.notified_object.content).html_safe %> 
+				<% end %>
+				<% if notification.notified_object_type == 'Update' %>
+					<%= Rinku.auto_link(truncate(notification.notified_object.content, :length => 400)).html_safe %>
+				<% end %>
+				<% if notification.notified_object_type == 'Upload' %>
+					<%= image_tag notification.notified_object.asset.url(:thumb) %>
+				<% end %>
+				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
+					<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+					<% if notification.notified_object.mentioner.document %>
+						<p><%= image_tag notification.notified_object.mentioner.document.attachment.url(:thumb) %></p>
 					<% end %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
-					<%= link_to(notification.notified_object.mentioner.commentable) do %>
-						View Mention 
-					<% end %>
+					<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
 				<% end %>
-			</div>
-		
+			</i></p>
+			
+			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
+		</div>				
 	</span>
-	<div style="clear:both;"></div>
+
+<div style="clear:both;"></div>
 </div>
+
 <% end %>

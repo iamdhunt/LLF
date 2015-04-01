@@ -16,7 +16,7 @@ class ConvoMailer < ActionMailer::Base
     @message  = message
     @receiver = receiver
     mail :to => receiver.send(Mailboxer.email_method, message),
-         :subject => "#{message.sender.full_name} (#{message.sender.user_name}) started a conversation",
+         :subject => "#{message.sender.full_name} (#{message.sender.user_name}) wants to talk",
          :template_name => 'new_convo_email'
   end
 

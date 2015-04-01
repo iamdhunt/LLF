@@ -111,6 +111,7 @@
 	padding: 0 5px 10px 0;
 }
 #new_conv_wrap .btn {
+	margin-top: 5px;
 	width: 100%;
 }
 #new_conv_wrap .forms {
@@ -257,7 +258,7 @@
 }
 .not_wrap p {
 	margin-bottom: 0;
-	padding-top: 2px; 
+	padding-top: 5px; 
 }
 .not_icon {
 	float: left;
@@ -271,13 +272,21 @@
 	font-size: 1.05em;
 	padding: 8px 0 0 35px;
 }
-.not_content a {
+.not_content .u_n a {
 	font-weight: bold;
 	color: #898989;
 }
-.not_content a:hover {
+.not_content .u_n a:hover {
 	text-decoration: none;
 	color: #942fc6;
+}
+.not_content .sub a {
+	font-weight: bold;
+	color: #4a4a4a;
+}
+.not_content .sub a:hover {
+	text-decoration: none;
+	color: #2FC671;
 }
 .not_content b {
 	color: #4a4a4a;
@@ -290,9 +299,6 @@
 	color: #2FC671;
 	font-weight: bold;
 	font-style: normal;
-}
-.not_wrap .view a {
-	color: #2FC671;
 }
 .not_wrap .view a:hover {
 	color: #898989;

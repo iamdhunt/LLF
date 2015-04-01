@@ -11,6 +11,7 @@ class CommentMailer < ActionMailer::Base
     @sender = comment.member
     @comment = comment
     @commentable = commentable
-    mail to: commentable.member.email, subject: "#{comment.member.full_name} (#{comment.member.user_name}) has left you a comment"
+    @type = comment.commentable_type
+    mail to: commentable.member.email, subject: "#{comment.member.full_name} (#{comment.member.user_name}) left a comment on your #{comment.commentable_type}"
   end
 end

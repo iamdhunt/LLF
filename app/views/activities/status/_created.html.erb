@@ -8,9 +8,11 @@
 		<%= Rinku.auto_link(statuses_with_mentions(activity.targetable)).html_safe %>
 	</div>
 
-	<div class="act_attachment">
-	    <%= status_document_link activity.targetable %>
-	</div>
+	<% if activity.targetable.document %>
+		<div class="act_attachment">
+		    <%= status_document_link activity.targetable %>
+		</div>
+	<% end %>
  
 		<div id="act_btn_wrap">
 			<span id="comment_act_btn">

@@ -1,4 +1,4 @@
 <% publish_to "/conversations/#{conversation.id}" do %>
-	$("#messages_<%= conversation.id %>").prepend("<%= escape_javascript(render :partial => @receipt, :locals => {:receipt => @receipt}) %>");
+	$("#messages_<%= conversation.id %>").prepend("<%= escape_javascript(render :partial => 'conversations/receipts', :locals => {:receipt => @receipt}) %>");
 <% end %>
 $('#reply_form')[0].reset();
