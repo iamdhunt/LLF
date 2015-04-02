@@ -206,6 +206,7 @@
     /* For IE 8*/
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
+    font-weight: normal !important;
 }
 #ss_r .t_s a:hover {
 	/* Fallback for web browsers that don't support RGBa */
@@ -218,6 +219,7 @@
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
     -background: transparent;
 	text-decoration: none;
+	color: #fff !important;
 }
 #status_show #ss_r #comm_form_wrap {
 	margin: 0;

@@ -7,7 +7,7 @@ class Follow < ActiveRecord::Base
   belongs_to :followable, :polymorphic => true
   belongs_to :follower,   :polymorphic => true
 
-  after_create :create_notification, :send_email, unless: Proc.new { |follows| follows.followable_type != 'Member' }
+  after_create :create_notification, :send_email
 
   def block!
     self.update_attribute(:blocked, true)
@@ -16,7 +16,11 @@ class Follow < ActiveRecord::Base
   def create_notification
     subject = "#{follower.user_name}"
     body = "is now <b>following</b> you"
-    followable.notify(subject, body, self)
+    if followable_type != 'Member'
+      followable.member.notify(subject, body, self)
+    else
+      followable.notify(subject, body, self)
+    end
   end
 
   def send_email

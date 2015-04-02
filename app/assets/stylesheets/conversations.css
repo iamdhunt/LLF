@@ -264,7 +264,7 @@
 	float: left;
 	padding-right: 5px;
 }
-.not_icon img {
+.not_icon .com_av {
 	width: 30px;
 	height: 30px;
 }
@@ -332,4 +332,11 @@
 .refresh > .active > a > [class^="icon-grey"],
 .refresh > .active > a > [class*=" icon-grey"] {
 	background-image: url('/assets/glyphicons-halflings-dark.png') !important;
+}
+.not_av {
+	-webkit-border-radius: 4px;
+  	border-radius: 4px;
+  	margin: 3px 0 0 4px;
+  	width: 23px;
+  	height: 23px;
 }

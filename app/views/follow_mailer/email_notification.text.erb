@@ -1,8 +1,8 @@
 Hey there <%= @followable.full_name %> (<%= @followable.user_name %>),
 
-<%= @follower.full_name %> (<%= @follower.user_name %>) is now following you!
+<%= @follower.full_name %> (<%= @follower.user_name %>) is now following <%= @type %>
 
-Follow back: <%= profile_url(@follower) %>
+View Member: <%= profile_url(@follower) %>
 
 support@livinglifefearless.co | http://beboldbefearless.co/ 
 
