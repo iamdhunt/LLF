@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
 	belongs_to :member
 	belongs_to :commentable, polymorphic: true
 
-	has_many :mentions, dependent: :destroy
+	has_many :mentions, as: :mentioner, dependent: :destroy
 
 	attr_accessor :mention
 	attr_accessible :content

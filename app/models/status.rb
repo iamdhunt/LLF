@@ -8,7 +8,7 @@ class Status < ActiveRecord::Base
 
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :activities, as: :targetable, :dependent => :destroy
-  has_many :mentions, dependent: :destroy
+  has_many :mentions, as: :mentioner, dependent: :destroy
 
   auto_strip_attributes :content
 

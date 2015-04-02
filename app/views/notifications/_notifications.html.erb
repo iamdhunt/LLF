@@ -41,10 +41,10 @@
 					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to 'media', notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Update' %>
-					posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.title, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %>
+					posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.name, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Upload' %>
-					<%= link_to "uploaded", notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %> new media in the <%= notification.notified_object.uploadable_type.downcase %> <%= link_to notification.notified_object.uploadable.title, notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %>
+					<%= link_to "uploaded", notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %> new media in the <%= notification.notified_object.uploadable_type.downcase %> <%= link_to notification.notified_object.uploadable.name, notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %>
 				<% end %>
 				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
