@@ -31,14 +31,14 @@
 <div id="subnav_wrap">
     <ul class="sub sub_market">
         <li>
-            <%= link_to '<i class="icon-th-list icon-grey"></i> Listings'.html_safe, profile_market_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-th-list"></i>Listings'.html_safe, profile_market_path(@member), class: '' %>
         </li>         
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_market_fav_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-heart"></i>Favorites'.html_safe, profile_market_fav_path(@member), class: '' %>
         </li> 
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-edit icon-grey"></i> Create Listing'.html_safe, new_listing_path, class: '' %>
+                <%= link_to '<i class="fa fa-plus-square"></i>Create Listing'.html_safe, new_listing_path, class: '' %>
             </li>
         <% end %> 
     </ul>

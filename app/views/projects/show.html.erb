@@ -1,6 +1,13 @@
 <% title @project.name %>
 
-<div id="banner" style="background-image: url(<%= @project.banner.url(:large) %>)">
+<% if @project.banner? %>
+  <div id="banner" style="background-image: url(<%= @project.banner.url(:large) %>)">
+<% elsif @project.member.banner? %>
+  <div id="banner" style="background-image: url(<%= @project.member.banner.url(:large) %>)">
+<% else %>
+  <div id="banner" style="background-image: url('/assets/Projects Default Banner.png')">
+<% end %>
+
   <div id="pb">
     <div id="proj_av"><%= image_tag @project.avatar.url(:av), class: 'p_av' %></div>
     <% if !member_signed_in? || @project.member == current_member %>
@@ -21,12 +28,12 @@
         <% end %> 
         <% if @project.website? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="icon-globe icon-white"></i> Project Website'.html_safe, "http://#{@project.website.sub(/^https?\:\/\//, '')}" %></span>
+            <span class='acct'><%= link_to '<i class="fa fa-globe"></i>Project Website'.html_safe, "http://#{@project.website.sub(/^https?\:\/\//, '')}" %></span>
           </li>
         <% end %>
         <% if @project.city? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="icon-map-marker icon-white"></i> '.html_safe + @project.city.titleize, :controller => "projects", :action => "index", :projects => @project.city  %></span>
+            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + @project.city.titleize, :controller => "projects", :action => "index", :projects => @project.city  %></span>
           </li>
         <% end %>
       </ul>

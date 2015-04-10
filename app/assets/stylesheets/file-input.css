@@ -20,6 +20,18 @@
     position: absolute;
     left: -9999px;
 }
+.custom-file-upload .fa-arrow-up {
+  font-size: .85em;
+  vertical-align: top;
+  margin-left: -8px;
+  margin-right: -4px;
+}
+.custom-file-upload .fa-check {
+  font-size: .9em;
+  vertical-align: top;
+  margin-left: -8px;
+  margin-right: -4px;
+}
 .cfu_label {
   padding: 6px 12px;
   display: inline-block;

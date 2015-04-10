@@ -31,14 +31,14 @@
 <div id="subnav_wrap">
     <ul class="sub sub_media">
         <li>
-            <%= link_to '<i class="icon-th-large icon-grey"></i> All Media'.html_safe, profile_media_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-th"></i>All Media'.html_safe, profile_media_path(@member), class: '' %>
         </li>          
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_media_fav_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-heart"></i>Favorites'.html_safe, profile_media_fav_path(@member), class: '' %>
         </li>
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-circle-arrow-up icon-grey"></i> Upload Media'.html_safe, "#media", :data => {:toggle => "modal"}, class: '' %>
+                <%= link_to '<i class="fa fa-upload"></i>Upload Media'.html_safe, "#media", :data => {:toggle => "modal"}, class: '' %>
             </li>
         <% end %>  
     </ul>

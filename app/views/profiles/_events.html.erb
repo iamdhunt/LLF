@@ -82,7 +82,7 @@
 		<% if event.location? %>
 			<div class="e_loc">
 				<%= link_to(:controller => "events", :action => "index", :events => event.location) do %>
-	                <i class="icon-map-marker icon-blue"></i> <%= event.location.titleize %>
+	                <i class="fa fa-map-marker"></i><%= event.location.titleize %>
 	            <% end %>
 			</div>
 		<% end %>

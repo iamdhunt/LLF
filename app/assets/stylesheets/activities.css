@@ -299,6 +299,10 @@
 .act_loc > .active > a > [class*=" icon-blue"] {
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
+.act_loc .fa {
+	vertical-align: text-top;
+	margin-right: -4px;
+}
 .act_ts {
 	text-align: center;
 }

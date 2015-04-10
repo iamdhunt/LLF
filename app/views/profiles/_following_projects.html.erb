@@ -70,7 +70,7 @@
 		<% if follow.city? %>
 			<div class="e_loc">
 				<%= link_to(:controller => "projects", :action => "index", :projects => follow.city) do %>
-	                <i class="icon-map-marker icon-blue"></i> <%= follow.city.titleize %>
+	                <i class="fa fa-map-marker"></i><%= follow.city.titleize %>
 	            <% end %>
 			</div>
 		<% end %>

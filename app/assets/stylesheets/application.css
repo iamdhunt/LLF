@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require redactor-rails
+ *= require font-awesome
  *= require_tree .
  */
 .act_content {

@@ -154,3 +154,12 @@
 	width: 53px;
 	vertical-align: sub;
 }
+.accordion-header .fa-plus {
+	font-size: .85em;
+}
+.accordion-header .fa {
+	font-size: 1em;
+}
+.in_pgs .accordion-header i {
+	margin-top: 7px;
+}

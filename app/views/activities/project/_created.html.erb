@@ -23,7 +23,7 @@
 	<% if activity.targetable.city? %>
 		<div class='act_loc'>
 			<%= link_to(:controller => "projects", :action => "index", :projects => activity.targetable.city) do %>
-	            <i class="icon-map-marker icon-blue"></i> <%= activity.targetable.city.titleize %>
+	            <i class="fa fa-map-marker"></i><%= activity.targetable.city.titleize %>
 	        <% end %>
 		</div>
 	<% end %>

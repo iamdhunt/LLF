@@ -1294,6 +1294,10 @@ hr.contact {
 #subnav_wrap ul li {
 	display: inline;
 }
+#subnav_wrap .fa {
+	color: #898989;
+	font-size: .9em;
+}
 .sub li a {	
 	padding: .4em .4em;
 	margin-right: .8em;

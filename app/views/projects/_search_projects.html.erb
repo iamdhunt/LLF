@@ -83,7 +83,7 @@
 		<% if project.city? %>
 			<div class="e_loc">
 				<%= link_to(:controller => "projects", :action => "index", :projects => project.city) do %>
-	                <i class="icon-map-marker icon-blue"></i> <%= project.city.titleize %>
+	                <i class="fa fa-map-marker"></i><%= project.city.titleize %>
 	            <% end %>
 			</div>
 		<% end %>

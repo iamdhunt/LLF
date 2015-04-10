@@ -330,6 +330,10 @@ top: 25%;
 	opacity: .85;
 	text-decoration: none;
 }
+.popular .fa {
+	margin-left: -6px;
+	margin-right: -3px;
+}
 .medium_marker_list {
 	margin-top: 4px;
 }

@@ -171,6 +171,10 @@ margin: 0 0 5px 15px;
 .e_loc > .active > a > [class*=" icon-blue"] {
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
+.e_loc .fa {
+	font-size: 1.2em;
+	margin-right: -4px;
+}
 #pl_info .el_t {
 	white-space: nowrap;
 	overflow: hidden;
@@ -415,4 +419,11 @@ vertical-align: baseline;
 }
 .breadcrumbs .evts a:hover {
 	color: #898989;
+}
+#pb .sub .fa {
+	margin-right: -4px;
+	margin-left: -8px;
+}
+#pb .sub .fa-map-marker {
+	margin-left: -5px;
 }

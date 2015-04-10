@@ -31,17 +31,17 @@
 <div id="subnav_wrap">
     <ul class="sub sub_projects">
         <li>
-            <%= link_to '<i class="icon-bullhorn icon-grey"></i> My Projects'.html_safe, profile_projects_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-rocket"></i>My Projects'.html_safe, profile_projects_path(@member), class: '' %>
         </li> 
         <li>
-            <%= link_to '<i class="icon-check icon-grey"></i> Following'.html_safe, profile_projects_following_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-check-circle"></i>Following'.html_safe, profile_projects_following_path(@member), class: '' %>
         </li>        
         <li>
-            <%= link_to '<i class="icon-heart icon-grey"></i> Favorites'.html_safe, profile_projects_fav_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-heart"></i>Favorites'.html_safe, profile_projects_fav_path(@member), class: '' %>
         </li> 
         <% if @member == current_member %>
             <li>
-                <%= link_to '<i class="icon-edit icon-grey"></i> Create Project'.html_safe, new_project_path, class: '' %>
+                <%= link_to '<i class="fa fa-plus-square"></i>Create Project'.html_safe, new_project_path, class: '' %>
             </li>
         <% end %> 
     </ul>

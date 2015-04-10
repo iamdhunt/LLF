@@ -22,12 +22,12 @@
 		    <div class="conv_actions">
 		    	<span class="c_actions">
 		    		<%= link_to(conversation_path(conversation), class: '') do %>
-		    			<i class="icon-share-alt icon-grey"></i> Reply
+		    			<i class="fa fa-reply"></i>Reply
 		    		<% end %>
 		    	</span>
 		    	<span class="conv_del c_actions">
 		    		<%= link_to({:controller => "conversations", :action => "trash", :id => conversation.id}, :title=> "Move to Trash", remote: true, :method=>'post') do %>
-		    			<i class="icon-trash icon-grey"></i> Move to Trash
+		    			<i class="fa fa-trash"></i>Move to Trash
 		    		<% end %>
 		    	</span>
 		    </div>

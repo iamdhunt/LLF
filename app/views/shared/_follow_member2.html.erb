@@ -1,9 +1,9 @@
 <% if current_member.following?(member) %>
 	
-    <%= link_to (image_tag("Following.png", class: "gl_fol") + " Following"), member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" %>
+    <%= link_to "<i class='fa fa-check'></i>Following".html_safe, member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" %>
 
 <% else %>
 
-    <%= link_to (image_tag("Follow.png", class: "gl_fol") + " Follow"), member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn btn_gl_fol" %>
+    <%= link_to "<i class='fa fa-plus'></i>Follow".html_safe, member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn btn_gl_fol" %>
 
 <% end %>
