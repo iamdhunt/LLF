@@ -3,7 +3,7 @@ class Listing < ActiveRecord::Base
 
     before_create :make_it_permalink
 
-  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover
+  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover, :banner
 
     auto_strip_attributes :description, :link
     auto_strip_attributes :title, :squish => true
@@ -39,15 +39,19 @@ class Listing < ActiveRecord::Base
 
   	has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} }
     has_attached_file :cover, styles: { cover: "230x230#", form: "188x188#", small: "100x100#" }
+    has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
+                  :default_url => '/assets/Market Default Banner.png'
 
  	  validates_attachment_size :feature, :less_than_or_equal_to=>15.megabyte
+    validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte
+    validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
+
   	validates_attachment_content_type :feature, 
                                       :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 
                                             'audio/mp3', 'audio/mpeg', 'audio/mpeg3', 'audio/mpg',
-                                            'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']                       
-
-    validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte
+                                            'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg']                        
     validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+    validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
 
   	acts_as_votable
   	acts_as_ordered_taggable

@@ -84,6 +84,7 @@
       </fieldset>
 
       <fieldset>
+
         <legend class="descriptors">Additional Images</legend>
           <div class="edit_instructions">
             <ul>
@@ -99,6 +100,31 @@
           <div class="custom-file-upload fu3_wrap">
             <label for="file-upload3" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse
               <%= file_field_tag "assets[]", type: :file, multiple: true, id: 'file-upload3' %>
+            </label>
+          </div>
+
+      </fieldset>
+
+      <fieldset>
+        
+        <legend class="descriptors">Listing Banner</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Recommended banner dimensions of 1400x200
+              </li>
+              <li>
+                &raquo; Maximum file size of 10MB
+              </li>
+              <li>
+                &raquo; Accepted file formats: (jpeg, png, gif)
+              </li>
+            </ul>
+          </div>
+
+          <div class="custom-file-upload fu4_wrap">
+            <label for="file-upload4" class="cfu_label"><i class="fa fa-arrow-up"></i>Upload Banner
+              <%= f.input :banner, as: :file, label: false, error: false, input_html: { id: 'file-upload4', class: 'account pr_upload'} %>
             </label>
           </div>
 

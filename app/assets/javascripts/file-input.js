@@ -15,3 +15,9 @@ $(document).on('change', '#file-upload3', function() {
   $('i', '.fu3_wrap').addClass("fa-check");
   $('label[for="file-upload3"]', '.fu3_wrap').css("background-color", '#3fa46a');
 });
+
+$(document).on('change', '#file-upload4', function() {
+  $('i', '.fu4_wrap').removeClass("fa-arrow-up");
+  $('i', '.fu4_wrap').addClass("fa-check");
+  $('label[for="file-upload4"]', '.fu4_wrap').css("background-color", '#3fa46a');
+});

@@ -311,8 +311,17 @@ font-weight: normal;
     -background: transparent;
 	text-decoration: none;
 }
+#edit_wrap .pws_wrap {
+	margin-bottom: 25px;
+}
 #edit_wrap .previews {
 	display: inline-block;
+}
+#edit_wrap .edit_bn_l {
+	margin: 20px 0 30px 0;
+}
+#edit_wrap .l_ban_fs {
+	margin-bottom: 30px;
 }
 .rm_img {
 	vertical-align: bottom;

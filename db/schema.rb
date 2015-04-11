@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150331145039) do
+ActiveRecord::Schema.define(:version => 20150411111053) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -184,6 +184,10 @@ ActiveRecord::Schema.define(:version => 20150331145039) do
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "permalink"
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
   end
 
   add_index "listings", ["member_id"], :name => "index_listings_on_member_id"

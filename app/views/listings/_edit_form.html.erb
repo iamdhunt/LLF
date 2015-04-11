@@ -129,7 +129,7 @@
               </label>
             </div>
 
-            <div>
+            <div class="pws_wrap">
               <%= f.simple_fields_for :assets do |asset_fields| %>
                 <% unless asset_fields.object.new_record? %>
                   <div class="previews">
@@ -142,6 +142,37 @@
               <% end %>
             </div>
 
+          </div>
+
+      </fieldset>
+
+      <fieldset class="l_ban_fs">
+        
+        <legend class="descriptors">Listing Banner</legend>
+          <div class="edit_instructions">
+            <ul>
+              <li>
+                &raquo; Recommended banner dimensions of 1400x200
+              </li>
+              <li>
+                &raquo; Maximum file size of 10MB
+              </li>
+              <li>
+                &raquo; Accepted file formats: (jpeg, png, gif)
+              </li>
+            </ul>
+          </div>
+
+          <div class="custom-file-upload fu4_wrap">
+            <label for="file-upload4" class="cfu_label"><i class="fa fa-arrow-up"></i>Upload Banner
+              <%= f.input :banner, as: :file, label: false, error: false, input_html: { id: 'file-upload4', class: 'account pr_upload'} %>
+            </label>
+          </div>
+
+          <div class="edit_bn_l">
+            <% if f.object.banner? %>
+              <%= image_tag f.object.banner.url(:preview) %>
+            <% end %>
           </div>
 
       </fieldset>
