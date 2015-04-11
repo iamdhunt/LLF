@@ -194,7 +194,7 @@
 
       <div class="tab-pane" id="details">
         <div id ="proj_about">
-          <%= raw Rinku.auto_link(@event.details) %>
+          <%= raw Rinku.auto_link(@event.details_html) %>
         </div>
       </div>
 
@@ -311,6 +311,10 @@
 
     <% if @event.member == current_member %>
       <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Post An Update</h3>
+        </div>
         
         <div class="modal-body pi">
           <%= render :partial => "shared/update_form" %>

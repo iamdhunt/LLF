@@ -30,6 +30,7 @@ gem 'randumb'
 gem 'figaro'
 gem "auto_strip_attributes", "~> 2.0"
 gem "font-awesome-rails"
+gem "wysiwyg-rails"
 
 group :development, :test do
 	gem 'shoulda'

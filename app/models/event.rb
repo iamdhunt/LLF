@@ -116,6 +116,13 @@ class Event < ActiveRecord::Base
 	    simple_format
 	  end
 
+    auto_html_for :details do
+      image
+      youtube(:width => 660, :height => 400, :autoplay => false)
+      vimeo(:width => 660, :height => 400, :autoplay => false)
+      simple_format
+    end
+
     auto_strip_attributes :website, :zipcode, :details
     auto_strip_attributes :name, :squish => true
     auto_strip_attributes :location, :squish => true

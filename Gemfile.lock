@@ -288,6 +288,9 @@ GEM
       rack (>= 1.0)
     websocket-driver (0.3.4)
     will_paginate (3.0.5)
+    wysiwyg-rails (1.2.6)
+      font-awesome-rails (>= 4.2.0.0)
+      railties (>= 3.2, < 5.0)
 
 PLATFORMS
   x86-mingw32
@@ -330,3 +333,4 @@ DEPENDENCIES
   thin
   uglifier (>= 1.0.3)
   will_paginate
+  wysiwyg-rails

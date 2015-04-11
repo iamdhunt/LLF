@@ -219,12 +219,4 @@ $(document).ready(function() {
   $blb.autosize();
   $cty.autosize();
 
-  $('#p_about').redactor({
-    	buttons: ['html', 'bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'horizontalrule']
-	});
-
-  $('#p_update').redactor({
-    	buttons: ['html', 'bold', 'italic', 'underline', 'alignleft', 'aligncenter', 'alignright', 'unorderedlist', 'horizontalrule']
-	});
-
 });

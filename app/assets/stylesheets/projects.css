@@ -734,20 +734,16 @@ vertical-align: baseline;
 }
 
 #proj_about li {
-	display: list-item;
-	list-style: disc;
 	padding: .25em 0;
 }
 #proj_about ul {
-	padding: 0 2em;
+	list-style: inherit;
 }
-#u_list_wrap ul {
-	padding: 0 2em;
+#proj_about ol {
+	list-style-type: decimal;
 }
-#u_list_wrap li {
-	display: list-item;
-	list-style: disc;
-	padding: .25em 0;
+#proj_about ul, #proj_about ol {
+	padding-left: 50px;
 }
 #proj_about hr {
 	border: 0;

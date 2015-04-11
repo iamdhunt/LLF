@@ -137,7 +137,7 @@ class ProfilesController < ApplicationController
   def projects
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @projects = @member.projects.order("created_at desc").paginate(page: params[:page], per_page: (30))
+      @projects = @member.projects.order("updated_at desc").paginate(page: params[:page], per_page: (30))
       render action: :projects
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -147,7 +147,7 @@ class ProfilesController < ApplicationController
   def projects_following
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @following = @member.following_projects(:order => 'created_at DESC').paginate(page: params[:page], per_page: (30))
+      @following = @member.following_projects(:order => 'updated_at DESC').paginate(page: params[:page], per_page: (30))
       render action: :projects_following
     else 
       render file: 'public/404', status: 404, formats: [:html]
@@ -157,7 +157,7 @@ class ProfilesController < ApplicationController
   def projects_fav
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @projects = @member.get_up_voted Project.order("created_at desc").page(params[:page]).per_page(30)
+      @projects = @member.get_up_voted Project.order("updated_at desc").page(params[:page]).per_page(30)
       render action: :projects_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]

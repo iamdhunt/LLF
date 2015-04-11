@@ -77,6 +77,13 @@ class Project < ActiveRecord::Base
 	    simple_format
 	  end
 
+    auto_html_for :about do
+      image
+      youtube(:width => 660, :height => 400, :autoplay => false)
+      vimeo(:width => 660, :height => 400, :autoplay => false)
+      simple_format
+    end
+
     searchable :auto_index => true, :auto_remove => true do
       text :name, :boost => 5
       text :marker_list, :boost => 3
