@@ -28,7 +28,7 @@
 
     <% if medium.caption? %>
       <div class="media_act_cap">
-        <%= Rinku.auto_link(medium.caption).html_safe %>
+        <%= Rinku.auto_link(media_with_mentions(medium)).html_safe %>
       </div> 
     <% end %>
 

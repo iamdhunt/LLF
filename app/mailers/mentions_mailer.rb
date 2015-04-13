@@ -6,12 +6,25 @@ class MentionsMailer < ActionMailer::Base
     @sender = mention.mentioner.member
     @mention = mention
     @mentioner = mention.mentioner
-    @type = mention.mentioner_type
-    if mention.mentioner_type == 'Status' 
+
+    if mention.mentioner_type == 'Medium'
+      @content = mention.mentioner.caption
+    else
+      @content = mention.mentioner.content
+    end
+
+    if mention.mentioner_type == 'Medium'
+      @type = "caption"
+    else
+      @type = mention.mentioner_type
+    end
+
+    if mention.mentioner_type != 'Comment' 
     	@mention_link = mention.mentioner
-    elsif mention.mentioner_type == 'Comment'
+    else
     	@mention_link = mention.mentioner.commentable
     end 
-    mail to: mentionable.email, subject: "#{mention.mentioner.member.full_name} (#{mention.mentioner.member.user_name}) mentioned you in a #{mention.mentioner_type.downcase}"
+
+    mail to: mentionable.email, subject: "#{mention.mentioner.member.full_name} (#{mention.mentioner.member.user_name}) mentioned you in a #{@type.downcase}"
   end
 end

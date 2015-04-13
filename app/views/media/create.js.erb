@@ -1,5 +1,5 @@
-$('i', '.custom-file-upload').removeClass("icon-ok");
-$('i', '.custom-file-upload').addClass("icon-arrow-up");
+$('i', '.custom-file-upload').removeClass("fa-check");
+$('i', '.custom-file-upload').addClass("fa-arrow-up");
 $('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 $(".m_list").prepend("<%= escape_javascript(render :partial => @medium, :locals => {:medium => @medium}) %>");
 $('#media_list_wrap').imagesLoaded(function() {

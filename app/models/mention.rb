@@ -8,7 +8,7 @@ class Mention < ActiveRecord::Base
 
     def create_notification
 		subject = "#{mentioner.member.user_name}"
-		body = "<b>mentioned</b> you in a <b>#{mentioner_type.downcase}</b> <p><i>#{mentioner.content}</i></p>"
+		body = "<b>mentioned</b> you in a <b>#{mentioner_type.downcase}</b>"
 		mentionable.notify(subject, body, self)
 	end
 

@@ -20,7 +20,7 @@
 	margin: 10px 0 5px 35px;
 }
 .media_act_cap {
-	font-size: .8em;
+	font-size: .85em;
 	font-style: oblique;
 	color: #898989;
 	padding: 3px 0;
@@ -102,9 +102,6 @@
 .status_fil .act_content a:hover {
 	text-decoration: none;
 	color: #898989;
-}
-.media_act_cap a {
-	font-weight: bold;
 }
 .media_act_cap a:hover {
 	text-decoration: none;

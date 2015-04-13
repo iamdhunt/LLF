@@ -85,7 +85,7 @@
 
         <% if @medium.caption? %>
           <p class="view_caption">
-            <%= Rinku.auto_link(@medium.caption).html_safe %>
+            <%= Rinku.auto_link(media_with_mentions(@medium)).html_safe %>
           </p>
         <% end %>
 

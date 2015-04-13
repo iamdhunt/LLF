@@ -4,6 +4,7 @@
 <div class="not_wrap">
 
 	<span class="not_icon">
+
 		<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' %>
 			<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
 		<% elsif notification.notified_object_type == 'Follow' %>
@@ -57,7 +58,20 @@
 					<% end %>
 				<% end %>
 			<% end %>
+
+			<% if notification.notified_object.mentioner_type == 'Medium' %>
+				<% if notification.notified_object.mentioner.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+					<div><%= link_to image_tag(notification.notified_object.mentioner.asset.url(:thumb2), class: 'not_av'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %></div>
+				<% elsif notification.notified_object.mentioner.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+					<% if notification.notified_object.mentioner.cover? %>
+						<div><%= link_to image_tag(notification.notified_object.mentioner.cover.url(:thumb), class: 'not_av'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %></div>
+					<% else %>
+						<div><%= link_to image_tag('Default Audio Thumb.png', class: 'not_av'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %></div>
+					<% end %>
+				<% end %>
+			<% end %>
 		<% end %>
+
 	</span>
 
 	<span>
@@ -104,6 +118,8 @@
 
 				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to 'caption', notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
 				<% end %>
@@ -144,6 +160,8 @@
 					<% end %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
 					<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
+					<%= Rinku.auto_link(notification.notified_object.mentioner.caption).html_safe %>
 				<% end %>
 			</i></p>
 			

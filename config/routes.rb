@@ -68,6 +68,7 @@ LLF::Application.routes.draw do
 
   resources :media do
     resources :comments
+    resources :mentions
     collection do
       get 'popular', to: "media#popular", :as => 'popular'
     end

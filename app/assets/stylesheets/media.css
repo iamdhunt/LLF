@@ -46,9 +46,6 @@
 	color: #898989;
 	margin-top: 6px;
 }
-.view_caption a {
-	font-weight: bold;
-}
 .view_caption a:hover {
 	color: #898989;
 	text-decoration: none;
