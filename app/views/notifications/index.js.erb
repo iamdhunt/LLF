@@ -1,5 +1,4 @@
 $(".n_alert").html("<% unless current_member.mailbox.notifications({:read => false}).count == 0 %><div id='n_alert'></div><% end %>");
-init_ncount();
 $("#notifications").html("<%= escape_javascript(render partial: 'notifications/notifications', :collection => @notifications, :as => :notification) %>");
 soundManager.stopAll();
 soundManager.reboot();

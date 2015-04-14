@@ -12,8 +12,9 @@ class NotificationsController < ApplicationController
     end
 
     def update_all
-	    @notifications = current_member.mailbox.notifications.all
-	    current_member.mark_as_read @notifications
+      @notifications = current_member.mailbox.notifications.all
+	    @unread = current_member.mailbox.notifications({:read => false}).all
+	    current_member.mark_as_read @unread
 
         respond_to do |format|
           format.html { redirect_to notifications_path }

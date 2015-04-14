@@ -273,7 +273,9 @@
 }
 .not_content {
 	font-size: 1.05em;
-	padding: 8px 0 0 35px;
+	padding: 8px 0 0 0;
+	display: inline-block;
+	max-width: 90%;
 }
 .not_content .u_n a {
 	font-weight: bold;
@@ -314,10 +316,16 @@
 	background-image: url('/assets/glyphicons-halflings-grey.png') !important;
 }
 .not_meta {
-	float: right;
 	font-weight: bold;
 	color: #898989;
 	font-size: .85em;
+}
+.not_med {
+	float: right;
+}
+.not_med img {
+	width: 30px;
+	height: 30px;
 }
 .refresh {
 	margin-bottom: 5px;
