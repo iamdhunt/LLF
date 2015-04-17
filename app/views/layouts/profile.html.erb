@@ -1,95 +1,104 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title><%= yield(:title) || "LLF | Haven for the Bold" %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon 3.ico' %>
-</head>
-<body>
+  <head>
+    <title><%= yield(:title) || "LLF x Connect. Create. Discover." %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon 3.ico' %>
+  </head>
 
-<% if member_signed_in? %>
-  <%= javascript_tag do %>
-    window.messageCount = <%= current_member.mailbox.inbox({:read => false}).count %>
-  <% end %>
+  <body>
 
-  <%= javascript_tag do %>
-    window.notificationCount = <%= current_member.mailbox.notifications({:read => false}).count %>
-  <% end %>
-<% else %>
-  <%= javascript_tag do %>
-    window.messageCount = 0
-  <% end %>
+  <%= render :partial => "layouts/menu" %>
+   
+  <div id="pagewrap">
+      <% unless notice.blank? && alert.blank? %>
+          <% flash.each do |type, message| %>
+            <div class="alert <%= flash_class type %>">
+              <button class="close" data-dismiss="alert">x</button>
+              <%= message %>
+            </div>
+          <% end %>
+      <% end %>
 
-  <%= javascript_tag do %>
-    window.notificationCount = 0
-  <% end %>
-<% end %>
+      <%= render partial: 'profiles' %>
 
-<%= render :partial => "layouts/menu" %>
- 
-<div id="pagewrap">
-    <% unless notice.blank? && alert.blank? %>
-        <% flash.each do |type, message| %>
-          <div class="alert <%= flash_class type %>">
-            <button class="close" data-dismiss="alert">x</button>
-            <%= message %>
+      <div id="footer_wrap">
+          
+          <div id="footer_top" class="box_font"> 
+            <span class="bottom_links"><%= link_to "FAQ'S", faqs_path %></span> 
+            <span class="bottom_links"><%= link_to "CONTACT US", "#contact", :data => {:toggle => "modal"} %></span> 
+            <span class="bottom_links"><%= link_to "TERMS", terms_path %></span>
+            <span class="bottom_links"><%= link_to "PRIVACY", privacy_path %></span>
+            <span class="bottom_links">|</span>
+            <span class="bottom_links"><a href="http://beboldbefearless.co/">BLOG</a></span>    
           </div>
-        <% end %>
+        
+          <div id="footer_bottom" class="box_font">
+              LLF &copy; 2014 
+          </div>
+
+      </div>
+
+  <!--/footer-->
+
+      <a href="#" class="scrollup" title="Top" alt="Top">Scroll</a>
+
+  </div>
+
+  <div class="s_modal">
+      <div id="contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="sharemodallabel">Contact Us</h3>
+        </div>
+        <div class="modal-body pi">
+          <div class="contact_links">
+            <%= link_to image_tag("FB 2.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "https://www.facebook.com/livinglifefearless" %>
+            <%= link_to image_tag("Twitter 3.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "https://twitter.com/llfofficial" %>
+            <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "YouTube", alt: "YouTube"), "http://www.youtube.com/thellfofficial/videos" %>
+            <%= link_to image_tag("Vimeo 2.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), "https://vimeo.com/livinglifefearless" %>
+            <%= link_to image_tag("Instagram 3.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://instagram.com/llfofficial/" %>
+            <%= link_to image_tag("Blog 3.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://feeds.feedburner.com/livinglifefearless" %>
+          </div>
+          
+          <div class="contact_email">
+            <input class="pr_in forms" value="support@livinglifefearless.co" onclick="this.select()" />
+            
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <!--/pagewrap-->
+
+  <% if member_signed_in? %>
+    <%= javascript_tag do %>
+      window.messageCount = <%= current_member.mailbox.inbox({:read => false}).count %>
     <% end %>
 
-    <%= render partial: 'profiles' %>
+    <%= javascript_tag do %>
+      window.notificationCount = <%= current_member.mailbox.notifications({:read => false}).count %>
+    <% end %>
+  <% else %>
+    <%= javascript_tag do %>
+      window.messageCount = 0
+    <% end %>
 
-    <div id="footer_wrap">
-        
-        <div id="footer_top" class="box_font"> 
-          <span class="bottom_links"><%= link_to "FAQ'S", faqs_path %></span> 
-          <span class="bottom_links"><%= link_to "CONTACT US", "#contact", :data => {:toggle => "modal"} %></span> 
-          <span class="bottom_links"><%= link_to "TERMS", terms_path %></span>
-          <span class="bottom_links"><%= link_to "PRIVACY", privacy_path %></span>
-          <span class="bottom_links">|</span>
-          <span class="bottom_links"><a href="http://beboldbefearless.co/">BLOG</a></span>    
-        </div>
-      
-        <div id="footer_bottom" class="box_font">
-            LLF &copy; 2014 
-        </div>
+    <%= javascript_tag do %>
+      window.notificationCount = 0
+    <% end %>
+  <% end %>
 
-    </div>
+  <% if member_signed_in? %>
+    <%= javascript_tag do %>
+      data = <%= raw Member.pluck(:user_name).order_by_rand.compact.to_json %>;
+      $('#update_box').atwho({at:"@", 'data':data});
+      $('#comment_box').atwho({at:"@", 'data':data});
+      $('#cap_box').atwho({at:"@", 'data':data});
+    <% end %>
+  <% end %>
 
-<!--/footer-->
-
-    <a href="#" class="scrollup" title="Top" alt="Top">Scroll</a>
-
-</div>
-
-<div class="s_modal">
-    <div id="contact" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 id="sharemodallabel">Contact Us</h3>
-      </div>
-      <div class="modal-body pi">
-        <div class="contact_links">
-          <%= link_to image_tag("FB 2.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "https://www.facebook.com/livinglifefearless" %>
-          <%= link_to image_tag("Twitter 3.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "https://twitter.com/llfofficial" %>
-          <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "YouTube", alt: "YouTube"), "http://www.youtube.com/thellfofficial/videos" %>
-          <%= link_to image_tag("Vimeo 2.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), "https://vimeo.com/livinglifefearless" %>
-          <%= link_to image_tag("Instagram 3.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://instagram.com/llfofficial/" %>
-          <%= link_to image_tag("Blog 3.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://feeds.feedburner.com/livinglifefearless" %>
-        </div>
-        
-        <div class="contact_email">
-          <input class="pr_in forms" value="support@livinglifefearless.co" onclick="this.select()" />
-          
-        </div>
-      </div>
-    </div>
-</div>
-
-<!--/pagewrap-->
-
-</body>
+  </body>
 </html>
-<!--/main_wrap-->

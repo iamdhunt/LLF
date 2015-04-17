@@ -12,7 +12,7 @@ class NotificationsController < ApplicationController
     end
 
     def update_all
-      @notifications = current_member.mailbox.notifications.all
+      @notifications = current_member.mailbox.notifications.order('created_at desc').page(params[:page]).per_page(25)
 	    @unread = current_member.mailbox.notifications({:read => false}).all
 	    current_member.mark_as_read @unread
 

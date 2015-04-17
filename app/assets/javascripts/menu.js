@@ -36,10 +36,6 @@ $(document).ready(function(){
         $(this).find("[autofocus]:first").focus();
     });
 
-    init_mcount();
-
-    init_ncount();
-
     if(isMobile.any()) {
        $( "#discover" ).attr( "placeholder", "Discover people & brands" );
     }

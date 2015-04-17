@@ -22,4 +22,5 @@
 //= require plugins/lists.min.js
 //= require plugins/char_counter.min.js
 //= require plugins/fullscreen.min.js
+//= require jquery.atwho
 //= require_tree .

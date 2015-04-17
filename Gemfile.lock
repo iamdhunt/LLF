@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    RedCloth (4.2.9)
     RedCloth (4.2.9-x86-mingw32)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -114,7 +113,6 @@ GEM
     em-socksify (0.3.0)
       eventmachine (>= 1.0.0.beta.4)
     erubis (2.7.0)
-    eventmachine (1.0.3)
     eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.1)
     factory_girl (4.2.0)
@@ -177,7 +175,6 @@ GEM
       polyamorous (~> 0.5.0)
     mime-types (1.25)
     multi_json (1.10.1)
-    nokogiri (1.5.10)
     nokogiri (1.5.10-x86-mingw32)
     options (2.3.2)
     orm_adapter (0.4.0)
