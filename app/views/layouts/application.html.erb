@@ -96,7 +96,7 @@
       data = <%= raw Member.pluck(:user_name).sort_by{rand}.compact.to_json %>;
       $('#update_box').atwho({at:"@", 'data':data});
       $('#comment_box').atwho({at:"@", 'data':data});
-      $('#cap_box').atwho({at:"@", 'data':data});
+      $('#cap_box').atwho({at:'@', data:'data'});
     <% end %>
   <% end %>
 

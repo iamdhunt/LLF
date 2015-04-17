@@ -93,7 +93,7 @@
 
   <% if member_signed_in? %>
     <%= javascript_tag do %>
-      data = <%= raw Member.pluck(:user_name).order_by_rand.compact.to_json %>;
+      data = <%= raw Member.pluck(:user_name).sort_by{rand}.compact.to_json %>;
       $('#update_box').atwho({at:"@", 'data':data});
       $('#comment_box').atwho({at:"@", 'data':data});
       $('#cap_box').atwho({at:"@", 'data':data});
