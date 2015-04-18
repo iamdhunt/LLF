@@ -73,6 +73,10 @@
 
   <!--/pagewrap-->
 
+  <%= javascript_tag do %>
+    $.Editable.DEFAULTS.key = 'bshinC6A3C3utsC8jB6dB5lE4obB11==';
+  <% end %>
+
   <% if member_signed_in? %>
     <%= javascript_tag do %>
       window.messageCount = <%= current_member.mailbox.inbox({:read => false}).count %>
