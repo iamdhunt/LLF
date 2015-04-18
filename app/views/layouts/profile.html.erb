@@ -8,6 +8,10 @@
     <%= favicon_link_tag 'favicon 3.ico' %>
   </head>
 
+  <script>
+    $.Editable.DEFAULTS.key = 'bshinC6A3C3utsC8jB6dB5lE4obB11==';
+  </script>
+
   <body>
 
   <%= render :partial => "layouts/menu" %>
@@ -72,10 +76,6 @@
   </div>
 
   <!--/pagewrap-->
-
-  <%= javascript_tag do %>
-    $.Editable.DEFAULTS.key = bshinC6A3C3utsC8jB6dB5lE4obB11==;
-  <% end %>
 
   <% if member_signed_in? %>
     <%= javascript_tag do %>
