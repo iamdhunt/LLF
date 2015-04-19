@@ -1795,13 +1795,23 @@ label.active {
 	opacity: 1;
 	filter: alpha(opacity=100);
 }
+#err_wrap {
+	background: #f2dede;
+  	padding: 5px 0;
+  	margin-bottom: 20px;
+}
 #error_list {
-	padding: 4px 20px;
+	padding: 4px 20px 8px 40px;
 	font-style: oblique;
+	background: #f2dede;
 }
 #error_list ul li {
 	list-style: disc;
 	padding: 2px;
+}
+.alert_error {
+	background-color: none;
+	border: none;
 }
 #faq_wrap .none_message {
 	padding: 220px 0 0 0;

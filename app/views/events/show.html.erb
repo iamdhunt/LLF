@@ -33,7 +33,7 @@
         <% end %>
         <% if @event.location? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + @event.location.titleize, :controller => "events", :action => "index", :events => @event.location  %></span>
+            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + truncate(@event.location.titleize, length: 40), :controller => "events", :action => "index", :events => @event.location  %></span>
           </li>
         <% end %>
           <li class='sub'>
@@ -123,7 +123,7 @@
             <span class=""><%= @event.address %></span>
             <p>
               <span class="">
-                <%= @event.city %><% if @event.state? %>, <%= @event.state %><% end %> <%= @event.zipcode %>
+                <%= truncate(@event.city, length: 50) %><% if @event.state? %>, <%= truncate(@event.state, length: 50) %><% end %> <%= @event.zipcode %>
               </span>
             </p>
             <% if @event.country? %>

@@ -134,7 +134,16 @@
 	color: #444;
 }
 #edit_wrap .loc_in {
-margin: 0 0 5px 15px;
+	margin: 0 0 5px 15px;
+}
+#edit_wrap .alert {
+	padding: 8px 20px;
+	font-weight: bold;
+	background-color: none; 
+  	border: none; 
+  	-webkit-border-radius: none; 
+  	-moz-border-radius: none;
+  	border-radius: none;
 }
 .el_tm {
 	text-align: center;

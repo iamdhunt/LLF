@@ -1,13 +1,15 @@
 <%= simple_form_for(@event, :html => { class: 'form-horizontal ' }) do |f| %>
   <% if @event.errors.any? %>
-    <%= f.error_notification %>
+    <div id="err_wrap">
+      <%= f.error_notification %>
 
-    <div id="error_list">
-      <ul>
-        <% @event.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+      <div id="error_list">
+        <ul>
+          <% @event.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
@@ -121,10 +123,10 @@
             </li>
           </ul>
         </div>
-        <%= f.input :start_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6', maxlength: '50' } %>
-        <%= f.input :end_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '7', maxlength: '50' } %>
-        <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '8', maxlength: '50' } %>
-        <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '9', maxlength: '50' } %>
+        <%= f.input :start_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10,  order: [:month, :day, :year], label: 'Start Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '6' } %>
+        <%= f.input :end_date, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year + 10, order: [:month, :day, :year], label: 'End Date', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '7' } %>
+        <%= f.input :start_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'Start Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '8' } %>
+        <%= f.input :end_time, as: :time, :time_separator => "", ampm: true, :default => {:hour => '0', :minute => '00'}, label: 'End Time', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings', tabindex: '9' } %>
       </fieldset>
     </div>
 
@@ -139,11 +141,11 @@
           </ul>
         </div>
         <%= f.input :location, label: 'Location Name', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings loc_in', tabindex: '10', id: 'e_loc_in', maxlength: '100' } %>
-        <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '11', maxlength: '50' } %>
-        <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '12', maxlength: '50' } %>
-        <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '13', maxlength: '50' } %>
+        <%= f.input :address, label: 'Address', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings adr_in', tabindex: '11', maxlength: '100' } %>
+        <%= f.input :city, label: 'City', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '12', maxlength: '100' } %>
+        <%= f.input :state, label: 'State', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '13', maxlength: '100' } %>
         <%= f.input :zipcode, label: 'Zip Code', error: false, input_html: { cols: '60', rows: '1', class: 'forms account settings', tabindex: '14', maxlength: '9' } %>
-        <%= f.input :country, label: 'Country', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '15', maxlength: '50' } %>
+        <%= f.input :country, label: 'Country', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings cit_in', tabindex: '15', maxlength: '100' } %>
       </fieldset>
     </div>
 

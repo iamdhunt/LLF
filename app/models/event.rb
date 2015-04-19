@@ -1,23 +1,44 @@
 class Event < ActiveRecord::Base
-	belongs_to :member
 
-  before_create :make_it_permalink
-
-	attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
+  attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
 
-	  validates :details, presence: true
-  	validates :blurb, presence: true,
-  						length: {
-                          maximum: 140, 
-                          message: 'must not be more than 140 characters.'
+	belongs_to :member
+
+  acts_as_votable
+  acts_as_followable
+  acts_as_ordered_taggable
+  acts_as_ordered_taggable_on :markers
+  acts_as_messageable
+  has_many :comments, as: :commentable, :dependent => :destroy
+  has_many :uploads, as: :uploadable, :dependent => :destroy
+  has_many :updates, as: :updateable, :dependent => :destroy
+  has_many :activities, as: :targetable, :dependent => :destroy
+
+  has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+                  :default_url => '/assets/Events Default.png'
+  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
+                  :default_url => '/assets/Events Banner Default.png'
+
+  before_create :make_it_permalink
+  before_validation :clean_up_markers
+
+  
+    
+    validates :name, presence: { message: 'can\'t be blank.'},
+              length: {
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.'
                         }
-  	validates :category, presence: true,
+
+    validates :category, presence: { message: 'can\'t be blank.'},
               inclusion: {
-                in: %w(Arts Entrepreneurial Music Sports Other)
-              }
-  	validates :marker_list, presence: true,
-  						length: {
+                in: %w(Arts Entrepreneurial Music Sports Other),
+                message: 'is not included in the list.'
+              } 
+
+    validates :marker_list, presence: { message: '(tags) can\'t be blank.'},
+              length: {
                               maximum: 3,
                               message: '(tags) must not list more than 3 tags.'
                             },
@@ -25,37 +46,47 @@ class Event < ActiveRecord::Base
                               with: /^[a-zA-Z0-9 ,-]+$/,
                               message: '(tags) must not include any special characters or numbers.'
                             }
-    validate :each_marker
-  	validates :name, presence: true,
-  						length: {
-                          maximum: 100, 
-                          message: 'must not be more than 100 characters.',
-                          minimum: 2,
-                          message: 'must be longer than 2 characters.'
-                        }
+    validate :each_marker     
+
+    validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
+    validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
+                                                message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
+
+    validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
+    validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
+                                                message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
+
+    validates :start_date, presence: { message: 'can\'t be blank.'}
+    validates :end_date, presence: { message: 'can\'t be blank.'}
+    validates :start_time, presence: { message: 'can\'t be blank.'}
+    validates :end_time, presence: { message: 'can\'t be blank.'} 
+
     validates :location, allow_blank: true,
               length: {
                           maximum: 100, 
-                          message: 'must not be more than 100 characters.',
+                          message: 'name must not be more than 100 characters.',
                           minimum: 2,
-                          message: 'must be longer than 2 characters.'
+                          message: 'name must be longer than 2 characters.'
                         }
+
     validates :address, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z0-9 -.]+$/,
                           message: 'must not include any special characters.'
                         },length: {
-                          maximum: 50, 
-                          message: 'must not be more than 50 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                         }
+
     validates :city, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z -']+$/,
                           message: 'must not include any special characters or numbers.'
                         },length: {
-                          maximum: 50, 
-                          message: 'must not be more than 50 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                         }
+
     validates :zipcode, allow_blank: true,
                         format: {
                           with: /^[0-9 -]+$/,
@@ -64,56 +95,37 @@ class Event < ActiveRecord::Base
                           maximum: 9, 
                           message: 'must not be more than 9 characters.',
                         }
+
     validates :state, allow_blank: true, 
                         format: {
                           with: /^[a-zA-Z ]+$/,
                           message: 'must not include any special characters or numbers.'
                         },length: {
-                          maximum: 50, 
-                          message: 'must not be more than 50 characters.',
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
                         }
+
     validates :country, allow_blank: true,
                         format: {
                           with: /^[a-zA-Z ]+$/,
                           message: 'must not include any special characters or numbers.'
                         },length: {
-                          maximum: 50, 
-                          message: 'must not be more than 50 characters.',
-                        }
-    validates :start_date, presence: true
-    validates :end_date, presence: true
-    validates :start_time, presence: true
-    validates :end_time, presence: true                           
+                          maximum: 100, 
+                          message: 'must not be more than 100 characters.',
+                        }           
 
-	  acts_as_votable
-    acts_as_followable
-    acts_as_ordered_taggable
-  	acts_as_ordered_taggable_on :markers
-    acts_as_messageable
-    has_many :comments, as: :commentable, :dependent => :destroy
-    has_many :uploads, as: :uploadable, :dependent => :destroy
-    has_many :updates, as: :updateable, :dependent => :destroy
-    has_many :activities, as: :targetable, :dependent => :destroy
+	  validates :details, presence: { message: 'can\'t be blank.'} 
 
-    before_validation :clean_up_markers
-
-  	has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
-  								:default_url => '/assets/Events Default.png'
-  	has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-  								:default_url => '/assets/Events Banner Default.png'
-
-    validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte
-  	validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
-
-  	validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte
-  	validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  	validates :blurb, presence: { message: 'can\'t be blank.'},
+  						length: {
+                          maximum: 140, 
+                          message: 'must not be more than 140 characters.'
+                        }                          
 
   	auto_html_for :video do
 	    html_escape
-	    image
 	    youtube(:width => 660, :height => 400, :autoplay => false)
 	    vimeo(:width => 660, :height => 400, :autoplay => false)
-	    simple_format
 	  end
 
     auto_html_for :details do
@@ -161,7 +173,7 @@ class Event < ActiveRecord::Base
 	  def each_marker
 	    marker_list.each do |marker|
 	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-	      errors.add(:marker, "(tag) too long (Maximum is 30 characters)") if marker.length > 30
+	      errors.add(:marker, "(tag) is too long (maximum is 30 characters).") if marker.length > 30
 	    end
 	  end
 
