@@ -1,12 +1,21 @@
-$('i', '.custom-file-upload').removeClass("fa-check");
-$('i', '.custom-file-upload').addClass("fa-arrow-up");
-$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
-$("#upload_<%= @uploadable.id %>").prepend("<%= escape_javascript(render :partial => @upload, :locals => {:upload => @upload}) %>");
-$('.p_m_list_wrap').imagesLoaded(function() {
-	$('.p_m_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
-	soundManager.stopAll();
-	soundManager.reboot();
-});
-$('#up_pe_ct').html("<%= @uploadable.uploads.count %>");
-$('#upload').modal('hide');
-$('#upload_form')[0].reset();
+<% if @upload.errors.any? %>
+	$('#err_wrap').remove();
+	$(".new_upload").prepend("<%= escape_javascript(render('uploads/errors')) %>");
+	$('i', '.custom-file-upload').removeClass("fa-check");
+	$('i', '.custom-file-upload').addClass("fa-arrow-up");
+	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
+<% else %>
+	$('#err_wrap').remove();
+	$('i', '.custom-file-upload').removeClass("fa-check");
+	$('i', '.custom-file-upload').addClass("fa-arrow-up");
+	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
+	$("#upload_<%= @uploadable.id %>").prepend("<%= escape_javascript(render :partial => @upload, :locals => {:upload => @upload}) %>");
+	$('.p_m_list_wrap').imagesLoaded(function() {
+		$('.p_m_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+		soundManager.stopAll();
+		soundManager.reboot();
+	});
+	$('#up_pe_ct').html("<%= @uploadable.uploads.count %>");
+	$('#upload').modal('hide');
+	$('#upload_form')[0].reset();
+<% end %>

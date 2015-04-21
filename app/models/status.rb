@@ -10,22 +10,17 @@ class Status < ActiveRecord::Base
   has_many :activities, as: :targetable, :dependent => :destroy
   has_many :mentions, as: :mentioner, dependent: :destroy
 
-  auto_strip_attributes :content
+  accepts_nested_attributes_for :document
 
   before_create :make_it_permalink
   after_save :save_mentions
 
-  accepts_nested_attributes_for :document
-
-  validates :content, presence: true,
-  			length: { 
-  				minimum: 2,
-  				message: 'must be longer than 2 characters.', 
-  				maximum: 280,
-  				message: 'must not be more than 280 characters.' 
-  			}
+  validates :content, presence: { message: '(status) can\'t be blank.'},
+      			length: { maximum: 280, message: '(status) must not be longer than 280 characters.' }
 
   validates :member_id, presence: true
+
+  auto_strip_attributes :content
 
   auto_html_for :content do
       html_escape

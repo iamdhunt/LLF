@@ -334,3 +334,30 @@ top: 25%;
 .medium_marker_list {
 	margin-top: 4px;
 }
+#media .alert {
+  padding: 8px 20px;
+  font-weight: bold;
+  background-color: none;
+  border: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
+#upload .alert {
+  padding: 8px 20px;
+  font-weight: bold;
+  background-color: none;
+  border: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
+#update_box_wrap .alert {
+  padding: 8px 20px;
+  font-weight: bold;
+  background-color: none;
+  border: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}

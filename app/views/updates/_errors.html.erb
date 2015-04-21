@@ -1,0 +1,14 @@
+
+  <div id="err_wrap">
+    <div class="alert alert-error">
+      Please review the problems below:
+    </div>
+
+    <div id="error_list">
+      <ul>
+        <% @update.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>

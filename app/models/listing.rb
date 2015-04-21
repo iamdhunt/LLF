@@ -45,7 +45,7 @@ class Listing < ActiveRecord::Base
                                             'audio/x-mp3', 'audio/x-mpeg', 'audio/x-mpeg3', 'audio/x-mpegaudio', 'audio/x-mpg'],
                                       message: 'must be a .jpeg, .jpg, .png, .gif, or .mp3 file type.'
 
-    validates_attachment_size :cover, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
+    validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte, message: 'must be less than or equal to 15mb.'
     validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
                                               message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
 

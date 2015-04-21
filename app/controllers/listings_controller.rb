@@ -78,9 +78,11 @@ class ListingsController < ApplicationController
 
         format.html { redirect_to @listing }
         format.json { render json: @listing, status: :created, location: @listing }
+        format.js   { render :js => "window.location.href = ('#{listing_path(@listing)}');"}
       else
         format.html { render action: "new" }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
+        format.js   
       end
     end
   end
@@ -100,9 +102,11 @@ class ListingsController < ApplicationController
 
         format.html { redirect_to @listing }
         format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{listing_path(@listing)}');"}
       else
         format.html { render action: "edit" }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
+        format.js   
       end
     end
   end

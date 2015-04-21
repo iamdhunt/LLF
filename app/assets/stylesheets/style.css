@@ -1799,6 +1799,7 @@ label.active {
 	background: #f2dede;
   	padding: 5px 0;
   	margin-bottom: 20px;
+  	border-radius: 8px;
 }
 #error_list {
 	padding: 4px 20px 8px 40px;

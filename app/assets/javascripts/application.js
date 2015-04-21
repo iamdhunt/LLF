@@ -15,7 +15,6 @@
 //= require js-routes
 //= require swf_fu
 //= require soundmanager2-nodebug
-//= require redactor-rails
 //= require jquery.remotipart
 //= require private_pub
 //= require froala_editor.min.js

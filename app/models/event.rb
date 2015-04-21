@@ -22,9 +22,7 @@ class Event < ActiveRecord::Base
 
   before_create :make_it_permalink
   before_validation :clean_up_markers
-
   
-    
     validates :name, presence: { message: 'can\'t be blank.'},
               length: {
                           maximum: 100, 

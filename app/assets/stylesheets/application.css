@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require redactor-rails
+
  *= require froala_editor.min.css
  *= require froala_style.min.css
  *= require font-awesome

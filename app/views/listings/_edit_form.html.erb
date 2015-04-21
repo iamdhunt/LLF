@@ -1,17 +1,5 @@
-<%= simple_form_for(@listing, :html => { class: 'form-horizontal ', :multipart => true }) do |f| %>
-  <% if @listing.errors.any? %>
-    <div id="err_wrap">
-      <%= f.error_notification %>
-
-      <div id="error_list">
-        <ul>
-          <% @listing.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+<%= simple_form_for(@listing, remote: true, :html => { class: 'form-horizontal ', :multipart => true }) do |f| %>
+  <%= render 'errors' %>
 
   <div class="rq">
     * = required field
@@ -36,6 +24,9 @@
                 <ul>
                     <li>
                       &raquo; Max $1,500 price tag
+                    </li>
+                    <li>
+                      &raquo; Leave blank for a free listing price 
                     </li>
                 </ul>
               </div>

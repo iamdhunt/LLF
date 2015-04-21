@@ -1,18 +1,18 @@
 class Update < ActiveRecord::Base
-  	belongs_to :member
-	belongs_to :updateable, polymorphic: true
+
 	attr_accessible :title, :content
 
-	auto_strip_attributes :content
+  	belongs_to :member
+	belongs_to :updateable, polymorphic: true
+
+	after_commit :create_notification, on: :create
+
+	validates :title, presence: { message: 'can\'t be blank.'}
+
+  	validates :content, presence: { message: 'can\'t be blank.'}
+
+  	auto_strip_attributes :content
 	auto_strip_attributes :title, :squish => true
-
-	validates :title, presence: true,
-  			length: { minimum: 2, maximum: 60 }
-
-  	validates :content, presence: true,
-  			length: { minimum: 2 }
-
-  	after_commit :create_notification, on: :create
 
   	auto_html_for :content do
 	    image

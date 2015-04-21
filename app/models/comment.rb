@@ -1,17 +1,18 @@
 class Comment < ActiveRecord::Base
+
+	attr_accessor :mention
+	attr_accessible :content
+
 	belongs_to :member
 	belongs_to :commentable, polymorphic: true
 
 	has_many :mentions, as: :mentioner, dependent: :destroy
 
-	attr_accessor :mention
-	attr_accessible :content
+	after_create :create_notification, :send_email, unless: Proc.new { |comment| comment.member.id == comment.commentable.member.id }
+	after_save :save_mentions
 
 	validates :content, presence: true,
 				length: { minimum: 2, maximum: 280 }
-
-	after_create :create_notification, :send_email, unless: Proc.new { |comment| comment.member.id == comment.commentable.member.id }
-	after_save :save_mentions
 
 	auto_strip_attributes :content
 
