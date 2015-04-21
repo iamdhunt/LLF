@@ -1,6 +1,6 @@
 <fieldset>
   <legend class="leg">Change Your Username</legend>
-  <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16'} %>
+  <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16', autocomplete: 'off'} %>
 </fieldset>
 
 <fieldset>
@@ -49,10 +49,10 @@
 
 <fieldset>
   <legend class="leg">About Me</legend>
-  <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '15', maxlength: '140'} %>
-  <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '16', maxlength: '25'} %>
-  <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '17', maxlength: '25'} %>
-  <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '18', maxlength: '25'} %>
+  <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '15', maxlength: '140', autocomplete: 'off'} %>
+  <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '16', maxlength: '25', autocomplete: 'off'} %>
+  <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '17', maxlength: '25', autocomplete: 'off'} %>
+  <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '18', maxlength: '25', autocomplete: 'off'} %>
 </fieldset>
 
 <div class="form-actions">

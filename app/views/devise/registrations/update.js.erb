@@ -1,0 +1,5 @@
+$('#err_wrap').remove();
+$("#edit_member").prepend("<%= escape_javascript(render('update_errors')) %>");
+$('i', '.custom-file-upload').removeClass("fa-check");
+$('i', '.custom-file-upload').addClass("fa-arrow-up");
+$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');

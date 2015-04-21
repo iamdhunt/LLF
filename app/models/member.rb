@@ -9,34 +9,65 @@ class Member < ActiveRecord::Base
   					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
             :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
   
-  auto_strip_attributes :email, :email_confirmation, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
-  auto_strip_attributes :city, :squish => true
-  auto_strip_attributes :state, :squish => true
-  auto_strip_attributes :country, :squish => true
-  auto_strip_attributes :full_name, :squish => true
+  acts_as_follower
+  acts_as_followable
+  acts_as_ordered_taggable
+  acts_as_ordered_taggable_on :pursuits
+  acts_as_voter
+  acts_as_messageable
 
-  validates :full_name, presence: true,
+  has_many :medium, :dependent => :destroy
+  has_many :projects, :dependent => :destroy
+  has_many :events, :dependent => :destroy
+  has_many :statuses, :dependent => :destroy
+  has_many :activities, :dependent => :destroy
+  has_many :listings, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
+  has_many :uploads, :dependent => :destroy
+  has_many :updates, :dependent => :destroy
+  has_many :assets, :dependent => :destroy
+  has_many :mentions, as: :mentionable, dependent: :destroy
+
+  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"},
+                    :default_url => '/assets/Default Av.png'
+
+  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
+
+  before_validation :clean_up_pursuits
+  before_save :to_lower
+  before_create :to_lower
+  after_create :send_welcome
+
+  validates :full_name, presence: { message: 'can\'t be blank.'},
                         length: {
                           maximum: 50, 
-                          message: 'must not be more than 50 characters.'
+                          message: 'must not be longer than 50 characters.'
                         }
 
-  validates :user_name, presence: true,
-                        uniqueness: true,
+  validates :user_name, presence: { message: 'can\'t be blank.'},
+                        uniqueness: { message: 'is already taken.'},
                         format: {
                           with: /^[a-zA-Z0-9_-]+$/,
-                          message: 'can not include spaces or special characters.'
+                          message: 'must not include spaces or special characters.'
                         },
                         length: {
                           maximum: 16,
-                          message: 'must not be longer than 16 characters'
+                          message: 'must not be longer than 16 characters.'
                         },
                         exclusion: {
                           in: %w(faqs community market events projects members terms privacy blog login logout join llf_adm grla rbreed frls search discover),
                           message: 'is already taken.'
                         }                 
 
-  validates :email, confirmation: true
+  validates :email, confirmation: { message: 'doesn\'t match confirmation.'}
+
+  validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
+  validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
+                                              message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
+
+  validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
+  validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
+                                              message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
 
   validates :pursuit_list,  allow_blank: true,
                             length: {
@@ -45,45 +76,9 @@ class Member < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z ,-]+$/,
-                              message: 'must be formatted correctly. Only letters.'
+                              message: 'must not include any special characters or numbers.'
                             }
   validate :each_pursuit
-
-  validates :bio, allow_blank: true,
-                  length: {
-                    maximum: 140,
-                    message: 'must not be longer than 140 characters'
-                  }
-
- validates :city, allow_blank: true,
-                  format: {
-                    with: /^[a-zA-Z- ]+$/,
-                    message: 'must not include any special characters or numbers.'
-                  },
-                  length: {
-                    maximum: 25,
-                    message: 'must not be longer than 25 characters.'
-                  } 
-
-  validates :state, allow_blank: true,
-                    format: {
-                      with: /^[a-zA-Z- ]+$/,
-                      message: 'must not include any special characters or numbers.'
-                    },
-                    length: {
-                      maximum: 25,
-                      message: 'must not be longer than 25 characters.'
-                    } 
-
-  validates :country, allow_blank: true,
-                      format: {
-                        with: /^[a-zA-Z- ]+$/,
-                        message: 'must not include any special characters or numbers.'
-                      },
-                      length: {
-                        maximum: 25,
-                        message: 'must not be longer than 25 characters.'
-                      }
 
   validates :facebook, allow_blank: true,
                        length: {
@@ -157,39 +152,47 @@ class Member < ActiveRecord::Base
                         message: 'must be longer than 4 characters.'
                        }
 
-  before_validation :clean_up_pursuits
-  before_save :to_lower
-  before_create :to_lower
-  after_create :send_welcome
+  validates :bio, allow_blank: true,
+                  length: {
+                    maximum: 140,
+                    message: 'must not be longer than 140 characters.'
+                  }
 
-  has_many :medium, :dependent => :destroy
-  has_many :projects, :dependent => :destroy
-  has_many :events, :dependent => :destroy
-  has_many :statuses, :dependent => :destroy
-  has_many :activities, :dependent => :destroy
-  has_many :listings, :dependent => :destroy
-  has_many :comments, :dependent => :destroy
-  has_many :uploads, :dependent => :destroy
-  has_many :updates, :dependent => :destroy
-  has_many :assets, :dependent => :destroy
-  has_many :mentions, as: :mentionable, dependent: :destroy
-  acts_as_follower
-  acts_as_followable
-  acts_as_ordered_taggable
-  acts_as_ordered_taggable_on :pursuits
-  acts_as_voter
-  acts_as_messageable
+ validates :city, allow_blank: true,
+                  format: {
+                    with: /^[a-zA-Z- ]+$/,
+                    message: 'must not include any special characters or numbers.'
+                  },
+                  length: {
+                    maximum: 25,
+                    message: 'must not be longer than 25 characters.'
+                  } 
 
-  has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"},
-                    :default_url => '/assets/Default Av.png'
+  validates :state, allow_blank: true,
+                    format: {
+                      with: /^[a-zA-Z- ]+$/,
+                      message: 'must not include any special characters or numbers.'
+                    },
+                    length: {
+                      maximum: 25,
+                      message: 'must not be longer than 25 characters.'
+                    } 
 
-  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
+  validates :country, allow_blank: true,
+                      format: {
+                        with: /^[a-zA-Z- ]+$/,
+                        message: 'must not include any special characters or numbers.'
+                      },
+                      length: {
+                        maximum: 25,
+                        message: 'must not be longer than 25 characters.'
+                      }
 
-  validates_attachment_size :avatar, :less_than_or_equal_to=>5.megabyte
-  validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
-
-  validates_attachment_size :banner, :less_than_or_equal_to=>5.megabyte
-  validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif']
+  auto_strip_attributes :email, :email_confirmation, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
+  auto_strip_attributes :city, :squish => true
+  auto_strip_attributes :state, :squish => true
+  auto_strip_attributes :country, :squish => true
+  auto_strip_attributes :full_name, :squish => true
 
   def to_param
     user_name
@@ -228,7 +231,7 @@ class Member < ActiveRecord::Base
   def each_pursuit
     pursuit_list.each do |pursuit|
       # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-      errors.add(:pursuit, "Too long (Maximum is 30 characters)") if pursuit.length > 30
+      errors.add(:pursuit, "is too long (maximum is 30 characters).") if pursuit.length > 30
     end
   end
 

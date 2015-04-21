@@ -40,6 +40,9 @@
 .member .fa_l a {
 	padding: 1px 10px;
 }
+.member .s_out a {
+	padding-top: 5px;
+}
 .member .menu_name {
 	font-weight: bold;
 	color: #942fc6;
