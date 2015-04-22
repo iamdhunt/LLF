@@ -1,6 +1,6 @@
 ActsAsVotable::Vote.class_eval do
 
-	after_create :create_notification
+	after_create :create_notification, unless: Proc.new { |vote| vote.voter.id == vote.votable.member.id }
 
 	def create_notification
 		subject = "#{voter.user_name}"
