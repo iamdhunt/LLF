@@ -17,6 +17,7 @@
 //= require soundmanager2-nodebug
 //= require jquery.remotipart
 //= require private_pub
+//= require redactor-rails
 //= require froala_editor.min.js
 //= require plugins/lists.min.js
 //= require plugins/char_counter.min.js
