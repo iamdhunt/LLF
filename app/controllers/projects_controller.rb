@@ -71,7 +71,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    params[:project][:about] = sanitize_redactor(params[:project][:about])
+
     @project = current_member.projects.new(params[:project])
 
     respond_to do |format|
@@ -91,7 +91,7 @@ class ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
-    params[:project][:about] = sanitize_redactor(params[:project][:about])
+
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to @project }

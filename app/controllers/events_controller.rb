@@ -77,7 +77,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
-    params[:event][:details] = sanitize_redactor(params[:event][:details])
+
     @event = current_member.events.new(params[:event])
 
     respond_to do |format|
@@ -97,7 +97,6 @@ class EventsController < ApplicationController
   # PUT /events/1
   # PUT /events/1.json
   def update
-    params[:event][:details] = sanitize_redactor(params[:event][:details])
     
     respond_to do |format|
       if @event.update_attributes(params[:event])
