@@ -84,7 +84,6 @@ LLF::Application.routes.draw do
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
-  match '/snapshot' => 'pages#trending'
 
   scope '/faqs' do
     get "/basics" => "pages#faqs_basics", :as => "faqs_basics"

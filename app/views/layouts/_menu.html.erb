@@ -1,8 +1,5 @@
-<div id="nav_bar">	
+<div id="nav_bar">  
    <div class="nav_container">
-        <div class="query_nav">
-            <%= render partial: 'layouts/query' %>
-        </div>
         <div class="primary_nav">
             <ul id="main_menu">
                 <li class="h_i">
@@ -13,7 +10,11 @@
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to "Community", community_path, alt: 'Community' %>
+                    <% if member_signed_in? %>
+                        <%= link_to "Community", community_path, alt: 'Community' %>
+                    <% else %>
+                        <%= link_to "Community", root_path, alt: 'Community' %>
+                    <% end %>
                 </li>
                 <% unless member_signed_in? %>
                     <li>
@@ -118,5 +119,5 @@
         <% end %>
     </div>
 
-	<div style="clear:both;"></div>
+    <div style="clear:both;"></div>
 </div>
