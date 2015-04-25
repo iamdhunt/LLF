@@ -45,7 +45,7 @@ $(document).ready(function() {
 	    loading: {
 	    	selector: '#loading',
 	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
+	        img: '/assets/ajax-loader-(6).GIF',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 
@@ -90,7 +90,7 @@ $(document).ready(function() {
 	    loading: {
 	    	selector: '#p_fol_loading',
 	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
+	        img: '/assets/ajax-loader-(6).GIF',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 
@@ -142,7 +142,7 @@ $(document).ready(function() {
 	    loading: {
 	    	selector: '#p_med_loading',
 	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
+	        img: '/assets/ajax-loader-(6).GIF',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 
@@ -175,7 +175,7 @@ $(document).ready(function() {
 	    loading: {
 	    	selector: '#p_upd_loading',
 	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
+	        img: '/assets/ajax-loader-(6).GIF',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 

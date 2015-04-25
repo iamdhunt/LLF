@@ -1580,31 +1580,31 @@ hr.contact {
     z-index: 1000000;
 }
 #loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #p_fol_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #p_str_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #p_med_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #p_upd_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #tr_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 #st_loading {
-	margin-left: 49%;
+	text-align: center;
 	margin-top: 30px;
 }
 .display_none {
@@ -1854,6 +1854,26 @@ label.active {
 	width: 65%;
 	font-size: 1.3em;
 }
+#img-spinner {
+	vertical-align: bottom;
+}
+#act_update #spinner {
+	float: right;
+	margin-right: 5px;
+}
+#comm_form_wrap #img-spinner {
+	width: 24px;
+	height: 24px;
+}
+#message #spinner {
+	margin-left: 23%;
+}
+.reply_wrap #spinner {
+	margin-left: 34%;
+}
+
+
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:640px) and (orientation : portrait) {
 	.login_wrap {

@@ -49,5 +49,8 @@
 </fieldset>
 
 <div class="form-actions">
-  <%= f.submit "Update", class: 'btn btn-info pull-left' %>
+  <%= f.submit "Update", class: 'btn btn-info' %>
+  <span id="spinner" class="spinner">
+    <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+  </span>
 </div>

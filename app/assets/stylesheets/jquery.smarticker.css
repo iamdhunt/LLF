@@ -185,7 +185,7 @@
 .theme1 .smarticker-cats .left{
 	position: absolute;
 	left: 0px;
-	background: url('../images/left-flc-w.png') no-repeat right center;
+	/* background: url('../images/left-flc-w.png') no-repeat right center; */
 	width: 20%;
 	height: 100%;
 }
@@ -194,7 +194,7 @@
 	right: 0px;
 	top: 0px;
 	z-index: 1;
-	background: url('../images/right-flc-w.png') no-repeat right center;
+	/* background: url('../images/right-flc-w.png') no-repeat right center; */
 	width: 20%;
 	height: 100%;
 }

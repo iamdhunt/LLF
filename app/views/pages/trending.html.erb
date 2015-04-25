@@ -62,17 +62,6 @@
                 </div>  
             </div>        
 
-            <%= will_paginate @activities, class: 'display_none' %>
-
-            <% if @activities.total_pages != @activities.current_page %>
-                <div id="p_str_loading"></div>
-                <%= link_to("#", class: "com_show_wrap p_s_load_arrow") do %>
-                    <div class="com_show">
-                        Show More
-                    </div>
-                <% end %>
-            <% end %>
-
         </div>
 
     </div>

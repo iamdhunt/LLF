@@ -1,21 +1,24 @@
 <fieldset>
-  <legend class="descriptors leg">Update Your Name</legend>
-  <%= f.input :full_name, label: 'Full Name', error: false, input_html: { class: 'forms account settings', id: 'edit_first', maxlength: '50', autocomplete: 'off'}, autocomplete: 'off' %>
+	<legend class="descriptors leg">Update Your Name</legend>
+	<%= f.input :full_name, label: 'Full Name', error: false, input_html: { class: 'forms account settings', id: 'edit_first', maxlength: '50', autocomplete: 'off'}, autocomplete: 'off' %>
 </fieldset>
 
 <fieldset>
-  <legend class="leg">Change Your Email</legend>
-  <%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
+	<legend class="leg">Change Your Email</legend>
+	<%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
 </fieldset>
 
 <fieldset>
-  <legend class="leg">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
-  <%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
-  <%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
+	<legend class="leg">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
+	<%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
+	<%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
 </fieldset>
 
 
 <div class="form-actions">
-  <%= f.submit "Update", class: 'btn btn-info pull-left' %>
-  <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure? This can't be undone." }, :method => :delete, :class => 'btn btn-danger pull-right' %>
+	<%= f.submit "Update", class: 'btn btn-info' %>
+	<span id="spinner" class="spinner">
+	  <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+	</span>
+    <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure? This can't be undone." }, :method => :delete, :class => 'btn btn-danger pull-right' %>
 </div>

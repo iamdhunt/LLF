@@ -4,10 +4,10 @@ class ActivitiesController < ApplicationController
   before_filter :find_activity, only: [:destroy]
 
   def index
-  	params[:page] ||= 1
-  	@activities = Activity.for_member(current_member, params)
+    params[:page] ||= 1
+    @activities = Activity.for_member(current_member, params)
 
-    redirect_to root_path
+    redirect_to root_path  
   end
 
   def destroy

@@ -15,8 +15,8 @@ class Status < ActiveRecord::Base
   before_create :make_it_permalink
   after_save :save_mentions
 
-  validates :content, presence: { message: '(status) can\'t be blank.'},
-      			length: { maximum: 280, message: '(status) must not be longer than 280 characters.' }
+  validates :content, presence: { message: 'can\'t be blank.'},
+      			length: { maximum: 280, message: 'must not be longer than 280 characters.' }
 
   validates :member_id, presence: true
 

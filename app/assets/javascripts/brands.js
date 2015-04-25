@@ -64,7 +64,7 @@ $(document).ready(function(){
 	    loading: {
 	    	selector: '#loading',
 	    	finishedMsg: '',
-	        img: '/assets/ajax-loader (7).gif',
+	        img: '/assets//assets/ajax-loader-(6).GIF',
 	        msgText: '',
 	      },
 	      errorCallback : function () { 

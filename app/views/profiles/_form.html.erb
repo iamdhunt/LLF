@@ -5,13 +5,20 @@
         <%= f.input :content, label: false, placeholder: 'What\'s New?', input_html: { class: 'forms', id: 'update_box', tabindex: '1', rows: '1', maxlength: '280' } %>
 
         <div class="action_wrap" id="action_wrap">
-          <span class="social_post">
 
+          <span class="social_post">
           </span> 
+
           <span class="actions">
             <%= f.submit "Post to Stream", :class => 'btn btn-info' %>
           </span>
+
+          <span id="spinner" class="spinner">
+            <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+          </span>
+
           <span id="stat_count"></span>
+
           <span class='upd_att'>
             <%= f.fields_for :document do |document_fields| %>
               <div class="custom-file-upload fu1_wrap">
@@ -21,6 +28,7 @@
               </div>
             <% end %>
           </span>
+
         </div>
       
   </div>

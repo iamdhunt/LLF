@@ -192,9 +192,6 @@
 	border-radius: 5px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
-.act_comment {
-	width: 100%;
-}
 .actions_act {
 	padding: 0 5px;
 }

@@ -44,6 +44,8 @@ LLF::Application.routes.draw do
 
   get "discover" => "search#search", :as => "search"
 
+  get "community" => "community#community", :as => "community"
+
   get "market" => "market#market", :as => "market"
 
   scope 'market' do
@@ -82,7 +84,7 @@ LLF::Application.routes.draw do
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
-  match '/community' => 'pages#trending'
+  match '/snapshot' => 'pages#trending'
 
   scope '/faqs' do
     get "/basics" => "pages#faqs_basics", :as => "faqs_basics"

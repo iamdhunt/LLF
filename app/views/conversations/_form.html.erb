@@ -1,25 +1,39 @@
 <%= simple_form_for :conversation, url: :conversations, :html => { :id => 'conv_form' }, remote: true do |f| %>
+
 	<div id="new_conv_wrap">
+
 		<div class="conv_in">
+
 			<div class="conv_fl">Usernames</div>
+
 			<div class="conv_instructions">
 				<ul>
 					<li>&raquo;Seperate usernames by commas</li>
 					<li>&raquo;14 members max</li>
 				</ul>
 			</div>
+
 		  	<%= f.input :recipients, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
+
 		</div>
+
 		<div class="conv_in">
 			<div class="conv_fl">Subject</div>
 		  	<%= f.input :subject, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', maxlength: '100', autocomplete: 'off' } %>
 		</div>
+
 		<div class="">
 			<div class="conv_fl">Message</div>
 			<%= f.input :body, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
 		</div>
+
 	    <div class="">
+	    	<span id="spinner" class="spinner">
+				<%= image_tag '/assets/ajax-loader-(6).GIF', id: 'img-spinner', alt: 'Loading' %>
+			</span>
 	    	<%= f.submit "Start Conversation", class: 'btn btn-success' %>
 	    </div>
+
 	</div>
+
 <% end %>

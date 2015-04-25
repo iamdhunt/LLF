@@ -17,7 +17,7 @@
 #comment_length {
 	color: #898989;
 	font-size: 1.3em;
-	vertical-align: middle;
+	vertical-align: bottom;
 }
 .comm_counter {
 	float: right;
@@ -123,4 +123,8 @@
 }
 .btn_alt {
 	color: #898989;
+}
+.act_comment {
+	width: 100%;
+	margin-bottom: 3px;
 }

@@ -49,7 +49,7 @@ class Project < ActiveRecord::Base
                             },
                             format: {
                               with: /^[a-zA-Z0-9 ,-]+$/,
-                              message: '(tags) must not include any special characters or numbers.'
+                              message: '(tags) must not include any special characters.'
                             }
     validate :each_marker
 

@@ -5,32 +5,37 @@
         	<li>
         		<% if member_signed_in? %>
                     <%= link_to(profile_path(current_member)) do %>
-                    	<i class="icon-home icon-grey"></i> Home
+                    	<i class="fa fa-home icon-grey"></i>Home
                     <% end %>
                 <% else %>
                     <%= link_to(root_path) do %>
-                    	<i class="icon-home icon-grey"></i> Home
+                    	<i class="fa fa-home icon-grey"></i>Home
                     <% end %>
                 <% end %>
         	</li>
         	<li>
         		<%= link_to(community_path) do %>
-        			<i class="icon-globe icon-grey"></i> Community
+        			<i class="fa fa-globe fw"></i>Community
         		<% end %>	
         	</li>
+            <li>
+                <%= link_to(community_path) do %>
+                    <i class="fa fa-music fw"></i>Media
+                <% end %>   
+            </li>
         	<li>
         		<%= link_to(market_path) do %>
-        			<i class="icon-th-list icon-grey"></i> Market
+        			<i class="fa fa-th-list fw"></i>Market
         		<% end %>
         	</li>
         	<li>
         		<%= link_to(events_path) do %>
-        			<i class="icon-calendar icon-grey"></i> Events
+        			<i class="fa fa-dot-circle-o fw">Events
         		<% end %>
         	</li>
         	<li>
         		<%= link_to(projects_path) do %>
-        			<i class="icon-bullhorn icon-grey"></i> Projects
+        			<i class="fa fa-rocket fw"></i></i>Projects
         		<% end %>
         	</li>
         </ul>
