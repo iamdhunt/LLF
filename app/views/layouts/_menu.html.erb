@@ -6,15 +6,11 @@
                     <% if member_signed_in? %>
                         <%= link_to image_tag("Favicon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
                     <% else %>       
-                        <%= image_tag("Favicon.png", :class => "menu_logo") %>
+                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
                     <% end %>
                 </li>
                 <li>
-                    <% if member_signed_in? %>
-                        <%= link_to "Community", community_path, alt: 'Community' %>
-                    <% else %>
-                        <%= link_to "Community", root_path, alt: 'Community' %>
-                    <% end %>
+                    <%= link_to "Community", community_path, alt: 'Community' %>
                 </li>
                 <% unless member_signed_in? %>
                     <li>

@@ -1,5 +1,7 @@
 class CommunityController < ApplicationController
 
+	before_filter :authenticate_member!
+
   	def community
 	    @activities = Activity.joins(:votes).group("activities.id")
 		    .having("count(votes.id) >= ?", 1).order("created_at desc")
