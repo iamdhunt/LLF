@@ -76,7 +76,7 @@
 																		<p style="margin-bottom:1em;">
 																			<div style="color:#384047;font-size:24px;font-weight:bold;margin-bottom:4px;"><%= @follower.full_name %></div>
 																			<div style="color:#8d9aa5;font-size:18px;font-weight:bold;margin-bottom:4px;"><%= @follower.user_name %></div>
-																			<div style=""><%= @follower.pursuit_list.map { |p| link_to p.titleize, search_url, :style => 'font-size:15px;color:#fff;text-decoration:none;background-color:rgb(0, 129, 194);background-color:rgba(0, 129, 194, 0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";-background:transparent;padding:4px 5px;border-radius:6px;cursor:pointer;'}.join(' ').html_safe %></div>
+																			<div style=""><%= @follower.pursuit_list.map { |p| link_to p.titleize, search_url, :style => 'font-size:15px;color:#fff;text-decoration:none;background-color:rgb(0, 129, 194);background-color:rgba(0, 129, 194, 0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";-background:transparent;padding:3px 5px;border-radius:4px;cursor:pointer;line-height:190%;white-space:nowrap;'}.join(' ').html_safe %></div>
 																		</p>
 								                						<p style="margin-bottom:1em;"></p>
 
