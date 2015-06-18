@@ -39,12 +39,7 @@
         <% end %>
         <%= link_to image_tag(upload.asset.url(:list), class: ''), upload.asset.url(:large), class: "fancybox", rel: 'proj_gall' %>
       </div>
-
-      <% if upload.caption %>
-        <div id="fancyboxTitles" style="display: none;">
-            <div><%= Rinku.auto_link(upload.caption).html_safe %></div>
-        </div>
-      <% end %>
+      
     <% end %>
 
     
