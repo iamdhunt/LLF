@@ -4,9 +4,3 @@ $('#activity_stream_wrap').imagesLoaded(function() {
 	soundManager.stopAll();
 	soundManager.reboot();
 });
-$("#media_list_wrap").html("<%= escape_javascript(render partial: 'media/media', :collection => @media, :as => :medium) %>");
-$('#media_list_wrap').imagesLoaded(function() {
-	$('#media_list_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
-	soundManager.stopAll();
-	soundManager.reboot();
-});

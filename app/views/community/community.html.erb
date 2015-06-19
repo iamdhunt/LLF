@@ -42,6 +42,12 @@
         </div>
 
         <div id="media_query_stream">
+            <div id="act_rfrsh">
+                <div class="refresh"><%= link_to '<i class="fa fa-refresh"></i>Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
+            </div>
+        </div>
+
+        <div id="media_query_stream">
             <% if @member == current_member %>
                 <div class="act_rfrsh">
                     <div class="refresh" style="margin-top:10px;"><%= link_to '<i class="fa fa-refresh"></i>Refresh'.html_safe, :controller => :profiles, :action => :show, remote: true %></div>
