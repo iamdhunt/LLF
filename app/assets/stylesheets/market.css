@@ -32,8 +32,9 @@
 }
 #mk_head .v_a {
 	float: right;
-	font-size: 1.5em;
-	padding: 26px 20px 0 0;
+	font-size: 1em;
+	font-weight: bold;
+	padding: 14px 20px 0 0;
 }
 #mk_head .v_a a:hover {
 	text-decoration: none;
@@ -43,11 +44,24 @@
 }
 #mk_head .mk_l a {
 	color: #1b85a6;
+	border: 2px solid;
+	border-radius: 4px;
+    padding: 7px 10px;
+    opacity: .8;
+}
+#mk_head .mk_l a:hover {
+	opacity: 1;
 }
 #mk_head .pl_l a {
 	color: #E83E44;
+	border: 2px solid;
+    border-radius: 4px;
+    padding: 7px 10px;
+    opacity: .8;
 }
-
+#mk_head .pl_l a:hover {
+	opacity: 1;
+}
 #listings {
 	background-position: 4px 38%;
 	background-repeat: no-repeat;

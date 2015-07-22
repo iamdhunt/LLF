@@ -38,8 +38,19 @@
     </div>
 
     <div id="prs_wrap">
+
         <% if @events.count > 0 %>
             <div id="media_query_prev">
+                <div class="ev_sep">
+                    <span class="ev_hd">
+                        Current Events
+                    </span>
+                    <span class="ev_vm">
+                        <%= link_to("#", class: "") do %>
+                            View more
+                        <% end %>
+                    </span>
+                </div>
                 <div id="prof_prs">
                     <div id="prs">
                         <%= render :partial => "events" %>
@@ -52,14 +63,24 @@
                 </div>
         <% end %>
 
-        <%= will_paginate @events, class: 'display_none' %>
-
-        <% if @events.total_pages != @events.current_page %>
-            <div id="loading"></div>
-            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                <div class="com_show">
-                    Show More
+        <% if @past.count > 0 %>
+            <div id="media_query_prev">
+                <div class="ev_sep">
+                    <span class="ev_hd">
+                        Past Events
+                    </span>
+                    <span class="ev_vm">
+                        <%= link_to(profile_events_past_path(@member), class: "") do %>
+                            View more
+                        <% end %>
+                    </span>
                 </div>
-            <% end %>
-        <% end %>
+                <div id="prof_prs">
+                    <div id="prs">
+                        <%= render :partial => "ev_past" %>
+                    </div>
+                </div>
+            </div>  
+        <% end %>    
+
     </div>

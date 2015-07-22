@@ -436,3 +436,27 @@ vertical-align: baseline;
 #pb .sub .fa-map-marker {
 	margin-left: -5px;
 }
+.ev_sep {
+	padding: 15px 70px 10px 70px;
+}
+.ev_hd {
+	font-size: 1.75em;
+	color: #898989;
+}
+.ev_vm {
+	float: right;
+	font-size: .8em;
+	font-weight: bold;
+	padding: 12px 20px 0 0;
+}
+.ev_vm a {
+	color: #444;
+	border: 2px solid;
+	border-radius: 4px;
+    padding: 6px 8px;
+    opacity: .8;
+}
+.ev_vm a:hover {
+	opacity: 1;
+	text-decoration: none;
+}

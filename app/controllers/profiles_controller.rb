@@ -167,7 +167,8 @@ class ProfilesController < ApplicationController
   def events
     @member = Member.find_by_user_name(params[:id])
     if @member 
-      @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
+      @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(8).all
+      @past = @member.events.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(12).all
       render action: :events
     else 
       render file: 'public/404', status: 404, formats: [:html]

@@ -31,10 +31,7 @@
 <div id="subnav_wrap">
     <ul class="sub sub_events">
         <li>
-            <%= link_to '<i class="fa fa-dot-circle-o"></i>Current Events'.html_safe, profile_events_path(@member), class: '' %>
-        </li>
-        <li>
-            <%= link_to '<i class="fa fa-history"></i>Past Events'.html_safe, profile_events_past_path(@member), class: '' %>
+            <%= link_to '<i class="fa fa-dot-circle-o"></i>Events'.html_safe, profile_events_path(@member), class: '' %>
         </li>  
         <li>
             <%= link_to '<i class="fa fa-check-circle"></i>Following'.html_safe, profile_events_following_path(@member), class: 'media_fav_subnav' %>
