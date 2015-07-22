@@ -162,6 +162,7 @@ LLF::Application.routes.draw do
     get '/projects/favorites' => 'profiles#projects_fav', as: 'profile_projects_fav'
     get '/events' => 'profiles#events', as: 'profile_events'
     get '/events/past' => 'profiles#events_past', as: 'profile_events_past'
+    get '/events/current' => 'profiles#events_current', as: 'profile_events_current'
     get '/events/following' => 'profiles#events_following', as: 'profile_events_following'
     get '/events/favorites' => 'profiles#events_fav', as: 'profile_events_fav'
     get '/market' => 'profiles#market', as: 'profile_market'

@@ -1,42 +1,46 @@
 <% @past.each do |event| %>
 	
 	<% if event.category == 'Arts' %>
-		<div id="p_list_wrap" class="art_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil">
 	<% elsif event.category == 'Entrepreneurial' %>
-		<div id="p_list_wrap" class="biz_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil">
 	<% elsif event.category == 'Sports' %>
-		<div id="p_list_wrap" class="sports_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil">
 	<% elsif event.category == 'Music' %>
-		<div id="p_list_wrap" class="music_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil">
 	<% elsif event.category == 'Other' %>
-		<div id="p_list_wrap" class="other_fil">
+		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil">
 	<% end %>
 		
 		<div id="p_list_top">
 			<span class="l">
 		      <% if event.category == 'Arts' %>
-		        <%= image_tag("/assets/Arts Category.png", class: 'ims', title: 'Arts') %>
+		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
 		      <% end %>
 		      <% if event.category == 'Entrepreneurial' %>
-		        <%= image_tag("/assets/Biz Category.png", class: 'ims', title: 'Entrepreneurial') %>
+		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
 		      <% end %>
 		      <% if event.category == 'Sports' %>
-		        <%= image_tag("/assets/Sports Category.png", class: 'ims', title: 'Sports') %>
+		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
 		      <% end %>
 		      <% if event.category == 'Music' %>
-		        <%= image_tag("/assets/Music Category.png", class: 'ims', title: 'Music') %>
+		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
 		      <% end %>
 		      <% if event.category == 'Other' %>
-		        <%= image_tag("/assets/Other Category.png", class: 'ims', title: 'Other') %>
+		        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
 		      <% end %>
 		    </span>
 
 		    <span class="r">
 		    	<% if member_signed_in? %>
-			    	<span id="p_fav_str">
-					    <%= render :partial => "fav_button_events", :locals => {:event => event} %>
+		    		<% unless event.member == current_member %>
+			    		<span id="evt_fol_<%= event.id %>_<%= event.member.id %>">
+						    <%= render :partial => "shared/follow_event2", :locals => {:event => event} %>
+						</span>
+					<% end %>
+			    	<span id="evt_fav_<%= event.id %>_<%= event.member.id %>">
+					    <%= render :partial => "events/fav_button_stream", :locals => {:event => event} %>
 					</span>
-					<%= link_to image_tag("Share.png", class: "ims-act", title: "Share", alt: "Share"), "#" %>
 			        <% if current_member == event.member %>
 				        <span class="btn-group">
 				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -45,7 +49,7 @@
 				                <%= link_to "Edit", edit_event_path(event), class: '' %>
 				              </li>
 				              <li class="del">
-				                <%= link_to "Delete", event, method: :delete, data: { confirm: 'Are you sure?' } %>
+				                <%= link_to "Delete", event_path(event.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 				              </li>
 				            </ul>
 				        </span>
@@ -56,7 +60,7 @@
 		</div>
 
 		<div class="p-av">
-			<%= avatar_event_link event, class: '' %>
+			<%= avatar_event_link event, title: event.name, alt: event.name %>
 		</div>
 
 		<div id="pl_middle">
@@ -71,15 +75,17 @@
 			</div>
 
 			<div class="pl_bl">
-				<%= event.blurb.titleize %>
+				<%= raw Rinku.auto_link(event.blurb) %>
 			</div>
 		</div>
 
-		<div class="e_loc">
-			<%= link_to(:controller => "events", :action => "index", :search => event.location) do %>
-                <i class="fa fa-map-marker"></i>
-            <% end %>
-		</div>
+		<% if event.location? %>
+			<div class="e_loc">
+				<%= link_to(:controller => "events", :action => "index", :events => event.location) do %>
+	                <i class="fa fa-map-marker"></i><%= event.location.titleize %>
+	            <% end %>
+			</div>
+		<% end %>
 
 		<div class="el_tm">
 			<%= event.start_date.strftime("%b %d %Y") %>
