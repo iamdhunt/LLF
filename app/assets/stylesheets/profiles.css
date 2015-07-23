@@ -27,6 +27,7 @@
 }
 .none_message {
 	color: #333;
+	font-weight: bold;
 	font-size: 50px;
 	text-align: center;
 	padding: 100px 0;
