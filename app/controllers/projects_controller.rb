@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @markers = Project.marker_counts.order('count DESC').limit(12)
-    @projects = Project.order('created_at desc').where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60) 
+    @projects = Project.order('created_at desc').where(:created_at => 24.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60) 
     @search = Project.solr_search do
       fulltext params[:projects]
       facet(:city, :limit => 24, :sort => :count)

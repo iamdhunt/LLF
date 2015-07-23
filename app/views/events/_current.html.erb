@@ -1,4 +1,4 @@
-<% @events.each do |event| %>
+<% @current.each do |event| %>
 	
 	<% if event.category == 'Arts' %>
 		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil">
@@ -14,6 +14,7 @@
 		
 		<div id="p_list_top">
 			<span class="l">
+		      <%= avatar_profile_link event.member, :class => "pr_av", title: event.member.full_name, alt: event.member.full_name %>
 		      <% if event.category == 'Arts' %>
 		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
 		      <% end %>

@@ -7,13 +7,68 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @current = Event.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(20).all
+    @past = Event.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(20).all
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').where("start_date >= ? AND end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.order('start_date asc').page(params[:page]).per_page(60)
+    @search = Event.solr_search do
+      fulltext params[:events]
+      facet(:event_month)
+        with(:event_month, params[:month]) if params[:month].present?
+      facet(:marker_list, :limit => 65, :sort => :count)
+        with(:marker_list, params[:tag]) if params[:tag].present?
+      facet(:location, :limit => 24, :sort => :count)
+        with(:location, params[:locations]) if params[:locations].present?
+    end
+    @query = params[:events]
+    @facet = params[:month]
+    @tag_facet = params[:tag]
+    @location_facet = params[:locations]
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
+  # GET /events
+  # GET /events.json
+  def current
+    @markers = Event.marker_counts.order('count DESC').limit(12)
+    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
     @search = Event.solr_search do
       fulltext params[:events]
       any_of do
-        with(:start_date).greater_than_or_equal_to(Time.zone.now.to_date)
         with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
+      end 
+      facet(:event_month)
+        with(:event_month, params[:month]) if params[:month].present?
+      facet(:marker_list, :limit => 65, :sort => :count)
+        with(:marker_list, params[:tag]) if params[:tag].present?
+      facet(:location, :limit => 24, :sort => :count)
+        with(:location, params[:locations]) if params[:locations].present?
+    end
+    @query = params[:events]
+    @facet = params[:month]
+    @tag_facet = params[:tag]
+    @location_facet = params[:locations]
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+
+  def past
+    @markers = Event.marker_counts.order('count DESC').limit(12)
+    @events = Event.order('start_date asc').where("start_date < ? AND end_date < ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @search = Event.solr_search do
+      fulltext params[:events]
+      any_of do
+        with(:start_date).less_than_or_equal_to(Time.zone.now.to_date)
+        with(:end_date).less_than_or_equal_to(Time.zone.now.to_date)
       end 
       facet(:event_month)
         with(:event_month, params[:month]) if params[:month].present?
@@ -138,7 +193,7 @@ class EventsController < ApplicationController
   end
 
   def popular
-    @events = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb

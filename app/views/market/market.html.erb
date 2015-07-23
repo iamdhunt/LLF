@@ -10,6 +10,14 @@
                 <span>Market</span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span>
             </div>
         </div>
+
+        <div class="sb_text">
+            Look up a listing name or tag
+        </div>
+
+        <div class="sb">
+          <%= render :partial => "listings/search" %>
+        </div>
     </div>
 
     <div id="mk_wrap">

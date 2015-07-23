@@ -352,6 +352,7 @@ vertical-align: baseline;
 	padding: 3px 5px;
 	border-radius: 4px;
 	line-height: 200%;
+	white-space: nowrap;
 }
 .eloc a:hover {
 	/* Fallback for web browsers that don't support RGBa */
@@ -382,6 +383,7 @@ vertical-align: baseline;
 	padding: 3px 5px;
 	border-radius: 4px;
 	line-height: 200%;
+	white-space: nowrap;
 }
 .loc_nm .eloc a:hover {
 	/* Fallback for web browsers that don't support RGBa */
@@ -398,6 +400,9 @@ vertical-align: baseline;
 #p_index #stream_filters {
 	margin-top: 10px;
 }
+#p_index #stream_filters2 {
+	margin-top: 10px;
+}
 #events {
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
@@ -407,6 +412,17 @@ vertical-align: baseline;
 	font-size: 1.1em;
 }
 #events::-moz-placeholder {
+	font-size: 1.1em;
+}
+#current {
+	background-position: 4px 38%;
+	background-repeat: no-repeat;
+    text-align: center;
+}
+#current::-webkit-input-placeholder {
+	font-size: 1.1em;
+}
+#current::-moz-placeholder {
 	font-size: 1.1em;
 }
 .evt_fav_ct {
@@ -424,7 +440,7 @@ vertical-align: baseline;
 	color: #219e5c;
 }
 .breadcrumbs .evts a {
-	color: rgb(27, 134, 77);
+	color: #44986c;
 }
 .breadcrumbs .evts a:hover {
 	color: #898989;
@@ -437,7 +453,7 @@ vertical-align: baseline;
 	margin-left: -5px;
 }
 .ev_sep {
-	padding: 25px 70px 20px 70px;
+	padding: 25px 50px 20px 70px;
 }
 .ev_hd {
 	font-size: 1.75em;
@@ -460,3 +476,19 @@ vertical-align: baseline;
 	opacity: 1;
 	text-decoration: none;
 }
+.ev_cmpl {
+	position: absolute;
+	z-index: 100;
+	bottom: 0;
+	right: 0;
+}
+.ev_cmpl img {
+	width: 60px;
+}
+#proj_av .ev_cmpl {
+	bottom: 5px;
+	right: 5px;
+}
+#proj_av .ev_cmpl img {
+	width: 50px;
+} 

@@ -35,6 +35,8 @@ LLF::Application.routes.draw do
     resources :follows, :controller => 'follows_events', :only => [:create, :destroy]
     collection do
       get 'popular', to: "events#popular", :as => 'popular'
+      get 'current', to: 'events#current', :as => 'current'
+      get 'past', to: 'events#past', :as => 'past'
     end
     member do
       put "favorite", to: "events#upvote"

@@ -5,6 +5,9 @@
 #prs {
 	padding: 20px 0 20px 70px;
 }
+#prs2 {
+	padding: 20px 0 20px 70px;
+}
 #prof_prs #prs {
 	padding: 15px 0 20px 70px;
 }
@@ -98,6 +101,7 @@ vertical-align: baseline;
 	-moz-box-shadow: 0 0 6px #ccc;
 	-webkit-box-shadow: 0 0 6px #ccc;
 	box-shadow: 0 0 6px #ccc;
+	position: relative;
 }
 .p_av {
 	border-radius: 8px;
@@ -287,6 +291,7 @@ vertical-align: baseline;
 .p_list_wrap .p-av {
 	height: 230px;
 	overflow: hidden;
+	position: relative;
 }
 #p_list_top {
 	padding: 5px;

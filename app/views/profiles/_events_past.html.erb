@@ -60,6 +60,11 @@
 		</div>
 
 		<div class="p-av">
+			<% if event.start_date && event.end_date < Date.today %>
+				<div class="ev_cmpl">
+					<%= image_tag("Past Event.png", title: 'Finished', alt: 'Finished') %>
+				</div>
+			<% end %>
 			<%= avatar_event_link event, title: event.name, alt: event.name %>
 		</div>
 

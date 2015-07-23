@@ -36,7 +36,16 @@ $(document).ready(function() {
 		    console.log( filterValue );
 		    $container.isotope({ filter: filterValue });
 	  	});
+
 	});
+
+  	// bind filter on radio button click
+		$('#stream_filters2').on( 'click', 'input', function() {
+		    // get filter value from input value
+		    var filterValue = this.value;
+		    console.log( filterValue );
+		    $container.isotope({ filter: filterValue });
+	  	});
 
 	$container.infinitescroll({
 	    navSelector  : '.pagination',    // selector for the paged navigation 

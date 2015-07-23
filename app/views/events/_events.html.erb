@@ -1,15 +1,29 @@
 <% @events.each do |event| %>
-	
-	<% if event.category == 'Arts' %>
-		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil">
-	<% elsif event.category == 'Entrepreneurial' %>
-		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil">
-	<% elsif event.category == 'Sports' %>
-		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil">
-	<% elsif event.category == 'Music' %>
-		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil">
-	<% elsif event.category == 'Other' %>
-		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil">
+
+	<% if event.start_date && event.end_date < Date.today %>
+		<% if event.category == 'Arts' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil past_fil">
+		<% elsif event.category == 'Entrepreneurial' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil past_fil">
+		<% elsif event.category == 'Sports' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil past_fil">
+		<% elsif event.category == 'Music' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil past_fil">
+		<% elsif event.category == 'Other' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil past_fil">
+		<% end %>
+	<% else %>
+		<% if event.category == 'Arts' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil current_fil">
+		<% elsif event.category == 'Entrepreneurial' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil current_fil">
+		<% elsif event.category == 'Sports' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil current_fil">
+		<% elsif event.category == 'Music' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil current_fil">
+		<% elsif event.category == 'Other' %>
+			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil current_fil">
+		<% end %>
 	<% end %>
 		
 		<div id="p_list_top">
@@ -61,6 +75,11 @@
 		</div>
 
 		<div class="p-av">
+			<% if event.start_date && event.end_date < Date.today %>
+				<div class="ev_cmpl">
+					<%= image_tag("Past Event.png", title: 'Finished', alt: 'Finished') %>
+				</div>
+			<% end %>
 			<%= avatar_event_link event, title: event.name, alt: event.name %>
 		</div>
 
