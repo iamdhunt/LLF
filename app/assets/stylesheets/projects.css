@@ -863,3 +863,6 @@ vertical-align: baseline;
 .breadcrumbs .pjts a:hover {
 	color: #898989;
 }
+#p_index .none_message {
+	padding: 60px 0;
+}

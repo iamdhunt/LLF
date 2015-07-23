@@ -27,7 +27,7 @@
 
             <div id="prs_wrap">
 
-                <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
+                <% unless @current.count > 0 %>
                     <div id="media_query_prev">
                         <div class="ev_sep">
                             <span class="ev_hd">
@@ -44,9 +44,13 @@
                             <%= render partial: 'current' %>
                         </div>
                     </div>
+                <% else %>
+                    <div class="none_message">
+                        No Current Events
+                    </div>
                 <% end %>
 
-                <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
+                <% if @past.count > 0 %>
                     <div id="media_query_prev">
                         <div class="ev_sep">
                             <span class="ev_hd">
@@ -65,29 +69,6 @@
                     </div>
                 <% end %>
 
-                <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
-                    <%= will_paginate @events, class: 'display_none' %>
-
-                    <% if @events.total_pages != @events.current_page %>
-                    <div id="loading"></div>
-                    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                          <div class="com_show">
-                            Show More
-                          </div>
-                        <% end %>
-                    <% end %>
-                <% else %>
-                    <%= will_paginate @results, class: 'display_none' %>
-
-                    <% if @results.total_pages != @results.current_page %>
-                    <div id="loading"></div>
-                    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                          <div class="com_show">
-                            Show More
-                          </div>
-                        <% end %>
-                    <% end %>
-                <% end %>
             </div>
             
     </div>
