@@ -33,13 +33,11 @@
                             <span class="ev_hd">
                                 Current Events
                             </span>
-                            <% if @current.count > 20 %>
-                                <span class="ev_vm">
-                                    <%= link_to(current_events_path, class: "") do %>
-                                        View more
-                                    <% end %>
-                                </span>
-                            <% end %>
+                            <span class="ev_vm">
+                                <%= link_to(current_events_path, class: "") do %>
+                                    View more
+                                <% end %>
+                            </span>
                         </div>
 
                         <div id="prs">
@@ -58,13 +56,11 @@
                             <span class="ev_hd">
                                 Past Events
                             </span>
-                            <% if @past.count > 20 %>
-                                <span class="ev_vm">
-                                    <%= link_to(past_events_path, class: "") do %>
-                                        View more
-                                    <% end %>
-                                </span>
-                            <% end %>
+                            <span class="ev_vm">
+                                <%= link_to(past_events_path, class: "") do %>
+                                    View more
+                                <% end %>
+                            </span>
                         </div>
 
                         <div id="prs2">
