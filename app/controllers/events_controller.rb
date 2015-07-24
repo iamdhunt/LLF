@@ -63,7 +63,7 @@ class EventsController < ApplicationController
 
   def past
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').where("start_date < ? AND end_date < ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.order('start_date desc').where("start_date < ? AND end_date < ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
     @search = Event.solr_search do
       fulltext params[:events]
       any_of do
