@@ -103,5 +103,7 @@
     <% end %>
   <% end %>
 
+  <% if Rails.env.production? %><%= render 'layouts/ga' %><% end %>
+
   </body>
 </html>
