@@ -278,6 +278,7 @@
 .act_loc {
 	text-align: center;
 	padding: 4px 5px 0 5px;
+	font-size: .9em;
 }
 .act_loc a {
 	color: #1a90b6;
