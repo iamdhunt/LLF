@@ -127,7 +127,7 @@
 .nav_search {
 	padding-top: 12px;
 	display: inline-block;
-
+	float: left;
 }
 #member_actions .dropdown-menu {
 	top: 38px;
@@ -270,7 +270,9 @@
 	background-image: url('/assets/Discover Input 4.png');
 	background-position: 5px 45%;
 	background-repeat: no-repeat;
-    padding-left: 60px;
+	background-size: 20px 20px;
+    padding-left: 30px;
     margin: 0 auto;
-    width: 435px;
+    float: left;
+    width: auto;
 }

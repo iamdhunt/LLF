@@ -37,7 +37,7 @@
                         <% @tags.each do |tag| %>
                             <li>
                                 <%= link_to(:controller => "events", :action => "search", :search => tag.name) do %>
-                                    <i class="icon-tag icon-white"></i> <%= tag.name.titleize %>
+                                    <i class="icon-tag icon-white"></i> <%= tag.name %>
                                 <% end %>
                             </li>
                         <% end %>

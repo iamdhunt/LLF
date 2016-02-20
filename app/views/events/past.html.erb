@@ -9,7 +9,7 @@
         <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Past", past_events_path %></span> &raquo; <span>Discover</span>
+                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span class="evts"><%= link_to "Past", past_events_path %></span> &raquo; <span>Discover</span>
                 </div>
 
                 <div class="popular">
@@ -21,7 +21,7 @@
         <% else %>
             <div id="bc_wrap">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span>Past</span>
+                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span>Past</span>
                 </div>
 
                 <div class="popular">
@@ -53,7 +53,7 @@
 
         <div class="btags">
           <% for row in @search.facet(:marker_list).rows %>
-              <span class="btag"><%= link_to('+ ' + row.value.titleize, params.merge({:tag => row.value})) %></span>
+              <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value})) %></span>
           <% end %>
         </div>
 

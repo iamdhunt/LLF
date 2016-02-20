@@ -32,7 +32,7 @@
 
 	<% if activity.targetable.marker_list %>
       <div class="t_s">
-      	<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "media", :action => "index", :media => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+      	<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "media", :action => "index", :media => m}, title: m, alt: m }.join(' ').html_safe %>
       </div>
     <% end %>
 

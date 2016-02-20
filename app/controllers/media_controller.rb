@@ -19,7 +19,7 @@ class MediaController < ApplicationController
     @query = params[:media]
     @facet = params[:tag]
     @results = Medium.where(id: @search.results.map(&:id)).page(params[:page]).per_page(63)
-    @media = Medium.order_by_rand.limit(63).all
+    @media = Medium.order_by_rand.page(params[:page]).per_page(63)
 
     respond_to do |format|
       format.html # index.html.erb

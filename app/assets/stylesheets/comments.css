@@ -81,7 +81,8 @@
 	color: #898989;
 	border-color: #EFEFEF;
 	border-style: solid;
-	border-width: 2px 0 2px 0;
+	border-width: 2px 2px 4px 2px;
+	border-radius: 5px;
 }
 .com_show:before, .com_show:after {
 	 -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);

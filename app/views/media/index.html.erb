@@ -39,7 +39,7 @@
 
        <div class="btags">
           <% for row in @search.facet(:marker_list).rows %>
-              <span class="btag"><%= link_to('+ ' + row.value.titleize, params.merge({:tag => row.value}), title: row.value.titleize, alt: row.value.titleize) %></span>
+              <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value}), title: row.value, alt: row.value) %></span>
           <% end %>
         </div>
 
@@ -92,6 +92,17 @@
               </div>
             <% end %>
       <% end %>
+  <% else %>
+      <%= will_paginate @media, class: 'display_none' %>
+
+        <% if @media.total_pages != @media.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                <div class="com_show">
+                    Show More
+                </div>
+            <% end %>
+        <% end %>
   <% end %>
 
 </div>

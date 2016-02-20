@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="act_ts">
-		<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+		<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "projects", :action => "index", :projects => m}, title: m, alt: m }.join(' ').html_safe %>
 	</div>
 
 	<% if activity.targetable.city? %>

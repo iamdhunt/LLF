@@ -19,7 +19,7 @@ html {
     min-height: 100%;
 }
 body {
-	font-size: .938em;
+	font-size: 15px;
 	margin: 0 0 100px; /* bottom = footer height */
 }
 
@@ -1940,11 +1940,6 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2011,11 +2006,6 @@ label.active {
     }
     #profile_wrap {
     	width: 98%;
-    }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
@@ -2085,11 +2075,6 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2141,11 +2126,6 @@ label.active {
     }
     #profile_wrap {
     	width: 98%;
-    }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
@@ -2199,11 +2179,6 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2256,11 +2231,6 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-    #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2312,11 +2282,6 @@ label.active {
     }
     #profile_wrap {
     	width: 98%;
-    }
-   #discover {
-    	width: 210px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
@@ -2384,11 +2349,6 @@ label.active {
     }
     #media_query_follow {
     	padding-left: 15px;
-    }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
@@ -2460,11 +2420,6 @@ label.active {
     }
     #media_query_follow {
     	padding-left: 50px;
-    }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
@@ -2540,11 +2495,6 @@ label.active {
     #media_query_follow {
     	padding-left: 15px;
     }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2601,11 +2551,6 @@ label.active {
     #profile_wrap {
     	width: 98%;
     }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
-    }
     #e_wrapper {
 		width: 98%;
 	}
@@ -2661,11 +2606,6 @@ label.active {
     }
     #profile_wrap {
     	width: 98%;
-    }
-   #discover {
-    	width: 215px;
-    	background-size: 20px 20px;
-		padding-left: 30px;
     }
     #e_wrapper {
 		width: 98%;
