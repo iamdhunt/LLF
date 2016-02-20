@@ -78,9 +78,6 @@
                     <% if @member.linkedin? %>
                         <%= link_to image_tag("Linkedin 3.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), "http://#{@member.linkedin.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
-                    <% if @member.google? %>
-                        <%= link_to image_tag("Google Plus 2.png", class: "acct_imgs", title: "Google+", alt: "Google+"), "http://#{@member.google.sub(/^https?\:\/\//, '')}", :class => "" %>
-                    <% end %>
                     <% if @member.soundcloud? %>
                         <%= link_to image_tag("Soundcloud 3.png", class: "acct_imgs", title: "Soundcloud", alt: "Soundcloud"), "http://#{@member.soundcloud.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>

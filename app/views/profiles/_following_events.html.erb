@@ -4,7 +4,7 @@
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap art_fil">
 	<% elsif follow.category == 'Entrepreneurial' %>
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap biz_fil">
-	<% elsif follow.category == 'Sports' %>
+	<% elsif follow.category == 'Sports & Rec' %>
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap sports_fil">
 	<% elsif follow.category == 'Music' %>
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap music_fil">
@@ -21,8 +21,8 @@
 		      <% if follow.category == 'Entrepreneurial' %>
 		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
 		      <% end %>
-		      <% if follow.category == 'Sports' %>
-		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
+		      <% if follow.category == 'Sports & Rec' %>
+		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports & Rec') %>
 		      <% end %>
 		      <% if follow.category == 'Music' %>
 		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>

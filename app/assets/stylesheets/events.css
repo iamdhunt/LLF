@@ -230,9 +230,11 @@
 	line-height: 28px;
 	font-weight: bold;
 }
-#ev_info .ims {
-	width: 29px;
+#ev_info .l .ims {
 	height: 29px;
+}
+#ev_info .r .ims {
+	height: 27px;
 }
 #ev_info .l {
 	padding: 0 10px;

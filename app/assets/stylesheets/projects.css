@@ -74,9 +74,11 @@
 #proj_info .r {
 	padding: 0 10px;
 }
-#proj_info .ims {
-	width: 29px;
+#proj_info .l .ims {
 	height: 29px;
+}
+#proj_info .r .ims {
+	height: 27px;
 }
 #proj_info .btn-group {
 position: relative;
@@ -302,8 +304,7 @@ vertical-align: baseline;
 	height: 29px;
 }
 #p_list_top .ims-act {
-	width: 22px;
-	height: 22px;
+	height: 25px;
 }
 #p_list_top .btn-group {
 	display: inline;

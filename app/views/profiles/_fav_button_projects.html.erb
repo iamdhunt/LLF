@@ -1,5 +1,5 @@
 <% if project.votes.size > 0 && current_member.voted_up_on?(project) %>
-  <%= link_to image_tag("Favorite.png", class: "ims-act", title: "Unfavorite", alt: "Favorite"), favorite_project_path(project), method: :put %>
+  <%= link_to image_tag("Favorite 8.png", class: "ims-act", title: "Unfavorite", alt: "Favorite"), favorite_project_path(project), method: :put %>
 <% else %>
-  <%= link_to image_tag("Favorite 2.png", class: "ims-act", title: "Favorite", alt: "Favorite"), favorite_project_path(project), method: :put %>
+  <%= link_to image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite"), favorite_project_path(project), method: :put %>
 <% end %>

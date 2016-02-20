@@ -136,8 +136,7 @@
 	padding: 9px 28px;
 }
 .pd_right .ims {
-	width: 35px;
-	height: 35px;
+	height: 30px;
 }
 .pd_right .btn-group {
 	vertical-align: baseline;
@@ -260,7 +259,6 @@ font-weight: normal;
 	float: left;
 }
 .pdl_action .ims-act {
-	width: 24px;
 	height: 24px;
 }
 #pdl_m .btn-group .del {

@@ -29,16 +29,16 @@ class Project < ActiveRecord::Base
                         }
 
     validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
-    validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
-                                                message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
+    validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png'],
+                                                message: 'must be a .jpeg, .jpg, or .png file type.'
 
     validates_attachment_size :banner, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
-    validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png', 'image/gif'],
-                                                message: 'must be a .jpeg, .jpg, .png, or .gif file type.'
+    validates_attachment_content_type :banner, :content_type=>['image/jpeg', 'image/jpg', 'image/png'],
+                                                message: 'must be a .jpeg, .jpg, or .png file type.'
 
     validates :category, presence: { message: 'can\'t be blank.'},
               inclusion: {
-                in: %w(Arts Entrepreneurial Music Sports Other),
+                in: ['Arts', 'Entrepreneurial', 'Music', 'Sports & Rec', 'Other'],
                 message: 'is not included in the list.'
               }
 

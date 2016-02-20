@@ -5,7 +5,7 @@
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil past_fil">
 		<% elsif event.category == 'Entrepreneurial' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil past_fil">
-		<% elsif event.category == 'Sports' %>
+		<% elsif event.category == 'Sports & Rec' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil past_fil">
 		<% elsif event.category == 'Music' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil past_fil">
@@ -17,7 +17,7 @@
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap art_fil current_fil">
 		<% elsif event.category == 'Entrepreneurial' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap biz_fil current_fil">
-		<% elsif event.category == 'Sports' %>
+		<% elsif event.category == 'Sports & Rec' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap sports_fil current_fil">
 		<% elsif event.category == 'Music' %>
 			<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap music_fil current_fil">
@@ -35,8 +35,8 @@
 		      <% if event.category == 'Entrepreneurial' %>
 		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
 		      <% end %>
-		      <% if event.category == 'Sports' %>
-		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports') %>
+		      <% if event.category == 'Sports & Rec' %>
+		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports & Rec') %>
 		      <% end %>
 		      <% if event.category == 'Music' %>
 		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
@@ -58,7 +58,7 @@
 					</span>
 			        <% if current_member == event.member %>
 				        <span class="btn-group">
-				          <%= link_to image_tag("/assets/More 2.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+				          <%= link_to image_tag("/assets/More 5.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
 				            <ul class="dropdown-menu">            
 				              <li>
 				                <%= link_to "Edit", edit_event_path(event), class: '' %>

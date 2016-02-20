@@ -46,19 +46,11 @@
                 <div class="refresh"><%= link_to '<i class="fa fa-refresh"></i>Refresh'.html_safe, :controller => :community, :action => :community, remote: true %></div>
             </div>
         </div>
-
-        <div id="media_query_stream">
-            <% if @member == current_member %>
-                <div class="act_rfrsh">
-                    <div class="refresh" style="margin-top:10px;"><%= link_to '<i class="fa fa-refresh"></i>Refresh'.html_safe, :controller => :profiles, :action => :show, remote: true %></div>
-                </div>
-            <% end %>
-        </div>
         
         <div id="ac_wrap">
             <div id="media_query_stream">
                 <div id="activity_stream_wrap">
-                   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity, layout: false %>
+                   <%= render :partial => "activities/activities", :collection => @activities, :as => :activity %>
                 </div>
             </div>             
 

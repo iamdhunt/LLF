@@ -138,7 +138,7 @@ class ListingsController < ApplicationController
   end
 
   def popular
-    @listings = Listing.joins(:votes).group("listings.id").having("count(votes.id) >= ?", 1).order("created_at desc").where(:created_at => 12.months.ago..Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @listings = Listing.joins(:votes).group("listings.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(60)
 
     respond_to do |format|
       format.html # index.html.erb

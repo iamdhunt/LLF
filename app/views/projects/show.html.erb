@@ -75,10 +75,10 @@
             <%= render :partial => "projects/fav_button", :locals => {:project => @project} %>
           </span>
 
-          <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+          <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
           <% if current_member == @project.member %>
             <span class="btn-group">
-              <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+              <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
                 <ul class="dropdown-menu">            
                   <li>
                     <%= link_to "Edit", edit_project_path(@project), class: '' %>
@@ -113,14 +113,25 @@
 
     <div id="">
       <ul class="nav nav-tabs" id="">
-        <li class="active">
-          <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
-            Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
-          <% end %>
-        </li>
-        <li>
-          <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
-        </li>
+        <% if @updateable.updates.count > 0 %>
+          <li class="active">
+            <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
+              Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
+          </li>
+        <% else %>
+          <li class="active">
+            <%= link_to "Details", "#details", :data => {:toggle=>"tab"}, class: '' %>
+          </li>
+          <li>
+            <%= link_to("#updates", :data => {:toggle=>"tab"}) do %>
+              Updates <span id="ut_pe_ct" class="nav_p_ct"><%= @updateable.updates.count %></span>
+            <% end %>
+          </li>
+        <% end %>
         <li>
           <%= link_to("#media", :data => {:toggle=>"tab"}) do %>
             Media <span id="up_pe_ct" class="nav_p_ct"><%= @uploadable.uploads.count %></span>
@@ -141,34 +152,69 @@
 
     <div class="tab-content">
 
-      <div class="tab-pane active" id="updates">
-        <div class="u_btn">
-          <% if @project.member == current_member %>
-            <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
-          <% end %>
-        </div>
+      <% if @updateable.updates.count > 0 %>
 
-        <div id="update_<%= @updateable.id %>" class="u_list_wrap">
-          <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
-        </div>
-
-        <%= will_paginate @updates, class: 'display_none' %>
-
-        <% if @updates.total_pages != @updates.current_page %>
-            <div id="p_upd_loading"></div>
-            <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
-                <div class="com_show">
-                    Show More
-                </div>
+        <div class="tab-pane active" id="updates">
+          <div class="u_btn">
+            <% if @project.member == current_member %>
+              <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
             <% end %>
-        <% end %>
-      </div> 
+          </div>
 
-      <div class="tab-pane" id="details">
-        <div id ="proj_about">
-          <%= raw Rinku.auto_link(@project.about_html) %>
+          <div id="update_<%= @updateable.id %>" class="u_list_wrap">
+            <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
+          </div>
+
+          <%= will_paginate @updates, class: 'display_none' %>
+
+          <% if @updates.total_pages != @updates.current_page %>
+              <div id="p_upd_loading"></div>
+              <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
+                  <div class="com_show">
+                      Show More
+                  </div>
+              <% end %>
+          <% end %>
+        </div> 
+
+        <div class="tab-pane" id="details">
+          <div id ="proj_about">
+            <%= raw Rinku.auto_link(@project.about_html) %>
+          </div>
         </div>
-      </div>
+
+      <% else %>
+
+        <div class="tab-pane active" id="details">
+          <div id ="proj_about">
+            <%= raw Rinku.auto_link(@project.about_html) %>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="updates">
+          <div class="u_btn">
+            <% if @project.member == current_member %>
+              <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
+            <% end %>
+          </div>
+
+          <div id="update_<%= @updateable.id %>" class="u_list_wrap">
+            <%= render :partial => "shared/updates", :collection => @updates, :as => :update %>       
+          </div>
+
+          <%= will_paginate @updates, class: 'display_none' %>
+
+          <% if @updates.total_pages != @updates.current_page %>
+              <div id="p_upd_loading"></div>
+              <%= link_to("#", class: "com_show_wrap p_u_load_arrow") do %>
+                  <div class="com_show">
+                      Show More
+                  </div>
+              <% end %>
+          <% end %>
+        </div> 
+
+      <% end %>
 
       <div class="tab-pane" id="media">
         <div class="p_u_btn">

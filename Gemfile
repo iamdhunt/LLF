@@ -17,7 +17,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'acts_as_votable', '~> 0.8.0'
 gem 'rinku'
-gem 'sunspot_rails'
+gem 'sunspot_rails', github: "betam4x/sunspot" # , '2.1.1'
 gem 'progress_bar'
 gem 'swf_fu', '~> 2.0'
 gem 'delayed_job_active_record'
@@ -39,7 +39,7 @@ group :development, :test do
 	gem 'shoulda'
 	gem 'factory_girl_rails'
 	gem 'sqlite3'
-	gem 'sunspot_solr'
+	gem 'sunspot_solr', github: "betam4x/sunspot" # '2.1.1'
 	gem 'debugger'
 end 
 

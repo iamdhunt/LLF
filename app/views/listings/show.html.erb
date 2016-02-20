@@ -75,10 +75,10 @@
               <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
                 <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
               </span>
-              <%= link_to image_tag("/assets/Share.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+              <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
               <% if current_member == @listing.member %>
                 <span class="btn-group">
-                  <%= link_to image_tag("/assets/More 2.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                  <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
                     <ul class="dropdown-menu">            
                       <li>
                         <%= link_to "Edit", edit_listing_path(@listing), class: '' %>

@@ -74,6 +74,26 @@ ActiveRecord::Schema.define(:version => 20150411111053) do
   add_index "assets", ["listing_id"], :name => "index_assets_on_listing_id"
   add_index "assets", ["member_id"], :name => "index_assets_on_member_id"
 
+  create_table "brands", :force => true do |t|
+    t.integer  "member_id"
+    t.text     "name"
+    t.text     "description"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "banner_file_name"
+    t.string   "banner_content_type"
+    t.integer  "banner_file_size"
+    t.datetime "banner_updated_at"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.text     "markers"
+    t.text     "video"
+  end
+
+  add_index "brands", ["member_id"], :name => "index_brands_on_member_id"
+
   create_table "comments", :force => true do |t|
     t.text     "content"
     t.integer  "commentable_id"
@@ -247,15 +267,15 @@ ActiveRecord::Schema.define(:version => 20150411111053) do
     t.string   "asset_content_type"
     t.integer  "asset_file_size"
     t.datetime "asset_updated_at"
+    t.string   "audio_file_name"
+    t.string   "audio_content_type"
+    t.integer  "audio_file_size"
+    t.datetime "audio_updated_at"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
     t.string   "permalink"
-    t.string   "audio_file_name"
-    t.string   "audio_content_type"
-    t.integer  "audio_file_size"
-    t.datetime "audio_updated_at"
     t.text     "markers"
   end
 
@@ -339,28 +359,15 @@ ActiveRecord::Schema.define(:version => 20150411111053) do
     t.datetime "avatar_updated_at"
     t.text     "title"
     t.text     "video_html"
+    t.string   "test"
+    t.string   "test_html"
     t.text     "city"
     t.text     "markers"
     t.text     "name"
     t.string   "permalink"
-    t.string   "test"
-    t.string   "test_html"
   end
 
   add_index "projects", ["member_id"], :name => "index_projects_on_member_id"
-
-  create_table "references", :force => true do |t|
-    t.integer  "referencer_id"
-    t.string   "referencer_type"
-    t.integer  "referenceable_id"
-    t.string   "referenceable_type"
-    t.string   "attribute_name"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
-  add_index "references", ["referenceable_id", "referenceable_type"], :name => "index_references_on_referenceable_id_and_referenceable_type"
-  add_index "references", ["referencer_id", "referencer_type"], :name => "index_references_on_referencer_id_and_referencer_type"
 
   create_table "statuses", :force => true do |t|
     t.text     "content"
@@ -368,7 +375,6 @@ ActiveRecord::Schema.define(:version => 20150411111053) do
     t.datetime "updated_at",  :null => false
     t.integer  "member_id"
     t.integer  "document_id"
-    t.integer  "restream_id"
     t.string   "permalink"
   end
 
