@@ -49,7 +49,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
-    
+    @status.build_document
   end
 
   # POST /statuses
@@ -80,11 +80,13 @@ class StatusesController < ApplicationController
     end 
     respond_to do |format|
       if @status.update_attributes(params[:status])
-        format.html { redirect_to profile_path(current_member), notice: 'Status was successfully updated.' }
+        format.html { redirect_to status_path(@status) }
         format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{status_path(@status)}');"}
       else
         format.html { render action: "edit" }
         format.json { render json: @status.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

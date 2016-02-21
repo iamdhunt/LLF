@@ -41,7 +41,7 @@
 		<div id="ss_r">
 			<div class="">
 				<div class="t">
-					<%= @status.created_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Status', alt: 'Share Status' %>
+					<%= @status.created_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Status', alt: 'Share Status' %> &#8226; <% if current_member == @status.member %> <%= link_to "Edit", edit_status_path(@status), title: 'Edit Status', alt: 'Edit Status' %> <% end %>
 					<% if current_member == @status.member %>
 						<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 					<% end %>

@@ -7,6 +7,7 @@ $(document).ready(function(){
 	var $dropdown = $('.member_menu');
 	var text_max = 280;
 	var $container = $('#prof_projs')
+	var $edit = $('#edit_update_box');
 
 	$update.one('focus', function(){
 		$(this).autosize();
@@ -37,6 +38,28 @@ $(document).ready(function(){
 		$dropdown.delay(300).slideDown("slow");
   		return false;
 	});
+
+	$edit.autosize();
+
+	function EditCount(){	
+		var edit_length = $edit.val().length;
+		var edit_remaining = text_max - edit_length;
+
+		$('#edit_count').html(edit_remaining);
+
+	};	
+
+	if ($edit.length) {
+	    EditCount();
+	} 
+
+	$edit.keyup(function(){	
+		var text_length = $edit.val().length;
+		var text_remaining = text_max - text_length;
+
+		$('#edit_count').html(text_remaining);
+
+	});		
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({

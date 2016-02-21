@@ -261,3 +261,41 @@ top: 25%;
 	text-decoration: none;
 	color: #898989;
 }
+#edit_show {
+	padding: 30px 0;
+	position: relative;
+	width: 100%;
+	margin-top: 60px;
+}
+#edit_show .t {
+	color: #999999;
+	font-size: .9em;
+	margin-bottom: 6px;
+}
+#edit_show .t a {
+	color: #999999;
+}
+#edit_show .t a:hover {
+	text-decoration: none;
+}
+#edit_show .act_attachment {
+	text-align: left;
+	padding-bottom: 10px;
+}
+#edit_show .dl {
+	float: right;
+}
+#edit_show .dl img {
+	width: 15px;
+	height: 15px;
+	opacity: .6;
+}
+#edit_show #action_wrap {
+	margin-top: 6px;
+}
+#edit_count {
+    color: #898989;
+    font-size: 1.7em;
+    float: right;
+    padding: .2em .3em 0 0;
+}

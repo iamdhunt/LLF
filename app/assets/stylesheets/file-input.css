@@ -4,6 +4,7 @@
 .custom-file-upload {
     display: inline-block;
     width: auto;
+    vertical-align: bottom;
 }
 #media_form .custom-file-upload {
     margin-top: 4px;

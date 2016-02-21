@@ -1,13 +1,24 @@
-<div id="activity_wrap">
+<% title @status.member.full_name + " x Edit Status"%>
 
-	<h1>Editing Status</h1>
+	<div id="main_wrap">
 
-	<%= render 'form' %>
+		<div id="edit_show">
 
-	<%= link_to 'Show', @status %> |
-	<%= link_to 'Back', statuses_path %>
+			<div class="t"> 
+				Last updated: <%= @status.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; 
+				<%= link_to "View", status_path(@status), title: 'Edit Status', alt: 'Edit Status' %> 
+				&#8226; <%= link_to "Cancel Edit", profile_stream_path(@status.member), title: 'Edit Status', alt: 'Edit Status' %>
+				<% if current_member == @status.member %>
+					<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+				<% end %>
+			</div>
 
-<div style="clear: both;"></div>
-</div>
+			<%= render 'form' %>
 
-<!--/activity_wrap-->
+		</div>
+
+<!--/status_show-->
+
+	</div>
+
+<!--/main_wrap-->

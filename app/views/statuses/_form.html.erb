@@ -1,34 +1,39 @@
-<%= simple_form_for(@status, multipart: true) do |f| %>
-  <% if @status.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+<%= simple_form_for(@status, remote: true, html: { multipart: true, :id => 'status_form' }) do |f| %>
 
-      <ul>
-      <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="act_icons_wrap">
-
-    <%= image_tag("Media 2.png", :class => "act_icons", :cursor => "pointer") %>
-    <%= image_tag("Link 3.png", :class => "act_icons") %>
-    <%= image_tag("Check In 2.png", :class => "act_icons") %>
-
-  </div>
-
-  <div>
-
-    <%= f.fields_for :document do |document_fields| %>
-      <%= document_fields.input :attachment, as: :file, label: false %>
-    <% end %>
-
-  </div> 
-
-  <%= f.input :content, label: false %>
   <div class="">
-    <%= f.submit "Post to Stream", :class => 'reg_button btn btn-info' %>
+      
+        <%= f.input :content, label: false, input_html: { class: 'forms', id: 'edit_update_box', tabindex: '1', rows: '1', maxlength: '280', style: 'width:100%;' } %>
+
+        <div class="" id="action_wrap">
+
+          <span class="">
+            <%= f.submit "Update Status", :class => 'btn btn-info' %>
+          </span>
+
+          <span id="spinner" class="spinner">
+            <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+          </span>
+
+          <span id="edit_count"></span>
+        
+          <%= f.fields_for :document do |document_fields| %>
+            <span class=''>
+              <div class="custom-file-upload fu1_wrap">
+                <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Attach Image
+                  <%= document_fields.input :attachment, as: :file, label: false, :input_html => { id: 'file-upload', class: 'cfu' } %>
+                </label>
+              </div>
+            </span>
+
+            <% if @status.document %>
+              <div class="">
+                  <%= link_to document_fields.object.attachment_file_name, document_fields.object.attachment.url %>
+              </div>
+            <% end %>
+          <% end %>
+
+        </div>
+      
   </div>
+
 <% end %>
