@@ -6,8 +6,8 @@
 
 			<div class="t"> 
 				Last updated: <%= @status.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; 
-				<%= link_to "View", status_path(@status), title: 'Edit Status', alt: 'Edit Status' %> 
-				&#8226; <%= link_to "Cancel Edit", profile_stream_path(@status.member), title: 'Edit Status', alt: 'Edit Status' %>
+				<%= link_to "View", status_path(@status), title: 'View Status', alt: 'View Status' %> 
+				&#8226; <%= link_to "Cancel Edit", profile_stream_path(@status.member), title: 'Cancel Edit', alt: 'Cancel Edit' %>
 				<% if current_member == @status.member %>
 					<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 				<% end %>
@@ -17,7 +17,7 @@
 
 		</div>
 
-<!--/status_show-->
+<!--/edit_show-->
 
 	</div>
 

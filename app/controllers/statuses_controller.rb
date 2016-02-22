@@ -37,7 +37,7 @@ class StatusesController < ApplicationController
   # GET /statuses/new
   # GET /statuses/new.json
   def new
-    @status = Status.new
+    @status = current_member.statuses.new
     @status.build_document
 
     respond_to do |format|
@@ -49,7 +49,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
-    @status.build_document
+    
   end
 
   # POST /statuses
@@ -74,12 +74,13 @@ class StatusesController < ApplicationController
   # PUT /statuses/1
   # PUT /statuses/1.json
   def update
-
+    @document = @status.document
     if params[:status] && params[:status].has_key?(:user_id)
         params[:status].delete(:user_id) 
     end 
     respond_to do |format|
-      if @status.update_attributes(params[:status])
+      if @status.update_attributes(params[:status])&&
+         @document && @document.update_attributes(params[:status][:document_attributes])
         format.html { redirect_to status_path(@status) }
         format.json { head :no_content }
         format.js   { render :js => "window.location.href = ('#{status_path(@status)}');"}

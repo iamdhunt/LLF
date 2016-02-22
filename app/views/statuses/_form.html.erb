@@ -25,9 +25,10 @@
               </div>
             </span>
 
-            <% if @status.document %>
-              <div class="">
-                  <%= link_to document_fields.object.attachment_file_name, document_fields.object.attachment.url %>
+            <% if document_fields.object.attachment? %>
+              <div class="d_img">
+                  <div><%= document_fields.input :remove_attachment, as: :boolean, label: "Remove attachment?" %></div>
+                  <%= image_tag document_fields.object.attachment.url(:small) %>
               </div>
             <% end %>
           <% end %>

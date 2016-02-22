@@ -63,6 +63,10 @@
 				</span>
 
 				<% if activity.member == current_member %>
+					<span class="">
+						<%= link_to image_tag("Edit 4.png",  class: "act_actions"), edit_event_path(activity.targetable), title: "Edit Event", alt: "Edit Event", :class => "btn more" %>
+					</span>
+
 					<span class="ad">
 						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
 					</span>

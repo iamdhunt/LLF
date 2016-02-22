@@ -95,11 +95,13 @@ class MediaController < ApplicationController
 
     respond_to do |format|
       if @medium.update_attributes(params[:medium])
-        format.html { redirect_to @medium, notice: 'Media was successfully updated.' }
+        format.html { redirect_to @medium }
         format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{medium_path(@medium)}');"}
       else
         format.html { render action: "edit" }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

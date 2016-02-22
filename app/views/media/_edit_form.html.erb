@@ -1,15 +1,35 @@
-<%= simple_form_for(@medium) do |f| %>
-  <%= f.error_notification %>
+<%= simple_form_for(@medium, :html => { :id => 'media_form', :multipart => true }) do |f| %>
 
   <div class="form-inputs">
-    <%= bootstrap_paperclip_media f, :asset %>
     <div class="cap">
-    	<span class="cap_label">Caption</span> <span class="cap_opt">(Optional)</span>
+      <span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, input_html: { rows: '9', maxlength: '280', class: 'input-xlarge' } %>
+    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, 'Submit', :class => "btn btn-warning" %>
+  <div class="med_instructions">
+    <ul class="m_ts">
+      <li>
+        &raquo; Provide up to 5 of the most relevant tags
+      </li>
+      <li>
+        &raquo; Comma separated, 30 characters per 
+      </li>
+      <li>
+        &raquo; Alphanumeric, no special characters
+      </li>
+    </ul>
   </div>
+
+  <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
+
+  <div style="margin-top:6px;">
+    <%= f.button :submit, 'Update', :class => "btn btn-warning" %>
+    <span id="spinner" class="spinner">
+      <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+    </span>
+  </div>
+
+  <%= f.error_notification %>
+
 <% end %>

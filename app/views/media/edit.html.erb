@@ -1,14 +1,55 @@
-<% title "LLF | Edit Media" %>
+<% title @medium.member.full_name + " x Edit Media"%>
 
-<div id="main_wrap">
+	<div id="main_wrap">
 
-	<h1>Edit Media</h1>
+		<div id="edit_show">
 
-	<%= render 'edit_form' %>
+			<div class="t"> 
+				Last updated: <%= @medium.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; 
+				<%= link_to "View", medium_path(@medium), title: 'View Media', alt: 'View Media' %> 
+				&#8226; <%= link_to "Cancel Edit", profile_media_path(@medium.member), title: 'Cancel Edit', alt: 'Cancel Edit' %>
+				<% if current_member == @medium.member %>
+					<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+				<% end %>
+			</div>
 
-	<%= link_to 'View', @medium %> |
-	<%= link_to 'Back', profile_media_path(current_member) %>
+			<div>
 
-</div>
+				<% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+		            <div class="sh_aud">
+		              <% if @medium.cover? %>
+		                <div id='med_art' style="background-image: url(<%= @medium.cover.url(:media) %>)">
+		              <% else %>
+		                <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+		              <% end %>
+		                <div class="ui360 ui360-vis">
+		                  <%= link_to '', @medium.asset.url %>
+		                </div>
+		              </div>
+		            </div>
+		          <% end %>
+
+		          <% if @medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+		            <%= image_tag(@medium.asset.url(:medium), class: 'show_media') %>
+		          <% end %>
+
+		          <% if @medium.caption? %>
+			          <p class="view_caption">
+			            <%= @medium.caption.html_safe %>
+			          </p>
+			       <% end %>
+
+		        </div>
+
+		        <%= render 'edit_form' %>
+
+		    </div>
+			
+
+		</div>
+
+<!--/edit_show-->
+
+	</div>
 
 <!--/main_wrap-->

@@ -49,6 +49,7 @@
             &#8226; Favorite (<%= @medium.votes.size %>)
           <% end %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Media', alt: 'Share Media' %>
           &#8226; <%= link_to "View All Media", profile_media_path(@medium.member) %>
+          <% if current_member == @medium.member %> &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> <% end %>
           <% if current_member == @medium.member %>
             <span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
           <% end %>
@@ -86,11 +87,6 @@
         <% if @medium.caption? %>
           <p class="view_caption">
             <%= Rinku.auto_link(media_with_mentions(@medium)).html_safe %>
-          </p>
-        <% end %>
-
-        <% unless @medium.caption? %>
-          <p>
           </p>
         <% end %>
 

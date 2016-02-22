@@ -299,3 +299,6 @@ top: 25%;
     float: right;
     padding: .2em .3em 0 0;
 }
+#edit_show .d_img {
+	margin-top: 5px;
+}
