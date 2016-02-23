@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var cap_max = 280;
 	var $cap = $('#cap_box')
 	var dl_src = $('.dl').attr('src')
+	var $editm = $('#edit_cap_box');
 
 	$cap.autosize();
 
@@ -123,6 +124,28 @@ $(document).ready(function(){
 
 	$cap.keyup(function(){	
 		var cap_length = $cap.val().length;
+		var cap_remaining = cap_max - cap_length;
+
+		$('#cap_count').html(cap_remaining);
+
+	});
+
+	$editm.autosize();
+
+	function EditMCount(){	
+		var edit_length = $editm.val().length;
+		var edit_remaining = cap_max - edit_length;
+
+		$('#cap_count').html(edit_remaining);
+
+	};	
+
+	if ($editm.length) {
+	    EditMCount();
+	} 
+
+	$editm.keyup(function(){	
+		var cap_length = $editm.val().length;
 		var cap_remaining = cap_max - cap_length;
 
 		$('#cap_count').html(cap_remaining);

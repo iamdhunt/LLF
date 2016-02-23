@@ -1,227 +1,229 @@
 <% if notification.notified_object %>
-<% @notification = notification %>
+	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' && notification.notified_object.mentioner.caption.nil? %>
+	<% @notification = notification %>
 
-<div class="not_wrap">
+	<div class="not_wrap">
 
-	<div class="not_icon">
+		<div class="not_icon">
 
-		<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' && notification.notified_object_type != 'ActsAsVotable::Vote' %>
-			<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
-		<% elsif notification.notified_object_type == 'Follow' %>
-			<%= link_to image_tag(notification.notified_object.follower.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.follower), title: notification.notified_object.follower.full_name, alt: notification.notified_object.follower.full_name %>
-		<% elsif notification.notified_object_type == 'ActsAsVotable::Vote' %>
-			<%= link_to image_tag(notification.notified_object.voter.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.voter), title: notification.notified_object.voter.full_name, alt: notification.notified_object.voter.full_name %>
-		<% else %>
-			<%= link_to image_tag(notification.notified_object.mentioner.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.mentioner.member), title: notification.notified_object.mentioner.member.full_name, alt: notification.notified_object.mentioner.member.full_name %>
-		<% end %>
-
-	</div>
-
-	<div class="not_content">
-
-		<% if notification.is_unread?(current_member) %>
-      		<span class="unread">
-      			<i class="icon-exclamation-sign icon-red"></i>
-      		</span>
-  		<% end %>
-
-  		<span class="u_n">
-  			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' && notification.notified_object_type != 'ActsAsVotable::Vote' %> 
-				<%= link_to notification.notified_object.member.user_name, profile_path(notification.notified_object.member) %>
+			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' && notification.notified_object_type != 'ActsAsVotable::Vote' %>
+				<%= link_to image_tag(notification.notified_object.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.member), title: notification.notified_object.member.full_name, alt: notification.notified_object.member.full_name %>
 			<% elsif notification.notified_object_type == 'Follow' %>
-				<%= link_to notification.notified_object.follower.user_name, profile_path(notification.notified_object.follower) %>
+				<%= link_to image_tag(notification.notified_object.follower.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.follower), title: notification.notified_object.follower.full_name, alt: notification.notified_object.follower.full_name %>
 			<% elsif notification.notified_object_type == 'ActsAsVotable::Vote' %>
-				<%= link_to notification.notified_object.voter.user_name, profile_path(notification.notified_object.voter) %>
+				<%= link_to image_tag(notification.notified_object.voter.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.voter), title: notification.notified_object.voter.full_name, alt: notification.notified_object.voter.full_name %>
 			<% else %>
-				<%= link_to notification.notified_object.mentioner.member.user_name, profile_path(notification.notified_object.mentioner.member.user_name) %>
+				<%= link_to image_tag(notification.notified_object.mentioner.member.avatar.url(:comment2), :class => "com_av"), profile_path(notification.notified_object.mentioner.member), title: notification.notified_object.mentioner.member.full_name, alt: notification.notified_object.mentioner.member.full_name %>
 			<% end %>
-		</span>
 
-		<span class="sub">
-			<% if notification.notified_object_type == 'Follow' %>
-				is now <%= link_to "following", profile_path(notification.notified_object.follower), title: 'View Follower', alt: 'View Follower' %> 
-				<% if notification.notified_object.followable_type != 'Member' %>
-					your <%= notification.notified_object.followable_type.downcase %> <%= link_to notification.notified_object.followable.name, notification.notified_object.followable, title: 'View', alt: 'View' %>
+		</div>
+
+		<div class="not_content">
+
+			<% if notification.is_unread?(current_member) %>
+	      		<span class="unread">
+	      			<i class="icon-exclamation-sign icon-red"></i>
+	      		</span>
+	  		<% end %>
+
+	  		<span class="u_n">
+	  			<% if notification.notified_object_type != 'Follow' && notification.notified_object_type != 'Mention' && notification.notified_object_type != 'ActsAsVotable::Vote' %> 
+					<%= link_to notification.notified_object.member.user_name, profile_path(notification.notified_object.member) %>
+				<% elsif notification.notified_object_type == 'Follow' %>
+					<%= link_to notification.notified_object.follower.user_name, profile_path(notification.notified_object.follower) %>
+				<% elsif notification.notified_object_type == 'ActsAsVotable::Vote' %>
+					<%= link_to notification.notified_object.voter.user_name, profile_path(notification.notified_object.voter) %>
 				<% else %>
-					you
+					<%= link_to notification.notified_object.mentioner.member.user_name, profile_path(notification.notified_object.mentioner.member.user_name) %>
 				<% end %>
-			<% end %>
+			</span>
 
-			<% if notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type != 'Medium' %>
-				left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to notification.notified_object.commentable_type.downcase, notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> 
-			<% elsif notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type == 'Medium' %>
-				left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to 'media', notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %>
-			<% end %>
-
-			<% if notification.notified_object_type == 'Update' %>
-				posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.name, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> 
-			<% end %>
-
-			<% if notification.notified_object_type == 'Upload' %>
-				<%= link_to "uploaded", notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %> new media in the <%= notification.notified_object.uploadable_type.downcase %> <%= link_to notification.notified_object.uploadable.name, notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %>
-			<% end %>
-
-			<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
-				<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
-			<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
-				<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to 'caption', notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
-			<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
-				<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
-			<% end %>
-
-			<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
-				<% if notification.notified_object.votable_type == 'Activity' %>
-					<%= link_to 'favorited', profile_favorites_path(notification.notified_object.voter) %> your <%= link_to notification.notified_object.votable_type.downcase, profile_favorites_path(notification.notified_object.voter) %>
-				<% elsif notification.notified_object.votable_type == 'Medium' %>
-					<%= link_to 'favorited', notification.notified_object.votable %> your <%= link_to 'media', notification.notified_object.votable %>
-				<% elsif notification.notified_object.votable_type == 'Event' || notification.notified_object.votable_type == 'Project' %>
-					<%= link_to 'favorited', notification.notified_object.votable %> your <%= notification.notified_object.votable_type.downcase %> <%= link_to notification.notified_object.votable.name, notification.notified_object.votable %>
-				<% else %>
-					<%= link_to 'favorited', notification.notified_object.votable %> your <%= notification.notified_object.votable_type.downcase %> <%= link_to notification.notified_object.votable.title, notification.notified_object.votable %>
+			<span class="sub">
+				<% if notification.notified_object_type == 'Follow' %>
+					is now <%= link_to "following", profile_path(notification.notified_object.follower), title: 'View Follower', alt: 'View Follower' %> 
+					<% if notification.notified_object.followable_type != 'Member' %>
+						your <%= notification.notified_object.followable_type.downcase %> <%= link_to notification.notified_object.followable.name, notification.notified_object.followable, title: 'View', alt: 'View' %>
+					<% else %>
+						you
+					<% end %>
 				<% end %>
-			<% end %>
 
-			<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
-
-			<p><i>
-				<% if notification.notified_object_type == 'Comment' %>
-					<%= Rinku.auto_link(notification.notified_object.content).html_safe %> 
+				<% if notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type != 'Medium' %>
+					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to notification.notified_object.commentable_type.downcase, notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> 
+				<% elsif notification.notified_object_type == 'Comment' && notification.notified_object.commentable_type == 'Medium' %>
+					left a <%= link_to "comment", notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %> on your <%= link_to 'media', notification.notified_object.commentable, title: 'View Comment', alt: 'View Comment' %>
 				<% end %>
+
 				<% if notification.notified_object_type == 'Update' %>
-					<%= Rinku.auto_link(truncate(notification.notified_object.content, :length => 400)).html_safe %>
+					posted an <%= link_to "update", notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> <i>"<%= notification.notified_object.title %>"</i> in the <%= notification.notified_object.updateable_type.downcase %> <%= link_to notification.notified_object.updateable.name, notification.notified_object.updateable, title: 'View Update', alt: 'View Update' %> 
 				<% end %>
 
 				<% if notification.notified_object_type == 'Upload' %>
-					<% if notification.notified_object.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-						<%= image_tag notification.notified_object.asset.url(:small) %>
-					<% end %>
-
-					<% if notification.notified_object.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-						<div class="act_media_content">
-							<% if notification.notified_object.cover? %>
-					          <div id='med_art' style="background-image: url(<%= notification.notified_object.cover.url(:media) %>)">
-					        <% else %>
-					          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
-					        <% end %>
-					          <div class="ui360 ui360-vis">
-					            <%= link_to '', notification.notified_object.asset.url %>
-					          </div>
-					        </div>
-					    </div>
-					<% end %>
+					<%= link_to "uploaded", notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %> new media in the <%= notification.notified_object.uploadable_type.downcase %> <%= link_to notification.notified_object.uploadable.name, notification.notified_object.uploadable, title: 'View Upload', alt: 'View Upload' %>
 				<% end %>
 
 				<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
-					<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
-					<% if notification.notified_object.mentioner.document %>
-						<p><%= image_tag notification.notified_object.mentioner.document.attachment.url(:thumb) %></p>
-					<% end %>
-				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
-					<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
-					<%= Rinku.auto_link(notification.notified_object.mentioner.caption).html_safe %>
-				<% end %>
-			</i></p>
-		</span>
-
-	</div>
-
-	<div class="not_med">
-
-		<% if notification.notified_object_type == 'Update' %>
-			<%= link_to image_tag(notification.notified_object.updateable.avatar.url(:thumb)), notification.notified_object.updateable, title: notification.notified_object.updateable.name, alt: notification.notified_object.updateable.name %>
-		<% elsif notification.notified_object_type == 'Upload' %>
-			<%= link_to image_tag(notification.notified_object.uploadable.avatar.url(:thumb)), notification.notified_object.uploadable, title: notification.notified_object.uploadable.name, alt: notification.notified_object.uploadable.name %>
-		<% end %>
-
-		<% if notification.notified_object_type == 'Mention' %>
-			<% if notification.notified_object.mentioner_type == 'Comment' %>
-				<% if notification.notified_object.mentioner.commentable_type == 'Event' || notification.notified_object.mentioner.commentable_type == 'Project' %>
-					<%= link_to image_tag(notification.notified_object.mentioner.commentable.avatar.url(:thumb)), notification.notified_object.mentioner.commentable, title: notification.notified_object.mentioner.commentable.name, alt: notification.notified_object.mentioner.commentable.name %>
-				<% elsif notification.notified_object.mentioner.commentable_type == 'Listing' %>
-					<%= link_to image_tag(notification.notified_object.mentioner.commentable.feature.url(:thumb)), notification.notified_object.mentioner.commentable, title: notification.notified_object.mentioner.commentable.title, alt: notification.notified_object.mentioner.commentable.title %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to 'caption', notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
 				<% end %>
 
-				<% if notification.notified_object.mentioner.commentable_type == 'Medium' %>
-					<% if notification.notified_object.mentioner.commentable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-						<%= link_to image_tag(notification.notified_object.mentioner.commentable.asset.url(:thumb2)), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
-					<% elsif notification.notified_object.mentioner.commentable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-						<% if notification.notified_object.mentioner.commentable.cover? %>
-							<%= link_to image_tag(notification.notified_object.mentioner.commentable.cover.url(:thumb)), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
+				<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
+					<% if notification.notified_object.votable_type == 'Activity' %>
+						<%= link_to 'favorited', profile_favorites_path(notification.notified_object.voter) %> your <%= link_to notification.notified_object.votable_type.downcase, profile_favorites_path(notification.notified_object.voter) %>
+					<% elsif notification.notified_object.votable_type == 'Medium' %>
+						<%= link_to 'favorited', notification.notified_object.votable %> your <%= link_to 'media', notification.notified_object.votable %>
+					<% elsif notification.notified_object.votable_type == 'Event' || notification.notified_object.votable_type == 'Project' %>
+						<%= link_to 'favorited', notification.notified_object.votable %> your <%= notification.notified_object.votable_type.downcase %> <%= link_to notification.notified_object.votable.name, notification.notified_object.votable %>
+					<% else %>
+						<%= link_to 'favorited', notification.notified_object.votable %> your <%= notification.notified_object.votable_type.downcase %> <%= link_to notification.notified_object.votable.title, notification.notified_object.votable %>
+					<% end %>
+				<% end %>
+
+				<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
+
+				<p><i>
+					<% if notification.notified_object_type == 'Comment' %>
+						<%= Rinku.auto_link(notification.notified_object.content).html_safe %> 
+					<% end %>
+					<% if notification.notified_object_type == 'Update' %>
+						<%= Rinku.auto_link(truncate(notification.notified_object.content, :length => 400)).html_safe %>
+					<% end %>
+
+					<% if notification.notified_object_type == 'Upload' %>
+						<% if notification.notified_object.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+							<%= image_tag notification.notified_object.asset.url(:small) %>
+						<% end %>
+
+						<% if notification.notified_object.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+							<div class="act_media_content">
+								<% if notification.notified_object.cover? %>
+						          <div id='med_art' style="background-image: url(<%= notification.notified_object.cover.url(:media) %>)">
+						        <% else %>
+						          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+						        <% end %>
+						          <div class="ui360 ui360-vis">
+						            <%= link_to '', notification.notified_object.asset.url %>
+						          </div>
+						        </div>
+						    </div>
+						<% end %>
+					<% end %>
+
+					<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
+						<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+						<% if notification.notified_object.mentioner.document %>
+							<p><%= image_tag notification.notified_object.mentioner.document.attachment.url(:thumb) %></p>
+						<% end %>
+					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
+						<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
+						<%= Rinku.auto_link(notification.notified_object.mentioner.caption).html_safe %>
+					<% end %>
+				</i></p>
+			</span>
+
+		</div>
+
+		<div class="not_med">
+
+			<% if notification.notified_object_type == 'Update' %>
+				<%= link_to image_tag(notification.notified_object.updateable.avatar.url(:thumb)), notification.notified_object.updateable, title: notification.notified_object.updateable.name, alt: notification.notified_object.updateable.name %>
+			<% elsif notification.notified_object_type == 'Upload' %>
+				<%= link_to image_tag(notification.notified_object.uploadable.avatar.url(:thumb)), notification.notified_object.uploadable, title: notification.notified_object.uploadable.name, alt: notification.notified_object.uploadable.name %>
+			<% end %>
+
+			<% if notification.notified_object_type == 'Mention' %>
+				<% if notification.notified_object.mentioner_type == 'Comment' %>
+					<% if notification.notified_object.mentioner.commentable_type == 'Event' || notification.notified_object.mentioner.commentable_type == 'Project' %>
+						<%= link_to image_tag(notification.notified_object.mentioner.commentable.avatar.url(:thumb)), notification.notified_object.mentioner.commentable, title: notification.notified_object.mentioner.commentable.name, alt: notification.notified_object.mentioner.commentable.name %>
+					<% elsif notification.notified_object.mentioner.commentable_type == 'Listing' %>
+						<%= link_to image_tag(notification.notified_object.mentioner.commentable.feature.url(:thumb)), notification.notified_object.mentioner.commentable, title: notification.notified_object.mentioner.commentable.title, alt: notification.notified_object.mentioner.commentable.title %>
+					<% end %>
+
+					<% if notification.notified_object.mentioner.commentable_type == 'Medium' %>
+						<% if notification.notified_object.mentioner.commentable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+							<%= link_to image_tag(notification.notified_object.mentioner.commentable.asset.url(:thumb2)), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
+						<% elsif notification.notified_object.mentioner.commentable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+							<% if notification.notified_object.mentioner.commentable.cover? %>
+								<%= link_to image_tag(notification.notified_object.mentioner.commentable.cover.url(:thumb)), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
+							<% else %>
+								<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
+							<% end %>
+						<% end %>
+					<% end %>
+				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Medium' %>
+					<% if notification.notified_object.mentioner.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.mentioner.asset.url(:thumb2)), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
+					<% elsif notification.notified_object.mentioner.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.mentioner.cover? %>
+							<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:thumb)), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
 						<% else %>
-							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner.commentable, title: 'View Media', alt: 'View Media' %>
+							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
 						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
 
-			<% if notification.notified_object.mentioner_type == 'Medium' %>
-				<% if notification.notified_object.mentioner.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-					<%= link_to image_tag(notification.notified_object.mentioner.asset.url(:thumb2)), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
-				<% elsif notification.notified_object.mentioner.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-					<% if notification.notified_object.mentioner.cover? %>
-						<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:thumb)), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
-					<% else %>
-						<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
+			<% if notification.notified_object_type == 'Comment' %>
+				<% if notification.notified_object.commentable_type == 'Project' || notification.notified_object.commentable_type == 'Event' %>
+					<%= link_to image_tag(notification.notified_object.commentable.avatar.url(:thumb)), notification.notified_object.commentable, title: notification.notified_object.commentable.name, alt: notification.notified_object.commentable.name %>
+				<% elsif notification.notified_object.commentable_type == 'Listing' %>
+					<%= link_to image_tag(notification.notified_object.commentable.feature.url(:thumb)), notification.notified_object.commentable, title: notification.notified_object.commentable.title, alt: notification.notified_object.commentable.title %>
+				<% end %>
+				<% if notification.notified_object.commentable_type == 'Medium' %>
+					<% if notification.notified_object.commentable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.commentable.asset.url(:thumb2)), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
+					<% elsif notification.notified_object.commentable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.commentable.cover? %>
+							<%= link_to image_tag(notification.notified_object.commentable.cover.url(:thumb)), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
+						<% else %>
+							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
+						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
 
-		<% if notification.notified_object_type == 'Comment' %>
-			<% if notification.notified_object.commentable_type == 'Project' || notification.notified_object.commentable_type == 'Event' %>
-				<%= link_to image_tag(notification.notified_object.commentable.avatar.url(:thumb)), notification.notified_object.commentable, title: notification.notified_object.commentable.name, alt: notification.notified_object.commentable.name %>
-			<% elsif notification.notified_object.commentable_type == 'Listing' %>
-				<%= link_to image_tag(notification.notified_object.commentable.feature.url(:thumb)), notification.notified_object.commentable, title: notification.notified_object.commentable.title, alt: notification.notified_object.commentable.title %>
+			<% if notification.notified_object_type == 'Follow' %>
+				<% if notification.notified_object.followable_type != 'Member' %>
+					<%= link_to image_tag(notification.notified_object.followable.avatar.url(:thumb)), notification.notified_object.followable, title: notification.notified_object.followable.name, alt: notification.notified_object.followable.name %>
+				<% end %>
 			<% end %>
-			<% if notification.notified_object.commentable_type == 'Medium' %>
-				<% if notification.notified_object.commentable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-					<%= link_to image_tag(notification.notified_object.commentable.asset.url(:thumb2)), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
-				<% elsif notification.notified_object.commentable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-					<% if notification.notified_object.commentable.cover? %>
-						<%= link_to image_tag(notification.notified_object.commentable.cover.url(:thumb)), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
-					<% else %>
-						<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.commentable, title: 'View Media', alt: 'View Media' %>
+
+			<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
+				<% if notification.notified_object.votable_type == 'Medium' %>
+					<% if notification.notified_object.votable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.votable.asset.url(:thumb2)), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
+					<% elsif notification.notified_object.votable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.votable.cover? %>
+							<%= link_to image_tag(notification.notified_object.votable.cover.url(:thumb)), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
+						<% else %>
+							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
+						<% end %>
+					<% end %>
+				<% elsif notification.notified_object.votable_type == 'Event' || notification.notified_object.votable_type == 'Project' %>
+					<%= link_to image_tag(notification.notified_object.votable.avatar.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.name, alt: notification.notified_object.votable.name %>
+				<% elsif notification.notified_object.votable_type == 'Listing' %>
+					<% if notification.notified_object.votable.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.votable.feature.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
+					<% elsif notification.notified_object.votable.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.votable.cover? %>
+							<%= link_to image_tag(notification.notified_object.votable.cover.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
+						<% else %>
+							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
+						<% end %>
 					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
 
-		<% if notification.notified_object_type == 'Follow' %>
-			<% if notification.notified_object.followable_type != 'Member' %>
-				<%= link_to image_tag(notification.notified_object.followable.avatar.url(:thumb)), notification.notified_object.followable, title: notification.notified_object.followable.name, alt: notification.notified_object.followable.name %>
-			<% end %>
-		<% end %>
+		</div>							
 
-		<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
-			<% if notification.notified_object.votable_type == 'Medium' %>
-				<% if notification.notified_object.votable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-					<%= link_to image_tag(notification.notified_object.votable.asset.url(:thumb2)), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
-				<% elsif notification.notified_object.votable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-					<% if notification.notified_object.votable.cover? %>
-						<%= link_to image_tag(notification.notified_object.votable.cover.url(:thumb)), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
-					<% else %>
-						<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.votable, title: 'View Media', alt: 'View Media' %>
-					<% end %>
-				<% end %>
-			<% elsif notification.notified_object.votable_type == 'Event' || notification.notified_object.votable_type == 'Project' %>
-				<%= link_to image_tag(notification.notified_object.votable.avatar.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.name, alt: notification.notified_object.votable.name %>
-			<% elsif notification.notified_object.votable_type == 'Listing' %>
-				<% if notification.notified_object.votable.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-					<%= link_to image_tag(notification.notified_object.votable.feature.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
-				<% elsif notification.notified_object.votable.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-					<% if notification.notified_object.votable.cover? %>
-						<%= link_to image_tag(notification.notified_object.votable.cover.url(:thumb)), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
-					<% else %>
-						<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.votable, title: notification.notified_object.votable.title, alt: notification.notified_object.votable.title %>
-					<% end %>
-				<% end %>
-			<% end %>
-		<% end %>
+	<div style="clear:both;"></div>
+	</div>
 
-	</div>							
-
-<div style="clear:both;"></div>
-</div>
-
+	<% end %>
 <% end %>

@@ -1,0 +1,4 @@
+<% if @medium.errors.any? %>
+	$('#err_wrap').remove();
+	$("#media_form").prepend("<%= escape_javascript(render('media/errors')) %>");
+<% end %>

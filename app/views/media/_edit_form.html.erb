@@ -1,10 +1,12 @@
-<%= simple_form_for(@medium, :html => { :id => 'media_form', :multipart => true }) do |f| %>
+<%= simple_form_for(@medium, remote: true, :html => { :id => 'media_form', :multipart => true }) do |f| %>
+
+  <%= render 'media/errors' %>
 
   <div class="form-inputs">
     <div class="cap">
       <span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
+    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'edit_cap_box', autocomplete: 'off' } %>
   </div>
 
   <div class="med_instructions">
@@ -29,7 +31,5 @@
       <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
     </span>
   </div>
-
-  <%= f.error_notification %>
 
 <% end %>

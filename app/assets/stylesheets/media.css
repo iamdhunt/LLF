@@ -361,3 +361,6 @@ top: 25%;
   -moz-border-radius: none;
   border-radius: none;
 }
+#edit_show #err_wrap {
+	margin-bottom: 0px;
+}
