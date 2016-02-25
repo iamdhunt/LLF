@@ -493,4 +493,25 @@ vertical-align: baseline;
 }
 #proj_av .ev_cmpl img {
 	width: 50px;
-} 
+}
+.add_evt {
+	font-weight: bold;
+	display: inline-block;
+	float: right;
+}
+.add_evt a {
+	color: #fff;
+	background-color: #219e5c;
+	font-weight: bold;
+	padding: 9px 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.add_evt a:hover {
+	opacity: .85;
+	text-decoration: none;
+}
+.add_evt .fa {
+	margin-left: -6px;
+	margin-right: -3px;
+}

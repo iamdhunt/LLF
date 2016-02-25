@@ -499,3 +499,24 @@ label.active {
 	font-size: 1.5em;
 	color: #444;
 }
+.add_lst {
+	font-weight: bold;
+	display: inline-block;
+	float: right;
+}
+.add_lst a {
+	color: #fff;
+	background-color: #1b85a6;
+	font-weight: bold;
+	padding: 9px 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.add_lst a:hover {
+	opacity: .85;
+	text-decoration: none;
+}
+.add_lst .fa {
+	margin-left: -6px;
+	margin-right: -3px;
+}

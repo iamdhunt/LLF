@@ -1,4 +1,4 @@
-<%= simple_form_for(@status, remote: true, html: { multipart: true, :id => 'status_form' }) do |f| %>
+<%= simple_form_for(@status, html: { multipart: true, :id => 'status_form' }) do |f| %>
 
   <div class="">
       
@@ -15,23 +15,6 @@
           </span>
 
           <span id="edit_count"></span>
-        
-          <%= f.fields_for :document do |document_fields| %>
-            <span class=''>
-              <div class="custom-file-upload fu1_wrap">
-                <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Attach Image
-                  <%= document_fields.input :attachment, as: :file, label: false, :input_html => { id: 'file-upload', class: 'cfu' } %>
-                </label>
-              </div>
-            </span>
-
-            <% if document_fields.object.attachment? %>
-              <div class="d_img">
-                  <div><%= document_fields.input :remove_attachment, as: :boolean, label: "Remove attachment?" %></div>
-                  <%= image_tag document_fields.object.attachment.url(:small) %>
-              </div>
-            <% end %>
-          <% end %>
 
         </div>
       

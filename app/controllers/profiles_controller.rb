@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   def show
   	@member = Member.find_by_user_name(params[:id]) 
   	if @member == current_member
+      @medium = current_member.medium.new
       @status = current_member.statuses.new
       @status.build_document      
       params[:page] ||= 1
@@ -28,6 +29,7 @@ class ProfilesController < ApplicationController
   def stream
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
+      @medium = current_member.medium.new
       @status = current_member.statuses.new
       @status.build_document 
       params[:page] ||= 1
@@ -47,6 +49,7 @@ class ProfilesController < ApplicationController
   def personal
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
+      @medium = current_member.medium.new
       @status = current_member.statuses.new
       @status.build_document
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
@@ -59,7 +62,11 @@ class ProfilesController < ApplicationController
 
   def stream_fav
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(40)
+      render action: :show_fav
+    elsif @member 
       @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(40)
       render action: :show_fav
     else 
@@ -116,7 +123,11 @@ class ProfilesController < ApplicationController
 
   def followers
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @followers = @member.followers(:order => 'follows.id DESC').paginate(page: params[:page], per_page: (72))
+      render action: :followers
+    elsif @member 
       @followers = @member.followers(:order => 'follows.id DESC').paginate(page: params[:page], per_page: (72))
       render action: :followers
     else
@@ -126,8 +137,11 @@ class ProfilesController < ApplicationController
 
   def following
     @member = Member.find_by_user_name(params[:id])
-    @following = @member.following_members(:order => 'following.id DESC').paginate(page: params[:page], per_page: (72))
-    if @member  
+    if @member == current_member
+      @medium = current_member.medium.new
+      @following = @member.following_members(:order => 'following.id DESC').paginate(page: params[:page], per_page: (72))
+    elsif @member  
+      @following = @member.following_members(:order => 'following.id DESC').paginate(page: params[:page], per_page: (72))
       render action: :following
     else
       render file: 'public/404', status: 404, formats: [:html]
@@ -136,7 +150,11 @@ class ProfilesController < ApplicationController
 
   def projects
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @projects = @member.projects.order("updated_at desc").paginate(page: params[:page], per_page: (30))
+      render action: :projects
+    elsif @member 
       @projects = @member.projects.order("updated_at desc").paginate(page: params[:page], per_page: (30))
       render action: :projects
     else 
@@ -146,7 +164,11 @@ class ProfilesController < ApplicationController
 
   def projects_following
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @following = @member.following_projects(:order => 'updated_at DESC').paginate(page: params[:page], per_page: (30))
+      render action: :projects_following
+    elsif @member 
       @following = @member.following_projects(:order => 'updated_at DESC').paginate(page: params[:page], per_page: (30))
       render action: :projects_following
     else 
@@ -156,7 +178,11 @@ class ProfilesController < ApplicationController
 
   def projects_fav
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @projects = @member.get_up_voted Project.order("updated_at desc").page(params[:page]).per_page(30)
+      render action: :projects_fav
+    elsif @member 
       @projects = @member.get_up_voted Project.order("updated_at desc").page(params[:page]).per_page(30)
       render action: :projects_fav
     else 
@@ -166,7 +192,16 @@ class ProfilesController < ApplicationController
 
   def events
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(8).all
+      @past = @member.events.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(12).all
+      
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json {  }
+      end
+    elsif @member 
       @events = @member.events.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(8).all
       @past = @member.events.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(12).all
       
@@ -181,7 +216,11 @@ class ProfilesController < ApplicationController
 
   def events_past
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @events = @member.events.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
+      render action: :events_past
+    elsif @member 
       @events = @member.events.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
       render action: :events_past
     else 
@@ -191,7 +230,11 @@ class ProfilesController < ApplicationController
 
   def events_current
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @events = @member.events.order("start_date desc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
+      render action: :events_current
+    elsif @member 
       @events = @member.events.order("start_date desc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).paginate(page: params[:page], per_page: (30))
       render action: :events_current
     else 
@@ -201,7 +244,11 @@ class ProfilesController < ApplicationController
 
   def events_following
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @following = @member.following_events(:order => 'start_date asc').paginate(page: params[:page], per_page: (30))
+      render action: :events_following
+    elsif @member 
       @following = @member.following_events(:order => 'start_date asc').paginate(page: params[:page], per_page: (30))
       render action: :events_following
     else 
@@ -211,7 +258,11 @@ class ProfilesController < ApplicationController
 
   def events_fav
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(30)
+      render action: :events_fav
+    elsif @member 
       @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(30)
       render action: :events_fav
     else 
@@ -221,7 +272,11 @@ class ProfilesController < ApplicationController
 
   def market
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(25)
+      render action: :market
+    elsif @member 
       @listings = @member.listings.order('created_at desc').page(params[:page]).per_page(25)
       render action: :market
     else 
@@ -231,7 +286,11 @@ class ProfilesController < ApplicationController
 
   def market_fav
     @member = Member.find_by_user_name(params[:id])
-    if @member 
+    if @member == current_member
+      @medium = current_member.medium.new
+      @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(25)
+      render action: :market_fav
+    elsif @member 
       @listings = @member.get_up_voted Listing.order("created_at desc").page(params[:page]).per_page(25)
       render action: :market_fav
     else 

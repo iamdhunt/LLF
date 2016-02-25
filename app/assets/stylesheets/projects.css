@@ -868,3 +868,24 @@ vertical-align: baseline;
 	padding: 60px 0;
 	font-weight: normal;
 }
+.add_pj {
+	font-weight: bold;
+	display: inline-block;
+	float: right;
+}
+.add_pj a {
+	color: #fff;
+	background-color: #da4f49;
+	font-weight: bold;
+	padding: 9px 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.add_pj a:hover {
+	opacity: .85;
+	text-decoration: none;
+}
+.add_pj .fa {
+	margin-left: -6px;
+	margin-right: -3px;
+}

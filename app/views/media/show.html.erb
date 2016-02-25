@@ -43,7 +43,7 @@
     <div id="ss_r">
       <div class="">
         <div class="t">
-          <%= @medium.created_at.localtime.strftime("%A, %m/%d %I:%M%P") %>
+          <%= @medium.created_at.localtime.strftime("%A, %m/%d/%y %I:%M%P") %>
           <% if member_signed_in? %> &#8226; <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>"><%= render :partial => "media/fav_link", :locals => {:medium => @medium} %></span>
           <% else %>
             &#8226; Favorite (<%= @medium.votes.size %>)

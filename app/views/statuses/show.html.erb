@@ -51,12 +51,6 @@
 					<%= Rinku.auto_link(statuses_with_mentions(@status)).html_safe %>
 				</div>
 
-				<% if @status.document %>
-					<div class="act_attachment">
-					    <%= status_document_link(@status) %>
-					</div>
-				<% end %>
-
 				<% if member_signed_in? %>
 					<div id="c_form_wrap">
 						<%= render "shared/comment_form" %>

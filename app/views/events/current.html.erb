@@ -17,6 +17,14 @@
                     <i class="fa fa-heart"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_evt" style="padding-top:6px;">
+                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Event
+                      <% end %>
+                    </div>
+                <% end %>
             </div>
         <% else %>
             <div id="bc_wrap">
@@ -29,6 +37,14 @@
                     <i class="fa fa-heart"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_evt" style="padding-top:6px;">
+                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Event
+                      <% end %>
+                    </div>
+                <% end %>
             </div>
         <% end %>
 

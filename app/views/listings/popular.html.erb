@@ -9,6 +9,14 @@
             <div class="breadcrumbs">
                 <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span>Popular</span>
             </div>
+
+            <% if member_signed_in? %>
+                <div class="add_lst" style="padding-top:6px;">
+                  <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
+                    <i class="fa fa-plus"></i>Create Listing
+                  <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 

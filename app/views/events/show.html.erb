@@ -44,8 +44,11 @@
           </li>
         <% end %>
           <li class='sub'>
-            <span class='acct dt'>
+            <span class='acct dt' style="padding-right:0;">
               <%= @event.start_date.strftime("%b %d") %> <% unless @event.end_date == @event.start_date %> - <%= @event.end_date.strftime("%b %d") %><% end %>
+            </span>
+            <span class='acct dt' style="padding-right:0;">
+              <%= @event.start_date.strftime("%Y") %>
             </span>
             <span class='acct dt t1'>
               <% if @event.start_time.strftime("%I:%M %p") == '12:00 AM' && @event.end_time.strftime("%I:%M %p") == '12:00 AM' %>
@@ -63,6 +66,20 @@
 
 <div id="pr_ev">
   <div id="main_wrap" class="ev_wrap">
+
+    <div id="bc_wrap" style="padding:5px 5px; 0 0">
+        <div class="breadcrumbs">
+            <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span><%= truncate(@event.name, length: 50) %></span>
+        </div>
+
+        <% if member_signed_in? %>
+            <div class="add_evt" style="padding-top:6px;">
+              <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
+                <i class="fa fa-plus"></i>Create Event
+              <% end %>
+            </div>
+        <% end %>
+    </div>
 
     <div id="ev_title">
       <span class="proj_title"><%= @event.name %></span>

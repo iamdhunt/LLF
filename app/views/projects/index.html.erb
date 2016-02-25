@@ -16,6 +16,14 @@
                     <i class="fa fa-heart"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_pj" style="padding-top:6px;">
+                      <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Project
+                      <% end %>
+                    </div>
+                <% end %>
             </div>
         <% else %>
             <div id="bc_wrap">
@@ -24,6 +32,14 @@
                     <i class="fa fa-heart"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_pj">
+                      <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project' do %>
+                        <i class="fa fa-plus"></i>Create Project
+                      <% end %>
+                    </div>
+                <% end %>
             </div>
         <% end %>
 

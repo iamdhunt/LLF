@@ -35,6 +35,14 @@
           <li class='sub w'>
             <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + truncate(@project.city.titleize, length: 40), :controller => "projects", :action => "index", :projects => @project.city  %></span>
           </li>
+          <li class='sub'>
+            <span class='acct dt' style="padding-right:1px;">
+              <%= @project.created_at.strftime("%b %d") %>
+            </span>
+            <span class='acct dt'>
+              <%= @project.created_at.strftime("%Y") %>
+            </span>
+          </li>
         <% end %>
       </ul>
     </div>
@@ -44,6 +52,20 @@
 
 <div id="pr_ev">
   <div id="main_wrap" class="pr_wrap">
+
+    <div id="bc_wrap" style="padding:5px 5px; 0 0">
+        <div class="breadcrumbs">
+            <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span><%= truncate(@project.name, length: 50) %></span>
+        </div>
+
+        <% if member_signed_in? %>
+            <div class="add_pj" style="padding-top:6px;">
+              <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
+                <i class="fa fa-plus"></i>Create Project
+              <% end %>
+            </div>
+        <% end %>
+    </div>
 
     <div id="proj_title">
       <span class="proj_title"><%= @project.name %></span>

@@ -19,16 +19,6 @@
 
           <span id="stat_count"></span>
 
-          <span class='upd_att'>
-            <%= f.fields_for :document do |document_fields| %>
-              <div class="custom-file-upload fu1_wrap">
-                <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Attach Image
-                  <%= document_fields.input :attachment, as: :file, label: false, :input_html => { id: 'file-upload', class: 'cfu' } %>
-                </label>
-              </div>
-            <% end %>
-          </span>
-
         </div>
       
   </div>

@@ -313,15 +313,16 @@ top: 25%;
 	color: #898989;
 }
 .popular {
-	background-color: #E83E44;
 	font-weight: bold;
-	padding: 10px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
 	display: inline-block;
 }
 .popular a {
 	color: #fff;
+	background-color: #E83E44;
+	font-weight: bold;
+	padding: 9px 10px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
 }
 .popular a:hover {
 	opacity: .85;
@@ -363,4 +364,10 @@ top: 25%;
 }
 #edit_show #err_wrap {
 	margin-bottom: 0px;
+}
+#edit_show .sh_aud {
+	padding: 0;
+}
+#edit_show .view_caption {
+	margin-top: 13px;
 }

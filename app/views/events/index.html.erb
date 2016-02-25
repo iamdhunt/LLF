@@ -12,6 +12,14 @@
                 <i class="fa fa-heart"></i>Popular
               <% end %>
             </div>
+
+            <% if member_signed_in? %>
+                <div class="add_evt">
+                  <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
+                    <i class="fa fa-plus"></i>Create Event
+                  <% end %>
+                </div>
+            <% end %>
         </div>
 
         <div class="sb_text">

@@ -5,7 +5,7 @@
 		<div id="edit_show">
 
 			<div class="t"> 
-				Last updated: <%= @medium.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; 
+				Last updated: <%= @medium.updated_at.localtime.strftime("%A, %m/%d/%y %I:%M%P") %> &#8226; 
 				<%= link_to "View", medium_path(@medium), title: 'View Media', alt: 'View Media' %> 
 				&#8226; <%= link_to "Cancel Edit", profile_media_path(@medium.member), title: 'Cancel Edit', alt: 'Cancel Edit' %>
 				<% if current_member == @medium.member %>
@@ -34,9 +34,9 @@
 		          <% end %>
 
 		          <% if @medium.caption? %>
-			          <p class="view_caption">
+			          <div class="view_caption">
 			            <%= @medium.caption.html_safe %>
-			          </p>
+			          </div>
 			       <% end %>
 
 		        </div>
