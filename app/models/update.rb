@@ -14,13 +14,6 @@ class Update < ActiveRecord::Base
   	auto_strip_attributes :content
 	auto_strip_attributes :title, :squish => true
 
-  	auto_html_for :content do
-	    image
-	    youtube(:width => 660, :height => 400, :autoplay => false)
-	    vimeo(:width => 660, :height => 400, :autoplay => false)
-	    simple_format
-	end
-
 	def create_notification
 		subject = "#{member.user_name}"
 		body = "posted a new <b>update</b> <i>\"#{title}\"</i> in <b>#{updateable.name}</b> <p><i>#{content}</i></p>"
