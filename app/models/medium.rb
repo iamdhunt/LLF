@@ -1,6 +1,8 @@
 class Medium < ActiveRecord::Base
 
-  	attr_accessible :caption, :asset, :cover, :markers, :marker_list
+  	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover
+
+    attr_accessor :remove_cover
 
     belongs_to :member
 
@@ -37,7 +39,7 @@ class Medium < ActiveRecord::Base
                                         message: '(tags) must not list more than 5 tags.'
                                       },
                                       format: {
-                                        with: /^[a-zA-Z0-9 ,-]+$/,
+                                        with: /^[a-zA-Z0-9 ,'-]+$/,
                                         message: '(tags) must not include any special characters.'
                                       }
     validate :each_marker
@@ -51,6 +53,8 @@ class Medium < ActiveRecord::Base
     end
 
     USERNAME_REGEX = /@\w+/i
+
+    before_save :perform_cover_removal
 
 	private
 
@@ -90,6 +94,12 @@ class Medium < ActiveRecord::Base
         members << member if member
       end
       members.uniq
+    end
+
+    def perform_cover_removal
+      if remove_cover == '1' && !cover.dirty?
+        self.cover = nil
+      end
     end
 	
 end

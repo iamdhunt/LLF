@@ -1,13 +1,13 @@
 <% if @medium.votes.size > 0 && current_member.voted_up_on?(@medium) %>
-	<%= link_to favorite_medium_path(@medium), remote: true, method: :put do %>
+	<%= link_to favorite_medium_path(@medium), remote: true, method: :put, title: 'Unfavorite', alt: 'Unfavorite' do %>
 		Unfavorite (<%= @medium.votes.size %>)
 	<% end %>
 <% elsif @medium.votes.size > 0 %>
-	<%= link_to favorite_medium_path(@medium), remote: true, method: :put do %>
+	<%= link_to favorite_medium_path(@medium), remote: true, method: :put, title: 'Favorite', alt: 'Favorite' do %>
 		Favorite (<%= @medium.votes.size %>)
 	<% end %>
 <% else %>
-	<%= link_to favorite_medium_path(@medium), remote: true, method: :put do %>
+	<%= link_to favorite_medium_path(@medium), remote: true, method: :put, title: 'Favorite', alt: 'Favorite' do %>
 		Favorite (<%= @medium.votes.size %>)
 	<% end %>
 <% end %>

@@ -41,7 +41,7 @@ class Event < ActiveRecord::Base
                               message: '(tags) must not list more than 3 tags.'
                             },
                             format: {
-                              with: /^[a-zA-Z0-9 ,-]+$/,
+                              with: /^[a-zA-Z0-9 ,'-]+$/,
                               message: '(tags) must not include any special characters.'
                             }
     validate :each_marker     

@@ -17,6 +17,14 @@
                     <i class="icon-heart icon-white"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                  <div class="add_md" style="padding-top:10px;">
+                    <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Upload Media', alt: 'Upload Media' do %>
+                      <i class="fa fa-plus"></i>Upload Media
+                    <% end %>
+                  </div>
+                <% end %>
             </div>
       <% else %>
             <div id="bc_wrap">
@@ -25,6 +33,14 @@
                     <i class="fa fa-heart"></i>Popular
                   <% end %>
                 </div>
+
+                <% if member_signed_in? %>
+                  <div class="add_md">
+                    <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Upload Media', alt: 'Upload Media' do %>
+                      <i class="fa fa-plus"></i>Upload Media
+                    <% end %>
+                  </div>
+                <% end %>
             </div>
       <% end %>
 
@@ -64,7 +80,7 @@
   </div>
 
   <div id="media_query_media">
-      <div id="media_list_wrap">
+      <div id="m_fav_list_wrap">
 
         <% if @facet == nil && @query == nil %>
 
@@ -101,6 +117,12 @@
                 </div>
             <% end %>
         <% end %>
+  <% end %>
+
+  <% if member_signed_in? %>
+    <div id="md_form_<%= current_member.id %>">
+        <%= render :partial => "media/index_modal" %>
+    </div>
   <% end %>
 
 </div>

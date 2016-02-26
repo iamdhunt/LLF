@@ -6,18 +6,59 @@
 
     <div id="sb_wrap" class="se_wrap">
 
-        <div id="bc_wrap">
-            <div class="breadcrumbs">
-                <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span>Popular</span>
-            </div>
-
-            <% if member_signed_in? %>
-                <div class="add_evt" style="padding-top:6px;">
-                  <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
-                    <i class="fa fa-plus"></i>Create Event
-                  <% end %>
+        <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span class="evts"><%= link_to "Popular", popular_events_path %></span> &raquo; <span>Discover</span>
                 </div>
-            <% end %>
+
+                <% if member_signed_in? %>
+                    <div class="add_evt" style="padding-top:6px;">
+                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Event
+                      <% end %>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span>Popular</span>
+                </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_evt" style="padding-top:6px;">
+                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Event
+                      <% end %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="sb_text">
+            Look up a popular current event name, tag, or location
+        </div>
+        <div class="sb">
+          <%= render :partial => "search" %>
+        </div>
+
+        <div class="elocs">             
+            <% for row in @search.facet(:event_month).rows %>
+                <span class="eloc"><%= link_to(row.value, params.merge({:month => row.value})) %></span>
+            <% end %>           
+        </div>
+
+        <div class="loc_nm">             
+            <% for row in @search.facet(:location).rows %>
+                <span class="eloc"><%= link_to(row.value.titleize, params.merge({:locations => row.value})) %></span>
+            <% end %>           
+        </div>
+
+        <div class="btags">
+          <% for row in @search.facet(:marker_list).rows %>
+              <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value})) %></span>
+          <% end %>
         </div>
 
     </div>
@@ -63,20 +104,37 @@
 
                     <div id="prs">
  
-                        <%= render partial: 'events' %>
+                        <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
+                            <%= render partial: 'events' %>
+                        <% else %>
+                            <%= render partial: 'search_events' %>
+                        <% end %>
 
                     </div>
 
                 </div>
 
-                <%= will_paginate @events, class: 'display_none' %>
+                <% if @facet == nil && @query == nil && @tag_facet == nil && @location_facet == nil %>
+                    <%= will_paginate @events, class: 'display_none' %>
 
-                <% if @events.total_pages != @events.current_page %>
-                <div id="loading"></div>
-                <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-                      <div class="com_show">
-                        Show More
-                      </div>
+                    <% if @events.total_pages != @events.current_page %>
+                    <div id="loading"></div>
+                    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                          <div class="com_show">
+                            Show More
+                          </div>
+                        <% end %>
+                    <% end %>
+                <% else %>
+                    <%= will_paginate @results, class: 'display_none' %>
+
+                    <% if @results.total_pages != @results.current_page %>
+                    <div id="loading"></div>
+                    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                          <div class="com_show">
+                            Show More
+                          </div>
+                        <% end %>
                     <% end %>
                 <% end %>
 

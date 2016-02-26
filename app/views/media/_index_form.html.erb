@@ -1,0 +1,61 @@
+<%= simple_form_for(@medium, :html => { :id => 'media_form', :class => 'new_medium', :multipart => true }, remote: true) do |f| %>
+
+  <div class="form-inputs">
+
+    <div class="med_instructions">
+      <ul>
+        <li>
+          &raquo; Maximum file size of 15MB
+        </li>
+        <li>
+          &raquo; Accepted file formats: (jpeg, png, mp3)
+        </li>
+      </ul>
+    </div>
+
+    <div class="custom-file-upload fu1_wrap">
+      <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse*
+        <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
+      </label>
+    </div>
+
+    <div class="cover_art">(Optional) Audio Cover Art</div>
+
+    <div class="custom-file-upload fu2_wrap">
+      <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse
+        <%= f.input :cover, label: false, error: false, as: :file, :input_html => { id: 'file-upload2', class: 'cfu' } %>
+      </label>
+    </div>
+
+    <div class="cap">
+    	<span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
+    </div> 
+    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
+
+  </div>
+
+  <div class="med_instructions">
+    <ul class="m_ts">
+      <li>
+        &raquo; Provide up to 5 of the most relevant tags
+      </li>
+      <li>
+        &raquo; Comma separated, 30 characters per 
+      </li>
+      <li>
+        &raquo; Alphanumeric, no special characters
+      </li>
+    </ul>
+  </div>
+
+  <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Upload', :class => "btn btn-warning" %>
+    <span id="spinner" class="spinner">
+      <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+    </span>
+    <%= link_to 'Cancel', {:controller => :media, :action => :media_cancel}, remote: true, :class => "btn btn-danger pull-right", id: "mda_cancel" %>
+  </div>
+
+<% end %>

@@ -29,10 +29,12 @@
 </div>
 
 <div id="subnav_wrap">
-    <ul class="sub sub_stream">   
-        <li>
-            <%= link_to '<i class="fa fa-user"></i>Personal'.html_safe, profile_personal_path(@member), class: '' %>
-        </li>       
+    <ul class="sub sub_stream"> 
+        <% if member_signed_in? %>  
+            <li>
+                <%= link_to '<i class="fa fa-user"></i>Personal'.html_safe, profile_personal_path(@member), class: '' %>
+            </li> 
+        <% end %>      
         <li>
             <%= link_to '<i class="fa fa-heart"></i>Favorites'.html_safe, profile_favorites_path(@member), class: '' %>
         </li>  

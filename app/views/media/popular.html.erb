@@ -6,11 +6,52 @@
 
   <div id="sb_wrap" class="">
 
-    <div id="bc_wrap">
-        <div class="breadcrumbs">
-            <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Popular</span>
-        </div>
+    <% if @facet != nil || @query != nil %>
+      <div id="bc_wrap">
+          <div class="breadcrumbs">
+              <span class="mda"><%= link_to "Media", media_path %></span>
+              &raquo; <span class="mda"><%= link_to "Popular", popular_media_path %></span>
+              &raquo; <span>Discover</span>
+          </div>
+
+          <% if member_signed_in? %>
+            <div class="add_md" style="padding-top:10px;">
+              <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Upload Media', alt: 'Upload Media' do %>
+                <i class="fa fa-plus"></i>Upload Media
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    <% else %>
+      <div id="bc_wrap">
+          <div class="breadcrumbs">
+              <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Popular</span>
+          </div>
+
+          <% if member_signed_in? %>
+            <div class="add_md" style="padding-top:10px;">
+              <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Upload Media', alt: 'Upload Media' do %>
+                <i class="fa fa-plus"></i>Upload Media
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    <% end %>
+
+    <div class="sb_text">
+        Browse the most popular tags.</br>
+        Or enter something specific below.
     </div>
+
+    <div class="sb">
+      <%= render :partial => "search" %>
+    </div>
+
+     <div class="btags">
+        <% for row in @search.facet(:marker_list).rows %>
+            <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value}), title: row.value, alt: row.value) %></span>
+        <% end %>
+      </div>
 
   </div>
 
@@ -33,22 +74,49 @@
   </div>
 
   <div id="media_query_media">
-      <div id="media_list_wrap">
+      <div id="m_fav_list_wrap">
+
+        <% if @facet == nil && @query == nil %>
 
           <%= render partial: 'media', :collection => @media, :as => :medium %>
+
+        <% else %>
+
+          <%= render partial: 'results', :collection => @results, :as => :medium %>
+
+        <% end %>
 
       </div>
   </div>
 
-  <%= will_paginate @media, class: 'display_none' %>
+  <% if @facet != nil || @query != nil %>
+      <%= will_paginate @results, class: 'display_none' %>
 
-  <% if @media.total_pages != @media.current_page %>
-    <div id="loading"></div>
-    <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-          <div class="com_show">
-            Show More
-          </div>
-        <% end %>
+      <% if @results.total_pages != @results.current_page %>
+        <div id="loading"></div>
+        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+              <div class="com_show">
+                Show More
+              </div>
+            <% end %>
+      <% end %>
+  <% else %>
+    <%= will_paginate @media, class: 'display_none' %>
+
+    <% if @media.total_pages != @media.current_page %>
+      <div id="loading"></div>
+      <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+            <div class="com_show">
+              Show More
+            </div>
+          <% end %>
+    <% end %>
+  <% end %>
+
+  <% if member_signed_in? %>
+    <div id="md_form_<%= current_member.id %>">
+        <%= render :partial => "media/index_modal" %>
+    </div>
   <% end %>
 
 </div>

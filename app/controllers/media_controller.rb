@@ -11,6 +11,9 @@ class MediaController < ApplicationController
   # GET /media
   # GET /media.json
   def index
+    if member_signed_in?
+      @medium = current_member.medium.new
+    end
     @search = Medium.solr_search do
       fulltext params[:media]
       facet(:marker_list, :limit => 85, :sort => :count)
@@ -30,6 +33,9 @@ class MediaController < ApplicationController
   # GET /media/1
   # GET /media/1.json
   def show
+    if member_signed_in?
+      @media = current_member.medium.new
+    end
     @medium = Medium.find(params[:id])
     if @medium
       @commentable = @medium
@@ -132,11 +138,31 @@ class MediaController < ApplicationController
   end
 
   def popular
+    if member_signed_in?
+      @medium = current_member.medium.new
+    end
+    @search = Medium.solr_search do
+      fulltext params[:media]
+      facet(:marker_list, :limit => 85, :sort => :count)
+        with(:marker_list, params[:tag]) if params[:tag].present?
+    end
+    @query = params[:media]
+    @facet = params[:tag]
+    @results = Medium.joins(:votes).group("media.id").having("count(votes.id) >= ?", 1).where(id: @search.results.map(&:id)).page(params[:page]).per_page(63)
     @media = Medium.joins(:votes).group("media.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(63)
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @media }
+    end
+  end
+
+  def media_cancel
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @medium }
+      format.js
     end
   end 
 

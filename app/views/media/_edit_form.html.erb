@@ -1,6 +1,32 @@
-<%= simple_form_for(@medium, remote: true, :html => { :id => 'media_form', :multipart => true }) do |f| %>
+<%= simple_form_for(@medium, remote: true, :html => { :id => 'media_form', :class => 'new_medium', :multipart => true }) do |f| %>
 
-  <%= render 'media/errors' %>
+  <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+    <% if @medium.cover? %>
+      <div class="edit_md_cover">
+        <%= image_tag @medium.cover.url(:media) %>
+      </div>
+      <%= f.input :remove_cover, as: :boolean, label: "Remove cover?", :label_html => {:class => "md_cover_label"} %>
+    <% end %>
+
+    <div class="med_instructions">
+      <ul>
+        <li>
+          &raquo; Maximum file size of 15MB
+        </li>
+        <li>
+          &raquo; Accepted file formats: (jpeg, png, mp3)
+        </li>
+      </ul>
+    </div>
+
+    <div class="cover_art">(Optional) Audio Cover Art</div>
+
+    <div class="custom-file-upload fu2_wrap">
+      <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse
+        <%= f.input :cover, label: false, error: false, as: :file, :input_html => { id: 'file-upload2', class: 'cfu' } %>
+      </label>
+    </div>
+  <% end %>
 
   <div class="form-inputs">
     <div class="cap">

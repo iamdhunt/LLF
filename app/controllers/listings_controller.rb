@@ -138,6 +138,17 @@ class ListingsController < ApplicationController
   end
 
   def popular
+    @search = Listing.solr_search do
+      fulltext params[:listings]
+      facet(:marker_list, :limit => 85, :sort => :count)
+        with(:marker_list, params[:tag]) if params[:tag].present?
+      facet :price, :range => 0..1500, :range_interval => 75
+        with(:price, Range.new(*params[:price_range].split("..").map(&:to_i))) if params[:price_range].present?
+    end
+    @query = params[:listings]
+    @facet = params[:tag]
+    @price_range = params[:price_range]
+    @results = Listing.joins(:votes).group("listings.id").having("count(votes.id) >= ?", 1).where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
     @listings = Listing.joins(:votes).group("listings.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(60)
 
     respond_to do |format|

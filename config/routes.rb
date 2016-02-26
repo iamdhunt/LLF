@@ -75,6 +75,7 @@ LLF::Application.routes.draw do
     resources :mentions
     collection do
       get 'popular', to: "media#popular", :as => 'popular'
+      get '/cancel' => 'media#media_cancel', :as => 'cancel'
     end
     member do
       put "favorite", to: "media#upvote"

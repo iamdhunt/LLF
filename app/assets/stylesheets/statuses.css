@@ -238,8 +238,11 @@
 	height: 29px;
 	margin-top: 3px;
 }
-#status_show .modal.fade.in {
-top: 25%;
+#status_show #share.modal.fade.in {
+	top: 25%;
+}
+#status_show #media.modal.fade.in {
+	top: 10%;
 }
 #status_show #comm_form_wrap {
 	margin: 10px;

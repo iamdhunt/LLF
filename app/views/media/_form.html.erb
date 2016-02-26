@@ -1,5 +1,4 @@
-<%= simple_form_for(@medium, :html => { :id => 'media_form', :multipart => true }, remote: true) do |f| %>
-  <%= render 'media/errors' %>
+<%= simple_form_for(@medium, :html => { :id => 'media_form', :class => 'new_medium', :multipart => true }, remote: true) do |f| %>
 
   <div class="form-inputs">
 
@@ -19,7 +18,6 @@
         <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
       </label>
     </div>
-    <%= bootstrap_paperclip_media f, :asset %>
 
     <div class="cover_art">(Optional) Audio Cover Art</div>
 

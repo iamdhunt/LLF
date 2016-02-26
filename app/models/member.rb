@@ -75,7 +75,7 @@ class Member < ActiveRecord::Base
                               message: 'must not list more than 5 pursuits.'
                             },
                             format: {
-                              with: /^[a-zA-Z ,-]+$/,
+                              with: /^[a-zA-Z ,'-]+$/,
                               message: 'must not include any special characters or numbers.'
                             }
   validate :each_pursuit

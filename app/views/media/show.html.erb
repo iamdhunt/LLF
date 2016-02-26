@@ -44,18 +44,21 @@
       <div class="">
         <div class="t">
           <%= @medium.created_at.localtime.strftime("%A, %m/%d/%y %I:%M%P") %>
-          <% if member_signed_in? %> &#8226; <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>"><%= render :partial => "media/fav_link", :locals => {:medium => @medium} %></span>
+          <% if member_signed_in? %> 
+            &#8226; <span id="med_sh_fav_<%= @medium.id %>_<%= @medium.member.id %>"><%= render :partial => "media/fav_link", :locals => {:medium => @medium} %></span>
           <% else %>
             &#8226; Favorite (<%= @medium.votes.size %>)
-          <% end %> &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Media', alt: 'Share Media' %>
-          &#8226; <%= link_to "View All Media", profile_media_path(@medium.member) %>
-          <% if current_member == @medium.member %> &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> <% end %>
-          <% if current_member == @medium.member %>
+          <% end %> 
+            &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Media', alt: 'Share Media' %>
+            &#8226; <%= link_to "View All Media", profile_media_path(@medium.member), title: 'View All Media', alt: 'View All Media' %>
+          <% if member_signed_in? %>
+            &#8226; <%= link_to "Upload Media", "#media", title: 'Upload Media', alt: 'Upload Media', :data => {:toggle => "modal"} %>
+          <% end %>
+          <% if current_member == @medium.member %> 
+            &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> 
             <span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
           <% end %>
         </div>
-
-
 
         <div class="act_content">
 
@@ -123,9 +126,15 @@
           <h3 id="sharemodallabel">Copy Media URL</h3>
         </div>
         <div class="modal-body pi">
-          <input class="pr_in forms" value="<%= status_url %>" onclick="this.select()" />
+          <input class="pr_in forms" value="<%= medium_url %>" onclick="this.select()" />
         </div>
     </div>
+
+    <% if member_signed_in? %>
+      <div id="md_form_<%= @medium.member.id %>">
+          <%= render :partial => "media/show_modal" %>
+      </div>
+    <% end %>
 
     <div style="clear:both;"></div>
   </div>

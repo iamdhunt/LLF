@@ -5,17 +5,55 @@
 <div id="lstgs_wrap">
 
     <div id="sb_wrap">
-        <div id="bc_wrap">
-            <div class="breadcrumbs">
-                <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span>Popular</span>
-            </div>
-
-            <% if member_signed_in? %>
-                <div class="add_lst" style="padding-top:6px;">
-                  <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
-                    <i class="fa fa-plus"></i>Create Listing
-                  <% end %>
+        <% if @facet == nil && @query == nil && @price_range == nil %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span>Popular</span>
                 </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_lst" style="padding-top:6px;">
+                      <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Listing
+                      <% end %>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <div id="bc_wrap">
+                <div class="breadcrumbs">
+                    <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span class="lstgs"><%= link_to "Popular", popular_listings_path %></span> &raquo; <span>Discover</span>
+                </div>
+
+                <% if member_signed_in? %>
+                    <div class="add_lst" style="padding-top:6px;">
+                      <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
+                        <i class="fa fa-plus"></i>Create Listing
+                      <% end %>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+
+        <div class="sb_text">
+            Look up a listing name or tag
+        </div>
+
+        <div class="sb">
+          <%= render :partial => "search" %>
+        </div>
+
+        <div class="btags">
+            <% for row in @search.facet(:price).rows %>
+                <span class="bprice">
+                    <%= link_to (row.value).to_s.prepend("$").gsub(/\.0\.\./," - $").gsub(/\.0/,""), :price_range => row.value, :search => params[:listings] %>
+                </span>
+            <% end %>
+        </div>
+
+        <div class="btags">
+            <% for row in @search.facet(:marker_list).rows %>
+               <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value})) %></span>
             <% end %>
         </div>
     </div>
@@ -77,21 +115,36 @@
         <div id="li_index">
 
             <div id="lstgs">
-
-        	   <%= render partial: 'listings' %>
-
-        	</div>
+                <% if @facet == nil && @query == nil && @price_range == nil %>
+                  <%= render partial: 'listings' %>
+                <% else %>
+                    <%= render partial: 'search_listings' %>
+                <% end %>
+            </div>
 
         </div>
 
-        <%= will_paginate @listings, class: 'display_none' %>
+        <% if @facet == nil && @query == nil && @price_range == nil %>
+            <%= will_paginate @listings, class: 'display_none' %>
 
-        <% if @listings.total_pages != @listings.current_page %>
-        <div id="loading"></div>
-        <%= link_to("#", class: "com_show_wrap load_arrow") do %>
-              <div class="com_show">
-                Show More
-              </div>
+            <% if @listings.total_pages != @listings.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
+            <% end %>
+        <% else %>
+            <%= will_paginate @results, class: 'display_none' %>
+
+            <% if @results.total_pages != @results.current_page %>
+            <div id="loading"></div>
+            <%= link_to("#", class: "com_show_wrap load_arrow") do %>
+                  <div class="com_show">
+                    Show More
+                  </div>
+                <% end %>
             <% end %>
         <% end %>
 
