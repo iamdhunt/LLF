@@ -159,7 +159,7 @@
 
     <% if @event.video? %>
       <div id="proj_video">
-        <%= @event.video_html %>
+        <%= @event.video %>
       </div>
     <% end %>
 
@@ -231,7 +231,7 @@
 
         <div class="tab-pane" id="details">
           <div id ="proj_about">
-            <%= raw Rinku.auto_link(@event.details_html) %>
+            <%= raw Rinku.auto_link(@event.details) %>
           </div>
         </div>
 
@@ -239,7 +239,7 @@
 
         <div class="tab-pane active" id="details">
           <div id ="proj_about">
-            <%= raw Rinku.auto_link(@event.details_html) %>
+            <%= raw Rinku.auto_link(@event.details) %>
           </div>
         </div>
 

@@ -118,20 +118,7 @@ class Event < ActiveRecord::Base
   						length: {
                           maximum: 140, 
                           message: 'must not be more than 140 characters.'
-                        }                          
-
-  	auto_html_for :video do
-	    html_escape
-	    youtube(:width => 660, :height => 400, :autoplay => false)
-	    vimeo(:width => 660, :height => 400, :autoplay => false)
-	  end
-
-    auto_html_for :details do
-      image
-      youtube(:width => 660, :height => 400, :autoplay => false)
-      vimeo(:width => 660, :height => 400, :autoplay => false)
-      simple_format
-    end
+                        }
 
     auto_strip_attributes :website, :zipcode, :details
     auto_strip_attributes :name, :squish => true
