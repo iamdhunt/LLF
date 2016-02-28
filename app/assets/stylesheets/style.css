@@ -376,7 +376,7 @@ margin: 10px 5px 0 10px;
 	margin-top: 3px;
 }
 #error_explanation {
-	padding: 0 20px;
+	margin-bottom: 10px;
 }
 #error_explanation ul li {
 	list-style: disc;

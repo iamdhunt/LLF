@@ -9,7 +9,7 @@
 				  	<%= devise_error_messages! %>
 
 				  	<div>
-					  <%= f.input :email, :autofocus => true, label: false, placeholder: 'Email', input_html: { class: 'forms account sign_in'} %>
+					  <%= f.input :login, :autofocus => true, label: false, placeholder: 'Username or Email', input_html: { class: 'forms account sign_in'} %>
 					</div>
 
 					<div><%= f.button :submit, "Send Reset Instructions", class: 'btn btn-info btn-large' %></div>

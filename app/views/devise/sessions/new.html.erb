@@ -8,7 +8,7 @@
 				<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "" }) do |f| %>
 
 					<div>
-				  		<%= f.input :email, label: false, hint: false, error: false, :autofocus => true, placeholder: 'Email', input_html: { class: 'forms'} %>
+				  		<%= f.input :login, label: false, hint: false, error: false, :autofocus => true, placeholder: 'Username or Email', input_html: { class: 'forms'} %>
 					</div>
 
 					<div>

@@ -9,6 +9,8 @@ class Member < ActiveRecord::Base
   					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
             :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
   
+  attr_accessor :login
+
   acts_as_follower
   acts_as_followable
   acts_as_ordered_taggable
@@ -45,9 +47,9 @@ class Member < ActiveRecord::Base
                         }
 
   validates :user_name, presence: { message: 'can\'t be blank.'},
-                        uniqueness: { message: 'is already taken.'},
+                        uniqueness: { :case_sensitive => false, message: 'is already taken.'},
                         format: {
-                          with: /^[a-zA-Z0-9_-]+$/,
+                          with: /^[a-zA-Z0-9_]+$/,
                           message: 'must not include spaces or special characters.'
                         },
                         length: {
@@ -242,6 +244,15 @@ class Member < ActiveRecord::Base
 
   def send_welcome
     MemberMailer.signup_confirmation(self).deliver
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["user_name = :value OR lower(email) = lower(:value)", { :value => login }]).first
+    else
+      where(conditions).first
+    end
   end
 
 end
