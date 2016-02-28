@@ -119,6 +119,10 @@ GEM
       http_parser.rb (>= 0.6.0)
     em-socksify (0.3.0)
       eventmachine (>= 1.0.0.beta.4)
+    embedly (1.9.1)
+      json
+      oauth
+      querystring
     erubis (2.7.0)
     eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.1)
@@ -183,6 +187,7 @@ GEM
     mime-types (1.25.1)
     multi_json (1.11.2)
     nokogiri (1.5.11-x86-mingw32)
+    oauth (0.5.0)
     options (2.3.2)
     orm_adapter (0.4.0)
     paperclip (3.5.1)
@@ -200,6 +205,7 @@ GEM
     progress_bar (1.0.0)
       highline (~> 1.6.1)
       options (~> 2.3.0)
+    querystring (0.1.0)
     rack (1.4.7)
     rack-cache (1.6.1)
       rack (>= 0.4)
@@ -303,6 +309,7 @@ DEPENDENCIES
   debugger
   delayed_job_active_record
   devise
+  embedly
   factory_girl_rails
   figaro
   font-awesome-rails

@@ -129,7 +129,7 @@
 
     <% if @project.video? %>
       <div id="proj_video">
-        <%= @link.html.html_safe %>
+        <%= display(@project.video) %>
       </div>
     <% end %>
 

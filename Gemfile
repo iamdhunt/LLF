@@ -33,6 +33,7 @@ gem "auto_strip_attributes", "~> 2.0"
 gem "font-awesome-rails"
 gem "wysiwyg-rails"
 gem 'rails_engine_decorators'
+gem 'embedly'
 
 group :development, :test do
 	gem 'shoulda'

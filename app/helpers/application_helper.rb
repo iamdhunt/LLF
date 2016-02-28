@@ -1,5 +1,8 @@
 module ApplicationHelper
 
+	require 'embedly'
+	require 'json'
+
 	def bootstrap_paperclip_media(form, paperclip_object)
 		if form.object.send("#{paperclip_object}?")
 			content_tag(:div, class: '') do 
@@ -49,6 +52,12 @@ module ApplicationHelper
 
 	def truncate_tag(tag)
 	  tag.size > 17 ? tag[0,14] + "..." : tag
+	end
+
+	def display(url)
+	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'], width: "600px")
+	  obj = embedly_api.oembed :url => url
+	  (obj.first.html).html_safe
 	end
 
 end
