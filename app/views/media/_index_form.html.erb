@@ -10,21 +10,24 @@
         <li>
           &raquo; Accepted file formats: (jpeg, png, mp3)
         </li>
+        <li>
+          &raquo; (Optional) Attach audio cover art
+        </li>
       </ul>
     </div>
 
-    <div class="custom-file-upload fu1_wrap">
-      <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse*
-        <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
-      </label>
-    </div>
+    <div>
+      <span class="custom-file-upload fu1_wrap">
+        <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse*
+          <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
+        </label>
+      </span>
 
-    <div class="cover_art">(Optional) Audio Cover Art</div>
-
-    <div class="custom-file-upload fu2_wrap">
-      <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse
-        <%= f.input :cover, label: false, error: false, as: :file, :input_html => { id: 'file-upload2', class: 'cfu' } %>
-      </label>
+      <span class="custom-file-upload fu2_wrap">
+        <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Cover Art
+          <%= f.input :cover, label: false, error: false, as: :file, :input_html => { id: 'file-upload2', class: 'cfu' } %>
+        </label>
+      </span>
     </div>
 
     <div class="cap">

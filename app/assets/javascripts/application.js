@@ -23,4 +23,5 @@
 //= require plugins/char_counter.min.js
 //= require plugins/fullscreen.min.js
 //= require jquery.atwho
+//= require jquery.embedly.min.js
 //= require_tree .

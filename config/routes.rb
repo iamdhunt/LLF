@@ -16,7 +16,11 @@ LLF::Application.routes.draw do
 
   resources :projects do
     resources :comments
-    resources :uploads
+    resources :uploads do
+      member do
+        get '/cancel', to: "uploads#cancel"
+      end
+    end
     resources :updates
     resources :follows, :controller => 'follows_projects', :only => [:create, :destroy]
     collection do
@@ -24,7 +28,6 @@ LLF::Application.routes.draw do
     end
     member do
       put "favorite", to: "projects#upvote"
-      get 'uploads/cancel', to: "uploads#cancel"
     end
   end
 

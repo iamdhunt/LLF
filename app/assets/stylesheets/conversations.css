@@ -254,6 +254,7 @@
 .not_wrap {
 	padding: 10px 15px;
 	border-bottom: 2px dashed #ccc;
+	overflow: hidden;
 }
 .not_wrap .unread {
 	float: left;

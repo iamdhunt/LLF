@@ -55,8 +55,14 @@ module ApplicationHelper
 	end
 
 	def display(url)
-	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'], width: "600px")
-	  obj = embedly_api.oembed :url => url
+	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
+	  obj = embedly_api.oembed(:url => url)
+	  (obj.first.html).html_safe
+	end
+
+	def media_display(url)
+	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
+	  obj = embedly_api.oembed(:url => url, width: "188px", height: "188px")
 	  (obj.first.html).html_safe
 	end
 
