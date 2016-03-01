@@ -17,7 +17,7 @@
 				</span>
 			</div>
 			<div class="com_con">
-				<%= Rinku.auto_link(comment.content).html_safe %>
+				<%= sanitize(Rinku.auto_link(comment.content), :tags => %w(a)) %>
 			</div>
 		</span>
 	</div>

@@ -237,10 +237,6 @@ GEM
       rake
     rdoc (3.12.2)
       json (~> 1.4)
-    redactor-rails (0.5.0)
-      devise
-      mime-types
-      orm_adapter
     remotipart (1.2.1)
     responders (1.1.0)
       railties (>= 3.2, < 5)
@@ -323,7 +319,6 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails_engine_decorators
   randumb
-  redactor-rails
   remotipart (~> 1.2)
   rinku
   sass-rails (~> 3.2.3)

@@ -7,7 +7,7 @@
 			<%= link_to receipt.message.sender.user_name, profile_path(receipt.message.sender) %>
 		</div>	
 		<div class="com_con">
-			<%= Rinku.auto_link(receipt.message.body).html_safe %>
+			<%= sanitize(Rinku.auto_link(receipt.message.body), :tags => %w(a)) %>
 			<div class="meta"><%= receipt.message.created_at.localtime.strftime("%a, %m/%d %I:%M%P") %></div>
 		</div>
 	</span>	

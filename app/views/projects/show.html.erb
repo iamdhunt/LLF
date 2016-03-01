@@ -33,7 +33,7 @@
         <% end %>
         <% if @project.city? %>  
           <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + truncate(@project.city.titleize, length: 40), :controller => "projects", :action => "index", :projects => @project.city  %></span>
+            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i>'.html_safe + truncate(@project.city.titleize, length: 40), :controller => "projects", :action => "index", :projects => @project.city  %></span>
           </li>
           <li class='sub'>
             <span class='acct dt' style="padding-right:1px;">

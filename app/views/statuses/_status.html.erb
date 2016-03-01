@@ -19,11 +19,7 @@
 	</div>
 
 	<div class="act_content">
-		<%= Rinku.auto_link(activity.targetable.content_html).html_safe %>
-	</div>
-
-	<div class="act_attachment">
-	    <%= status_document_link activity.targetable %>
+		<%= sanitize(Rinku.auto_link(activity.targetable.content), :tags => %w(a)) %>
 	</div>
 
 	<% if member_signed_in? %> 
