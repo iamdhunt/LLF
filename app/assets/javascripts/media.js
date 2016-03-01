@@ -3,10 +3,12 @@ $(document).ready(function(){
 	var $cfav = $('#m_fav_list_wrap')
 	var cap_max = 280;
 	var $cap = $('#cap_box')
+	var $mvid = $('.v_link')
 	var dl_src = $('.dl').attr('src')
 	var $editm = $('#edit_cap_box');
 
 	$cap.autosize();
+	$mvid.autosize();
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
@@ -182,5 +184,26 @@ $(document).ready(function(){
 	        $('.dl').attr('src', dl_src);
 	    }
 	);
+
+	$('a').embedly({key: '85fb5adba4084b5bb7575938182a837f',
+	  display: function(obj){
+	    // Overwrite the default display.
+	    if (obj.type === 'video' || obj.type === 'rich'){
+	      // Figure out the percent ratio for the padding. This is (height/width) * 100
+	      var ratio = ((obj.height/obj.width)*100).toPrecision(4) + '%'
+	 
+	      // Wrap the embed in a responsive object div. See the CSS here!
+	      var div = $('<div id="md_vd_sh">').css({
+	        paddingBottom: ratio
+	      });
+	 
+	      // Add the embed to the div.
+	      div.html(obj.html);
+	 
+	      // Replace the element with the div.
+	      $(this).replaceWith(div);
+	    }
+	  }
+	});
 
 });

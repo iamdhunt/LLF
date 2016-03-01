@@ -7,9 +7,6 @@
 <% else %>
 	var $container = $('#activity_stream_wrap') 
 	$('#err_wrap').remove();
-	$('i', '.custom-file-upload').removeClass("fa-check");
-	$('i', '.custom-file-upload').addClass("fa-arrow-up");
-	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 	$('#activity_stream_wrap').prepend("<%= escape_javascript(render :partial => 'activities/status/created', :locals => {:activity => @activity}) %>");
 	$('#activity_stream_wrap').imagesLoaded(function() {
 		$('#activity_stream_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });

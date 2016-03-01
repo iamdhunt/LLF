@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150411111053) do
+ActiveRecord::Schema.define(:version => 20160229224406) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -277,6 +277,7 @@ ActiveRecord::Schema.define(:version => 20150411111053) do
     t.datetime "cover_updated_at"
     t.string   "permalink"
     t.text     "markers"
+    t.text     "link"
   end
 
   add_index "media", ["member_id"], :name => "index_media_on_member_id"

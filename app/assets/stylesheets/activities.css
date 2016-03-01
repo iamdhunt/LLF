@@ -187,7 +187,7 @@
 	font-weight: bold;
 	font-size: 13px;
 	background: #f6f6f6;
-	margin-right: 0;
+	margin-right: -2px;
 	margin-bottom: 0;
 	-webkit-border-radius: 5px; /* Saf3+, Chrome */
 	border-radius: 5px; /* Opera 10.5, IE 9 */

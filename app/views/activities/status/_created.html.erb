@@ -5,7 +5,7 @@
 	</div>
 
 	<div class="act_content">
-		<%= Rinku.auto_link(statuses_with_mentions(activity.targetable)).html_safe %>
+		<%= sanitize(Rinku.auto_link(statuses_with_mentions(activity.targetable)), :tags => %w(a)) %>
 	</div>
  
 		<div id="act_btn_wrap">

@@ -50,7 +50,7 @@
 				</div>
 
 				<div class="act_content">
-					<%= Rinku.auto_link(statuses_with_mentions(@status)).html_safe %>
+					<%= sanitize(Rinku.auto_link(statuses_with_mentions(@status)), :tags => %w(a)) %>
 				</div>
 
 				<% if member_signed_in? %>

@@ -86,7 +86,7 @@
 
 				<p><i>
 					<% if notification.notified_object_type == 'Comment' %>
-						<%= Rinku.auto_link(notification.notified_object.content).html_safe %> 
+						<%= sanitize(Rinku.auto_link(notification.notified_object.content), :tags => %w(a)) %> 
 					<% end %>
 					<% if notification.notified_object_type == 'Update' %>
 						<%= Rinku.auto_link(truncate(notification.notified_object.content, :length => 400)).html_safe %>
@@ -113,14 +113,14 @@
 					<% end %>
 
 					<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
-						<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.content), :tags => %w(a)) %>
 						<% if notification.notified_object.mentioner.document %>
 							<p><%= image_tag notification.notified_object.mentioner.document.attachment.url(:thumb) %></p>
 						<% end %>
 					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
-						<%= Rinku.auto_link(notification.notified_object.mentioner.content).html_safe %>
+						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.content), :tags => %w(a)) %>
 					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
-						<%= Rinku.auto_link(notification.notified_object.mentioner.caption).html_safe %>
+						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.caption), :tags => %w(a)) %>
 					<% end %>
 				</i></p>
 			</span>

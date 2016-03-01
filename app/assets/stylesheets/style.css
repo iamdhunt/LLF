@@ -1661,7 +1661,7 @@ hr.contact {
 	cursor: pointer;
 }
 #stream_filters input[type="radio"]{
-    vertical-align: baseline;
+    vertical-align: bottom;
 }
 #stream_filters label {
 	background:#ebebeb;
@@ -1766,6 +1766,13 @@ label.active {
 }
 #stream_filters .audio label:hover {
 	background: #4c78de;
+}
+#stream_filters .video label {
+	background: #1ebaa9;
+	color: #fff;
+}
+#stream_filters .video label:hover {
+	background: #07ad9b;
 }
 #stream_filters .art_filter label {
 	background:#74cfae;

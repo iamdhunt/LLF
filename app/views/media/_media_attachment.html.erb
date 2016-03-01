@@ -1,0 +1,80 @@
+<% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
+  <% end %>
+
+<% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
+<% end %>
+
+     <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+      <div class="act_media_content">
+        <% if medium.cover? %>
+          <div id='med_art' style="background-image: url(<%= medium.cover.url(:media) %>)">
+        <% else %>
+          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+        <% end %>
+            <div class="ui360 ui360-vis">
+              <%= link_to '', medium.asset.url %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+
+    <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+      <div class="act_media_content">
+        <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
+      </div>
+    <% end %>
+
+    <% if medium.caption? %>
+      <div class="media_act_cap">
+        <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
+      </div> 
+    <% end %>
+
+    <% if medium.marker_list %>
+      <div class="t_s">
+          <%= medium.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "media", :action => "index", :media => m}, title: m, alt: m }.join(' ').html_safe %>
+      </div>
+    <% end %>
+
+    <% if member_signed_in? %>
+
+      <div id="act_btn_wrap">
+
+        <span id="comment_act_btn">
+
+          <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
+
+          <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
+            <%= link_to medium_path(medium), :class => "btn comment" do %>
+              <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
+            <% end %>
+          <% elsif medium.comments.count > 99 %>   
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(medium), :class => "btn comment" %>
+          <% else %>
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
+          <% end %>
+
+          <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+            <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
+          </span>
+
+          <% if can_edit_medium?(medium) %>
+            <span class="">
+              <%= link_to image_tag("Edit 4.png",  class: "act_actions"), edit_medium_path(medium), title: "Edit Media", alt: "Edit Media", :class => "btn more" %>
+            </span>
+            
+            <span class="ad">
+              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
+            </span>
+          <% end %>
+          
+        </span>
+
+      </div>
+
+    <% end %>
+        
+  </div>
+    

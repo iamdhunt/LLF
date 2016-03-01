@@ -1,0 +1,54 @@
+<div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap video_fil">
+
+  <div class="act_media_content">
+    <%= media_display(medium.link) %>
+  </div>
+
+  <% if medium.caption? %>
+    <div class="media_act_cap">
+      <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
+    </div> 
+  <% end %>
+
+  <% if medium.marker_list %>
+    <div class="t_s">
+        <%= medium.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "media", :action => "index", :media => m}, title: m, alt: m }.join(' ').html_safe %>
+    </div>
+  <% end %>
+
+    <div id="act_btn_wrap">
+
+      <span id="comment_act_btn">
+
+        <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
+
+        <% if member_signed_in? %>
+          <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
+            <%= link_to medium_path(medium), :class => "btn comment" do %>
+              <%= image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") %><%= medium.comments.count %>
+            <% end %>
+          <% elsif medium.comments.count > 99 %>   
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment") + '99+', medium_path(medium), :class => "btn comment" %>
+          <% else %>
+            <%= link_to image_tag("Comment 3.png", class: "act_actions", title: "Comment", alt: "Comment"), medium_path(medium), :class => "btn comment" %>
+          <% end %>
+
+          <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+            <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
+          </span>
+          
+          <% if can_edit_medium?(medium) %>
+            <span class="">
+              <%= link_to image_tag("Edit 4.png",  class: "act_actions"), edit_medium_path(medium), title: "Edit Media", alt: "Edit Media", :class => "btn more" %>
+            </span>
+          
+            <span class="ad">
+              <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium_path(medium.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
+            </span>
+          <% end %>
+        <% end %>
+      </span>
+
+    </div>
+
+  </div>

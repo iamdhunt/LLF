@@ -1,6 +1,6 @@
 class Medium < ActiveRecord::Base
 
-  	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover
+  	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover, :link
 
     attr_accessor :remove_cover
 
@@ -21,7 +21,7 @@ class Medium < ActiveRecord::Base
   	before_validation :clean_up_markers
     after_save :save_mentions, unless: Proc.new { |medium| medium.caption.blank? }
 
-    validates_attachment_presence :asset, message: 'image/audio can\'t be blank.'                    
+    validates_attachment_presence :asset, :unless => :link?, message: 'must have an attached image/audio or specified video link.'                    
     validates_attachment_size :asset, :less_than=>15.megabyte, message: 'image/audio must be less than or equal to 15mb.'
     validates_attachment_content_type :asset, 
                                       :content_type=>['image/jpeg', 'image/jpg', 'image/png', 
@@ -42,7 +42,10 @@ class Medium < ActiveRecord::Base
                                         with: /^[a-zA-Z0-9 ,'-]+$/,
                                         message: '(tags) must not include any special characters.'
                                       }
+
     validate :each_marker
+
+    validate :link_or_attachment
  
     auto_strip_attributes :caption
 
@@ -99,6 +102,12 @@ class Medium < ActiveRecord::Base
     def perform_cover_removal
       if remove_cover == '1' && !cover.dirty?
         self.cover = nil
+      end
+    end
+
+    def link_or_attachment
+      unless asset.blank? ^ link.blank?
+        errors.add(:base, "Upload an image/audio or specify a video link, but not both.")
       end
     end
 	
