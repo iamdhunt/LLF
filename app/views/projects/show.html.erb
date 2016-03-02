@@ -128,9 +128,11 @@
     </div>
 
     <% if @project.video? %>
+    <div id="ep_res_wrap">
       <div id="proj_video">
         <%= display(@project.video) %>
       </div>
+    </div>
     <% end %>
 
     <div id="">
@@ -179,7 +181,9 @@
         <div class="tab-pane active" id="updates">
           <div class="u_btn">
             <% if @project.member == current_member %>
-              <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
+              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-danger', :data => {:toggle => "modal"} do %>
+                <i class="fa fa-quote-left"></i>Post Update
+              <% end %>
             <% end %>
           </div>
 
@@ -216,7 +220,9 @@
         <div class="tab-pane" id="updates">
           <div class="u_btn">
             <% if @project.member == current_member %>
-              <%= link_to "Post Update", "#update", class: 'btn btn-danger', :data => {:toggle => "modal"} %>
+              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-danger', :data => {:toggle => "modal"} do %>
+                <i class="fa fa-quote-left"></i>Post Update
+              <% end %>
             <% end %>
           </div>
 
@@ -241,7 +247,9 @@
       <div class="tab-pane" id="media">
         <div class="p_u_btn">
           <% if @project.member == current_member %>
-            <%= link_to "Upload", "#upload", class: 'btn btn-warning', :data => {:toggle => "modal"} %>
+            <%= link_to "#upload", title: 'Add Media', alt: 'Add Media', class: 'btn btn-warning', :data => {:toggle => "modal"} do %>
+              <i class="fa fa-arrow-up"></i>Add Media
+            <% end %>
           <% end %>
         </div>
 

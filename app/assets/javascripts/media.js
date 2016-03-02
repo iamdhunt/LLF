@@ -185,7 +185,7 @@ $(document).ready(function(){
 	    }
 	);
 
-	$('a').embedly({key: '85fb5adba4084b5bb7575938182a837f',
+	$('#m_res_wrap a').embedly({key: '85fb5adba4084b5bb7575938182a837f',
 	  display: function(obj){
 	    // Overwrite the default display.
 	    if (obj.type === 'video' || obj.type === 'rich'){

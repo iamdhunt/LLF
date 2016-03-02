@@ -1,18 +1,26 @@
 $(document).ready(function() {
 
-   $('#p_update').editable({
+   $('#p_update').froalaEditor({
+      key: 'ObE5A-8E1tA2wz==',
       inlineMode: false,
-      placeholder: 'Tell us about your update...',
-      minHeight: 100,
-      maxHeight: 250,
-      buttons: ['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList', 'undo', 'redo', 'fullscreen', 'html']
+      placeholderText: 'Tell us about your update...',
+      heightMin: 100,
+      heightMax: 250,
+      toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+      toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html']
     });
 
-   $('#p_about').editable({
+   $('#p_about').froalaEditor({
+      key: 'ObE5A-8E1tA2wz==', 
       inlineMode: false,
-      placeholder: 'Now the long version...',
-      minHeight: 100,
-      buttons: ['bold', 'italic', 'underline', 'insertUnorderedList', 'insertOrderedList', 'undo', 'redo', 'fullscreen', 'html']
+      placeholderText: 'Now the long version...',
+      heightMin: 100,
+      toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+      toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html']
     });
 
 });

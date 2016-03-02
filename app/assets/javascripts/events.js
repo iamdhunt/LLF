@@ -62,5 +62,25 @@ $(document).ready(function() {
         	return false;
 	});
 
-	
+	$('#em_res_wrap a').embedly({key: '85fb5adba4084b5bb7575938182a837f',
+	  display: function(obj){
+	    // Overwrite the default display.
+	    if (obj.type === 'video' || obj.type === 'rich'){
+	      // Figure out the percent ratio for the padding. This is (height/width) * 100
+	      var ratio = ((obj.height/obj.width)*100).toPrecision(4) + '%'
+	 
+	      // Wrap the embed in a responsive object div. See the CSS here!
+	      var div = $('<div id="proj_video">').css({
+	        paddingBottom: ratio
+	      });
+	 
+	      // Add the embed to the div.
+	      div.html(obj.html);
+	 
+	      // Replace the element with the div.
+	      $(this).replaceWith(div);
+	    }
+	  }
+	});
+
 });

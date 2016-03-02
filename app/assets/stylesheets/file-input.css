@@ -5,12 +5,15 @@
     display: inline-block;
     width: auto;
     vertical-align: bottom;
+    font-weight: bold;
 }
 #media_form .custom-file-upload {
     margin-top: 4px;
+    font-weight: bold;
 }
 #upload_form .custom-file-upload {
     margin-top: 4px;
+    font-weight: bold;
 }
 .actions *, *:before, *:after {
     margin-right: 0;

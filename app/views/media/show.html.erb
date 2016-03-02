@@ -50,9 +50,9 @@
             &#8226; Favorite (<%= @medium.votes.size %>)
           <% end %> 
             &#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Media', alt: 'Share Media' %>
-            &#8226; <%= link_to "View All Media", profile_media_path(@medium.member), title: 'View All Media', alt: 'View All Media' %>
+            &#8226; <%= link_to "View All", profile_media_path(@medium.member), title: 'View All Media', alt: 'View All Media' %>
           <% if member_signed_in? %>
-            &#8226; <%= link_to "Upload Media", "#media", title: 'Upload Media', alt: 'Upload Media', :data => {:toggle => "modal"} %>
+            &#8226; <%= link_to "Add Media", "#media", title: 'Add Media', alt: 'Add Media', :data => {:toggle => "modal"} %>
           <% end %>
           <% if current_member == @medium.member %> 
             &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> 

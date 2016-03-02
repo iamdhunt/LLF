@@ -115,7 +115,9 @@
           </div>
 
           <div class="cta">
-            <%= link_to "Buy Now", "http://#{@listing.link.sub(/^https?\:\/\//, '')}", class: 'btn btn-large btn-buy' %>
+            <%= link_to "http://#{@listing.link.sub(/^https?\:\/\//, '')}", title: 'Buy Now', alt: 'Buy Now', class: 'btn btn-large btn-buy' do %>
+              <i class="fa fa-shopping-bag"></i>Buy Now
+            <% end %>
           </div>
 
           <div class="desc">

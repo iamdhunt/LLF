@@ -1830,12 +1830,14 @@ input[type="button"].btn-block {
 .btn-buy.disabled,
 .btn-buy[disabled] {
   color: #ffffff;
-  background-color: #c94132;
-  *background-color: #c94132;
+  background-color: #e45242;
+  *background-color: #e45242;
+  opacity: .85;
 }
 .btn-buy:active,
 .btn-buy.active {
-  background-color: #c94132 \9;
+  background-color: #e45242 \9;
+  opacity: .85;
 }
 .btn-info {
   color: #ffffff;

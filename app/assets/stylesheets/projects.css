@@ -583,9 +583,20 @@
 }
 .pr_wrap .p_u_btn {
 	text-align: center;
+	font-weight: bold;
 }
 .pr_wrap .u_btn {
 	text-align: center;
+	font-weight: bold;
+}
+.pr_wrap .u_btn .fa {
+	margin-left: -8px;
+	margin-right: -3px;
+}
+.pr_wrap .p_u_btn .fa {
+	margin-left: -8px;
+	margin-right: -3px;
+	vertical-align: text-top;
 }
 .p_m_list_wrap {
 	padding: 10px 0 60px 5px;
@@ -903,4 +914,7 @@
 .add_pj .fa {
 	margin-left: -6px;
 	margin-right: -3px;
+}
+.p_f_but .fa {
+	margin: 0 -3px 0 -9px;
 }

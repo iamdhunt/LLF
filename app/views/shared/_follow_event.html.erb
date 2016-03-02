@@ -1,14 +1,18 @@
 <% if current_member.following?(event) %>
 
-  <div class="">
-      <%= link_to('Following'.html_safe, event_follow_path(event.id, current_member.get_follow(event).id), :method => :delete, :remote => true, :class => "btn btn-event btn-large") %>
-   </div>
+	<div class="">
+		<%= link_to(event_follow_path(event.id, current_member.get_follow(event).id), :method => :delete, :remote => true, title: 'Unfollow', alt: 'Unfollow', class: 'btn btn-event btn-large') do %>
+	  		Following
+		<% end %>
+	</div>
 
 
-  <% else %>
+<% else %>
 
     <div class="">
-      <%= link_to("Follow", event_follows_path(event.id), :method => :post, :remote => true, :class => "btn btn-large") %>
+    	<%= link_to(event_follows_path(event.id), :method => :post, :remote => true, title: 'Follow', alt: 'Follow', class: 'btn btn-large') do %>
+	  		Follow
+		<% end %>
     </div>
 
 <% end %>

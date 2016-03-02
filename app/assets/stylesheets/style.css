@@ -1313,6 +1313,10 @@ hr.contact {
 .sub_media a {
 	color: #f59f60;
 }
+#subnav_wrap i.fa.fa-arrow-up {
+	vertical-align: text-top;
+	margin: 0 -3px;
+}
 .sub_events a {
 	color: #44986c;
 }
@@ -1371,7 +1375,7 @@ hr.contact {
 }
 
 .actions {
-	float: right;
+
 }
 
 #activity_wrap {
@@ -1568,16 +1572,28 @@ hr.contact {
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
 }
 .scrollup{
-    width:40px;
-    height:40px;
-    opacity:0.75;
+    width:50px;
+    height:50px;
+    opacity:0.8;
     position:fixed;
     bottom:80px;
-    right:20px;
+    right:40px;
     display: none;
     text-indent:-9999px;
-    background: url('icon_top.png') no-repeat;
+    background: #942fc6 url('Arrow Top.png') no-repeat center 50%;
     z-index: 1000000;
+    transform: scale3d(1, 1, 1) rotate(0);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
+    -webkit-transition: box-shadow .3s 0s, transform .3s 0s;
+    -moz-transition: box-shadow .3s 0s, transform .3s 0s;
+    transition: box-shadow .3s 0s, transform .3s 0s;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+
 }
 #loading {
 	text-align: center;

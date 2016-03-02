@@ -360,3 +360,8 @@
 	margin-left: -6px;
 	margin-right: -4px;
 }
+.conv_btn .fa {
+	margin-left: -7px;
+	margin-right: -3px;
+	vertical-align: text-top;
+}
