@@ -163,7 +163,7 @@ table {
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 150px;
-	width: 72%;
+	width: 75%;
 }
 
 /* Navigation Bar*/
@@ -323,7 +323,7 @@ margin: 10px 5px 0 10px;
 .home_form {
 	margin-left: auto;
 	margin-right: auto;
-	width: 55%;
+	width: 40%;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(199, 199, 199);
     /* RGBa with 0.6 opacity */
@@ -337,7 +337,7 @@ margin: 10px 5px 0 10px;
 	padding: 25px;
 }
 .login_wrap {
-	width: 30%;
+	width: 40%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -390,7 +390,7 @@ margin: 10px 5px 0 10px;
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 75%;
+	width: 80%;
 
 }
 
@@ -467,8 +467,9 @@ margin: 10px 5px 0 10px;
 	font-size: 1.3em;
 }
 .reg_forms {
-	width: 43%;
+	width: 100%;
 	height: 40px;
+	margin: 4px 0;
 }
 .l_reg {
 	margin: 5px 26px 5px 20px;
@@ -480,12 +481,10 @@ margin: 10px 5px 0 10px;
 	padding: 0 20px 5px 20px;
 }
 .r_text {
-	display: inline-block;
-	margin-right: 52px;
-	width: 43%;
+	margin-bottom: 4px;
 }
-.r_submit {
-
+.r_submit .btn {
+	width: 100%;
 }
 
 /* Widgets */
@@ -945,7 +944,7 @@ hr.contact {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	width: 73%;
+	width: 80%;
 	min-height: 150px;
 }
 #edit_wrap {
@@ -956,7 +955,7 @@ hr.contact {
 	border-radius: 20px;
 }
 #e_wrapper {
-	width: 72%;
+	width: 85%;
 	margin: 0 auto 150px auto;
 }
 .profile_av {
@@ -1739,91 +1738,91 @@ label.active {
 	color: #fff;
 }
 #stream_filters .stat_filter label:hover {
-	background: #962bcc;
+	opacity: .85;
 }
 #stream_filters .media label {
 	background: #F7803C;
 	color: #fff;
 }
 #stream_filters .media label:hover {
-	background: #e76f2a;
+	opacity: .85;
 }
 #stream_filters .market label {
 	background: #1b85a6;
 	color: #fff;
 }
 #stream_filters .market label:hover {
-	background: #106e8b;
+	opacity: .85;
 }
 #stream_filters .event label {
 	background: #219e5c;
 	color: #fff;
 }
 #stream_filters .event label:hover {
-	background: #1b864d;
+	opacity: .85;
 }
 #stream_filters .project label {
 	background: #da4f49;
 	color: #fff;
 }
 #stream_filters .project label:hover {
-	background: #bd362f;
+	opacity: .85;
 }
 #stream_filters .photos label {
 	background: #FF6660;
 	color: #fff;
 }
 #stream_filters .photos label:hover {
-	background: #ec5651;
+	opacity: .85;
 }
 #stream_filters .audio label {
 	background: #5D88EA;
 	color: #fff;
 }
 #stream_filters .audio label:hover {
-	background: #4c78de;
+	opacity: .85;
 }
 #stream_filters .video label {
 	background: #1ebaa9;
 	color: #fff;
 }
 #stream_filters .video label:hover {
-	background: #07ad9b;
+	opacity: .85;
 }
 #stream_filters .art_filter label {
 	background:#74cfae;
     color:#fff;
 }
 #stream_filters .art_filter label:hover {
-	background:#5ec29e;
+	opacity: .85;
 }
 #stream_filters .biz_filter label {
 	background:#2d9fc4;
     color:#fff;
 }
 #stream_filters .biz_filter label:hover {
-	background:#1a90b6;
+	opacity: .85;
 }
 #stream_filters .music_filter label {
 	background:#f7b448;
     color:#fff;
 }
 #stream_filters .music_filter label:hover {
-	background:#e6a338;
+	opacity: .85;
 }
 #stream_filters .sports_filter label {
 	background:#eb6361;
     color:#fff;
 }
 #stream_filters .sports_filter label:hover {
-	background:#dc5351;
+	opacity: .85;
 }
 #stream_filters .other_filter label {
 	background:#a63ddb;
     color:#fff;
 }
 #stream_filters .other_filter label:hover {
-	background:#962bcc;
+	opacity: .85;
 }
 .modal-header {
 	background-image: url('/assets/Modal BG.png');
@@ -1931,741 +1930,3 @@ label.active {
 
 
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:640px) and (orientation : portrait) {
-	.login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
-    #media_query_media {
-    	padding-left: 106px;
-    }
-    #li_index {
-    	padding-left: 67px;
-    }
-    #media_query_prev {
-    	padding-left: 64px;
-    }
-    #media_query_follow {
-    	padding-left: 50px;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:960px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
-    #media_query_media {
-    	padding-left: 106px;
-    }
- 	#li_index {
-    	padding-left: 67px;
-    }
-    #media_query_prev {
-    	padding-left: 64px;
-    }
-    #media_query_follow {
-    	padding-left: 50px;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:1136px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
-    #media_query_media {
-    	padding-left: 106px;
-    }
- 	#li_index {
-    	padding-left: 67px;
-    }
-    #media_query_prev {
-    	padding-left: 64px;
-    }
-    #media_query_follow {
-    	padding-left: 50px;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : portrait) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : portrait) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-device-width:2048px) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #media_query_stream {
-    	padding-left: 100px;
-    }
-    #media_query_media {
-    	padding-left: 28px;
-    }
- 	#li_index {
-    	padding-left: 65px;
-    }
-    #media_query_prev {
-    	padding-left: 65px;
-    }
-    #media_query_follow {
-    	padding-left: 15px;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1200px) and (orientation : portrait) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #media_query_stream {
-    	padding-left: 150px;
-    }
-    #media_query_media {
-    	padding-left: 5px;
-    }
- 	#li_index {
-    	padding-left: 70px;
-    }
-    #media_query_prev {
-    	padding-left: 62px;
-    }
-    #media_query_follow {
-    	padding-left: 50px;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#pb {
-		padding-left: 15%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1920px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #media_query_stream {
-    	padding-left: 100px;
-    }
-    #media_query_media {
-    	padding-left: 28px;
-    }
- 	#li_index {
-    	padding-left: 65px;
-    }
-    #media_query_prev {
-    	padding-left: 65px;
-    }
-    #media_query_follow {
-    	padding-left: 15px;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:800px) and (orientation : portrait) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) and (max-device-width:1280px) and (orientation : landscape) {
-    .login_wrap {
-		width: 50%;
-	}
-    .login_bg {
-    	background-image: url('/assets/Login Banner 2.png');
-    	padding: 12% 0;
-    }
-    #nav_bar {
-    	position: relative;
-    }
-    #pagewrap {
-    	padding-top: 0;
-    }
-    #profile_wrap {
-    	width: 98%;
-    }
-    #e_wrapper {
-		width: 98%;
-	}
-	.home_form {
-    	width: 75%;
-    }
-    #home_bottom_wrap {
-    	font-size: 4em;
-    	text-shadow: 2px 1px 0px #fff, 5px 4px 0px rgba(0,0,0,0.15);
-    }
-    .reg_forms {
-		width: 41%;
-		height: 40px;
-	}
-	.media_fil .t_s a {
-		line-height: 200%;
-	}
-	#media_list_wrap .list_act_wrap .t_s a {
-		line-height: 200%;
-	}
-	#ss_l .ps a {
-		line-height: 190%;
-	}
-	#ss_r .t_s a {
-		line-height: 200%;
-	}
-	#mquery #main_wrap {
-		width: 98%;
-	}
-	#content_wrap {	
-		width: 98%;
-	}
-	#faq_bg {
-		background-image: url("/assets/FAQs Main 2.png");
-	}
-	#home_wrapper {
-		background-image: url("/assets/Registration 2.png");
-	}
-}

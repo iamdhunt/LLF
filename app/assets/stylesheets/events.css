@@ -199,6 +199,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-bottom: 2px;
 }
 #pl_info .el_t a {
 	color: #444444;

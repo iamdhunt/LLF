@@ -13,7 +13,8 @@ $(document).ready(function(){
 	$container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {
-		    columnWidth: 192
+		    columnWidth: 192,
+		    isFitWidth: true
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping
@@ -69,7 +70,8 @@ $(document).ready(function(){
 	$cfav.imagesLoaded(function(){
 	  $cfav.isotope({
 	    masonry: {
-		    columnWidth: 192
+		    columnWidth: 192,
+		    isFitWidth: true
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping

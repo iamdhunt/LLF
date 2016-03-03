@@ -18,7 +18,8 @@ $(document).ready(function() {
   $container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {
-		    columnWidth: 245
+		    columnWidth: 245,
+		    isFitWidth: true
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping
@@ -80,15 +81,23 @@ $(document).ready(function() {
 
 	$fcon.imagesLoaded(function(){
 	  $fcon.isotope({
+		masonry: {
+		    columnWidth: 160,
+		    isFitWidth: true
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
 		  itemSelector: '#follow_item_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
 	  });
 	});
 
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         if(e.target.hash == '#followers') {
-            $fcon.isotope('reLayout');
+            $fcon.isotope('layout');
         }
     });
 
@@ -126,7 +135,8 @@ $(document).ready(function() {
 	$mcon.imagesLoaded(function(){
 	  $mcon.isotope({
 	    masonry: {
-		    columnWidth: 192
+		    columnWidth: 192,
+		    isFitWidth: true
 		  },
 		  onLayout: function($elems, instance) {
 		      // Add exponential z-index for dropdown cropping
@@ -140,7 +150,7 @@ $(document).ready(function() {
 
 	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         if(e.target.hash == '#media') {
-            $mcon.isotope('reLayout');
+            $mcon.isotope('layout');
         }
     });
 	  

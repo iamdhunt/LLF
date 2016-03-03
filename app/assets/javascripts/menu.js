@@ -36,8 +36,4 @@ $(document).ready(function(){
         $(this).find("[autofocus]:first").focus();
     });
 
-    if(isMobile.any()) {
-       $( "#discover" ).attr( "placeholder", "Discover people & brands" );
-    }
-
 });

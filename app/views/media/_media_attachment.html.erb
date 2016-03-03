@@ -38,13 +38,13 @@
       </div>
     <% end %>
 
-    <% if member_signed_in? %>
+    <div id="act_btn_wrap">
 
-      <div id="act_btn_wrap">
+      <span id="comment_act_btn">
 
-        <span id="comment_act_btn">
+        <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
 
-          <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
+        <% if member_signed_in? %>
 
           <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
             <%= link_to medium_path(medium), :class => "btn comment" do %>
@@ -69,12 +69,12 @@
               <%= link_to image_tag("Trash.png",  class: "act_actions", title: "Delete", alt: "Delete"), medium, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn more" %>
             </span>
           <% end %>
-          
-        </span>
 
-      </div>
+        <% end %>
+        
+      </span>
 
-    <% end %>
+    </div>
         
   </div>
     

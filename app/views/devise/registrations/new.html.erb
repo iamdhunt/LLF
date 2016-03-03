@@ -5,27 +5,27 @@
       <div class="home_form">
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), remote: true, :wrapper_html => { :style => 'display: inline' }) do |f| %>
           
-          <span>
-            <%= f.input :full_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Full Name', input_html:{ class: 'forms reg_forms l_reg', tabindex: '1', maxlength: '25', autocomplete: 'off' } %>
-          </span>
-          <span>
-            <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms r_reg', tabindex: '2', maxlength: '16', autocomplete: 'off' } %>
-          </span>
-          <span>
-            <%= f.input :email, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms l_reg', tabindex: '3', autocomplete: 'off'} %>
-          </span>
-          <span>
-            <%= f.input :email_confirmation, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms r_reg', tabindex: '4', autocomplete: 'off' } %>
-          </span>
-          <span>
-            <%= f.input :password, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms l_reg', tabindex: '5', autocomplete: 'off'} %>
-          </span>
-          <span class="r_reg">
-            <%= f.submit "Join the Community!", :class => 'btn btn-info btn-large' %>
-          </span>
-          <span class="l_reg r_text">
+          <div>
+            <%= f.input :full_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Full Name', input_html:{ class: 'forms reg_forms', tabindex: '1', maxlength: '25', autocomplete: 'off' } %>
+          </div>
+          <div>
+            <%= f.input :user_name, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Username', input_html:{ class: 'forms reg_forms', tabindex: '2', maxlength: '16', autocomplete: 'off' } %>
+          </div>
+          <div>
+            <%= f.input :email, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Email', input_html:{ class: 'forms reg_forms ', tabindex: '3', autocomplete: 'off'} %>
+          </div>
+          <div>
+            <%= f.input :email_confirmation, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Confirm Email', input_html:{ class: 'forms reg_forms', tabindex: '4', autocomplete: 'off' } %>
+          </div>
+          <div>
+            <%= f.input :password, :wrapper_html => { :style => 'display: inline' }, label: false, hint: false, error: false, placeholder: 'Password', input_html:{ class: 'forms reg_forms', tabindex: '5', autocomplete: 'off'} %>
+          </div>
+          <div class="r_text">
               By joining LLF, you agree to our <%= link_to "Terms", terms_path %> and to the details of our <%= link_to 'Privacy Policy', privacy_path %>.
-            </span>
+          </div>
+          <div class="r_submit">
+            <%= f.submit "Join the Community!", :class => 'btn btn-info btn-large' %>
+          </div>
         <% end %>
       </div>
 

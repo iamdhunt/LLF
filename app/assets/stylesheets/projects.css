@@ -3,16 +3,16 @@
 	margin: 0 0 150px 0;
 }
 #prs {
-	padding: 20px 0 20px 70px;
+	margin: 20px auto 0 auto;
 }
 #prs2 {
-	padding: 20px 0 20px 70px;
+	margin: 20px auto 0 auto;
 }
 #prof_prs #prs {
-	padding: 15px 0 20px 70px;
+	
 }
 #prof_prs #prs2 {
-	padding: 15px 0 20px 70px;
+	
 }
 #edit_wrap .pr_upload {
 	margin-left: 10px;
@@ -347,6 +347,7 @@
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-bottom: 2px;
 }
 #pl_info .pl_t a {
 	color: #444444;
@@ -599,8 +600,7 @@
 	vertical-align: text-top;
 }
 .p_m_list_wrap {
-	padding: 10px 0 60px 5px;
-	position: relative;
+	margin: 20px auto 0 auto;
 }
 .p_m_list_wrap .list_act_wrap {
 	width: 188px;
@@ -882,7 +882,7 @@
 	border-bottom: 1px solid #dddddd;
 }
 #proj_fol {
-	padding-left: 30px;
+	margin: 20px auto 0 auto;
 }
 .breadcrumbs .pjts a {
 	color: rgb(218, 79, 73);

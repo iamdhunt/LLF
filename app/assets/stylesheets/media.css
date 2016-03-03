@@ -3,15 +3,13 @@
 	margin: 0 0 150px 0;
 }
 #media_list_wrap {
-	padding: 10px 0 60px 5px;
-	position: relative;
+	margin: 20px auto 0 auto;
 }
 #media_list_wrap .dropdown-menu {
 	left: -50px;
 }
 #m_fav_list_wrap {
-	padding: 10px 0 60px 5px;
-	position: relative;
+	margin: 20px auto 0 auto;
 }
 #m_fav_list_wrap .dropdown-menu {
 	left: -50px;
@@ -114,7 +112,7 @@
 	color: #fff;
 	padding: 3px 5px;
 	border-radius: 4px;
-	line-height: 185%;
+	line-height: 200%;
 	white-space: nowrap;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
@@ -154,7 +152,7 @@
 	color: #fff;
 	padding: 3px 5px;
 	border-radius: 4px;
-	line-height: 185%;
+	line-height: 200%;
 	white-space: nowrap;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);
@@ -271,7 +269,7 @@ top: 25%;
 	color: #fff;
 	padding: 3px 5px;
 	border-radius: 4px;
-	line-height: 185%;
+	line-height: 200%;
 	white-space: nowrap;
 	 /* Fallback for web browsers that don't support RGBa */
     background-color: rgb(34, 34, 34);

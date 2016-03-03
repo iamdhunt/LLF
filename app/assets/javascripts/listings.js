@@ -8,9 +8,17 @@ $(document).ready(function() {
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
-	  	itemSelector: '.pdl_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
+	  	masonry: {
+		    columnWidth: 122,
+		    isFitWidth: true
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
+		  itemSelector: '.pdl_wrap',
 	  });
 
 	   	// bind filter on radio button click
@@ -57,18 +65,34 @@ $(document).ready(function() {
 
 	$mkcon.imagesLoaded(function(){
 	  $mkcon.isotope({
-	   itemSelector: '.pdl_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
+	   	masonry: {
+		    columnWidth: 122,
+		    isFitWidth: true
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
+		  itemSelector: '.pdl_wrap',
 	  });
 
 	});
 
 	$mkcon2.imagesLoaded(function(){
 	  $mkcon2.isotope({
-	   itemSelector: '.pdl_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
+	   	masonry: {
+		    columnWidth: 122,
+		    isFitWidth: true
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
+		  itemSelector: '.pdl_wrap',
 	  });
 
 	});

@@ -1,11 +1,11 @@
 #lstgs {
-	padding: 20px 0 20px 55px;
+	margin: 20px auto 0 auto;
 }
 #llf_lstgs {
-	padding: 20px 0 20px 55px;
+	margin: 20px auto 0 auto;
 }
 #pop_lstgs {
-	padding: 20px 0 20px 55px;
+	margin: 20px auto 0 auto;
 }
 #adt_lstgs {
 	padding: 10px 0;
@@ -215,7 +215,7 @@ font-weight: normal;
 }
 .pdl_wrap {
 	width: 230px;
-	margin: 0 20px 20px 0;
+	margin-bottom: 20px;
 }
 .pdl_img img {
 	-webkit-border-radius: 100%;
@@ -241,11 +241,13 @@ font-weight: normal;
 }
 #pdl_t {
 	padding: 4px 0;
+	text-align: center;
 }
 .pdl_title {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	padding-bottom: 2px;
 }
 .pdl_title a {
 	font-size: 1.3em;
@@ -254,6 +256,26 @@ font-weight: normal;
 .pdl_title a:hover {
 	text-decoration: none;
 	color: #737373;
+}
+.pdl_cat {
+	display: inline-block;
+	color: #fff;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	cursor: default;
+	padding: 3px 5px;
+	border-radius: 4px;
+	/* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(27, 133, 166);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(27, 133, 166);
+    /* For IE 5.5 - 7*/
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";
+    -background: transparent;
 }
 .pdl_action {
 	float: left;

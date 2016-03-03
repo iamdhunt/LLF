@@ -3,9 +3,17 @@ $(document).ready(function(){
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
+	  	masonry: {
+		    columnWidth: 160,
+		    isFitWidth: true
+		  },
+		  onLayout: function($elems, instance) {
+		      // Add exponential z-index for dropdown cropping
+		      $elems.each(function(e){
+		      $(this).css({ zIndex: ($elems.length - e) });
+		    });
+		  },
 		  itemSelector: '#follow_item_wrap',
-		  layoutMode : 'fitRows',
-		  gutter: 10
 	  });
 	});
 
