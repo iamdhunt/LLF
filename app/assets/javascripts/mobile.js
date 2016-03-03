@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
     if(isMobile.any()) {
+       $( "#nav_bar" ).css( "position", "relative" );
+       $( "#pagewrap" ).css( "padding-top", "0" );
        $( "#profile_wrap" ).css( "width", "95%" );
        $( "#e_wrapper" ).css( "width", "98%" );
        $( "#content_wrap" ).css( "width", "98%" );
