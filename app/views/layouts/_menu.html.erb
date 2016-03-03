@@ -27,6 +27,33 @@
                     <%= link_to "Projects", projects_path, alt: 'Projects' %>
                 </li>
             </ul>
+
+            <ul id="main_menu2">
+                <li class="h_i">
+                    <% if member_signed_in? %>
+                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
+                    <% else %>       
+                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
+                    <% end %>
+                </li>
+                <li>
+                    <%= link_to image_tag("nav_icon_community.png", class: "nav_icons"), community_path, title: "Community", alt: "Community", :class => "" %>
+                </li>
+                <% unless member_signed_in? %>
+                    <li>
+                        <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", :class => "" %>
+                    </li>
+                <% end %>
+                <li>
+                    <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", :class => "" %>
+                </li>
+                <li>
+                    <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", :class => "" %>
+                </li>
+                <li>
+                    <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons"), projects_path, title: "Projects", alt: "Projects", :class => "" %>
+                </li>
+            </ul>
         </div>
 
         <div class='nav_search'>

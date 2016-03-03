@@ -6,10 +6,10 @@ $(document).ready(function() {
       placeholderText: 'Tell us about your update...',
       heightMin: 100,
       heightMax: 250,
-      toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
-      toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
-      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
-      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html']
+      toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+      toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent'],
+      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent']
     });
 
    $('#p_about').froalaEditor({
@@ -19,8 +19,8 @@ $(document).ready(function() {
       heightMin: 100,
       toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
       toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
-      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
-      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html']
+      toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent'],
+      toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent']
     });
 
 });

@@ -273,3 +273,26 @@
     margin: 0 auto;
     min-width: 300px;
 }
+#e_wrapper .nav-tabs > li {
+	margin-bottom: 10px;
+}
+#main_menu2 {
+	display: none;
+}
+#main_menu2 .nav_icons {
+	width: 28px;
+	height: 28px;
+	margin: 12px 0 0 10px;
+}
+#main_menu2 .nav_icons.media {
+	width: 33px;
+	height: 33px;
+	margin: 10px 0 0 10px;
+}
+#nav_bar .primary_nav #main_menu2 li a {
+	padding-left: 0;
+	padding-right: 0;
+}
+.nav_links .nav_icons {
+	margin: 15px 10px 0 0;
+}
