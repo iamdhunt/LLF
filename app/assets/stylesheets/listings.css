@@ -270,7 +270,7 @@ font-weight: normal;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(27, 133, 166);
     /* RGBa with 0.6 opacity */
-    background-color: rgba(27, 133, 166);
+    background-color: rgba(27, 133, 166, 1.0);
     /* For IE 5.5 - 7*/
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);
     /* For IE 8*/
