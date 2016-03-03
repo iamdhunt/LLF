@@ -11,8 +11,8 @@ $(document).ready(function(){
        $( "#home_wrapper" ).css( "background-image", "url('/assets/Registration 2.png')" );
        $( "#faq_bg" ).css( "background-image", "url('/assets/FAQs Main 2.png')" );
        $( ".login_bg" ).css( "background-image", "url('/assets/Login Banner 2.png')" );
-       $( ".login_bg").css( "padding-top" : "12%" );
-       $( ".login_bg").css( "padding-bottom" : "12%" );
+       $( ".login_bg").css( "padding-top", "12%" );
+       $( ".login_bg").css( "padding-bottom", "12%" );
     }
 
 });
