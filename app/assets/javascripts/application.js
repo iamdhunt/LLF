@@ -21,6 +21,9 @@
 //= require plugins/lists.min.js
 //= require plugins/fullscreen.min.js
 //= require plugins/code_view.min.js
+//= require plugins/align.min.js
+//= require plugins/draggable.min.js
+//= require plugins/code_beautifier.min.js
 //= require jquery.atwho
 //= require jquery.embedly.min.js
 //= require_tree .

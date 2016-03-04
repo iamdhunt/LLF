@@ -118,8 +118,11 @@
 	font-style: oblique;
 }
 .ev_wrap .u_del {
+	color: #898989;
+	font-size: .8em;
 	float: right;
 	display: none;
+	padding-top: 7px;
 }
 .ev_wrap .update_wrap:hover .u_del {
 	display: inline;
@@ -128,6 +131,10 @@
 	width: 18px;
 	height: 18px;
 	margin: 2px 5px 0 5px;
+}
+.ev_wrap .u_del a {
+	font-weight: normal;
+	color: #898989;
 }
 .ev_wrap #u_bottom {
 	font-size: 1.05em;

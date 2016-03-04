@@ -29,16 +29,36 @@ class UpdatesController < ApplicationController
     end 
   end
 
+  def edit
+    @update = current_member.updates.find(params[:id])
+  end 
+
+  def update
+    @update = current_member.updates.find(params[:id])
+
+    respond_to do |format|
+      if @update.update_attributes(params[:update])
+        format.html { redirect_to @updateable }
+        format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{polymorphic_path(@updateable)}');"}
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @update.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end 
+
   def destroy
     @update = Update.find(params[:id])
     respond_to do |format|
       if @update.member == current_member || @updateable.member == current_member
         @update.destroy
-        format.html { redirect_to :back }
+        format.html { redirect_to @updateable }
         format.json
         format.js
       else
-        format.html { redirect_to :back, alert: 'You can\'t delete this update.' }
+        format.html { redirect_to @updateable, alert: 'You can\'t delete this update.' }
         format.json
         format.js
       end

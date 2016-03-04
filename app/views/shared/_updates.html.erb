@@ -5,7 +5,10 @@
 		</div>
 		<% if update.member == current_member %>
 			<span class="u_del">
-				<%= link_to image_tag("Delete 2.png", title: 'Delete'), [@updateable, update], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<span class="u_edt">
+					<%= link_to "Edit", polymorphic_url([@updateable, update], action: :edit), class: '' %>
+				</span> &#8226;
+				<%= link_to "Delete", [@updateable, update], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 			</span>
 		<% end %>
 		<div style="clear:both;"></div>

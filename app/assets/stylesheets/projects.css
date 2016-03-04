@@ -668,8 +668,11 @@
 	font-style: oblique;
 }
 .pr_wrap .u_del {
+	color: #898989;
+	font-size: .8em;
 	float: right;
 	display: none;
+	padding-top: 7px;
 }
 .pr_wrap .update_wrap:hover .u_del {
 	display: inline;
@@ -678,6 +681,10 @@
 	width: 18px;
 	height: 18px;
 	margin: 2px 5px 0 5px;
+}
+.pr_wrap .u_del a {
+	font-weight: normal;
+	color: #898989;
 }
 .pr_wrap #u_bottom {
 	font-size: 1.05em;
@@ -924,4 +931,30 @@
 .update_wrap a:hover {
 	text-decoration: none;
 	color: #898989;
+}
+#proj_about a {
+	font-weight: bold;
+}
+#proj_about a:hover {
+	color: #898989;
+	text-decoration: none;
+}
+.up_e_txt {
+	font-size: 1.5em;
+	color: #444;
+	margin: 15px 0 6px 0;
+}
+#edit_show .fr-toolbar {
+	border-top: none;
+}
+#edit_show .update_content {
+	margin-top: 20px;
+}
+#edit_show .fr-wrapper {
+	max-height: none !important;
+	border-left: 1px solid #e5e5e5;
+	border-right: 1px solid #e5e5e5;
+}
+#edit_show #update_form .form-actions {
+	margin-top: 0;
 }

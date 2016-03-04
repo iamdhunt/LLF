@@ -1,0 +1,16 @@
+<%= simple_form_for [@updateable, @update], :html => { :id => 'update_form' }, remote: true do |f| %>
+  <%= f.error_notification %>
+
+  <div class="">
+    <div class="up_e_txt">Update Title</div>
+    <%= f.input :title, label: false, error: false, placeholder: 'Title...', input_html: { rows: '1', maxlength: '280', class: 'forms p_m_input', autocomplete: 'off' } %>
+    <%= f.input :content, label: false, error: false, input_html: { rows: '12', class: 'p_m_input', id: 'p_update' } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Post Update', :class => "btn btn-market" %>
+    <span id="spinner" class="spinner">
+      <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+    </span>
+  </div>
+<% end %>
