@@ -119,6 +119,13 @@
 .pd_right .desc {
 	padding: 4px 0;
 }
+.pd_right .desc a {
+	font-weight: bold;
+}
+.pd_right .desc a:hover {
+	color: #898989;
+	text-decoration: none;
+}
 .pd_right .additional {
 	padding: 4px 0;
 	color: #444;

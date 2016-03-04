@@ -1927,5 +1927,13 @@ label.active {
 }
 
 
+/* media queries */
 
-
+@media only screen and (max-width: 979px) {
+    #main_menu {
+    	display: none;
+    }
+    #main_menu2 {
+    	display: inline;
+    }
+}

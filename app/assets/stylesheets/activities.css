@@ -32,6 +32,9 @@
         	hyphens: auto;
     -ms-word-break: break-all;
 }
+.media_act_cap a:hover {
+	text-decoration: none;
+}
 .list_act_wrap {
 	width: 314px;
 	position: relative;
