@@ -63,3 +63,11 @@
 	background-color: #1f1f1f;
 	color: #ababab;
 }
+#edit_show .fr-code {
+    width: 100%;
+    background-color: #1f1f1f;
+    color: #ababab;
+}
+#edit_show .fr-toolbar .fr-command.fr-btn i, .fr-popup .fr-command.fr-btn i {
+    width: 30px;
+}

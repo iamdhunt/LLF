@@ -1,7 +1,7 @@
-$('i', '.custom-file-upload').removeClass("fa-check");
-	$('i', '.custom-file-upload').addClass("fa-arrow-up");
-	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 <% if @upload.errors.any? %>
 	$('#err_wrap').remove();
 	$("#upload_form").prepend("<%= escape_javascript(render('uploads/errors')) %>");
+	$('i', '.custom-file-upload').removeClass("fa-check");
+	$('i', '.custom-file-upload').addClass("fa-arrow-up");
+	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
 <% end %>
