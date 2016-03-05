@@ -1912,8 +1912,7 @@ label.active {
 	vertical-align: bottom;
 }
 #act_update #spinner {
-	float: right;
-	margin-right: 5px;
+	margin-left: 5px;
 }
 #comm_form_wrap #img-spinner {
 	width: 24px;
