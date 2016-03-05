@@ -11,6 +11,9 @@
      <% if upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
         <div class="act_media_content">
           <% if upload.member == current_member %>
+            <span class="shu_e">
+              <%= link_to image_tag('Edit 5.png'), polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
+            </span>
             <span class="shu_d">
               <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
             </span>
@@ -31,6 +34,9 @@
     <% if upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
       <div class="act_media_content">
         <% if upload.member == current_member %>
+          <span class="shu_e">
+            <%= link_to image_tag('Edit 5.png'), polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
+          </span>
           <span class="shu_d">
             <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
           </span>

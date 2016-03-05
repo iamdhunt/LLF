@@ -21,13 +21,13 @@
 					<%= render :partial => "media/edit_attachment", :locals => {:medium => @medium} %>
 		        <% end %>
 
-		          <% if @medium.caption? %>
-			          <div class="view_caption">
-			            <%= sanitize(Rinku.auto_link(@medium.caption), :tags => %w(a)) %>
-			          </div>
-			       <% end %>
+		        <% if @medium.caption? %>
+			        <div class="view_caption">
+			        	<%= sanitize(Rinku.auto_link(@medium.caption), :tags => %w(a)) %>
+			        </div>
+			    <% end %>
 
-		        </div>
+		    </div>
 
 		        <%= render 'edit_form' %>
 

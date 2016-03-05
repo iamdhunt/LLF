@@ -618,7 +618,7 @@
 }
 .act_media_content .shu_d {
 	position: absolute;
-	z-index: 1000000;
+	z-index: 999;
 	right: 2px;
 	top: 10px;
 	opacity: 1;
@@ -629,6 +629,21 @@
 	height: 20px;
 }
 .act_media_content:hover .shu_d {
+	display: inline;
+}
+.act_media_content .shu_e {
+	position: absolute;
+	z-index: 999;
+	left: 2px;
+	top: 10px;
+	opacity: .85;
+	display: none;
+}
+.act_media_content .shu_e img {
+	width: 20px;
+	height: 20px;
+}
+.act_media_content:hover .shu_e {
 	display: inline;
 }
 #p_m_t_wrap .p_m_t {

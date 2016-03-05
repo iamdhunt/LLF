@@ -1,7 +1,7 @@
 class UploadsController < ApplicationController
 
 before_filter :authenticate_member!
-before_filter :load_uploadable, only: [:index, :show, :new, :create, :destroy]
+before_filter :load_uploadable
 before_filter :find_member
 
   def index
@@ -37,15 +37,35 @@ before_filter :find_member
     end 
   end
 
+  def edit
+    @upload = current_member.uploads.find(params[:id])
+  end
+
+  def update
+    @upload = current_member.uploads.find(params[:id])
+
+    respond_to do |format|
+      if @upload.update_attributes(params[:upload])
+        format.html { redirect_to @uploadable }
+        format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{polymorphic_path(@uploadable)}');"}
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @upload.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end 
+
   def destroy
     @upload = Upload.find(params[:id])
     respond_to do |format|
       if @upload.member == current_member || @uploadable.member == current_member
          @upload.destroy
-         format.html { redirect_to :back }
+         format.html { redirect_to @uploadable }
          format.js
       else
-         format.html { redirect_to :back, alert: 'You can\'t delete this upload.' }
+         format.html { redirect_to @uploadable, alert: 'You can\'t delete this upload.' }
          format.js
       end
     end 

@@ -1,5 +1,7 @@
 class Upload < ActiveRecord::Base
-	attr_accessible :asset, :caption, :cover
+	attr_accessible :asset, :caption, :cover, :remove_cover
+
+	attr_accessor :remove_cover
 
    	belongs_to :member
 	belongs_to :uploadable, polymorphic: true
@@ -27,5 +29,15 @@ class Upload < ActiveRecord::Base
 		subject = "#{member.user_name}"
 		body = "<b>uploaded</b> new media in <b>#{uploadable.name}</b>"
 		uploadable.followers.each{ |follower| follower.notify(subject, body, self) }
-	end								
+	end
+
+	before_save :perform_cover_removal
+
+	private
+
+		def perform_cover_removal
+	      if remove_cover == '1' && !cover.dirty?
+	        self.cover = nil
+	      end
+	    end						
 end
