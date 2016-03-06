@@ -1,5 +1,5 @@
 class Mention < ActiveRecord::Base
-	attr_accessible :mentioner_id, :mentioner_type, :mentionable_type, :mentionable_id, :status_id, :comment_id
+	attr_accessible :mentioner_id, :mentioner_type, :mentionable_type, :mentionable_id, :status_id, :comment_id, :upload_id
 
 	belongs_to :mentioner, polymorphic: true
     belongs_to :mentionable, polymorphic: true

@@ -104,7 +104,9 @@
 
 }
 .com_show:hover {
-	color: #49afcd;
+	color: #898989;
+    background-color: #efefef;
+    border-color: #e0e0e0;
 }
 .com_show_wrap {
 	color: #fff;

@@ -14,6 +14,7 @@
 
 		<div id="p_list_top">
 			<span class="l">
+			  <%= avatar_profile_link project.member, :class => "pr_av", title: project.member.full_name, alt: project.member.full_name %>
 		      <% if project.category == 'Arts' %>
 		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
 		      <% end %>

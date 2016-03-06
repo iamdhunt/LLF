@@ -52,7 +52,7 @@
 
     <% if upload.caption? %>
       <div class="media_act_cap">
-        <%= sanitize(Rinku.auto_link(upload.caption), :tags => %w(a)) %>
+        <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
       </div> 
     <% end %>
 

@@ -1,2 +1,2 @@
-$("#member_actions").html("<%= escape_javascript(render :partial => "follows/follow_member", :locals => {:member => @member}) %>");
-$("#follows_count").html('<%= @member.followers_by_type_count('Member') %>')
+$("#member_actions").html("<%= escape_javascript(render :partial => 'follows/follow_member', :locals => {:member => @member}) %>");
+$("#follows_count").html('<%= @member.followers_by_type_count("Member") %>')

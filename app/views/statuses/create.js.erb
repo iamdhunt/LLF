@@ -1,9 +1,5 @@
 <% if @status.errors.any? %>
-	$('i', '.custom-file-upload').removeClass("fa-check");
-	$('i', '.custom-file-upload').addClass("fa-arrow-up");
-	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');
-	$('#err_wrap').remove();
-	$("#status_form").prepend("<%= escape_javascript(render('statuses/errors')) %>");
+	
 <% else %>
 	var $container = $('#activity_stream_wrap') 
 	$('#err_wrap').remove();

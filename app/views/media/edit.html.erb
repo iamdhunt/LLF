@@ -23,7 +23,7 @@
 
 		        <% if @medium.caption? %>
 			        <div class="view_caption">
-			        	<%= sanitize(Rinku.auto_link(@medium.caption), :tags => %w(a)) %>
+			        	<%= sanitize(Rinku.auto_link(media_with_mentions(@medium)), :tags => %w(a)) %>
 			        </div>
 			    <% end %>
 

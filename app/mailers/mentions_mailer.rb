@@ -7,7 +7,7 @@ class MentionsMailer < ActionMailer::Base
     @mention = mention
     @mentioner = mention.mentioner
 
-    if mention.mentioner_type == 'Medium'
+    if mention.mentioner_type == 'Medium' || mention.mentioner_type == 'Upload'
       @content = mention.mentioner.caption
     else
       @content = mention.mentioner.content
@@ -15,12 +15,16 @@ class MentionsMailer < ActionMailer::Base
 
     if mention.mentioner_type == 'Medium'
       @type = "caption"
+    elsif mention.mentioner_type == 'Upload'
+      @type = mention.mentioner.uploadable_type.downcase + ' ' + mention.mentioner_type.downcase + ' for ' + mention.mentioner.uploadable.name.upcase
     else
       @type = mention.mentioner_type
     end
 
-    if mention.mentioner_type != 'Comment' 
+    if mention.mentioner_type == 'Medium' 
     	@mention_link = mention.mentioner
+    elsif mention.mentioner_type == 'Upload'
+      @mention_link = mention.mentioner.uploadable
     else
     	@mention_link = mention.mentioner.commentable
     end 

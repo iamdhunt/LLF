@@ -1,5 +1,6 @@
 <% if notification.notified_object %>
 	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' && notification.notified_object.mentioner.caption.nil? %>
+	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Upload' && notification.notified_object.mentioner.caption.nil? %>
 	<% @notification = notification %>
 
 	<div class="not_wrap">
@@ -68,6 +69,8 @@
 					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to 'caption', notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Upload' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner.uploadable, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner.uploadable_type.downcase %> upload for <%= link_to notification.notified_object.mentioner.uploadable.name.titleize, notification.notified_object.mentioner.uploadable %> 
 				<% end %>
 
 				<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
@@ -85,11 +88,12 @@
 				<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
 
 				<p><i>
+					
 					<% if notification.notified_object_type == 'Comment' %>
-						<%= sanitize(Rinku.auto_link(notification.notified_object.content), :tags => %w(a)) %> 
+						<%= sanitize(notification.notified_object.content) %> 
 					<% end %>
 					<% if notification.notified_object_type == 'Update' %>
-						<%= Rinku.auto_link(truncate(notification.notified_object.content, :length => 400)).html_safe %>
+						<%= truncate(notification.notified_object.content, :length => 400).html_safe %>
 					<% end %>
 
 					<% if notification.notified_object_type == 'Upload' %>
@@ -112,16 +116,6 @@
 						<% end %>
 					<% end %>
 
-					<% if notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Status' %>
-						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.content), :tags => %w(a)) %>
-						<% if notification.notified_object.mentioner.document %>
-							<p><%= image_tag notification.notified_object.mentioner.document.attachment.url(:thumb) %></p>
-						<% end %>
-					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
-						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.content), :tags => %w(a)) %>
-					<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' %>
-						<%= sanitize(Rinku.auto_link(notification.notified_object.mentioner.caption), :tags => %w(a)) %>
-					<% end %>
 				</i></p>
 			</span>
 
@@ -164,6 +158,18 @@
 							<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:thumb)), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
 						<% else %>
 							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner, title: 'View Media', alt: 'View Media' %>
+						<% end %>
+					<% end %>
+				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Upload' %>
+					<% if notification.notified_object.mentioner.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.mentioner.asset.url(:thumb2)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+					<% elsif notification.notified_object.mentioner.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.mentioner.cover? %>
+							<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:thumb)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+						<% else %>
+							<%= link_to image_tag('Default Audio Thumb.png'), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
 						<% end %>
 					<% end %>
 				<% end %>
@@ -225,5 +231,6 @@
 	<div style="clear:both;"></div>
 	</div>
 
+	<% end %>
 	<% end %>
 <% end %>
