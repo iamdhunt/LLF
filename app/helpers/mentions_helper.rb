@@ -44,4 +44,37 @@ module MentionsHelper
 		end 
 	end
 
+	def updates_with_mentions(update)
+	  	update.content.gsub(/@\w+/).each do |user_name|
+		    member = Member.find_by_user_name(user_name[1..-1])
+		    if member
+		      link_to user_name, profile_path(member.user_name)
+		    else
+		      user_name
+		    end
+		end 
+	end
+
+	def projects_with_mentions(project)
+	  	project.about.gsub(/@\w+/).each do |user_name|
+		    member = Member.find_by_user_name(user_name[1..-1])
+		    if member
+		      link_to user_name, profile_path(member.user_name)
+		    else
+		      user_name
+		    end
+		end 
+	end
+
+	def events_with_mentions(event)
+	  	event.details.gsub(/@\w+/).each do |user_name|
+		    member = Member.find_by_user_name(user_name[1..-1])
+		    if member
+		      link_to user_name, profile_path(member.user_name)
+		    else
+		      user_name
+		    end
+		end 
+	end
+
 end

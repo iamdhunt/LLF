@@ -94,13 +94,43 @@
   <% end %>
 
   <% if member_signed_in? %>
+  
     <%= javascript_tag do %>
+
+      $('#p_update').froalaEditor({
+        key: 'ObE5A-8E1tA2wz==',
+        inlineMode: false,
+        placeholderText: 'Tell us about your update...',
+        heightMin: 100,
+        heightMax: 250,
+        toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+        toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'html'],
+        toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent'],
+        toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent']
+      });
+
+      $('#p_about').froalaEditor({
+        key: 'ObE5A-8E1tA2wz==', 
+        inlineMode: false,
+        placeholderText: 'Now the long version...',
+        heightMin: 100,
+        toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+        toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'fullscreen', 'html'],
+        toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent'],
+        toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent']
+      });
+
       data = <%= raw Member.pluck(:user_name).sort_by{rand}.compact.to_json %>;
-      $('#update_box').atwho({at:"@", 'data':data});
-      $('#comment_box').atwho({at:"@", 'data':data});
-      $('#cap_box').atwho({at:"@", 'data':data});
-      $('#upl_cap').atwho({at: "@", 'data':data});
+
+      $('#update_box').atwho({at:"@", 'data':data, limit: 50});
+      $('#comment_box').atwho({at:"@", 'data':data, limit: 50});
+      $('#cap_box').atwho({at:'@', data:'data', limit: 50});
+      $('#upl_cap').atwho({at: "@", 'data':data, limit: 50});
+
+      $('.fr-view').atwho({at: "@", editableAtwhoQueryAttrs: {"data-fr-verified": true}, 'data':data, limit: 50});
+
     <% end %>
+
   <% end %>
 
   </body>

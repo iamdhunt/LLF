@@ -1,7 +1,7 @@
 class Upload < ActiveRecord::Base
 	attr_accessible :asset, :caption, :cover, :remove_cover
 
-	attr_accessor :remove_cover
+	attr_accessor :remove_cover, :mention
 
    	belongs_to :member
 	belongs_to :uploadable, polymorphic: true
@@ -50,7 +50,7 @@ class Upload < ActiveRecord::Base
 	      return unless mention?
 
 	      people_mentioned.each do |member|
-	        Mention.create!(:comment_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Upload', :mentionable_id => member.id, :mentionable_type => 'Member')
+	        Mention.create!(:upload_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Upload', :mentionable_id => member.id, :mentionable_type => 'Member')
 	      end
 	    end
 

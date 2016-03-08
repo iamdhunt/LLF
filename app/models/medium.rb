@@ -2,7 +2,7 @@ class Medium < ActiveRecord::Base
 
   	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover, :link
 
-    attr_accessor :remove_cover
+    attr_accessor :remove_cover, :mention
 
     belongs_to :member
 
@@ -82,7 +82,7 @@ class Medium < ActiveRecord::Base
       return unless mention?
 
       people_mentioned.each do |member|
-        Mention.create!(:status_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Medium', :mentionable_id => member.id, :mentionable_type => 'Member')
+        Mention.create!(:medium_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Medium', :mentionable_id => member.id, :mentionable_type => 'Member')
       end
     end
 

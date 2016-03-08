@@ -34,7 +34,7 @@
 
 		        <% if @upload.caption? %>
 			        <div class="view_caption">
-			        	<%= sanitize(Rinku.auto_link(@upload.caption), :tags => %w(a)) %>
+			        	<%= sanitize(Rinku.auto_link(uploads_with_mentions(@upload)), :tags => %w(a)) %>
 			        </div>
 			    <% end %>
 

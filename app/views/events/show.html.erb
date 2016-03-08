@@ -235,7 +235,7 @@
 
         <div class="tab-pane" id="details">
           <div id ="proj_about">
-            <%= raw Rinku.auto_link(@event.details) %>
+            <%= raw Rinku.auto_link(events_with_mentions(@event)) %>
           </div>
         </div>
 
@@ -243,7 +243,7 @@
 
         <div class="tab-pane active" id="details">
           <div id ="proj_about">
-            <%= raw Rinku.auto_link(@event.details) %>
+            <%= raw Rinku.auto_link(events_with_mentions(@event)) %>
           </div>
         </div>
 

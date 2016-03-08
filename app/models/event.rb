@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
 
+  attr_accessor :mention
+
 	belongs_to :member
 
   acts_as_votable
@@ -10,10 +12,12 @@ class Event < ActiveRecord::Base
   acts_as_ordered_taggable
   acts_as_ordered_taggable_on :markers
   acts_as_messageable
+
   has_many :comments, as: :commentable, :dependent => :destroy
   has_many :uploads, as: :uploadable, :dependent => :destroy
   has_many :updates, as: :updateable, :dependent => :destroy
   has_many :activities, as: :targetable, :dependent => :destroy
+  has_many :mentions, as: :mentioner, dependent: :destroy
 
   has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
                   :default_url => '/assets/Events Default.png'
@@ -22,6 +26,8 @@ class Event < ActiveRecord::Base
 
   before_create :make_it_permalink
   before_validation :clean_up_markers
+
+  after_save :save_mentions
   
     validates :name, presence: { message: 'can\'t be blank.'},
               length: {
@@ -141,6 +147,8 @@ class Event < ActiveRecord::Base
     date :end_date
   end
 
+  USERNAME_REGEX = /@\w+/i
+
   def event_month
     start_date.strftime("%B")
   end
@@ -170,6 +178,27 @@ class Event < ActiveRecord::Base
     def make_it_permalink
       # this can create permalink with random 8 digit alphanumeric
       self.permalink = SecureRandom.hex(12)
+    end
+
+    def save_mentions
+      return unless mention?
+
+      people_mentioned.each do |member|
+        Mention.create!(:event_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Event', :mentionable_id => member.id, :mentionable_type => 'Member')
+      end
+    end
+
+    def mention?
+      self.details.match( USERNAME_REGEX )
+    end
+
+    def people_mentioned
+      members = []
+      self.details.clone.gsub!( USERNAME_REGEX ).each do |user_name|
+        member = Member.find_by_user_name(user_name[1..-1])
+        members << member if member
+      end
+      members.uniq
     end
 
 end

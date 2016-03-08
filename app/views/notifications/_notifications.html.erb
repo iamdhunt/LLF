@@ -70,7 +70,13 @@
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Comment' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner.commentable, title: 'View Mention', alt: 'View Mention' %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Upload' %>
-					<%= link_to "mentioned", notification.notified_object.mentioner.uploadable, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner.uploadable_type.downcase %> upload for <%= link_to notification.notified_object.mentioner.uploadable.name.titleize, notification.notified_object.mentioner.uploadable %> 
+					<%= link_to "mentioned", notification.notified_object.mentioner.uploadable, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner.uploadable_type.downcase %> upload for <%= link_to notification.notified_object.mentioner.uploadable.name.titleize, notification.notified_object.mentioner.uploadable %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Update' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner.updateable, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner.updateable_type.downcase %> update <i>"<%= notification.notified_object.mentioner.title %>"</i> for <%= link_to notification.notified_object.mentioner.updateable.name.titleize, notification.notified_object.mentioner.updateable %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Project' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner_type.downcase %> <%= link_to notification.notified_object.mentioner.name.titleize, notification.notified_object.mentioner %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Event' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in an <%= notification.notified_object.mentioner_type.downcase %> <%= link_to notification.notified_object.mentioner.name.titleize, notification.notified_object.mentioner %>
 				<% end %>
 
 				<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
@@ -88,7 +94,7 @@
 				<span class="not_meta"><%= time_ago_in_words(notification.created_at) %></span>
 
 				<p><i>
-					
+
 					<% if notification.notified_object_type == 'Comment' %>
 						<%= sanitize(notification.notified_object.content) %> 
 					<% end %>
@@ -173,6 +179,19 @@
 						<% end %>
 					<% end %>
 				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Update' %>
+					<%= link_to image_tag(notification.notified_object.mentioner.updateable.avatar.url(:thumb)), notification.notified_object.mentioner.updateable, title: notification.notified_object.mentioner.updateable.name, alt: notification.notified_object.mentioner.updateable.name %>
+				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Project' %>
+					<%= link_to image_tag(notification.notified_object.mentioner.avatar.url(:thumb)), notification.notified_object.mentioner, title: notification.notified_object.mentioner.name, alt: notification.notified_object.mentioner.name %>
+				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Event' %>
+					<%= link_to image_tag(notification.notified_object.mentioner.avatar.url(:thumb)), notification.notified_object.mentioner, title: notification.notified_object.mentioner.name, alt: notification.notified_object.mentioner.name %>
+				<% end %>
+
 			<% end %>
 
 			<% if notification.notified_object_type == 'Comment' %>

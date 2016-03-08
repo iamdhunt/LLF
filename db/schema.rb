@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160229224406) do
+ActiveRecord::Schema.define(:version => 20160306223922) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -336,6 +336,11 @@ ActiveRecord::Schema.define(:version => 20160229224406) do
     t.datetime "updated_at",       :null => false
     t.integer  "status_id"
     t.integer  "comment_id"
+    t.integer  "medium_id"
+    t.integer  "update_id"
+    t.integer  "upload_id"
+    t.integer  "event_id"
+    t.integer  "project_id"
   end
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "ments_on_ables_id_and_type"
