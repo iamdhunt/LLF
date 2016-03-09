@@ -29,16 +29,52 @@ before_filter :find_member
     end 
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+
+    if @comment.member == current_member
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
+
+    else
+
+      respond_to do |format|
+        format.html { redirect_to @commentable }
+        format.js
+      end
+
+    end
+  end 
+
+  def update
+    @comment = current_member.comments.find(params[:id])
+
+    respond_to do |format|
+      if @comment.update_attributes(params[:comment])
+        format.html { redirect_to @commentable }
+        format.json { head :no_content }
+        format.js   { render :js => "window.location.href = ('#{polymorphic_path(@commentable)}');"}
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js
+      end
+    end
+  end 
+
   def destroy
     @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.member == current_member || @commentable.member == current_member
         @comment.destroy
-        format.html { redirect_to :back }
+        format.html { redirect_to @commentable }
         format.json
         format.js
       else
-        format.html { redirect_to :back, alert: 'You can\'t delete this comment.' }
+        format.html { redirect_to @commentable, alert: 'You can\'t delete this comment.' }
         format.json
         format.js
       end

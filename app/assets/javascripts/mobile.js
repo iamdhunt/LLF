@@ -16,6 +16,7 @@ $(document).ready(function(){
        $( "#e_wrapper .nav-tabs li").css( "font-size", "1.3em" );
        $( "#main_menu").css( "display", "none" );
        $( "#main_menu2").css( "display", "inline" );
+       $( ".fr-sticky-on").css( "top", "0px !important" );
     }
 
 });

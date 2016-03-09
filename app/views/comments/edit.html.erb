@@ -1,0 +1,23 @@
+<% title @comment.commentable.member.full_name + " x Edit Comment"%>
+
+	<div id="main_wrap">
+
+		<div id="edit_show">
+
+			<div class="t"> 
+				Last updated: <%= @comment.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> &#8226; 
+				<%= link_to "Cancel Edit", @comment.commentable, title: 'Cancel Edit', alt: 'Cancel Edit' %> 
+				<% if current_member == @comment.member %>
+					<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), [@comment.commentable, @comment], method: :delete, data: { confirm: 'Are you sure?' } %></span>
+				<% end %>
+			</div>
+
+			<%= render 'form' %>
+
+		</div>
+
+<!--/edit_show-->
+
+	</div>
+
+<!--/main_wrap-->

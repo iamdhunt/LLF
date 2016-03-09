@@ -11,12 +11,20 @@
 				<% else %>
 					<%= link_to comment.member.user_name, profile_path(comment.member) %>
 				<% end %>
-		
-				<% if comment.member == current_member || @commentable.member == current_member %>
+
+				<% if comment.member == current_member  %>
 					<span class="comment_del">
+						<%= link_to "Edit", polymorphic_url([@commentable, comment], action: :edit), class: '' %> &#8226;
+						<%= link_to 'Delete', [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+					</span>
+				<% end %>
+
+				<% if comment.member != current_member && @commentable.member == current_member %>
+					<span id="cm_del_img" class="comment_del">
 						<%= link_to image_tag("Delete.png", title: 'Delete'), [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 					</span>
 				<% end %>
+		
 				<span class="meta">
 					<%= time_ago_in_words(comment.created_at) %>
 				</span>

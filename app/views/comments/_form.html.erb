@@ -1,0 +1,19 @@
+<%= simple_form_for [@commentable, @comment], html: { multipart: true, :id => 'comment_form' }, remote: true do |f| %>
+
+  <div class="">
+      
+      <%= f.input :content, label: false, input_html: { class: 'forms act_comment', id: 'edit_comment_box', rows: '1', maxlength: '280' } %>
+
+      <%= f.submit "Comment", :class => 'btn' %>
+
+      <span id="spinner" class="spinner">
+        <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
+      </span>
+
+      <span id="comment_length" style="display:none;"></span>
+      
+      <div class="btn_alt">or press enter</div>
+      
+  </div>
+
+<% end %>

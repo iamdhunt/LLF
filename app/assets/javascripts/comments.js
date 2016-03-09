@@ -3,6 +3,7 @@ $(document).ready(function(){
 	var $comment = $('#comment_box');
 	var text_max = 280;
 	var $container = $('.comments_wrap');
+	var $editcm = $('#edit_comment_box');
 
 	$comment.one('focus', function(){
 		$c_count.css({ 
@@ -53,6 +54,28 @@ $(document).ready(function(){
 	$(".load_arrow").click(function(){
     	$('.comments_wrap').infinitescroll('retrieve');
         	return false;
+	});
+
+	$editcm.autosize();
+
+	function EditCMCount(){	
+		var edit_length = $editcm.val().length;
+		var edit_remaining = text_max - edit_length;
+
+		$('#comment_length').html(edit_remaining);
+
+	};	
+
+	if ($editcm.length) {
+	    EditCMCount();
+	} 
+
+	$editcm.keyup(function(){	
+		var com_length = $editcm.val().length;
+		var com_remaining = text_max - com_length;
+
+		$('#comment_length').html(com_remaining);
+
 	});
 	
 });
