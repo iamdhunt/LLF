@@ -13,13 +13,12 @@
 	padding: 6px 0 0 5px;
 }
 .comment_del {
-	color: #898989;
-	font-size: .8em;
+	color: #333;
+	font-size: .76em;
 	display: none;
 }
 .comment_del a {
-	font-weight: normal !important;
-	color: #898989;
+	color: #333;
 	text-decoration: none;
 }
 .comments:hover .comment_del {

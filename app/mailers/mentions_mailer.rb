@@ -29,7 +29,7 @@ class MentionsMailer < ActionMailer::Base
       @type = mention.mentioner_type
     end
 
-    if mention.mentioner_type == 'Medium' || mention.mentioner_type == 'Project' || mention.mentioner_type == 'Event' 
+    if mention.mentioner_type == 'Medium' || mention.mentioner_type == 'Project' || mention.mentioner_type == 'Event' || mention.mentioner_type == 'Status' 
     	@mention_link = mention.mentioner
     elsif mention.mentioner_type == 'Upload'
       @mention_link = mention.mentioner.uploadable

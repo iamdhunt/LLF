@@ -101,8 +101,10 @@
       data = <%= raw current_member.following_members.pluck(:user_name).sort_by{rand}.compact.to_json %>;
 
       $('#update_box').atwho({at:"@", 'data':data, limit: 25});
+      $('#edit_update_box').atwho({at:"@", 'data':data, limit: 25});
       $('#comment_box').atwho({at:"@", 'data':data, limit: 25});
-      $('#cap_box').atwho({at:'@', data:'data', limit: 25});
+      $('#edit_comment_box').atwho({at:"@", 'data':data, limit: 25});
+      $('#cap_box').atwho({at:'@', 'data':data, limit: 25});
       $('#upl_cap').atwho({at: "@", 'data':data, limit: 25});
 
       $('#p_update')
