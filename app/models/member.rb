@@ -7,9 +7,10 @@ class Member < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
   					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
-            :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner
+            :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner,
+            :remove_banner, :remove_avatar
   
-  attr_accessor :login
+  attr_accessor :login, :remove_banner, :remove_avatar
 
   acts_as_follower
   acts_as_followable
@@ -36,7 +37,7 @@ class Member < ActiveRecord::Base
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
 
   before_validation :clean_up_pursuits
-  before_save :to_lower
+  before_save :to_lower, :perform_banner_removal, :perform_avatar_removal
   before_create :to_lower
   after_create :send_welcome
 
@@ -229,6 +230,18 @@ class Member < ActiveRecord::Base
     self.user_name = self.user_name.downcase
     self.email = self.email.downcase
   end 
+
+  def perform_banner_removal
+    if remove_banner == '1' && !banner.dirty?
+      self.banner = nil
+    end
+  end
+
+  def perform_avatar_removal
+    if remove_avatar == '1' && !avatar.dirty?
+      self.avatar = nil
+    end
+  end
 
   def each_pursuit
     pursuit_list.each do |pursuit|
