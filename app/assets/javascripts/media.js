@@ -4,11 +4,13 @@ $(document).ready(function(){
 	var cap_max = 280;
 	var $cap = $('#cap_box')
 	var $mvid = $('.v_link')
+	var $uplcp = $('#upl_cap')
 	var dl_src = $('.dl').attr('src')
 	var $editm = $('#edit_cap_box');
 
 	$cap.autosize();
 	$mvid.autosize();
+	$uplcp.autosize();
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({

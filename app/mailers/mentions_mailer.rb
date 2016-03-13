@@ -20,11 +20,11 @@ class MentionsMailer < ActionMailer::Base
     if mention.mentioner_type == 'Medium'
       @type = "caption"
     elsif mention.mentioner_type == 'Upload'
-      @type = mention.mentioner.uploadable_type.downcase + ' ' + mention.mentioner_type.downcase + ' for ' + mention.mentioner.uploadable.name.capitalize!
+      @type = mention.mentioner.uploadable_type.downcase + ' ' + mention.mentioner_type.downcase + ' for ' + mention.mentioner.uploadable.name
     elsif mention.mentioner_type == 'Update'
-      @type = mention.mentioner.updateable_type.downcase + ' update for ' + mention.mentioner.updateable.name.capitalize!
+      @type = mention.mentioner.updateable_type.downcase + ' update for ' + mention.mentioner.updateable.name
     elsif mention.mentioner_type == 'Project' || mention.mentioner_type == 'Event'
-      @type = mention.mentioner_type.downcase + ' ' + mention.mentioner.name.capitalize!
+      @type = mention.mentioner_type.downcase + ' ' + mention.mentioner.name
     else
       @type = mention.mentioner_type
     end
