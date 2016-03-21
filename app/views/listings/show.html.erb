@@ -120,9 +120,11 @@
             <% end %>
           </div>
 
-          <div class="desc">
-            <%= sanitize(Rinku.auto_link(@listing.description), :tags => %w(a)) %>
-          </div>
+          <% if @listing.description %>
+            <div class="desc">
+              <%= sanitize(Rinku.auto_link(@listing.description), :tags => %w(a)) %>
+            </div>
+          <% end %>
 
           <% if @additional.count > 0 %>
             <div class="additional">
