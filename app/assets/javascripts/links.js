@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var $spinner = $('#spinner.spinner');
+    var $refresh = $('i', '.refresh');
 
     $("a[href^=http]").each(function(){
       if(this.href.indexOf(location.hostname) == -1) {
@@ -35,6 +36,14 @@ $(document).ready(function() {
 
     $('form[data-remote]').bind('ajax:error', function(){
       $spinner.hide();
+    });
+
+    $('a', '.refresh').bind('ajax:beforeSend', function(){
+      $refresh.addClass('fa-spin');
+    });
+
+    $('a', '.refresh').bind('ajax:complete', function(){
+      $refresh.removeClass('fa-spin', {duration:500});
     });
 
 });

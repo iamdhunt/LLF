@@ -7,7 +7,7 @@ LLF::Application.routes.draw do
       root :to => 'devise/registrations#new'
     end
     unauthenticated :member do
-      root :to => 'community#community'
+      root :to => 'community#index'
     end
   end 
 
@@ -49,7 +49,7 @@ LLF::Application.routes.draw do
 
   get "discover" => "search#search", :as => "search"
 
-  get "community" => "community#community", :as => "community"
+  resources :community, only: [:index]
 
   get "market" => "market#market", :as => "market"
 
