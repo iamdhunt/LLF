@@ -26,8 +26,11 @@ class Upload < ActiveRecord::Base
   	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png'],
   												message: 'must be a .jpeg, .jpg, or .png file type.'
 
-  	validates_format_of :link, :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
-                                message: 'must be from YouTube, Vimeo, or Soundcloud.'
+  	validates :link, allow_blank: true,
+                      format: { 
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                        message: 'must be from YouTube, Vimeo, or Soundcloud.'
+                      }
 
     validate :link_or_attachment                            
 

@@ -11,11 +11,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
-    @status = @activity.targetable
-		if @activity.targetable_type == 'Status'	
-			@status.destroy
-		end
-	@activity.destroy
+    @targetable = @activity.targetable
+		
+    @targetable.destroy
+	  @activity.destroy
 
     respond_to do |format|
       format.html { redirect_to :back }

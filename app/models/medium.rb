@@ -43,8 +43,11 @@ class Medium < ActiveRecord::Base
                                         message: '(tags) must not include any special characters.'
                                       }
 
-    validates_format_of :link, :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
-                                message: 'must be from YouTube, Vimeo, or Soundcloud.'
+    validates :link, allow_blank: true,
+                      format: { 
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                        message: 'must be from YouTube, Vimeo, or Soundcloud.'
+                      }
 
     validate :each_marker
 

@@ -260,10 +260,10 @@ class ProfilesController < ApplicationController
     @member = Member.find_by_user_name(params[:id])
     if @member == current_member
       @medium = current_member.medium.new
-      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(30)
+      @events = @member.get_up_voted Event.order("created_at desc").page(params[:page]).per_page(30)
       render action: :events_fav
     elsif @member 
-      @events = @member.get_up_voted Event.order("start_date asc").page(params[:page]).per_page(30)
+      @events = @member.get_up_voted Event.order("created_at desc").page(params[:page]).per_page(30)
       render action: :events_fav
     else 
       render file: 'public/404', status: 404, formats: [:html]
