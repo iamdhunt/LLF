@@ -72,4 +72,10 @@ module ApplicationHelper
 	  (obj.first.html).html_safe
 	end
 
+	def upload_display(url)
+	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
+	  obj = embedly_api.oembed(:url => url, width: "188px", height: "188px")
+	  (obj.first.html).html_safe
+	end
+
 end

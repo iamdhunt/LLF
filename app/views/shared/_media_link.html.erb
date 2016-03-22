@@ -1,0 +1,26 @@
+<% if upload.link =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/ %>
+  <div id="upload_<%= upload.uploadable.id %>_<%= upload.id %>" class="list_act_wrap video_fil">
+<% elsif upload.link =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
+  <div id="upload_<%= upload.uploadable.id %>_<%= upload.id %>" class="list_act_wrap audio_fil">
+<% end %>
+
+  <div class="act_media_content">
+    <% if upload.member == current_member %>
+      <span class="shu_e">
+        <%= link_to image_tag('Edit 5.png'), polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
+      </span>
+      <span class="shu_d">
+        <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+      </span>
+    <% end %>
+    
+    <%= upload_display(upload.link) %>
+  </div>
+
+  <% if upload.caption? %>
+    <div class="media_act_cap">
+      <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
+    </div> 
+  <% end %>
+
+</div>

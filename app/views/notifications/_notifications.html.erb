@@ -120,6 +120,10 @@
 						        </div>
 						    </div>
 						<% end %>
+
+						<% if notification.notified_object.link %>
+							<%= upload_display(notification.notified_object.link) %>
+						<% end %>
 					<% end %>
 
 				</i></p>

@@ -1,5 +1,5 @@
 class Upload < ActiveRecord::Base
-	attr_accessible :asset, :caption, :cover, :remove_cover
+	attr_accessible :asset, :caption, :cover, :remove_cover, :link
 
 	attr_accessor :remove_cover, :mention
 
@@ -14,7 +14,7 @@ class Upload < ActiveRecord::Base
 	after_commit :create_notification, on: :create
 	after_save :save_mentions, unless: Proc.new { |upload| upload.caption.blank? }
 
-	validates_attachment_presence :asset, message: 'image/audio can\'t be blank.'                   
+	validates_attachment_presence :asset, :unless => :link?, message: 'must have an attached image/audio or specified video link.'                   
 	validates_attachment_size :asset, :less_than=>15.megabyte, message: 'image/audio must be less than or equal to 15mb.'
 	validates_attachment_content_type :asset, 
 										:content_type=>['image/jpeg', 'image/jpg', 'image/png', 
@@ -25,6 +25,11 @@ class Upload < ActiveRecord::Base
 	validates_attachment_size :cover, :less_than_or_equal_to=>15.megabyte, message: 'must be less than or equal to 15mb.'
   	validates_attachment_content_type :cover, :content_type=>['image/jpeg', 'image/jpg', 'image/png'],
   												message: 'must be a .jpeg, .jpg, or .png file type.'
+
+  	validates_format_of :link, :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                                message: 'must be from YouTube, Vimeo, or Soundcloud.'
+
+    validate :link_or_attachment                            
 
   	auto_strip_attributes :caption
 
@@ -65,5 +70,11 @@ class Upload < ActiveRecord::Base
 	        members << member if member
 	      end
 	      members.uniq
-	    end					
+	    end		
+
+	    def link_or_attachment
+	      unless asset.blank? ^ link.blank?
+	        errors.add(:base, "Upload an image/audio or specify a link, but not both.")
+	      end
+	    end			
 end

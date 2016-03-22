@@ -2,6 +2,8 @@
 
   <div class="form-inputs">
 
+    <div class="md_hd pa">Photos/Audio</div>
+
     <div class="med_instructions">
       <ul>
         <li>
@@ -18,7 +20,7 @@
 
     <div>
       <span class="custom-file-upload fu1_wrap">
-        <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse*
+        <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Browse
           <%= f.input :asset, label: false, error: false, as: :file, :input_html => { id: 'file-upload', class: 'cfu' } %>
         </label>
       </span>
@@ -29,6 +31,18 @@
         </label>
       </span>
     </div>
+
+    <div class="md_hd vd">Video/Audio Link</div>
+
+    <div class="med_instructions">
+      <ul>
+        <li>
+          &raquo; We support YouTube, Vimeo, and Soundcloud
+        </li>
+      </ul>
+    </div>
+
+    <%= f.input :link, label: false, error: false, input_html: { cols: '52', rows: '1', class: 'forms input-xlarge v_link', autocomplete: 'off' }, placeholder: 'http://' %>
 
     <div class="cap">
     	<span id="cap_count"></span> <span class="cap_remain">characters remaining</span> <span class="cap_opt">(Optional)</span>

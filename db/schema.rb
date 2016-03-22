@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160306223922) do
+ActiveRecord::Schema.define(:version => 20160322030358) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -431,6 +431,7 @@ ActiveRecord::Schema.define(:version => 20160306223922) do
     t.string   "cover_content_type"
     t.integer  "cover_file_size"
     t.datetime "cover_updated_at"
+    t.text     "link"
   end
 
   add_index "uploads", ["member_id"], :name => "index_uploads_on_member_id"

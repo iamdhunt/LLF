@@ -1,0 +1,17 @@
+<% if @upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+	<div class="sh_aud">
+	  <% if @upload.cover? %>
+	    <div id='med_art' style="background-image: url(<%= @upload.cover.url(:media) %>)">
+	  <% else %>
+	    <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+	  <% end %>
+	    <div class="ui360 ui360-vis">
+	      <%= link_to '', @upload.asset.url %>
+	    </div>
+	  </div>
+	</div>
+<% end %>
+
+<% if @upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
+	<%= image_tag(@upload.asset.url(:medium), class: 'show_media') %>
+<% end %>
