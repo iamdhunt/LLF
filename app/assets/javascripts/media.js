@@ -136,6 +136,14 @@ $(document).ready(function(){
 
 	});
 
+	$uplcp.keyup(function(){	
+		var cap_length = $uplcp.val().length;
+		var cap_remaining = cap_max - cap_length;
+
+		$('#cap_count').html(cap_remaining);
+
+	});
+
 	$editm.autosize();
 
 	function EditMCount(){	

@@ -157,6 +157,7 @@ table {
 /* Specific CSS */
 #pagewrap {
 	padding-top: 54px;
+	padding-bottom: 58px;
 }
 #main_wrap {
 	position: relative;
@@ -933,9 +934,9 @@ hr.contact {
 
 #pw {
 	width: 100%;
-	-webkit-box-shadow: 0 1px 4px #ccc;
-	-moz-box-shadow: 0 1px 4px #ccc;
-	box-shadow: 0 1px 4px #ccc;
+	-webkit-box-shadow: 0px 1px 4px #ccc, 0px -1px 4px #ccc;
+	-moz-box-shadow: 0px 1px 4px #ccc, 0px -1px 4px #ccc;
+	box-shadow: 0px 1px 4px #ccc, 0px -1px 4px #ccc;
 }
 #profile_wrap {
 	padding: 0 0 30px 0;	

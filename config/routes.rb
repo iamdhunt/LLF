@@ -7,7 +7,7 @@ LLF::Application.routes.draw do
       root :to => 'devise/registrations#new'
     end
     unauthenticated :member do
-      root :to => 'community#index'
+      root :to => 'devise/registrations#new'
     end
   end 
 

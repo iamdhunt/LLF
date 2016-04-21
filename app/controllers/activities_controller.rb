@@ -25,10 +25,17 @@ class ActivitiesController < ApplicationController
 
   def upvote
     @activity = Activity.find(params[:id])
+    
     if current_member.voted_up_on? @activity
       @activity.unliked_by current_member
+      unless @activity.targetable_type == 'Status'  
+        @activity.targetable.unliked_by current_member
+      end
     else 
       @activity.liked_by current_member
+      unless @activity.targetable_type == 'Status'  
+        @activity.targetable.liked_by current_member
+      end
     end
     respond_to do |format|
         format.html { redirect_to :back }

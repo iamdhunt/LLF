@@ -76,6 +76,12 @@ class Project < ActiveRecord::Base
 
   validates :about, presence: { message: 'can\'t be blank.'}
 
+  validates :video, allow_blank: true,
+                      format: { 
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
+                        message: 'link must be from YouTube or Vimeo.'
+                      }
+
   auto_strip_attributes :about, :website
   auto_strip_attributes :name, :squish => true
   auto_strip_attributes :city, :squish => true

@@ -126,6 +126,12 @@ class Event < ActiveRecord::Base
                           message: 'must not be more than 140 characters.'
                         }
 
+    validates :video, allow_blank: true,
+                      format: { 
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
+                        message: 'link must be from YouTube or Vimeo.'
+                      }
+
     auto_strip_attributes :website, :zipcode, :details
     auto_strip_attributes :name, :squish => true
     auto_strip_attributes :location, :squish => true
