@@ -118,6 +118,7 @@
 }
 .pd_right .desc {
 	padding: 4px 0;
+	font-size: 1.2em;
 }
 .pd_right .desc a {
 	font-weight: bold;
