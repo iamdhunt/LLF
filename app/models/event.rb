@@ -1,9 +1,10 @@
 class Event < ActiveRecord::Base
 
   attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
-                  :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time
+                  :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time,
+                  :remove_banner, :remove_avatar
 
-  attr_accessor :mention
+  attr_accessor :mention, :remove_banner, :remove_avatar
 
 	belongs_to :member
 
@@ -26,6 +27,7 @@ class Event < ActiveRecord::Base
 
   before_create :make_it_permalink
   before_validation :clean_up_markers
+  before_save :perform_banner_removal, :perform_avatar_removal
 
   after_save :save_mentions
   
@@ -205,6 +207,18 @@ class Event < ActiveRecord::Base
         members << member if member
       end
       members.uniq
+    end
+
+    def perform_banner_removal
+      if remove_banner == '1' && !banner.dirty?
+        self.banner = nil
+      end
+    end
+
+    def perform_avatar_removal
+      if remove_avatar == '1' && !avatar.dirty?
+        self.avatar = nil
+      end
     end
 
 end

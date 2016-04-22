@@ -77,4 +77,15 @@ module MentionsHelper
 		end 
 	end
 
+	def listings_with_mentions(listing)
+	  	listing.description.gsub(/@\w+/).each do |user_name|
+		    member = Member.find_by_user_name(user_name[1..-1])
+		    if member
+		      link_to user_name, profile_path(member.user_name)
+		    else
+		      user_name
+		    end
+		end 
+	end
+
 end

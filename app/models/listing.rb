@@ -1,6 +1,9 @@
 class Listing < ActiveRecord::Base
   	
-  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover, :banner
+  	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover, :banner,
+                      :remove_banner, :remove_cover
+
+    attr_accessor :mention, :remove_banner, :remove_cover
 
     belongs_to :member
 
@@ -10,6 +13,7 @@ class Listing < ActiveRecord::Base
     has_many :comments, as: :commentable, :dependent => :destroy
     has_many :assets, :dependent => :destroy
     has_many :activities, as: :targetable, :dependent => :destroy
+    has_many :mentions, as: :mentioner, dependent: :destroy
 
     has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} }
     has_attached_file :cover, styles: { cover: "230x230#", form: "188x188#", small: "100x100#" }
@@ -19,8 +23,11 @@ class Listing < ActiveRecord::Base
     accepts_nested_attributes_for :assets, :allow_destroy => true
 
     before_create :make_it_permalink
+    before_save :perform_banner_removal, :perform_cover_removal
     before_validation :clean_up_markers
     before_validation :strip_commas_from_price
+
+    after_save :save_mentions, unless: Proc.new { |listing| listing.description.blank? }
 
   	validates :title, presence: { message: '(name) can\'t be blank.'}
 
@@ -84,27 +91,62 @@ class Listing < ActiveRecord::Base
       "#{id}-#{title.parameterize}"
     end
 
+    USERNAME_REGEX = /@\w+/i
+
   	private
 
-	  def each_marker
-	    marker_list.each do |marker|
-	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
-	      errors.add(:marker, "(tag) is too long (maximum is 30 characters).") if marker.length > 30
-	    end
-	  end
+  	  def each_marker
+  	    marker_list.each do |marker|
+  	      # This will only accept two character alphanumeric entry such as A1, B2, C3. The alpha character has to precede the numeric.
+  	      errors.add(:marker, "(tag) is too long (maximum is 30 characters).") if marker.length > 30
+  	    end
+  	  end
 
-	  def clean_up_markers
-	    # Make lowercase 
-	    self.marker_list.map!(&:downcase) 
-	  end
+  	  def clean_up_markers
+  	    # Make lowercase 
+  	    self.marker_list.map!(&:downcase) 
+  	  end
 
-	  def strip_commas_from_price
-		  self.price = self.price.to_s.gsub(/,/, '').to_f
-	  end
+  	  def strip_commas_from_price
+  		  self.price = self.price.to_s.gsub(/,/, '').to_f
+  	  end
 
-    def make_it_permalink
-      # this can create permalink with random 8 digit alphanumeric
-      self.permalink = SecureRandom.hex(12)
-    end
+      def make_it_permalink
+        # this can create permalink with random 8 digit alphanumeric
+        self.permalink = SecureRandom.hex(12)
+      end
+
+      def save_mentions
+        return unless mention?
+
+        people_mentioned.each do |member|
+          Mention.create!(:listing_id => self.id, :mentioner_id => self.id, :mentioner_type => 'Listing', :mentionable_id => member.id, :mentionable_type => 'Member')
+        end
+      end
+
+      def mention?
+        self.description.match( USERNAME_REGEX )
+      end
+
+      def people_mentioned
+        members = []
+        self.description.clone.gsub!( USERNAME_REGEX ).each do |user_name|
+          member = Member.find_by_user_name(user_name[1..-1])
+          members << member if member
+        end
+        members.uniq
+      end 
+
+      def perform_banner_removal
+        if remove_banner == '1' && !banner.dirty?
+          self.banner = nil
+        end
+      end
+
+      def perform_cover_removal
+        if remove_cover == '1' && !cover.dirty?
+          self.cover = nil
+        end
+      end 
 
 end

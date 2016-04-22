@@ -1,8 +1,9 @@
 class Project < ActiveRecord::Base
 
-  attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city
+  attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city,
+                  :remove_banner, :remove_avatar
 
-  attr_accessor :mention
+  attr_accessor :mention, :remove_banner, :remove_avatar
 
   belongs_to :member
 
@@ -27,6 +28,7 @@ class Project < ActiveRecord::Base
   before_validation :clean_up_markers
 
   after_save :save_mentions
+  before_save :perform_banner_removal, :perform_avatar_removal
 
   validates :name, presence: { message: 'can\'t be blank.'},
             length: {
@@ -140,6 +142,18 @@ class Project < ActiveRecord::Base
         members << member if member
       end
       members.uniq
-    end     
+    end 
+
+    def perform_banner_removal
+      if remove_banner == '1' && !banner.dirty?
+        self.banner = nil
+      end
+    end
+
+    def perform_avatar_removal
+      if remove_avatar == '1' && !avatar.dirty?
+        self.avatar = nil
+      end
+    end    
 
 end

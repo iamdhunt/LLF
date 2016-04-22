@@ -13,6 +13,8 @@ class MentionsMailer < ActionMailer::Base
       @content = mention.mentioner.about
     elsif mention.mentioner_type == 'Event'
       @content = mention.mentioner.details
+    elsif mention.mentioner_type == 'Listing'
+      @content = mention.mentioner.description
     else
       @content = mention.mentioner.content
     end
@@ -29,7 +31,7 @@ class MentionsMailer < ActionMailer::Base
       @type = mention.mentioner_type
     end
 
-    if mention.mentioner_type == 'Medium' || mention.mentioner_type == 'Project' || mention.mentioner_type == 'Event' || mention.mentioner_type == 'Status' 
+    if mention.mentioner_type == 'Medium' || mention.mentioner_type == 'Project' || mention.mentioner_type == 'Event' || mention.mentioner_type == 'Status' || mention.mentioner_type == 'Listing' 
     	@mention_link = mention.mentioner
     elsif mention.mentioner_type == 'Upload'
       @mention_link = mention.mentioner.uploadable

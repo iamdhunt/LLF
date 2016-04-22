@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160322030358) do
+ActiveRecord::Schema.define(:version => 20160421231419) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -321,6 +321,7 @@ ActiveRecord::Schema.define(:version => 20160322030358) do
     t.integer  "upload_id"
     t.integer  "event_id"
     t.integer  "project_id"
+    t.integer  "listing_id"
   end
 
   add_index "mentions", ["mentionable_id", "mentionable_type"], :name => "ments_on_ables_id_and_type"

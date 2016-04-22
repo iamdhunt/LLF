@@ -97,6 +97,13 @@
               </div>
             <% end %>
 
+              <div class="act_media_content" style="text-align:left;">
+                <% if f.object.cover? %>
+                  <%= image_tag f.object.cover.url(:form) %>
+                  <%= f.input :remove_cover, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
+                <% end %>
+              </div>
+
           </div>
 
       </fieldset>
@@ -165,6 +172,7 @@
           <div class="edit_bn_l">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
+              <%= f.input :remove_banner, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
             <% end %>
           </div>
 
@@ -198,7 +206,7 @@
 
       <fieldset>
           <legend class="leg">Description</legend>
-          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '7', id: '', autocomplete: 'off' } %>
+          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '7', id: 'l_dscr', autocomplete: 'off' } %>
       </fieldset>
 
     </div>

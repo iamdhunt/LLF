@@ -1,6 +1,7 @@
 <% if notification.notified_object %>
 	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Medium' && notification.notified_object.mentioner.caption.nil? %>
 	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Upload' && notification.notified_object.mentioner.caption.nil? %>
+	<% unless notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Listing' && notification.notified_object.mentioner.description.nil? %>
 	<% @notification = notification %>
 
 	<div class="not_wrap">
@@ -77,6 +78,8 @@
 					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= notification.notified_object.mentioner_type.downcase %> <%= link_to notification.notified_object.mentioner.name.titleize, notification.notified_object.mentioner %>
 				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Event' %>
 					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in an <%= notification.notified_object.mentioner_type.downcase %> <%= link_to notification.notified_object.mentioner.name.titleize, notification.notified_object.mentioner %>
+				<% elsif notification.notified_object_type == 'Mention' && notification.notified_object.mentioner_type == 'Listing' %>
+					<%= link_to "mentioned", notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %> you in a <%= link_to notification.notified_object.mentioner_type.downcase, notification.notified_object.mentioner, title: 'View Mention', alt: 'View Mention' %>
 				<% end %>
 
 				<% if notification.notified_object_type == 'ActsAsVotable::Vote' %>
@@ -121,7 +124,7 @@
 						    </div>
 						<% end %>
 
-						<% if notification.notified_object.link %>
+						<% if notification.notified_object.link? %>
 							<%= upload_display(notification.notified_object.link) %>
 						<% end %>
 					<% end %>
@@ -140,6 +143,7 @@
 			<% end %>
 
 			<% if notification.notified_object_type == 'Mention' %>
+
 				<% if notification.notified_object.mentioner_type == 'Comment' %>
 					<% if notification.notified_object.mentioner.commentable_type == 'Event' || notification.notified_object.mentioner.commentable_type == 'Project' %>
 						<%= link_to image_tag(notification.notified_object.mentioner.commentable.avatar.url(:thumb)), notification.notified_object.mentioner.commentable, title: notification.notified_object.mentioner.commentable.name, alt: notification.notified_object.mentioner.commentable.name %>
@@ -194,6 +198,20 @@
 
 				<% if notification.notified_object.mentioner_type == 'Event' %>
 					<%= link_to image_tag(notification.notified_object.mentioner.avatar.url(:thumb)), notification.notified_object.mentioner, title: notification.notified_object.mentioner.name, alt: notification.notified_object.mentioner.name %>
+				<% end %>
+
+				<% if notification.notified_object.mentioner_type == 'Listing' %>
+					<% if notification.notified_object.mentioner.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
+						<%= link_to image_tag(notification.notified_object.mentioner.feature.url(:thumb)), notification.notified_object.mentioner, title: notification.notified_object.mentioner.title, alt: notification.notified_object.mentioner.title %>
+					<% end %>
+
+					<% if notification.notified_object.mentioner.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+						<% if notification.notified_object.mentioner.cover? %>
+							<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:small)), notification.notified_object.mentioner, title: notification.notified_object.mentioner.title, alt: notification.notified_object.mentioner.title %>
+						<% else %>
+							<%= link_to image_tag('Listing Audio More.png'), notification.notified_object.mentioner, title: notification.notified_object.mentioner.title, alt: notification.notified_object.mentioner.title %>
+						<% end %>
+					<% end %>
 				<% end %>
 
 			<% end %>
@@ -254,6 +272,7 @@
 	<div style="clear:both;"></div>
 	</div>
 
+	<% end %>
 	<% end %>
 	<% end %>
 <% end %>

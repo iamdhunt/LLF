@@ -40,6 +40,7 @@
           <div class="edit_av_f">
             <% if f.object.avatar? %>
               <%= image_tag f.object.avatar.url(:av) %>
+              <%= f.input :remove_avatar, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
             <% end %>
           </div>
           <div class="custom-file-upload fu2_wrap">
@@ -50,6 +51,7 @@
           <div class="edit_av_f">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
+              <%= f.input :remove_banner, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
             <% end %>
           </div>
         </fieldset>

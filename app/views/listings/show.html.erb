@@ -122,7 +122,7 @@
 
           <% if @listing.description %>
             <div class="desc">
-              <%= sanitize(Rinku.auto_link(@listing.description), :tags => %w(a)) %>
+              <%= sanitize(Rinku.auto_link(listings_with_mentions(@listing).gsub(/\n/, '<br/>')), :tags => %w(a br)) %>
             </div>
           <% end %>
 
