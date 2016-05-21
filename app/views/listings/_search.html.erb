@@ -1,3 +1,12 @@
-<%= form_tag listings_path, :method => :get do %>
-    <%= text_field_tag :listings, params[:listings], placeholder: 'Discover Listings', :autocomplete => :off, input_html: { class: 'search' } %>
-<% end %>
+<div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <%= form_tag listings_path, :method => :get do %>
+            <%= text_field_tag :listings, params[:listings], placeholder: 'Find listings from creative brands and people.', :autocomplete => :off, input_html: { class: 'form-control input-lg search' } %>
+            <span class="input-group-btn">
+                <%= button_tag(type: "submit", class: "btn btn-info btn-lg") do %>
+                    <i class="fa fa-search"></i>
+                <% end %>
+            </span>
+        <% end %>
+    </div>
+</div>

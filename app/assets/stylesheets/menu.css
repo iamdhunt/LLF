@@ -30,9 +30,6 @@
 	border-radius: 7px;
 	border: none;
 }
-.mem_drop {
-	float: right;
-}
 .member li a {
 	padding: 1px 20px;
 	text-align: left;
@@ -125,8 +122,7 @@
 	background-image: url('/assets/glyphicons-halflings-white.png') !important;
 }
 .nav_search {
-	padding-top: 12px;
-	display: inline-block;
+	padding-top: 9px;
 }
 #member_actions .dropdown-menu {
 	top: 38px;
@@ -214,8 +210,8 @@
 	width: 14px;
 	height: 14px;
 	position: absolute;
-	top: 16px;
-	right: 6px;
+	top: -15px;
+	right: 1px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	border: 1px solid rgb(235, 223, 223);
@@ -237,8 +233,8 @@
 	width: 14px;
 	height: 14px;
 	position: absolute;
-	top: 17px;
-	right: 10px;
+	top: -14px;
+	right: 14px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	border: 1px solid rgb(235, 223, 223);
@@ -264,15 +260,6 @@
 	height: 24px;
 	margin: 16px 0 0 8px;
 }
-#discover {
-	background-image: url('/assets/Discover Input 4.png');
-	background-position: 5px 45%;
-	background-repeat: no-repeat;
-	background-size: 20px 20px;
-    padding-left: 30px;
-    margin: 0 auto;
-    min-width: 300px;
-}
 #e_wrapper .nav-tabs > li {
 	margin-bottom: 10px;
 }
@@ -295,4 +282,13 @@
 }
 .nav_links .nav_icons {
 	margin: 15px 10px 0 0;
+}
+.nav_search #custom-search-input {
+	margin-left: 315px;
+	margin-right: 180px;
+	border-radius: 6px;
+}
+.nav_search.l_o #custom-search-input {
+	margin-left: 315px;
+	margin-right: 130px;
 }

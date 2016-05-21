@@ -30,10 +30,18 @@
 
 <div id="subnav_wrap">
     <ul class="sub sub_stream"> 
-        <% if member_signed_in? %>  
-            <li>
-                <%= link_to '<i class="fa fa-user"></i>Personal'.html_safe, profile_personal_path(@member), class: '' %>
-            </li> 
+        <% if member_signed_in? %>
+            <% if current_member == @member %>
+                <li>
+                    <%= link_to '<i class="fa fa-tint"></i>Popular'.html_safe, stream_popular_path(@member), class: '' %>
+                </li>  
+                <li>
+                    <%= link_to '<i class="fa fa-arrow-circle-right"></i>Following'.html_safe, stream_following_path(@member), class: '' %>
+                </li> 
+                <li>
+                    <%= link_to '<i class="fa fa-user"></i>Personal'.html_safe, profile_personal_path(@member), class: '' %>
+                </li>
+            <% end %>
         <% end %>      
         <li>
             <%= link_to '<i class="fa fa-heart"></i>Favorites'.html_safe, profile_favorites_path(@member), class: '' %>

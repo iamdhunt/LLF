@@ -15,24 +15,10 @@
 		<div id="p_list_top">
 			<span class="l">
 		      <%= avatar_profile_link follow.member, :class => "pr_av", title: follow.member.full_name, alt: follow.member.full_name %>
-		      <% if follow.category == 'Arts' %>
-		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
-		      <% end %>
-		      <% if follow.category == 'Entrepreneurial' %>
-		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
-		      <% end %>
-		      <% if follow.category == 'Sports & Rec' %>
-		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports & Rec') %>
-		      <% end %>
-		      <% if follow.category == 'Music' %>
-		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
-		      <% end %>
-		      <% if follow.category == 'Other' %>
-		        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
-		      <% end %>
 		    </span>
 
 		    <span class="r">
+
 		    	<% if member_signed_in? %>
 		    		<% unless follow.member == current_member %>
 			    		<span id="evt_fol_<%= follow.id %>_<%= follow.member.id %>">
@@ -42,7 +28,15 @@
 			    	<span id="evt_fav_<%= follow.id %>_<%= follow.member.id %>">
 					    <%= render :partial => "events/fav_button_stream", :locals => {:event => follow} %>
 					</span>
+				<% else %>
+					<span id="evt_fol_<%= follow.id %>_<%= follow.member.id %>" class="l_out">
+					    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Follow", alt: "Follow") %>
+					</span>
+					<span id="evt_fav_<%= follow.id %>_<%= follow.member.id %>" class="l_out">
+					    <%= image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite") %>
+					</span>
 		      	<% end %>
+
 		    </span>
 		    <div style="clear:both;"></div>
 		</div>

@@ -7,7 +7,7 @@
     <div id="sb_wrap">
 
     	<% if @facet == nil && @query == nil && @price_range == nil %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc mk4">
     			<div class="breadcrumbs">
     				<span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span>Listings</span>
     			</div>
@@ -25,9 +25,15 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "search" %></span>
+                <% end %>
             </div>
         <% else %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc mk5">
                 <div class="breadcrumbs">
                     <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span>Discover</span>
                 </div>
@@ -45,18 +51,16 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "search" %></span>
+                <% end %>
             </div>
     	<% end %>
 
-        <div class="sb_text">
-            Look up a listing name or tag
-        </div>
-
-        <div class="sb">
-          <%= render :partial => "search" %>
-        </div>
-
-        <div class="btags">
+        <div class="btags top">
             <% for row in @search.facet(:price).rows %>
                 <span class="bprice">
                     <%= link_to (row.value).to_s.prepend("$").gsub(/\.0\.\./," - $").gsub(/\.0/,""), :price_range => row.value, :search => params[:listings] %>

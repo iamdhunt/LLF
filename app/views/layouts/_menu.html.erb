@@ -1,145 +1,157 @@
 <div id="nav_bar">  
    <div class="nav_container">
-        <div class="primary_nav">
-            <ul id="main_menu">
-                <li class="h_i">
-                    <% if member_signed_in? %>
-                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
-                    <% else %>       
-                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to "Community", community_index_path, alt: 'Community' %>
-                </li>
-                <% unless member_signed_in? %>
-                    <li>
-                        <%= link_to "Media", media_path, alt: 'Media' %>
-                    </li>
-                <% end %>
-                <li>
-                    <%= link_to "Market", market_path, alt: 'Market' %>
-                </li>
-                <li>
-                    <%= link_to "Events", events_path, alt: 'Events' %>
-                </li>
-                <li>
-                    <%= link_to "Projects", projects_path, alt: 'Projects' %>
-                </li>
-            </ul>
 
-            <ul id="main_menu2">
-                <li class="h_i">
-                    <% if member_signed_in? %>
-                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
-                    <% else %>       
-                        <%= link_to image_tag("Favicon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
-                    <% end %>
-                </li>
-                <li>
-                    <%= link_to image_tag("nav_icon_community.png", class: "nav_icons"), community_index_path, title: "Community", alt: "Community", :class => "" %>
-                </li>
-                <% unless member_signed_in? %>
-                    <li>
-                        <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", :class => "" %>
-                    </li>
-                <% end %>
-                <li>
-                    <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", :class => "" %>
-                </li>
-                <li>
-                    <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", :class => "" %>
-                </li>
-                <li>
-                    <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons"), projects_path, title: "Projects", alt: "Projects", :class => "" %>
-                </li>
-            </ul>
-        </div>
-
-        <div class='nav_search'>
-            <%= render partial: 'search/search' %>
-        </div>
-
-        <% if member_signed_in? %>
-
-            <div class="mem_drop">
-                <span class="btn-group">
-                    <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av ", title: current_member.full_name, id: ""), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                    <ul class="dropdown-menu member">
-                        <li>
-                            <%= link_to 'View My Profile', profile_path(current_member), class: 'menu_name' %>
-                        </li>
-                        <li class="">
-                            <%= link_to 'Account Settings'.html_safe, edit_member_path, class: 'top_links a' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-arrow-circle-right fw"></i>Following'.html_safe, profile_following_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-arrow-circle-left fw"></i>Followers'.html_safe, profile_followers_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-th fw"></i>Stream'.html_safe, profile_stream_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-music fw"></i>Media'.html_safe, profile_media_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-th-list fw"></i>Market'.html_safe, profile_market_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-dot-circle-o fw"></i>Events'.html_safe, profile_events_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l grey_bottom">
-                            <%= link_to '<i class="fa fa-rocket fw"></i>Projects'.html_safe, profile_projects_path(current_member), class: 'bottom_links' %>
-                        </li>
-                        <li class="fa_l s_out">
-                            <%= link_to '<i class="fa fa-power-off fw"></i>Logout'.html_safe, sign_out_path, class: 'top_links sign_out' %>
-                        </li>
-                    </ul>
-                </span>
-            </div>
-
-            <div class="nav_links">
-                <ul>
-                    <li>
-                        <%= link_to image_tag("Discover 4.png", class: "nav_icons discover"), search_path, title: "Discover", alt: "Discover", :class => "" %>
-                    </li>
-                    <li>
-                        <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", :class => "" %>
-                    </li>
-                    <li>
-                        <div class="alert_wrap">
-                            <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
-                                <%= image_tag("Messages.png", class: "nav_icons messages") %>    
-                            <% end %> 
-                            <span class="m_alert">
-                                <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>
-                                    <div id="m_alert" class=""></div>
-                                <% end %>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="not_li2">
-                        <div class="alert_wrap">
-                            <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
-                                <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
-                                <span class="n_alert">
-                                    <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
-                                        <div id="n_alert"></div>
-                                    <% end %>
-                                </span>
-                            <% end %>
-                        </div>
-                    </li>
-                </ul> 
-            </div>    
-        <% else %>
+        <% unless member_signed_in? %>
             <div class="nav_links">
                 <%= link_to "Login", sign_in_path, :class => "member_links" %>
                 <%= link_to "Join!", join_path, :class => "member_links" %>
             </div>
         <% end %>
+
+        <% if member_signed_in? %>
+            <div class="nav_links2">
+
+                <%= link_to image_tag("Discover 4.png", class: "nav_icons discover"), search_path, title: "Discover", alt: "Discover", :class => "" %>
+
+                <span class="alert_wrap">
+                    <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
+                        <%= image_tag("Messages.png", class: "nav_icons messages") %>    
+                    <% end %> 
+                    <span class="m_alert">
+                        <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>
+                            <div id="m_alert" class=""></div>
+                        <% end %>
+                    </span>
+                </span>
+
+                <span class="alert_wrap">
+                    <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
+                        <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
+                        <span class="n_alert">
+                            <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
+                                <div id="n_alert"></div>
+                            <% end %>
+                        </span>
+                    <% end %>
+                </span>
+                
+
+
+                <span class="mem_drop">
+                    <span class="btn-group">
+                        <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av ", title: current_member.full_name, id: ""), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                        <ul class="dropdown-menu member">
+                            <li>
+                                <%= link_to 'View My Profile', profile_path(current_member), class: 'menu_name' %>
+                            </li>
+                            <li class="">
+                                <%= link_to 'Account Settings'.html_safe, edit_member_path, class: 'top_links a' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-arrow-circle-right fw"></i>Following'.html_safe, profile_following_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-arrow-circle-left fw"></i>Followers'.html_safe, profile_followers_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-th fw"></i>Stream'.html_safe, profile_stream_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-music fw"></i>Media'.html_safe, profile_media_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-th-list fw"></i>Market'.html_safe, profile_market_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-dot-circle-o fw"></i>Events'.html_safe, profile_events_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l grey_bottom">
+                                <%= link_to '<i class="fa fa-rocket fw"></i>Projects'.html_safe, profile_projects_path(current_member), class: 'bottom_links' %>
+                            </li>
+                            <li class="fa_l s_out">
+                                <%= link_to '<i class="fa fa-power-off fw"></i>Logout'.html_safe, sign_out_path, class: 'top_links sign_out' %>
+                            </li>
+                        </ul>
+                    </span>
+                </span>
+
+                
+            </div>
+        <% end %>
+
+        <div class="primary_nav">
+            <span class="h_i">
+                <% if member_signed_in? %>
+                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
+                <% else %>       
+                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
+                <% end %>
+            </span>
+            <span class="txt">
+                <%= link_to "Market", market_path, alt: 'Market', class: "#{cp(market_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Media", media_path, alt: 'Media', class: "#{cp(media_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Events", events_path, alt: 'Events', class: "#{cp(events_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Projects", projects_path, alt: 'Projects', class: "#{cp(projects_path)}" %>
+            </span>
+        </div>
+
+        <div class="primary_nav2">
+            <span class="h_i">
+                <% if member_signed_in? %>
+                    <span class="l_i">
+                        <%= link_to image_tag("Beta Icon.png", :class => "menu_logo", style: "margin-bottom:4px;"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
+                    </span>
+                <% else %>       
+                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
+                <% end %>
+            </span>
+            <% if member_signed_in? %>
+                <span class="l_i">
+                    <span class="log">
+                        <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", class: "#{cp(market_path)}" %>
+                    </span>
+                    <span class="log">
+                        <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", class: "#{cp(media_path)}" %>
+                    </span>
+                    <span class="log">
+                        <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", class: "#{cp(events_path)}" %>
+                    </span>
+                    <span class="log">
+                        <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons projects"), projects_path, title: "Projects", alt: "Projects", class: "#{cp(projects_path)}" %>
+                    </span>
+                </span>
+            <% else %>
+                <span class="log">
+                    <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", class: "#{cp(market_path)}" %>
+                </span>
+                <span class="log md">
+                    <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", class: "#{cp(media_path)}" %>
+                </span>
+                <span class="log">
+                    <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", class: "#{cp(events_path)}" %>
+                </span>
+                <span class="log">
+                    <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons projects"), projects_path, title: "Projects", alt: "Projects", class: "#{cp(projects_path)}" %>
+                </span>
+            <% end %>
+        </div>
+
+        <% if member_signed_in? %>
+            <div class='nav_search'>
+                <%= render partial: 'search/search' %>
+            </div>
+        <% else %>
+            <div class='nav_search l_o'>
+                <%= render partial: 'search/search' %>
+            </div>
+        <% end %>
+
     </div>
 
     <div style="clear:both;"></div>

@@ -6,7 +6,7 @@
 
     <div id="sb_wrap">
         <% if @facet != nil || @query != nil || @city_facet != nil %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc p2">
                 <div class="breadcrumbs">
                     <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span>Discover</span>
                 </div>
@@ -24,9 +24,15 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "search" %></span>
+                <% end %>
             </div>
         <% else %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc p1">
                 <div class="popular">
                   <%= link_to popular_projects_path, title: 'Popular Projects', alt: 'Popular Projects' do %>
                     <i class="fa fa-heart"></i>Popular
@@ -40,23 +46,24 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "search" %></span>
+                <% end %>
             </div>
         <% end %>
 
-        <div class="sb_text">
-            Look up a project name, tag, or city
-        </div>
-        <div class="sb">
-          <%= render :partial => "search" %>
-        </div>
-
-        <div class="btags">
+        <div class="btags top">
             <div class="loc_nm">             
                 <% for row in @search.facet(:city).rows %>
                     <span class="eloc"><%= link_to(row.value.titleize, params.merge({:city => row.value})) %></span>
                 <% end %>           
             </div>
+        </div>
 
+        <div class="btags">
             <% for row in @search.facet(:marker_list).rows %>
               <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value})) %></span>
             <% end %>

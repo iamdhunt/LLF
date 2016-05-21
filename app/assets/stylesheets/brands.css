@@ -255,8 +255,11 @@ margin: 0 0 30px 170px;
 	padding-bottom: 4px;
 }
 .btags {
-	padding-top: 10px;
+	padding-top: 5px;
 	font-size: 14px;
+}
+.btags.top {
+	padding-top: 20px;
 }
 .btag a {
 	color: #fff;

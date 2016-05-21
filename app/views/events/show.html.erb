@@ -86,32 +86,20 @@
     </div>
 
     <div id="ev_info">
-      <span class="l">
-        <%= avatar_profile_link @event.member, :class => "pr_av", title: @event.member.full_name, alt: @event.member.full_name  %>
-        <% if @event.category == 'Arts' %>
-          <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
-        <% end %>
-        <% if @event.category == 'Entrepreneurial' %>
-          <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
-        <% end %>
-        <% if @event.category == 'Sports & Rec' %>
-          <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports & Rec') %>
-        <% end %>
-        <% if @event.category == 'Music' %>
-          <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
-        <% end %>
-        <% if @event.category == 'Other' %>
-          <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
-        <% end %>
-      </span>
+      <%= avatar_profile_link @event.member, :class => "pr_av", title: @event.member.full_name, alt: @event.member.full_name  %>
 
-      <span class="r">
         <% if member_signed_in? %>
           <span id="evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
             <%= render :partial => "events/fav_button", :locals => {:event => @event} %>
           </span>
+        <% else %>
+          <span class="l_out"><%= image_tag("Favorite 7.png", class: "ims fav", title: "Favorite", alt: "Favorite") %></span>
+        <% end %>
 
-          <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+        <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+
+        <% if member_signed_in? %>
+
           <% if current_member == @event.member %>
             <span class="btn-group">
               <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -125,8 +113,9 @@
                 </ul>
             </span>
           <% end %>
+
         <% end %>
-      </span>
+
     </div>
 
     <div class="evt_fav_ct">

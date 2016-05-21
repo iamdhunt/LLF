@@ -7,7 +7,7 @@ LLF::Application.routes.draw do
       root :to => 'devise/registrations#new'
     end
     unauthenticated :member do
-      root :to => 'devise/registrations#new'
+      root :to => 'community#index'
     end
   end 
 
@@ -159,6 +159,8 @@ LLF::Application.routes.draw do
     get '/media/cancel' => 'profiles#media_cancel'
     get '/media/favorites' => 'profiles#media_fav', as: 'profile_media_fav'
     get '/stream' => 'profiles#stream', as: 'profile_stream'
+    get '/stream/popular' => 'profiles#stream_pop', as: 'stream_popular'
+    get '/stream/following' => 'profiles#stream_fol', as: 'stream_following'
     get '/stream/personal' => 'profiles#personal', as: 'profile_personal'
     get '/stream/favorites' => 'profiles#stream_fav', as: 'profile_favorites'
     get '/followers' => 'profiles#followers', as: 'profile_followers'

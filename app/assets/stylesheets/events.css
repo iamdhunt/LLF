@@ -249,10 +249,10 @@
 	line-height: 28px;
 	font-weight: bold;
 }
-#ev_info .l .ims {
+#ev_info .ims {
 	height: 29px;
 }
-#ev_info .r .ims {
+#ev_info .ims {
 	height: 27px;
 }
 #ev_info .l {
@@ -366,6 +366,9 @@ vertical-align: baseline;
 .elocs {
 	padding-top: 10px;
 }
+.elocs.top {
+	padding-top: 20px;
+}
 .eloc a {
 	color: #fff;
 	 /* Fallback for web browsers that don't support RGBa */
@@ -427,13 +430,6 @@ vertical-align: baseline;
 #events {
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
-    text-align: center;
-}
-#events::-webkit-input-placeholder {
-	font-size: 1.1em;
-}
-#events::-moz-placeholder {
-	font-size: 1.1em;
 }
 #current {
 	background-position: 4px 38%;
@@ -474,7 +470,7 @@ vertical-align: baseline;
 	margin-left: -5px;
 }
 .ev_sep {
-	padding: 25px 50px 20px 70px;
+	padding: 25px 2.5% 20px 2.5%;
 }
 .ev_hd {
 	font-size: 1.75em;
@@ -484,7 +480,7 @@ vertical-align: baseline;
 	float: right;
 	font-size: .8em;
 	font-weight: bold;
-	padding: 12px 20px 0 0;
+	padding-top: 6px;
 }
 .ev_vm a {
 	color: #444;
@@ -518,6 +514,10 @@ vertical-align: baseline;
 	display: inline-block;
 	float: right;
 }
+.q_bc .add_evt {
+	float: left;
+	padding-top: 10px;
+}
 .add_evt a {
 	color: #fff;
 	background-color: #219e5c;
@@ -533,4 +533,46 @@ vertical-align: baseline;
 .add_evt .fa {
 	margin-left: -6px;
 	margin-right: -3px;
+}
+.q_bc.e1 #custom-search-input {
+    margin-left: 250px;
+}
+.q_bc.e2 #custom-search-input {
+    margin-left: 445px;
+}
+.q_bc.e3 #custom-search-input {
+    margin-left: 525px;
+}
+.q_bc.e4 #custom-search-input {
+    margin-left: 445px;
+}
+.q_bc.e5 #custom-search-input {
+    margin-left: 525px;
+}
+.q_bc.e6 #custom-search-input {
+    margin-left: 360px;
+}
+.q_bc.e7 #custom-search-input {
+    margin-left: 440px;
+}
+.e1 .l_o #custom-search-input {
+	margin-left: 110px;
+}
+.e2 .l_o #custom-search-input {
+	margin-left: 305px;
+}
+.e3 .l_o #custom-search-input {
+	margin-left: 385px;
+}
+.e4 .l_o #custom-search-input {
+	margin-left: 305px;
+}
+.e5 .l_o #custom-search-input {
+	margin-left: 385px;
+}
+.e6 .l_o #custom-search-input {
+	margin-left: 220px;
+}
+.e7 .l_o #custom-search-input {
+	margin-left: 300px;
 }

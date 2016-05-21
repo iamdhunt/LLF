@@ -28,21 +28,31 @@
 
 				<span><%= list_profile_link activity.targetable.member, :class => "pr_av", title: activity.targetable.member.full_name, alt: activity.targetable.member.full_name %></span>
 
-				<% if member_signed_in? %>
-
-					<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
-						<%= link_to medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
-							<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
-						<% end %>
-					<% elsif activity.targetable.comments.count > 99 %>
-						<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
-					<% else %>
-						<%= link_to image_tag("Comment 3.png", class: "act_actions"), medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
+					<%= link_to medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+						<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
 					<% end %>
+				<% elsif activity.targetable.comments.count > 99 %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% else %>
+					<%= link_to image_tag("Comment 3.png", class: "act_actions"), medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
+				<% end %>
+
+				<% if member_signed_in? %>
 
 					<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
 						<%= render :partial => "activities/favorite", :locals => {:activity => activity} %>	
 					</span>
+
+				<% else %>
+
+					<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
+						<%= render :partial => "activities/fav_logged_out.html", :locals => {:activity => activity} %>	
+					</span>
+
+				<% end %>
+
+				<% if member_signed_in? %>
 
 					<% if activity.member == current_member %>
 						<span class="">

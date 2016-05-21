@@ -78,4 +78,8 @@ module ApplicationHelper
 	  (obj.first.html).html_safe
 	end
 
+	def cp(path)
+	  "current" if request.path.start_with?(path)
+	end
+
 end

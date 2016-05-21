@@ -7,7 +7,8 @@
   <div id="sb_wrap" class="">
 
     <% if @facet != nil || @query != nil %>
-      <div id="bc_wrap">
+
+      <div id="bc_wrap" class="q_bc m3">
           <div class="breadcrumbs">
               <span class="mda"><%= link_to "Media", media_path %></span>
               &raquo; <span class="mda"><%= link_to "Popular", popular_media_path %></span>
@@ -15,39 +16,47 @@
           </div>
 
           <% if member_signed_in? %>
-            <div class="add_md" style="padding-top:10px;">
+            <div class="add_md">
               <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
                 <i class="fa fa-plus"></i>Add Media
               <% end %>
             </div>
           <% end %>
+
+          <% if member_signed_in? %>
+            <%= render :partial => "pop_search" %>
+          <% else %>
+            <span class="l_o"><%= render :partial => "pop_search" %></span>
+          <% end %>
+          
       </div>
+
     <% else %>
-      <div id="bc_wrap">
+
+      <div id="bc_wrap" class="q_bc m2">
           <div class="breadcrumbs">
               <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Popular</span>
           </div>
 
           <% if member_signed_in? %>
-            <div class="add_md" style="padding-top:10px;">
+            <div class="add_md">
               <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
                 <i class="fa fa-plus"></i>Add Media
               <% end %>
             </div>
           <% end %>
+
+          <% if member_signed_in? %>
+            <%= render :partial => "pop_search" %>
+          <% else %>
+            <span class="l_o"><%= render :partial => "pop_search" %></span>
+          <% end %>
+
       </div>
+
     <% end %>
 
-    <div class="sb_text">
-        Browse the most popular tags.</br>
-        Or enter something specific below.
-    </div>
-
-    <div class="sb">
-      <%= render :partial => "search" %>
-    </div>
-
-     <div class="btags">
+     <div class="btags top">
         <% for row in @search.facet(:marker_list).rows %>
             <span class="btag"><%= link_to('+ ' + row.value, params.merge({:tag => row.value}), title: row.value, alt: row.value) %></span>
         <% end %>

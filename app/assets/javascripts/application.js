@@ -26,4 +26,5 @@
 //= require plugins/code_beautifier.min.js
 //= require jquery.atwho
 //= require jquery.embedly.min.js
+//= require jquery.preview.js
 //= require_tree .

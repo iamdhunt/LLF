@@ -6,7 +6,7 @@
 
     <div id="sb_wrap" class="se_wrap">
 
-        <div id="bc_wrap">
+        <div id="bc_wrap" class="q_bc e1">
             <div class="popular">
               <%= link_to popular_events_path, title: 'Popular Events', alt: 'Popular Events' do %>
                 <i class="fa fa-heart"></i>Popular
@@ -20,13 +20,12 @@
                   <% end %>
                 </div>
             <% end %>
-        </div>
 
-        <div class="sb_text">
-            Look up a current event name, tag, or location
-        </div>
-        <div class="sb">
-          <%= render :partial => "search" %>
+            <% if member_signed_in? %>
+              <%= render :partial => "search" %>
+            <% else %>
+              <span class="l_o"><%= render :partial => "search" %></span>
+            <% end %>
         </div>
 
     </div>

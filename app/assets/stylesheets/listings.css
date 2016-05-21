@@ -128,7 +128,7 @@
 	text-decoration: none;
 }
 .pd_right .additional {
-	padding: 4px 0;
+	padding: 20px 0 4px 0;
 	color: #444;
 	font-weight: bold;
 	font-size: 1.5em;
@@ -145,6 +145,9 @@
 }
 .pd_right .ims {
 	height: 30px;
+}
+.pd_right .l_out img:hover {
+	opacity: .85;
 }
 .pd_right .btn-group {
 	vertical-align: baseline;
@@ -186,6 +189,7 @@
 	text-align: center;
 	font-size: 1.2em;
 	color: #444;
+	padding: 20px 0;
 }
 #pd_c_wrap #comment_btn .btn {
 	font-size: 1.05em;
@@ -366,6 +370,9 @@ font-weight: normal;
 	border-radius: 3px;
 	display: inline-block;
 }
+.breadcrumbs a {
+	padding: 10px 0;
+}
 .breadcrumbs a:hover {
 	text-decoration: none;
 	color: #898989;
@@ -533,6 +540,9 @@ label.active {
 	font-weight: bold;
 	display: inline-block;
 	float: right;
+}
+.q_bc .add_lst {
+	float: left;
 }
 .add_lst a {
 	color: #fff;

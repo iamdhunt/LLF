@@ -47,5 +47,4 @@ $(document).ready(function(){
     	$('#member_list_wrap').infinitescroll('retrieve');
         	return false;
 	});
-
 });

@@ -14,33 +14,33 @@
 		
 		<div id="p_list_top">
 			<span class="l">
-		      <% if event.category == 'Arts' %>
-		        <%= image_tag("/assets/Arts Category 2.png", class: 'ims', title: 'Arts') %>
-		      <% end %>
-		      <% if event.category == 'Entrepreneurial' %>
-		        <%= image_tag("/assets/Biz Category 2.png", class: 'ims', title: 'Entrepreneurial') %>
-		      <% end %>
-		      <% if event.category == 'Sports & Rec' %>
-		        <%= image_tag("/assets/Sports Category 2.png", class: 'ims', title: 'Sports & Rec') %>
-		      <% end %>
-		      <% if event.category == 'Music' %>
-		        <%= image_tag("/assets/Music Category 2.png", class: 'ims', title: 'Music') %>
-		      <% end %>
-		      <% if event.category == 'Other' %>
-		        <%= image_tag("/assets/Other Category 2.png", class: 'ims', title: 'Other') %>
-		      <% end %>
 		    </span>
 
 		    <span class="r">
+
 		    	<% if member_signed_in? %>
-		    		<% unless event.member == current_member %>
+		    		<% if event.member != current_member %>
 			    		<span id="evt_fol_<%= event.id %>_<%= event.member.id %>">
 						    <%= render :partial => "shared/follow_event2", :locals => {:event => event} %>
+						</span>
+					<% else %>
+						<span id="evt_fol_<%= event.id %>_<%= event.member.id %>" class="l_out">
+						    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Can't Follow", alt: "Can't Follow") %>
 						</span>
 					<% end %>
 			    	<span id="evt_fav_<%= event.id %>_<%= event.member.id %>">
 					    <%= render :partial => "events/fav_button_stream", :locals => {:event => event} %>
 					</span>
+				<% else %>
+					<span id="evt_fol_<%= event.id %>_<%= event.member.id %>" class="l_out">
+					    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Follow", alt: "Follow") %>
+					</span>
+					<span id="evt_fav_<%= event.id %>_<%= event.member.id %>" class="l_out">
+					    <%= image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite") %>
+					</span>
+				<% end %>
+
+				<% if member_signed_in? %>
 			        <% if current_member == event.member %>
 				        <span class="btn-group">
 				          <%= link_to image_tag("/assets/More 5.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -55,6 +55,7 @@
 				        </span>
 			        <% end %>
 		      	<% end %>
+
 		    </span>
 		    <div style="clear:both;"></div>
 		</div>

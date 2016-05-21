@@ -7,7 +7,7 @@
     <div id="sb_wrap" class="se_wrap">
 
         <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc e5">
                 <div class="breadcrumbs">
                     <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span class="evts"><%= link_to "Past", past_events_path %></span> &raquo; <span>Discover</span>
                 </div>
@@ -25,9 +25,15 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "past_search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "past_search" %></span>
+                <% end %>
             </div>
         <% else %>
-            <div id="bc_wrap">
+            <div id="bc_wrap" class="q_bc e4">
                 <div class="breadcrumbs">
                     <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span>Past</span>
                 </div>
@@ -45,17 +51,16 @@
                       <% end %>
                     </div>
                 <% end %>
+
+                <% if member_signed_in? %>
+                  <%= render :partial => "past_search" %>
+                <% else %>
+                  <span class="l_o"><%= render :partial => "past_search" %></span>
+                <% end %>
             </div>
         <% end %>
 
-        <div class="sb_text">
-            Look up a past event name, tag, or location
-        </div>
-        <div class="sb">
-          <%= render :partial => "past_search" %>
-        </div>
-
-        <div class="elocs">             
+        <div class="elocs top">             
             <% for row in @search.facet(:event_month).rows %>
                 <span class="eloc"><%= link_to(row.value, params.merge({:month => row.value})) %></span>
             <% end %>           

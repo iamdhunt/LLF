@@ -79,11 +79,23 @@
 
           <div class="action">
             <%= list_av @listing.member, :class => "pr_av", title: @listing.member.full_name, alt: @listing.member.full_name  %>
+
             <% if member_signed_in? %>
+
               <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
                 <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
               </span>
-              <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+
+            <% else %>
+
+              <span class="l_out"><%= image_tag("Favorite 7.png", class: "ims fav", title: "Favorite", alt: "Favorite") %></span>
+
+            <% end %>
+
+            <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+
+            <% if member_signed_in? %> 
+
               <% if current_member == @listing.member %>
                 <span class="btn-group">
                   <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
@@ -97,7 +109,9 @@
                     </ul>
                 </span>
               <% end %>
+
             <% end %>
+
           </div>
 
           <div class="lst_fav_ct">

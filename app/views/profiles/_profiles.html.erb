@@ -70,7 +70,9 @@
                     </div>
                 <% else %>
                     <div id="member_actions" class="profile_buttons">
-                        <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
+                        <span class="btn" title="Follow" alt="Follow"><%= image_tag("Follow.png", class: "mem_actions") %></span>
+                        <span class="btn" title="Start Conversation" alt="Start Conversation"><%= image_tag("Messages 2.png", class: "mem_actions") %></span>
+                        <span class="mt-btn btn" title="Share Profile" alt="Share Profile"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"} %></span>
                     </div>
                 <% end %>
             	<div class="profile_accounts">
@@ -116,7 +118,13 @@
             </div>
            <div style="clear:both;"></div>      
         </div>
+
+        <% if member_signed_in? && @member == current_member %>
+            <%= render :partial => "community/newsticker" %>
+        <% end %>
     </div>
+
+
 
     <% if @member == current_member %>
         <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">

@@ -1,0 +1,13 @@
+<% if activity.votes.size > 0 && activity.votes.size <= 99 %>
+	<span class="btn" title="Favorites" alt="Favorites">
+		<%= image_tag("Favorite 5.png", class: "act_actions") %><%= activity.votes.size %>
+	</span>
+<% elsif activity.votes.size > 99 %>
+	<span class="btn" title="Favorites" alt="Favorites">
+		<%= image_tag("Favorite 5.png", class: "act_actions") +'99+' %>
+	</span>
+<% else %>
+	<span class="btn" title="Favorites" alt="Favorites">
+		<%= image_tag("Favorite 5.png", class: "act_actions ") %>
+	</span>
+<% end %>

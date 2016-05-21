@@ -12,15 +12,19 @@ class ProfilesController < ApplicationController
       @medium = current_member.medium.new
       @status = current_member.statuses.new
       @status.build_document      
-      params[:page] ||= 1
-      @activities = Activity.for_member(current_member, params)
+      @activities = Activity.order("created_at desc").page(params[:page]).per_page(40)
 
       respond_to do |format|
         format.html
         format.js
       end
-  	elsif @member 
+  	elsif @member
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else 
   		render file: 'public/404', status: 404, formats: [:html]
   	end
@@ -32,8 +36,7 @@ class ProfilesController < ApplicationController
       @medium = current_member.medium.new
       @status = current_member.statuses.new
       @status.build_document 
-      params[:page] ||= 1
-      @activities = Activity.for_member(current_member, params)
+      @activities = Activity.order("created_at desc").page(params[:page]).per_page(40)
       
       respond_to do |format|
         format.html
@@ -41,6 +44,11 @@ class ProfilesController < ApplicationController
       end
     elsif @member 
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
+
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -54,7 +62,7 @@ class ProfilesController < ApplicationController
       @status.build_document
       @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
     elsif @member 
-      @activities = @member.activities.order("created_at desc").page(params[:page]).per_page(40)
+      redirect_to profile_stream_path(@member)
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end
@@ -69,6 +77,41 @@ class ProfilesController < ApplicationController
     elsif @member 
       @activities = @member.get_up_voted Activity.order("created_at desc").page(params[:page]).per_page(40)
       render action: :show_fav
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def stream_fol
+    @member = Member.find_by_user_name(params[:id])
+    if @member == current_member
+      @medium = current_member.medium.new
+      following_ids = @member.following_members.map(&:id)
+      @activities = Activity.where("member_id in (?)", following_ids).order("created_at desc").page(params[:page]).per_page(40)
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    elsif @member 
+      redirect_to profile_stream_path(@member)
+    else 
+      render file: 'public/404', status: 404, formats: [:html]
+    end
+  end
+
+  def stream_pop
+    @member = Member.find_by_user_name(params[:id])
+    if @member == current_member
+      @medium = current_member.medium.new
+      @activities = Activity.joins(:votes).group("activities.id")
+        .having("count(votes.id) >= ?", 1).order("created_at desc")
+        .page(params[:page]).per_page(40)
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    elsif @member 
+      redirect_to profile_stream_path(@member)
     else 
       render file: 'public/404', status: 404, formats: [:html]
     end

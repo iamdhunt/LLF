@@ -1,3 +1,12 @@
-<%= form_tag search_path, :method => :get do %>
-    <%= text_field_tag :discover, params[:discover], placeholder: 'Search by names, pursuits, & locations', :autocomplete => :off %>
-<% end %>
+<div id="custom-search-input">
+    <div class="input-group col-md-12">
+        <%= form_tag search_path, :method => :get do %>
+            <%= text_field_tag :discover, params[:discover], placeholder: 'Find people and brands by names, interests, or locations.', :autocomplete => :off, input_html: { class: 'form-control input-lg search' } %>
+            <span class="input-group-btn">
+                <%= button_tag(type: "submit", class: "btn btn-info btn-lg") do %>
+                    <i class="fa fa-search"></i>
+                <% end %>
+            </span>
+        <% end %>
+    </div>
+</div>

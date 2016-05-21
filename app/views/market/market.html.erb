@@ -4,7 +4,7 @@
 
 <div id="lstgs_wrap">
 
-    <div id="sb_wrap">
+    <div id="sb_wrap" class="q_bc mk1">
         <div id="bc_wrap">
             <div class="breadcrumbs">
                 <span>Market</span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span>
@@ -17,15 +17,14 @@
                   <% end %>
                 </div>
             <% end %>
+
+            <% if member_signed_in? %>
+              <%= render :partial => "listings/search" %>
+            <% else %>
+              <span class="l_o"><%= render :partial => "listings/search" %></span>
+            <% end %>
         </div>
 
-        <div class="sb_text">
-            Look up a listing name or tag
-        </div>
-
-        <div class="sb">
-          <%= render :partial => "listings/search" %>
-        </div>
     </div>
 
     <div id="mk_wrap">

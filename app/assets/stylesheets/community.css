@@ -111,3 +111,29 @@
 	text-decoration: none;
 	cursor: default;
 }
+#cty_cta {
+	width: 100%;
+	height: 98px;
+	padding: 30px;
+	background-color: #f9f9f9;
+	text-align: center;
+	font-size: 17px;
+	text-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+#cty_cta .a {
+	color: #333;
+}
+#cty_cta .b {
+	color: #7b7b7b;
+}
+#cty_cta .btn {
+	padding: 10px 15px;
+	font-weight: normal;
+	-webkit-box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	border-radius: 3px;
+}
+#cty_cta .btn-info {
+	padding: 10px 20px;
+}
