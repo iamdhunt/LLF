@@ -195,7 +195,7 @@ table {
 	color: #898989;
 	font-weight: bold;
 	font-size: 1.1em;
-	padding: 20px 5px 16px 5px;
+	padding: 20px 5px 15px 5px;
 	line-height: 55px;
 	vertical-align: top;
 }
@@ -288,7 +288,7 @@ table {
 	color: #898989;
 }
 .member_links {
-	padding: 0 8px;
+	padding: 19px 8px;
 }
 
 .nav_icons {
@@ -1733,6 +1733,13 @@ hr.contact {
 	height: 200px;
 	padding: 10px 0 10px 0;
 }
+#banner2 {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 98px;
+	padding: 10px 0 10px 0;
+}
 #stream_filters {
 	font-weight: bold;
 	text-align: center;
@@ -1812,53 +1819,53 @@ label.active {
 #stream_filters .stat_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .media label {
+#stream_filters .md_filter label {
 	background: #F7803C;
 	color: #fff;
 }
-#stream_filters .media label:hover {
+#stream_filters .md_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .market label {
+#stream_filters .mk_filter label {
 	background: #1b85a6;
 	color: #fff;
 }
-#stream_filters .market label:hover {
+#stream_filters .mk_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .event label {
+#stream_filters .ev_filter label {
 	background: #219e5c;
 	color: #fff;
 }
-#stream_filters .event label:hover {
+#stream_filters .ev_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .project label {
+#stream_filters .pj_filter label {
 	background: #da4f49;
 	color: #fff;
 }
-#stream_filters .project label:hover {
+#stream_filters .pj_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .photos label {
+#stream_filters .photo_filter label {
 	background: #FF6660;
 	color: #fff;
 }
-#stream_filters .photos label:hover {
+#stream_filters .photo_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .audio label {
+#stream_filters .audio_filter label {
 	background: #5D88EA;
 	color: #fff;
 }
-#stream_filters .audio label:hover {
+#stream_filters .audio_filter label:hover {
 	opacity: .85;
 }
-#stream_filters .video label {
+#stream_filters .video_filter label {
 	background: #1ebaa9;
 	color: #fff;
 }
-#stream_filters .video label:hover {
+#stream_filters .video_filter label:hover {
 	opacity: .85;
 }
 #stream_filters .art_filter label {

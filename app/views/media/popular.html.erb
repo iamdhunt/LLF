@@ -64,28 +64,7 @@
 
   </div>
 
-  <div id="stream_filters" class="form-inline">
-        <span class="filters all">
-            <label for="filter__">
-            <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
-            </label>
-        </span>
-        <span class="filters photos">
-            <label for="filter_.photo_fil">
-            <%= radio_button_tag(:filter, ".photo_fil") %> Photos
-            </label>
-        </span>
-        <span class="filters audio">
-            <label for="filter_.audio_fil">
-            <%= radio_button_tag(:filter, ".audio_fil") %> Audio
-            </label>
-        </span>
-        <span class="filters video">
-            <label for="filter_.video_fil">
-            <%= radio_button_tag(:filter, ".video_fil") %> Video
-            </label>
-        </span>
-  </div>
+  <%= render :partial => "shared/media_filters" %>
 
   <div id="media_query_media">
       <div id="m_fav_list_wrap">

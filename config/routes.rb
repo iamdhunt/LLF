@@ -91,15 +91,6 @@ LLF::Application.routes.draw do
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
 
-  scope '/faqs' do
-    get "/basics" => "pages#faqs_basics", :as => "faqs_basics"
-    get "/community" => "pages#faqs_community", :as => "faqs_community"
-    get "/media" => "pages#faqs_media", :as => "faqs_media"
-    get "/events" => "pages#faqs_events", :as => "faqs_events"
-    get "/projects" => "pages#faqs_projects", :as => "faqs_projects"
-    get "/market" => "pages#faqs_market", :as => "faqs_market"
-  end
-
   devise_for :members, :controllers => { :registrations => "registrations" }
   ActiveAdmin.routes(self)
   devise_for :members, skip: [:sessions]

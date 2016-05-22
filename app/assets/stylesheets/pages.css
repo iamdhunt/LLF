@@ -8,7 +8,7 @@
 	padding: 2% 0 5% 0;
 }
 #e_404 #error_wrap {
-	background-image: url("/assets/404.png");
+	background-image: url("/assets/FAQs Main 1.png");
 }
 #er_info {
 	padding: 30px;
@@ -57,6 +57,7 @@
 }
 #content_wrap .accordion-content {
 	border: none;
+	font-size: 1.2em;
 }
 #content_wrap .accordion-content a {
 	font-weight: bold;
@@ -162,4 +163,26 @@
 }
 .in_pgs .accordion-header i {
 	margin-top: 7px;
+}
+#faqs_wrap {
+	padding: 0 150px 150px 150px;
+}
+#faqs_wrap #content_wrap {
+	padding: 0;
+	width: 100%;
+}
+#faqs_wrap #ue_nav .nav-tabs li {
+	font-size: 1.6em;
+	padding-top: 8px
+}
+#faqs_wrap #ue_nav .nav-tabs > li > a {
+	padding: 17px;
+}
+#faqs_wrap #ue_nav .nav-tabs > .active > a {
+	background-color: #d14c8f;
+	color: #fff;
+}
+#faqs_wrap #ue_nav .nav-tabs > li > a:hover {
+	background-color: #d14c8f;
+	color: #fff;
 }

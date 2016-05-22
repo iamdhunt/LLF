@@ -1,52 +1,62 @@
 <% title "LLF x FAQ's" %>
 
-<div id="faq_bg">
+	<%= render :partial => "info_banner" %>
 
-		<div class="faq_wrap">
+	<div id="faqs_wrap">
 
-			<table style="">
-			  <tr>
-			    <td class="fq_list tb">
-			    	<%= link_to faqs_basics_path, title: "Basics FAQ's", alt: "Basics FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> BASICS
-			   		<% end %>
-			    </td>		
-			    <td class="fq_list cmy">
-			    	<%= link_to faqs_community_path, title: "Community FAQ's", alt: "Community FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> COMMUNITY
-			   		<% end %>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td class="fq_list md">
-			    	<%= link_to faqs_media_path, title: "Media FAQ's", alt: "Media FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> MEDIA
-			   		<% end %>
-			    </td>		
-			    <td class="fq_list evt">
-			    	<%= link_to faqs_events_path, title: "Events FAQ's", alt: "Events FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> EVENTS
-			   		<% end %>
-			    </td>
-			  </tr>
-			  <tr>
-			    <td class="fq_list prj">
-			    	<%= link_to faqs_projects_path, title: "Projects FAQ's", alt: "Projects FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> PROJECTS
-			   		<% end %>
-			    </td>		
-			    <td class="fq_list mkt">
-			    	<%= link_to faqs_market_path, title: "Market FAQ's", alt: "Market FAQ's", :class => "" do %>
-			    		<%= image_tag("FAQ Icon.png", class: "fq_icon") %> MARKET
-			   		<% end %>
-			    </td>
-			  </tr>
-			</table>
+		<div id="ue_nav">
+		    <ul class="nav nav-tabs" id="">
+		      <li class="active">
+		        <%= link_to "Basics", "#basics", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Community", "#community", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Media", "#media", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Events", "#events", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Projects", "#projects", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		      <li>
+		        <%= link_to "Market", "#market", :data => {:toggle=>"tab"}, class: '' %>
+		      </li>
+		    </ul>
+		</div>
+
+		<div id="content_wrap">
+
+			<div class="tab-content">
+    			<div id="basics" class="tab-pane active">
+					<%= render 'faq_basic' %>
+				</div>
+
+    			<div id="community" class="tab-pane">
+					<%= render 'faq_community' %>
+				</div>
+
+    			<div id="media" class="tab-pane">
+					<%= render 'faq_media' %>
+				</div>
+
+    			<div id="events" class="tab-pane">
+					<%= render 'faq_events' %>
+				</div>
+
+    			<div id="projects" class="tab-pane">
+					<%= render 'faq_projects' %>
+				</div>
+
+    			<div id="market" class="tab-pane">
+					<%= render 'faq_market' %>
+				</div>
+			</div>
 
 		</div>
 
+	</div>
+
 <!--/faq_wrap-->
-
-</div>
-
-<!--/faq_bg-->

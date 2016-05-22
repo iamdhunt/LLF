@@ -1,0 +1,22 @@
+<div id="stream_filters" class="form-inline">
+    <span class="filters all">
+        <label for="filter__">
+        <%= radio_button_tag(:filter, "*", :checked => 'checked') %> All
+        </label>
+    </span>
+    <span class="filters photo_filter">
+        <label for="filter_.photo_fil">
+        <%= radio_button_tag(:filter, ".photo_fil") %> Photos
+        </label>
+    </span>
+    <span class="filters audio_filter">
+        <label for="filter_.audio_fil">
+        <%= radio_button_tag(:filter, ".audio_fil") %> Audio
+        </label>
+    </span>
+    <span class="filters video_filter">
+        <label for="filter_.video_fil">
+        <%= radio_button_tag(:filter, ".video_fil") %> Video
+        </label>
+    </span>
+</div>
