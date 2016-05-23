@@ -1,7 +1,23 @@
 <div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap event_fil">
 
 	<div id="a_top">
-		<span class="at_e"><%= link_to 'event', profile_events_path(activity.targetable.member) %></span>
+
+		<div class="a_av"><%= act_profile_link activity.targetable.member, :class => "pr_av", title: activity.targetable.member.full_name, alt: activity.targetable.member.full_name %>
+		</div>
+
+		<div class="a_info at_e">
+			<ul>
+				<li>
+					<%= link_to status_path(activity.targetable) do %>
+					 <span class="a_action">created an</span> event
+					<% end %>
+				</li>
+				<li class="a_time">
+					<span class="a_t"><span class="e"><%= time_ago_in_words(activity.targetable.created_at) %></span></span>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 
 	<div class="act_e_av">
@@ -44,8 +60,6 @@
 	<div id="act_btn_wrap">
 		<span id="comment_act_btn">
 
-			<span><%= list_profile_link activity.targetable.member, :class => "pr_av", title: activity.targetable.member.full_name, alt: activity.targetable.member.full_name %></span>
-
 			<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
 				<%= link_to event_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
 					<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
@@ -83,8 +97,6 @@
 				<% end %>
 
 			<% end %>
-
-			<span class="a_t"><span class="e"><%= time_ago_in_words(activity.targetable.created_at) %></span></span>
 			
 		</span>
 	</div>

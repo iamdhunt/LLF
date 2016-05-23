@@ -215,7 +215,7 @@ table {
 }
 #nav_bar .primary_nav2 {
 	float: left;
-	width: 185px;
+	width: 195px;
 	display: none;
 }
 #nav_bar .primary_nav2 a {
@@ -223,7 +223,7 @@ table {
 	color: #898989;
 	font-weight: bold;
 	font-size: 1.1em;
-	padding: 20px 3px 15px 3px;
+	padding: 20px 5px 15px 5px;
 	line-height: 55px;
 	vertical-align: top;
 }
@@ -1987,12 +1987,9 @@ label.active {
 		display: inline !important;
 	}
 	.nav_search.l_o #custom-search-input {
-		margin-left: 190px;
+		margin-left: 205px;
 	}
 	.nav_search #custom-search-input {
-		margin-left: 190px;
-	}
-	#pb {
-		width: 98%;
+		margin-left: 205px;
 	}
 }

@@ -6,20 +6,21 @@
 .comments .meta{
 	float: right;
 	font-weight: normal;
-	font-size: 1em;
+	font-size: .65em;
 }
 #cm_del_img {
 	float: right;
-	padding: 6px 0 0 5px;
+	padding: 0 0 0 5px;
 }
 .comment_del {
 	color: #333;
-	font-size: .76em;
+	font-size: .8em;
 	display: none;
 }
 .comment_del a {
-	color: #333;
+	color: #898989;
 	text-decoration: none;
+	font-weight: normal !important;
 }
 .comments:hover .comment_del {
 	display: inline;

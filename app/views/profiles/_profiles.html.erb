@@ -62,7 +62,7 @@
                             </span>
                         <% end %>
                         <% if current_member == @member %>
-                            <%= link_to image_tag("Media 3.png", class: "mem_actions"), "#media", :data => {:toggle => "modal"}, title: "Upload Media", alt: "Upload Media", :class => "btn" %>
+                            <%= link_to image_tag("Media 3.png", class: "mem_actions"), "#media", :data => {:toggle => "modal"}, title: "Add Media", alt: "Add Media", :class => "btn" %>
                             <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
                             <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
                             <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn" %>

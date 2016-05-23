@@ -6,37 +6,37 @@ en:
 
   datetime:
     distance_in_words:
-      half_a_minute: "30s"
+      half_a_minute: "30 secs"
       less_than_x_seconds:
-        one:   "less than 1s"
-        other: "less than %{count}s"
+        one:   "less than 1 sec"
+        other: "less than %{count} secs"
       x_seconds:
-        one:   "1s"
-        other: "%{count}s"
+        one:   "1 sec"
+        other: "%{count} secs"
       less_than_x_minutes:
-        one:   "less than 1m"
-        other: "less than %{count}m"
+        one:   "less than 1 min"
+        other: "less than %{count} mins"
       x_minutes:
-        one:   "1m"
-        other: "%{count}m"
+        one:   "1 min"
+        other: "%{count} mins"
       about_x_hours:
-        one:   "1h"
-        other: "%{count}h"
-      x_days:
-        one:   "1d"
-        other: "%{count}d"
+        one:   "1 hr"
+        other: "%{count} hr"
+      x_days: 
+        one:   "1 d"
+        other: "%{count} d"
       about_x_months:
-        one:   "1mh"
-        other: "%{count}mh"
+        one:   "1 mth"
+        other: "%{count} mths"
       x_months:
-        one:   "1mh"
-        other: "%{count}mh"
+        one:   "1 mth"
+        other: "%{count} mths"
       about_x_years:
-        one:   "1yr"
-        other: "%{count}yr"
+        one:   "1 yr"
+        other: "%{count} yr"
       over_x_years:
-        one:   "1yr"
-        other: "%{count}yr"
+        one:   "1 yr"
+        other: "%{count} yr"
       almost_x_years:
-        one:   "1yr"
-        other: "%{count}yr"
+        one:   "1 yr"
+        other: "%{count} yr"

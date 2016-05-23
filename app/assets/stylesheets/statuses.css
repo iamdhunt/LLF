@@ -251,6 +251,7 @@
 	width: 14px;
 	height: 14px;
 	margin-top: 2px;
+	opacity: .75;
 }
 #status_show .act_delete img {
 	width: 14px;
