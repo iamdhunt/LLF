@@ -104,42 +104,23 @@
         <div class="primary_nav2">
             <span class="h_i">
                 <% if member_signed_in? %>
-                    <span class="l_i">
-                        <%= link_to image_tag("Beta Icon.png", :class => "menu_logo", style: "margin-bottom:4px;"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
-                    </span>
+                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
                 <% else %>       
                     <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
                 <% end %>
             </span>
-            <% if member_signed_in? %>
-                <span class="l_i">
-                    <span class="log">
-                        <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", class: "#{cp(market_path)}" %>
-                    </span>
-                    <span class="log">
-                        <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", class: "#{cp(media_path)}" %>
-                    </span>
-                    <span class="log">
-                        <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", class: "#{cp(events_path)}" %>
-                    </span>
-                    <span class="log">
-                        <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons projects"), projects_path, title: "Projects", alt: "Projects", class: "#{cp(projects_path)}" %>
-                    </span>
-                </span>
-            <% else %>
-                <span class="log">
-                    <%= link_to image_tag("nav_icon_market.png", class: "nav_icons"), market_path, title: "Market", alt: "Market", class: "#{cp(market_path)}" %>
-                </span>
-                <span class="log md">
-                    <%= link_to image_tag("Media 3.png", class: "nav_icons media"), media_path, title: "Media", alt: "Media", class: "#{cp(media_path)}" %>
-                </span>
-                <span class="log">
-                    <%= link_to image_tag("nav_icon_events.png", class: "nav_icons"), events_path, title: "Events", alt: "Events", class: "#{cp(events_path)}" %>
-                </span>
-                <span class="log">
-                    <%= link_to image_tag("nav_icon_projects.png", class: "nav_icons projects"), projects_path, title: "Projects", alt: "Projects", class: "#{cp(projects_path)}" %>
-                </span>
-            <% end %>
+            <span class="txt">
+                <%= link_to "Mkt", market_path, title: 'Market', alt: 'Market', class: "#{cp(market_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Mda", media_path, title: 'Media', alt: 'Media', class: "#{cp(media_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Evt", events_path, title: 'Events', alt: 'Events', class: "#{cp(events_path)}" %>
+            </span>
+            <span class="txt">
+                <%= link_to "Pjt", projects_path, title: 'Projects', alt: 'Projects', class: "#{cp(projects_path)}" %>
+            </span>
         </div>
 
         <% if member_signed_in? %>
