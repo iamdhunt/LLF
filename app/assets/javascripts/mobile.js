@@ -23,6 +23,7 @@ $(document).ready(function(){
        $( "#faqs_wrap" ).css( "padding-left", "1%" );
        $( "#faqs_wrap" ).css( "padding-right", "1%" );
        $( "#custom-search-input input" ).css( "font-size", "1em" );
+       $( "#pb").css( "text-align", "center !important" );
     }
 
 });
