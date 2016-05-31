@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'paperclip'
 gem 'acts_as_follower', '~> 0.1.1'
+gem 'js-routes'
 gem 'acts-as-taggable-on', '~> 2.4.1'
 gem 'aws-sdk', '< 2.0'
 gem 'will_paginate'
@@ -39,7 +40,6 @@ group :development, :test do
 	gem 'sqlite3'
 	gem 'sunspot_solr', github: "betam4x/sunspot" # '2.1.1'
 	gem 'debugger'
-	gem 'js-routes'
 end 
 
 group :production do
