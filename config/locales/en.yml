@@ -3,6 +3,9 @@
 
 en:
   hello: "Hello world"
+  time:
+      am: "AM"
+      pm: "PM"
 
   datetime:
     distance_in_words:
