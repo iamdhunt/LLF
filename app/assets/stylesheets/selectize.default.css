@@ -144,7 +144,7 @@
   border-radius: 3px;
 }
 .selectize-control.multi .selectize-input.has-items {
-  padding: 5px 8px 2px;
+  padding: 5px 8px 2px 0px;
 }
 .selectize-input.full {
   background-color: #ffffff;
