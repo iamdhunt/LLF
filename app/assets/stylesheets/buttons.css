@@ -224,14 +224,3 @@
   background-color: #9444cc \9;
   opacity: .85;
 }
-
-.btn:focus,
-.btn:hover,
-.btn.active:hover, 
-.btn.active:focus, 
-.btn.active:active, 
-.btn.active.active, 
-.btn.active.disabled, 
-.btn.active[disabled] {
-    outline: none;
-}
