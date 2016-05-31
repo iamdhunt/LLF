@@ -8,8 +8,12 @@
 				<%= simple_form_for(resource, :as => resource_name, :url => password_path, :html => { :method => :post, class: "" }) do |f| %>
 				  	<%= devise_error_messages! %>
 
-				  	<div>
-					  <%= f.input :login, :autofocus => true, label: false, placeholder: 'Username or Email', input_html: { class: 'forms account sign_in'} %>
+				  	<div class="s_pass">
+				  		<div id="custom-input">
+			                <div class="input-group col-md-12">
+			                    <%= f.input :login, :autofocus => true, label: false, placeholder: 'Username or Email', input_html: { class: 'forms account sign_in'} %>
+			                </div>
+			            </div>
 					</div>
 
 					<div><%= f.button :submit, "Send Reset Instructions", class: 'btn btn-info btn-large' %></div>

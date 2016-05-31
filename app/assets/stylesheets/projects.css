@@ -124,7 +124,6 @@
 }
 #pb {
 	text-align: center;
-	width: 100%;
 }
 #pb .btn-large {
 	padding: 5px 9px;
@@ -260,7 +259,7 @@
 #proj_info .dropdown-menu:before {
    position: absolute;
    top: -7px;
-   left: 98px;
+   left: 93px;
    display: inline-block;
    border-right: 7px solid transparent;
    border-bottom: 7px solid #CCC;
@@ -271,7 +270,7 @@
 #proj_info .dropdown-menu:after {
     position: absolute;
     top: -6px;
-    left: 99px;
+    left: 94px;
     display: inline-block;
     border-right: 6px solid transparent;
     border-bottom: 6px solid white;
@@ -566,7 +565,7 @@
 	border-radius: 4px;
 }
 .pr_wrap .meta {
-	font-size: 1em;
+	font-size: .8em;
 	font-weight: normal;
 }
 .pr_wrap .comment_del img {
@@ -666,7 +665,6 @@
 }
 #update .p_m_input {
 	width: 100%;
-	margin-bottom: 10px;
 }
 .pr_wrap .modal-body {
 	max-height: 500px;
@@ -724,9 +722,6 @@
 #p_form_wrap .p_ct_text {
 	font-size: 1.2em;
 	color: #444;
-}
-#edit_wrap .t_in {
-	margin: 0 0 5px 15px;
 }
 #edit_wrap .bl_in {
 	margin: 0 0 5px 175px;

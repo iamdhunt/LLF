@@ -3,7 +3,14 @@
 
   <div class="">
   	<span class="p_m_text"></span>
-    <%= f.input :title, label: false, error: false, placeholder: 'Title...', input_html: { rows: '1', maxlength: '280', class: 'p_m_input', autocomplete: 'off' } %>
+    <div class="c_f_labels">
+      <div id="custom-input">
+          <div class="input-group col-md-12 single_row">
+              <%= f.input :title, label: false, error: false, placeholder: 'Title...', input_html: { rows: '1', maxlength: '280', class: 'p_m_input', autocomplete: 'off' } %>
+          </div>
+      </div>
+    </div>
+    
     <span class="p_m_text"></span>
     <%= f.input :content, label: false, error: false, input_html: { rows: '12', class: 'p_m_input', id: 'p_update' } %>
   </div>

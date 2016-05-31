@@ -86,7 +86,7 @@
                         <%= link_to image_tag("Linkedin 3.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), "http://#{@member.linkedin.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.soundcloud? %>
-                        <%= link_to image_tag("Soundcloud 3.png", class: "acct_imgs", title: "Soundcloud", alt: "Soundcloud"), "http://#{@member.soundcloud.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Soundcloud 3.png", class: "acct_imgs", title: "SoundCloud", alt: "SoundCloud"), "http://#{@member.soundcloud.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.youtube? %>
                         <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "Youtube", alt: "Youtube"), "http://#{@member.youtube.sub(/^https?\:\/\//, '')}", :class => "" %>
@@ -159,7 +159,11 @@
             <h3 id="sharemodallabel">Copy Profile URL</h3>
           </div>
           <div class="modal-body pi">
-            <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
+            <div id="custom-input">
+                <div class="input-group col-md-12">
+                    <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
+                </div>
+            </div>  
           </div>
         </div>
     </div>

@@ -164,7 +164,7 @@
               <%= render "shared/comment_form" %>
             </div>
           <% else %>
-              <div class="c_message">Must be logged in to leave a comment.</div>
+              <div class="c_message">Must be <%= link_to "logged in", sign_in_path, :class => "" %> to leave a comment.</div>
           <% end %>
 
           <div id="comments_<%= @commentable.id %>" class="">
@@ -194,7 +194,11 @@
           <h3 id="sharemodallabel">Copy Listing URL</h3>
         </div>
         <div class="modal-body pi">
-          <input class="pr_in forms" value="<%= listing_url %>" onclick="this.select()" />
+          <div id="custom-input">
+              <div class="input-group col-md-12">
+                  <input class="pr_in forms" value="<%= listing_url %>" onclick="this.select()" />
+              </div>
+          </div> 
         </div>
       </div>
     </div>

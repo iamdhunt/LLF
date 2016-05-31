@@ -42,12 +42,18 @@
       </ul>
     </div>
 
-    <%= f.input :link, label: false, error: false, input_html: { cols: '52', rows: '1', class: 'forms input-xlarge v_link', autocomplete: 'off' }, placeholder: 'http://' %>
+    <div class="c_f_labels">
+      <div id="custom-input">
+          <div class="input-group col-md-12 single_row">
+              <%= f.input :link, label: false, error: false, input_html: { cols: '40', rows: '1', class: 'input-xlarge', autocomplete: 'off' }, placeholder: 'http://' %>
+          </div>
+      </div>
+    </div>
 
     <div class="cap">
     	<span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge', id: 'cap_box', autocomplete: 'off' } %>
+    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge txt_a_size', id: 'cap_box', autocomplete: 'off' } %>
 
   </div>
 
@@ -65,7 +71,9 @@
     </ul>
   </div>
 
-  <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'forms input-xlarge', autocomplete: 'off'} %>
+  <div id="custom-select" class="c_f_labels">
+    <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'input-xlarge custom-tags', autocomplete: 'off'} %>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit, 'Add Media', :class => "btn btn-warning" %>

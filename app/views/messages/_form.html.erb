@@ -1,6 +1,6 @@
 <%= simple_form_for :message, url: [:reply_conversation], :html => { :id => 'reply_form' }, remote: true do |f| %>
 
-	<%= f.input :body, error: false, label: false, placeholder: 'Reply to conversation...', input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
+	<%= f.input :body, as: :text, error: false, label: false, placeholder: 'Reply to conversation...', input_html: { class: 'auto txt_a_size', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
 
 	<span id="spinner" class="spinner">
 		<%= image_tag '/assets/ajax-loader-(6).GIF', id: 'img-spinner', alt: 'Loading' %>

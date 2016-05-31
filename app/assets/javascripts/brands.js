@@ -1,5 +1,4 @@
 $(document).ready(function(){	
-	var $di = $('.ds_in')
 	var max_nam = 40;
   	var $container = $('#b_index')
   	var $nam = $('#b_cap_nam')
@@ -39,8 +38,6 @@ $(document).ready(function(){
 			};
 		});
 	};
-
-	$di.autosize();
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({

@@ -152,6 +152,7 @@ GEM
       activerecord (>= 3.0.0)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    geoip (1.6.1)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -221,6 +222,9 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails_client_timezone (0.9.0)
+      activesupport (> 2)
+      geoip (= 1.6.1)
     rails_engine_decorators (1.0.0)
       railties (>= 3.2.8)
     railties (3.2.13)
@@ -314,6 +318,7 @@ DEPENDENCIES
   private_pub
   progress_bar
   rails (= 3.2.13)
+  rails_client_timezone (~> 0.9.0)
   rails_engine_decorators
   randumb
   remotipart (~> 1.2)

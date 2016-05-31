@@ -9,7 +9,14 @@
       <div id="name" class="tab-pane active">
         <fieldset>
           <legend class="leg">Name Your Project</legend>
-          <%= f.input :name, label: 'Name', error: false, input_html: { class: 'forms t_in', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
+          <div class="c_f_labels">
+            <span class="custom-labels">* Name</span>
+            <div id="custom-input">
+                <div class="input-group col-md-12 single_row">
+                    <%= f.input :name, label: false, error: false, input_html: { class: '', id: 'p_cap_tit', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
+                </div>
+            </div>
+          </div>
         </fieldset>
       </div>
 
@@ -76,8 +83,15 @@
               </li>
             </ul>
           </div>
-          <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports & Rec', 'Other'], label: 'Category', error: false, input_html: { class: 'forms account settings', tabindex: '2' } %>
-          <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms account settings', tabindex: '3', autocomplete: 'off'} %>
+          <div id="custom-select" class="c_f_labels">
+            <span class="custom-labels">* Category</span>
+            <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports & Rec', 'Other'], label: false, error: false, input_html: { class: 'cat_select', tabindex: '2' } %>
+          </div>
+
+          <div id="custom-select" class="c_f_labels">
+            <span class="custom-labels">* Tags</span>
+            <%= f.input :marker_list, label: false, error: false, input_html: { cols: '55', rows: '1', class: 'custom-tags', tabindex: '3', autocomplete: 'off'} %>
+          </div>
         </fieldset>
 
         <fieldset>
@@ -92,13 +106,35 @@
               </li>
             </ul>
           </div>
-          <%= f.input :website, as: :url, label: 'Website', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings w_in', tabindex: '4', autocomplete: 'off' }, placeholder: 'http://' %>
-          <%= f.input :video, as: :url, label: 'Video URL', error: false, input_html: { cols: '52', rows: '1', class: 'forms account settings vid_in', tabindex: '5', autocomplete: 'off' }, placeholder: 'http://' %>
+          <div class="c_f_labels">
+            <span class="custom-labels">Website</span>
+            <div id="custom-input">
+                <div class="input-group col-md-12">
+                    <%= f.input :website, as: :url, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '4', autocomplete: 'off' }, placeholder: 'http://' %>
+                </div>
+            </div>
+          </div>
+
+          <div class="c_f_labels">
+            <span class="custom-labels">Video URL</span>
+            <div id="custom-input">
+                <div class="input-group col-md-12">
+                    <%= f.input :video, as: :url, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '5', autocomplete: 'off' }, placeholder: 'http://' %>
+                </div>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset>
           <legend class="leg">Where are you located?</legend>
-          <%= f.input :city, label: 'Project City', error: false, input_html: { cols: '52', rows: '1', class: 'forms settings p_city', tabindex: '6', maxlength: '100' } %>
+          <div class="c_f_labels">
+            <span class="custom-labels">* Project City</span>
+            <div id="custom-input">
+                <div class="input-group col-md-12 single_row">
+                    <%= f.input :city, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '6', maxlength: '100' } %>
+                </div>
+            </div>
+          </div>
         </fieldset>
       </div>
 
@@ -112,7 +148,7 @@
               </li>
             </ul>
           </div>
-          <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '52', rows: '1', class: 'forms bl_in', id: 'p_cap_blb', tabindex: '7', maxlength: '140', autocomplete: 'off' } %>
+          <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '3', class: 'bl_in auto txt_a_size', id: 'p_cap_blb', tabindex: '7', maxlength: '140', autocomplete: 'off' } %>
             <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
           <%= f.input :about, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '8', id: 'p_about' } %>
         </fieldset>

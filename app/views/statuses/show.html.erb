@@ -41,7 +41,7 @@
 		<div id="ss_r">
 			<div class="">
 				<div class="t">
-					<%= @status.created_at.localtime.strftime("%A, %m/%d %I:%M%P") %> 
+					<%= @status.created_at.strftime("%A, %m/%d %I:%M%P") %> 
 					&#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Status', alt: 'Share Status' %> 
 					<% if current_member == @status.member %> 
 						&#8226; <%= link_to "Edit", edit_status_path(@status), title: 'Edit Status', alt: 'Edit Status' %>

@@ -11,7 +11,14 @@
 
         <fieldset>
               <legend class="leg">Listing Name</legend>
-              <%= f.input :title, label: 'Name', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
+              <div class="c_f_labels">
+                <span class="custom-labels">* Name</span>
+                <div id="custom-input">
+                    <div class="input-group col-md-12 single_row">
+                        <%= f.input :title, label: false, error: false, input_html: { class: '', id: '', cols: '55', rows: '1', tabindex: '1', maxlength: '100', autocomplete: 'off'} %>
+                    </div>
+                </div>
+              </div>
         </fieldset>
 
     </div>
@@ -30,7 +37,14 @@
                     </li>
                 </ul>
               </div>
-              <%= f.input :price, as: :text, label: '$', error: false, input_html: { class: 'forms settings', id: '', cols: '20', rows: '1', tabindex: '2', maxlength: '8', placeholder: '0.00', value: number_with_precision(f.object.price, precision: 2)} %>
+              <div class="c_f_labels">
+                <span class="custom-labels">* $</span>
+                <div id="custom-input">
+                    <div class="input-group col-md-12 single_row">
+                        <%= f.input :price, as: :text, label: false, error: false, input_html: { class: '', id: 'listing-price', cols: '20', rows: '1', tabindex: '2', maxlength: '8', placeholder: '0.00', value: number_with_precision(f.object.price, precision: 2)} %>
+                    </div>
+                </div>
+              </div>
         </fieldset>
 
         <fieldset>
@@ -42,7 +56,14 @@
                     </li>
                 </ul>
               </div>
-              <%= f.input :link, as: :url, label: 'Link', error: false, input_html: { class: 'forms settings auto', id: '', cols: '55', rows: '1', tabindex: '3', autocomplete: 'off'} %>
+              <div class="c_f_labels">
+                <span class="custom-labels">* Link</span>
+                <div id="custom-input">
+                    <div class="input-group col-md-12">
+                        <%= f.input :link, as: :url, label: false, error: false, input_html: { class: '', id: '', cols: '55', rows: '1', tabindex: '3', autocomplete: 'off'} %>
+                    </div>
+                </div>
+              </div>
         </fieldset>
 
     </div>
@@ -145,13 +166,20 @@
               </li>
           </ul>
         </div>
-        <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: 'Category', error: false, input_html: { class: 'forms settings', tabindex: '4' } %>
-        <%= f.input :marker_list, label: 'Tags', error: false, input_html: { cols: '55', rows: '1', class: 'forms settings auto', tabindex: '5', autocomplete: 'off'} %>
+        <div id="custom-select" class="c_f_labels">
+          <span class="custom-labels">* Category</span>
+          <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: false, error: false, input_html: { class: 'cat_select', tabindex: '4' } %>
+        </div>
+        
+        <div id="custom-select" class="c_f_labels">
+          <span class="custom-labels">* Tags</span>
+          <%= f.input :marker_list, label: false, error: false, input_html: { cols: '55', rows: '1', class: 'custom-tags', tabindex: '5', autocomplete: 'off'} %>
+        </div>
       </fieldset>
 
       <fieldset>
           <legend class="leg">Description</legend>
-          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms auto no_label', tabindex: '6', id: 'l_dscr', autocomplete: 'off' } %>
+          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '1', class: 'txt_a_size no_label auto', tabindex: '6', id: 'l_dscr', autocomplete: 'off' } %>
       </fieldset>
 
       <div class="form-actions">

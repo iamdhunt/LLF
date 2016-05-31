@@ -1,17 +1,47 @@
 <fieldset>
 	<legend class="descriptors leg">Update Your Name</legend>
-	<%= f.input :full_name, label: 'Full Name', error: false, input_html: { class: 'forms account settings', id: 'edit_first', maxlength: '50', autocomplete: 'off'}, autocomplete: 'off' %>
+	<div class="c_f_labels">
+	    <span class="custom-labels">* Full Name</span>
+	    <div id="custom-input">
+	        <div class="input-group col-md-12">
+	            <%= f.input :full_name, label: false, error: false, input_html: { class: '', id: 'edit_first', maxlength: '50', autocomplete: 'off'}, autocomplete: 'off' %>
+	        </div>
+	    </div>
+	</div>
 </fieldset>
 
 <fieldset>
 	<legend class="leg">Change Your Email</legend>
-	<%= f.input :email, error: false, input_html: { class: 'forms account settings'} %>
+	<div class="c_f_labels">
+	    <span class="custom-labels">Email</span>
+	    <div id="custom-input">
+	        <div class="input-group col-md-12">
+	            <%= f.input :email, label: false, error: false, input_html: { class: ''} %>
+	        </div>
+	    </div>
+	</div>
 </fieldset>
 
 <fieldset>
 	<legend class="leg">Change Your Password <span class="edit_pass">(Leave blank if you don't want to change your password.)</span> </legend>
-	<%= f.input :password, :autocomplete => "off", error: false, input_html: { class: 'forms account settings'} %>
-	<%= f.input :password_confirmation, error: false, label: 'Password Confirmation', input_html: { class: 'forms account settings'} %>
+	<div class="c_f_labels">
+	    <span class="custom-labels">Password</span>
+	    <div id="custom-input">
+	        <div class="input-group col-md-12">
+	            <%= f.input :password, :autocomplete => "off", label: false, error: false, input_html: { class: ''} %>
+	        </div>
+	    </div>
+	</div>
+	
+	<div class="c_f_labels">
+	    <span class="custom-labels">Password Confirmation</span>
+	    <div id="custom-input">
+	        <div class="input-group col-md-12">
+	            <%= f.input :password_confirmation, error: false, label: false, input_html: { class: ''} %>
+	        </div>
+	    </div>
+	</div>
+	
 </fieldset>
 
 

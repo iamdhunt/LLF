@@ -13,18 +13,30 @@
 				</ul>
 			</div>
 
-		  	<%= f.input :recipients, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', value: "#{@member.user_name}", rows: '1', autocomplete: 'off' } %>
+			<div class="c_f_labels">
+		      <div id="custom-input">
+		          <div class="input-group col-md-12 single_row">
+		              <%= f.input :recipients, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', value: "#{@member.user_name}", rows: '1', autocomplete: 'off' } %>
+		          </div>
+		      </div>
+		    </div>
 		  	
 		</div>
 
 		<div class="conv_in">
 			<div class="conv_fl">Subject</div>
-		  	<%= f.input :subject, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', maxlength: '100', autocomplete: 'off' } %>
+			<div class="c_f_labels">
+		      <div id="custom-input">
+		          <div class="input-group col-md-12 single_row">
+		              <%= f.input :subject, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', maxlength: '100', autocomplete: 'off' }, placeholder: 'What do you want to talk about?' %>
+		          </div>
+		      </div>
+		    </div>
 		</div>
 
 		<div class="">
 			<div class="conv_fl">Message</div>
-			<%= f.input :body, error: false, label: false, input_html: { class: 'forms', id: 'cv_form', rows: '1', autocomplete: 'off' } %>
+			<%= f.input :body, as: :text, error: false, label: false, input_html: { class: 'auto txt_a_size', id: 'cv_form', rows: '1', autocomplete: 'off' }, placeholder: 'What\'s the message?' %>
 		</div>
 
 	    <div class="">

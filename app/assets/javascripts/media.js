@@ -3,14 +3,13 @@ $(document).ready(function(){
 	var $cfav = $('#m_fav_list_wrap')
 	var cap_max = 280;
 	var $cap = $('#cap_box')
-	var $mvid = $('.v_link')
 	var $uplcp = $('#upl_cap')
 	var dl_src = $('.dl').attr('src')
 	var $editm = $('#edit_cap_box');
 
 	$cap.autosize();
-	$mvid.autosize();
 	$uplcp.autosize();
+	$editm.autosize();
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
@@ -143,8 +142,6 @@ $(document).ready(function(){
 		$('#cap_count').html(cap_remaining);
 
 	});
-
-	$editm.autosize();
 
 	function EditMCount(){	
 		var edit_length = $editm.val().length;

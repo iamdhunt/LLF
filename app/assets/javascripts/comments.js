@@ -14,6 +14,7 @@ $(document).ready(function(){
 	});
 
 	$comment.autosize();
+	$editcm.autosize();
 
 	$('#comment_length').html(text_max);
 
@@ -55,8 +56,6 @@ $(document).ready(function(){
     	$('.comments_wrap').infinitescroll('retrieve');
         	return false;
 	});
-
-	$editcm.autosize();
 
 	function EditCMCount(){	
 		var edit_length = $editcm.val().length;

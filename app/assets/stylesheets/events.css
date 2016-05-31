@@ -64,7 +64,7 @@
 	border-radius: 4px;
 }
 .ev_wrap .meta {
-	font-size: 1em;
+	font-size: .8em;
 	font-weight: normal;
 }
 .ev_wrap .comment_del img {
@@ -278,7 +278,7 @@ vertical-align: baseline;
 #ev_info .dropdown-menu:before {
    position: absolute;
    top: -7px;
-   left: 98px;
+   left: 93px;
    display: inline-block;
    border-right: 7px solid transparent;
    border-bottom: 7px solid #CCC;
@@ -289,7 +289,7 @@ vertical-align: baseline;
 #ev_info .dropdown-menu:after {
     position: absolute;
     top: -6px;
-    left: 99px;
+    left: 94px;
     display: inline-block;
     border-right: 6px solid transparent;
     border-bottom: 6px solid white;

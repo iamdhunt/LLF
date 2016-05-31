@@ -156,7 +156,7 @@ table {
 }
 /* Specific CSS */
 #pagewrap {
-	padding-top: 54px;
+	padding-top: 70px;
 	padding-bottom: 58px;
 }
 #main_wrap {
@@ -172,7 +172,7 @@ table {
 #nav_bar {
 	background-color: #F4F4F4;
 	width: 100%;
-	height: 55px;
+	height: 70px;
 	z-index: 1000 !important;
 	-webkit-box-shadow: 0 1px 4px #ccc;
 	-moz-box-shadow: 0 1px 4px #ccc;
@@ -185,6 +185,7 @@ table {
 	max-width: 90%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-top: 8px;
 }
 #nav_bar .primary_nav {
 	float: left;
@@ -195,7 +196,7 @@ table {
 	color: #898989;
 	font-weight: bold;
 	font-size: 1.1em;
-	padding: 20px 5px 15px 5px;
+	padding: 26px 5px 22px 5px;
 	line-height: 55px;
 	vertical-align: top;
 }
@@ -223,7 +224,7 @@ table {
 	color: #898989;
 	font-weight: bold;
 	font-size: 1.1em;
-	padding: 20px 5px 15px 5px;
+	padding: 26px 5px 22px 5px;
 	line-height: 55px;
 	vertical-align: top;
 }
@@ -273,7 +274,7 @@ table {
 	color: #898989;
 }
 .member_links {
-	padding: 19px 8px;
+	padding: 26px 8px;
 }
 
 .nav_icons {
@@ -393,7 +394,6 @@ table {
 .login_form .forms {
 	height: 40px;
 	width: 100%;
-	margin-bottom: 15px;
 }
 .login_form .remember label {
 	vertical-align: baseline;
@@ -504,7 +504,6 @@ table {
 .reg_forms {
 	width: 100%;
 	height: 40px;
-	margin: 4px 0;
 }
 .l_reg {
 	margin: 5px 26px 5px 20px;
@@ -955,10 +954,6 @@ hr.contact {
 	-moz-box-shadow: inset 1px 1px 4px #e4e4e4;
 	box-shadow: inset 1px 1px 4px #e4e4e4;
 	background: #fff;
-}
-
-.account {
-	margin-bottom: 1.333em;
 }
 
 .sign_in {
@@ -1953,8 +1948,6 @@ label.active {
 .contact_email .pr_in {
 	text-align: center;
 	color: #444444;
-	width: 65%;
-	font-size: 1.3em;
 }
 #img-spinner {
 	vertical-align: bottom;
@@ -1990,6 +1983,6 @@ label.active {
 		margin-left: 205px;
 	}
 	.nav_search #custom-search-input {
-		margin-left: 205px;
+		margin-left: 200px;
 	}
 }

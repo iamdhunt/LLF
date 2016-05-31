@@ -76,7 +76,7 @@
 .mem_drop .dropdown-menu:before {
    position: absolute;
    top: -7px;
-   left: 109px;
+   left: 101px;
    display: inline-block;
    border-right: 7px solid transparent;
    border-bottom: 7px solid #CCC;
@@ -87,7 +87,7 @@
 .mem_drop .dropdown-menu:after {
     position: absolute;
     top: -6px;
-    left: 110px;
+    left: 102px;
     display: inline-block;
     border-right: 6px solid transparent;
     border-bottom: 6px solid white;

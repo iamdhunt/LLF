@@ -7,12 +7,20 @@
 
 				<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "" }) do |f| %>
 
-					<div>
-				  		<%= f.input :login, label: false, hint: false, error: false, :autofocus => true, placeholder: 'Username or Email', input_html: { class: 'forms'} %>
+					<div class="s_l_in">
+			            <div id="custom-input">
+			                <div class="input-group col-md-12">
+			                    <%= f.input :login, label: false, hint: false, error: false, :autofocus => true, placeholder: 'Username or Email', input_html: { class: 'forms'} %>
+			                </div>
+			            </div>      
 					</div>
 
-					<div>
-				  		<%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html: { class: 'forms'} %>
+					<div class="s_l_in">
+			            <div id="custom-input">
+			                <div class="input-group col-md-12">
+			                    <%= f.input :password, label: false, hint: false, error: false, placeholder: 'Password', input_html: { class: 'forms'} %>
+			                </div>
+			            </div>      		  		
 					</div>
 
 					<div><%= f.button :submit, "Login", :class => "btn btn-info btn-large" %></div> 

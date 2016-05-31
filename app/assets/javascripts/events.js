@@ -1,12 +1,7 @@
 $(document).ready(function() {
-	var $li = $('.loc_in')
-  	var $ai = $('.adr_in')
-  	var $ci = $('.cit_in')
+	var $blb = $('.bl_in')
   	var $container = $('#prs2')
 
-	$li.autosize();
-	$ai.autosize();
-	$ci.autosize();
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({

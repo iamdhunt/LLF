@@ -268,11 +268,19 @@
               <%= render :partial => "shared/comment_form" %>
             </div>
             <% else %>
-              <div id="c_form_wrap">
-                <div class="c_message">
-                  <span>Must be following project to leave a comment.</span>
+              <% if member_signed_in? %>
+                <div id="c_form_wrap">
+                  <div class="c_message">
+                    <span>Must be following event to leave a comment.</span>
+                  </div>
                 </div>
-              </div>
+              <% else %>
+                <div id="c_form_wrap">
+                  <div class="c_message">
+                    <span>Must be <%= link_to "logged in", sign_in_path, :class => "" %> to leave a comment.</span>
+                  </div>
+                </div>
+              <% end %>
           <% end %>
           <div id="comments_<%= @commentable.id %>" class="comments_wrap">
             <%= render partial: "shared/comments", :collection => @comments, :as => :comment %>
@@ -319,7 +327,11 @@
           <h3 id="sharemodallabel">Copy Project URL</h3>
         </div>
         <div class="modal-body pi">
-          <input class="pr_in forms" value="<%= project_url %>" onclick="this.select()" />
+          <div id="custom-input">
+              <div class="input-group col-md-12">
+                  <input class="pr_in forms" value="<%= project_url %>" onclick="this.select()" />
+              </div>
+          </div> 
         </div>
       </div>
     </div>

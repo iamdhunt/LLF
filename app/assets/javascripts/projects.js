@@ -1,9 +1,4 @@
 $(document).ready(function() {
-  var $vid = $('.vid_in')
-  var $wi = $('.w_in')
-  var $ti = $('.t_in')
-  var $blb = $('.bl_in')
-  var $cty = $('.p_city')
   var f_src = $('.fav').attr('src')
   var s_src = $('.sh').attr('src')
   var m_src = $('.m').attr('src')
@@ -231,11 +226,5 @@ $(document).ready(function() {
 
 		});
 	};
-
-  $vid.autosize();
-  $wi.autosize();
-  $ti.autosize();
-  $blb.autosize();
-  $cty.autosize();
 
 });

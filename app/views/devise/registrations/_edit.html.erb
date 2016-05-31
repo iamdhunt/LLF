@@ -1,6 +1,14 @@
 <fieldset>
   <legend class="leg">Change Your Username</legend>
-  <%= f.input :user_name, label: 'Username',  error: false, input_html: { class: 'forms account settings', tabindex: '1', id: 'edit_username', maxlength: '16', autocomplete: 'off'} %>
+  <div class="c_f_labels">
+    <span class="custom-labels">* Username</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :user_name, label: false,  error: false, input_html: { class: '', tabindex: '1', id: 'edit_username', maxlength: '16', autocomplete: 'off'} %>
+        </div>
+    </div>
+  </div>
+  
 </fieldset>
 
 <fieldset>
@@ -18,7 +26,10 @@
       </li>
     </ul>
   </div>
-  <%= f.input :pursuit_list, label: 'Pursuits', error: false, input_html: { class: 'forms account settings', tabindex: '2', id: 'edit_pursuits', autocomplete: 'off'} %>
+  <div id="custom-select" class="c_f_labels user_edit">
+    <span class="custom-labels">Pursuits</span>
+    <%= f.input :pursuit_list, label: false, error: false, input_html: { class: 'custom-tags', tabindex: '2', id: 'edit_pursuits', autocomplete: 'off'} %>
+  </div> 
 </fieldset>
 
 <fieldset>
@@ -33,25 +44,143 @@
       </li>
     </ul>
   </div>
-  <%= f.input :facebook, as: :url, label: 'Facebook', error: false, input_html: { class: 'forms account settings', tabindex: '3' }, placeholder: 'http://' %>
-  <%= f.input :twitter, as: :url, label: 'Twitter', error: false, input_html: { class: 'forms account settings', tabindex: '4' }, placeholder: 'http://' %>
-  <%= f.input :linkedin, as: :url, label: 'Linkedin', error: false, input_html: { class: 'forms account settings', tabindex: '5' }, placeholder: 'http://' %>
-  <%= f.input :soundcloud, as: :url, label: 'Soundcloud', error: false, input_html: { class: 'forms account settings', tabindex: '6' }, placeholder: 'http://' %>
-  <%= f.input :youtube, as: :url, label: 'YouTube', error: false, input_html: { class: 'forms account settings', tabindex: '7' }, placeholder: 'http://' %>
-  <%= f.input :vimeo, as: :url, label: 'Vimeo', error: false, input_html: { class: 'forms account settings', tabindex: '8' }, placeholder: 'http://' %>
-  <%= f.input :instagram, as: :url, label: 'Instagram', error: false, input_html: { class: 'forms account settings', tabindex: '9' }, placeholder: 'http://' %>
-  <%= f.input :flickr, as: :url, label: 'Flickr', error: false, input_html: { class: 'forms account settings', tabindex: '10' }, placeholder: 'http://' %>
-  <%= f.input :pinterest, as: :url, label: 'Pinterest', error: false, input_html: { class: 'forms account settings', tabindex: '12' }, placeholder: 'http://' %>
-  <%= f.input :blog, as: :url, label: 'Blog', error: false, input_html: { class: 'forms account settings', tabindex: '13' }, placeholder: 'http://' %>
-  <%= f.input :website, as: :url, label: 'Website', error: false, input_html: { class: 'forms account settings', tabindex: '14' }, placeholder: 'http://' %>
+  <div class="c_f_labels">
+    <span class="custom-labels">Facebook</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :facebook, as: :url, label: false, error: false, input_html: { class: '', tabindex: '3' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Twitter</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :twitter, as: :url, label: false, error: false, input_html: { class: '', tabindex: '4' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Linkedin</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :linkedin, as: :url, label: false, error: false, input_html: { class: '', tabindex: '5' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">SoundCloud</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :soundcloud, as: :url, label: false, error: false, input_html: { class: '', tabindex: '6' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">YouTube</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :youtube, as: :url, label: false, error: false, input_html: { class: '', tabindex: '7' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Vimeo</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :vimeo, as: :url, label: false, error: false, input_html: { class: '', tabindex: '8' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Instagram</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :instagram, as: :url, label: false, error: false, input_html: { class: '', tabindex: '9' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Flickr</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :flickr, as: :url, label: false, error: false, input_html: { class: '', tabindex: '10' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Pinterest</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :pinterest, as: :url, label: false, error: false, input_html: { class: '', tabindex: '12' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Blog</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :blog, as: :url, label: false, error: false, input_html: { class: '', tabindex: '13' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Website</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :website, as: :url, label: false, error: false, input_html: { class: '', tabindex: '14' }, placeholder: 'http://' %>
+        </div>
+    </div>
+  </div>
 </fieldset>
 
 <fieldset>
   <legend class="leg">About Me</legend>
-  <%= f.input :bio, as: :text, label: 'Bio', error: false, input_html: { class: 'forms account settings', rows: '3', cols: '52', tabindex: '15', maxlength: '140', autocomplete: 'off'} %>
-  <%= f.input :city, label: 'City', error: false, input_html: { class: 'forms account settings', tabindex: '16', maxlength: '25', autocomplete: 'off'} %>
-  <%= f.input :state, label: 'State', error: false, input_html: { class: 'forms account settings', tabindex: '17', maxlength: '25', autocomplete: 'off'} %>
-  <%= f.input :country, as: :string, label: 'Country', error: false, input_html: { class: 'forms account settings', tabindex: '18', maxlength: '25', autocomplete: 'off'} %>
+  <div class="c_f_labels">
+    <span class="custom-labels">Bio</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :bio, as: :text, label: false, error: false, input_html: { class: '', rows: '3', cols: '52', tabindex: '15', maxlength: '140', autocomplete: 'off'} %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">City</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :city, label: false, error: false, input_html: { class: '', tabindex: '16', maxlength: '25', autocomplete: 'off'} %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">State</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :state, label: false, error: false, input_html: { class: '', tabindex: '17', maxlength: '25', autocomplete: 'off'} %>
+        </div>
+    </div>
+  </div>
+  
+  <div class="c_f_labels">
+    <span class="custom-labels">Country</span>
+    <div id="custom-input">
+        <div class="input-group col-md-12">
+            <%= f.input :country, as: :string, label: false, error: false, input_html: { class: '', tabindex: '18', maxlength: '25', autocomplete: 'off'} %>
+        </div>
+    </div>
+  </div>
 </fieldset>
 
 <div class="form-actions">

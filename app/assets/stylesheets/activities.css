@@ -174,14 +174,21 @@
 #comment_form .btn {
 	color: #aeaeae;
 	font-weight: bold;
-	padding: 0 3px;
-	border: solid 2px #dfdfdf;
+	font-size: 13px;
+	padding: 2px 6px;
+	border: solid 1px #d7d7d7;
 	background: #f6f6f6;
 	margin-right: 0;
 	margin-bottom: 0;
-	-webkit-border-radius: 8px; /* Saf3+, Chrome */
-	border-radius: 8px; /* Opera 10.5, IE 9 */
+	-webkit-border-radius: 6px; /* Saf3+, Chrome */
+	border-radius: 5px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+#comment_form .btn:hover {
+	background-color: #E6E6E6;
+}
+#comment_form .btn:focus {
+	outline: none;
 }
 
 #comment_act_btn .btn {
