@@ -15,6 +15,5 @@
  *= require plugins/draggable.min.css
  *= require font-awesome
  *= require jquery.atwho
- *= require bootstrap-material-datetimepicker.css
  *= require_tree .
  */
