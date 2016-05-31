@@ -1,0 +1,116 @@
+#m_wrap {
+	position: relative;
+	margin: 0 0 150px 0;
+}
+#member_wrap {
+	margin-top: 1.2em;
+}
+#member_list_wrap {
+	color: #333;
+	margin: 0 auto;
+}
+#member_item_wrap {	
+	width: 160px;
+	overflow: hidden;
+	text-align: center;
+	margin-bottom: 7px;
+}
+#member_item_wrap .name {
+	color: #4a4a4a;
+	font-size: 1.4em;
+	padding: 4px 0 0 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#member_item_wrap .username {
+	color: #9444CC;
+	font-size: 1.1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#member_item_wrap .pursuits {
+	font-size: .85em;
+	padding-top: 2px;
+}
+#member_item_wrap .pursuits a {
+	color: #333;
+}
+#member_item_wrap .pursuits a:hover {
+	text-decoration: none;
+	color: #6d6d6d;
+}
+#member_item_wrap .location {
+	font-size: .85em;
+	padding-top: 2px;
+}
+#member_item_wrap .location a {
+	color: #2f96b4;
+}
+#member_item_wrap .location a:hover {
+	text-decoration: none;
+	color: #6d6d6d;
+}
+#member_item_wrap .btn {
+	font-size: 13px;
+	padding: 2px 8px 2px 0;
+}
+#member_item_wrap .button {
+	padding: 5px 0;
+}
+#member_item_wrap img {
+	-webkit-border-radius: 80px; /* Saf3+, Chrome */
+	border-radius: 80px; /* Opera 10.5, IE 9 */
+	/*-moz-border-radius: 30px; Disabled for FF1+ */
+}
+#member_item_wrap .avatar {
+	padding: 5px;
+}
+.mem_actions {
+	width: 25px;
+	height: 25px;
+	vertical-align: top;
+}
+.mem_actions1 {
+	width: 28px;
+	height: 28px;
+	vertical-align: top;
+}
+#ue_nav {
+	margin-top: 30px;
+}
+#ue_nav .nav-tabs {
+	border-bottom: none;
+	text-align: center;
+}
+#ue_nav .nav-tabs li {
+	font-size: 1.75em;
+	float: none;
+	display: inline-block;
+}
+#ue_nav .nav-tabs > li > a {
+	padding: 20px;
+	line-height: 20px;
+	border: none;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background-color: #f4f4f4;
+	color: #898989;
+	margin-right: 15px;
+}
+#ue_nav .nav-tabs > li > a:hover {
+	color: #fff;
+	background-color: #49afcd;
+}
+#ue_nav .nav-tabs > .active > a {
+	background-color: #49afcd;
+	color: #fff;
+}
+.mt-btn .btn {
+	padding: 2.5px 12px;
+}
+#avatar .act_img_lb {
+	text-align: left;
+}

@@ -1,0 +1,139 @@
+#community_wrap #main_wrap {
+	width: 100%;
+}
+#ca_wrap {
+	position: relative;
+	padding: 10px 0 10px 35px;
+}
+#cm_nav {
+	width: 72%;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 1.5em;
+	border-bottom: 1px solid #dce1e6;
+	padding: 20px 0 10px 0;
+	text-align: center;
+	color: #444;
+}
+#cty_menu {
+	border-bottom: 1px solid #dce1e6;
+	padding: 20px 0 5px 0;
+	text-align: center;
+}
+#cty_menu ul li {
+	display: inline;
+}
+#cty_menu a {
+	font-weight: bold;
+	padding: 0 10px;
+	font-size: 1.1em;
+	color: #898989;
+}
+#cty_menu a:hover {
+	text-decoration: none;
+}
+#cty_menu .cty_str_1 {
+	color: #942fc6;
+}
+#cty_menu .cty_med_1:hover {
+	color: #F7803C;
+}
+#cty_menu .cty_str_2:hover {
+	color: #942fc6;
+}
+#cty_menu .cty_med_2 {
+	color: #F7803C;
+}
+#community #stream_filters {
+	text-align: center;
+}
+#community_wrap .tab-content {
+	overflow: visible;
+}
+#community_wrap .nav-tabs {
+	font-size: 1.333em;
+	border-bottom: 1px solid #dce1e6;
+	padding: 20px 0 0 0;
+	text-align: center;
+}
+#community_wrap .nav {
+	margin-bottom: 0;
+}
+#community_wrap .nav-tabs li {
+	float: none;
+	 display:inline-block;
+    *display:inline; /* ie7 fix */
+}
+#community_wrap .nav-tabs li a {
+	color: #898989;
+}
+#community_wrap .nav-tabs > .active > a,
+.nav-tabs > .active > a:hover,
+.nav-tabs > .active > a:focus {
+  color: #444444;
+  border: none;
+  border-bottom: 4px solid #9933cc; 
+  cursor: pointer;
+}
+#community_wrap .nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+	border: none;
+	border-bottom: 4px solid #9933cc;
+	color: #444444;
+	background-color: transparent;
+}
+#community_media_wrap {
+	padding: 10px 0 0 5px;
+	position: relative;
+}
+#community_media_wrap .dropdown-menu {
+	left: -50px;
+}
+#community_media_wrap .list_act_wrap {
+	width: 188px;
+	position: relative;
+	margin-bottom: 16px;
+}
+#community_media_wrap .act_name {
+	top: 12px;
+}
+#community_stream_filters {
+	padding-bottom: 10px;
+}
+#community_media_filters {
+	padding-bottom: 10px;
+}
+.googlefont .smarticker-category a:hover {
+	text-decoration: none;
+	cursor: default;
+}
+.googlefont .smarticker-cats a:hover {
+	text-decoration: none;
+	cursor: default;
+}
+#cty_cta {
+	width: 100%;
+	min-height: 98px;
+	padding: 30px 1%;
+	background-color: #f9f9f9;
+	text-align: center;
+	font-size: 17px;
+	text-shadow: 2px 3px 4px rgba(0,0,0,0.2);
+}
+#cty_cta .a {
+	color: #333;
+}
+#cty_cta .b {
+	color: #7b7b7b;
+}
+#cty_cta .btn {
+	padding: 10px 15px;
+	font-weight: normal;
+	-webkit-box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	-moz-box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	box-shadow: 0 1px 5px -2px rgba(0,0,0,0.52);
+	border-radius: 3px;
+}
+#cty_cta .btn-info {
+	padding: 10px 20px;
+}

@@ -1,0 +1,41 @@
+#stat_count {
+	color: #898989;
+	font-size: 1.7em;
+	float: right;
+	padding: .06em 0 0 0;
+}
+#left_profile .change_av {
+	position: absolute;
+	bottom: 0;
+	background: #333;
+	width: 200px;
+	text-align: center;
+	font-size: 1.5em;
+	color: #fff;
+	padding: 8px 0;
+	opacity: .6;
+	display: none;
+}
+#left_profile .change_av a {
+	color: #fff;
+}
+#left_profile .change_av a {
+	text-decoration: none;
+}
+#left_profile:hover .change_av {
+	display: inline;
+}
+.none_message {
+	color: #333;
+	font-size: 50px;
+	text-align: center;
+	padding: 100px 0;
+	opacity: .35;
+}
+.none_message2 {
+	color: #333;
+	font-size: 40px;
+	text-align: center;
+	padding-top: 35px;
+	opacity: .4;
+}
