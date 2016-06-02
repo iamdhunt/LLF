@@ -29,8 +29,10 @@ class RegistrationsController < Devise::RegistrationsController
 		    @member = Member.find(current_member.id)
 		    if @member.update_attributes(params[:member])
 				# Sign in the member bypassing validation in case his password changed
-				sign_in @member, :bypass => true 
-				format.js { render :js => "window.location.href = ('#{profile_path(@member)}');" } 
+				sign_in @member, :bypass => true
+				respond_to do |format|
+					format.js { render :js => "window.location.href = ('#{profile_path(@member)}');" }
+				end 
 		    else
 		    	format.js { render 'update.js.erb' }
 		    end

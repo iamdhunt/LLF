@@ -173,13 +173,9 @@
     </div>
   </div>
   
-  <div class="c_f_labels">
+  <div id="custom-select" class="c_f_labels dr-down">
     <span class="custom-labels">Country</span>
-    <div id="custom-input">
-        <div class="input-group col-md-12">
-            <%= f.input :country, as: :string, label: false, error: false, input_html: { class: '', tabindex: '18', maxlength: '25', autocomplete: 'off'} %>
-        </div>
-    </div>
+    <%= f.input :country, as: :string, label: false, error: false, placeholder: 'Select a country...', input_html: { class: '', tabindex: '18', autocomplete: 'off'} %>
   </div>
 </fieldset>
 

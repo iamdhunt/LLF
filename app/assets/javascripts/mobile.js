@@ -23,6 +23,7 @@ $(document).ready(function(){
        $( "#faqs_wrap" ).css( "padding-left", "1%" );
        $( "#faqs_wrap" ).css( "padding-right", "1%" );
        $( "#custom-search-input input" ).css( "font-size", "1em" );
+       $( "#edit_wrap #when .input-group-addon" ).css( "padding", "6px 0 6px 0" );
     }
 
 });
