@@ -1,0 +1,21 @@
+.main_search {
+	width: 195px;
+}
+#search_header {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 1px solid #dce1e6;
+	text-align: center;
+	font-size: 1.5em;
+	padding: .25em 0;
+}
+
+#search_header .query {
+	font-style: italic;
+	color: #942fc6;
+}
+
+#results_wrap {
+	margin-top: 10px;
+}

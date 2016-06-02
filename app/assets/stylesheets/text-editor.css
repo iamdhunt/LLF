@@ -1,0 +1,40 @@
+.froala-editor button.fr-bttn, .froala-editor button.fr-trigger {
+	font-size: 14px;
+}
+.froala-wrapper.f-basic {
+	border: 1px solid #e5e5e5;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+.froala-editor.f-basic {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+.froala-editor {
+	border: solid 1px #e5e5e5;
+  	border-top: solid 1px #e5e5e5;
+}
+.froala-view ul {
+	list-style: inherit;
+}
+.froala-view ol {
+	list-style-type: decimal;
+}
+.froala-view ul, .froala-view ol, ul.fr-tag, ol.fr-tag {
+	padding-left: 50px;
+}
+.update_wrap ul {
+	list-style: inherit;
+}
+.update_wrap ol {
+	list-style: decimal;
+}
+.update_wrap ul, .update_wrap ol {
+	padding-left: 50px;
+}
+.update_wrap li {
+	padding: .25em 0;
+}
+.fr-sticky-on {
+	top: 55px !important;
+}

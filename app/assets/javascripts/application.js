@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require js-routes
 //= require swf_fu
 //= require jquery.autosize.js
 //= require soundmanager2-nodebug
