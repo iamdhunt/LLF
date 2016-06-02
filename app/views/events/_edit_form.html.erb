@@ -213,13 +213,9 @@
           </div>
         </div>
 
-        <div class="c_f_labels">
+        <div id="custom-select" class="c_f_labels dr-down">
           <span class="custom-labels">Country</span>
-          <div id="custom-input">
-              <div class="input-group col-md-12">
-                  <%= f.input :country, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '15', maxlength: '100' } %>
-              </div>
-          </div>
+          <%= f.input :country, label: false, error: false, placeholder: 'Select a country...', input_html: { cols: '52', rows: '1', class: '', tabindex: '15' } %>
         </div>
       </fieldset>
     </div>

@@ -118,6 +118,10 @@
 #custom-select.c_time .selectize-control.single .selectize-input, .selectize-dropdown.single {
     width: 115px;
 }
+#custom-select.dr-down .custom-labels {
+    margin-right: 15px;
+}
+
 #custom-select.c_time .selectize-input {
     float: left;
 }

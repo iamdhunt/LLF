@@ -2,7 +2,6 @@ $(document).ready(function() {
 	var $blb = $('.bl_in')
   	var $container = $('#prs2')
 
-
 	$container.imagesLoaded(function(){
 	  $container.isotope({
 	    masonry: {
