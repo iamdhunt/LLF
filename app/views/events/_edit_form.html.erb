@@ -37,9 +37,9 @@
             </li>
           </ul>
         </div>
-        <div id="custom-select" class="c_f_labels dr-down">
+        <div id="custom-select" class="c_f_labels">
           <span class="custom-labels">* Category</span>
-          <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports & Rec', 'Other'], label: false, error: false, placeholder: 'Select a category...', input_html: { class: 'cat_select', tabindex: '2' } %>
+          <%= f.input :category, collection: ['Arts', 'Entrepreneurial', 'Music', 'Sports & Rec', 'Other'], label: false, error: false, input_html: { class: 'cat_select', tabindex: '2' } %>
         </div>
         
         <div id="custom-select" class="c_f_labels">
@@ -213,9 +213,13 @@
           </div>
         </div>
 
-        <div id="custom-select" class="c_f_labels dr-down">
+        <div class="c_f_labels">
           <span class="custom-labels">Country</span>
-          <%= f.input :country, label: false, error: false, placeholder: 'Select a country...', input_html: { cols: '52', rows: '1', class: '', tabindex: '15' } %>
+          <div id="custom-input">
+              <div class="input-group col-md-12">
+                  <%= f.input :country, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '15', maxlength: '100' } %>
+              </div>
+          </div>
         </div>
       </fieldset>
     </div>

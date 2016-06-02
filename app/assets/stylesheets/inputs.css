@@ -177,8 +177,6 @@
     border-right: 0;
     width: 30%;
     text-align: center;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 #edit_wrap #when #event_end_date {
     background: #fff;
@@ -188,8 +186,6 @@
     border-right: 0;
     width: 30%;
     text-align: center;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 #edit_wrap #when .input-group-addon {
     background: #e4e4e4;
@@ -218,8 +214,6 @@
     border-right: 0;
     width: 30%;
     text-align: center;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
 }
 #edit_wrap #when #event_end_time {
     background: #fff;
@@ -229,7 +223,6 @@
     border-right: 0;
     width: 30%;
     text-align: center;
-    
 }
 #edit_wrap #when .event_start_time {
     display: inline-block;

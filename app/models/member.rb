@@ -187,8 +187,8 @@ class Member < ActiveRecord::Base
                         message: 'must not include any special characters or numbers.'
                       },
                       length: {
-                        maximum: 100,
-                        message: 'must not be longer than 100 characters.'
+                        maximum: 25,
+                        message: 'must not be longer than 25 characters.'
                       }
 
   auto_strip_attributes :email, :email_confirmation, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
