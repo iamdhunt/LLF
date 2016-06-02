@@ -101,6 +101,9 @@
     text-align: right;
     font-weight: bold;
 }
+#custom-select.dr-down .custom-labels {
+    margin-right: 15px;
+}
 .c_f_labels #custom-input.bl_in {
     margin: 0 0 5px 175px;
 }
@@ -110,7 +113,6 @@
 
 #custom-select .selectize-control.single .selectize-input, .selectize-dropdown.single {
     width: 25%;
-    margin: 0 0 0 15px;
     border-color: #cccccc;
 }
 #custom-select.c_time .selectize-control.single .selectize-input, .selectize-dropdown.single {
@@ -118,10 +120,6 @@
 }
 #custom-select.c_time .selectize-input {
     float: left;
-}
-#when .selectize-dropdown {
-    position: absolute;
-    left: 20px !important;
 }
 #custom-select {
     margin-bottom: 30px;
@@ -177,6 +175,8 @@
     border-right: 0;
     width: 30%;
     text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #edit_wrap #when #event_end_date {
     background: #fff;
@@ -186,6 +186,8 @@
     border-right: 0;
     width: 30%;
     text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #edit_wrap #when .input-group-addon {
     background: #e4e4e4;
@@ -214,6 +216,8 @@
     border-right: 0;
     width: 30%;
     text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #edit_wrap #when #event_end_time {
     background: #fff;
@@ -223,6 +227,8 @@
     border-right: 0;
     width: 30%;
     text-align: center;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 #edit_wrap #when .event_start_time {
     display: inline-block;
