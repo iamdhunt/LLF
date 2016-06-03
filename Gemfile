@@ -33,6 +33,7 @@ gem "font-awesome-rails"
 gem 'rails_engine_decorators'
 gem 'embedly'
 gem 'rails_client_timezone', '~> 0.9.0'
+gem 'browser-timezone-rails'
 
 group :development, :test do
 	gem 'shoulda'
