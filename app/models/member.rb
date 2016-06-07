@@ -58,7 +58,7 @@ class Member < ActiveRecord::Base
                           message: 'must not be longer than 16 characters.'
                         },
                         exclusion: {
-                          in: %w(faqs community market events projects members terms privacy blog login logout join llf_adm grla rbreed frls search discover),
+                          in: %w(faqs community media market events projects members terms privacy rules blog login logout join admin dashboard grla rbreed frls search discover edit settings conversations notifications),
                           message: 'is already taken.'
                         }                 
 
@@ -224,7 +224,11 @@ class Member < ActiveRecord::Base
     string :city
   end
 
-  private
+  def is_admin?
+    self.admin == true
+  end
+
+private
 
   def to_lower
     self.user_name = self.user_name.downcase

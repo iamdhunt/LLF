@@ -11,7 +11,7 @@ ActiveAdmin.register Medium do
 		column :id
 		column :asset_file_name
 		column :asset_content_type
-		column :asset_file_size
+		column :link
 		column :created_at
 		default_actions
 	end
@@ -35,7 +35,7 @@ ActiveAdmin.register Medium do
 			@medium.destroy
 
 			respond_to do |format|
-		      format.html { redirect_to llf_adm_media_path, alert: "Media was successfully destroyed." }
+		      format.html { redirect_to admin_media_path, alert: "Media was successfully destroyed." }
 		      format.json { head :no_content }
 		    end
 		end

@@ -11,22 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160421231419) do
+ActiveRecord::Schema.define(:version => 20160607052618) do
 
   create_table "active_admin_comments", :force => true do |t|
+    t.string   "namespace"
+    t.text     "body"
     t.string   "resource_id",   :null => false
     t.string   "resource_type", :null => false
     t.integer  "author_id"
     t.string   "author_type"
-    t.text     "body"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.string   "namespace"
   end
 
   add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "activities", :force => true do |t|
     t.integer  "member_id"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(:version => 20160421231419) do
   add_index "activities", ["member_id"], :name => "index_activities_on_member_id"
   add_index "activities", ["targetable_id", "targetable_type"], :name => "index_activities_on_targetable_id_and_targetable_type"
   add_index "activities", ["targetable_permalink"], :name => "index_activities_on_targetable_permalink"
+
+  create_table "admin_notes", :force => true do |t|
+    t.string   "resource_id",     :null => false
+    t.string   "resource_type",   :null => false
+    t.integer  "admin_user_id"
+    t.string   "admin_user_type"
+    t.text     "body"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "admin_notes", ["admin_user_type", "admin_user_id"], :name => "index_admin_notes_on_admin_user_type_and_admin_user_id"
+  add_index "admin_notes", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "admin_users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -302,6 +315,8 @@ ActiveRecord::Schema.define(:version => 20160421231419) do
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
     t.string   "full_name"
+    t.boolean  "admin"
+    t.boolean  "verified"
   end
 
   add_index "members", ["email"], :name => "index_members_on_email", :unique => true

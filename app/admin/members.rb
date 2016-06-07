@@ -31,6 +31,27 @@ ActiveAdmin.register Member do
 			@member = Member.find_by_user_name(params[:id])
 		end
 
+		def update
+			@member = Member.find_by_user_name(params[:id])
+
+			respond_to do |format|
+		      if @member.update_attributes(params[:comment])
+		        format.html { redirect_to admin_member_path, alert: "Member was successfully updated." }
+			     format.json { head :no_content }
+		      else
+		        render :edit
+		      end
+		    end
+		end
+
+	end
+
+	form do |f|
+	  f.inputs "Edit Member" do
+	    f.input :admin, as: :boolean
+	    f.input :verified, as: :boolean
+	    f.actions :commit
+	  end
 	end
   
 end

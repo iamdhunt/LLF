@@ -37,7 +37,7 @@ ActiveAdmin.register Project do
 			@project.destroy
 
 			respond_to do |format|
-		      format.html { redirect_to llf_adm_projects_path, alert: "Project was successfully destroyed." }
+		      format.html { redirect_to admin_projects_path, alert: "Project was successfully destroyed." }
 		      format.json { head :no_content }
 		    end
 		end

@@ -37,7 +37,7 @@ ActiveAdmin.register Listing do
 			@listing.destroy
 
 			respond_to do |format|
-		      format.html { redirect_to llf_adm_listings_path, alert: "Listing was successfully destroyed." }
+		      format.html { redirect_to admin_listings_path, alert: "Listing was successfully destroyed." }
 		      format.json { head :no_content }
 		    end
 		end

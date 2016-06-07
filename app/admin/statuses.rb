@@ -31,7 +31,7 @@ ActiveAdmin.register Status do
 			@status.destroy
 
 			respond_to do |format|
-		      format.html { redirect_to llf_adm_statuses_path, alert: "Status was successfully destroyed." }
+		      format.html { redirect_to admin_statuses_path, alert: "Status was successfully destroyed." }
 		      format.json { head :no_content }
 		    end
 		end

@@ -1,5 +1,9 @@
 LLF::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :members
+
   devise_scope :member do
     match '/settings' => 'registrations#settings', as: :settings
     match '/avatar' => 'registrations#avatar', as: :avatar
@@ -10,9 +14,6 @@ LLF::Application.routes.draw do
       root :to => 'community#index'
     end
   end 
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
 
   resources :projects do
     resources :comments
@@ -90,11 +91,6 @@ LLF::Application.routes.draw do
   match '/terms' => 'pages#terms'
   match '/privacy' => 'pages#privacy'
   match '/rules' => 'pages#rules'
-
-  devise_for :members, :controllers => { :registrations => "registrations" }
-  ActiveAdmin.routes(self)
-  devise_for :members, skip: [:sessions]
-  ActiveAdmin.routes(self)
 
   resources :messages do
     member do

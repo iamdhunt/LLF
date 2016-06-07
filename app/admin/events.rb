@@ -46,7 +46,7 @@ ActiveAdmin.register Event do
 			@event.destroy
 
 			respond_to do |format|
-		      format.html { redirect_to llf_adm_events_path, alert: "Event was successfully destroyed." }
+		      format.html { redirect_to admin_events_path, alert: "Event was successfully destroyed." }
 		      format.json { head :no_content }
 		    end
 		end

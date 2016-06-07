@@ -25,7 +25,6 @@ gem 'mailboxer'
 gem 'remotipart', '~> 1.2'
 gem 'private_pub'
 gem 'thin'
-gem 'activeadmin'
 gem 'randumb'
 gem 'figaro'
 gem "auto_strip_attributes", "~> 2.0"
@@ -34,6 +33,7 @@ gem 'rails_engine_decorators'
 gem 'embedly'
 gem 'rails_client_timezone', '~> 0.9.0'
 gem 'browser-timezone-rails'
+gem 'activeadmin'
 
 group :development, :test do
 	gem 'shoulda'
