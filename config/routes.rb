@@ -2,7 +2,7 @@ LLF::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  devise_for :members
+  devise_for :members, :controllers => { :registrations => "registrations" }
 
   devise_scope :member do
     match '/settings' => 'registrations#settings', as: :settings

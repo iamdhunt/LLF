@@ -796,7 +796,7 @@
 	list-style-type: decimal;
 }
 #proj_about ul, #proj_about ol {
-	padding-left: 50px;
+	padding-left: 40px;
 }
 #proj_about hr {
 	border: 0;
@@ -993,4 +993,14 @@
 }
 .p4 .l_o #custom-search-input {
 	margin-left: 240px;
+}
+.fr-element.fr-view ul {
+	padding-left: 40px;
+	list-style: inherit;
+	list-style-type: disc;
+}
+.fr-element.fr-view ol {
+	padding-left: 40px;
+	list-style: inherit;
+	list-style-type: decimal;
 }

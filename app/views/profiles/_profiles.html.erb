@@ -22,11 +22,11 @@
                     <div class="profile_username" title="<%= @member.name %>", alt="<%= @member.name %>"><%= truncate(@member.user_name, :length => 25) %></div>
                 </span>
                 <div class="follow_count_text">
-                    <%= link_to(profile_following_path(@member)) do %>
+                    <%= link_to(profile_following_path(@member), class: "#{cp_p_f(profile_following_path(@member))}") do %>
                         <span class="fcount"><%= @member.following_by_type_count('Member') %></span>
                         <p><span class="ftext">Following</span></p>
                     <% end %>
-                    <%= link_to(profile_followers_path(@member)) do %>
+                    <%= link_to(profile_followers_path(@member), class: "#{cp_p_f(profile_followers_path(@member))}") do %>
                         <span id="follows_count" class="fcount"><%= @member.followers_count %></span>
                         <p><span class="ftext">Followers</span></p>
                     <% end %>

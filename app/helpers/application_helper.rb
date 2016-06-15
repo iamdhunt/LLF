@@ -82,4 +82,28 @@ module ApplicationHelper
 	  "current" if request.path.start_with?(path)
 	end
 
+	def cp_p_f(path)
+	  "current" if request.path.include?(path)
+	end
+
+	def cp_p_s(path)
+	  "current" if request.path.include?(path)
+	end
+
+	def cp_p_m(path)
+	  "current" if request.path.include?(path)
+	end
+
+	def cp_p_mk(path)
+	  "current" if request.path.include?(path)
+	end
+
+	def cp_p_e(path)
+	  "current" if request.path.include?(path)
+	end
+
+	def cp_p_p(path)
+	  "current" if request.path.include?(path)
+	end
+
 end

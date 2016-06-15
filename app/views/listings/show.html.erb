@@ -2,8 +2,6 @@
 
   <% if @listing.banner? %>
     <div id="banner" style="background-image: url(<%= @listing.banner.url(:large) %>)"></div>
-  <% elsif @listing.member.banner? %>
-    <div id="banner" style="background-image: url(<%= @listing.member.banner.url(:large) %>)"></div>
   <% else %>
     <div id="banner" style="background-image: url('/assets/Market-Default-Banner-Fade.png');"></div>
   <% end %>
@@ -136,7 +134,7 @@
 
           <% if @listing.description %>
             <div class="desc">
-              <%= sanitize(Rinku.auto_link(listings_with_mentions(@listing).gsub(/\n/, '<br/>')), :tags => %w(a br)) %>
+              <%= raw Rinku.auto_link(listings_with_mentions(@listing)) %>
             </div>
           <% end %>
 

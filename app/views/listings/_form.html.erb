@@ -166,20 +166,19 @@
               </li>
           </ul>
         </div>
-        <div id="custom-select" class="c_f_labels">
+        <div id="custom-select" class="c_f_labels dr-down">
           <span class="custom-labels">* Category</span>
           <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: false, error: false, input_html: { class: 'cat_select', tabindex: '4' } %>
         </div>
         
-        <div id="custom-select" class="c_f_labels dr-down">
+        <div id="custom-select" class="c_f_labels">
           <span class="custom-labels">* Tags</span>
           <%= f.input :marker_list, label: false, error: false, input_html: { cols: '55', rows: '1', class: 'custom-tags', tabindex: '5', autocomplete: 'off'} %>
         </div>
       </fieldset>
 
       <fieldset>
-          <legend class="leg">Description</legend>
-          <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '1', class: 'txt_a_size no_label auto', tabindex: '6', id: 'l_dscr', autocomplete: 'off' } %>
+        <%= f.input :description, label: 'Description', error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '1', class: 'forms account settings', tabindex: '6', id: 'l_dscr', autocomplete: 'off' } %>
       </fieldset>
 
       <div class="form-actions">

@@ -22,16 +22,18 @@ class RegistrationsController < Devise::RegistrationsController
 		respond_to do |format|
 	    	# required for settings form to submit when password is left blank
 		    if params[:member][:password].blank?
-		      params[:member].delete("password")
-		      params[:member].delete("password_confirmation")
-		    end
+			    params[:member].delete(:password)
+			    params[:member].delete(:password_confirmation)
+			end
 
 		    @member = Member.find(current_member.id)
 		    if @member.update_attributes(params[:member])
 				# Sign in the member bypassing validation in case his password changed
 				sign_in @member, :bypass => true 
+				format.html { redirect_to root_path }
 				format.js { render :js => "window.location.href = ('#{profile_path(@member)}');" } 
 		    else
+		    	format.html render "edit"
 		    	format.js { render 'update.js.erb' }
 		    end
 		end 

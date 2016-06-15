@@ -574,3 +574,8 @@ label.active {
 	text-align: left !important;
 	font-style: normal;
 }
+#li_sh_wrap .desc ul {
+	padding-right: 40px;
+	direction: rtl;
+	list-style: inherit;
+}

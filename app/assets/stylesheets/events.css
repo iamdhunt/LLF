@@ -484,14 +484,15 @@ vertical-align: baseline;
 }
 .ev_vm a {
 	color: #444;
-	border: 2px solid;
+	border: 2px solid #444;
 	border-radius: 4px;
     padding: 6px 8px;
     opacity: .8;
 }
 .ev_vm a:hover {
-	opacity: 1;
 	text-decoration: none;
+	color: #fff;
+	background: #444;
 }
 .ev_cmpl {
 	position: absolute;

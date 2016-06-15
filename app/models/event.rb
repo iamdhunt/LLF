@@ -21,9 +21,11 @@ class Event < ActiveRecord::Base
   has_many :mentions, as: :mentioner, dependent: :destroy
 
   has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
-                  :default_url => '/assets/Events Default.png'
+                  :default_url => '/assets/Events Default.png',
+                  :convert_options => { all: "-set -colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-                  :default_url => '/assets/Events Banner Default.png'
+                  :default_url => '/assets/Events Banner Default.png',
+                  :convert_options => { all: "-set -colorspace sRGB" }
 
   before_create :make_it_permalink
   before_validation :clean_up_markers

@@ -44,23 +44,23 @@
 }
 #mk_head .mk_l a {
 	color: #1b85a6;
-	border: 2px solid;
+	border: 2px solid #1b85a6;
 	border-radius: 4px;
     padding: 7px 10px;
-    opacity: .8;
 }
 #mk_head .mk_l a:hover {
-	opacity: 1;
+	color: #fff;
+	background: #1b85a6;
 }
 #mk_head .pl_l a {
 	color: #E83E44;
-	border: 2px solid;
+	border: 2px solid #E83E44;
     border-radius: 4px;
     padding: 7px 10px;
-    opacity: .8;
 }
 #mk_head .pl_l a:hover {
-	opacity: 1;
+	color: #fff;
+	background-color: #E83E44
 }
 #listings {
 	background-position: 4px 38%;

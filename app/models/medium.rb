@@ -14,8 +14,10 @@ class Medium < ActiveRecord::Base
   	acts_as_ordered_taggable
   	acts_as_ordered_taggable_on :markers
 
-    has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} }
-    has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#", thumb: "30x30#" }
+    has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} },
+                              :convert_options => { all: lambda{ |instance| (instance.asset_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
+    has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#", thumb: "30x30#" },
+                              :convert_options => { all: "-set -colorspace sRGB" }
 
   	before_create :make_it_permalink
   	before_validation :clean_up_markers

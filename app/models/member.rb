@@ -5,10 +5,10 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :email_confirmation, :password, :password_confirmation, :remember_me,
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
   					:full_name, :user_name, :pursuits, :avatar, :bio, :city, :state, :country, :pursuit_list, 
             :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website, :banner,
-            :remove_banner, :remove_avatar
+            :remove_banner, :remove_avatar, :admin, :verified
   
   attr_accessor :login, :remove_banner, :remove_avatar
 
@@ -32,9 +32,11 @@ class Member < ActiveRecord::Base
   has_many :mentions, as: :mentionable, dependent: :destroy
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"},
-                    :default_url => '/assets/Default Av.png'
+                    :default_url => '/assets/Default Av.png',
+                    :convert_options => { all: "-set -colorspace sRGB" }
 
-  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" }
+  has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
+                    :convert_options => { all: "-set -colorspace sRGB" }
 
   before_validation :clean_up_pursuits
   before_save :to_lower, :perform_banner_removal, :perform_avatar_removal
@@ -61,8 +63,6 @@ class Member < ActiveRecord::Base
                           in: %w(faqs community media market events projects members terms privacy rules blog login logout join admin dashboard grla rbreed frls search discover edit settings conversations notifications),
                           message: 'is already taken.'
                         }                 
-
-  validates :email, confirmation: { message: 'doesn\'t match confirmation.'}
 
   validates_attachment_size :avatar, :less_than_or_equal_to=>10.megabyte, message: 'must be less than or equal to 10mb.'
   validates_attachment_content_type :avatar, :content_type=>['image/jpeg', 'image/jpg', 'image/png'],
@@ -191,7 +191,7 @@ class Member < ActiveRecord::Base
                         message: 'must not be longer than 100 characters.'
                       }
 
-  auto_strip_attributes :email, :email_confirmation, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
+  auto_strip_attributes :email, :password, :password_confirmation, :user_name, :bio, :facebook, :twitter, :linkedin, :soundcloud, :youtube, :vimeo, :instagram, :flickr, :google, :pinterest, :blog, :website
   auto_strip_attributes :city, :squish => true
   auto_strip_attributes :state, :squish => true
   auto_strip_attributes :country, :squish => true

@@ -156,6 +156,27 @@
         toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'formatOL', 'outdent', 'indent']
       });
 
+      $('#l_dscr')
+      .on('froalaEditor.initialized', function (e, editor) {
+        editor.$el.atwho({at: "@", editableAtwhoQueryAttrs: {"data-fr-verified": true}, 'data':data, limit: 25});
+
+        editor.events.on('keydown', function (e) {
+          if (e.which == $.FroalaEditor.KEYCODE.ENTER && editor.$el.atwho('isSelecting')) {
+            return false;
+          }
+        }, true);
+      })
+      .froalaEditor({
+        key: 'ObE5A-8E1tA2wz==', 
+        inlineMode: false,
+        placeholderText: 'Tell us about your listing...',
+        heightMin: 100,
+        toolbarButtons: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'outdent', 'indent', '|', 'fullscreen'],
+        toolbarButtonsMD: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'outdent', 'indent', '|', 'fullscreen'],
+        toolbarButtonsSM: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'outdent', 'indent'],
+        toolbarButtonsXS: ['undo', 'redo', '|', 'bold', 'italic', 'underline', '|', 'formatUL', 'outdent', 'indent']
+      });
+
     <% end %>
 
   <% end %>

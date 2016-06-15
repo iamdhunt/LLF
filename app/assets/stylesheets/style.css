@@ -1113,6 +1113,9 @@ hr.contact {
 .follow_count_text a:hover .ftext {
 	color: #333;
 }
+.follow_count_text .current .ftext {
+	color: #333;
+}
 .follow_count_text p {
 	margin-bottom: 4px;
 	line-height: 3px;
