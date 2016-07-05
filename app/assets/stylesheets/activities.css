@@ -100,16 +100,11 @@
         	hyphens: auto;
     -ms-word-break: break-all;
 }
-.status_fil .act_content a {
-	font-weight: bold;
-}
 .status_fil .act_content a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 .media_act_cap a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 .act_ep_content {
 	padding: 5px;
@@ -297,7 +292,6 @@
 }
 .act_loc a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 .act_loc > a:hover > [class^="icon-blue"],
 .act_loc > a:hover > [class*=" icon-blue"],
@@ -330,6 +324,7 @@
 	line-height: 200%;
 }
 .act_ts a:hover {
+	color: #fff;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(147, 39, 201);
     /* RGBa with 0.6 opacity */

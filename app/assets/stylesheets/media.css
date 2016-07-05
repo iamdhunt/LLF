@@ -45,7 +45,6 @@
 	margin-top: 6px;
 }
 .view_caption a:hover {
-	color: #898989;
 	text-decoration: none;
 }
 .add_media {
@@ -336,6 +335,7 @@ top: 25%;
 	border-radius: 3px;
 }
 .popular a:hover {
+	color: #fff;
 	opacity: .85;
 	text-decoration: none;
 }
@@ -410,6 +410,7 @@ top: 25%;
 	border-radius: 3px;
 }
 .add_md a:hover {
+	color: #fff;
 	opacity: .85;
 	text-decoration: none;
 }

@@ -163,19 +163,15 @@
 	font-size: 1em;
 	color: #2FC671;
 }
-.mess_wrap .comment_name a:hover {
-	color: #898989;
-}
 .mess_wrap .comment_name2 {
 	padding: 0 0 0 50px;
 }
 .mess_wrap .comment_name2 a {
-	font-size: 1em;
-	font-weight: bold;
+	font-size: 1.1em;
+	color: #676767;
 }
 .mess_wrap .comment_name2 a:hover {
-	color: #898989;
-	text-decoration: none;
+	color: #333;
 }
 .mess_wrap .com_con {
 	padding: 0 0 0 50px;

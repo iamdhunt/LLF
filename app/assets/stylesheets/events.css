@@ -190,7 +190,6 @@
 }
 .e_loc a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 .e_loc > a:hover > [class^="icon-blue"],
 .e_loc > a:hover > [class*=" icon-blue"],
@@ -379,6 +378,7 @@ vertical-align: baseline;
 	white-space: nowrap;
 }
 .eloc a:hover {
+	color: #fff;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(247, 180, 72);
     /* RGBa with 0.6 opacity */
@@ -528,6 +528,7 @@ vertical-align: baseline;
 	border-radius: 3px;
 }
 .add_evt a:hover {
+	color: #fff;
 	opacity: .85;
 	text-decoration: none;
 }

@@ -278,6 +278,7 @@ margin: 0 0 30px 170px;
     -background: transparent;
 }
 .btag a:hover {
+	color: #fff;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(147, 39, 201);
     /* RGBa with 0.6 opacity */
@@ -299,6 +300,7 @@ margin: 0 0 30px 170px;
     background-color: rgb(84, 177, 140);
 }
 .bprice a:hover {
+	color: #fff;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(84, 177, 140);
     /* RGBa with 0.6 opacity */

@@ -18,8 +18,8 @@ $(document).ready(function(){
        $( ".primary_nav2").css( "display", "inline" );
        $( ".fr-sticky-on").css( "top", "0px !important" );
        $( "#custom-search-input input" ).css( "width", "85%" );
-       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "205px" );
-       $( ".nav_search #custom-search-input" ).css( "margin-left", "200px" );
+       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "220px" );
+       $( ".nav_search #custom-search-input" ).css( "margin-left", "220px" );
        $( "#faqs_wrap" ).css( "padding-left", "1%" );
        $( "#faqs_wrap" ).css( "padding-right", "1%" );
        $( "#custom-search-input input" ).css( "font-size", "1em" );

@@ -18,9 +18,12 @@
 	display: none;
 }
 .comment_del a {
-	color: #898989;
+	color: #333;
 	text-decoration: none;
 	font-weight: normal !important;
+}
+.comment_del a:hover {
+	color: #898989;
 }
 .comments:hover .comment_del {
 	display: inline;
@@ -44,25 +47,26 @@
 .comment_name {
 	padding: 0 0 0 51px;
 	cursor: default;
-	font-size: 1.3em;
+	font-size: 1.4em;
 }
 .comment_name a {
-	font-weight: bold;
 	font-size: .867em;
+}
+.comment_name .cmntr a {
+	color: #6f6f6f;
+}
+.comment_name .cmntr a:hover {
+	color: #333;
 }
 .comment_name a:hover {
 	text-decoration: none;
 }
 .com_con {
 	font-size: 1.05em;
-	padding: 0 0 0 51px;
-}
-.com_con a {
-	font-weight: bold;
+	padding: 3px 0 0 51px;
 }
 .com_con a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 .com_av {
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */

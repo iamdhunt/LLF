@@ -60,6 +60,7 @@
 	border-radius: 6px;
 }
 .pd_mk a:hover {
+	color: #fff;
 	/* Fallback for web browsers that don't support RGBa */
     background-color: rgb(147, 39, 201);
     /* RGBa with 0.6 opacity */
@@ -120,11 +121,7 @@
 	padding: 4px 0;
 	font-size: 1.2em;
 }
-.pd_right .desc a {
-	font-weight: bold;
-}
 .pd_right .desc a:hover {
-	color: #898989;
 	text-decoration: none;
 }
 .pd_right .additional {
@@ -557,6 +554,7 @@ label.active {
 	border-radius: 3px;
 }
 .add_lst a:hover {
+	color: #fff;
 	opacity: .85;
 	text-decoration: none;
 }

@@ -62,6 +62,9 @@
 #content_wrap .accordion-content a {
 	font-weight: bold;
 }
+#content_wrap .accordion-content a {
+	text-decoration: none;
+}
 .accordion-content.options ul li {
 	list-style-type: upper-alpha !important;
 }

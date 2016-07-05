@@ -250,7 +250,7 @@
 #status_show .comment_del img {
 	width: 14px;
 	height: 14px;
-	margin-top: 2px;
+	margin-top: 3.3px;
 	opacity: .75;
 }
 #status_show .act_delete img {
@@ -258,12 +258,8 @@
 	height: 14px;
 	margin-top: 1px;
 }
-#status_show .act_content a {
-	font-weight: bold;
-}
 #status_show .act_content a:hover {
 	text-decoration: none;
-	color: #898989;
 }
 #edit_show {
 	position: relative;

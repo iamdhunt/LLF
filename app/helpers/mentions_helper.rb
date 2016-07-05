@@ -4,7 +4,7 @@ module MentionsHelper
 	  	status.content.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -15,7 +15,7 @@ module MentionsHelper
 	  	comment.content.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -26,7 +26,7 @@ module MentionsHelper
 	  	medium.caption.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -37,7 +37,7 @@ module MentionsHelper
 	  	upload.caption.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -48,7 +48,7 @@ module MentionsHelper
 	  	update.content.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -59,7 +59,7 @@ module MentionsHelper
 	  	project.about.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -70,7 +70,7 @@ module MentionsHelper
 	  	event.details.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end
@@ -81,7 +81,7 @@ module MentionsHelper
 	  	listing.description.gsub(/@\w+/).each do |user_name|
 		    member = Member.find_by_user_name(user_name[1..-1])
 		    if member
-		      link_to user_name, profile_path(member.user_name)
+		      link_to user_name, profile_path(member.user_name), class: 'mem_mnts'
 		    else
 		      user_name
 		    end

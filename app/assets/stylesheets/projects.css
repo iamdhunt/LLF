@@ -924,6 +924,7 @@
 	border-radius: 3px;
 }
 .add_pj a:hover {
+	color: #fff;
 	opacity: .85;
 	text-decoration: none;
 }
@@ -934,18 +935,10 @@
 .p_f_but .fa {
 	margin: 0 -3px 0 -9px;
 }
-.update_wrap a {
-	font-weight: bold;
-}
 .update_wrap a:hover {
 	text-decoration: none;
-	color: #898989;
-}
-#proj_about a {
-	font-weight: bold;
 }
 #proj_about a:hover {
-	color: #898989;
 	text-decoration: none;
 }
 .up_e_txt {
