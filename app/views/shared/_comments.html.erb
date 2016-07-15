@@ -8,7 +8,7 @@
 			<div class="comment_name">
 				<span class="cmntr">
 					<% if comment.member == @commentable.member %>
-						<%= link_to comment.member.user_name, profile_path(comment.member) %> <span class="owner">Creator</span>
+						<%= link_to comment.member.user_name, profile_path(comment.member) %> <span class="owner"><i class="fa fa-star"></i></span>
 					<% else %>
 						<%= link_to comment.member.user_name, profile_path(comment.member) %>
 					<% end %>
@@ -16,14 +16,14 @@
 
 				<% if comment.member == current_member  %>
 					<span class="comment_del">
-						<%= link_to "edit", polymorphic_url([@commentable, comment], action: :edit), class: '' %> x
-						<%= link_to 'delete', [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to "Edit", polymorphic_url([@commentable, comment], action: :edit), class: '' %>
+						<%= link_to 'Delete', [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 					</span>
 				<% end %>
 
 				<% if comment.member != current_member && @commentable.member == current_member %>
-					<span id="cm_del_img" class="comment_del">
-						<%= link_to image_tag("Delete.png", title: 'Delete'), [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+					<span class="comment_del">
+						<%= link_to 'Delete', [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
 					</span>
 				<% end %>
 		

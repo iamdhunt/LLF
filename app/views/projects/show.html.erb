@@ -2,118 +2,108 @@
 
 <% if @project.banner? %>
   <div id="banner" style="background-image: url(<%= @project.banner.url(:large) %>)">
+<% elsif @project.member.banner? %>
+  <div id="banner" style="background-image: url(<%= @project.member.banner.url(:large) %>)">
 <% else %>
-  <div id="banner" style="background-image: url('/assets/Projects-Default-Banner-Fade.png')">
+  <div id="banner" style="background-image: url('/assets/Projects Banner Image.jpg'); background-attachment: fixed;">
 <% end %>
-
+  
   <div id="pb">
-    <div id="proj_av"><%= image_tag @project.avatar.url(:av), class: 'p_av' %></div>
-    <% if !member_signed_in? || @project.member == current_member %>
-      <div id="info2">
-    <% else %>
-      <div id="info">
+    <div class="pj_title"><%= @project.name.upcase %></div>
+
+    <% if member_signed_in? && @project.member != current_member %>
+      <div class='but p_f_but'>
+        <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
+      </div>
     <% end %>
-      <ul>
-        <% if member_signed_in? && @project.member != current_member %>
-          <li class='but p_f_but'>
-            <%= render :partial => "shared/follow_project", :locals => {:project => @project} %>
-          </li>
-        <% end %>
-        <% if @project.marker_list %>
-          <li class='sub'>
-            <span class='acct'><%= @project.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
-          </li> 
-        <% end %> 
-        <% if @project.website? %>  
-          <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-globe"></i>Project Website'.html_safe, "http://#{@project.website.sub(/^https?\:\/\//, '')}" %></span>
-          </li>
-        <% end %>
-        <% if @project.city? %>  
-          <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i>'.html_safe + truncate(@project.city.titleize, length: 40), :controller => "projects", :action => "index", :projects => @project.city  %></span>
-          </li>
-          <li class='sub'>
-            <span class='acct dt' style="padding-right:1px;">
-              <%= @project.created_at.strftime("%b %d") %>
-            </span>
-            <span class='acct dt'>
-              <%= @project.created_at.strftime("%Y") %>
-            </span>
-          </li>
-        <% end %>
-      </ul>
+    
+    <% if @project.marker_list %>
+      <div class='sub'>
+        <span class='acct'><%= @project.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "projects", :action => "index", :projects => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
+      </div> 
+    <% end %>
+
+    <% if @project.website? %>  
+      <div class='sub w'>
+        <span class='acct'><%= link_to '<i class="fa fa-globe"></i>Project Website'.html_safe, "http://#{@project.website.sub(/^https?\:\/\//, '')}" %></span>
+      </div>
+    <% end %>
+
+    <% if @project.city? %>  
+      <div class='sub w'>
+        <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i>'.html_safe + truncate(@project.city.titleize, length: 40), :controller => "projects", :action => "index", :projects => @project.city  %></span>
+      </div>
+    <% end %>
+
+    <div class='sub'>
+      <span class='acct dt' style="padding-right:1px;">
+        <%= @project.created_at.strftime("%b %d") %>
+      </span>
+      <span class='acct dt'>
+        <%= @project.created_at.strftime("%Y") %>
+      </span>
     </div>
+
+    <div class="sub byline">
+      <span><%= link_to truncate(@project.member.full_name, :length => 50), @project.member, title: @project.member.full_name, alt: @project.member.full_name %></span> &#215;
+      <span>
+        <%= link_to profile_projects_path(@project.member), title: "View All Projects", alt: "View All Projects" do %>
+          Projects: <%= @project.member.projects.count %>
+        <% end %>
+      </span>&#215;
+      <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
+        <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
+      </span>
+    </div>
+
+    <div class="b_arrow"><%= link_to '<i class="fa fa-angle-down"></i>'.html_safe, "javascript:void(0);", id: 'b_arrow' %></div>
   </div>
-  <div style="clear:both;"></div>
+
 </div>
 
-<div id="pr_ev">
-  <div id="main_wrap" class="pr_wrap">
+<div id="pr_ev" class="scroll2">
 
-    <div id="bc_wrap" style="padding:5px 5px; 0 0">
-        <div class="breadcrumbs">
-            <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span><%= truncate(@project.name, length: 50) %></span>
-        </div>
-
-        <% if member_signed_in? %>
-            <div class="add_pj" style="padding-top:6px;">
-              <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
-                <i class="fa fa-plus"></i>Create Project
-              <% end %>
-            </div>
-        <% end %>
-    </div>
-
-    <div id="proj_title">
-      <span class="proj_title"><%= @project.name %></span>
-    </div>
-
-    <div id="proj_info">
-        <%= avatar_profile_link @project.member, :class => "pr_av", title: @project.member.full_name, alt: @project.member.full_name  %>
-
+  <div>
+    <div id="e_adr">
+      <span class="action_btns">
         <% if member_signed_in? %>
           <span id="pjt_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
             <%= render :partial => "projects/fav_button", :locals => {:project => @project} %>
           </span>
         <% else %>
-          <span class="l_out"><%= image_tag("Favorite 7.png", class: "ims fav", title: "Favorite", alt: "Favorite") %></span>
+          <span class="l_out">
+            <%= link_to '<i class="fa fa-heart", title: "Favorite", alt: "Favorite"></i>'.html_safe, sign_in_path, title: "Favorite", alt: "Favorite" %>
+          </span>
         <% end %>
-
-        <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
+        
+        <span><%= link_to '<i class="fa fa-paper-plane"></i>'.html_safe, "#share", :data => {:toggle => "modal"}, title: "Share", alt: "Share" %></span>
 
         <% if member_signed_in? %>
-
           <% if current_member == @project.member %>
-            <span class="btn-group">
-              <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                <ul class="dropdown-menu">            
-                  <li>
-                    <%= link_to "Edit", edit_project_path(@project), class: '' %>
-                  </li>
-                  <li class="del">
-                    <%= link_to "Delete", @project, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </li>
-                </ul>
-            </span>
+            <span><%= link_to '<i class="fa fa-cogs"></i>'.html_safe, edit_project_path(@project), title: "Edit", alt: "Edit" %></span>
+
+            <span><%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, @project, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
           <% end %>
-
-        <% end %>
-
-      </span>
-    </div>
-
-    <div class="prj_fav_ct">
-      <span>
-        <%= link_to profile_projects_path(@project.member), title: "View All Projects", alt: "View All Projects" do %>
-          Projects: <%= @project.member.projects.count %>
         <% end %>
       </span>
-      &nbsp;
-      <span id="prj_sh_fav_<%= @project.id %>_<%= @project.member.id %>">
-        <%= render :partial => "projects/fav_count", :locals => {:project => @project} %>
-      </span>
+
+      <% if member_signed_in? %>
+        <div class="add_more">
+          <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project' do %>
+            <i class="fa fa-plus"></i>Create Project
+          <% end %>
+        </div>
+      <% else %>
+        <div class="add_more">
+          <%= link_to sign_in_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
+            <i class="fa fa-plus"></i>Create Project
+          <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
+
+  <div id="main_wrap" class="pr_wrap">
 
     <% if @project.video? %>
       <div id="ep_res_wrap">
@@ -169,9 +159,11 @@
         <div class="tab-pane active" id="updates">
           <div class="u_btn">
             <% if @project.member == current_member %>
-              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-danger', :data => {:toggle => "modal"} do %>
-                <i class="fa fa-quote-left"></i>Post Update
-              <% end %>
+              <div class="add_more">
+                <%= link_to "#update", title: 'Post Update', alt: 'Post Update', :data => {:toggle => "modal"} do %>
+                  <i class="fa fa-quote-left"></i>Post Update
+                <% end %>
+              </div>
             <% end %>
           </div>
 
@@ -208,9 +200,11 @@
         <div class="tab-pane" id="updates">
           <div class="u_btn">
             <% if @project.member == current_member %>
-              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-danger', :data => {:toggle => "modal"} do %>
-                <i class="fa fa-quote-left"></i>Post Update
-              <% end %>
+              <div class="add_more">
+                <%= link_to "#update", title: 'Post Update', alt: 'Post Update', :data => {:toggle => "modal"} do %>
+                  <i class="fa fa-quote-left"></i>Post Update
+                <% end %>
+              </div>
             <% end %>
           </div>
 
@@ -235,9 +229,11 @@
       <div class="tab-pane" id="media">
         <div class="p_u_btn">
           <% if @project.member == current_member %>
-            <%= link_to "#upload", title: 'Add Media', alt: 'Add Media', class: 'btn btn-warning', :data => {:toggle => "modal"} do %>
-              <i class="fa fa-arrow-up"></i>Add Media
-            <% end %>
+            <div class="add_more">
+              <%= link_to "#upload", title: 'Add Media', alt: 'Add Media', :data => {:toggle => "modal"} do %>
+                <i class="fa fa-arrow-up"></i>Add Media
+              <% end %>
+            </div>
           <% end %>
         </div>
 

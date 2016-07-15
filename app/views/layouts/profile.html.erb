@@ -5,13 +5,19 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-    <%= favicon_link_tag 'favicon 3.ico' %>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type:'image/png' %>
     <script>
     </script>
   </head>
 
   <body>
+
+  <div id="site_header">
+    <div class="header_img">
+      <%= link_to image_tag("Brand-Logo.png", class: ""), root_path, :class => "" %>
+    </div>
+  </div>
 
   <%= render :partial => "layouts/menu" %>
    
@@ -28,19 +34,25 @@
       <%= render partial: 'profiles' %>
 
       <div id="footer_wrap">
+        <div id="footer_logo">
+          <%= link_to image_tag("Site-Logo.png", class: ""), root_path, :class => "" %>
+        </div>
           
-          <div id="footer_top" class="box_font"> 
-            <span class="bottom_links"><%= link_to "FAQ'S", faqs_path %></span> 
-            <span class="bottom_links"><%= link_to "CONTACT US", "#contact", :data => {:toggle => "modal"} %></span> 
-            <span class="bottom_links"><%= link_to "TERMS", terms_path %></span>
-            <span class="bottom_links"><%= link_to "PRIVACY", privacy_path %></span>
-            <span class="bottom_links">|</span>
-            <span class="bottom_links"><a href="http://beboldbefearless.co/">LLF</a></span>    
-          </div>
+        <div id="footer_top" class="box_font"> 
+          <span class="bottom_links"><%= link_to "FAQ'S", faqs_path %></span>
+          <span class="bottom_links">/</span>
+          <span class="bottom_links"><%= link_to "CONTACT US", "#contact", :data => {:toggle => "modal"} %></span>
+          <span class="bottom_links">/</span>
+          <span class="bottom_links"><%= link_to "TERMS", terms_path %></span>
+          <span class="bottom_links">/</span>
+          <span class="bottom_links"><%= link_to "PRIVACY", privacy_path %></span>
+          <span class="bottom_links">/</span>
+          <span class="bottom_links"><a href="http://beboldbefearless.co/">L&#215;L&#215;F</a></span> 
+        </div>
         
-          <div id="footer_bottom" class="box_font">
-              LLF BETA 2.3 &copy; 2016 
-          </div>
+        <div id="footer_bottom" class="box_font">
+          COPYRIGHT 2016 LIVING LIFE FEARLESS
+        </div>
 
       </div>
 
@@ -58,12 +70,11 @@
         </div>
         <div class="modal-body pi">
           <div class="contact_links">
+            <%= link_to image_tag("LLF.png", class: "acct_imgs", title: "L&#215;L&#215;F".html_safe, alt: "L&#215;L&#215;F"), "http://beboldbefearless.co" %>
             <%= link_to image_tag("FB 2.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "https://www.facebook.com/livinglifefearless" %>
             <%= link_to image_tag("Twitter 3.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "https://twitter.com/llfofficial" %>
             <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "YouTube", alt: "YouTube"), "https://youtube.com/thellfofficial/videos" %>
-            <%= link_to image_tag("Vimeo 2.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), "https://vimeo.com/livinglifefearless" %>
             <%= link_to image_tag("Instagram 3.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://instagram.com/llfofficial/" %>
-            <%= link_to image_tag("Blog 3.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://feeds.feedburner.com/livinglifefearless" %>
           </div>
           
           <div class="contact_email">
@@ -77,6 +88,51 @@
         </div>
       </div>
   </div>
+
+  <% if member_signed_in? %>
+    <div class="">
+        <div id="member-menu" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+          <div class="mem_close">
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+          </div>
+          <div class="modal-body mem_modalb">
+            <div class="modal_av">
+              <%= link_to image_tag(current_member.avatar.url(:follow), id: "", :class => " ", title: "View My Profile", alt: "View My Profile"), profile_path(current_member) %>
+            </div>
+            <div class="">
+              <div class="mem_acct">
+                  <%= link_to 'ACCOUNT SETTINGS', edit_member_path, class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'FOLLOWING', profile_following_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'FOLLOWERS', profile_followers_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'STREAM', profile_stream_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'MEDIA', profile_media_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'MARKET', profile_market_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'EVENTS', profile_events_path(current_member), class: '' %>
+              </div>
+              <div class="mem_links">
+                  <%= link_to 'PROJECTS', profile_projects_path(current_member), class: '' %>
+              </div>
+              <div class="s_out">
+                  <%= link_to 'LOG OUT', sign_out_path, class: '' %>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+    </div>
+  <% end %>
 
   <!--/pagewrap-->
 

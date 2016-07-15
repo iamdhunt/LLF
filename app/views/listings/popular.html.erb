@@ -2,48 +2,36 @@
 
 <%= render :partial => "market/banner" %>
 
-<div id="lstgs_wrap">
+<div id="lstgs_wrap" class="scroll2">
 
     <div id="sb_wrap">
         <% if @facet == nil && @query == nil && @price_range == nil %>
             <div id="bc_wrap" class="q_bc mk3">
                 <div class="breadcrumbs">
-                    <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span>Popular</span>
+                    <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span>Popular</span>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_lst" style="padding-top:6px;">
-                      <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Listing
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing' do %>
+                    <i class="fa fa-plus"></i>Create Listing
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "pop_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "pop_search" %></span>
-                <% end %>
+                <%= render :partial => "pop_search" %>
             </div>
         <% else %>
             <div id="bc_wrap" class="q_bc mk2">
                 <div class="breadcrumbs">
-                    <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span class="lstgs"><%= link_to "Popular", popular_listings_path %></span> &raquo; <span>Discover</span>
+                    <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span class="lstgs"><%= link_to "Popular &raquo;".html_safe, popular_listings_path %></span> <span>Discover</span>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_lst" style="padding-top:6px;">
-                      <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Listing
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing' do %>
+                    <i class="fa fa-plus"></i>Create Listing
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "pop_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "pop_search" %></span>
-                <% end %>
+                <%= render :partial => "pop_search" %>
             </div>
         <% end %>
 

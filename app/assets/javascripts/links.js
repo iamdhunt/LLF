@@ -24,6 +24,14 @@ $(document).ready(function() {
       return false;
     });
 
+    $("#b_arrow").click(function() {
+        var offset = 70;
+
+        $('html, body').animate({
+            scrollTop: $(".scroll2").offset().top
+        }, 1000);
+    });
+
     $spinner.hide();  // hide it initially.
 
     $('form[data-remote]').bind('ajax:beforeSend', function(){

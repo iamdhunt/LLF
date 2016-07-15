@@ -201,8 +201,8 @@
 	background: none;
 	font-weight: normal;
 }
-.convos_wrap .breadcrumbs a {
-	color: #2FC671;
+.convos_wrap .add_more {
+	margin-bottom: 25px;
 }
 .convos_wrap .comment_del img {
 	width: 16px;

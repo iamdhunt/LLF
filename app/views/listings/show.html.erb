@@ -1,42 +1,82 @@
 <% title @listing.title %>
 
   <% if @listing.banner? %>
-    <div id="banner" style="background-image: url(<%= @listing.banner.url(:large) %>)"></div>
+    <div id="banner" style="background-image: url(<%= @listing.banner.url(:large) %>)">
   <% else %>
-    <div id="banner" style="background-image: url('/assets/Market-Default-Banner-Fade.png');"></div>
+    <div id="banner" style="background-image: url('/assets/Market Banner Img.jpg');">
   <% end %>
 
-  <div id="lstgs_wrap">
+      <div id="lb">
+        <div class="lst_title"><%= @listing.title.upcase %></div>
 
-    <div id="li_sh_wrap">
+        <div class="sub">
+          <span class='lst_cat'>
+            <%= @listing.category %>
+          </span>
+        </div>
 
-      <div id="pd_top">
+        <div class="sub">
+          <span class="pd_mk">
+            <%= @listing.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "listings", :action => "index", :listings => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
+          </span>
+        </div>
 
-        <div id="bc_wrap">
-          <div class="breadcrumbs">
-            <span class="lstgs"><%= link_to "Market", market_path %></span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span> &raquo; <span><%= truncate(@listing.title, length: 50) %></span>
-          </div>
+        <div class="sub byline">
+          <span><%= link_to truncate(@listing.member.full_name, :length => 50), @listing.member, title: @listing.member.full_name, alt: @listing.member.full_name %></span> &#215;
+          <span>
+            <%= link_to profile_market_path(@listing.member), title: "View All Listings", alt: "View All Listings" do %>
+              Listings: <%= @listing.member.listings.count %>
+            <% end %>
+          </span>&#215;
+          <span id="lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+            <%= render :partial => "listings/fav_count", :locals => {:listing => @listing} %>
+          </span>
+        </div>
+
+        <div class="b_arrow"><%= link_to '<i class="fa fa-angle-down"></i>'.html_safe, "javascript:void(0);", id: 'b_arrow' %></div>
+      </div>
+
+    </div>
+
+  <div id="lstgs_wrap" class="scroll2">
+
+    <div id="pd_top">
+
+      <div class="breadcrumbs">
+        <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span><%= truncate(@listing.title, length: 30) %></span>
+      </div>
+
+      <span class="action_btns">
+          <% if member_signed_in? %>
+            <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
+              <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
+            </span>
+          <% else %>
+            <span class="l_out">
+              <%= link_to '<i class="fa fa-heart", title: "Favorite", alt: "Favorite"></i>'.html_safe, sign_in_path, title: "Favorite", alt: "Favorite" %>
+            </span>
+          <% end %>
+          
+          <span><%= link_to '<i class="fa fa-paper-plane"></i>'.html_safe, "#share", :data => {:toggle => "modal"}, title: "Share", alt: "Share" %></span>
 
           <% if member_signed_in? %>
-              <div class="add_lst" style="padding-top:6px;">
-                <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
-                  <i class="fa fa-plus"></i>Create Listing
-                <% end %>
-              </div>
+            <% if current_member == @listing.member %>
+              <span><%= link_to '<i class="fa fa-cogs"></i>'.html_safe, edit_listing_path(@listing), title: "Edit", alt: "Edit" %></span>
+
+              <span><%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, @listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+            <% end %>
           <% end %>
-        </div>
+        </span>
 
-        <div class="pd_info_wrap">
-          <div class="pd_cat">
-            <%= @listing.category %>
-          </div>
-
-          <div class="pd_mk">
-            <%= @listing.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "listings", :action => "index", :listings => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %>
-          </div>
-        </div>
-
+      <div class="add_more">
+        <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
+          <i class="fa fa-plus"></i>Create Listing
+        <% end %>
       </div>
+
+    </div>
+
+    <div id="li_sh_wrap">
 
       <div id="pd_wrap">
 
@@ -73,49 +113,6 @@
         <div class="pd_right">
           <div class="title">
             <%= @listing.title %>
-          </div>
-
-          <div class="action">
-            <%= list_av @listing.member, :class => "pr_av", title: @listing.member.full_name, alt: @listing.member.full_name  %>
-
-            <% if member_signed_in? %>
-
-              <span id="lstgs_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
-                <%= render :partial => "listings/fav_button", :locals => {:listing => @listing} %>
-              </span>
-
-            <% else %>
-
-              <span class="l_out"><%= image_tag("Favorite 7.png", class: "ims fav", title: "Favorite", alt: "Favorite") %></span>
-
-            <% end %>
-
-            <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-            <% if member_signed_in? %> 
-
-              <% if current_member == @listing.member %>
-                <span class="btn-group">
-                  <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                    <ul class="dropdown-menu">            
-                      <li>
-                        <%= link_to "Edit", edit_listing_path(@listing), class: '' %>
-                      </li>
-                      <li class="del">
-                        <%= link_to "Delete", @listing, method: :delete, data: { confirm: 'Are you sure?' } %>
-                      </li>
-                    </ul>
-                </span>
-              <% end %>
-
-            <% end %>
-
-          </div>
-
-          <div class="lst_fav_ct">
-            <span id="lst_sh_fav_<%= @listing.id %>_<%= @listing.member.id %>">
-              <%= render :partial => "listings/fav_count", :locals => {:listing => @listing} %>
-            </span>
           </div>
 
           <div class="price">

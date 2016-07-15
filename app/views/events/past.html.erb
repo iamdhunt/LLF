@@ -1,15 +1,15 @@
-<% title "LLF x Past Events" %>
+<% title "LLF &#215; Past Events".html_safe %>
 
 <%= render :partial => "banner" %>
 
-<div class="evts_wrap">
+<div class="scroll2">
 
     <div id="sb_wrap" class="se_wrap">
 
         <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
             <div id="bc_wrap" class="q_bc e5">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span class="evts"><%= link_to "Past", past_events_path %></span> &raquo; <span>Discover</span>
+                    <span class="evts"><%= link_to "Events &raquo;".html_safe, events_path %></span> <span class="evts"><%= link_to "Current &raquo;".html_safe, current_events_path %></span> <span class="evts"><%= link_to "Past &raquo;".html_safe, past_events_path %></span> <span>Discover</span>
                 </div>
 
                 <div class="popular">
@@ -18,24 +18,18 @@
                   <% end %>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_evt" style="padding-top:6px;">
-                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Event
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
+                    <i class="fa fa-plus"></i>Create Event
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "past_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "past_search" %></span>
-                <% end %>
+                <%= render :partial => "past_search" %>
             </div>
         <% else %>
             <div id="bc_wrap" class="q_bc e4">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span class="evts"><%= link_to "Current", current_events_path %></span> &raquo; <span>Past</span>
+                    <span class="evts"><%= link_to "Events &raquo;".html_safe, events_path %></span> <span class="evts"><%= link_to "Current &raquo;".html_safe, current_events_path %></span> <span>Past</span>
                 </div>
 
                 <div class="popular">
@@ -44,19 +38,13 @@
                   <% end %>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_evt" style="padding-top:6px;">
-                      <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Event
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
+                    <i class="fa fa-plus"></i>Create Event
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "past_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "past_search" %></span>
-                <% end %>
+                <%= render :partial => "past_search" %>
             </div>
         <% end %>
 

@@ -2,145 +2,114 @@
 
 <% if @event.banner? %>
   <div id="banner" style="background-image: url(<%= @event.banner.url(:large) %>)">
+<% elsif @event.member.banner? %>
+  <div id="banner" style="background-image: url(<%= @event.member.banner.url(:large) %>)">   
 <% else %>
-  <div id="banner" style="background-image: url('/assets/Events-Banner-Default-Fade.png')">
+  <div id="banner" style="background-image: url('/assets/Events Banner Image.jpg'); background-attachment: fixed;">
 <% end %>
 
   <div id="pb">
-    <div id="proj_av">
-      <% if @event.start_date && @event.end_date < Date.today %>
-        <div class="ev_cmpl">
-          <%= image_tag("Past Event.png", title: 'Finished', alt: 'Finished') %>
-        </div>
-      <% end %>
-      <%= image_tag @event.avatar.url(:av), class: 'p_av' %>
-    </div>
-    <% if !member_signed_in? || @event.member == current_member %>
-      <div id="info2">
-    <% else %>
-      <div id="info">
+    <div class="pj_title"><%= @event.name.upcase %></div>
+
+    <% if member_signed_in? && @event.member != current_member %>
+      <div class='but p_f_but'>
+        <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
+      </div>
     <% end %>
-      <ul>
-        <% if member_signed_in? && @event.member != current_member %>
-          <li class='but p_f_but'>
-            <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
-          </li>
-        <% end %>
-        <% if @event.marker_list %>
-          <li class='sub'>
-            <span class='acct'><%= @event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "events", :action => "index", :events => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
-          </li> 
-        <% end %> 
-        <% if @event.website? %>  
-          <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-globe"></i>Event Website'.html_safe, "http://#{@event.website.sub(/^https?\:\/\//, '')}" %></span>
-          </li>
-        <% end %>
-        <% if @event.location? %>  
-          <li class='sub w'>
-            <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + truncate(@event.location.titleize, length: 40), :controller => "events", :action => "index", :events => @event.location  %></span>
-          </li>
-        <% end %>
-          <li class='sub'>
-            <span class='acct dt' style="padding-right:0;">
-              <%= @event.start_date.strftime("%b %d") %> <% unless @event.end_date == @event.start_date %> - <%= @event.end_date.strftime("%b %d") %><% end %>
-            </span>
-            <span class='acct dt' style="padding-right:0;">
-              <%= @event.start_date.strftime("%Y") %>
-            </span>
-            <span class='acct dt t1'>
-              <% if @event.start_time.strftime("%I:%M %p") == '12:00 AM' && @event.end_time.strftime("%I:%M %p") == '12:00 AM' %>
-                All Day
-              <% else %>
-                <%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %>
-              <% end %>
-            </span>
-          </li>
-      </ul>
-    </div>
-  </div>
-  <div style="clear:both;"></div>
-</div>
+    
+    <% if @event.marker_list %>
+      <div class='sub'>
+        <span class='acct'><%= @event.marker_list.map { |m| link_to truncate_tag('+ ' + m.titleize), {:controller => "events", :action => "index", :events => m}, title: m.titleize, alt: m.titleize }.join(' ').html_safe %></span>
+      </div> 
+    <% end %>
 
-<div id="pr_ev">
-  <div id="main_wrap" class="ev_wrap">
+    <% if @event.website? %>  
+      <div class='sub w'>
+        <span class='acct'><%= link_to '<i class="fa fa-globe"></i>Event Website'.html_safe, "http://#{@event.website.sub(/^https?\:\/\//, '')}" %></span>
+      </div>
+    <% end %>
 
-    <div id="bc_wrap" style="padding:5px 5px; 0 0">
-        <div class="breadcrumbs">
-            <span class="evts"><%= link_to "Events", events_path %></span> &raquo; <span><%= truncate(@event.name, length: 50) %></span>
-        </div>
+    <% if @event.location? %>  
+      <div class='sub w'>
+        <span class='acct'><%= link_to '<i class="fa fa-map-marker"></i> '.html_safe + truncate(@event.location.titleize, length: 40), :controller => "events", :action => "index", :events => @event.location  %></span>
+      </div>
+    <% end %>
 
-        <% if member_signed_in? %>
-            <div class="add_evt" style="padding-top:6px;">
-              <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event', style: 'vertical-align:sub;' do %>
-                <i class="fa fa-plus"></i>Create Event
-              <% end %>
-            </div>
-        <% end %>
-    </div>
-
-    <div id="ev_title">
-      <span class="proj_title"><%= @event.name %></span>
-    </div>
-
-    <div id="ev_info">
-      <%= avatar_profile_link @event.member, :class => "pr_av", title: @event.member.full_name, alt: @event.member.full_name  %>
-
-        <% if member_signed_in? %>
-          <span id="evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
-            <%= render :partial => "events/fav_button", :locals => {:event => @event} %>
-          </span>
+    <div class="sub">
+      <span class='acct dt' style="padding-right:1px;">
+        <%= @event.start_date.strftime("%b %d") %> <% unless @event.end_date == @event.start_date %> - <%= @event.end_date.strftime("%b %d") %><% end %>
+      </span>
+      <span class='acct dt' style="padding-right:1px;">
+        <%= @event.start_date.strftime("%Y") %>
+      </span>
+      <span class='acct dt t1'>
+        <% if @event.start_time.strftime("%I:%M %p") == '12:00 AM' && @event.end_time.strftime("%I:%M %p") == '12:00 AM' %>
+          All Day
         <% else %>
-          <span class="l_out"><%= image_tag("Favorite 7.png", class: "ims fav", title: "Favorite", alt: "Favorite") %></span>
+          <%= @event.start_time.strftime("%I:%M %p") %> - <%= @event.end_time.strftime("%I:%M %p") %>
         <% end %>
-
-        <%= link_to image_tag("/assets/Share 6.png", class: 'ims sh', title: 'Share'), "#share", :data => {:toggle => "modal"} %>
-
-        <% if member_signed_in? %>
-
-          <% if current_member == @event.member %>
-            <span class="btn-group">
-              <%= link_to image_tag("/assets/More 5.png", class: 'ims m', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-                <ul class="dropdown-menu">            
-                  <li>
-                    <%= link_to "Edit", edit_event_path(@event), class: '' %>
-                  </li>
-                  <li class="del">
-                    <%= link_to "Delete", @event, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </li>
-                </ul>
-            </span>
-          <% end %>
-
-        <% end %>
-
+      </span>
     </div>
 
-    <div class="evt_fav_ct">
+    <div class="sub byline">
+      <span><%= link_to truncate(@event.member.full_name, :length => 50), @event.member, title: @event.member.full_name, alt: @event.member.full_name %></span> &#215;
       <span>
         <%= link_to profile_events_path(@event.member), title: "View All Events", alt: "View All Events" do %>
           Events: <%= @event.member.events.count %>
         <% end %>
-      </span>
-      &nbsp;
+      </span>&#215;
       <span id="ev_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
         <%= render :partial => "events/fav_count", :locals => {:event => @event} %>
       </span>
     </div>
 
-    <div id="e_adr">
-      <div class="e_adr1">
-        <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}+#{@event.zipcode}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
-            <span class=""><%= @event.address %></span>
-            <p>
-              <span class="">
-                <%= truncate(@event.city, length: 50) %><% if @event.state? %>, <%= truncate(@event.state, length: 50) %><% end %> <%= @event.zipcode %>
-              </span>
-            </p>
-            <% if @event.country? %>
-              <p><span class=""><%= @event.country %></span></p>
+    <div class="b_arrow"><%= link_to '<i class="fa fa-angle-down"></i>'.html_safe, "javascript:void(0);", id: 'b_arrow' %></div>
+  </div>
+
+</div>
+
+<div id="pr_ev" class="scroll2">
+  <div id="main_wrap" class="ev_wrap">
+
+    <div>
+      <div id="e_adr">
+        <div class="e_adr1">
+          <%= link_to "http://maps.google.com/maps?daddr=#{@event.address}+#{@event.city}+#{@event.zipcode}", title: "Get Directions", alt: "Get Directions", :class => "" do %>
+              <% if @event.address? %><span class=""><%= @event.address %></span><% end %>
+              <% if @event.address? %><% if @event.city? || @event.zipcode? %>&#215;<% end %><% end %>
+              <% if @event.city? %><span class=""><%= truncate(@event.city, length: 25) %></span><% end %>
+              <% if @event.city? %><% if @event.zipcode? %>&#215;<% end %><% end %>
+              <% if @event.zipcode? %><span class=""><%= @event.zipcode %></span><% end %>
+          <% end %>
+        </div>
+
+        <span class="action_btns">
+          <% if member_signed_in? %>
+            <span id="evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
+              <%= render :partial => "events/fav_button", :locals => {:event => @event} %>
+            </span>
+          <% else %>
+            <span class="l_out">
+              <%= link_to '<i class="fa fa-heart", title: "Favorite", alt: "Favorite"></i>'.html_safe, sign_in_path, title: "Favorite", alt: "Favorite" %>
+            </span>
+          <% end %>
+          
+          <span><%= link_to '<i class="fa fa-paper-plane"></i>'.html_safe, "#share", :data => {:toggle => "modal"}, title: "Share", alt: "Share" %></span>
+
+          <% if member_signed_in? %>
+            <% if current_member == @event.member %>
+              <span><%= link_to '<i class="fa fa-cogs"></i>'.html_safe, edit_event_path(@event), title: "Edit", alt: "Edit" %></span>
+
+              <span><%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
             <% end %>
-        <% end %>
+          <% end %>
+        </span>
+
+        <div class="add_more">
+          <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
+            <i class="fa fa-plus"></i>Create Event
+          <% end %>
+        </div>
       </div>
     </div>
 
@@ -198,9 +167,11 @@
         <div class="tab-pane active" id="updates">
           <div class="u_btn">
             <% if @event.member == current_member %>
-              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-event', :data => {:toggle => "modal"} do %>
-                <i class="fa fa-quote-left"></i>Post Update
-              <% end %>
+              <div class="add_more">
+                <%= link_to "#update", title: 'Post Update', alt: 'Post Update', :data => {:toggle => "modal"} do %>
+                  <i class="fa fa-quote-left"></i>Post Update
+                <% end %>
+              </div>
             <% end %>
           </div>
 
@@ -237,9 +208,11 @@
         <div class="tab-pane" id="updates">
           <div class="u_btn">
             <% if @event.member == current_member %>
-              <%= link_to "#update", title: 'Post Update', alt: 'Post Update', class: 'btn btn-event', :data => {:toggle => "modal"} do %>
-                <i class="fa fa-quote-left"></i>Post Update
-              <% end %>
+              <div class="add_more">
+                <%= link_to "#update", title: 'Post Update', alt: 'Post Update', :data => {:toggle => "modal"} do %>
+                  <i class="fa fa-quote-left"></i>Post Update
+                <% end %>
+              </div>
             <% end %>
           </div>
 
@@ -264,9 +237,11 @@
       <div class="tab-pane" id="media">
         <div class="p_u_btn">
           <% if @event.member == current_member %>
-            <%= link_to "#upload", title: 'Add Media', alt: 'Add Media', class: 'btn btn-warning', :data => {:toggle => "modal"} do %>
-              <i class="fa fa-arrow-up"></i>Add Media
-            <% end %>
+            <div class="add_more">
+              <%= link_to "#upload", title: 'Add Media', alt: 'Add Media', :data => {:toggle => "modal"} do %>
+                <i class="fa fa-arrow-up"></i>Add Media
+              <% end %>
+            </div>
           <% end %>
         </div>
 

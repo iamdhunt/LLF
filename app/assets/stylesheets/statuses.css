@@ -59,7 +59,7 @@
 	top: 12px;
 }
 #status_show {
-	padding: 30px 0;
+	padding: 80px 0;
 	position: relative;
 	width: 100%;
 }
@@ -242,7 +242,7 @@
 	top: 25%;
 }
 #status_show #media.modal.fade.in {
-	top: 10%;
+	top: 5%;
 }
 #status_show #comm_form_wrap {
 	margin: 10px;

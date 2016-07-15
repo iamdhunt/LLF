@@ -3,8 +3,8 @@
 
         <% unless member_signed_in? %>
             <div class="nav_links">
-                <%= link_to "Login", sign_in_path, :class => "member_links" %>
-                <%= link_to "Join!", join_path, :class => "member_links" %>
+                <%= link_to "Login", sign_in_path, :class => "member_links l_out" %>
+                <%= link_to "Join!", join_path, :class => "member_links l_out" %>
             </div>
         <% end %>
 
@@ -39,7 +39,7 @@
 
                 <span class="mem_drop">
                     <span class="btn-group">
-                        <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av ", title: current_member.full_name, id: ""), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
+                        <%= link_to image_tag(current_member.avatar.url(:thumb), :class => "nav_av ", title: current_member.full_name, id: ""), "#member-menu", :data => {:toggle => "modal"} %>
                         <ul class="dropdown-menu member">
                             <li>
                                 <%= link_to 'View My Profile', profile_path(current_member), class: 'menu_name' %>
@@ -80,13 +80,6 @@
         <% end %>
 
         <div class="primary_nav">
-            <span class="h_i">
-                <% if member_signed_in? %>
-                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
-                <% else %>       
-                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
-                <% end %>
-            </span>
             <span class="txt">
                 <%= link_to "Market", market_path, alt: 'Market', class: "#{cp(market_path)}" %>
             </span>
@@ -102,13 +95,6 @@
         </div>
 
         <div class="primary_nav2">
-            <span class="h_i">
-                <% if member_signed_in? %>
-                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), profile_path(current_member), title: 'Home', alt: 'Home'  %>
-                <% else %>       
-                    <%= link_to image_tag("Beta Icon.png", :class => "menu_logo"), root_path, title: 'Home', alt: 'Home'  %>
-                <% end %>
-            </span>
             <span class="txt">
                 <%= link_to "Mkt", market_path, title: 'Market', alt: 'Market', class: "#{cp(market_path)}" %>
             </span>

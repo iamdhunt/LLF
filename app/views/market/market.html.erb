@@ -2,7 +2,7 @@
 
 <%= render :partial => "banner" %>
 
-<div id="lstgs_wrap">
+<div id="lstgs_wrap" class="scroll2">
 
     <div id="sb_wrap" class="q_bc mk1">
         <div id="bc_wrap">
@@ -10,19 +10,13 @@
                 <span>Market</span> &raquo; <span class="lstgs"><%= link_to "Listings", listings_path %></span>
             </div>
 
-            <% if member_signed_in? %>
-                <div class="add_lst" style="padding-top:6px;">
-                  <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing', style: 'vertical-align:sub;' do %>
-                    <i class="fa fa-plus"></i>Create Listing
-                  <% end %>
-                </div>
-            <% end %>
+            <div class="add_more">
+              <%= link_to new_listing_path, title: 'Create Listing', alt: 'Create Listing' do %>
+                <i class="fa fa-plus"></i>Create Listing
+              <% end %>
+            </div>
 
-            <% if member_signed_in? %>
-              <%= render :partial => "listings/search" %>
-            <% else %>
-              <span class="l_o"><%= render :partial => "listings/search" %></span>
-            <% end %>
+            <%= render :partial => "listings/search" %>
         </div>
 
     </div>

@@ -32,7 +32,7 @@ class Member < ActiveRecord::Base
   has_many :mentions, as: :mentionable, dependent: :destroy
 
   has_attached_file :avatar, styles: { large: "700x700>", medium: "300x200>", small: "260x180>", activity: "300>", follow: "175x175#", thumb: "30x30#", thumb2: "35x35#", listing: "24x24#", av: "200x200#", comment: "22x22#", comment2: "40x40#"},
-                    :default_url => '/assets/Default Av.png',
+                    :default_url => '/assets/Default-Av.png',
                     :convert_options => { all: "-set -colorspace sRGB" }
 
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },

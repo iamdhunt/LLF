@@ -4,7 +4,7 @@
 .ev_wrap .nav-tabs {
 	font-size: 1.333em;
 	border-bottom: 1px solid #dce1e6;
-	padding: 20px 0 0 0;
+	padding: 50px 0 0 0;
 	text-align: center;
 }
 .ev_wrap .nav-tabs li {
@@ -18,30 +18,30 @@
 .ev_wrap .nav-tabs > .active > a {
 	color: #444444;
 	border: none;
-	border-bottom: 4px solid #146f3f; 
+	border-bottom: 4px solid #000; 
 	cursor: pointer;
 }
 .ev_wrap .nav-tabs > .active > a:hover {
 	color: #444444;
 	border: none;
-	border-bottom: 4px solid #146f3f; 
+	border-bottom: 4px solid #000; 
 	cursor: pointer;
 }
 .ev_wrap .nav-tabs > .active > a:focus {
 	color: #444444;
 	border: none;
-	border-bottom: 4px solid #146f3f; 
+	border-bottom: 4px solid #000; 
 	cursor: pointer;
 }
 .ev_wrap .nav-tabs > li > a:hover {
 	border: none;
-	border-bottom: 4px solid #146f3f;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
 .ev_wrap .nav-tabs > li > a:focus {
 	border: none;
-	border-bottom: 4px solid #146f3f;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
@@ -55,13 +55,6 @@
 	font-size: 1.3em;
 	cursor: default;
 	margin-bottom: 2px;
-}
-.ev_wrap .owner {
-	font-size: 12px;
-	color: #fff;
-    background-color: rgb(33, 158, 92);
-	padding: 1px 4px;
-	border-radius: 4px;
 }
 .ev_wrap .meta {
 	font-size: .8em;
@@ -219,19 +212,34 @@
 	margin: 0 0 5px 15px;
 }
 #e_adr {
-	text-align: center;
-	margin-bottom: 20px;
+	border-bottom: 1px solid #dce1e6;
+	padding: 10px 135px 10px 10px;
+	color: #444;
+	font-size: 1.1em;
+	position: relative;
+}
+#e_adr a {
+	color: #444;
+}
+#e_adr a:hover {
+	opacity: .85;
+}
+#e_adr .action_btns i {
+	margin: 0 -9px;
+}
+#e_adr .action_btns {
+	margin-left: 15px;
+}
+.e_adr1 {
+	display: inline-block;
 }
 .e_adr1 a {
 	color: #444;
-	font-weight: 500;
-	font-size: 20px;
-	text-align: center;
-	display: inline-block;
+	font-weight: bold;
 }
 .e_adr1 a:hover {
 	text-decoration: none;
-	color: #1a90b6;
+	opacity: .85;
 }
 .e_adr1 p {
 	margin-bottom: 0px;
@@ -240,6 +248,14 @@
 #ev_info {
 	text-align: center;
 	padding: 5px 0 5px 0;
+	font-weight: bold;
+	color: #444;
+}
+#ev_info a {
+	color: #444;
+}
+#ev_info a:hover {
+	opacity: .85;
 }
 #ev_title {
 	text-align: center;
@@ -456,12 +472,6 @@ vertical-align: baseline;
 	text-decoration: none;
 	color: #219e5c;
 }
-.breadcrumbs .evts a {
-	color: #44986c;
-}
-.breadcrumbs .evts a:hover {
-	color: #898989;
-}
 #pb .sub .fa {
 	margin-right: -4px;
 	margin-left: -8px;
@@ -485,7 +495,6 @@ vertical-align: baseline;
 .ev_vm a {
 	color: #444;
 	border: 2px solid #444;
-	border-radius: 4px;
     padding: 6px 8px;
     opacity: .8;
 }
@@ -510,10 +519,29 @@ vertical-align: baseline;
 #proj_av .ev_cmpl img {
 	width: 50px;
 }
+#e_adr .add_more {
+	position: absolute;
+	top: 8px;
+	right: 0;
+}
+#e_adr .add_more a {
+	color: #444;
+	border-radius: none;
+	background-color: #fff;
+	border-left: 1px solid #dce1e6;
+	border-radius: 0;
+	padding: 7px 10px;
+}
+#e_adr .add_more a:hover {
+	opacity: .85;
+	color: #444;
+}
+#e_adr .unfav {
+	color: #f24248;
+}
 .add_evt {
 	font-weight: bold;
 	display: inline-block;
-	float: right;
 }
 .q_bc .add_evt {
 	float: left;

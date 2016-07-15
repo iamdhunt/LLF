@@ -1,6 +1,9 @@
 #prs_wrap {
 	position: relative;
-	margin: 0 0 150px 0;
+	margin: 0 0 350px 0;
+}
+#pr_ev {
+	margin: 0 0 350px 0;
 }
 #prs {
 	margin: 20px auto 0 auto;
@@ -90,7 +93,6 @@
 	position: relative;
 	padding-bottom: 40%;
 	height: 0;
-	margin: 10px 0;
 	overflow: hidden;
 }
 #proj_video iframe,
@@ -109,6 +111,7 @@
 	margin-right: auto;
 }
 #proj_av {
+	position: relative;
 	margin-right: 8px;
 	background-color: #fff;
 	border-radius: 10px;
@@ -119,16 +122,52 @@
 	vertical-align: top;
 	display: inline-block;
 }
+.pj_av {
+	text-align: center;
+}
 .p_av {
-	border-radius: 8px;
+	border-radius: 100%;
 }
 #pb {
 	text-align: center;
+	font-weight: bold;
+	position: relative;
+	top: 8%;
+	padding: 0 20px;
 }
 #pb .btn-large {
 	padding: 5px 9px;
 	font-size: 20px;
 	border-radius: 4px;
+}
+#pb .pj_title {
+	font-size: 35px;
+	font-weight: bold;
+	text-shadow: 1px 2px 3px rgba(0,0,0,1);
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#pb .owner_av img {
+	vertical-align: bottom;
+}
+#pb .owner_av img:hover {
+	opacity: 1;
+}
+#pb .sub {
+	padding: 10px 0;
+}
+#pb .sub a {
+	color: #fff;
+}
+#pb .p_f_but {
+	padding: 5px 0;
+}
+#pb .byline {
+	text-shadow: 1px 2px 3px rgba(0,0,0,1);
+}
+#banner #pb .b_arrow {
+	margin-top: 0;
 }
 #pb #info {
 	color: #fff;
@@ -505,7 +544,7 @@
 .pr_wrap .nav-tabs {
 	font-size: 1.333em;
 	border-bottom: 1px solid #dce1e6;
-	padding: 20px 0 0 0;
+	padding: 50px 0 0 0;
 	text-align: center;
 }
 .pr_wrap .nav-tabs li {
@@ -519,30 +558,30 @@
 .pr_wrap .nav-tabs > .active > a {
   color: #444444;
   border: none;
-  border-bottom: 4px solid #da4f49; 
+  border-bottom: 4px solid #000; 
   cursor: pointer;
 }
 .pr_wrap .nav-tabs > .active > a:hover {
 	color: #444444;
   	border: none;
-  	border-bottom: 4px solid #da4f49; 
+  	border-bottom: 4px solid #000; 
   	cursor: pointer;
 }
 .pr_wrap .nav-tabs > .active > a:focus {
 	color: #444444;
 	border: none;
-	border-bottom: 4px solid #da4f49; 
+	border-bottom: 4px solid #000; 
 	cursor: pointer;
 }
 .pr_wrap .nav-tabs > li > a:hover {
 	border: none;
-	border-bottom: 4px solid #da4f49;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
 .pr_wrap .nav-tabs > li > a:focus {
 	border: none;
-	border-bottom: 4px solid #da4f49;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
@@ -675,7 +714,7 @@
 }
 .pr_wrap .u_tit {
 	float: left;
-	color: #DA4F49;
+	color: #444;
 }
 .pr_wrap .u_time {
 	color: #898989;
@@ -895,12 +934,6 @@
 }
 #proj_fol {
 	margin: 20px auto 0 auto;
-}
-.breadcrumbs .pjts a {
-	color: rgb(218, 79, 73);
-}
-.breadcrumbs .pjts a:hover {
-	color: #898989;
 }
 #p_index .none_message {
 	padding: 60px 0;

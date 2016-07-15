@@ -1,6 +1,6 @@
 #mk_wrap {
 	position: relative;
-	margin: 20px 0 150px 0;
+	margin: 20px 0 350px 0;
 }
 #mk_head {
 	width: 100%;
@@ -45,7 +45,6 @@
 #mk_head .mk_l a {
 	color: #1b85a6;
 	border: 2px solid #1b85a6;
-	border-radius: 4px;
     padding: 7px 10px;
 }
 #mk_head .mk_l a:hover {
@@ -55,7 +54,6 @@
 #mk_head .pl_l a {
 	color: #E83E44;
 	border: 2px solid #E83E44;
-    border-radius: 4px;
     padding: 7px 10px;
 }
 #mk_head .pl_l a:hover {
@@ -65,12 +63,6 @@
 #listings {
 	background-position: 4px 38%;
 	background-repeat: no-repeat;
-}
-.breadcrumbs .lstgs a {
-	color: rgb(27, 133, 166);
-}
-.breadcrumbs .lstgs a:hover {
-	color: #898989;
 }
 .q_bc.mk1 #custom-search-input {
     margin-left: 300px;

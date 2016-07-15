@@ -1,6 +1,14 @@
 <% title "Join The Community!" %>
 
-<div id="home_wrapper">
+<div id="banner" style="background-image: url('/assets/Community Banner Image.jpeg');">
+  <div class="b_wrap">
+    <div class="b_title">JOIN COLLECTIVV</div>
+    <div class="b_byline">We're a community of people and brands doing and creating inspiring things.</div>
+    <div class="b_arrow"><%= link_to '<i class="fa fa-angle-down"></i>'.html_safe, "javascript:void(0);", id: 'b_arrow' %></div>
+  </div>
+</div>
+
+<div id="home_wrapper" class="scroll2">
 
       <div class="home_form">
         <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), remote: true, :wrapper_html => { :style => 'display: inline' }) do |f| %>

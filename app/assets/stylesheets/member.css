@@ -1,6 +1,6 @@
 #m_wrap {
 	position: relative;
-	margin: 0 0 150px 0;
+	margin: 0 0 350px 0;
 }
 #member_wrap {
 	margin-top: 1.2em;
@@ -113,4 +113,55 @@
 }
 #avatar .act_img_lb {
 	text-align: left;
+}
+#member-menu {
+	border-radius: 0;
+	width: 480px;
+	left: 53%;
+}
+#member-menu.modal.fade.in {
+	top: 16%;
+}
+#member-menu .modal_av img {
+	width: 100px;
+	border-radius: 100%;
+}
+#member-menu .mem_modalb {
+	text-align: center;
+	font-size: 1.3em;
+	padding: 40px 30px 45px 30px;
+	max-height: 500px;
+}
+#member-menu .mem_modalb a {
+	color: #131313;
+}
+#member-menu .mem_modalb a:hover {
+	color: #898989;
+}
+#member-menu .mem_modalb .mem_acct {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+#member-menu .mem_modalb .s_out {
+	margin-top: 20px;
+}
+#member-menu .mem_modalb .s_out a {
+	border: 2px solid #131313;
+    padding: 5px 15px;
+}
+#member-menu .mem_modalb .s_out a:hover {
+	color: #fff;
+	background-color: #131313;
+}
+#member-menu .mem_modalb .mem_links {
+	padding: 3px 0;
+}
+#member-menu .mem_close {
+	position: absolute;
+    right: -12px;
+    top: -60px;
+    font-size: 50px;
+}
+#member-menu .mem_close a {
+	color: #fff;
 }

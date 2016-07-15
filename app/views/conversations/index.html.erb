@@ -23,11 +23,11 @@
 
 			<div class="tab-content">
 	    		<div id="inbox" class="tab-pane active">
-	    			<div class="conv_btn">
-	    				<%= link_to "#message", title: 'New Conversation', alt: 'New Conversation', class: 'btn btn-success', :data => {:toggle => "modal"} do %>
+	    			<div class="add_more">
+		                <%= link_to "#message", title: 'New Conversation', alt: 'New Conversation', :data => {:toggle => "modal"} do %>
 			              <i class="fa fa-comments"></i>New Conversation
 			            <% end %>
-			        </div>
+		            </div>
 	    			<div class="refresh"><%= link_to '<i class="fa fa-refresh"></i>Refresh'.html_safe, :controller => :conversations, :action => :index, remote: true %></div>
 	    			<%= content_tag :div, class: "inbox_wrap", data: {url: polling_conversations_url} do %>
 	    				<%= render partial: "conversations/conversation", :collection => @conversations, :as => :conversation %>
@@ -46,11 +46,11 @@
 				</div>
 
 				<div id="sentbox" class="tab-pane">
-					<div class="conv_btn">
-						<%= link_to "#message", title: 'New Conversation', alt: 'New Conversation', class: 'btn btn-success', :data => {:toggle => "modal"} do %>
+					<div class="add_more">
+		                <%= link_to "#message", title: 'New Conversation', alt: 'New Conversation', :data => {:toggle => "modal"} do %>
 			              <i class="fa fa-comments"></i>New Conversation
 			            <% end %>
-					</div>
+		            </div>
 
 					<div class="sentbox_wrap">
 						<%= render partial: "conversations/sent", :collection => @sent, :as => :conversation %>
@@ -69,11 +69,11 @@
 				</div>
 
 				<div id="trash" class="tab-pane">
-					<div class="conv_btn">
-						<%= link_to( {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' },  title: 'Empty Trash', alt: 'Empty Trash', class: 'btn btn-danger') do %>
+					<div class="add_more">
+		                <%= link_to( {:controller => "conversations", :action => "empty_trash"}, remote: true, :method => 'post', data: { confirm: 'Are you sure?' },  title: 'Empty Trash', alt: 'Empty Trash') do %>
 			              <i class="fa fa-trash-o"></i>Empty Trash
 			            <% end %>
-					</div>
+		            </div>
 
 					<div class="trash_wrap">
 						<%= render partial: "conversations/trash", :collection => @trash, :as => :conversation %>

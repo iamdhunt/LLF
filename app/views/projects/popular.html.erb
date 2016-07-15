@@ -2,49 +2,37 @@
 
 <%= render :partial => "banner" %>
 
-<div id="">
+<div class="scroll2">
 
     <div id="sb_wrap">
 
         <% if @facet != nil || @query != nil || @city_facet != nil %>
             <div id="bc_wrap" class="q_bc p4">
                 <div class="breadcrumbs">
-                    <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span class="pjts"><%= link_to "Popular", popular_projects_path %></span> &raquo; <span>Discover</span>
+                    <span class="pjts"><%= link_to "Projects &raquo;".html_safe, projects_path %></span> <span class="pjts"><%= link_to "Popular &raquo;".html_safe, popular_projects_path %></span> <span>Discover</span>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_pj" style="padding-top:6px;">
-                      <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Project
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project' do %>
+                    <i class="fa fa-plus"></i>Create Project
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "pop_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "pop_search" %></span>
-                <% end %>
+                <%= render :partial => "pop_search" %>
             </div>
         <% else %>
             <div id="bc_wrap" class="q_bc p3">
                 <div class="breadcrumbs">
-                    <span class="pjts"><%= link_to "Projects", projects_path %></span> &raquo; <span>Popular</span>
+                    <span class="pjts"><%= link_to "Projects &raquo;".html_safe, projects_path %></span> <span>Popular</span>
                 </div>
 
-                <% if member_signed_in? %>
-                    <div class="add_pj" style="padding-top:6px;">
-                      <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project', style: 'vertical-align:sub;' do %>
-                        <i class="fa fa-plus"></i>Create Project
-                      <% end %>
-                    </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to new_project_path, title: 'Create Project', alt: 'Create Project' do %>
+                    <i class="fa fa-plus"></i>Create Project
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "pop_search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "pop_search" %></span>
-                <% end %>
+                <%= render :partial => "pop_search" %>
             </div>
         <% end %>
 

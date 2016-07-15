@@ -1,6 +1,6 @@
 #md_wrap {
 	position: relative;
-	margin: 0 0 150px 0;
+	margin: 0 0 350px 0;
 }
 #media_list_wrap {
 	margin: 20px auto 0 auto;
@@ -313,12 +313,6 @@ top: 25%;
 .pop_wrap_m #sb_wrap {
 	width: 98%;
 }
-.breadcrumbs .mda a {
-	color: rgb(231, 111, 42);
-}
-.breadcrumbs .mda a:hover {
-	color: #898989;
-}
 .popular {
 	font-weight: bold;
 	width: 102px;
@@ -438,16 +432,19 @@ top: 25%;
 	margin: 5px 0 2px 0;
 }
 #media.modal.fade.in {
-	top: 7%;
+	top: 5%;
+}
+#media_index.modal.fade.in {
+	top: 5%;
 }
 #media .modal-body {
-	max-height: 460px;
+	max-height: 480px;
 }
 #media_index .modal-body {
-	max-height: 460px;
+	max-height: 480px;
 }
 #gl_media.modal.fade.in {
-	top: 7%;
+	top: 5%;
 }
 #gl_media .modal-body {
 	max-height: 460px;

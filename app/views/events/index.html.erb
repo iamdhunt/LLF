@@ -1,8 +1,8 @@
-<% title "LLF x Events" %>
+<% title "LLF &#215; Events".html_safe %>
 
 <%= render :partial => "banner" %>
 
-<div class="evts_wrap">
+<div class="scroll2">
 
     <div id="sb_wrap" class="se_wrap">
 
@@ -13,19 +13,13 @@
               <% end %>
             </div>
 
-            <% if member_signed_in? %>
-                <div class="add_evt">
-                  <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
-                    <i class="fa fa-plus"></i>Create Event
-                  <% end %>
-                </div>
-            <% end %>
+            <div class="add_more">
+              <%= link_to new_event_path, title: 'Create Event', alt: 'Create Event' do %>
+                <i class="fa fa-plus"></i>Create Event
+              <% end %>
+            </div>
 
-            <% if member_signed_in? %>
-              <%= render :partial => "search" %>
-            <% else %>
-              <span class="l_o"><%= render :partial => "search" %></span>
-            <% end %>
+            <%= render :partial => "search" %>
         </div>
 
     </div>

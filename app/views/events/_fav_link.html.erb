@@ -1,0 +1,9 @@
+<% if @event.votes.size > 0 && current_member.voted_up_on?(@event) %>
+	<%= link_to favorite_event_path(@event), remote: true, method: :put, title: 'Unfavorite', alt: 'Unfavorite' do %>
+		Unfavorite
+	<% end %>
+<% else %>
+	<%= link_to favorite_event_path(@event), remote: true, method: :put, title: 'Favorite', alt: 'Favorite' do %>
+		Favorite
+	<% end %>
+<% end %>

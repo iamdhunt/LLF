@@ -1,9 +1,8 @@
 <% title "LLF x Login" %>
 
-<div class="login_bg">
-
-	<div class="login_wrap">
-		<div class="login_form">
+<div id="banner" style="background-image: url('/assets/Community Banner Image.jpeg');text-align:left;">
+  	<div class="login_wrap">
+    	<div class="login_form">
 
 				<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: "" }) do |f| %>
 
@@ -38,8 +37,9 @@
 				</div>
 
 		</div>
-	</div>
-
+  	</div>
 </div>
+
+<div class="" style="padding-bottom:500px;"></div>
 
 <!--/main_wrap-->

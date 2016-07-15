@@ -2,7 +2,7 @@
 
 <%= render :partial => "banner" %>
 
-<div id="md_wrap" class="md_index">
+<div id="md_wrap" class="scroll2">
 
   <div id="sb_wrap" class="">
 
@@ -11,7 +11,7 @@
             <div id="bc_wrap" class="q_bc m1">
 
                 <div class="breadcrumbs">
-                    <span class="mda"><%= link_to "Media", media_path %></span> &raquo; <span>Discover</span>
+                    <span class="mda"><%= link_to "Media &raquo;".html_safe, media_path %></span> <span>Discover</span>
                 </div>
             
                 <div class="popular">
@@ -20,20 +20,13 @@
                   <% end %>
                 </div>
 
-                <% if member_signed_in? %>
-                  <div class="add_md">
-                    <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
-                      <i class="fa fa-plus"></i>Add Media
-                    <% end %>
-                  </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
+                    <i class="fa fa-plus"></i>Add Media
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "search" %></span>
-                <% end %>
-
+                <%= render :partial => "search" %>
             </div>
       <% else %>
             <div id="bc_wrap" class="q_bc m0">
@@ -44,20 +37,13 @@
                   <% end %>
                 </div>
 
-                <% if member_signed_in? %>
-                  <div class="add_md">
-                    <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
-                      <i class="fa fa-plus"></i>Add Media
-                    <% end %>
-                  </div>
-                <% end %>
+                <div class="add_more">
+                  <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
+                    <i class="fa fa-plus"></i>Add Media
+                  <% end %>
+                </div>
 
-                <% if member_signed_in? %>
-                  <%= render :partial => "search" %>
-                <% else %>
-                  <span class="l_o"><%= render :partial => "search" %></span>
-                <% end %>
-
+                <%= render :partial => "search" %>
             </div>
       <% end %>
 

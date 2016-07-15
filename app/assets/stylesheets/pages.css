@@ -168,7 +168,7 @@
 	margin-top: 7px;
 }
 #faqs_wrap {
-	padding: 0 5% 150px 5%;
+	padding: 0 5% 350px 5%;
 }
 #faqs_wrap #content_wrap {
 	padding: 0;
@@ -188,4 +188,10 @@
 #faqs_wrap #ue_nav .nav-tabs > li > a:hover {
 	background-color: #d14c8f;
 	color: #fff;
+}
+#pg_ban {
+	margin-top: 8%;
+}
+#banner #pg_ban .b_arrow {
+	margin: 0;
 }
