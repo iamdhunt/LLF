@@ -57,7 +57,7 @@
                                 <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
                             </span>
                             <span>
-                                <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Message", alt: "Message", :class => "btn" %>
+                                <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
                                 <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
                             </span>
                         <% end %>
@@ -70,8 +70,8 @@
                     </div>
                 <% else %>
                     <div id="member_actions" class="profile_buttons">
-                        <span class="btn" title="Follow" alt="Follow"><%= image_tag("Follow.png", class: "mem_actions") %></span>
-                        <span class="btn" title="Start Conversation" alt="Start Conversation"><%= image_tag("Messages 2.png", class: "mem_actions") %></span>
+                        <span class="member_follow"><%= link_to image_tag("Follow.png", class: "mem_actions"), sign_in_path, title: "Follow", alt: "Follow", :class => "btn" %></span>
+                        <span><%= link_to image_tag("Messages 2.png", class: "mem_actions"), sign_in_path, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %></span>
                         <span class="mt-btn btn" title="Share Profile" alt="Share Profile"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"} %></span>
                     </div>
                 <% end %>

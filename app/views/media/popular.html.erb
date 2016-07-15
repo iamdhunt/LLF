@@ -16,8 +16,14 @@
           </div>
 
           <div class="add_more">
-            <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
-              <i class="fa fa-plus"></i>Add Media
+            <% if member_signed_in? %>
+              <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
+                <i class="fa fa-plus"></i>Add Media
+              <% end %>
+            <% else %>
+              <%= link_to sign_in_path, title: 'Add Media', alt: 'Add Media' do %>
+                <i class="fa fa-plus"></i>Add Media
+              <% end %>
             <% end %>
           </div>
 
@@ -32,8 +38,14 @@
           </div>
 
           <div class="add_more">
-            <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
-              <i class="fa fa-plus"></i>Add Media
+            <% if member_signed_in? %>
+              <%= link_to "#media_index", :data => {:toggle => "modal"}, title: 'Add Media', alt: 'Add Media' do %>
+                <i class="fa fa-plus"></i>Add Media
+              <% end %>
+            <% else %>
+              <%= link_to sign_in_path, title: 'Add Media', alt: 'Add Media' do %>
+                <i class="fa fa-plus"></i>Add Media
+              <% end %>
             <% end %>
           </div>
 

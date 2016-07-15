@@ -1,4 +1,4 @@
-<% title @medium.member.full_name + " x Media"%>
+<% title (@medium.member.full_name + " &#215; Media").html_safe%>
 
 <div id="main_wrap">
 
@@ -53,6 +53,8 @@
             &#8226; <%= link_to "View All", profile_media_path(@medium.member), title: 'View All Media', alt: 'View All Media' %>
           <% if member_signed_in? %>
             &#8226; <%= link_to "Add Media", "#media", title: 'Add Media', alt: 'Add Media', :data => {:toggle => "modal"} %>
+          <% else %>
+            &#8226; <%= link_to "Add Media", sign_in_path, title: 'Add Media', alt: 'Add Media' %>
           <% end %>
           <% if current_member == @medium.member %> 
             &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> 
