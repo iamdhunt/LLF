@@ -170,9 +170,6 @@ table {
 	margin-bottom: 350px;
 	width: 75%;
 }
-#site_header {
-	background-color: #f4f4f4;
-}
 #site_header .header_img {
 	padding: 30px 0;
 	text-align:center;
@@ -1699,7 +1696,7 @@ hr.contact {
 }
 #banner {
 	background-attachment: fixed;
-	background-position: center;
+	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 350px;

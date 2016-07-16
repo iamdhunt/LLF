@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title) || "LLF x Connect. Create. Discover." %></title>
+    <title><%= yield(:title) %></title>
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -16,7 +16,7 @@
 
   <div id="site_header">
     <div class="header_img">
-      <%= link_to image_tag("Brand-Logo.png", class: ""), root_path, :class => "" %>
+      <%= link_to image_tag("Site-Header.png", class: ""), root_path, :class => "" %>
     </div>
   </div>
 

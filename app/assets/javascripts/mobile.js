@@ -7,8 +7,6 @@ $(document).ready(function(){
        $( "#e_wrapper" ).css( "width", "98%" );
        $( "#content_wrap" ).css( "width", "98%" );
        $( "#main_wrap" ).css( "width", "98%" );
-       $( "#home_wrapper" ).css( "background-image", "url('/assets/Registration 2.png')" );
-       $( "#e_404 #error_wrap" ).css( "background-image", "url('/assets/FAQs Main 2.png')" );
        $( ".login_bg" ).css( "background-image", "url('/assets/Login Banner 2.png')" );
        $( ".login_bg").css( "padding-top", "12%" );
        $( ".login_bg").css( "padding-bottom", "12%" );
@@ -18,12 +16,13 @@ $(document).ready(function(){
        $( ".primary_nav2").css( "display", "inline" );
        $( ".fr-sticky-on").css( "top", "0px !important" );
        $( "#custom-search-input input" ).css( "width", "85%" );
-       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "190px" );
-       $( ".nav_search #custom-search-input" ).css( "margin-left", "190px" );
+       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "180px" );
+       $( ".nav_search #custom-search-input" ).css( "margin-left", "180px" );
        $( "#faqs_wrap" ).css( "padding-left", "1%" );
        $( "#faqs_wrap" ).css( "padding-right", "1%" );
        $( "#custom-search-input input" ).css( "font-size", "1em" );
        $( "#edit_wrap #when .input-group-addon" ).css( "padding", "6px 0 6px 0" );
+       $( "#banner" ).css( "background-attachment", "inherit" );
     }
 
 });
