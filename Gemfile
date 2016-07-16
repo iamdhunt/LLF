@@ -31,8 +31,8 @@ gem "auto_strip_attributes", "~> 2.0"
 gem "font-awesome-rails"
 gem 'rails_engine_decorators'
 gem 'embedly'
-gem 'rails_client_timezone', '~> 0.9.0'
 gem 'activeadmin'
+gem 'js_cookie_rails'
 
 group :development, :test do
 	gem 'shoulda'

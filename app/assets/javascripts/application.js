@@ -13,9 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require js-routes
-//= require jquery.cookie
+//= require js.cookie
 //= require jstz
-//= require browser_timezone_rails/set_time_zone
 //= require swf_fu
 //= require jquery.autosize.js
 //= require soundmanager2-nodebug

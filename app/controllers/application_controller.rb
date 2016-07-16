@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+around_filter :set_time_zone
+
 	protect_from_forgery
 
 		def after_sign_in_path_for(resource)
@@ -16,6 +18,20 @@ class ApplicationController < ActionController::Base
 
 	    def target_activity(targetable, action = params[:action])
 		    current_member.activities.create! action: action, targetable: targetable
+		end
+
+	private
+                                                                                 
+		def set_time_zone
+		  old_time_zone = Time.zone
+		  Time.zone = browser_timezone if browser_timezone.present?
+		  yield
+		ensure
+		  Time.zone = old_time_zone
+		end
+		                                                                                 
+		def browser_timezone
+		  cookies["browser.timezone"]
 		end
 
 end
