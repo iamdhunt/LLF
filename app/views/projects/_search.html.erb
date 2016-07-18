@@ -1,7 +1,7 @@
 <div id="custom-search-input">
     <div class="input-group col-md-12">
         <%= form_tag projects_path, :method => :get do %>
-            <%= text_field_tag :projects, params[:projects], placeholder: 'Find the latest projects from our creative community.', :autocomplete => :off, input_html: { class: 'form-control input-lg search' } %>
+            <%= text_field_tag :projects, params[:projects], placeholder: 'Find the latest projects from the community.', :autocomplete => :off, input_html: { class: 'form-control input-lg search' } %>
             <span class="input-group-btn">
                 <%= button_tag(type: "submit", class: "btn btn-info btn-lg") do %>
                     <i class="fa fa-search"></i>
