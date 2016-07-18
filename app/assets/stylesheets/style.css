@@ -2054,18 +2054,12 @@ label.active {
 
 @media only screen and (max-width: 979px) {
     #custom-search-input input {
-	    width: 85%;
-	}
-	.primary_nav {
-		display: none;
-	}
-	.primary_nav2 {
-		display: inline !important;
+	    width: 80%;
 	}
 	.nav_search.l_o #custom-search-input {
-		margin-left: 190px;
+		margin-left: 300px;
 	}
 	.nav_search #custom-search-input {
-		margin-left: 190px;
+		margin-left: 300px;
 	}
 }

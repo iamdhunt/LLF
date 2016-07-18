@@ -2,8 +2,10 @@
 
   <% if @listing.banner? %>
     <div id="banner" style="background-image: url(<%= @listing.banner.url(:large) %>)">
+  <% elsif @listing.member.banner? %>
+    <div id="banner" style="background-image: url(<%= @listing.member.banner.url(:large) %>)">
   <% else %>
-    <div id="banner" style="background-image: url('/assets/Market Banner Img.jpg');">
+    <div id="banner" style="background-image: url('/assets/Market Banner Img.jpg'); background-attachment: fixed;">
   <% end %>
 
       <div id="lb">

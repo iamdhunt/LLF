@@ -12,12 +12,10 @@ $(document).ready(function(){
        $( ".login_bg").css( "padding-bottom", "12%" );
        $( "#e_wrapper .nav-tabs li").css( "font-size", "1.3em" );
        $( "#faqs_wrap .nav-tabs li").css( "font-size", "1.3em" );
-       $( ".primary_nav").css( "display", "none" );
-       $( ".primary_nav2").css( "display", "inline" );
        $( ".fr-sticky-on").css( "top", "0px !important" );
-       $( "#custom-search-input input" ).css( "width", "85%" );
-       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "190px" );
-       $( ".nav_search #custom-search-input" ).css( "margin-left", "190px" );
+       $( "#custom-search-input input" ).css( "width", "80%" );
+       $( ".nav_search.l_o #custom-search-input" ).css( "margin-left", "300px" );
+       $( ".nav_search #custom-search-input" ).css( "margin-left", "300px" );
        $( "#faqs_wrap" ).css( "padding-left", "1%" );
        $( "#faqs_wrap" ).css( "padding-right", "1%" );
        $( "#custom-search-input input" ).css( "font-size", "1em" );
