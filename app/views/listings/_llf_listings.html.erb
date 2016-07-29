@@ -1,17 +1,17 @@
 <% @llf.each do |listing| %>
 
 	<% if listing.category == "Women's" %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap women_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap women_fil">
 	<% elsif listing.category == "Men's" %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap men_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap men_fil">
 	<% elsif listing.category == 'Art' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap art_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap art_fil">
 	<% elsif listing.category == 'Music' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap music_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap music_fil">
 	<% elsif listing.category == 'Design' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap design_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap design_fil">
 	<% elsif listing.category == 'Services' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap services_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap services_fil">
 	<% end %>
 	
 		<div id="">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160607052618) do
+ActiveRecord::Schema.define(:version => 20160728055651) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -201,6 +201,8 @@ ActiveRecord::Schema.define(:version => 20160607052618) do
     t.string   "banner_content_type"
     t.integer  "banner_file_size"
     t.datetime "banner_updated_at"
+    t.text     "embed"
+    t.text     "button"
   end
 
   add_index "listings", ["member_id"], :name => "index_listings_on_member_id"

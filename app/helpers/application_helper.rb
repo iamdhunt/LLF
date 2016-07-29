@@ -57,25 +57,25 @@ module ApplicationHelper
 	def display(url)
 	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
 	  obj = embedly_api.oembed(:url => url)
-	  (obj.first.html).html_safe
+	  (obj.first.html).to_s.html_safe
 	end
 
 	def media_display(url)
 	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
 	  obj = embedly_api.oembed(:url => url, width: "188px", height: "188px")
-	  (obj.first.html).html_safe
+	  (obj.first.html).to_s.html_safe
 	end
 
 	def list_display(url)
 	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
 	  obj = embedly_api.oembed(:url => url, width: "300px", height: "300px")
-	  (obj.first.html).html_safe
+	  (obj.first.html).to_s.html_safe
 	end
 
 	def upload_display(url)
 	  embedly_api = Embedly::API.new(key: ENV['EMBEDLY_API_KEY'])
 	  obj = embedly_api.oembed(:url => url, width: "188px", height: "188px")
-	  (obj.first.html).html_safe
+	  (obj.first.html).to_s.html_safe
 	end
 
 	def cp(path)

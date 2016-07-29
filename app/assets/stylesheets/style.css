@@ -135,6 +135,10 @@ table {
 	height: 55px;
 }
 
+textarea {
+	resize: none;
+}
+
 #error_txt {
 	font-weight: bold;
 	text-align: center;
@@ -1623,7 +1627,7 @@ hr.contact {
     right:40px;
     display: none;
     text-indent:-9999px;
-    background: #942fc6 url('Arrow Top.png') no-repeat center 50%;
+    background: #871ebb url('Arrow Top.png') no-repeat center 50%;
     z-index: 1000000;
     transform: scale3d(1, 1, 1) rotate(0);
     box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);
@@ -2054,7 +2058,7 @@ label.active {
 
 @media only screen and (max-width: 979px) {
     #custom-search-input input {
-	    width: 80%;
+	    width: 70%;
 	}
 	.nav_search.l_o #custom-search-input {
 		margin-left: 300px;

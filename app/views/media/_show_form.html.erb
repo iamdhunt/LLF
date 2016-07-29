@@ -53,7 +53,7 @@
     <div class="cap">
       <span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
     </div> 
-    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge txt_a_size', id: 'cap_box', autocomplete: 'off' } %>
+    <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge txt_a_size cap_input', id: 'cap_box', autocomplete: 'off' } %>
 
   </div>
 
@@ -72,7 +72,7 @@
   </div>
 
   <div id="custom-select" class="c_f_labels">
-    <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'input-xlarge custom-tags', autocomplete: 'off'} %>
+    <%= f.input :marker_list, label: false, error: false, placeholder: 'i.e. Music, Pop Art, Design, etc...', input_html: { rows: '1', class: 'input-xlarge custom-tags md_tags', autocomplete: 'off'} %>
   </div>
 
   <div class="form-actions">

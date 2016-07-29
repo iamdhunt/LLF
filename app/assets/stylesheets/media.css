@@ -186,9 +186,14 @@
 	height: 188px;
 	background-size: cover;
 }
+.sh_aud #med_art {
+	width: 300px;
+	height: 300px;
+	background-size: cover;
+}
 #med_art_act {
-	width: 195px;
-	height: 195px;
+	width: 300px;
+	height: 300px;
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
@@ -488,4 +493,20 @@ top: 25%;
 }
 .m3 .l_o #custom-search-input {
 	margin-left: 225px;
+}
+.md_aud_wrap .ui360 .sm2-360btn {
+	width: 170px;
+	height: 130px;
+}
+.md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn, .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+	margin-left: 35px;
+    margin-top: 15px;
+}
+.md_aud_wrap .ui360 .sm2-timing {
+	left: 60px;
+    top: 57%;
+}
+.md_aud_wrap .ui360 .sm2-canvas {
+	left: 60px;
+    top: 40px;
 }

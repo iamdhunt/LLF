@@ -12,6 +12,24 @@
                <%= link_to image_tag('Listing Audio More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
             <% end %>
         <% end %>
+
+        <% if listing.embed? %>
+	        <span class="">
+		        <% if listing.embed =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/ %>
+					<% if listing.cover? %>
+						<%= link_to image_tag(listing.cover.url(:small)), listing_path(listing), title: listing.title, alt: listing.title %>
+					<% else %>
+						<%= link_to image_tag('/assets/Listing-Embed-Video-More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+					<% end %>
+				<% elsif listing.embed =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
+					<% if listing.cover? %>
+						<%= link_to image_tag(listing.cover.url(:small)), listing_path(listing), title: listing.title, alt: listing.title %>
+					<% else %>
+						<%= link_to image_tag('/assets/Listing-Embed-Audio-More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+					<% end %>
+				<% end %>
+			</span>
+		<% end %>
 	</span>
 
 <% end %>

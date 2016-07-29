@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
                   :default_url => '/assets/Projects-Default.png',
                   :convert_options => { all: "-set -colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-                  :default_url => '/assets/Projects Default Banner.png',
+                  :default_url => '/assets/Projects Banner Image.jpg',
                   :convert_options => { all: "-set -colorspace sRGB" }
 
   before_create :make_it_permalink
@@ -82,8 +82,8 @@ class Project < ActiveRecord::Base
 
   validates :video, allow_blank: true,
                       format: { 
-                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
-                        message: 'link must be from YouTube or Vimeo.'
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                        message: 'or audio must be from YouTube, Vimeo, or Soundcloud.'
                       }
 
   auto_strip_attributes :about, :website

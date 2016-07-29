@@ -13,6 +13,7 @@
     box-shadow: none;
     width: 85%;
     font-size: 1.2em;
+    margin-right: 0;
 }
 #custom-search-input button{
     margin: 3px 0 0 0;

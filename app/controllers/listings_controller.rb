@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
   def show
     @listing = Listing.find(params[:id])
     if @listing
-      @additional = @listing.member.listings.order("RANDOM()").limit(5)
+      @additional = @listing.member.listings.order("RANDOM()").limit(8)
       @commentable = @listing
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
       @comment = Comment.new

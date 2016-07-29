@@ -60,9 +60,24 @@
                 <span class="custom-labels">* Link</span>
                 <div id="custom-input">
                     <div class="input-group col-md-12">
-                        <%= f.input :link, as: :url, label: false, error: false, input_html: { class: '', id: '', cols: '55', rows: '1', tabindex: '3', autocomplete: 'off'} %>
+                        <%= f.input :link, as: :url, label: false, error: false, input_html: { class: '', id: '', cols: '55', rows: '1', tabindex: '3', autocomplete: 'off'}, placeholder: 'http://' %>
                     </div>
                 </div>
+              </div>
+        </fieldset>
+
+        <fieldset>
+              <legend class="descriptors">Call to Action Button</legend>
+              <div class="edit_instructions">
+                <ul>
+                    <li>
+                      &raquo; Choose what your call to action button will say
+                    </li>
+                </ul>
+              </div>
+              <div id="custom-select" class="c_f_labels dr-down">
+                <span class="custom-labels">* Call to Action</span>
+                <%= f.input :button, collection: ['Buy Now', 'Preorder', 'Download', 'Contact Me', 'Learn More'], label: false, error: false, placeholder: 'Select a button...', input_html: { class: 'cat_select', tabindex: '4' } %>
               </div>
         </fieldset>
 
@@ -80,20 +95,31 @@
                 <li>
                   &raquo; Maximum file size of 15MB (jpeg, png, mp3)
                 </li>
+                <li>
+                  &raquo; Cover images are used for audio uploads and embeds
+                </li>
             </ul>
           </div>
 
-          <div class="custom-file-upload fu1_wrap">
-            <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Feature Media *
-              <%= f.input :feature, as: :file, label: false, error: false, input_html: { id: 'file-upload', class: 'account settings pr_upload'} %>
-            </label>
+          <div style="margin-bottom:20px;">
+            <div class="custom-file-upload fu1_wrap">
+              <label for="file-upload" class="cfu_label"><i class="fa fa-arrow-up"></i>Feature Media
+                <%= f.input :feature, as: :file, label: false, error: false, input_html: { id: 'file-upload', class: 'account settings pr_upload'} %>
+              </label>
+            </div>
+            <span style="color:#898989;font-size:22px;vertical-align:middle;margin-right:20px;">OR</span>
+            <span id="custom-input" style="display:inline-block;">
+              <%= f.input :embed, as: :string, label: false, error: false, input_html: { class: '', id: '', rows: '1', tabindex: '5', autocomplete: 'off'}, placeholder: 'Link for YouTube, Vimeo, or Soundcloud' %>
+            </span>
           </div>
 
-          <div class="custom-file-upload fu2_wrap">
-            <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Audio Cover
-              <%= f.input :cover, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account settings pr_upload'} %>
-            </label>
-          </div>  
+          <div>
+            <div class="custom-file-upload fu2_wrap">
+              <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Cover Image
+                <%= f.input :cover, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account settings pr_upload'} %>
+              </label>
+            </div> 
+          </div> 
 
       </fieldset>
 
@@ -168,17 +194,17 @@
         </div>
         <div id="custom-select" class="c_f_labels dr-down">
           <span class="custom-labels">* Category</span>
-          <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: false, error: false, input_html: { class: 'cat_select', tabindex: '4' } %>
+          <%= f.input :category, collection: ['Men\'s', 'Women\'s', 'Art', 'Music', 'Design', 'Services'], label: false, error: false, placeholder: 'Select a category...', input_html: { class: 'cat_select', tabindex: '6' } %>
         </div>
         
         <div id="custom-select" class="c_f_labels">
           <span class="custom-labels">* Tags</span>
-          <%= f.input :marker_list, label: false, error: false, input_html: { cols: '55', rows: '1', class: 'custom-tags', tabindex: '5', autocomplete: 'off'} %>
+          <%= f.input :marker_list, label: false, error: false, input_html: { cols: '55', rows: '1', class: 'custom-tags', tabindex: '7', autocomplete: 'off'} %>
         </div>
       </fieldset>
 
       <fieldset>
-        <%= f.input :description, label: 'Description', error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '1', class: 'forms account settings', tabindex: '6', id: 'l_dscr', autocomplete: 'off' } %>
+        <%= f.input :description, label: 'Description', error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '1', class: 'forms account settings', tabindex: '8', id: 'l_dscr', autocomplete: 'off' } %>
       </fieldset>
 
       <div class="form-actions">

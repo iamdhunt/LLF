@@ -85,7 +85,7 @@
 }
 .pd_left {
 	float: left;
-	width: 40%;
+	width: 50%;
 }
 .pd_left .feature img {
 	-webkit-border-radius: 100%;
@@ -660,4 +660,61 @@ label.active {
 #pd_top .add_more a:hover {
 	opacity: .85;
 	color: #444;
+}
+#p_form_wrap .edit_lst_emb {
+	padding: 0 0 15px 0;
+}
+.lst_emb a img:hover {
+	opacity: 1;
+}
+.lst_emb_icon {
+	position: absolute;
+    color: #000;
+    top: 23%;
+    left: 33%;
+    font-size: 25px;
+    background-color: #fff;
+    padding: 25px 15px 25px 15px;
+    border-radius: 100%;
+    opacity: .8;
+}
+.lst_emb_icon:hover {
+	cursor: pointer;
+}
+.lst_emb:hover .lst_emb_icon {
+	opacity: .9;
+}
+#adt_lstgs .pds_img {
+	position: relative;
+}
+#adt_lstgs .lst_emb_icon {
+	position: absolute;
+    color: #000;
+    top: -67px;
+    left: 33px;
+    font-size: 20px;
+    background-color: #fff;
+    padding: 15px 5px 15px 5px;
+    border-radius: 100%;
+    opacity: .8;
+}
+.lst_wrap .ui360 .sm2-360btn {
+	width: 90px;
+	height: 80px;
+}
+.lst_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn, .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+	margin-left: -4px;
+    margin-top: -10px;
+}
+.lst_wrap .ui360 .sm2-timing {
+	left: 20px;
+    top: 45%;
+}
+.lst_wrap .ui360 .sm2-canvas {
+	left: 20px;
+    top: 15px;
+}
+.list_act_wrap .lst_emb_icon {
+	top: 50%;
+    left: 38%;
 }

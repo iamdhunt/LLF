@@ -1,9 +1,9 @@
 <div class="act_content">
 
   <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-    <div class="sh_aud">
+    <div class="sh_aud md_aud_wrap">
       <% if @medium.cover? %>
-        <div id='med_art' style="background-image: url(<%= @medium.cover.url(:media) %>)">
+        <div id='med_art' style="background-image: url(<%= @medium.cover.url(:activity) %>)">
       <% else %>
         <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
       <% end %>

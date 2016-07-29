@@ -1,17 +1,17 @@
 <% @listings.each do |listing| %>
 
 	<% if listing.category == "Women's" %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap women_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap women_fil">
 	<% elsif listing.category == "Men's" %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap men_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap men_fil">
 	<% elsif listing.category == 'Art' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap art_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap art_fil">
 	<% elsif listing.category == 'Music' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap music_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap music_fil">
 	<% elsif listing.category == 'Design' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap design_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap design_fil">
 	<% elsif listing.category == 'Services' %>
-		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap services_fil">
+		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap services_fil">
 	<% end %>
 	
 		<div id="">
@@ -22,23 +22,17 @@
 					</div>
 				<% end %>
 				<div>
-					<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-						<%= link_to image_tag(listing.feature.url(:index)), listing_path(listing), title: listing.title, alt: listing.title %>
-					<% end %>
-
-					<% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-			          <div class="feature act_media_content">
-			          	<% if listing.cover? %>
-			              <div id='lstgs_art' style="background-image: url(<%= listing.cover.url(:cover) %>)">
-			            <% else %>
-			            	<div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
-			            <% end %>
-			              <div class="ui360 ui360-vis lstgs">
-			                <%= link_to '', listing.feature.url %>
-			              </div>
+					<% if listing.embed? %>
+						<div class="lst_emb">
+				            <%= render :partial => "listings/list_embed", :locals => {:listing => listing} %>
+				        </div>
+			        <% elsif listing.feature? %>
+			            <%= render :partial => "listings/list_attachment", :locals => {:listing => listing} %>
+			        <% else %>
+			            <div class="feature">
+			              <%= image_tag('Listings-List-Default-2.png') %>
 			            </div>
-			          </div>
-			        <% end %>
+			        <% end %> 
 			    </div>
 			</div>
 		</div>

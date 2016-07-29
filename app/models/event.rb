@@ -24,7 +24,7 @@ class Event < ActiveRecord::Base
                   :default_url => '/assets/Events-Default.png',
                   :convert_options => { activity: "-colorspace sRGB", thumb: "-colorspace sRGB", av: "-colorspace sRGB", list: "-colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-                  :default_url => '/assets/Events Banner Default.png',
+                  :default_url => '/assets/Events Banner Image.jpg',
                   :convert_options => { all: "-set -colorspace sRGB" }
 
   before_create :make_it_permalink
@@ -132,8 +132,8 @@ class Event < ActiveRecord::Base
 
     validates :video, allow_blank: true,
                       format: { 
-                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
-                        message: 'link must be from YouTube or Vimeo.'
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                        message: 'or audio must be from YouTube, Vimeo, or Soundcloud.'
                       }
 
     auto_strip_attributes :website, :zipcode, :details

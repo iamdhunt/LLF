@@ -1,9 +1,9 @@
 class Listing < ActiveRecord::Base
   	
   	attr_accessible :category, :description, :price, :title, :link, :feature, :markers, :marker_list, :assets_attributes, :cover, :banner,
-                      :remove_banner, :remove_cover
+                      :remove_banner, :remove_cover, :remove_feature, :embed, :button
 
-    attr_accessor :mention, :remove_banner, :remove_cover
+    attr_accessor :mention, :remove_banner, :remove_cover, :remove_feature
 
     belongs_to :member
 
@@ -16,19 +16,19 @@ class Listing < ActiveRecord::Base
     has_many :mentions, as: :mentioner, dependent: :destroy
 
     has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} },
+                      :default_url => '/assets/Listings-List-Default.png',
                       :convert_options => { all: lambda{ |instance| (instance.feature_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
     has_attached_file :cover, styles: { cover: "230x230#", form: "188x188#", small: "100x100#" },
                       :convert_options => { all: "-set -colorspace sRGB" }
     has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
-                      :default_url => '/assets/Market Default Banner.png',
+                      :default_url => '/assets/Market Banner Img.jpg',
                       :convert_options => { all: "-set -colorspace sRGB" }
 
     accepts_nested_attributes_for :assets, :allow_destroy => true
 
     before_create :make_it_permalink
     before_save :perform_banner_removal, :perform_cover_removal
-    before_validation :clean_up_markers
-    before_validation :strip_commas_from_price
+    before_validation :perform_feature_removal, :strip_commas_from_price, :clean_up_markers
 
     after_save :save_mentions, unless: Proc.new { |listing| listing.description.blank? }
 
@@ -47,7 +47,7 @@ class Listing < ActiveRecord::Base
 
   	validates :link, presence: { message: 'can\'t be blank.'}
 
-  	validates :feature, presence: { message: 'image/audio can\'t be blank.'}
+    validates_attachment_presence :feature, :unless => :embed?, message: 'must have an attached image/audio or a specified link.'
     validates_attachment_size :feature, :less_than_or_equal_to=>15.megabyte, message: 'image/audio must be less than or equal to 15mb.'
     validates_attachment_content_type :feature, 
                                       :content_type=>['image/jpeg', 'image/jpg', 'image/png', 
@@ -79,6 +79,20 @@ class Listing < ActiveRecord::Base
                               message: '(tags) must not include any special characters.'
                             }
     validate :each_marker 
+
+    validates :embed, allow_blank: true,
+                      format: { 
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
+                        message: 'link must be from YouTube, Vimeo, or Soundcloud.'
+                      }
+
+    validate :embed_or_attachment
+
+    validates :button, presence: { message: 'can\'t be blank.'},
+              inclusion: {
+                in: ['Buy Now', 'Preorder', 'Download', 'Contact Me', 'Learn More'],
+                message: 'is not included in the list.'
+              } 
 
     auto_strip_attributes :description, :link
     auto_strip_attributes :title, :squish => true
@@ -151,5 +165,17 @@ class Listing < ActiveRecord::Base
           self.cover = nil
         end
       end 
+
+      def perform_feature_removal
+        if remove_feature == '1' && !feature.dirty?
+          self.feature = nil
+        end
+      end 
+
+      def embed_or_attachment
+      unless feature.blank? ^ embed.blank?
+        errors.add(:base, "Attach an image/audio file or specify a link, but not both.")
+      end
+    end
 
 end

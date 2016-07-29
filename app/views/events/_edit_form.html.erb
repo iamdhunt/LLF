@@ -56,7 +56,7 @@
               &raquo; Paste or type the full url's (i.e. http://livinglifefearless.co/)
             </li>
             <li>
-              &raquo; We only support YouTube or Vimeo
+              &raquo; Specify a video or audio player to feature prominently
             </li>
           </ul>
         </div>
@@ -71,10 +71,10 @@
         </div> 
 
         <div class="c_f_labels">
-          <span class="custom-labels">Video URL</span>
+          <span class="custom-labels">Feature Media</span>
           <div id="custom-input">
               <div class="input-group col-md-12">
-                  <%= f.input :video, as: :url, label: false, error: false, input_html: { cols: '55', rows: '1', class: '', tabindex: '5', autocomplete: 'off' }, placeholder: 'http://' %>
+                  <%= f.input :video, as: :url, label: false, error: false, input_html: { cols: '55', rows: '1', class: '', tabindex: '5', autocomplete: 'off' }, placeholder: 'Link for YouTube, Vimeo, or Soundcloud' %>
               </div>
           </div>
         </div> 

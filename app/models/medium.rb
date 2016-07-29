@@ -16,14 +16,14 @@ class Medium < ActiveRecord::Base
 
     has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} },
                               :convert_options => { all: lambda{ |instance| (instance.asset_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
-    has_attached_file :cover, styles: { activity: "195x195#", media: "188x188#", thumb: "30x30#" },
+    has_attached_file :cover, styles: { activity: "300x300#", media: "188x188#", thumb: "30x30#" },
                               :convert_options => { all: "-set -colorspace sRGB" }
 
   	before_create :make_it_permalink
   	before_validation :clean_up_markers
     after_save :save_mentions, unless: Proc.new { |medium| medium.caption.blank? }
 
-    validates_attachment_presence :asset, :unless => :link?, message: 'must have an attached image/audio or specified video link.'                    
+    validates_attachment_presence :asset, :unless => :link?, message: 'must have an attached image/audio or specified link.'                    
     validates_attachment_size :asset, :less_than=>15.megabyte, message: 'image/audio must be less than or equal to 15mb.'
     validates_attachment_content_type :asset, 
                                       :content_type=>['image/jpeg', 'image/jpg', 'image/png', 
@@ -115,7 +115,7 @@ class Medium < ActiveRecord::Base
 
     def link_or_attachment
       unless asset.blank? ^ link.blank?
-        errors.add(:base, "Upload an image/audio or specify a link, but not both.")
+        errors.add(:base, "Upload an image/audio file or specify a link, but not both.")
       end
     end
 	

@@ -1,4 +1,4 @@
-<div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap market_fil">
+<div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap market_fil lst_wrap">
 
 	<div id="a_top">
 
@@ -37,21 +37,19 @@
 	</div>
 
 	<div class="act_l_av">
-		<% if activity.targetable.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-		    	<%= link_to image_tag(activity.targetable.feature.url(:index)), activity.targetable, title: activity.targetable.title, alt: activity.targetable.title %>
-	    <% end %>
-
-	    <% if activity.targetable.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
-	    	<% if activity.targetable.cover? %>
-	          	<div id='lstgs_art' style="background-image: url(<%= activity.targetable.cover.url(:cover) %>)">
+		<div>
+			<% if activity.targetable.embed? %>
+				<div class="lst_emb">
+		            <%= render :partial => "listings/list_embed", :locals => {:listing => activity.targetable} %>
+		        </div>
+	        <% elsif activity.targetable.feature? %>
+	            <%= render :partial => "listings/list_attachment", :locals => {:listing => activity.targetable} %>
 	        <% else %>
-	        	<div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
-	        <% end %>
-	          <div class="ui360 ui360-vis lstgs">
-	            <%= link_to '', activity.targetable.feature.url %>
-	          </div>
-	        </div>
-	    <% end %>
+	            <div class="feature">
+	              <%= image_tag('Listings-List-Default-2.png') %>
+	            </div>
+	        <% end %> 
+	    </div>
 	</div>
  
 	<div id="act_btn_wrap">
