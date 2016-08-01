@@ -4,7 +4,7 @@ Mailboxer.setup do |config|
   config.uses_emails = true
 
   #Configures the default from for emails sent for Messages and Notifications
-  config.default_from = "THE COLLECTIVV by L&#215;L&#215;F <noreply@livinglifefearless.co>"
+  config.default_from = "THE COLLECTIVV <noreply@livinglifefearless.co>"
 
   #Configures the methods needed by mailboxer
   config.email_method = :mailboxer_email
