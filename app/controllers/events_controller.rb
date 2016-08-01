@@ -187,8 +187,8 @@ class EventsController < ApplicationController
       @event.liked_by current_member
     end
     respond_to do |format|
-        format.html { redirect_to :back }
-        format.js
+      format.html { redirect_to :back }
+      format.js
     end
   end
 

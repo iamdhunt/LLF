@@ -93,7 +93,6 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.update_attributes(params[:listing])
-
         if params[:assets]
           params[:assets].each { |asset|
             @listing.assets.create(asset: asset)
@@ -132,8 +131,8 @@ class ListingsController < ApplicationController
       @listing.liked_by current_member
     end
     respond_to do |format|
-        format.html { redirect_to :back }
-        format.js
+      format.html { redirect_to :back }
+      format.js
     end
   end
 

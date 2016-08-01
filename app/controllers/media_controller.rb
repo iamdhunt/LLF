@@ -144,7 +144,7 @@ class MediaController < ApplicationController
     @search = Medium.solr_search do
       fulltext params[:media]
       facet(:marker_list, :limit => 85, :sort => :count)
-        with(:marker_list, params[:tag]) if params[:tag].present?
+      with(:marker_list, params[:tag]) if params[:tag].present?
     end
     @query = params[:media]
     @facet = params[:tag]

@@ -1,5 +1,5 @@
 class FollowMailer < ActionMailer::Base
-  default from: "LLF <noreply@livinglifefearless.co>"
+  default from: "THE COLLECTIVV by L&#215;L&#215;F <noreply@livinglifefearless.co>"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

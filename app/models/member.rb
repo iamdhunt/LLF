@@ -56,8 +56,8 @@ class Member < ActiveRecord::Base
                           message: 'must not include spaces or special characters.'
                         },
                         length: {
-                          maximum: 16,
-                          message: 'must not be longer than 16 characters.'
+                          maximum: 30,
+                          message: 'must not be longer than 30 characters.'
                         },
                         exclusion: {
                           in: %w(faqs community media market events projects members terms privacy rules blog login logout join admin dashboard grla rbreed frls search discover edit settings conversations notifications),

@@ -1,5 +1,5 @@
 class MentionsMailer < ActionMailer::Base
-  default from: "LLF <noreply@livinglifefearless.co>"
+  default from: "THE COLLECTIVV by L&#215;L&#215;F <noreply@livinglifefearless.co>"
 
   def email_notification(mentionable, mentioner, mention)
     @member = mentionable
