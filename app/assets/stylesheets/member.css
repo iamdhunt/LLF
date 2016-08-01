@@ -120,7 +120,7 @@
 	left: 53%;
 }
 #member-menu.modal.fade.in {
-	top: 14%;
+	top: 12%;
 }
 #member-menu .modal_av img {
 	width: 100px;
@@ -159,8 +159,8 @@
 #member-menu .mem_close {
 	position: absolute;
     right: -12px;
-    top: -50px;
-    font-size: 50px;
+    top: -4s5px;
+    font-size: 40px;
 }
 #member-menu .mem_close a {
 	color: #fff;

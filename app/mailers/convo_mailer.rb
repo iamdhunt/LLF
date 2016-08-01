@@ -1,5 +1,5 @@
 class ConvoMailer < ActionMailer::Base
-  default from: "THE COLLECTIVV by L&#215;L&#215;F <noreply@livinglifefearless.co>"
+  default from: "THE COLLECTIVV <noreply@livinglifefearless.co>"
   #Sends and email for indicating a new message or a reply to a receiver.
   #It calls new_message_email if notifing a new message and reply_message_email
   #when indicating a reply to an already created conversation.
