@@ -332,6 +332,9 @@
 .s_modal .modal.fade.in {
 	top: 25%;
 }
+.s_modal .modal-body {
+	padding: 25px;
+}
 #edit_wrap .rq {
 	color: #898989;
 	font-style: oblique;
@@ -989,6 +992,8 @@
 	max-height: none !important;
 	border-left: 1px solid #e5e5e5;
 	border-right: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	margin-bottom: 20px;
 }
 #edit_show #update_form .form-actions {
 	margin-top: 0;

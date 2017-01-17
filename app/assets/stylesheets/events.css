@@ -497,6 +497,7 @@ vertical-align: baseline;
 	border: 2px solid #444;
     padding: 6px 8px;
     opacity: .8;
+    border-radius: 2px;
 }
 .ev_vm a:hover {
 	text-decoration: none;
@@ -605,4 +606,11 @@ vertical-align: baseline;
 }
 .e7 .l_o #custom-search-input {
 	margin-left: 300px;
+}
+#e_wrapper .form-actions {
+	padding: 0 90px 0 180px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    border-top: none;
 }

@@ -1,8 +1,7 @@
 <div id="media" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="sharemodallabel">Add New Media</h3>
-    </div>
+    <div class="mod_close">
+    	<%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+  	</div>
     <div class="modal-body pi">
 
         <%= render :partial => "media/form" %>

@@ -96,6 +96,7 @@
 }
 .cap_remain {
 	font-size: 1.1em;
+	color: #898989;
 }
 #media_list_wrap .list_act_wrap {
 	width: 188px;
@@ -200,8 +201,7 @@
 }
 .med_instructions {
 	font-size: .9em;
-	font-style: oblique;
-	color: #444;
+	color: #898989;
 }
 .med_instructions .m_ts {
 	margin-top: 12px;
@@ -218,7 +218,7 @@
 	margin-top: 3px;
 }
 .m_show_wrap .modal.fade.in {
-top: 25%;
+	top: 25%;
 }
 .m_show_wrap .comment_del img {
 	width: 14px;
@@ -232,6 +232,7 @@ top: 25%;
 }
 #upload .modal-body {
 	max-height: 450px;
+	padding: 40px 15px 45px 92px;
 }
 #m_t_wrap .m_t {
 	float: right;
@@ -436,26 +437,21 @@ top: 25%;
 .md_hd.vd {
 	margin: 5px 0 2px 0;
 }
-#media.modal.fade.in {
-	top: 5%;
-}
-#media_index.modal.fade.in {
-	top: 5%;
-}
 #media .modal-body {
 	max-height: 480px;
+	padding: 38px 0 45px 93px;
 }
 #media_index .modal-body {
 	max-height: 480px;
-}
-#gl_media.modal.fade.in {
-	top: 5%;
+	padding: 38px 0 45px 93px;
 }
 #gl_media .modal-body {
 	max-height: 460px;
+	padding: 38px 0 45px 93px;
 }
 #gl_media_index .modal-body {
 	max-height: 460px;
+	padding: 38px 0 45px 93px;
 }
 #md_vd_sh {
 	position: relative;

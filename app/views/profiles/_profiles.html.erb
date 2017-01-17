@@ -77,37 +77,37 @@
                 <% end %>
             	<div class="profile_accounts">
                     <% if @member.facebook? %>
-                        <%= link_to image_tag("FB 2.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "http://#{@member.facebook.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("FB-4.png", class: "acct_imgs", title: "Facebook", alt: "Facebook"), "http://#{@member.facebook.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.twitter? %>
-                        <%= link_to image_tag("Twitter 3.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "http://#{@member.twitter.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Twitter-4.png", class: "acct_imgs", title: "Twitter", alt: "Twitter"), "http://#{@member.twitter.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.linkedin? %>
-                        <%= link_to image_tag("Linkedin 3.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), "http://#{@member.linkedin.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Linkedin-4.png", class: "acct_imgs", title: "Linkedin", alt: "Linkedin"), "http://#{@member.linkedin.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.soundcloud? %>
-                        <%= link_to image_tag("Soundcloud 3.png", class: "acct_imgs", title: "SoundCloud", alt: "SoundCloud"), "http://#{@member.soundcloud.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Soundcloud-4.png", class: "acct_imgs", title: "SoundCloud", alt: "SoundCloud"), "http://#{@member.soundcloud.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.youtube? %>
-                        <%= link_to image_tag("Youtube 3.png", class: "acct_imgs", title: "Youtube", alt: "Youtube"), "http://#{@member.youtube.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Youtube-4.png", class: "acct_imgs", title: "Youtube", alt: "Youtube"), "http://#{@member.youtube.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.vimeo? %>
-                        <%= link_to image_tag("Vimeo 2.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), "http://#{@member.vimeo.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Vimeo-3.png", class: "acct_imgs", title: "Vimeo", alt: "Vimeo"), "http://#{@member.vimeo.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.instagram? %>
-                        <%= link_to image_tag("Instagram 3.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://#{@member.instagram.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Instagram-4.png", class: "acct_imgs", title: "Instagram", alt: "Instagram"), "http://#{@member.instagram.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.flickr? %>
-                        <%= link_to image_tag("Flickr 3.png", class: "acct_imgs", title: "Flickr", alt: "Flickr"), "http://#{@member.flickr.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Flickr-4.png", class: "acct_imgs", title: "Flickr", alt: "Flickr"), "http://#{@member.flickr.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.pinterest? %>
-                        <%= link_to image_tag("Pinterest 3.png", class: "acct_imgs", title: "Pinterest", alt: "Pinterest"), "http://#{@member.pinterest.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Pinterest-4.png", class: "acct_imgs", title: "Pinterest", alt: "Pinterest"), "http://#{@member.pinterest.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.blog? %>
-                        <%= link_to image_tag("Blog 3.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://#{@member.blog.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Blog-4.png", class: "acct_imgs", title: "Blog", alt: "Blog"), "http://#{@member.blog.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                     <% if @member.website? %>
-                        <%= link_to image_tag("Personal Website 2.png", class: "acct_imgs", title: "Personal Website", alt: "Personal Website"), "http://#{@member.website.sub(/^https?\:\/\//, '')}", :class => "" %>
+                        <%= link_to image_tag("Personal-Website-3.png", class: "acct_imgs", title: "Personal Website", alt: "Personal Website"), "http://#{@member.website.sub(/^https?\:\/\//, '')}", :class => "" %>
                     <% end %>
                 </div>
             	<div class="profile_pursuits">
@@ -128,13 +128,12 @@
 
     <% if @member == current_member %>
         <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="sharemodallabel">Start A New Conversation</h3>
-          </div>
-          <div class="modal-body pi">
-            <%= render :partial => "conversations/form" %>
-          </div>
+            <div class="mod_close">
+                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+            </div>
+            <div class="modal-body pi">
+                <%= render :partial => "conversations/form" %>
+            </div>
         </div>
 
         <div id="md_form_<%= @member.id %>">
@@ -142,29 +141,27 @@
         </div>
     <% else %>
         <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="sharemodallabel">Start A New Conversation</h3>
-          </div>
-          <div class="modal-body pi">
-            <%= render :partial => "conversations/profile_form" %>
-          </div>
+            <div class="mod_close">
+                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+            </div>
+            <div class="modal-body pi">
+                <%= render :partial => "conversations/profile_form" %>
+            </div>
         </div>
     <% end %>
 
     <div class="s_modal">
         <div id="share-profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="sharemodallabel">Copy Profile URL</h3>
-          </div>
-          <div class="modal-body pi">
-            <div id="custom-input">
-                <div class="input-group col-md-12">
-                    <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
-                </div>
-            </div>  
-          </div>
+            <div class="mod_close">
+                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+            </div>
+            <div class="modal-body pi">
+                <div id="custom-input">
+                    <div class="input-group col-md-12">
+                        <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
+                    </div>
+                </div>  
+            </div>
         </div>
     </div>
          

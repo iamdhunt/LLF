@@ -115,7 +115,6 @@
 	text-align: left;
 }
 #member-menu {
-	border-radius: 0;
 	width: 480px;
 	left: 53%;
 }
@@ -147,6 +146,7 @@
 }
 #member-menu .mem_modalb .s_out a {
 	border: 2px solid #131313;
+	border-radius: 2px;
     padding: 5px 15px;
 }
 #member-menu .mem_modalb .s_out a:hover {
@@ -156,12 +156,15 @@
 #member-menu .mem_modalb .mem_links {
 	padding: 3px 0;
 }
-#member-menu .mem_close {
+.mod_close {
 	position: absolute;
     right: -12px;
-    top: -45px;
-    font-size: 40px;
+    top: -40px;
+    font-size: 35px;
 }
-#member-menu .mem_close a {
+.mod_close a {
+	color: #fff;
+}
+.mod_close a:hover {
 	color: #fff;
 }

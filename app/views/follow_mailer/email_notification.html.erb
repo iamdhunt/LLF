@@ -1,8 +1,8 @@
-<div marginwidth="0" marginheight="0" style="background:#edeff0;width:100%!important;margin:0;padding:25px 0 25px 0;">
+<div marginwidth="0" marginheight="0" style="background:#ffffff;width:100%!important;margin:0;padding:25px 0 25px 0;">
 
 	<center>
 
-    	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="background:#edeff0;font-family:Helvetica,sans-serif;height:100%!important;margin:0;padding:0;width:100%!important;font-size:14px;color:#9ba6b0;table-layout:fixed;">
+    	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" style="background:#ffffff;font-family:Helvetica,sans-serif;height:100%!important;margin:0;padding:0;width:100%!important;font-size:14px;color:#9ba6b0;table-layout:fixed;">
       		<tbody>
 
       			<tr>
@@ -65,19 +65,14 @@
 								            					<tr>
 								              						<td colspan="2" style="border-top:1px solid #e2e5e8;border-bottom:1px solid #e2e5e8;vertical-align:top;color:#8d9aa5;font-size:14px;line-height:150%;text-align:center;padding-top:5px;padding-bottom:10px;border-collapse:collapse;width:600px">
 								                						<p style="margin-bottom:1em;"></p>
-								                						<p style="margin-bottom:1em;">
-								                							<div style="padding:20px 25px;display:inline-block;border-radius:100%;border:8px solid #b7c0c7;">
-								                								<%= image_tag 'https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_follow.png' %>
-								                							</div>
-								                						</p>
-								                						<p style="margin-bottom:1em;">
-								                							<%= link_to "View Member", profile_url(@follower), {:style => 'font-family:Helvetica,sans-serif;margin-bottom:10px;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#2f2f2f;color:white!important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#2f2f2f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-radius:5px;', target: "_blank"} %>
-								                						</p>
 																		<p style="margin-bottom:1em;">
 																			<div style="color:#384047;font-size:24px;font-weight:bold;margin-bottom:4px;"><%= @follower.full_name %></div>
 																			<div style="color:#8d9aa5;font-size:18px;font-weight:bold;margin-bottom:4px;"><%= @follower.user_name %></div>
 																			<div style=""><%= @follower.pursuit_list.map { |p| link_to p.titleize, search_url, :style => 'font-size:15px;color:#fff;text-decoration:none;background-color:rgb(0, 129, 194);background-color:rgba(0, 129, 194, 0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#22222222, endColorstr=#22222222)";-background:transparent;padding:3px 5px;border-radius:4px;cursor:pointer;line-height:190%;white-space:nowrap;'}.join(' ').html_safe %></div>
 																		</p>
+																		<p style="margin-bottom:1em;">
+								                							<%= link_to "View Member", profile_url(@follower), {:style => 'font-family:Helvetica,sans-serif;margin-bottom:10px;font-weight:bold;padding-top:8px;padding-right:15px;padding-bottom:8px;padding-left:15px;background:#2f2f2f;color:white!important;font-size:14px;text-decoration:none;border-width:1px 1px 3px;border-style:solid;border-color:#2f2f2f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:-moz-inline-stack;display:inline-block;vertical-align:middle;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom-left-radius:5px;border-bottom-right-radius:5px;border-radius:5px;', target: "_blank"} %>
+								                						</p>
 								                						<p style="margin-bottom:1em;"></p>
 
 								              						</td>
@@ -112,9 +107,8 @@
 						                  	<tbody>
 						                  		<tr>
 						                    		<td style="vertical-align:top;text-align:center;padding-top:10px;padding-bottom:5px;border-collapse:collapse">
-								                    	<a href="https://www.facebook.com/livinglifefearless" target="_blank"><img width="39" height="42" style="width:39px;min-height:42px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_fb.png"></a>
-								                      	<a href="https://twitter.com/llfofficial" target="_blank"><img width="39" height="42" style="width:39px;min-height:42px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_tw.png"></a>
-								                      	<a href="http://instagram.com/livinglifefearless" target="_blank"><img width="39" height="42" style="min-height:42px;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_ig.png"></a>
+								                    	<a href="https://www.youtube.com/c/livinglifefearless" target="_blank"><img width="39" height="42" style="width:39px;min-height:42px;border:0;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_yt.png"></a>
+								                      	<a href="http://instagram.com/livinglifefearless" target="_blank"><img width="39" height="42" style="min-height:42px;min-height:auto;line-height:100%;outline:none;text-decoration:none" src="https://s3.amazonaws.com/llf_assets/assets/assets/000/000/email_ig_new.png"></a>
 						                    		</td>
 						                  		</tr>
 						                	</tbody>

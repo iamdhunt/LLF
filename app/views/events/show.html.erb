@@ -324,9 +324,8 @@
       
     <div class="s_modal">
       <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="sharemodallabel">Copy Event URL</h3>
+        <div class="mod_close">
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
         <div class="modal-body pi">
           <div id="custom-input">
@@ -340,9 +339,8 @@
 
     <% if @event.member == current_member %>
       <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="sharemodallabel">Upload Event Media</h3>
+        <div class="mod_close">
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
         <div class="modal-body pi">
 
@@ -354,9 +352,8 @@
 
     <% if @event.member == current_member %>
       <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="sharemodallabel">Post An Update</h3>
+        <div class="mod_close">
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
         
         <div class="modal-body pi">

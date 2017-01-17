@@ -18,16 +18,10 @@
 #mk_head .ap a:hover {
 	text-decoration: none;
 }
-#mk_head .pl a {
-	color: #E83E44;
+#mk_head .h a {
+	color: #898989;
 }
-#mk_head .pl a:hover {
-	text-decoration: none;
-}
-#mk_head .mk a {
-	color: #1b85a6;
-}
-#mk_head .mk a:hover {
+#mk_head a:hover {
 	text-decoration: none;
 }
 #mk_head .v_a {
@@ -36,29 +30,19 @@
 	font-weight: bold;
 	padding: 14px 20px 0 0;
 }
+#mk_head .v_a a {
+	color: #444;
+	border: 2px solid #444;
+	border-radius: 2px;
+    padding: 7px 10px;
+}
 #mk_head .v_a a:hover {
 	text-decoration: none;
+	color: #fff;
+	background: #444;
 }
 #mk_head .ap_l a {
 	color: #812aac;
-}
-#mk_head .mk_l a {
-	color: #1b85a6;
-	border: 2px solid #1b85a6;
-    padding: 7px 10px;
-}
-#mk_head .mk_l a:hover {
-	color: #fff;
-	background: #1b85a6;
-}
-#mk_head .pl_l a {
-	color: #E83E44;
-	border: 2px solid #E83E44;
-    padding: 7px 10px;
-}
-#mk_head .pl_l a:hover {
-	color: #fff;
-	background-color: #E83E44
 }
 #listings {
 	background-position: 4px 38%;

@@ -111,7 +111,7 @@
 	padding: 0 5px 10px 0;
 }
 #new_conv_wrap .btn {
-	margin-top: 5px;
+	margin-top: 15px;
 	width: 100%;
 }
 #new_conv_wrap .forms {
@@ -121,8 +121,14 @@
 	padding: 3px 0;
 }
 .conv_fl {
-	color: #737373;
+	color: #898989;
 	font-weight: bold;
+}
+#message.modal.fade.in {
+	top: 15%;
+}
+#message .modal-body {
+	padding: 30px 50px 40px 50px;
 }
 .convos_wrap .modal-body {
 	max-height: 500px;
@@ -213,7 +219,6 @@
 }
 .conv_instructions {
 	color: #898989;
-	font-style: oblique;
 }
 .not_head {
 	padding: 6px 12px;

@@ -46,9 +46,9 @@
 
 
 <div class="form-actions">
-	<%= f.submit "Update Account", class: 'btn btn-info' %>
+	<%= f.submit "Update Account", class: 'btn btn-baby-blue' %>
 	<span id="spinner" class="spinner">
 	  <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
 	</span>
-    <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure? This can't be undone." }, :method => :delete, :class => 'btn btn-danger pull-right' %>
+    <%= link_to "Leave the Community", registration_path(resource_name), :data => { :confirm => "Are you sure? This can't be undone." }, :method => :delete, :class => 'btn btn-cancel pull-right' %>
 </div>

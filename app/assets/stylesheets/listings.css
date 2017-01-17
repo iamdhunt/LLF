@@ -142,11 +142,11 @@
 	font-size: 1.5em;
 }
 .pd_right .u_name a {
-	color: #9327c9;
+	color: #131313;
 }
 .pd_right .u_name a:hover {
 	text-decoration: none;
-	color: #333;
+	color: #9327c9;
 }
 .pd_right .btn-large {
 	padding: 9px 28px;

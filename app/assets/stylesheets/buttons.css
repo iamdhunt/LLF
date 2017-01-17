@@ -1,5 +1,5 @@
 .btn {
-  font-weight: bold;
+  font-weight: normal;
 }
 .btn-primary {
   color: #ffffff;
@@ -27,6 +27,210 @@
 .btn-primary:active,
 .btn-primary.active {
   background-color: #006dcc \9;
+  opacity: .85;
+}
+.btn-black {
+  color: #131313;
+  background-color: transparent;
+  border: 2px solid #131313;
+  border-radius: 2px;
+}
+.btn-black:hover,
+.btn-black:focus,
+.btn-black:active,
+.btn-black.active,
+.btn-black.disabled,
+.btn-black[disabled] {
+  color: #ffffff;
+  background-color: #131313;
+  border-color: #131313;
+  *background-color: #131313;
+  text-shadow: none;
+}
+.btn-black:active,
+.btn-black.active {
+  background-color: #131313 \9;
+  opacity: .85;
+}
+.btn-green {
+  color: #ffffff;
+  background-color: #53ad53;
+  border: 2px solid #53ad53;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-green:hover,
+.btn-green:focus,
+.btn-green:active,
+.btn-green.active,
+.btn-green.disabled,
+.btn-green[disabled] {
+  color: #ffffff;
+  background-color: #53ad53;
+  border-color: #53ad53;
+  *background-color: #53ad53;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-green:active,
+.btn-green.active {
+  background-color: #53ad53 \9;
+  opacity: .85;
+}
+.btn-green-ev {
+  color: #ffffff;
+  background-color: #219e5c;
+  border: 2px solid #219e5c;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-green-ev:hover,
+.btn-green-ev:focus,
+.btn-green-ev:active,
+.btn-green-ev.active,
+.btn-green-ev.disabled,
+.btn-green-ev[disabled] {
+  color: #ffffff;
+  background-color: #219e5c;
+  border-color: #219e5c;
+  *background-color: #219e5c;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-green-ev:active,
+.btn-green-ev.active {
+  background-color: #219e5c \9;
+  opacity: .85;
+}
+.btn-orange {
+  color: #ffffff;
+  background-color: #F7803C;
+  border: 2px solid #F7803C;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active,
+.btn-orange.active,
+.btn-orange.disabled,
+.btn-orange[disabled] {
+  color: #ffffff;
+  background-color: #F7803C;
+  border-color: #F7803C;
+  *background-color: #F7803C;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-orange:active,
+.btn-orange.active {
+  background-color: #F7803C \9;
+  opacity: .85;
+}
+.btn-blue {
+  color: #ffffff;
+  background-color: #1b85a6;
+  border: 2px solid #1b85a6;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-blue:hover,
+.btn-blue:focus,
+.btn-blue:active,
+.btn-blue.active,
+.btn-blue.disabled,
+.btn-blue[disabled] {
+  color: #ffffff;
+  background-color: #1b85a6;
+  border-color: #1b85a6;
+  *background-color: #1b85a6;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-blue:active,
+.btn-blue.active {
+  background-color: #1b85a6 \9;
+  opacity: .85;
+}
+.btn-baby-blue {
+  color: #ffffff;
+  background-color: #49afcd;
+  border: 2px solid #49afcd;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-baby-blue:hover,
+.btn-baby-blue:focus,
+.btn-baby-blue:active,
+.btn-baby-blue.active,
+.btn-baby-blue.disabled,
+.btn-baby-blue[disabled] {
+  color: #ffffff;
+  background-color: #49afcd;
+  border-color: #49afcd;
+  *background-color: #49afcd;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-baby-blue:active,
+.btn-baby-blue.active {
+  background-color: #49afcd \9;
+  opacity: .85;
+}
+.btn-red {
+  color: #ffffff;
+  background-color: #da4f49;
+  border: 2px solid #da4f49;
+  border-radius: 2px;
+  text-shadow: none;
+  font-weight: bold;
+}
+.btn-red:hover,
+.btn-red:focus,
+.btn-red:active,
+.btn-red.active,
+.btn-red.disabled,
+.btn-red[disabled] {
+  color: #ffffff;
+  background-color: #da4f49;
+  border-color: #da4f49;
+  *background-color: #da4f49;
+  text-shadow: none;
+  opacity: .85;
+}
+.btn-red:active,
+.btn-red.active {
+  background-color: #da4f49 \9;
+  opacity: .85;
+}
+.btn-cancel {
+  color: #616161;
+  background-color: transparent;
+  border: none;
+  border-radius: 2px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.btn-cancel:hover,
+.btn-cancel:focus,
+.btn-cancel:active,
+.btn-cancel.active,
+.btn-cancel.disabled,
+.btn-cancel[disabled] {
+  color: #131313;
+  background-color: transparent;
+  border-color: none;
+  *background-color: transparent;
+  text-shadow: none;
+}
+.btn-cancel:active,
+.btn-cancel.active {
+  background-color: transparent;
   opacity: .85;
 }
 .btn-warning {
@@ -234,4 +438,11 @@
 .btn.active.disabled, 
 .btn.active[disabled] {
     outline: none;
+}
+
+.modal.fade.in .form-actions {
+  padding: 19px 95px 0 0;
+  margin: 0;
+  background-color: transparent;
+  border-top: none;
 }

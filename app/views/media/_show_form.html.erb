@@ -2,7 +2,7 @@
 
   <div class="form-inputs">
 
-    <div class="md_hd pa">Photos/Audio</div>
+    <div class="md_hd pa">PHOTOS/AUDIO</div>
 
     <div class="med_instructions">
       <ul>
@@ -32,7 +32,7 @@
       </span>
     </div>
 
-    <div class="md_hd vd">Video/Audio Link</div>
+    <div class="md_hd vd">VIDEO/AUDIO LINK</div>
 
     <div class="med_instructions">
       <ul>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="cap">
-      <span id="cap_count"></span> <span class="cap_remain">Characters Remaining</span> <span class="cap_opt">(Optional)</span>
+      <span id="cap_count"></span> <span class="cap_remain">CHARACTERS REMAINING
     </div> 
     <%= f.input :caption, label: false, error: false, placeholder: 'Write a short description...', input_html: { rows: '1', maxlength: '280', class: 'input-xlarge txt_a_size cap_input', id: 'cap_box', autocomplete: 'off' } %>
 
@@ -76,11 +76,11 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, 'Add Media', :class => "btn btn-warning" %>
+    <%= f.button :submit, 'Add Media', :class => "btn btn-orange" %>
     <span id="spinner" class="spinner">
       <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
     </span>
-    <%= link_to 'Cancel', {:controller => :profiles, :action => :media_cancel}, remote: true, :class => "btn btn-danger pull-right", id: "mda_cancel" %>
+    <%= link_to 'Cancel', {:controller => :profiles, :action => :media_cancel}, remote: true, :class => "btn btn-cancel pull-right", id: "mda_cancel" %>
   </div>
 
 <% end %>
