@@ -54,15 +54,13 @@
 						    <%= render :partial => "listings/fav_button_stream", :locals => {:listing => listing} %>
 						</span>
 					<% else %>
-						<span id="lstgs_fav_<%= listing.id %>_<%= listing.member.id %>" class="l_out">
-						    <%= image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite") %>
-						</span>
+						<%= render :partial => "listings/logged_out_buttons", :locals => {:listing => listing} %>
 					<% end %>
 
 					<% if member_signed_in? %>
 				        <% if current_member == listing.member %>
 					        <span class="">
-					        	<%= link_to image_tag("/assets/Edit 2.png", class: 'ims-act'), edit_listing_path(listing), title: 'Options', alt: 'Options', class: '' %>					            
+					        	<%= render :partial => "listings/settings_button", :locals => {:listing => listing} %>	            
 					        </span>
 				        <% end %>
 			      	<% end %>

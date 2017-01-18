@@ -301,7 +301,13 @@ font-weight: normal;
 	float: left;
 }
 .pdl_action .ims-act {
-	height: 24px;
+	font-size: 17px;
+	vertical-align: super;
+	color: #4f4f4f;
+	margin: 0 -8px;
+}
+.pdl_action .ims-act.fav_l.unfav {
+	color: #f03c42;
 }
 #pdl_m .btn-group .del {
 	border-top: 1px solid #ddd;
@@ -702,7 +708,11 @@ label.active {
 	width: 90px;
 	height: 80px;
 }
-.lst_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn, .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+.lst_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+	margin-left: -4px;
+    margin-top: -10px;
+}
+.lst_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn {
 	margin-left: -4px;
     margin-top: -10px;
 }

@@ -18,7 +18,7 @@
 #member_item_wrap .name {
 	color: #4a4a4a;
 	font-size: 1.4em;
-	padding: 4px 0 0 0;
+	padding: 4px 0 3px 0;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -68,9 +68,34 @@
 	padding: 5px;
 }
 .mem_actions {
-	width: 25px;
+	font-size: 27px;
+    margin: 0 -10px;
 	height: 25px;
 	vertical-align: top;
+	background-color: #656565;
+    color: transparent;
+    text-shadow: 0px 0.75px 4px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+.mem_actions.share {
+	font-size: 23px;
+	margin-left: -13px;
+	vertical-align: text-top;
+}
+.mem_actions.mssgs {
+	vertical-align: text-bottom;
+}
+.mem_actions.sttgs {
+	font-size: 25px;
+}
+.mem_actions.follow_mem {
+	font-size: 25px;
+}
+.mem_actions.unfollow_mem {
+	background-color: #f1f1f1;
+	vertical-align: baseline;
 }
 .mem_actions1 {
 	width: 28px;

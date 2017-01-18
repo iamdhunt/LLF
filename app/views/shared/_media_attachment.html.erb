@@ -10,10 +10,10 @@
         <div class="act_media_content">
           <% if upload.member == current_member %>
             <span class="shu_e">
-              <%= link_to image_tag('Edit 5.png'), polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
+              <%= link_to "EDIT", polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
             </span>
             <span class="shu_d">
-              <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+              <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
             </span>
           <% end %>
 
@@ -33,10 +33,10 @@
       <div class="act_media_content">
         <% if upload.member == current_member %>
           <span class="shu_e">
-            <%= link_to image_tag('Edit 5.png'), polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
+            <%= link_to "EDIT", polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
           </span>
           <span class="shu_d">
-            <%= link_to image_tag('Delete 2.png'), [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+            <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
           </span>
         <% end %>
         <%= link_to image_tag(upload.asset.url(:list), class: ''), upload.asset.url(:large), class: "fancybox", rel: 'proj_gall' %>

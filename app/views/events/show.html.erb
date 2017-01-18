@@ -90,7 +90,7 @@
             </span>
           <% else %>
             <span class="l_out">
-              <%= link_to '<i class="fa fa-heart", title: "Favorite", alt: "Favorite"></i>'.html_safe, sign_in_path, title: "Favorite", alt: "Favorite" %>
+              <%= link_to '<i class="fa fa-heart"></i>'.html_safe, sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites" %>
             </span>
           <% end %>
           
@@ -98,9 +98,9 @@
 
           <% if member_signed_in? %>
             <% if current_member == @event.member %>
-              <span><%= link_to '<i class="fa fa-cogs"></i>'.html_safe, edit_event_path(@event), title: "Edit", alt: "Edit" %></span>
+              <span><%= link_to '<i class="fa fa-sliders"></i>'.html_safe, edit_event_path(@event), title: "Edit", alt: "Edit" %></span>
 
-              <span><%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
             <% end %>
           <% end %>
         </span>

@@ -42,15 +42,7 @@
 		<div id="act_btn_wrap">
 			<span id="comment_act_btn">
 
-				<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
-					<%= link_to medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
-						<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
-					<% end %>
-				<% elsif activity.targetable.comments.count > 99 %>
-					<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
-				<% else %>
-					<%= link_to image_tag("Comment 3.png", class: "act_actions"), medium_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
-				<% end %>
+				<%= render :partial => "activities/medium/comment_button", :locals => {:activity => activity} %>
 
 				<% if member_signed_in? %>
 
@@ -70,12 +62,12 @@
 
 					<% if activity.member == current_member %>
 						<span class="">
-							<%= link_to image_tag("Edit 4.png",  class: "act_actions"), edit_medium_path(activity.targetable), title: "Edit Media", alt: "Edit Media", :class => "btn more" %>
+							<%= render :partial => "activities/medium/edit_button", :locals => {:activity => activity} %>
 						</span>
 
 
 						<span class="ad">
-							<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
+							<%= render :partial => "activities/delete_button", :locals => {:activity => activity} %>
 						</span>
 					<% end %>
 

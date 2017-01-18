@@ -45,7 +45,9 @@
 					&#8226; <%= link_to "Share", "#share", :data => {:toggle => "modal"}, title: 'Share Status', alt: 'Share Status' %> 
 					<% if current_member == @status.member %> 
 						&#8226; <%= link_to "Edit", edit_status_path(@status), title: 'Edit Status', alt: 'Edit Status' %>
-						<span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @status, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+						<span class="dl"><%= link_to @status, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', alt: 'Delete' do %>
+                			<i class="fa fa-times"></i>
+              			<% end %></span>
 					<% end %>
 				</div>
 

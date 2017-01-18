@@ -150,6 +150,7 @@ class Event < ActiveRecord::Base
     text :marker_list, :boost => 2
     text :city, :location
     text :category
+    text :blurb, :boost => 2
     string :marker_list, :multiple => true, :stored => true
     string :event_month
     string :location

@@ -1,9 +1,13 @@
 <% if current_member.following?(member) %>
-
-      <%= link_to image_tag("Following.png", class: "mem_actions"), member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" %>
+	
+	<%= link_to member_follow_path(member.to_param, current_member.get_follow(member).id), :method => :delete, :remote => true, title: "Unfollow", alt: "Unfollow", :class => "btn btn-follow" do %>
+        <i class="fa fa-check mem_actions unfollow_mem"></i>
+    <% end %>
 
 <% else %>
 
-      <%= link_to image_tag("Follow.png", class: "mem_actions"), member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn" %>
+	<%= link_to member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn" do %>
+        <i class="fa fa-user-plus mem_actions follow_mem"></i>
+    <% end %>
       
 <% end %>

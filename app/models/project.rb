@@ -95,6 +95,7 @@ class Project < ActiveRecord::Base
     text :name, :boost => 5
     text :marker_list, :boost => 3
     text :city, :boost => 2
+    text :blurb, :boost => 2
     text :category
     string :marker_list, :multiple => true, :stored => true
     string :city

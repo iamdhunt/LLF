@@ -54,11 +54,13 @@
           <% if member_signed_in? %>
             &#8226; <%= link_to "Add Media", "#media", title: 'Add Media', alt: 'Add Media', :data => {:toggle => "modal"} %>
           <% else %>
-            &#8226; <%= link_to "Add Media", sign_in_path, title: 'Add Media', alt: 'Add Media' %>
+            &#8226; <%= link_to "Add Media", sign_in_path, title: 'Login to add media', alt: 'Login to add media' %>
           <% end %>
           <% if current_member == @medium.member %> 
             &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> 
-            <span class="dl"><%= link_to image_tag("/assets/Delete.png", title: 'Delete', alt: 'Delete'), @medium, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+              <span class="dl"><%= link_to @medium, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', alt: 'Delete' do %>
+                <i class="fa fa-times"></i>
+              <% end %></span>
           <% end %>
         </div>
 

@@ -1,0 +1,10 @@
+<span id="prj_fol_<%= project.id %>_<%= project.member.id %>" class="l_out">
+	<%= link_to sign_in_path, title: "Login to follow", alt: "Login to follow", :class => "" do %>
+        <i class="fa fa-plus-circle ims-act fav_e_p"></i>
+    <% end %>
+</span>
+<span id="prj_fav_<%= project.id %>_<%= project.member.id %>" class="l_out">
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "" do %>
+        <i class="fa fa-heart ims-act fav_e_p"></i>
+    <% end %>
+</span>

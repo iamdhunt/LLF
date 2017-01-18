@@ -11,29 +11,25 @@
         <% if member_signed_in? %>
             <div class="nav_links2">
 
-                <%= link_to image_tag("Discover 4.png", class: "nav_icons discover"), search_path, title: "Discover", alt: "Discover", :class => "" %>
+                <%= link_to search_path, title: "Discover", alt: "Discover", :class => "" do %>
+                    <i class="fa fa-compass nav_icons discover"></i>
+                <% end %>
 
-                <span class="alert_wrap">
-                    <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
-                        <%= image_tag("Messages.png", class: "nav_icons messages") %>    
-                    <% end %> 
-                    <span class="m_alert">
-                        <% unless current_member.mailbox.inbox({:read => false}).count == 0 %>
-                            <div id="m_alert" class=""></div>
-                        <% end %>
-                    </span>
-                </span>
+                <%= link_to conversations_path, title: "Conversations", alt: "Conversations", :class => "" do %>
+                    <% if current_member.mailbox.inbox({:read => false}).count == 0 %>
+                        <i class="fa fa-comments nav_icons convos"></i>
+                    <% else %>
+                        <i class="fa fa-comments nav_icons convos unread"></i>
+                    <% end %>    
+                <% end %> 
 
-                <span class="alert_wrap">
-                    <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
-                        <%= image_tag("Notification 2.png", class: "nav_icons notifications") %>
-                        <span class="n_alert">
-                            <% unless current_member.mailbox.notifications({:read => false}).count == 0 %>
-                                <div id="n_alert"></div>
-                            <% end %>
-                        </span>
+                <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
+                    <% if current_member.mailbox.notifications({:read => false}).count == 0 %>
+                        <i class="fa fa-bell nav_icons notifications"></i>
+                    <% else %>
+                        <i class="fa fa-bell nav_icons notifications unread"></i>
                     <% end %>
-                </span>
+                <% end %>
                 
 
 

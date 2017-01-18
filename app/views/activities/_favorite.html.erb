@@ -1,15 +1,21 @@
 <% if activity.votes.size > 0 && activity.votes.size <= 99 && current_member.voted_up_on?(activity) %>
 	<%= link_to favorite_activity_path(activity), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" do %>
-		  <%= image_tag("Favorite 3.png", class: "act_actions") %><%= activity.votes.size %>
+		<i class="fa fa-heart act_actions fav_md unfav"></i><%= activity.votes.size %>
 	<% end %>
 <% elsif activity.votes.size > 99 && current_member.voted_up_on?(activity) %>
-	<%= link_to image_tag("Favorite 3.png", class: "act_actions") +'99+', favorite_activity_path(activity), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" %>
+	<%= link_to favorite_activity_path(activity), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" do %>
+		<i class="fa fa-heart act_actions fav_md unfav"></i>99+
+	<% end %>
 <% elsif activity.votes.size > 0 && activity.votes.size <= 99 %>
 	<%= link_to favorite_activity_path(activity), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
-		  <%= image_tag("Favorite 5.png", class: "act_actions") %><%= activity.votes.size %>
+		<i class="fa fa-heart act_actions fav_md"></i><%= activity.votes.size %>
 	<% end %>
 <% elsif activity.votes.size > 99 %>
-	<%= link_to image_tag("Favorite 5.png", class: "act_actions") +'99+', favorite_activity_path(activity), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" %>
+	<%= link_to favorite_activity_path(activity), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+		<i class="fa fa-heart act_actions fav_md"></i>99+
+	<% end %>
 <% else %>
-	<%= link_to image_tag("Favorite 5.png", class: "act_actions"), favorite_activity_path(activity), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" %>
+	<%= link_to favorite_activity_path(activity), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+		<i class="fa fa-heart act_actions fav_md"></i>
+	<% end %>
 <% end %>

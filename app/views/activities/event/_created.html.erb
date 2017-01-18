@@ -60,40 +60,33 @@
 	<div id="act_btn_wrap">
 		<span id="comment_act_btn">
 
-			<% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
-				<%= link_to event_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
-					<%= image_tag("Comment 3.png", class: "act_actions") %><%= activity.targetable.comments.count %>
+			<%= render :partial => "activities/event/comment_button", :locals => {:activity => activity} %>
+
+				<% if member_signed_in? %>
+
+					<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
+						<%= render :partial => "activities/favorite", :locals => {:activity => activity} %>	
+					</span>
+
+				<% else %>
+
+					<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
+						<%= render :partial => "activities/fav_logged_out.html", :locals => {:activity => activity} %>	
+					</span>
+
 				<% end %>
-			<% elsif activity.targetable.comments.count > 99 %>
-				<%= link_to image_tag("Comment 3.png", class: "act_actions") + '99+', event_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
-			<% else %>
-				<%= link_to image_tag("Comment 3.png", class: "act_actions"), event_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" %>
-			<% end %>
 
-			<% if member_signed_in? %>
+				<% if member_signed_in? %>
 
-				<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
-					<%= render :partial => "activities/favorite", :locals => {:activity => activity} %>	
-				</span>
+					<% if activity.member == current_member %>
+						<span class="">
+							<%= render :partial => "activities/event/edit_button", :locals => {:activity => activity} %>
+						</span>
 
-			<% else %>
 
-				<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
-					<%= render :partial => "activities/fav_logged_out.html", :locals => {:activity => activity} %>	
-				</span>
-
-			<% end %>
-
-			<% if member_signed_in? %>
-
-				<% if activity.member == current_member %>
-					<span class="">
-						<%= link_to image_tag("Edit 4.png",  class: "act_actions"), edit_event_path(activity.targetable), title: "Edit Event", alt: "Edit Event", :class => "btn more" %>
-					</span>
-
-					<span class="ad">
-						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
-					</span>
+						<span class="ad">
+							<%= render :partial => "activities/delete_button", :locals => {:activity => activity} %>
+						</span>
 				<% end %>
 
 			<% end %>

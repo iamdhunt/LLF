@@ -21,7 +21,9 @@
 
 				<% if comment.member != current_member && @commentable.member == current_member %>
 					<span id="cm_del_img" class="comment_del">
-						<%= link_to image_tag("Delete.png", title: 'Delete'), [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
+						<%= link_to [@commentable, comment], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', alt: 'Delete' do %>
+	                		<i class="fa fa-times"></i>
+	              		<% end %>
 					</span>
 				<% end %>
 		

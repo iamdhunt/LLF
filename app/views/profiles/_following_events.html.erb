@@ -20,7 +20,7 @@
 		    <span class="r">
 
 		    	<% if member_signed_in? %>
-		    		<% unless follow.member == current_member %>
+		    		<% if follow.member != current_member %>
 			    		<span id="evt_fol_<%= follow.id %>_<%= follow.member.id %>">
 						    <%= render :partial => "shared/follow_event2", :locals => {:event => follow} %>
 						</span>
@@ -29,13 +29,8 @@
 					    <%= render :partial => "events/fav_button_stream", :locals => {:event => follow} %>
 					</span>
 				<% else %>
-					<span id="evt_fol_<%= follow.id %>_<%= follow.member.id %>" class="l_out">
-					    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Follow", alt: "Follow") %>
-					</span>
-					<span id="evt_fav_<%= follow.id %>_<%= follow.member.id %>" class="l_out">
-					    <%= image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite") %>
-					</span>
-		      	<% end %>
+					<%= render :partial => "events/logged_out_buttons", :locals => {:event => follow} %>
+				<% end %>
 
 		    </span>
 		    <div style="clear:both;"></div>

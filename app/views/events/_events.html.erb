@@ -38,36 +38,17 @@
 			    		<span id="evt_fol_<%= event.id %>_<%= event.member.id %>">
 						    <%= render :partial => "shared/follow_event2", :locals => {:event => event} %>
 						</span>
-					<% else %>
-						<span id="evt_fol_<%= event.id %>_<%= event.member.id %>" class="l_out">
-						    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Can't Follow", alt: "Can't Follow") %>
-						</span>
 					<% end %>
 			    	<span id="evt_fav_<%= event.id %>_<%= event.member.id %>">
 					    <%= render :partial => "events/fav_button_stream", :locals => {:event => event} %>
 					</span>
 				<% else %>
-					<span id="evt_fol_<%= event.id %>_<%= event.member.id %>" class="l_out">
-					    <%= image_tag("Follow E-P 3.png", class: "ims-act", title: "Follow", alt: "Follow") %>
-					</span>
-					<span id="evt_fav_<%= event.id %>_<%= event.member.id %>" class="l_out">
-					    <%= image_tag("Favorite 7.png", class: "ims-act", title: "Favorite", alt: "Favorite") %>
-					</span>
+					<%= render :partial => "events/logged_out_buttons", :locals => {:event => event} %>
 				<% end %>
 
 				<% if member_signed_in? %>
 			        <% if current_member == event.member %>
-				        <span class="btn-group">
-				          <%= link_to image_tag("/assets/More 5.png", class: 'ims-act', title: 'Options'), "/page.html", :class => "dropdown-toggle", :data => {:toggle => "dropdown", :target=>"#"} %>
-				            <ul class="dropdown-menu">            
-				              <li>
-				                <%= link_to "Edit", edit_event_path(event), class: '' %>
-				              </li>
-				              <li class="del">
-				                <%= link_to "Delete", event_path(event.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
-				              </li>
-				            </ul>
-				        </span>
+				        <%= render :partial => "events/dropdown_toggle", :locals => {:event => event} %>
 			        <% end %>
 		      	<% end %>
 

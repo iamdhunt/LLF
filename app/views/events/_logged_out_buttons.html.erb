@@ -1,0 +1,10 @@
+<span id="evt_fol_<%= event.id %>_<%= event.member.id %>" class="l_out">
+	<%= link_to sign_in_path, title: "Login to follow", alt: "Login to follow", :class => "" do %>
+        <i class="fa fa-plus-circle ims-act fav_e_p"></i>
+    <% end %>
+</span>
+<span id="evt_fav_<%= event.id %>_<%= event.member.id %>" class="l_out">
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "" do %>
+        <i class="fa fa-heart ims-act fav_e_p"></i>
+    <% end %>
+</span>

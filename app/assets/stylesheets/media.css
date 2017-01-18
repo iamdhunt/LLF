@@ -494,7 +494,11 @@
 	width: 170px;
 	height: 130px;
 }
-.md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn, .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+.md_aud_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
+	margin-left: 35px;
+    margin-top: 15px;
+}
+.md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn {
 	margin-left: 35px;
     margin-top: 15px;
 }

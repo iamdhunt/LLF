@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
  
  layout "profile"
 
-  rescue_from ActiveRecord::RecordNotFound do
+ rescue_from ActiveRecord::RecordNotFound do
     render file: 'public/404', status: 404, formats: [:html]
   end
 

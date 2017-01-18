@@ -1,13 +1,13 @@
 <% if medium.votes.size > 0 && medium.votes.size <= 99 %>
-	<span class="btn" title="Favorites" alt="Favorites">
-		<%= image_tag("Favorite 5.png", class: "act_actions") %><%= medium.votes.size %>
-	</span>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+        <i class="fa fa-heart act_actions fav_md"></i><%= medium.votes.size %>
+    <% end %>
 <% elsif medium.votes.size > 99 %>
-  	<span class="btn" title="Favorites" alt="Favorites">
-		<%= image_tag("Favorite 5.png", class: "act_actions") +'99+' %>
-	</span>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+		<i class="fa fa-heart act_actions fav_md"></i>99+
+	<% end %>
 <% else %>
-  	<span class="btn" title="Favorites" alt="Favorites">
-		<%= image_tag("Favorite 5.png", class: "act_actions ") %>
-	</span>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+		<i class="fa fa-heart act_actions fav_md"></i>
+	<% end %>
 <% end %>

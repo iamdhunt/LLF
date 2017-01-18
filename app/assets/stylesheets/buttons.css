@@ -361,6 +361,7 @@
   border-color: #e45242;
   *background-color: #e45242;
   border-radius: 5px;
+  font-weight: bold;
 }
 .btn-buy:hover,
 .btn-buy:focus,

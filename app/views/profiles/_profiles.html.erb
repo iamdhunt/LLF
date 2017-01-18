@@ -57,22 +57,40 @@
                                 <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
                             </span>
                             <span>
-                                <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
-                                <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
+                                <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" do %>
+                                    <i class="fa fa-comments mem_actions mssgs"></i>
+                                <% end %>
+                                <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                                    <i class="fa fa-paper-plane mem_actions share"></i>
+                                <% end %>
                             </span>
                         <% end %>
                         <% if current_member == @member %>
-                            <%= link_to image_tag("Media 3.png", class: "mem_actions"), "#media", :data => {:toggle => "modal"}, title: "Add Media", alt: "Add Media", :class => "btn" %>
-                            <%= link_to image_tag("Messages 2.png", class: "mem_actions"), "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %>
-                            <span class="mt-btn"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" %></span>
-                            <%= link_to image_tag("Settings.png", class: "mem_actions"), edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn" %>
+                            <%= link_to "#media", :data => {:toggle => "modal"}, title: "Add Media", alt: "Add Media", :class => "btn" do %>
+                                <i class="fa fa-arrow-circle-o-up mem_actions"></i>
+                            <% end %>
+                            <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" do %>
+                                <i class="fa fa-comments mem_actions mssgs"></i>
+                            <% end %>
+                            <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                                <i class="fa fa-paper-plane mem_actions share"></i>
+                            <% end %>
+                            <%= link_to edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn" do %>
+                                <i class="fa fa-sliders mem_actions sttgs"></i>
+                            <% end %>
                         <% end %>
                     </div>
                 <% else %>
                     <div id="member_actions" class="profile_buttons">
-                        <span class="member_follow"><%= link_to image_tag("Follow.png", class: "mem_actions"), sign_in_path, title: "Follow", alt: "Follow", :class => "btn" %></span>
-                        <span><%= link_to image_tag("Messages 2.png", class: "mem_actions"), sign_in_path, title: "Start Conversation", alt: "Start Conversation", :class => "btn" %></span>
-                        <span class="mt-btn btn" title="Share Profile" alt="Share Profile"><%= link_to image_tag("Share 5.png", class: "mem_actions1"), "#share-profile", :data => {:toggle => "modal"} %></span>
+                        <%= link_to sign_in_path, title: "Login to follow", alt: "Login to follow", :class => "btn" do %>
+                            <i class="fa fa-user-plus mem_actions follow_mem"></i>
+                        <% end %>
+                        <%= link_to sign_in_path, title: "Login to send a message", alt: "Login to send a message", :class => "btn" do %>
+                            <i class="fa fa-comments mem_actions mssgs"></i>
+                        <% end %>
+                        <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                            <i class="fa fa-paper-plane mem_actions share"></i>
+                        <% end %>
                     </div>
                 <% end %>
             	<div class="profile_accounts">

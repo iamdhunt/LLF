@@ -55,7 +55,7 @@
             </span>
           <% else %>
             <span class="l_out">
-              <%= link_to '<i class="fa fa-heart", title: "Favorite", alt: "Favorite"></i>'.html_safe, sign_in_path, title: "Favorite", alt: "Favorite" %>
+              <%= link_to '<i class="fa fa-heart"></i>'.html_safe, sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites" %>
             </span>
           <% end %>
           
@@ -63,9 +63,9 @@
 
           <% if member_signed_in? %>
             <% if current_member == @listing.member %>
-              <span><%= link_to '<i class="fa fa-cogs"></i>'.html_safe, edit_listing_path(@listing), title: "Edit", alt: "Edit" %></span>
+              <span><%= link_to '<i class="fa fa-sliders"></i>'.html_safe, edit_listing_path(@listing), title: "Edit", alt: "Edit" %></span>
 
-              <span><%= link_to '<i class="fa fa-times-circle"></i>'.html_safe, @listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
             <% end %>
           <% end %>
         </span>
@@ -184,9 +184,8 @@
 
     <div class="s_modal">
       <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="sharemodallabel">Copy Listing URL</h3>
+        <div class="mod_close">
+            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
         <div class="modal-body pi">
           <div id="custom-input">

@@ -66,5 +66,6 @@ module LLF
 
     ActsAsTaggableOn.remove_unused_tags = true
     ActsAsTaggableOn.force_lowercase = true
+
   end
 end
