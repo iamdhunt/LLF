@@ -312,6 +312,7 @@ DEPENDENCIES
   js-routes
   js_cookie_rails
   mailboxer
+  nokogiri (~> 1.5.9)
   paperclip
   pg
   private_pub

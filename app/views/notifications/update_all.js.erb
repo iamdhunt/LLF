@@ -1,4 +1,4 @@
 $("#notifications").html("<%= escape_javascript(render partial: 'notifications/notifications', :collection => @notifications, :as => :notification) %>");
-$(".n_alert").html("<% unless current_member.mailbox.notifications({:read => false}).count == 0 %><div id='n_alert'></div><% end %>");
+$("#ntfs i").removeClass( "unread" );
 soundManager.stopAll();
 soundManager.reboot();

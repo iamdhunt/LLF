@@ -23,13 +23,15 @@
                     <% end %>    
                 <% end %> 
 
-                <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
-                    <% if current_member.mailbox.notifications({:read => false}).count == 0 %>
-                        <i class="fa fa-bell nav_icons notifications"></i>
-                    <% else %>
-                        <i class="fa fa-bell nav_icons notifications unread"></i>
+                <span id="ntfs">
+                    <%= link_to notifications_path, title: "Notifications", alt: "Notifications", :class => "" do %>
+                        <% if current_member.mailbox.notifications({:read => false}).count == 0 %>
+                            <i class="fa fa-bell nav_icons notifications"></i>
+                        <% else %>
+                            <i class="fa fa-bell nav_icons notifications unread"></i>
+                        <% end %>
                     <% end %>
-                <% end %>
+                </span>
                 
 
 

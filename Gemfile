@@ -33,6 +33,7 @@ gem 'rails_engine_decorators'
 gem 'embedly'
 gem 'activeadmin'
 gem 'js_cookie_rails'
+gem 'nokogiri', '~> 1.5.9'
 
 group :development, :test do
 	gem 'shoulda'
