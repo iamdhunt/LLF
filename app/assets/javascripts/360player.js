@@ -61,7 +61,7 @@ function ThreeSixtyPlayer() {
     autoPlay: false,   // start playing the first sound right away
     allowMultiple: false,  // let many sounds play at once (false = only one sound playing at a time)
     loadRingColor: '#eee', // how much has loaded
-    playRingColor: '#9327c9', // how much has played
+    playRingColor: '#f7803c', // how much has played
     backgroundRingColor: '#ccc', // color shown underneath load + play ("not yet loaded" color)
 
     // optional segment/annotation (metadata) stuff..
