@@ -301,7 +301,7 @@ font-weight: normal;
 	float: left;
 }
 .pdl_action .ims-act {
-	font-size: 17px;
+	font-size: 22px;
 	vertical-align: super;
 	color: #4f4f4f;
 	margin: 0 -8px;
@@ -322,7 +322,7 @@ font-weight: normal;
 	float: right;
 	font-size: 1.3em;
 	color: #54b18c;
-	padding-top: 3px;
+	padding-top: 6px;
 }
 #pdl_b {
 	text-align: center;

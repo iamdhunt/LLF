@@ -1,7 +1,7 @@
 
 	<div id="receipt_<%= receipt.message.id %>_<%= receipt.message.sender.id %>" class="mess_wrap">
 		<span class="comment_av">
-			<%= list_av receipt.message.sender, :class => "pr_av", title: receipt.message.sender.full_name, alt: receipt.message.sender.full_name  %>
+			<%= avatar_profile receipt.message.sender, :class => "pr_av", title: receipt.message.sender.full_name, alt: receipt.message.sender.full_name  %>
 		</span>
 		<span>
 			<div class="comment_name2">

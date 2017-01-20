@@ -1,7 +1,7 @@
 
 	<div id="comment_<%= comment.commentable.id %>_<%= comment.id %>" class="comments">
 		<span class="comment_av">
-			<%= comment_avatar_link_2 comment.member, :class => "com_av", title: comment.member.full_name, alt: comment.member.full_name %>
+			<%= avatar_profile comment.member, :class => "com_av", title: comment.member.full_name, alt: comment.member.full_name %>
 		</span>
 		<span>
 

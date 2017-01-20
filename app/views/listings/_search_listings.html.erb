@@ -47,7 +47,7 @@
 			<div id="pdl_m">
 				<div class="pdl_action">
 					
-					<%= list_profile_link listing.member, :class => "pr_av", title: listing.member.full_name, alt: listing.member.full_name %>
+					<%= avatar_profile listing.member, :class => "pr_av", title: listing.member.full_name, alt: listing.member.full_name %>
 
 					<% if member_signed_in? %>
 				    	<span id="lstgs_fav_<%= listing.id %>_<%= listing.member.id %>">

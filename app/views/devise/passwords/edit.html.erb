@@ -1,6 +1,6 @@
-<% title "LLF x Change Your Password" %>
+<% title "THE COLLECTIVV &#215; Change Your Password".html_safe %>
 
-<div class="login_bg">
+<div id="banner" style="background-image: url('/assets/Community Banner Image.jpeg');text-align:left;">
 
 	<div class="login_wrap">
 		<div class="login_form">
@@ -16,7 +16,7 @@
 						<%= f.password_field :password, :autofocus => true,  autocomplete: "off", label: false, placeholder: 'New Password', class: 'forms account sign_in' %>
 					</div>
 
-					<div>
+					<div style="margin-bottom:8px;">
 						<%= f.password_field :password_confirmation,  autocomplete: "off", label: false, placeholder: 'Confirm New Password', class: 'forms account sign_in' %>
 					</div>  
 
@@ -32,5 +32,7 @@
 	</div>
 
 </div>
+
+<div class="" style="padding-bottom:500px;"></div>
 
 <!--/main_wrap-->

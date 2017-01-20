@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
   has_many :activities, as: :targetable, :dependent => :destroy
   has_many :mentions, as: :mentioner, dependent: :destroy
 
-  has_attached_file :avatar, styles: {activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+  has_attached_file :avatar, styles: {large: "500x500#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
                   :default_url => '/assets/Projects-Default.png',
                   :convert_options => { all: "-set -colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },

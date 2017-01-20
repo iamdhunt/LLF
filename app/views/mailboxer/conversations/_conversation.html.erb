@@ -10,7 +10,7 @@
 
 		    <div> 
 			    <% conversation.recipients.each do |recipient| %>
-				    <span><%= list_av recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
+				    <span><%= avatar_profile recipient, :class => "pr_av", title: recipient.full_name, alt: recipient.full_name  %></span>
 				<% end %>
 		  	</div>
 

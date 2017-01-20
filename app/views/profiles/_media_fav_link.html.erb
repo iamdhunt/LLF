@@ -24,7 +24,7 @@
 
       <span id="comment_act_btn">
 
-        <span><%= list_profile_link medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
+        <span><%= avatar_profile medium.member, :class => "pr_av", title: medium.member.full_name, alt: medium.member.full_name %></span>
 
         <%= render :partial => "media/comment_button", :locals => {:medium => medium} %>
 

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-	around_filter :set_time_zone
+	around_filter :with_timezone
 
 	protect_from_forgery
 
@@ -22,16 +22,9 @@ class ApplicationController < ActionController::Base
 
 	private
                                                                                  
-		def set_time_zone
-		  old_time_zone = Time.zone
-		  Time.zone = browser_timezone if browser_timezone.present?
-		  yield
-		ensure
-		  Time.zone = old_time_zone
-		end
-		                                                                                 
-		def browser_timezone
-		  cookies["browser.timezone"]
+		def with_timezone
+		    timezone = Time.find_zone(cookies[:timezone])
+		    Time.use_zone(timezone) { yield }
 		end
 
 end

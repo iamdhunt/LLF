@@ -77,6 +77,8 @@
 	text-decoration: none;
 }
 .com_av {
+	width: 40px;
+	height: 40px;
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */
 	border-radius: 100%; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */

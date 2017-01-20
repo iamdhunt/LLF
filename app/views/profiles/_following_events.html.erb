@@ -14,7 +14,7 @@
 
 		<div id="p_list_top">
 			<span class="l">
-		      <%= avatar_profile_link follow.member, :class => "pr_av", title: follow.member.full_name, alt: follow.member.full_name %>
+		      <%= avatar_profile follow.member, :class => "pr_av", title: follow.member.full_name, alt: follow.member.full_name %>
 		    </span>
 
 		    <span class="r">
@@ -42,7 +42,7 @@
 					<%= image_tag("Past Event.png", title: 'Finished', alt: 'Finished') %>
 				</div>
 			<% end %>
-			<%= avatar_event_link follow, title: follow.name, alt: follow.name %>
+			<%= avatar_event_link follow, class: "p_ev_av", title: follow.name, alt: follow.name %>
 		</div>
 
 		<div id="pl_middle">
