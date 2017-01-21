@@ -1,5 +1,5 @@
 <% if medium.link? %>
-  <%= render :partial => "media/media_link", :locals => {:medium => medium} %>
+  <%= render :partial => "media/media_link_profile", :locals => {:medium => medium} %>
 <% else %>
-  <%= render :partial => "media/media_attachment", :locals => {:medium => medium} %>
+  <%= render :partial => "media/media_attachment_profile", :locals => {:medium => medium} %>
 <% end %>

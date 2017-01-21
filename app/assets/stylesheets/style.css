@@ -1982,6 +1982,15 @@ label.active {
   	margin-bottom: 20px;
   	border-radius: 8px;
 }
+#media .modal-body #err_wrap {
+	width: 85%;
+}
+#media_index .modal-body #err_wrap {
+	width: 85%;
+}
+#upload .modal-body #err_wrap {
+	width: 85%;
+}
 #error_list {
 	padding: 4px 20px 8px 40px;
 	font-style: oblique;

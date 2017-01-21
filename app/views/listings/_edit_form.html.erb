@@ -144,7 +144,7 @@
 
           <div>
             <div class="custom-file-upload fu2_wrap">
-              <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Audio Cover
+              <label for="file-upload2" class="cfu_label"><i class="fa fa-arrow-up"></i>Cover Image
                 <%= f.input :cover, as: :file, label: false, error: false, input_html: { id: 'file-upload2', class: 'account settings pr_upload'} %>
               </label>
             </div>
@@ -273,11 +273,11 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, class: 'btn btn-market' %>
+      <%= f.button :submit, class: 'btn btn-blue' %>
       <span id="spinner" class="spinner">
         <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
       </span>
-      <%= link_to 'Back', @listing, class: 'btn btn-info pull-right' %>
+      <%= link_to 'Back', @listing, class: 'btn btn-black pull-right' %>
     </div>
 
   </div>

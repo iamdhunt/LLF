@@ -1,0 +1,55 @@
+<% if medium.link =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/ %>
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap video_fil">
+<% elsif medium.link =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
+  <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
+<% end %>
+
+  <div class="act_media_content">
+    <%= media_display(medium.link) %>
+  </div>
+
+  <% if medium.caption? %>
+    <div class="media_act_cap">
+      <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
+    </div> 
+  <% end %>
+
+  <% if medium.marker_list %>
+    <div class="t_s">
+      <%= medium.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "media", :action => "index", :media => m}, title: m, alt: m }.join(' ').html_safe %>
+    </div>
+  <% end %>
+
+  <div id="act_btn_wrap">
+
+    <span id="comment_act_btn">
+
+      <%= render :partial => "media/comment_button", :locals => {:medium => medium} %>
+
+      <% if member_signed_in? %>
+        <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+          <%= render :partial => "media/favorite", :locals => {:medium => medium} %>
+        </span>
+      <% else %>
+        <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
+          <%= render :partial => "media/fav_logged_out.html", :locals => {:medium => medium} %>  
+        </span>
+      <% end %>
+
+      <% if member_signed_in? %>
+        <% if can_edit_medium?(medium) %>
+          <span class="">
+              <%= render :partial => "media/edit_button", :locals => {:medium => medium} %>
+            </span>
+            
+            <span class="ad">
+              <%= render :partial => "media/delete_button", :locals => {:medium => medium} %>
+            </span>
+        <% end %>
+      <% end %>
+      
+    </span>
+
+  </div>
+
+</div>
