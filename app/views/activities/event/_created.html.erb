@@ -8,7 +8,7 @@
 		<div class="a_info at_e">
 			<ul>
 				<li>
-					<%= link_to status_path(activity.targetable) do %>
+					<%= link_to profile_events_path(activity.targetable.member) do %>
 					 <span class="a_action">created an</span> event
 					<% end %>
 				</li>

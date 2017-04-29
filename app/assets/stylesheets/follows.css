@@ -61,6 +61,8 @@
 	padding: 5px 0;
 }
 #follow_item_wrap img {
+	width: 150px;
+    height: 150px;
 	-webkit-border-radius: 80px; /* Saf3+, Chrome */
 	border-radius: 80px; /* Opera 10.5, IE 9 */
 	/*-moz-border-radius: 30px; Disabled for FF1+ */

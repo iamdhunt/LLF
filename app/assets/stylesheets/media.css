@@ -186,11 +186,13 @@
 	width: 188px;
 	height: 188px;
 	background-size: cover;
+	border-radius: 100%;
 }
 .sh_aud #med_art {
 	width: 300px;
 	height: 300px;
 	background-size: cover;
+	border-radius: 100%;
 }
 #med_art_act {
 	width: 300px;
@@ -198,6 +200,7 @@
 	background-size: cover;
 	margin-left: auto;
 	margin-right: auto;
+	border-radius: 100%;
 }
 .med_instructions {
 	font-size: .9em;
@@ -264,6 +267,7 @@
 }
 #comment_act_btn .pr_av {
 	width: 30px;
+	height: 30px;
 	vertical-align: bottom;
 }
 .media_fil .t_s {

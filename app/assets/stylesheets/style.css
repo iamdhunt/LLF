@@ -230,11 +230,11 @@ textarea {
 	opacity: .85;
 }
 #nav_bar .primary_nav .txt a:hover {
-	border-bottom: 4px solid #9327c9;
+	border-bottom: 4px solid #000;
 	color: #444;
 }
 #nav_bar .primary_nav .current {
-	border-bottom: 4px solid #9327c9;
+	border-bottom: 4px solid #000;
 	color: #444;
 }
 #nav_bar .primary_nav2 {
@@ -1621,7 +1621,7 @@ hr.contact {
 }
 
 .nav_av {
-	margin-top: 8px;
+	margin-top: 3px;
 	width: 35px;
 	height: 35px;
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */

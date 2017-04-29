@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-	around_filter :with_timezone
+	
 
 	protect_from_forgery
 

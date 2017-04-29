@@ -8,7 +8,7 @@
 		<div class="a_info at_p">
 			<ul>
 				<li>
-					<%= link_to status_path(activity.targetable) do %>
+					<%= link_to profile_projects_path(activity.targetable.member) do %>
 					 <span class="a_action">created a</span> project
 					<% end %>
 				</li>
