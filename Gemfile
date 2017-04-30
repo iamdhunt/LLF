@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-ruby "2.1"
 
 gem 'rails', '3.2.13'
 
@@ -35,12 +34,14 @@ gem 'embedly'
 gem 'activeadmin'
 gem 'js_cookie_rails'
 gem 'nokogiri', '~> 1.5.9'
+gem 'inherited_resources', '~> 1.6.0'
 
 group :development, :test do
 	gem 'shoulda'
 	gem 'factory_girl_rails'
 	gem 'sqlite3'
 	gem 'sunspot_solr', github: "betam4x/sunspot" # '2.1.1'
+#	gem 'byebug'
 	gem 'debugger'
 end 
 
