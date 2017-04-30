@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "2.1"
 
 gem 'rails', '3.2.13'
 
@@ -7,7 +8,7 @@ gem 'rails', '3.2.13'
 
 gem 'jquery-rails', '~> 2.3.0'
 gem 'simple_form'
-gem 'devise', '~> 3.1.0'
+gem 'devise'
 gem 'paperclip'
 gem 'acts_as_follower', '~> 0.1.1'
 gem 'js-routes'
