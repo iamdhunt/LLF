@@ -17,6 +17,16 @@
 		soundManager.reboot();
 	});
 	$('#activity_stream_wrap').prepend("<%= escape_javascript(render :partial => 'activities/medium/created', :locals => {:activity => @activity}) %>");
+	embedly('on', 'card.rendered', function(iframe){
+		// iframe is the card iframe that we used to render the event.
+		$card = $(iframe);
+
+	  	$('#activity_stream_wrap').imagesLoaded(function() {
+			$('#activity_stream_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+			soundManager.stopAll();
+			soundManager.reboot();
+		});
+	});
 	$('#activity_stream_wrap').imagesLoaded(function() {
 		$('#activity_stream_wrap').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
 	});

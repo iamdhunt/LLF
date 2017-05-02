@@ -37,7 +37,7 @@
 
                 <span class="mem_drop">
                     <span class="btn-group">
-                        <%= link_to image_tag(current_member.avatar.url(:av), :class => "nav_av ", title: current_member.full_name, id: ""), "#member-menu", :data => {:toggle => "modal"} %>
+                        <%= link_to image_tag(current_member.avatar.url, :class => "nav_av ", title: current_member.full_name, id: ""), "#member-menu", :data => {:toggle => "modal"} %>
                         <ul class="dropdown-menu member">
                             <li>
                                 <%= link_to 'View My Profile', profile_path(current_member), class: 'menu_name' %>

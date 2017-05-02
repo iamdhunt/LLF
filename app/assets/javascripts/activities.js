@@ -14,7 +14,7 @@ $(document).ready(function(){
 		    });
 		  },
 		  itemSelector: '.list_act_wrap',
-	  });
+	});
 
 		  // bind filter on radio button click
 	  $('#stream_filters').on( 'click', 'input', function() {

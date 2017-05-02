@@ -1,7 +1,7 @@
 <% if @member %>
 
 <% if @member.banner? %>
-    <div id="banner" style="background-image: url(<%= @member.banner.url(:large) %>)"></div>
+    <div id="banner" style="background-image: url(<%= @member.banner.url %>)"></div>
 <% else %>
     <div id="banner" style="background-color: #e7e7e7"></div>
 <% end %>
@@ -10,7 +10,7 @@
         <div id="profile_wrap">
         	<div id="left_profile">
                 <div class="mem_av">
-                	<%= image_tag @member.avatar.url(:av) %>
+                	<%= image_tag @member.avatar.url %>
                 </div>
             </div>
             

@@ -259,8 +259,12 @@
 	margin-top: 6px;
 	font-style: oblique;
 }
+#edit_show .show_media {
+	max-width: 400px;
+}
 .show_media {
 	margin-top: 7px;
+	max-width: 700px;
 }
 .md_rfrsh {
 	margin-left: 10px;
@@ -426,6 +430,10 @@
 #edit_show .edit_md_cover {
 	margin-top: 10px;
 }
+#edit_show .edit_md_cover img {
+	width: 188px;
+	height: 188px;
+}
 #edit_show .med_instructions {
 	margin-top: 10px;
 }
@@ -497,21 +505,49 @@
 }
 .md_aud_wrap .ui360 .sm2-360btn {
 	width: 170px;
-	height: 130px;
+	height: 143px;
+}
+.md_aud_wrap .ui360-vis {
+	width: 205px;
+	height: 217px;
 }
 .md_aud_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
 	margin-left: 35px;
-    margin-top: 15px;
+    margin-top: 28px;
 }
 .md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn {
 	margin-left: 35px;
-    margin-top: 15px;
+    margin-top: 28px;
 }
 .md_aud_wrap .ui360 .sm2-timing {
 	left: 60px;
-    top: 57%;
+    top: 65%;
 }
 .md_aud_wrap .ui360 .sm2-canvas {
 	left: 60px;
-    top: 40px;
+    top: 45px;
+}
+.emb_cta {
+	color: #fff;
+    position: absolute;
+    font-style: normal;
+    font-size: 20px;
+    background-color: #e76f2a;
+    padding: 10px 12px;
+    border-radius: 4px;
+    top: 35%;
+    left: 15%;
+    opacity: .85;
+    -webkit-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+    -moz-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+    box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+}
+.emb_cta:hover {
+	cursor: pointer;
+}
+.emb_cta_wrap a img:hover {
+	opacity: 1;
+}
+.emb_cta_wrap:hover .emb_cta {
+	opacity: 1;
 }

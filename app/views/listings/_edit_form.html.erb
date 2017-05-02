@@ -137,7 +137,7 @@
 
             <% if f.object.embed? %>
               <div class="edit_lst_emb">
-                <%= media_display(f.object.embed) %>
+                <a class="embedly-card" data-card-controls="0" data-card-width="188px" data-card-align="left" href=<%= f.object.embed %>></a>
               </div>
             <% end %>
           </div>
@@ -154,7 +154,7 @@
 
             <div class="act_media_content" style="text-align:left;">
               <% if f.object.cover? %>
-                <%= image_tag f.object.cover.url(:form) %>
+                <%= image_tag f.object.cover.url, :class => "cv_edt" %>
                 <%= f.input :remove_cover, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
               <% end %>
             </div>

@@ -9,9 +9,9 @@
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
         <% if medium.cover? %>
-          <div id='med_art' style="background-image: url(<%= medium.cover.url(:media) %>)">
+          <div id='med_art' style="background-image: url(<%= medium.cover.url %>)">
         <% else %>
-          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
             <div class="ui360 ui360-vis">
               <%= link_to '', medium.asset.url %>
@@ -22,7 +22,7 @@
 
     <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
       <div class="act_media_content">
-        <%= link_to image_tag(medium.asset.url(:list), class: ''), medium.asset.url(:large), class: "fancybox", rel: 'prof_gall' %>
+        <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, class: "fancybox", rel: 'prof_gall' %>
       </div>
     <% end %>
 

@@ -2,14 +2,14 @@
 
 	<span class="pds_img">
 		<% if listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
-			<%= link_to image_tag(listing.feature.url(:additional)), listing_path(listing), title: listing.title, alt: listing.title %>
+			<%= link_to image_tag(listing.feature.url), listing_path(listing), title: listing.title, alt: listing.title %>
 		<% end %>
 
 		<% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
 			<% if listing.cover? %>
-              <%= link_to image_tag(listing.cover.url(:small)), listing_path(listing), title: listing.title, alt: listing.title %>
+              <%= link_to image_tag(listing.cover.url), listing_path(listing), title: listing.title, alt: listing.title %>
             <% else %>
-               <%= link_to image_tag('Listing Audio More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+               <%= link_to image_tag('Default-Audio.jpg'), listing_path(listing), title: listing.title, alt: listing.title %>
             <% end %>
         <% end %>
 
@@ -17,15 +17,15 @@
 	        <span class="">
 		        <% if listing.embed =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/ %>
 					<% if listing.cover? %>
-						<%= link_to image_tag(listing.cover.url(:small)), listing_path(listing), title: listing.title, alt: listing.title %>
+						<%= link_to image_tag(listing.cover.url), listing_path(listing), title: listing.title, alt: listing.title %>
 					<% else %>
-						<%= link_to image_tag('/assets/Listing-Embed-Video-More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+						<%= link_to image_tag('/assets/Default-Video-Embed.jpg'), listing_path(listing), title: listing.title, alt: listing.title %>
 					<% end %>
 				<% elsif listing.embed =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
 					<% if listing.cover? %>
-						<%= link_to image_tag(listing.cover.url(:small)), listing_path(listing), title: listing.title, alt: listing.title %>
+						<%= link_to image_tag(listing.cover.url), listing_path(listing), title: listing.title, alt: listing.title %>
 					<% else %>
-						<%= link_to image_tag('/assets/Listing-Embed-Audio-More.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+						<%= link_to image_tag('/assets/Default-Audio-Embed.jpg'), listing_path(listing), title: listing.title, alt: listing.title %>
 					<% end %>
 				<% end %>
 			</span>

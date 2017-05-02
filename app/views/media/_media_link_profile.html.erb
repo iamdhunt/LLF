@@ -4,8 +4,8 @@
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
 <% end %>
 
-  <div class="act_media_content">
-    <%= media_display(medium.link) %>
+  <div class="act_media_content emb_cta_wrap">
+    <%= render :partial => "media/media_embeds", :locals => {:medium => medium} %>
   </div>
 
   <% if medium.caption? %>

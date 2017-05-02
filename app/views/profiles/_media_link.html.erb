@@ -5,7 +5,7 @@
 <% end %>
 
   <div class="act_media_content">
-    <%= media_display(medium.link) %>
+    <a class="embedly-card" data-card-controls="0" href=<%= medium.link %>></a>
   </div>
 
   <% if medium.caption? %>

@@ -100,6 +100,8 @@
 	margin-top: 10px;
 }
 .pd_left .imgs img {
+	width: 100px;
+	height: 100px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-moz-background-clip: padding;
@@ -247,6 +249,8 @@ font-weight: normal;
 	-webkit-box-shadow: 0 0 0 5px #e5e5e5;
 }
 .pds_img img {
+	width: 100px;
+	height: 100px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-moz-background-clip: padding;
@@ -670,19 +674,20 @@ label.active {
 #p_form_wrap .edit_lst_emb {
 	padding: 0 0 15px 0;
 }
-.lst_emb a img:hover {
-	opacity: 1;
-}
 .lst_emb_icon {
 	position: absolute;
     color: #000;
-    top: 23%;
-    left: 33%;
+    top: 27%;
+    left: 38%;
     font-size: 25px;
-    background-color: #fff;
-    padding: 25px 15px 25px 15px;
+    background-color: #e5e5e5;
+    padding: 15px 5px;
     border-radius: 100%;
     opacity: .8;
+}
+.lst_emb_icon.sc {
+	padding: 15px 2px;
+    left: 39%;
 }
 .lst_emb_icon:hover {
 	cursor: pointer;
@@ -706,25 +711,33 @@ label.active {
 }
 .lst_wrap .ui360 .sm2-360btn {
 	width: 90px;
-	height: 80px;
+	height: 90px;
 }
 .lst_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn {
 	margin-left: -4px;
-    margin-top: -10px;
+    margin-top: -2px;
 }
 .lst_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn {
 	margin-left: -4px;
-    margin-top: -10px;
+    margin-top: -2px;
 }
 .lst_wrap .ui360 .sm2-timing {
-	left: 20px;
-    top: 45%;
+	left: 18px;
+    top: 48%;
 }
 .lst_wrap .ui360 .sm2-canvas {
 	left: 20px;
     top: 15px;
 }
 .list_act_wrap .lst_emb_icon {
-	top: 50%;
-    left: 38%;
+	top: 52%;
+    left: 40%;
+}
+.cv_edt {
+	width: 188px;
+	height: 188px;
+}
+.feature img {
+	width: 380px;
+	height: 380px;
 }

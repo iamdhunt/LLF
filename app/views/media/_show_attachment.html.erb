@@ -3,9 +3,9 @@
   <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
     <div class="sh_aud md_aud_wrap">
       <% if @medium.cover? %>
-        <div id='med_art' style="background-image: url(<%= @medium.cover.url(:activity) %>)">
+        <div id='med_art' style="background-image: url(<%= @medium.cover.url %>)">
       <% else %>
-        <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+        <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
       <% end %>
         <div class="ui360 ui360-vis">
           <%= link_to '', @medium.asset.url %>
@@ -15,7 +15,7 @@
   <% end %>
 
   <% if @medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
-    <%= image_tag(@medium.asset.url(:large), class: 'show_media') %>
+    <%= image_tag(@medium.asset.url, class: 'show_media') %>
   <% end %>
   
 </div>

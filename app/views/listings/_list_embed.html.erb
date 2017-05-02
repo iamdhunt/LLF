@@ -1,15 +1,15 @@
 <% if listing.embed =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/ %>
-	<div class="lst_emb_icon"><i class="fa fa-youtube-play"></i></div>
+	<div class=""></div>
 	<% if listing.cover? %>
-		<%= link_to image_tag(listing.cover.url(:cover)), listing_path(listing), title: listing.title, alt: listing.title %>
+		<%= link_to image_tag(listing.cover.url), listing_path(listing), title: listing.title, alt: listing.title %>
 	<% else %>
-		<%= link_to image_tag('/assets/Listing-Embed-Video-Activity.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+		<%= link_to image_tag('/assets/Default-Video-Embed.jpg'), listing_path(listing), title: listing.title, alt: listing.title %>
 	<% end %>
 <% elsif listing.embed =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
-	<div class="lst_emb_icon"><i class="fa fa-volume-up"></i></div>
+	<div class=" sc"></div>
 	<% if listing.cover? %>
-		<%= link_to image_tag(listing.cover.url(:cover)), listing_path(listing), title: listing.title, alt: listing.title %>
+		<%= link_to image_tag(listing.cover.url), listing_path(listing), title: listing.title, alt: listing.title %>
 	<% else %>
-		<%= link_to image_tag('/assets/Listing-Embed-Audio-Activity.png'), listing_path(listing), title: listing.title, alt: listing.title %>
+		<%= link_to image_tag('/assets/Default-Audio-Embed.jpg'), listing_path(listing), title: listing.title, alt: listing.title %>
 	<% end %>
 <% end %>

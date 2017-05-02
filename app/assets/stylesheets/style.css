@@ -301,7 +301,6 @@ textarea {
 .nav_links2 a .unread {
 	color: #4295e2;
 	border: #ffffff;
-    text-shadow: 0px 0px 5px #6f8a02;
 }
 .nav_links2 a:hover .unread {
 	opacity: .85;
@@ -1040,8 +1039,8 @@ hr.contact {
 #left_profile img {
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
-	max-width: 190px;
-	max-height: 190px;
+	width: 190px;
+	height: 190px;
 }
 #left_profile .mem_av {
 	position: absolute;

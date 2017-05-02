@@ -447,6 +447,8 @@
 	padding: 8px 0 3px 0;
 }
 .act_l_av img {
+	width: 230px;
+	height: 230px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 	-moz-background-clip: padding;

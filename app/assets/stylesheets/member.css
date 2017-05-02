@@ -193,3 +193,10 @@
 .mod_close a:hover {
 	color: #fff;
 }
+.banner_prvw {
+	width: 600px;
+}
+.av_prvw {
+	width: 200px;
+	height: 200px;
+}

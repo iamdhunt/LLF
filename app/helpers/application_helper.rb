@@ -1,8 +1,5 @@
 module ApplicationHelper
 
-	require 'embedly'
-	require 'json'
-
 	def bootstrap_paperclip_media(form, paperclip_object)
 		if form.object.send("#{paperclip_object}?")
 			content_tag(:div, class: '') do 
@@ -31,7 +28,7 @@ module ApplicationHelper
 	end
 
 	def avatar_profile(member, image_options={}, html_options={})
-	    avatar_url = member.avatar? ? member.avatar.url(:av) : "Default-User.jpg"
+	    avatar_url = member.avatar? ? member.avatar.url : "Default-User.jpg"
 	    link_to(image_tag(avatar_url, image_options), profile_path(member.user_name), html_options)
 	end
 

@@ -69,8 +69,8 @@
 
 .ui360 .sm2-canvas {
  position:absolute;
- left:0px;
- top:0px;
+ left:0;
+ top:-8px;
 }
 
 .ui360 .sm2-timing {

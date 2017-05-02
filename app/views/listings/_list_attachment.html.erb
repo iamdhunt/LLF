@@ -5,9 +5,9 @@
 <% if listing.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
   <div class="feature act_media_content">
   	<% if listing.cover? %>
-      <div id='lstgs_art' style="background-image: url(<%= listing.cover.url(:cover) %>)">
+      <div id='lstgs_art' style="background-image: url(<%= listing.cover.url %>)">
     <% else %>
-    	<div id='lstgs_art' style="background-image: url('/assets/Listing Audio Activity.png')">
+    	<div id='lstgs_art' style="background-image: url('/assets/Default-Audio.jpg')">
     <% end %>
       <div class="ui360 ui360-vis lstgs">
         <%= link_to '', listing.feature.url %>

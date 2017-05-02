@@ -115,8 +115,8 @@
 
     <% if @event.video? %>
       <div id="ep_res_wrap">
-        <div id="proj_video">
-          <%= display(@event.video) %>
+        <div id="">
+          <a class="embedly-card" data-card-controls="0" data-card-width="100%" href=<%= @event.video %>></a>
         </div>
       </div>
     <% end %>
