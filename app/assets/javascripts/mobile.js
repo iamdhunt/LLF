@@ -23,18 +23,6 @@ $(document).ready(function(){
        $( "#edit_wrap #when .input-group-addon" ).css( "padding", "6px 0 6px 0" );
        $( "#banner" ).css( "background-attachment", "inherit" );
        $( ".nav_search #custom-search-input" ).css( "margin-left", "300px" );
-       $( ".md_aud_wrap .ui360 .sm2-360btn" ).css( 'width' , '270px' );
-       $( ".md_aud_wrap .ui360 .sm2-360btn" ).css( 'height' , '243px' );
-       $( ".md_aud_wrap .ui360-vis" ).css( 'width' , '305px' );
-       $( ".md_aud_wrap .ui360-vis" ).css( 'height' , '317px' );
-       $( ".md_aud_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn" ).css( 'margin-left' , '45px' );
-       $( ".md_aud_wrap .ui360-vis .sm2-360ui.sm2_playing .sm2-360btn" ).css( 'margin-top' , '38px' );
-       $( ".md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn" ).css( 'margin-left' , '45px' );
-       $( ".md_aud_wrap .ui360-vis .sm2-360ui.sm2_paused .sm2-360btn" ).css( 'margin-top' , '38px' );
-       $( ".md_aud_wrap .ui360 .sm2-timing" ).css( 'left' , '70px' );
-       $( ".md_aud_wrap .ui360 .sm2-timing" ).css( 'top' , '75%' );
-       $( ".md_aud_wrap .ui360 .sm2-canvas" ).css( 'left' , '70px' );
-       $( ".md_aud_wrap .ui360 .sm2-canvas" ).css( 'top' , '55px' );
     }
 
 });
