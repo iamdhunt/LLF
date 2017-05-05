@@ -102,7 +102,7 @@
                 &raquo; Paste or type the full url's (i.e. https://livinglifefearless.co/)
               </li>
               <li>
-                &raquo; Specify a video or audio player to feature prominently
+                &raquo; Specify a video to feature prominently
               </li>
             </ul>
           </div>
@@ -119,7 +119,7 @@
             <span class="custom-labels">Feature Media</span>
             <div id="custom-input">
                 <div class="input-group col-md-12">
-                    <%= f.input :video, as: :url, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '5', autocomplete: 'off' }, placeholder: 'Link for YouTube, Vimeo, or Soundcloud' %>
+                    <%= f.input :video, as: :url, label: false, error: false, input_html: { cols: '52', rows: '1', class: '', tabindex: '5', autocomplete: 'off' }, placeholder: 'Link for YouTube or Vimeo' %>
                 </div>
             </div>
           </div>
@@ -159,7 +159,7 @@
         <span id="spinner" class="spinner">
           <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
         </span>
-        <%= link_to 'Back', @project, class: 'btn btn-black pull-right' %>
+        <%= link_to 'Back to project', @project, class: 'btn btn-black pull-right' %>
       </div>
   </div>
 

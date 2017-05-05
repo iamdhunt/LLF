@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+  include MediaEmbed::Handler
+
   attr_accessible :blurb, :details, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :location, :address,
                   :city, :zipcode, :state, :country, :start_date, :end_date, :start_time, :end_time,
                   :remove_banner, :remove_avatar
@@ -20,8 +22,8 @@ class Event < ActiveRecord::Base
   has_many :activities, as: :targetable, :dependent => :destroy
   has_many :mentions, as: :mentioner, dependent: :destroy
 
-  has_attached_file :avatar, styles: {large: "500x500#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
-                  :default_url => '/assets/Events-Default.png',
+  has_attached_file :avatar, styles: {large: "500x500#", large2: "700x700#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+                  :default_url => '/assets/Default-Event.jpg',
                   :convert_options => { activity: "-colorspace sRGB", thumb: "-colorspace sRGB", av: "-colorspace sRGB", list: "-colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
                   :default_url => '/assets/Events Banner Image.jpg',
@@ -132,8 +134,8 @@ class Event < ActiveRecord::Base
 
     validates :video, allow_blank: true,
                       format: { 
-                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
-                        message: 'or audio must be from YouTube, Vimeo, or Soundcloud.'
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
+                        message: 'must be from YouTube or Vimeo.'
                       }
 
     auto_strip_attributes :website, :zipcode, :details

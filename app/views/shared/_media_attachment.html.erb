@@ -13,14 +13,14 @@
               <%= link_to "EDIT", polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
             </span>
             <span class="shu_d">
-              <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
+              <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, :title => "Delete", :alt => "Delete" %>
             </span>
           <% end %>
 
         <% if upload.cover? %>
-          <div id='med_art' style="background-image: url(<%= upload.cover.url(:media) %>)">
+          <div id='med_art' style="background-image: url(<%= upload.cover.url(:large) %>)">
         <% else %>
-          <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+          <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
           <div class="ui360 ui360-vis">
             <%= link_to '', upload.asset.url %>
@@ -39,7 +39,12 @@
             <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure?' }, :title => "Delete", :alt => "Delete" %>
           </span>
         <% end %>
-        <%= link_to image_tag(upload.asset.url(:list), class: ''), upload.asset.url(:large), class: "fancybox", rel: 'proj_gall' %>
+
+        <% if upload.caption? %>
+          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url, :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(upload.caption) } %>
+        <% else %>
+          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url, :data => { :fancybox => 'gallery' } %>
+        <% end %>
       </div>
       
     <% end %>

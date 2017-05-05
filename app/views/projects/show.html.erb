@@ -82,7 +82,7 @@
           <% if current_member == @project.member %>
             <span><%= link_to '<i class="fa fa-sliders"></i>'.html_safe, edit_project_path(@project), title: "Edit", alt: "Edit" %></span>
 
-            <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @project, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+            <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @project, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: "Delete", alt: "Delete" %></span>
           <% end %>
         <% end %>
       </span>
@@ -109,7 +109,6 @@
       <div id="ep_res_wrap">
         <div id="">
           <a class="embedly-card" data-card-controls="0" data-card-width="100%" href=<%= @project.video %>></a>
-        </div>
       </div>
     <% end %>
 

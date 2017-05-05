@@ -8,7 +8,7 @@
 				Last updated: <%= @update.updated_at.localtime.strftime("%A, %m/%d %I:%M%P") %> 
 				&#8226; <%= link_to "Cancel Edit", @update.updateable, title: 'Cancel Edit', alt: 'Cancel Edit' %>
 				<% if current_member == @update.member %>
-					<span class="dl"><%= link_to image_tag("Delete.png", title: 'Delete'), [@update.updateable, @update], method: :delete, data: { confirm: 'Are you sure?' } %></span>
+					<span class="dl"><%= link_to image_tag("Delete.png", title: 'Delete'), [@update.updateable, @update], method: :delete, data: { confirm: 'Are you sure you want to delete?' } %></span>
 				<% end %>
 			</div>
 

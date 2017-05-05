@@ -58,7 +58,7 @@
           <% end %>
           <% if current_member == @medium.member %> 
             &#8226; <%= link_to "Edit", edit_medium_path(@medium), title: 'Edit Media', alt: 'Edit Media' %> 
-              <span class="dl"><%= link_to @medium, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', alt: 'Delete' do %>
+              <span class="dl"><%= link_to @medium, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: 'Delete', alt: 'Delete' do %>
                 <i class="fa fa-times"></i>
               <% end %></span>
           <% end %>

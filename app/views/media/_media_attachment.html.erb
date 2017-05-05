@@ -9,7 +9,7 @@
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
         <% if medium.cover? %>
-          <div id='med_art' style="background-image: url(<%= medium.cover.url %>)">
+          <div id='med_art' style="background-image: url(<%= medium.cover.url(:large) %>)">
         <% else %>
           <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
@@ -22,7 +22,11 @@
 
     <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
       <div class="act_media_content">
-        <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, class: "fancybox", rel: 'prof_gall' %>
+        <% if medium.caption? %>
+          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(medium.caption) } %>
+        <% else %>
+          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, :data => { :fancybox => 'gallery' } %>
+        <% end %>
       </div>
     <% end %>
 

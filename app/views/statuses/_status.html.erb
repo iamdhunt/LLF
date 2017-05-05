@@ -42,7 +42,7 @@
 
 				<% if activity.member == current_member %>
 					<span class="ad">
-						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
+						<%= link_to image_tag("Trash.png",  class: "act_actions"), activity_path(activity), remote: true, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: "Delete", alt: "Delete", :class => "btn more" %>
 					</span>
 				<% end %>
 				

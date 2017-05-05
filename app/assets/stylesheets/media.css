@@ -260,7 +260,7 @@
 	font-style: oblique;
 }
 #edit_show .show_media {
-	max-width: 400px;
+	max-width: 300px;
 }
 .show_media {
 	margin-top: 7px;
@@ -432,7 +432,6 @@
 }
 #edit_show .edit_md_cover img {
 	width: 188px;
-	height: 188px;
 }
 #edit_show .med_instructions {
 	margin-top: 10px;
@@ -470,7 +469,6 @@
 	position: relative;
 	padding-bottom: 60%;
 	height: 0;
-	margin: 10px 0;
 	overflow: hidden;
 }
 #md_vd_sh iframe,
@@ -528,26 +526,42 @@
     top: 45px;
 }
 .emb_cta {
-	color: #fff;
     position: absolute;
-    font-style: normal;
-    font-size: 20px;
-    background-color: #e76f2a;
-    padding: 10px 12px;
-    border-radius: 4px;
-    top: 35%;
-    left: 15%;
-    opacity: .85;
-    -webkit-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
-    -moz-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
-    box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
+    top: 28%;
+    left: 34%;
+    width: 60px;
+    height: 60px;
+    opacity: .9;
+    background-image: url(/assets/play.png);
+    background-size: 60px;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+.act_cta.emb_cta_wrap .emb_cta {
+	width: 80px;
+	height: 80px;
+	background-size: 80px;
+	top: 35%;
+    left: 38%;
 }
 .emb_cta:hover {
 	cursor: pointer;
+	opacity: 1;
+}
+.emb_cta_wrap .emb_cv img {
+	width: 188px;
+	height: 188px;
+}
+.act_cta.emb_cta_wrap .emb_cv img {
+	width: 314px;
+	height: 314px;
 }
 .emb_cta_wrap a img:hover {
 	opacity: 1;
 }
 .emb_cta_wrap:hover .emb_cta {
+	opacity: 1;
+}
+.emb_cta_wrap:hover .emb_cta_btn {
 	opacity: 1;
 }

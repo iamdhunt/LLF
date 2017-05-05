@@ -367,3 +367,6 @@
 #cv_form {
 	margin-bottom: 15px;
 }
+.not_content .upl_md {
+	max-width: 200px;
+}

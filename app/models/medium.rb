@@ -1,8 +1,12 @@
 class Medium < ActiveRecord::Base
+    
+    require 'soundcloud'
 
-  	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover, :link
+    include MediaEmbed::Handler
 
-    attr_accessor :remove_cover, :mention
+  	attr_accessible :caption, :asset, :cover, :markers, :marker_list, :remove_cover, :link, :soundcloud_id
+
+    attr_accessor :remove_cover, :mention, :soundcloud_id
 
     belongs_to :member
 
@@ -16,7 +20,7 @@ class Medium < ActiveRecord::Base
 
     has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} },
                               :convert_options => { all: lambda{ |instance| (instance.asset_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
-    has_attached_file :cover, styles: { activity: "300x300#", media: "188x188#", thumb: "30x30#" },
+    has_attached_file :cover, styles: { large: "700x700#", activity: "300x300#", media: "188x188#", thumb: "30x30#" },
                               :convert_options => { all: "-set -colorspace sRGB" }
 
   	before_create :make_it_permalink
@@ -66,6 +70,19 @@ class Medium < ActiveRecord::Base
     USERNAME_REGEX = /@\w+/i
 
     before_save :perform_cover_removal
+
+    def soundcloud_id
+      # create client with your app's credentials
+      client = Soundcloud.new(:client_id => '2074955755d1c3997e10463d8a56960f')
+
+      # a permalink to a track
+      track_url = 'http://soundcloud.com/forss/voca-nomen-tuum'
+
+      # resolve track URL into track resource
+      track = client.get('/resolve', :url => track_url)
+
+      puts track.id
+    end
 
 	private
 

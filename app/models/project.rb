@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 
+  include MediaEmbed::Handler
+
   attr_accessible :about, :blurb, :category, :markers, :video, :website, :name, :avatar, :banner, :marker_list, :city,
                   :remove_banner, :remove_avatar
 
@@ -19,8 +21,8 @@ class Project < ActiveRecord::Base
   has_many :activities, as: :targetable, :dependent => :destroy
   has_many :mentions, as: :mentioner, dependent: :destroy
 
-  has_attached_file :avatar, styles: {large: "500x500#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
-                  :default_url => '/assets/Projects-Default.png',
+  has_attached_file :avatar, styles: {large: "500x500#", large2: "700x700#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+                  :default_url => '/assets/Default-Project.jpg',
                   :convert_options => { all: "-set -colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },
                   :default_url => '/assets/Projects Banner Image.jpg',
@@ -82,8 +84,8 @@ class Project < ActiveRecord::Base
 
   validates :video, allow_blank: true,
                       format: { 
-                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com|soundcloud\.com)\/.+$/,
-                        message: 'or audio must be from YouTube, Vimeo, or Soundcloud.'
+                        :with => /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be|vimeo\.com)\/.+$/,
+                        message: 'must be from YouTube or Vimeo.'
                       }
 
   auto_strip_attributes :about, :website

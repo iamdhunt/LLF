@@ -1,0 +1,51 @@
+<% if medium.link =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/ %>
+	<span class="emb_cta"></span>
+	<% if medium.caption? %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => medium.link, :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Youtube.jpg'), "javascript:;", :data => { :fancybox => '', :src => medium.link, :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% end %>
+	<% else %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => medium.link }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Youtube.jpg'), "javascript:;", :data => { :fancybox => '', :src => medium.link }, :class => 'emb_cv' %>
+		<% end %>
+	<% end %>
+<% elsif medium.link =~ /^(https?\:\/\/)?(www\.)?(vimeo\.com)\/.+$/ %>
+	<span class="emb_cta"></span>
+	<% if medium.caption? %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => medium.link, :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Vimeo.jpg'), "javascript:;", :data => { :fancybox => '', :src => medium.link, :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% end %>
+	<% else %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => medium.link }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Vimeo.jpg'), "javascript:;", :data => { :fancybox => '', :src => medium.link }, :class => 'emb_cv' %>
+		<% end %>
+	<% end %>
+<% elsif medium.link =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
+	<span class="emb_cta"></span>
+	<% if medium.caption? %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => "#hidden-content", :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Soundcloud.jpg'), "javascript:;", :data => { :fancybox => '', :src => "#hidden-content", :caption => Rinku.auto_link(medium.caption) }, :class => 'emb_cv' %>
+		<% end %>
+	<% else %>
+		<% if medium.cover? %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => '', :src => "#hidden-content" }, :class => 'emb_cv' %>
+		<% else %>
+			<%= link_to image_tag('/assets/Default-Soundcloud.jpg'), "javascript:;", :data => { :fancybox => '', :src => "#hidden-content" }, :class => 'emb_cv' %>
+		<% end %>
+	<% end %>
+<% end %>
+
+
+<div style="display: none;" id="hidden-content">
+	<%= embed(medium.link, { width: '500px'}).html_safe %>
+</div>

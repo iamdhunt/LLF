@@ -100,7 +100,7 @@
             <% if current_member == @event.member %>
               <span><%= link_to '<i class="fa fa-sliders"></i>'.html_safe, edit_event_path(@event), title: "Edit", alt: "Edit" %></span>
 
-              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @event, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: "Delete", alt: "Delete" %></span>
             <% end %>
           <% end %>
         </span>

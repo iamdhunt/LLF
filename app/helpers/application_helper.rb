@@ -28,7 +28,7 @@ module ApplicationHelper
 	end
 
 	def avatar_profile(member, image_options={}, html_options={})
-	    avatar_url = member.avatar? ? member.avatar.url : "Default-User.jpg"
+	    avatar_url = member.avatar? ? member.avatar.url(:large2) : "Default-User.jpg"
 	    link_to(image_tag(avatar_url, image_options), profile_path(member.user_name), html_options)
 	end
 

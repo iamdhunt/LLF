@@ -34,6 +34,9 @@ gem 'activeadmin'
 gem 'js_cookie_rails'
 gem 'nokogiri', '~> 1.5.9'
 gem 'inherited_resources', '~> 1.6.0'
+gem 'media_embed'
+gem 'soundcloud'
+gem 'certified'
 
 group :development, :test do
 	gem 'shoulda'

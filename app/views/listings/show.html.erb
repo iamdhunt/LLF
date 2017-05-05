@@ -65,7 +65,7 @@
             <% if current_member == @listing.member %>
               <span><%= link_to '<i class="fa fa-sliders"></i>'.html_safe, edit_listing_path(@listing), title: "Edit", alt: "Edit" %></span>
 
-              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @listing, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %></span>
+              <span><%= link_to '<i class="fa fa-times-circle-o show_del"></i>'.html_safe, @listing, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: "Delete", alt: "Delete" %></span>
             <% end %>
           <% end %>
         </span>
@@ -97,7 +97,7 @@
           <div class="img_wrap">
             <% @listing.assets.first(8).each do | asset | %>
               <span class="imgs">
-                  <%= link_to image_tag(asset.asset), asset.asset.url, class: "fancybox", rel: 'product_gall' %>
+                  <%= link_to image_tag(asset.asset(:large2)), asset.asset.url, :data => { :fancybox => 'listing-gallery' } %>
               </span>
             <% end %>
           </div>

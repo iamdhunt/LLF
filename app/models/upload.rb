@@ -1,4 +1,7 @@
 class Upload < ActiveRecord::Base
+
+	include MediaEmbed::Handler
+	
 	attr_accessible :asset, :caption, :cover, :remove_cover, :link
 
 	attr_accessor :remove_cover, :mention
@@ -8,9 +11,9 @@ class Upload < ActiveRecord::Base
 
 	has_many :mentions, as: :mentioner, dependent: :destroy
 
-	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} },
+	has_attached_file :asset, styles: lambda { |a| a.instance.asset_content_type =~ %r(image) ? {large: "700x700>", large2: "700x700#", medium: "300x200>", list: "188", activity: "300>", small: "260x180>", thumb: "60x60#", thumb2: "30x30#", av: "200x200#"}  : {} },
 							  :convert_options => { all: lambda{ |instance| (instance.asset_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
-	has_attached_file :cover, styles: { media: "188x188#" },
+	has_attached_file :cover, styles: { large: "700x700#", media: "188x188#" },
 							  :convert_options => { all: "-set -colorspace sRGB" }
 
 	after_commit :create_notification, on: :create

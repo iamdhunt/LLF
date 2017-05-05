@@ -1,3 +1,3 @@
-<div class="act_media_content">
-	<a class="embedly-card" data-card-controls="0" href=<%= activity.targetable.link %>></a>
-</div>
+<div class="act_media_content act_cta emb_cta_wrap">
+    <%= render :partial => "media/media_embeds_activity", :locals => {:medium => activity.targetable} %>
+  </div>

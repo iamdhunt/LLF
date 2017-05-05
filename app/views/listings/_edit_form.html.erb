@@ -115,7 +115,7 @@
 
             <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
               <div class="e_fi">
-                <%= image_tag f.object.feature.url(:form) %>
+                <%= image_tag f.object.feature.url(:large2) %>
                 <%= f.input :remove_feature, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
               </div>
             <% end %>
@@ -123,9 +123,9 @@
             <% if f.object.feature? && f.object.feature.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
               <div class="act_media_content">
                 <% if f.object.cover? %>
-                  <div id='med_art' style="background-image: url(<%= f.object.cover.url(:form) %>)">
+                  <div id='med_art' style="background-image: url(<%= f.object.cover.url(:large2) %>)">
                 <% else %>
-                  <div id='med_art' style="background-image: url('/assets/Default Audio 1.png')">
+                  <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
                 <% end %>
                   <div class="ui360 ui360-vis lstgs">
                     <%= link_to '', f.object.feature.url %>
@@ -188,7 +188,7 @@
               <%= f.simple_fields_for :assets do |asset_fields| %>
                 <% unless asset_fields.object.new_record? %>
                   <div class="previews">
-                    <%= image_tag asset_fields.object.asset.url(:thumb) %>
+                    <%= image_tag asset_fields.object.asset.url(:large2) %>
                     <div>
                       <%= asset_fields.check_box :_destroy %> <span class="rm_img">Remove?</span>
                     </div>
@@ -277,7 +277,7 @@
       <span id="spinner" class="spinner">
         <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
       </span>
-      <%= link_to 'Back', @listing, class: 'btn btn-black pull-right' %>
+      <%= link_to 'Back to listing', @listing, class: 'btn btn-black pull-right' %>
     </div>
 
   </div>

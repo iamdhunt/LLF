@@ -18,7 +18,7 @@
 			<div class="pdl_img">
 				<% if current_member == listing.member %>
 					<div class="lst_del">
-						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing_path(listing.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
+						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing_path(listing.id), remote: true, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: "Delete", alt: "Delete" %>
 					</div>
 				<% end %>
 				<div>
@@ -30,7 +30,7 @@
 			            <%= render :partial => "listings/list_attachment", :locals => {:listing => listing} %>
 			        <% else %>
 			            <div class="feature">
-			              <%= image_tag('Listings-List-Default-2.png') %>
+			              <%= image_tag('Default-Listing.jpg') %>
 			            </div>
 			        <% end %> 
 			    </div>

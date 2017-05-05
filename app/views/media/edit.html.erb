@@ -9,7 +9,7 @@
 				<%= link_to "View", medium_path(@medium), title: 'View Media', alt: 'View Media' %> 
 				&#8226; <%= link_to "Cancel Edit", profile_media_path(@medium.member), title: 'Cancel Edit', alt: 'Cancel Edit' %>
 				<% if current_member == @medium.member %>
-					<span class="dl"><%= link_to @medium, method: :delete, data: { confirm: 'Are you sure?' }, title: 'Delete', alt: 'Delete' do %>
+					<span class="dl"><%= link_to @medium, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, title: 'Delete', alt: 'Delete' do %>
                 		<i class="fa fa-times"></i>
               		<% end %></span>
 				<% end %>

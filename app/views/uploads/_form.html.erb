@@ -1,5 +1,6 @@
 <%= simple_form_for [@uploadable, @upload], :html => { :multipart => true, :id => 'upload_form' }, remote: true do |f| %>
-  <% if @upload.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
+
+  <% unless @upload.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
     <% if @upload.cover? %>
       <div class="edit_md_cover">
         <%= image_tag @upload.cover.url(:media) %>
