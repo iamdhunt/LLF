@@ -3,13 +3,11 @@
   <% if @medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
     <div class="sh_aud md_aud_wrap">
       <% if @medium.cover? %>
-        <div id='med_art' style="background-image: url(<%= @medium.cover.url %>)">
+        <div id='med_art' style="background-image: url(<%= @medium.cover.url(:large) %>)">
       <% else %>
         <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
       <% end %>
-        <div class="ui360 ui360-vis">
-          <%= link_to '', @medium.asset.url %>
-        </div>
+          <%= render :partial => "media/player", :locals => {:medium => @medium} %>
       </div>
     </div>
   <% end %>

@@ -13,9 +13,7 @@
         <% else %>
           <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
-            <div class="ui360 ui360-vis">
-              <%= link_to '', medium.asset.url %>
-            </div>
+            <%= render :partial => "media/player", :locals => {:medium => medium} %>
           </div>
         </div>
     <% end %>
@@ -31,9 +29,11 @@
     <% end %>
 
     <% if medium.caption? %>
-      <div class="media_act_cap">
-        <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
-      </div> 
+      <% unless medium.caption.length < 40 %>
+        <div class="media_act_cap">
+          <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
+        </div> 
+      <% end %>
     <% end %>
 
     <% if medium.marker_list %>

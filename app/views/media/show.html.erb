@@ -77,9 +77,11 @@
         <% end %>
 
         <% if @medium.caption? %>
-          <p class="view_caption">
-            <%= sanitize(Rinku.auto_link(media_with_mentions(@medium)), :tags => %w(a)) %>
-          </p>
+          <% unless @medium.caption.length < 40 %>
+            <p class="view_caption">
+              <%= sanitize(Rinku.auto_link(media_with_mentions(@medium)), :tags => %w(a)) %>
+            </p>
+          <% end %>
         <% end %>
 
         <% if member_signed_in? %>

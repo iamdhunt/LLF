@@ -26,10 +26,13 @@
 		<%= render :partial => "activities/medium/md_att", :locals => {:activity => activity} %>
 	<% end %>
 
+	
 	<% if activity.targetable.caption? %>
-		<div class="media_act_cap">
-			<%= sanitize(Rinku.auto_link(media_with_mentions(activity.targetable)), :tags => %w(a)) %>
-		</div> 
+		<% unless activity.targetable.caption.length < 40 %>
+			<div class="media_act_cap">
+				<%= sanitize(Rinku.auto_link(media_with_mentions(activity.targetable)), :tags => %w(a)) %>
+			</div> 
+		<% end %>
 	<% end %>
 
 	<% if activity.targetable.marker_list %>
