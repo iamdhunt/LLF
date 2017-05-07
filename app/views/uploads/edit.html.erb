@@ -20,12 +20,6 @@
 					<%= render :partial => "uploads/edit_attachment", :locals => {:upload => @upload} %>
 		        <% end %>
 
-		        <% if @upload.caption? %>
-			        <div class="view_caption">
-			        	<%= sanitize(Rinku.auto_link(uploads_with_mentions(@upload)), :tags => %w(a)) %>
-			        </div>
-			    <% end %>
-
 		    </div>
 
 			<%= render 'form' %>

@@ -683,12 +683,11 @@
 	position: absolute;
 	display: none;
 	z-index: 999;
-	left: 0;
-    bottom: 19px;
+	right: 0;
+    top: 17px;
     opacity: .85;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
 }
 .act_media_content .shu_d a {
 	color: #ffffff;
@@ -707,11 +706,10 @@
 	display: none;
 	z-index: 999;
 	left: 0;
-    top: 18px;
+    top: 17px;
     opacity: .85;
     font-style: normal;
     font-weight: bold;
-    font-size: 22px;
 }
 .act_media_content .shu_e a {
 	color: #ffffff;

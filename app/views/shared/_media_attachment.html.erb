@@ -22,9 +22,7 @@
         <% else %>
           <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
-          <div class="ui360 ui360-vis">
-            <%= link_to '', upload.asset.url %>
-          </div>
+          <%= render :partial => "media/player", :locals => {:medium => upload} %>
         </div>
       </div>
     <% end %>
@@ -52,9 +50,11 @@
     
 
     <% if upload.caption? %>
-      <div class="media_act_cap">
-        <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
-      </div> 
+      <% unless upload.caption.length < 40 %>
+        <div class="media_act_cap">
+          <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
+        </div> 
+      <% end %>
     <% end %>
 
   </div>

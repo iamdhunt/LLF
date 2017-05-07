@@ -5,9 +5,7 @@
 	  <% else %>
 	    <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
 	  <% end %>
-	    <div class="ui360 ui360-vis">
-	      <%= link_to '', @upload.asset.url %>
-	    </div>
+	    <%= render :partial => "media/player", :locals => {:medium => @upload} %>
 	  </div>
 	</div>
 <% end %>
