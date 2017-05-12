@@ -10,7 +10,11 @@
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap music_fil">
 	<% elsif follow.category == 'Other' %>
 		<div id="event_<%= follow.id %>_<%= follow.member.id %>" class="p_list_wrap other_fil">
-	<% end %>		
+	<% end %>
+
+		<div id="<%= follow.id %>" class="share-body none">
+          <input class="pr_in forms" value="<%= event_url(follow) %>" onclick="this.select()" />
+        </div>	
 
 		<div id="p_list_top">
 			<span class="l">
@@ -31,6 +35,8 @@
 				<% else %>
 					<%= render :partial => "events/logged_out_buttons", :locals => {:event => follow} %>
 				<% end %>
+
+				<i class="fa fa-paper-plane ims-act share" title="Share" alt="Share" data-ovly="<%= follow.id %>"></i>
 
 		    </span>
 		    <div style="clear:both;"></div>
