@@ -71,6 +71,10 @@
 #p_form_wrap .act_media_content {
     padding: 15px 0 30px 0;
 }
+#p_form_wrap #images .act_media_content {
+    padding: 15px 0 0 0;
+    display: inline-block;
+}
 #p_form_wrap .e_fi {
     padding: 0 0 30px 0;
 }

@@ -110,7 +110,7 @@
         <div class="edit_av_f">
             <% if f.object.avatar? %>
               <%= image_tag f.object.avatar.url(:av) %>
-              <%= f.input :remove_avatar, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
+              <%= f.input :remove_avatar, as: :boolean, label: "Remove avatar?", :label_html => {:class => "cbx_lbl"} %>
             <% end %>
         </div>
 
@@ -123,7 +123,7 @@
         <div class="edit_av_f">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
-              <%= f.input :remove_banner, as: :boolean, label: "Remove?", :label_html => {:class => "cbx_lbl"} %>
+              <%= f.input :remove_banner, as: :boolean, label: "Remove banner?", :label_html => {:class => "cbx_lbl"} %>
             <% end %>
         </div>
 
@@ -237,7 +237,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.button :submit, class: 'btn btn-green-ev', id: 'sumbit' %>
+      <%= f.button :submit, class: 'btn btn-grey', id: 'sumbit' %>
       <span id="spinner" class="spinner">
         <%= image_tag '/assets/ajax-loader-(7).gif', id: 'img-spinner', alt: 'Loading' %>
       </span>

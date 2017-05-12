@@ -9,8 +9,10 @@
     <% else %>
     	<div id='lstgs_art' style="background-image: url('/assets/Default-Audio.jpg')">
     <% end %>
-      <div class="ui360 ui360-vis lstgs">
-        <%= link_to '', listing.feature.url %>
+      <div class="lst_play_btn">
+        <%= link_to listing.feature.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
+          <i class="fa fa-play-circle-o"></i>
+        <% end %>
       </div>
     </div>
   </div>

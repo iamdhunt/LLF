@@ -18,6 +18,12 @@
 			</ul>
 		</div>
 
+		<% if member_signed_in? %>
+	        <% if current_member == activity.targetable.member %>
+	        	<%= render :partial => "activities/project/dropdown_toggle", :locals => {:activity => activity} %>
+	        <% end %>
+      	<% end %>
+
 	</div>
 
 	<div class="act_p_av">
@@ -66,21 +72,6 @@
 					</span>
 
 				<% end %>
-
-				<% if member_signed_in? %>
-
-					<% if activity.member == current_member %>
-						<span class="">
-							<%= render :partial => "activities/project/edit_button", :locals => {:activity => activity} %>
-						</span>
-
-
-						<span class="ad">
-							<%= render :partial => "activities/delete_button", :locals => {:activity => activity} %>
-						</span>
-				<% end %>
-
-			<% end %>
 			
 		</span>
 	</div>

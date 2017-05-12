@@ -4,6 +4,14 @@
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap audio_fil">
 <% end %>
 
+  <% if member_signed_in? %>
+    <% if current_member == medium.member %>
+      <div class="md_drpdw">
+        <%= render :partial => "media/dropdown_toggle", :locals => {:medium => medium} %>
+      </div>
+    <% end %>
+  <% end %>
+
   <div class="act_media_content emb_cta_wrap">
     <%= render :partial => "media/media_embeds", :locals => {:medium => medium} %>
   </div>
@@ -36,18 +44,6 @@
         <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
           <%= render :partial => "media/fav_logged_out.html", :locals => {:medium => medium} %>  
         </span>
-      <% end %>
-
-      <% if member_signed_in? %>
-        <% if can_edit_medium?(medium) %>
-          <span class="">
-              <%= render :partial => "media/edit_button", :locals => {:medium => medium} %>
-            </span>
-            
-            <span class="ad">
-              <%= render :partial => "media/delete_button", :locals => {:medium => medium} %>
-            </span>
-        <% end %>
       <% end %>
       
     </span>

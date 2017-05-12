@@ -18,6 +18,12 @@
 			</ul>
 		</div>
 
+		<% if member_signed_in? %>
+	        <% if current_member == activity.targetable.member %>
+	        	<%= render :partial => "activities/medium/dropdown_toggle", :locals => {:activity => activity} %>
+	        <% end %>
+      	<% end %>
+
 	</div>
 
 	<% if activity.targetable.link? %>
@@ -28,11 +34,9 @@
 
 	
 	<% if activity.targetable.caption? %>
-		<% unless activity.targetable.caption.length < 40 %>
-			<div class="media_act_cap">
-				<%= sanitize(Rinku.auto_link(media_with_mentions(activity.targetable)), :tags => %w(a)) %>
-			</div> 
-		<% end %>
+		<div class="media_act_cap">
+			<%= sanitize(Rinku.auto_link(media_with_mentions(activity.targetable)), :tags => %w(a)) %>
+		</div> 
 	<% end %>
 
 	<% if activity.targetable.marker_list %>
@@ -58,21 +62,6 @@
 					<span id="act_fav_<%= activity.id %>_<%= activity.member.id %>">
 						<%= render :partial => "activities/fav_logged_out.html", :locals => {:activity => activity} %>	
 					</span>
-
-				<% end %>
-
-				<% if member_signed_in? %>
-
-					<% if activity.member == current_member %>
-						<span class="">
-							<%= render :partial => "activities/medium/edit_button", :locals => {:activity => activity} %>
-						</span>
-
-
-						<span class="ad">
-							<%= render :partial => "activities/delete_button", :locals => {:activity => activity} %>
-						</span>
-					<% end %>
 
 				<% end %>
 				

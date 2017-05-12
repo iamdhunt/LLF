@@ -1037,15 +1037,15 @@ hr.contact {
 }
 
 #left_profile img {
-	width: 200px;
+	min-width: 200px;
 	-webkit-border-radius: 100%;
 	border-radius: 100%;
 }
 #left_profile .mem_av {
 	position: absolute;
 	margin-top: -85px;
-	-webkit-border-radius: 100px;
-	border-radius: 100px;
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
 	background-color: #fff;
 	padding: 8px 8px 5px 8px;
 	-moz-box-shadow: 0 0 6px #ccc;
@@ -1200,7 +1200,6 @@ hr.contact {
 .profile_pursuits {
 	text-align: center;
 	padding: .2em 0 0 0;
-	font-size: .9em;
 }
 .profile_pursuits a {
 	color: #fff;
@@ -1307,6 +1306,7 @@ hr.contact {
 	color: #898989;	
 	padding: 7px 12px;
 	margin-right: 2px;
+	line-height: 2em;
 }
 .profile_nav li a:hover {
 	color: #444;
@@ -1322,38 +1322,38 @@ hr.contact {
 }
 .profile_nav .s2 li a {
 	color: #444;
-	border-bottom: 4px solid #942fc6;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .m2 li a {
 	color: #444;
-	border-bottom: 4px solid #e76f2a;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .p2 li a {
 	color: #444;
-	border-bottom: 4px solid #da4f49;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .e2 li a {
 	color: #444;
-	border-bottom: 4px solid #1b864d;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .mk2 li a {
 	color: #444;
-	border-bottom: 4px solid #1b85a6;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .s1 li a:hover {
-	border-bottom: 4px solid #942fc6;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .m1 li a:hover {
-	border-bottom: 4px solid #e76f2a;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .e1 li a:hover {
-	border-bottom: 4px solid #1b864d;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .p1 li a:hover {
-	border-bottom: 4px solid #ca3730;
+	border-bottom: 4px solid #797979;
 }
 .profile_nav .mk1 li a:hover {
-	border-bottom: 4px solid #1b85a6;
+	border-bottom: 4px solid #797979;
 }
 #subnav_wrap {
 	text-align: center;
@@ -1837,14 +1837,14 @@ label.active {
 	padding: 0 10px 0 0;
 }
 #stream_filters .stat_filter label {
-	background: #a63ddb;
+	background: #a054c7;
 	color: #fff;
 }
 #stream_filters .stat_filter label:hover {
 	opacity: .85;
 }
 #stream_filters .md_filter label {
-	background: #F7803C;
+	background: #b6a352;
 	color: #fff;
 }
 #stream_filters .md_filter label:hover {
@@ -2070,7 +2070,9 @@ label.active {
     border-radius: 4px;
     vertical-align: middle;
 }
-
+.none {
+	display: none;
+}
 
 /* media queries */
 

@@ -6,6 +6,14 @@
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
 <% end %>
 
+    <% if member_signed_in? %>
+      <% if current_member == medium.member %>
+        <div class="md_drpdw">
+          <%= render :partial => "media/dropdown_toggle", :locals => {:medium => medium} %>
+        </div>
+      <% end %>
+    <% end %>
+
      <% if medium.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
       <div class="act_media_content">
         <% if medium.cover? %>
@@ -13,9 +21,13 @@
         <% else %>
           <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
-            <%= render :partial => "media/player", :locals => {:medium => medium} %>
+            <div class="med_play_btn">
+              <%= link_to medium.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
+                <i class="fa fa-play-circle-o"></i>
+              <% end %>
+            </div>
           </div>
-        </div>
+      </div>
     <% end %>
 
     <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
@@ -29,11 +41,9 @@
     <% end %>
 
     <% if medium.caption? %>
-      <% unless medium.caption.length < 40 %>
-        <div class="media_act_cap">
-          <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
-        </div> 
-      <% end %>
+      <div class="media_act_cap">
+        <%= sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) %>
+      </div> 
     <% end %>
 
     <% if medium.marker_list %>
@@ -56,18 +66,6 @@
           <span id="med_fav_<%= medium.id %>_<%= medium.member.id %>">
             <%= render :partial => "media/fav_logged_out", :locals => {:medium => medium} %>  
           </span>
-        <% end %>
-
-        <% if member_signed_in? %>
-          <% if can_edit_medium?(medium) %>
-            <span class="">
-              <%= render :partial => "media/edit_button", :locals => {:medium => medium} %>
-            </span>
-            
-            <span class="ad">
-              <%= render :partial => "media/delete_button", :locals => {:medium => medium} %>
-            </span>
-          <% end %>
         <% end %>
         
       </span>

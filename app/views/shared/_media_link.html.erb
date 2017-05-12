@@ -4,16 +4,15 @@
   <div id="upload_<%= upload.uploadable.id %>_<%= upload.id %>" class="list_act_wrap audio_fil">
 <% end %>
 
-  <div class="act_media_content emb_cta_wrap">
-    <% if upload.member == current_member %>
-      <span class="shu_e">
-        <%= link_to "EDIT", polymorphic_url([@uploadable, upload], action: :edit), :title => "Edit", :alt => "Edit", class: '' %>
-      </span>
-      <span class="shu_d">
-        <%= link_to "DELETE", [@uploadable, upload], remote: true, method: :delete, data: { confirm: 'Are you sure you want to delete?' }, :title => "Delete", :alt => "Delete" %>
-      </span>
+  <% if member_signed_in? %>
+    <% if current_member == upload.member %>
+      <div class="md_drpdw">
+        <%= render :partial => "uploads/dropdown_toggle", :locals => {:upload => upload} %>
+      </div>
     <% end %>
-    
+  <% end %>
+
+  <div class="act_media_content emb_cta_wrap">    
     <%= render :partial => "shared/embeds", :locals => {:upload => upload} %>
   </div>
 

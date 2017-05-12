@@ -1,15 +1,11 @@
 $(document).ready(function() {
 
-  $('[data-fancybox="gallery"]').fancybox({
-    // Options will go here
-  });
+  $('[data-fancybox="gallery"]').on('click', function() {
+	  var visibleLinks = $('[data-fancybox="gallery"]:visible');
 
-  $('.md_fcybx').fancybox({
-    // Options will go here
-  });
+	  $.fancybox.open( visibleLinks, {}, visibleLinks.index( this ) );
 
-  $('.md_emb_fcybx').fancybox({
-    // Options will go here
-  });
+	  return false;
+	});
 
 });

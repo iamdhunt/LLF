@@ -13,14 +13,17 @@
 	<% elsif listing.category == 'Services' %>
 		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap services_fil">
 	<% end %>
+
+		<% if member_signed_in? %>
+	      <% if current_member == listing.member %>
+	        <div class="lst_drpdw">
+	          <%= render :partial => "listings/dropdown_toggle", :locals => {:listing => listing} %>
+	        </div>
+	      <% end %>
+	    <% end %>
 	
 		<div id="">
 			<div class="pdl_img">
-				<% if current_member == listing.member %>
-					<div class="lst_del">
-						<%= link_to image_tag("/assets/Delete 2.png", class: 'ims-act'), listing_path(listing.id), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, title: "Delete", alt: "Delete" %>
-					</div>
-				<% end %>
 				<div>
 					<% if listing.embed? %>
 						<div class="lst_emb">
@@ -56,14 +59,6 @@
 					<% else %>
 						<%= render :partial => "listings/logged_out_buttons", :locals => {:listing => listing} %>
 					<% end %>
-
-					<% if member_signed_in? %>
-				        <% if current_member == listing.member %>
-					        <span class="">
-					        	<%= render :partial => "listings/settings_button", :locals => {:listing => listing} %>	            
-					        </span>
-				        <% end %>
-			      	<% end %>
 
 				</div>
 

@@ -54,4 +54,9 @@ $(document).ready(function() {
       $refresh.removeClass('fa-spin', {duration:500});
     });
 
+    $('#a_top .options').click(function() {
+        var $ovly = $(this).data("ovly");
+        $('#' + $ovly).toggleClass("none");
+    });
+
 });

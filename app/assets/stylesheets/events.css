@@ -297,7 +297,7 @@ vertical-align: baseline;
    border-right: 7px solid transparent;
    border-bottom: 7px solid #CCC;
    border-left: 7px solid transparent;
-   border-bottom-color: rgba(0, 0, 0, 0.2);
+   border-bottom-color: rgba(116, 116, 116, 0.2);
    content: '';
  }
 #ev_info .dropdown-menu:after {

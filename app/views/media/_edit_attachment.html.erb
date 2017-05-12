@@ -5,7 +5,11 @@
 	  <% else %>
 	    <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
 	  <% end %>
-	    <%= render :partial => "media/player", :locals => {:medium => @medium} %>
+	    <div class="med_play_btn">
+          <%= link_to @medium.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
+            <i class="fa fa-play-circle-o"></i>
+          <% end %>
+        </div>
 	  </div>
 	</div>
 <% end %>

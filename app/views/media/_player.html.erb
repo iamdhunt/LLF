@@ -1,4 +1,10 @@
-<div class="sm2-bar-ui flat full-width">
+<div class="sm2-bar-ui flat full-width" data-ovly="<%= medium.id %>">
+
+  <div class="med_play_btn">
+    <%= link_to "#play", class: 'sm2_button', id: medium.id, title: 'Play/Pause', alt: 'Play/Pause' do %>
+      <i class="fa fa-play-circle-o"></i>
+    <% end %>
+  </div>
 
  <div class="bd sm2-main-controls">
 
@@ -7,7 +13,6 @@
 
   <div class="sm2-inline-element sm2-button-element">
    <div class="sm2-button-bd">
-    <a href="#play" class="sm2-inline-button play-pause">Play / pause</a>
    </div>
   </div>
 

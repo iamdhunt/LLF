@@ -41,7 +41,6 @@
     </div>
 
     <div id="ss_r">
-      <div class="">
         <div class="t">
           <%= @medium.created_at.strftime("%A, %m/%d/%y %I:%M%P") %>
           <% if member_signed_in? %> 
@@ -77,11 +76,9 @@
         <% end %>
 
         <% if @medium.caption? %>
-          <% unless @medium.caption.length < 40 %>
-            <p class="view_caption">
-              <%= sanitize(Rinku.auto_link(media_with_mentions(@medium)), :tags => %w(a)) %>
-            </p>
-          <% end %>
+          <p class="view_caption">
+            <%= sanitize(Rinku.auto_link(media_with_mentions(@medium)), :tags => %w(a)) %>
+          </p>
         <% end %>
 
         <% if member_signed_in? %>
@@ -107,7 +104,6 @@
               <% end %>           
         <% end %>
 
-      </div>
       <div style="clear:both;"></div>
     </div>
 

@@ -1,17 +1,49 @@
 <% if activity.targetable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
   <div class="act_media_content md_aud_wrap">
+    <% if member_signed_in? %>
+      <% if activity.targetable.member == current_member %>
+        <div id="<%= activity.targetable.id %>" class="ed_ovly none">
+          <span class="shu_e">
+            <%= link_to "Edit", edit_medium_path(activity.targetable), :title => "Edit", :alt => "Edit", class: '' %>
+          </span>
+          <span class="shu_d">
+            <%= render :partial => "activities/delete", :locals => {:activity => activity} %>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+
   	<% if activity.targetable.cover? %>
       	<div id='med_art_act' style="background-image: url(<%= activity.targetable.cover.url(:large) %>)">
     <% else %>
         <div id='med_art_act' style="background-image: url('/assets/Default-Audio.jpg')">
     <% end %>
-          <%= render :partial => "media/player", :locals => {:medium => activity.targetable} %>
+          <div class="med_play_btn">
+            <%= link_to activity.targetable.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
+              <i class="fa fa-play-circle-o"></i>
+            <% end %>
+          </div>
         </div>
   </div>
 <% end %>
 
 <% if activity.targetable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
 	<div class="act_media_content">
-		<%= link_to image_tag(activity.targetable.asset.url, class: ''), activity.targetable.asset.url, class: 'md_fcybx' %>
+    <div class="hide-overlay">
+      <% if member_signed_in? %>
+        <% if activity.targetable.member == current_member %>
+          <div id="<%= activity.targetable.id %>" class="ed_ovly none">
+            <span class="shu_e">
+              <%= link_to "Edit", edit_medium_path(activity.targetable), :title => "Edit", :alt => "Edit", class: '' %>
+            </span>
+            <span class="shu_d">
+              <%= render :partial => "activities/delete", :locals => {:activity => activity} %>
+            </span>
+          </div>
+        <% end %>
+      <% end %>
+
+  		<%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, class: 'md_fcybx' %>
+    </div>
 	</div>
 <% end %>
