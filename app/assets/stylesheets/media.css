@@ -724,13 +724,13 @@
 	color: #fff;
 }
 .med_play_btn a:hover {
-	color: #b6a352;
+	color: #aa9749;
 	-webkit-transform: scale(1.1);
     transform: scale(1.1);
 }
 
 .med_play_btn a.sm2_button.sm2_playing {
-	color: #b6a352;
+	color: #aa9749;
 }
 .med_play_btn a.sm2_button.sm2_playing:hover {
 	color: #cc3333;

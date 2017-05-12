@@ -1,4 +1,8 @@
 <div id="activity_<%= activity.id %>_<%= activity.member.id %>" class="list_act_wrap project_fil">
+
+	<div id="<%= activity.id %>_<%= activity.targetable.id %>" class="share-body none">
+      <input class="pr_in forms" value="<%= project_url(activity.targetable) %>" onclick="this.select()" />
+    </div>
 	
 	<div id="a_top">
 
@@ -72,18 +76,10 @@
 					</span>
 
 				<% end %>
+
+			<i class="fa fa-paper-plane act_actions btn share" title="Share" alt="Share" data-ovly="<%= activity.id %>_<%= activity.targetable.id %>"></i>
 			
 		</span>
-	</div>
-
-	<div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-	    <div class="modal-header">
-	      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	      <h3 id="sharemodallabel">Copy Project URL</h3>
-	    </div>
-	    <div class="modal-body pi">
-	      <input class="pr_in forms" value="<%= project_url(activity.targetable) %>" />
-	    </div>
 	</div>
 
 </div> 

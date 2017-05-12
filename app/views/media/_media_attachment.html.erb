@@ -4,7 +4,7 @@
 
 <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
   <div id="media_<%= medium.id %>_<%= medium.member.id %>" class="list_act_wrap photo_fil">
-<% end %>
+<% end %>  
 
     <% if member_signed_in? %>
       <% if current_member == medium.member %>
@@ -21,10 +21,11 @@
         <% else %>
           <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
         <% end %>
+            <div id="<%= medium.id %>" class="share-body none">
+              <input class="pr_in forms" value="<%= medium_url(medium) %>" onclick="this.select()" />
+            </div>
             <div class="med_play_btn">
-              <%= link_to medium.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
-                <i class="fa fa-play-circle-o"></i>
-              <% end %>
+              <%= link_to '<i class="fa fa-play-circle-o"></i>'.html_safe, medium.asset.url, target: '_self', class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' %>
             </div>
           </div>
       </div>
@@ -32,6 +33,9 @@
 
     <% if medium.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
       <div class="act_media_content">
+        <div id="<%= medium.id %>" class="share-body none">
+          <input class="pr_in forms" value="<%= medium_url(medium) %>" onclick="this.select()" />
+        </div>
         <% if medium.caption? %>
           <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(medium.caption) } %>
         <% else %>
@@ -69,6 +73,8 @@
             <%= render :partial => "media/fav_logged_out", :locals => {:medium => medium} %>  
           </span>
         <% end %>
+
+        <i class="fa fa-paper-plane act_actions btn share" title="Share" alt="Share" data-ovly="<%= medium.id %>"></i>
         
       </span>
 

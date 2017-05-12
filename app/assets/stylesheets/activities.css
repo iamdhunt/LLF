@@ -228,6 +228,13 @@
 #comment_act_btn .btn:hover {
 	background-color: #e6e6e6;
 }
+#comment_act_btn .fa-send:before, .fa-paper-plane:before {
+	margin-left: 8px;
+}
+#comment_act_btn .btn.share {
+	padding: 5px 0;
+    margin-left: 0;
+}
 .actions_act {
 	padding: 0 5px;
 }

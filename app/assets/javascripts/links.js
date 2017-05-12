@@ -59,4 +59,19 @@ $(document).ready(function() {
         $('#' + $ovly).toggleClass("none");
     });
 
+    $('.btn.share').click(function() {
+        var $ovly = $(this).data("ovly");
+        $('#' + $ovly).toggleClass("none");
+    });
+
+    $('.pdl_action .share').click(function() {
+        var $ovly = $(this).data("ovly");
+        $('#' + $ovly).toggleClass("none");
+    });
+
+    $('#p_list_top .share').click(function() {
+        var $ovly = $(this).data("ovly");
+        $('#' + $ovly).toggleClass("none");
+    });
+
 });

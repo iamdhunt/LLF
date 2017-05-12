@@ -1,3 +1,7 @@
 <div class="act_media_content act_cta emb_cta_wrap">
+	<div id="<%= activity.id %>_<%= activity.targetable.id %>" class="share-body none">
+      <input class="pr_in forms" value="<%= medium_url(activity.targetable) %>" onclick="this.select()" />
+    </div>
+
     <%= render :partial => "media/media_embeds_activity", :locals => {:medium => activity.targetable} %>
-  </div>
+</div>

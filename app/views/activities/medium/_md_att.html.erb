@@ -1,27 +1,16 @@
 <% if activity.targetable.asset.content_type =~ /^audio\/(mp3|mpeg|mpeg3|mpg|x-mp3|x-mpeg|x-mpeg3|x-mpegaudio|x-mpg)/ %>
   <div class="act_media_content md_aud_wrap">
-    <% if member_signed_in? %>
-      <% if activity.targetable.member == current_member %>
-        <div id="<%= activity.targetable.id %>" class="ed_ovly none">
-          <span class="shu_e">
-            <%= link_to "Edit", edit_medium_path(activity.targetable), :title => "Edit", :alt => "Edit", class: '' %>
-          </span>
-          <span class="shu_d">
-            <%= render :partial => "activities/delete", :locals => {:activity => activity} %>
-          </span>
-        </div>
-      <% end %>
-    <% end %>
-
   	<% if activity.targetable.cover? %>
       	<div id='med_art_act' style="background-image: url(<%= activity.targetable.cover.url(:large) %>)">
     <% else %>
         <div id='med_art_act' style="background-image: url('/assets/Default-Audio.jpg')">
     <% end %>
+          <div id="<%= activity.id %>_<%= activity.targetable.id %>" class="share-body none">
+            <input class="pr_in forms" value="<%= medium_url(activity.targetable) %>" onclick="this.select()" />
+          </div>
+
           <div class="med_play_btn">
-            <%= link_to activity.targetable.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' do %>
-              <i class="fa fa-play-circle-o"></i>
-            <% end %>
+            <%= link_to '<i class="fa fa-play-circle-o"></i>'.html_safe, activity.targetable.asset.url, target: '_self', class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' %>
           </div>
         </div>
   </div>
@@ -29,21 +18,14 @@
 
 <% if activity.targetable.asset.content_type =~ /^image\/(png|gif|jpeg)/ %>
 	<div class="act_media_content">
-    <div class="hide-overlay">
-      <% if member_signed_in? %>
-        <% if activity.targetable.member == current_member %>
-          <div id="<%= activity.targetable.id %>" class="ed_ovly none">
-            <span class="shu_e">
-              <%= link_to "Edit", edit_medium_path(activity.targetable), :title => "Edit", :alt => "Edit", class: '' %>
-            </span>
-            <span class="shu_d">
-              <%= render :partial => "activities/delete", :locals => {:activity => activity} %>
-            </span>
-          </div>
-        <% end %>
-      <% end %>
-
-  		<%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, class: 'md_fcybx' %>
+    <div id="<%= activity.id %>_<%= activity.targetable.id %>" class="share-body none">
+      <input class="pr_in forms" value="<%= medium_url(activity.targetable) %>" onclick="this.select()" />
     </div>
+
+    <% if activity.targetable.caption? %>
+      <%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, :data => { :fancybox => '',:caption => Rinku.auto_link(activity.targetable.caption) } %>
+    <% else %>
+      <%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, :data => { :fancybox => '' } %>
+    <% end %>
 	</div>
 <% end %>

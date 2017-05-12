@@ -13,6 +13,9 @@
   <% end %>
 
   <div class="act_media_content emb_cta_wrap">
+    <div id="<%= medium.id %>" class="share-body none">
+      <input class="pr_in forms" value="<%= medium_url(medium) %>" onclick="this.select()" />
+    </div>
     <%= render :partial => "media/media_embeds", :locals => {:medium => medium} %>
   </div>
 
@@ -43,6 +46,8 @@
           <%= render :partial => "media/fav_logged_out.html", :locals => {:medium => medium} %>  
         </span>
       <% end %>
+
+      <i class="fa fa-paper-plane act_actions btn share" title="Share" alt="Share" data-ovly="<%= medium.id %>"></i>
       
     </span>
 

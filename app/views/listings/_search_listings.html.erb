@@ -14,6 +14,10 @@
 		<div id="lstgs_<%= listing.id %>_<%= listing.member.id %>" class="pdl_wrap lst_wrap services_fil">
 	<% end %>
 
+		<div id="<%= listing.id %>" class="share-body none">
+          <input class="pr_in forms" value="<%= listing_url(listing) %>" onclick="this.select()" />
+        </div>
+
 		<% if member_signed_in? %>
 	      <% if current_member == listing.member %>
 	        <div class="lst_drpdw">
@@ -59,6 +63,8 @@
 					<% else %>
 						<%= render :partial => "listings/logged_out_buttons", :locals => {:listing => listing} %>
 					<% end %>
+
+					<i class="fa fa-paper-plane ims-act share" title="Share" alt="Share" data-ovly="<%= listing.id %>"></i>
 
 				</div>
 

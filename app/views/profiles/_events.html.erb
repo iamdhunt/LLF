@@ -11,6 +11,10 @@
 	<% elsif event.category == 'Other' %>
 		<div id="event_<%= event.id %>_<%= event.member.id %>" class="p_list_wrap other_fil">
 	<% end %>
+
+		<div id="<%= event.id %>" class="share-body none">
+          <input class="pr_in forms" value="<%= event_url(event) %>" onclick="this.select()" />
+        </div>
 		
 		<div id="p_list_top">
 			<span class="l">
@@ -30,6 +34,8 @@
 				<% else %>
 					<%= render :partial => "events/logged_out_buttons", :locals => {:event => event} %>
 				<% end %>
+
+				<i class="fa fa-paper-plane ims-act share" title="Share" alt="Share" data-ovly="<%= event.id %>"></i>
 
 				<% if member_signed_in? %>
 			        <% if current_member == event.member %>

@@ -11,6 +11,10 @@
 	<% elsif project.category == 'Other' %>
 		<div id="project_<%= project.id %>_<%= project.member.id %>" class="p_list_wrap other_fil">
 	<% end %>
+
+		<div id="<%= project.id %>" class="share-body none">
+          <input class="pr_in forms" value="<%= project_url(project) %>" onclick="this.select()" />
+        </div>
 		
 		<div id="p_list_top">
 			<span class="l">
@@ -31,6 +35,8 @@
 				<% else %>
 					<%= render :partial => "projects/logged_out_buttons", :locals => {:project => project} %>
 				<% end %>
+
+				<i class="fa fa-paper-plane ims-act share" title="Share" alt="Share" data-ovly="<%= project.id %>"></i>
 
 				<% if member_signed_in? %>
 			        <% if current_member == project.member %>
