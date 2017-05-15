@@ -39,7 +39,6 @@ LLF::Application.routes.draw do
     resources :follows, :controller => 'follows_events', :only => [:create, :destroy]
     collection do
       get 'popular', to: "events#popular", :as => 'popular'
-      get 'current', to: 'events#current', :as => 'current'
       get 'past', to: 'events#past', :as => 'past'
     end
     member do
@@ -52,7 +51,7 @@ LLF::Application.routes.draw do
 
   resources :community, only: [:index]
 
-  get "market" => "market#market", :as => "market"
+  get "market" => "listings#index", :as => "market"
 
   scope 'market' do
     resources :listings do
@@ -156,8 +155,6 @@ LLF::Application.routes.draw do
     get '/projects/following' => 'profiles#projects_following', as: 'profile_projects_following'
     get '/projects/favorites' => 'profiles#projects_fav', as: 'profile_projects_fav'
     get '/events' => 'profiles#events', as: 'profile_events'
-    get '/events/past' => 'profiles#events_past', as: 'profile_events_past'
-    get '/events/current' => 'profiles#events_current', as: 'profile_events_current'
     get '/events/following' => 'profiles#events_following', as: 'profile_events_following'
     get '/events/favorites' => 'profiles#events_fav', as: 'profile_events_fav'
     get '/market' => 'profiles#market', as: 'profile_market'

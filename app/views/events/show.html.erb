@@ -11,10 +11,14 @@
   <div id="pb">
     <div class="pj_title"><%= @event.name.upcase %></div>
 
-    <% if member_signed_in? && @event.member != current_member %>
-      <div class='but p_f_but'>
-        <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
-      </div>
+    <% if member_signed_in? %>
+      <% if @event.member != current_member %>
+        <div class='but p_f_but'>
+          <%= render :partial => "shared/follow_event", :locals => {:event => @event} %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= render :partial => "shared/fol_logged_out.html" %>
     <% end %>
     
     <% if @event.marker_list %>

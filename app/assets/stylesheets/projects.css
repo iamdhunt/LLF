@@ -1098,3 +1098,8 @@
 	font-size: 20px;
 	vertical-align: middle;
 }
+#pb .btn-danger:hover {
+	background-color: #c73730;
+    border-color: #c73730;
+    opacity: 1;
+}

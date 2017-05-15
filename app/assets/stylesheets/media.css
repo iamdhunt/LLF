@@ -725,8 +725,6 @@
 }
 .med_play_btn a:hover {
 	color: #aa9749;
-	-webkit-transform: scale(1.1);
-    transform: scale(1.1);
 }
 
 .med_play_btn a.sm2_button.sm2_playing {
@@ -734,8 +732,6 @@
 }
 .med_play_btn a.sm2_button.sm2_playing:hover {
 	color: #cc3333;
-	-webkit-transform: scale(1.1);
-    transform: scale(1.1);
 }
 .med_play_btn a.sm2_button:hover, a.sm2_button.sm2_playing, a.sm2_button.sm2_playing:hover {
 	background-color: transparent;

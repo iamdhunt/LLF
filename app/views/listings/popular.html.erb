@@ -8,7 +8,7 @@
         <% if @facet == nil && @query == nil && @price_range == nil %>
             <div id="bc_wrap" class="q_bc mk3">
                 <div class="breadcrumbs">
-                    <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span>Popular</span>
+                    <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, market_path %></span> <span>Popular</span>
                 </div>
 
                 <div class="add_more">
@@ -22,7 +22,7 @@
         <% else %>
             <div id="bc_wrap" class="q_bc mk2">
                 <div class="breadcrumbs">
-                    <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span class="lstgs"><%= link_to "Popular &raquo;".html_safe, popular_listings_path %></span> <span>Discover</span>
+                    <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Popular &raquo;".html_safe, popular_listings_path %></span> <span>Discover</span>
                 </div>
 
                 <div class="add_more">

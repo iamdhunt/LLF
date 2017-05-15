@@ -59,17 +59,17 @@ $(document).ready(function() {
         $('#' + $ovly).toggleClass("none");
     });
 
-    $('.btn.share').click(function() {
+    $('body').on('click', '.btn.share', function() {
         var $ovly = $(this).data("ovly");
         $('#' + $ovly).toggleClass("none");
     });
 
-    $('.pdl_action .share').click(function() {
+    $('.pdl_action').on('click', '.share', function() {
         var $ovly = $(this).data("ovly");
         $('#' + $ovly).toggleClass("none");
     });
 
-    $('#p_list_top .share').click(function() {
+    $('body').on('click', '#p_list_top .share', function() {
         var $ovly = $(this).data("ovly");
         $('#' + $ovly).toggleClass("none");
     });

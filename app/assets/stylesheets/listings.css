@@ -813,8 +813,6 @@ label.active {
 }
 .lst_play_btn a:hover {
 	color: #1b85a6;
-	-webkit-transform: scale(1.1);
-    transform: scale(1.1);
 }
 
 .lst_play_btn a.sm2_button.sm2_playing {
@@ -822,8 +820,6 @@ label.active {
 }
 .lst_play_btn a.sm2_button.sm2_playing:hover {
 	color: #cc3333;
-	-webkit-transform: scale(1.1);
-    transform: scale(1.1);
 }
 .act_l_av .lst_play_btn {
 	top: 50%;

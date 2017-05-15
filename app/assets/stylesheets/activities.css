@@ -232,7 +232,7 @@
 	margin-left: 8px;
 }
 #comment_act_btn .btn.share {
-	padding: 5px 0;
+	padding: 3px 0;
     margin-left: 0;
 }
 .actions_act {
@@ -588,4 +588,11 @@
 }
 #a_top .btn-group .del {
     border-top: 1px solid #ddd;
+}
+.ep_act_fl {
+	text-align: center;
+}
+.ep_act_fl .btn-large {
+	padding: 6px 13px;
+    font-size: 16px;
 }

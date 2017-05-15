@@ -10,10 +10,13 @@ class EventsController < ApplicationController
     @current = Event.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(20).all
     @past = Event.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(20).all
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').page(params[:page]).per_page(60)
+    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
     @search = Event.solr_search do
       fulltext params[:events]
-      facet(:event_month)
+      any_of do
+        with(:end_date).greater_than_or_equal_to(Time.zone.now.to_date)
+      end 
+      facet(:event_month, :sort => :count)
         with(:event_month, params[:month]) if params[:month].present?
       facet(:marker_list, :limit => 65, :sort => :count)
         with(:marker_list, params[:tag]) if params[:tag].present?

@@ -9,7 +9,7 @@
         <% if @facet != nil || @query != nil || @tag_facet != nil || @location_facet != nil %>
             <div id="bc_wrap" class="q_bc e5">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events &raquo;".html_safe, events_path %></span> <span class="evts"><%= link_to "Current &raquo;".html_safe, current_events_path %></span> <span class="evts"><%= link_to "Past &raquo;".html_safe, past_events_path %></span> <span>Discover</span>
+                    <span class="evts"><%= link_to "Past &raquo;".html_safe, past_events_path %></span> <span class="evts"><%= link_to "Current &raquo;".html_safe, events_path %></span> <span>Discover</span>
                 </div>
 
                 <div class="popular">
@@ -29,7 +29,7 @@
         <% else %>
             <div id="bc_wrap" class="q_bc e4">
                 <div class="breadcrumbs">
-                    <span class="evts"><%= link_to "Events &raquo;".html_safe, events_path %></span> <span class="evts"><%= link_to "Current &raquo;".html_safe, current_events_path %></span> <span>Past</span>
+                    <span>Past &raquo;</span> <span class="evts"><%= link_to "Current".html_safe, events_path %></span>
                 </div>
 
                 <div class="popular">

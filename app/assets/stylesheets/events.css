@@ -565,22 +565,22 @@ vertical-align: baseline;
     margin-left: 250px;
 }
 .q_bc.e2 #custom-search-input {
-    margin-left: 445px;
+    margin-left: 378px;
 }
 .q_bc.e3 #custom-search-input {
-    margin-left: 525px;
+    margin-left: 457px;
 }
 .q_bc.e4 #custom-search-input {
-    margin-left: 445px;
+    margin-left: 379px;
 }
 .q_bc.e5 #custom-search-input {
-    margin-left: 525px;
+    margin-left: 458px;
 }
 .q_bc.e6 #custom-search-input {
-    margin-left: 360px;
+    margin-left: 342px;
 }
 .q_bc.e7 #custom-search-input {
-    margin-left: 440px;
+    margin-left: 422px;
 }
 .e1 .l_o #custom-search-input {
 	margin-left: 110px;
@@ -609,4 +609,9 @@ vertical-align: baseline;
     margin-bottom: 20px;
     background-color: transparent;
     border-top: none;
+}
+#pb .btn-event:hover {
+	opacity: 1;
+	background-color: #1b864d;
+	border-color: #1b864d;
 }

@@ -38,6 +38,20 @@
 		<%= link_to activity.targetable.name, event_path(activity.targetable) %>
 	</div>
 
+	<% if member_signed_in? %>
+		<% if activity.targetable.member != current_member %>
+			<div class="ep_act_fl">
+				<div class='p_f_but'>
+					<%= render :partial => "shared/follow_event", :locals => {:event => activity.targetable} %>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="ep_act_fl">
+			<%= render :partial => "activities/fol_logged_out.html" %>
+		</div>
+	<% end %>
+
 	<div class="act_ep_content">
 		<%= activity.targetable.blurb %>
 	</div>

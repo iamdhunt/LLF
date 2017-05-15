@@ -7,51 +7,21 @@
     <div id="prs_wrap">
 
         <% if @events.count > 0 %>
+
             <div id="media_query_prev">
-                <div class="ev_sep">
-                    <span class="ev_hd">
-                        Current Events
-                    </span>
-                    <% if @events.count > 8 %>
-                        <span class="ev_vm">
-                            <%= link_to(profile_events_current_path(@member), class: "") do %>
-                                View more
-                            <% end %>
-                        </span>
-                    <% end %>
-                </div>
                 <div id="prof_prs">
                     <div id="prs">
                         <%= render :partial => "events" %>
                     </div>
                 </div>
-            </div>         
-            <% else %>
-                <div class="none_message2">
-                    No Current Events
-                </div>
-        <% end %>
-
-        <% if @past.count > 0 %>
-            <div id="media_query_prev">
-                <div class="ev_sep">
-                    <span class="ev_hd">
-                        Past Events
-                    </span>
-                    <% if @past.count > 12 %>
-                        <span class="ev_vm">
-                            <%= link_to(profile_events_past_path(@member), class: "") do %>
-                                View more
-                            <% end %>
-                        </span>
-                    <% end %>
-                </div>
-                <div id="prof_prs">
-                    <div id="prs2">
-                        <%= render :partial => "ev_past" %>
-                    </div>
-                </div>
             </div>  
-        <% end %>    
+
+        <% else %>
+
+            <div class="none_message2">
+                No Events Yet
+            </div>
+
+        <% end %>  
 
     </div>

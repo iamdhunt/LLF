@@ -8,9 +8,6 @@
 
     	<% if @facet == nil && @query == nil && @price_range == nil %>
             <div id="bc_wrap" class="q_bc mk4">
-    			<div class="breadcrumbs">
-    				<span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span>Listings</span>
-    			</div>
 
                 <div class="popular">
                     <%= link_to popular_listings_path, title: 'Popular Listings', alt: 'Popular Listings' do %>
@@ -29,7 +26,7 @@
         <% else %>
             <div id="bc_wrap" class="q_bc mk5">
                 <div class="breadcrumbs">
-                    <span class="lstgs"><%= link_to "Market &raquo;".html_safe, market_path %></span> <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, listings_path %></span> <span>Discover</span>
+                    <span class="lstgs"><%= link_to "Listings &raquo;".html_safe, market_path %></span> <span>Discover</span>
                 </div>
 
                 <div class="popular">
@@ -67,17 +64,24 @@
     <%= render :partial => "shared/listings_filters" %>
 
     <div id="li_wrap">
-        <div id="li_index">
 
-            <div id="lstgs">
-        		<% if @facet == nil && @query == nil && @price_range == nil %>
-        	      <%= render partial: 'listings' %>
-        	    <% else %>
-        	        <%= render partial: 'search_listings' %>
-        	    <% end %>
-        	</div>
+        <% if @listings.count > 0 %>
+            <div id="li_index">
 
-        </div>
+                <div id="lstgs">
+            		<% if @facet == nil && @query == nil && @price_range == nil %>
+            	      <%= render partial: 'listings' %>
+            	    <% else %>
+            	        <%= render partial: 'search_listings' %>
+            	    <% end %>
+            	</div>
+
+            </div>
+        <% else %>
+            <div class="none_message">
+                No Current Listings
+            </div>
+        <% end %>
 
         <% if @facet == nil && @query == nil && @price_range == nil %>
             <%= will_paginate @listings, class: 'display_none' %>

@@ -63,15 +63,22 @@
         <%= render :partial => "shared/evpj_filters" %>
 
         <div id="prs_wrap">
-            <div id="media_query_prev">
-                <div id="prs">
-                    <% if @facet == nil && @query == nil && @city_facet == nil %>
-                        <%= render partial: 'projects' %>
-                    <% else %>
-                        <%= render partial: 'search_projects' %>
-                    <% end %>
+
+            <% if @projects.count > 0 %>
+                <div id="media_query_prev">
+                    <div id="prs">
+                        <% if @facet == nil && @query == nil && @city_facet == nil %>
+                            <%= render partial: 'projects' %>
+                        <% else %>
+                            <%= render partial: 'search_projects' %>
+                        <% end %>
+                    </div>
                 </div>
-            </div>
+            <% else %>
+                <div class="none_message">
+                    No Current Projects
+                </div>
+            <% end %>
 
             <% if @facet == nil && @query == nil && @city_facet == nil %>
                 <%= will_paginate @projects, class: 'display_none' %>
