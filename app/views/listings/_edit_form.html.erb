@@ -96,6 +96,9 @@
                 <li>
                   &raquo; Maximum file size of 15MB (jpeg, png, mp3)
                 </li>
+                <li>
+                  &raquo; Be sure to remove feature/link when switching features
+                </li>
             </ul>
           </div>
 
@@ -116,7 +119,7 @@
             <% if f.object.feature? && f.object.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
               <div class="e_fi">
                 <%= image_tag f.object.feature.url(:large2) %>
-                <%= f.input :remove_feature, as: :boolean, label: "Remove feature?", :label_html => {:class => "cbx_lbl"} %>
+                <%= f.input :remove_feature, as: :boolean, label: "Remove feature?", :label_html => {:class => "act_img_lb"} %>
               </div>
             <% end %>
 
@@ -134,7 +137,7 @@
                   </div>
                 </div>
               </div>
-              <div style=""><%= f.input :remove_feature, as: :boolean, label: "Remove feature?", :label_html => {:class => "cbx_lbl ftr"} %></div>
+              <div style=""><%= f.input :remove_feature, as: :boolean, label: "Remove feature?", :label_html => {:class => "act_img_lb ftr"} %></div>
             <% end %>
 
             <% if f.object.embed? %>
@@ -157,7 +160,7 @@
             <div class="act_media_content" style="text-align:left;">
               <% if f.object.cover? %>
                 <%= image_tag f.object.cover.url, :class => "cv_edt" %>
-                <%= f.input :remove_cover, as: :boolean, label: "Remove cover?", :label_html => {:class => "cbx_lbl"} %>
+                <%= f.input :remove_cover, as: :boolean, label: "Remove cover?", :label_html => {:class => "act_img_lb"} %>
               <% end %>
             </div>
 
@@ -229,7 +232,7 @@
           <div class="edit_bn_l">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
-              <%= f.input :remove_banner, as: :boolean, label: "Remove banner?", :label_html => {:class => "cbx_lbl"} %>
+              <%= f.input :remove_banner, as: :boolean, label: "Remove banner?", :label_html => {:class => "act_img_lb"} %>
             <% end %>
           </div>
 
@@ -269,7 +272,7 @@
       </fieldset>
 
       <fieldset>
-        <%= f.input :description, label: 'Description', error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms account settings', tabindex: '7', id: 'l_dscr', autocomplete: 'off' } %>
+        <%= f.input :description, label: false, error: false, placeholder: 'Tell us about your listing...', input_html: { cols: '53', rows: '5', class: 'forms account settings', tabindex: '7', id: 'l_dscr', autocomplete: 'off' } %>
       </fieldset>
 
     </div>

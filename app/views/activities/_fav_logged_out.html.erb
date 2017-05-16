@@ -1,13 +1,13 @@
 <% if activity.votes.size > 0 && activity.votes.size <= 99 %>
-	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn btn-default favorite" do %>
         <i class="fa fa-heart act_actions fav_md"></i><%= activity.votes.size %>
     <% end %>
 <% elsif activity.votes.size > 99 %>
-	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md"></i>99+
 	<% end %>
 <% else %>
-	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn favorite" do %>
+	<%= link_to sign_in_path, title: "Login to add to favorites", alt: "Login to add to favorites", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md"></i>
 	<% end %>
 <% end %>

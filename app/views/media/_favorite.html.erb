@@ -1,21 +1,21 @@
 <% if medium.votes.size > 0 && medium.votes.size <= 99 && current_member.voted_up_on?(medium) %>
-	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" do %>
+	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md unfav"></i><%= medium.votes.size %>
 	<% end %>
 <% elsif medium.votes.size > 99 && current_member.voted_up_on?(medium) %>
-	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn favorite" do %>
+	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Unfavorite", alt: "Unfavorite", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md unfav"></i>99+
 	<% end %>
 <% elsif medium.votes.size > 0 && medium.votes.size <= 99 %>
-	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md"></i><%= medium.votes.size %>
 	<% end %>
 <% elsif medium.votes.size > 99 %>
-	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md"></i>99+
 	<% end %>
 <% else %>
-	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn favorite" do %>
+	<%= link_to favorite_medium_path(medium), remote: true, method: :put, title: "Favorite", alt: "Favorite", :class => "btn btn-default favorite" do %>
 		<i class="fa fa-heart act_actions fav_md"></i>
 	<% end %>
 <% end %>

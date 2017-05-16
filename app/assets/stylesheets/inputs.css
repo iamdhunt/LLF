@@ -13,7 +13,20 @@
     box-shadow: none;
     width: 85%;
     font-size: 1.2em;
-    margin-right: 0;
+    margin: 0;
+    padding: 4px 6px;
+}
+#custom-search-input input:focus {
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+}
+#custom-search-input input::-webkit-input-placeholder { 
+    color:#898989; 
+}
+
+#custom-search-input input::-moz-placeholder { 
+    color:#898989; 
 }
 #custom-search-input button{
     margin: 3px 0 0 0;
@@ -27,6 +40,7 @@
 }
 #custom-search-input .btn {
     border-radius: 0;
+    font-size: 15px;
 }
 #custom-search-input button:hover,
 #custom-search-input button:active,
@@ -66,12 +80,15 @@
     border: 0;
     box-shadow: none;
     width: 100%;
+    margin: 0;
+    padding: 4px 6px;
 }
 #custom-input textarea {
     border: 0;
     box-shadow: none;
     width: 100%;
     resize: none;
+    padding: 4px 6px;
 }
 
 .c_f_labels #custom-input {
@@ -108,9 +125,6 @@
 .c_f_labels #custom-input.bl_in {
     margin: 0 0 5px 175px;
 }
-#custom-input .single_row textarea {
-    height: 28px;
-}
 
 #custom-select .selectize-control.single .selectize-input, .selectize-dropdown.single {
     width: 25%;
@@ -138,7 +152,7 @@
     border-top: 0;
 }
 #custom-select .custom-tags .selectize-input {
-    width: 48%;
+    width: 40%;
     margin-left: 15px;
     box-shadow: none;
     padding: 4px 6px;
@@ -198,7 +212,7 @@
     background: #e4e4e4;
     color: #444;
     margin-left: -10px;
-    padding: 7px 0 6px 0;
+    padding: 7.2px 0 5px 0;
     vertical-align: middle;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -427,7 +441,7 @@
     border: 1px solid #E4E4E4;
 }
 .share-body {
-    padding: 14px 7px 14px 14px;
+    padding: 14px 14px;
     -webkit-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
     -moz-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.52);
     box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.9);
@@ -483,11 +497,13 @@ a img:hover .share-body {
     left: 10%;
     top: 32%;
     z-index: 5;
+    padding: 14px 7px 14px 14px;
 }
 .p_list_wrap .share-body {
     left: 10%;
     top: 27%;
     z-index: 5;
+    padding: 14px 7px 14px 14px;
 }
 .shr_blue {
     color: #0583d8;

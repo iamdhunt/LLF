@@ -47,7 +47,7 @@
           <div class="edit_av_f">
             <% if f.object.avatar? %>
               <%= image_tag f.object.avatar.url(:av) %>
-              <%= f.input :remove_avatar, as: :boolean, label: "Remove avatar?", :label_html => {:class => "cbx_lbl"} %>
+              <%= f.input :remove_avatar, as: :boolean, label: "Remove avatar?", :label_html => {:class => "act_img_lb"} %>
             <% end %>
           </div>
           <div class="custom-file-upload fu2_wrap">
@@ -58,7 +58,7 @@
           <div class="edit_av_f">
             <% if f.object.banner? %>
               <%= image_tag f.object.banner.url(:preview) %>
-              <%= f.input :remove_banner, as: :boolean, label: "Remove banner?", :label_html => {:class => "cbx_lbl"} %>
+              <%= f.input :remove_banner, as: :boolean, label: "Remove banner?", :label_html => {:class => "act_img_lb"} %>
             <% end %>
           </div>
         </fieldset>
@@ -150,7 +150,7 @@
           </div>
           <%= f.input :blurb, label: false, error: false, placeholder: 'Give us the short version...', input_html: { cols: '55', rows: '1', class: 'bl_in auto txt_a_size', id: 'p_cap_blb', tabindex: '7', autocomplete: 'off' } %>
             <div class="p_blb_ct"><span class="p_ct_blb">140</span> <span class="p_ct_text">characters remaining</span></div>
-          <%= f.input :about, label: 'Details', error: false, placeholder: 'Now the long version...', input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '8', id: 'p_about' } %>
+          <%= f.input :about, label: false, error: false, placeholder: 'Now the long version...', input_html: { cols: '52', rows: '10', class: 'forms account settings', tabindex: '8', id: 'p_about' } %>
         </fieldset>
       </div>
 

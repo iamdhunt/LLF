@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   has_many :activities, as: :targetable, :dependent => :destroy
   has_many :mentions, as: :mentioner, dependent: :destroy
 
-  has_attached_file :avatar, styles: {large: "500x500#", large2: "700x700#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
+  has_attached_file :avatar, styles: { large: "500x500#", large2: "700x700#", activity: "300>", thumb: "30x30#", av: "165x165#", list: "230x230#"},
                   :default_url => '/assets/Default-Event.jpg',
                   :convert_options => { activity: "-colorspace sRGB", thumb: "-colorspace sRGB", av: "-colorspace sRGB", list: "-colorspace sRGB" }
   has_attached_file :banner, styles: { large: "1400x200<", preview: "600x200>" },

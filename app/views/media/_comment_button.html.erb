@@ -1,13 +1,13 @@
 <% if medium.comments.count > 0 && medium.comments.count <= 99 %>
-	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i><%= medium.comments.count %>
 	<% end %>
 <% elsif medium.comments.count > 99 %> 
-	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i>99+
 	<% end %>  
 <% else %>
-	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to medium_path(medium), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i>
 	<% end %>
 <% end %>

@@ -339,8 +339,14 @@
 	font-size: 1.5em;
 	padding: 3px;
 }
-.s_modal .modal.fade.in {
-	top: 25%;
+.s_modal .pr_in {
+	text-align: center;
+}
+#update .modal-dialog {
+	top: 7%;
+}
+.s_modal .modal-dialog {
+	top: 22%;
 }
 .s_modal .modal-body {
 	padding: 25px;
@@ -482,7 +488,7 @@
 	color: #444;
 }
 .p_list_wrap .dropdown-menu {
-	top: 5px;
+	top: 16px;
 	left: -134px;
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
@@ -767,9 +773,6 @@
 }
 #update .p_m_input {
 	width: 100%;
-}
-.pr_wrap .modal-body {
-	max-height: 500px;
 }
 .pr_wrap #u_top {
 	padding-top: 10px;

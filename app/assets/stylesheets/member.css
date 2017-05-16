@@ -81,7 +81,6 @@
 }
 .mem_actions.share {
 	font-size: 23px;
-	margin-left: -13px;
 	vertical-align: text-top;
 }
 .mem_actions.mssgs {
@@ -136,15 +135,18 @@
 .mt-btn .btn {
 	padding: 2.5px 12px;
 }
-#avatar .act_img_lb {
-	text-align: left;
+.act_img_lb {
+	text-align: left !important;
+	margin-left: 20px;
+	font-style: normal;
 }
-#member-menu {
-	width: 480px;
-	left: 53%;
+.act_img_lb.ftr {
+	margin-bottom: 40px;
+    width: 100%;
 }
-#member-menu.modal.fade.in {
-	top: 12%;
+#member-menu .modal-dialog {
+	width: 500px;
+	top: 5%;
 }
 #member-menu .modal_av img {
 	width: 100px;
@@ -183,9 +185,9 @@
 }
 .mod_close {
 	position: absolute;
-    right: -12px;
-    top: -40px;
-    font-size: 35px;
+    right: 20px;
+    top: 10px;
+    font-size: 44px;
 }
 .mod_close a {
 	color: #fff;

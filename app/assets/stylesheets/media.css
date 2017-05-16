@@ -202,6 +202,9 @@
 	font-size: .9em;
 	color: #898989;
 }
+.med_instructions.c_art {
+	margin-top: 5px;
+}
 .med_instructions .m_ts {
 	margin-top: 12px;
 }
@@ -230,7 +233,6 @@
 	margin-top: 1px;
 }
 #upload .modal-body {
-	max-height: 450px;
 	padding: 40px 15px 45px 92px;
 }
 #m_t_wrap .m_t {
@@ -450,9 +452,6 @@
 #edit_show .med_instructions {
 	margin-top: 10px;
 }
-#edit_show .md_cover_label {
-	line-height: 1.3;
-}
 .md_hd {
 	color: #898989;
 	font-size: 1.5em;
@@ -463,20 +462,31 @@
 .md_hd.vd {
 	margin: 5px 0 2px 0;
 }
+#media .modal-dialog {
+	top: 4%;
+}
+#media_index .modal-dialog {
+	top: 4%;
+}
+#gl_media .modal-dialog {
+	top: 4%;
+}
+#gl_media_index .modal-dialog {
+	top: 4%;
+}
+#upload .modal-dialog {
+	top: 4%;
+}
 #media .modal-body {
-	max-height: 480px;
 	padding: 38px 0 45px 93px;
 }
 #media_index .modal-body {
-	max-height: 480px;
 	padding: 38px 0 45px 93px;
 }
 #gl_media .modal-body {
-	max-height: 460px;
 	padding: 38px 0 45px 93px;
 }
 #gl_media_index .modal-body {
-	max-height: 460px;
 	padding: 38px 0 45px 93px;
 }
 #md_vd_sh {

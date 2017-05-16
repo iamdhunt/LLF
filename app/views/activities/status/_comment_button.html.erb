@@ -1,13 +1,13 @@
 <% if activity.targetable.comments.count > 0 && activity.targetable.comments.count <= 99 %>
-	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i><%= activity.targetable.comments.count %>
 	<% end %>
 <% elsif activity.targetable.comments.count > 99 %> 
-	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i>99+
 	<% end %>  
 <% else %>
-	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn comment" do %>
+	<%= link_to status_path(activity.targetable), title: "Comment", alt: "Comment", :class => "btn btn-default comment" do %>
 	  <i class="fa fa-comments act_actions cmmts"></i>
 	<% end %>
 <% end %>

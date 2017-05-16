@@ -5,7 +5,7 @@
       <div class="edit_md_cover">
         <%= image_tag @upload.cover.url(:media) %>
       </div>
-      <%= f.input :remove_cover, as: :boolean, label: "Remove cover?", :label_html => {:class => "md_cover_label"} %>
+      <%= f.input :remove_cover, as: :boolean, label: "Remove cover?", :label_html => {:class => "act_img_lb"} %>
     <% end %>
 
     <div class="med_instructions">
@@ -17,7 +17,7 @@
           &raquo; Accepted file formats: (jpeg, png, mp3)
         </li>
         <li>
-          &raquo; (Optional) Attach audio cover art
+          &raquo; (Optional) Attach cover art
         </li>
       </ul>
     </div>

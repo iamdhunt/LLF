@@ -94,9 +94,6 @@
 	font-size: 1.2em;
 	color: #444;
 }
-.ev_wrap .modal-body {
-	max-height: 500px;
-}
 .ev_wrap #u_top {
 	padding-top: 10px;
 	font-size: 1.5em;
@@ -224,10 +221,19 @@
 	opacity: .85;
 }
 #e_adr .action_btns i {
-	margin: 0 -9px;
+	margin: 0 -7px;
 }
-#e_adr .action_btns {
-	margin-left: 15px;
+#e_adr .sh_av {
+	margin: 0 8px;
+}
+#e_adr .sh_av img {
+	-webkit-border-radius: 100%;
+	border-radius: 100%;
+    width: 25px;
+    vertical-align: bottom;
+    -webkit-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.85);
+    -moz-box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.85);
+    box-shadow: 0 1px 5.5px -1.5px rgba(0,0,0,0.85);
 }
 .e_adr1 {
 	display: inline-block;
@@ -518,7 +524,7 @@ vertical-align: baseline;
 }
 #e_adr .add_more {
 	position: absolute;
-	top: 8px;
+	top: 14px;
 	right: 0;
 }
 #e_adr .add_more a {
@@ -614,4 +620,31 @@ vertical-align: baseline;
 	opacity: 1;
 	background-color: #1b864d;
 	border-color: #1b864d;
+}
+
+/* Bootstrap overrides */
+
+#when .input-group-addon, .input-group-btn, .input-group .form-control {
+	display: initial;
+}
+#when .input-group .form-control {
+	float: none;
+}
+#when .form-control {
+	padding: 4px 6px;
+    font-size: 15px;
+    line-height: 20px;
+    height: initial;
+}
+#when .form-control::-webkit-input-placeholder { 
+	color:#898989; 
+	font-size: 15px;
+}
+
+#when .form-control::-moz-placeholder { 
+	color:#898989; 
+	font-size: 15px;
+}
+.dtp-buttons .btn {
+	margin: 0 10px;
 }

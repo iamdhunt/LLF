@@ -57,38 +57,38 @@
                                 <%= render :partial => "shared/follow_member", :locals => {:member => @member} %>
                             </span>
                             <span>
-                                <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" do %>
+                                <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn btn-default" do %>
                                     <i class="fa fa-comments mem_actions mssgs"></i>
                                 <% end %>
-                                <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                                <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn btn-default" do %>
                                     <i class="fa fa-paper-plane mem_actions share"></i>
                                 <% end %>
                             </span>
                         <% end %>
                         <% if current_member == @member %>
-                            <%= link_to "#media", :data => {:toggle => "modal"}, title: "Add Media", alt: "Add Media", :class => "btn" do %>
+                            <%= link_to "#media", :data => {:toggle => "modal"}, title: "Add Media", alt: "Add Media", :class => "btn btn-default upld" do %>
                                 <i class="fa fa-arrow-circle-o-up mem_actions"></i>
                             <% end %>
-                            <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn" do %>
+                            <%= link_to "#message", :data => {:toggle => "modal"}, title: "Start Conversation", alt: "Start Conversation", :class => "btn btn-default" do %>
                                 <i class="fa fa-comments mem_actions mssgs"></i>
                             <% end %>
-                            <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                            <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn btn-default" do %>
                                 <i class="fa fa-paper-plane mem_actions share"></i>
                             <% end %>
-                            <%= link_to edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn" do %>
+                            <%= link_to edit_member_path, title: "Account Settings", alt: "Account Settings", :class => "btn btn-default sttgs" do %>
                                 <i class="fa fa-sliders mem_actions sttgs"></i>
                             <% end %>
                         <% end %>
                     </div>
                 <% else %>
                     <div id="member_actions" class="profile_buttons">
-                        <%= link_to sign_in_path, title: "Login to follow", alt: "Login to follow", :class => "btn" do %>
+                        <%= link_to sign_in_path, title: "Login to follow", alt: "Login to follow", :class => "btn btn-default" do %>
                             <i class="fa fa-user-plus mem_actions follow_mem"></i>
                         <% end %>
-                        <%= link_to sign_in_path, title: "Login to send a message", alt: "Login to send a message", :class => "btn" do %>
+                        <%= link_to sign_in_path, title: "Login to send a message", alt: "Login to send a message", :class => "btn btn-default" do %>
                             <i class="fa fa-comments mem_actions mssgs"></i>
                         <% end %>
-                        <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn" do %>
+                        <%= link_to "#share-profile", :data => {:toggle => "modal"}, title: "Share Profile", alt: "Share Profile", :class => "btn btn-default" do %>
                             <i class="fa fa-paper-plane mem_actions share"></i>
                         <% end %>
                     </div>
@@ -145,41 +145,68 @@
 
 
     <% if @member == current_member %>
-        <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div id="message" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+
             <div class="mod_close">
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+                <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
             </div>
-            <div class="modal-body pi">
-                <%= render :partial => "conversations/form" %>
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body pi">
+                        <%= render :partial => "conversations/form" %>
+                    </div>
+
+                </div>
             </div>
+
         </div>
 
         <div id="md_form_<%= @member.id %>">
             <%= render :partial => "media/modal" %>
         </div>
     <% else %>
-        <div id="message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div id="message" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+
             <div class="mod_close">
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+                <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
             </div>
-            <div class="modal-body pi">
-                <%= render :partial => "conversations/profile_form" %>
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body pi">
+                        <%= render :partial => "conversations/profile_form" %>
+                    </div>
+
+                </div>
             </div>
+
         </div>
     <% end %>
 
     <div class="s_modal">
-        <div id="share-profile" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+        <div id="share-profile" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+
             <div class="mod_close">
-                <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+                <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
             </div>
-            <div class="modal-body pi">
-                <div id="custom-input">
-                    <div class="input-group col-md-12">
-                        <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
+
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body pi">
+                        <div id="custom-input">
+                            <div class="input-group col-md-12">
+                                <input id="url_share" class="pr_in forms" value="<%= request.original_url %>" onclick="this.select()" />
+                            </div>
+                        </div>  
                     </div>
-                </div>  
+
+                </div>
             </div>
+
         </div>
     </div>
          

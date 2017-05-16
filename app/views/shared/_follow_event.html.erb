@@ -10,7 +10,7 @@
 <% else %>
 
     <div class="">
-    	<%= link_to(event_follows_path(event.id), :method => :post, :remote => true, title: 'Follow', alt: 'Follow', class: 'btn btn-large') do %>
+    	<%= link_to(event_follows_path(event.id), :method => :post, :remote => true, title: 'Follow', alt: 'Follow', class: 'btn btn-default btn-large') do %>
 	  		Follow
 		<% end %>
     </div>

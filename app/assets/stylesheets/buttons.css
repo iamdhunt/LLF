@@ -1,5 +1,6 @@
 .btn {
   font-weight: normal;
+  margin: 0;
 }
 .btn-grey {
   color: #898989;
@@ -379,6 +380,11 @@
 }
 .btn-event:active,
 .btn-event.active {
+  background-color: #219e5c \9;
+  opacity: .85;
+}
+.btn-event:active:focus,
+.btn-event.active:focus {
   background-color: #219e5c \9;
   opacity: .85;
 }

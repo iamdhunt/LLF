@@ -123,8 +123,8 @@
 	font-weight: bold;
 	padding-bottom: 4px;
 }
-#message.modal.fade.in {
-	top: 15%;
+#message .modal-dialog {
+	top: 9%;
 }
 #message .modal-body {
 	padding: 30px 50px 40px 50px;

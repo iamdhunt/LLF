@@ -87,6 +87,10 @@
           <% end %>
         </div>
 
+        <span class='sh_av'>
+          <%= link_to image_tag(@event.avatar.url(:large2), class: ''), @event.avatar.url(:large), :data => { :fancybox => '' } %>
+        </span>
+
         <span class="action_btns">
           <% if member_signed_in? %>
             <span id="evt_sh_fav_<%= @event.id %>_<%= @event.member.id %>">
@@ -327,42 +331,66 @@
     </div>
       
     <div class="s_modal">
-      <div id="share" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div id="share" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+
         <div class="mod_close">
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+          <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
-        <div class="modal-body pi">
-          <div id="custom-input">
-                <div class="input-group col-md-12">
-                    <input class="pr_in forms" value="<%= event_url %>" onclick="this.select()" />
-                </div>
-            </div> 
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-body pi">
+              <div id="custom-input">
+                  <div class="input-group col-md-12">
+                      <input class="pr_in forms" value="<%= event_url %>" onclick="this.select()" />
+                  </div>
+              </div> 
+            </div>
+
+          </div>
         </div>
+
       </div>
     </div>
 
     <% if @event.member == current_member %>
-      <div id="upload" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
-        <div class="mod_close">
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
-        </div>
-        <div class="modal-body pi">
+      <div id="upload" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
 
-          <%= render :partial => "shared/media_form" %>
-          
+        <div class="mod_close">
+          <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-body pi">
+              <%= render :partial => "shared/media_form" %>          
+            </div>
+
+          </div>
+        </div>
+
       </div>
     <% end %>
 
     <% if @event.member == current_member %>
-      <div id="update" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+      <div id="update" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="sharemodallabel" aria-hidden="true">
+
         <div class="mod_close">
-            <%= link_to '<i class="fa fa-times"></i>'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
+          <%= link_to '&times;'.html_safe, "javascript:void(0);", :data => {:dismiss => "modal"} %>
         </div>
-        
-        <div class="modal-body pi">
-          <%= render :partial => "shared/update_form" %>
+
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-body pi">
+              <%= render :partial => "shared/update_form" %>
+            </div>
+
+          </div>
         </div>
+
       </div>
     <% end %>
 
