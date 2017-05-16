@@ -18,11 +18,17 @@ $(document).ready(function(){
 
 	$('#comment_length').html(text_max);
 
-	$comment.keyup(function(){	
+	$comment.on('keyup keydown', function(){	
 		var text_length = $comment.val().length;
 		var text_remaining = text_max - text_length;
 
 		$('#comment_length').html(text_remaining);
+
+		if (text_remaining < 0){
+			$('#comment_length').css('color', '#e30b0b');
+		}else{
+			$('#comment_length').css('color', '#898989');
+		};
 
 	});
 
@@ -69,11 +75,17 @@ $(document).ready(function(){
 	    EditCMCount();
 	} 
 
-	$editcm.keyup(function(){	
+	$editcm.on('keyup keydown', function(){	
 		var com_length = $editcm.val().length;
 		var com_remaining = text_max - com_length;
 
 		$('#comment_length').html(com_remaining);
+
+		if (com_remaining < 0){
+			$('#comment_length').css('color', '#e30b0b');
+		}else{
+			$('#comment_length').css('color', '#898989');
+		};
 
 	});
 	

@@ -1,8 +1,8 @@
-<%= simple_form_for(@status, html: { multipart: true, :id => 'status_form' }) do |f| %>
+<%= simple_form_for(@status, :remote => true, html: { multipart: true, :id => 'status_form' }) do |f| %>
 
   <div class="">
       
-        <%= f.input :content, label: false, input_html: { class: 'forms', id: 'edit_update_box', tabindex: '1', rows: '1', maxlength: '280', style: 'width:100%;' } %>
+        <%= f.input :content, label: false, input_html: { class: 'forms', id: 'edit_update_box', tabindex: '1', rows: '1', style: 'width:100%;' } %>
 
         <div class="" id="action_wrap">
 

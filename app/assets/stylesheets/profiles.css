@@ -4,6 +4,9 @@
 	float: right;
 	padding: .06em 0 0 0;
 }
+.count_red {
+	color: #e30b0b;
+}
 #left_profile .change_av {
 	position: absolute;
 	bottom: 0;

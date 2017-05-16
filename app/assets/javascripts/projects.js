@@ -218,11 +218,17 @@ $(document).ready(function() {
 		var cap_remaining = cap_max_blb - cap_length;
 		$('.p_ct_blb').html(cap_remaining);
 
-		$cap_blb.keyup(function(){	
+		$cap_blb.on('keyup keydown', function(){	
 			var cap_length = $cap_blb.val().length;
 			var cap_remaining = cap_max_blb - cap_length;
 
 			$('.p_ct_blb').html(cap_remaining);
+
+			if (cap_remaining < 0){
+				$('.p_ct_blb').css('color', '#e30b0b');
+			}else{
+				$('.p_ct_blb').css('color', '#444');
+			};
 
 		});
 	};

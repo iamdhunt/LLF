@@ -1,6 +1,6 @@
 <% if @medium.errors.any? %>
 	$('#err_wrap').remove();
-	$("#media_form").prepend("<%= escape_javascript(render('media/errors')) %>");
+	$("#media_form").append("<%= escape_javascript(render('media/errors')) %>");
 	$('i', '.custom-file-upload').removeClass("fa-check");
 	$('i', '.custom-file-upload').addClass("fa-arrow-up");
 	$('.cfu_label', '.custom-file-upload').css("background-color", '#f06048');

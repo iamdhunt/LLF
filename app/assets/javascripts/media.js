@@ -127,19 +127,31 @@ $(document).ready(function(){
 
 	$('#cap_count').html(cap_max);
 
-	$cap.keyup(function(){	
+	$cap.on('keyup keydown', function(){	
 		var cap_length = $cap.val().length;
 		var cap_remaining = cap_max - cap_length;
 
 		$('#cap_count').html(cap_remaining);
 
+		if (cap_remaining < 0){
+			$('#cap_count').css('color', '#e30b0b');
+		}else{
+			$('#cap_count').css('color', '#444');
+		};
+
 	});
 
-	$uplcp.keyup(function(){	
+	$uplcp.on('keyup keydown', function(){	
 		var cap_length = $uplcp.val().length;
 		var cap_remaining = cap_max - cap_length;
 
 		$('#cap_count').html(cap_remaining);
+
+		if (cap_remaining < 0){
+			$('#cap_count').css('color', '#e30b0b');
+		}else{
+			$('#cap_count').css('color', '#444');
+		};
 
 	});
 
@@ -155,11 +167,17 @@ $(document).ready(function(){
 	    EditMCount();
 	} 
 
-	$editm.keyup(function(){	
+	$editm.on('keyup keydown', function(){	
 		var cap_length = $editm.val().length;
 		var cap_remaining = cap_max - cap_length;
 
 		$('#cap_count').html(cap_remaining);
+
+		if (cap_remaining < 0){
+			$('#cap_count').css('color', '#e30b0b');
+		}else{
+			$('#cap_count').css('color', '#444');
+		};
 
 	});
 

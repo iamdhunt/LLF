@@ -79,8 +79,7 @@ class StatusesController < ApplicationController
         params[:status].delete(:user_id) 
     end 
     respond_to do |format|
-      if @status.update_attributes(params[:status])&&
-         @document && @document.update_attributes(params[:status][:document_attributes])
+      if @status.update_attributes(params[:status])
         format.html { redirect_to status_path(@status) }
         format.json { head :no_content }
         format.js   { render :js => "window.location.href = ('#{status_path(@status)}');"}

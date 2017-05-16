@@ -55,6 +55,9 @@ class Medium < ActiveRecord::Base
                         message: 'must be from YouTube, Vimeo, or Soundcloud.'
                       }
 
+    validates :caption, allow_blank: true,
+                      length: { maximum: 280, message: 'must not be longer than 280 characters.' }
+
     validate :each_marker
 
     validate :link_or_attachment

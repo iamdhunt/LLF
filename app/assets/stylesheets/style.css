@@ -640,7 +640,7 @@ textarea {
     bottom: 0;
 	width:100%;
 	text-align:left;
-	background-color: #8D18C7;
+	background-color: #fff;
 	background-image: url('/assets/Footer LG.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -1744,6 +1744,16 @@ hr.contact {
 	top: 25%;
 	padding: 0 20px;
 }
+#banner .l_out_wrap .btn-info:hover {
+	background-color: #3ea5c3;
+	border-color: #3ea5c3;
+    opacity: 1;
+}
+#banner .l_out_wrap .btn-success:hover {
+	background-color: #4bae4b;
+	border-color: #4bae4b;
+    opacity: 1;
+}
 #banner .b_title {
 	font-weight: bold;
     font-size: 55px;
@@ -1991,7 +2001,6 @@ label.active {
 }
 #error_list {
 	padding: 4px 20px 8px 40px;
-	font-style: oblique;
 	background: #f2dede;
 }
 #error_list ul li {

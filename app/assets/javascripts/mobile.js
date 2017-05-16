@@ -23,6 +23,7 @@ $(document).ready(function(){
        $( "#edit_wrap #when .input-group-addon" ).css( "padding", "6px 0 6px 0" );
        $( "#banner" ).css( "background-attachment", "inherit" );
        $( ".nav_search #custom-search-input" ).css( "margin-left", "300px" );
+       $( ".comment_del" ).css( "display", "inline" );
     }
 
 });

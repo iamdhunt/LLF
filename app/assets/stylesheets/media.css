@@ -360,6 +360,15 @@
   -moz-border-radius: none;
   border-radius: none;
 }
+#media_index .alert {
+  padding: 8px 20px;
+  font-weight: bold;
+  background-color: none;
+  border: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
 #gl_media .alert {
   padding: 8px 20px;
   font-weight: bold;
@@ -379,6 +388,15 @@
   border-radius: none;
 }
 #update_box_wrap .alert {
+  padding: 8px 20px;
+  font-weight: bold;
+  background-color: none;
+  border: none;
+  -webkit-border-radius: none;
+  -moz-border-radius: none;
+  border-radius: none;
+}
+#edit_show .alert {
   padding: 8px 20px;
   font-weight: bold;
   background-color: none;

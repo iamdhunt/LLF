@@ -20,13 +20,19 @@ $(document).ready(function(){
 
 	$('#stat_count').html(text_max);
 
-	$update.keyup(function(){	
+	$update.on('keyup keydown', function(){	
 		var text_length = $update.val().length;
 		var text_remaining = text_max - text_length;
 
 		$('#stat_count').html(text_remaining);
 
-	});	
+		if (text_remaining < 0){
+			$('#stat_count').css('color', '#e30b0b');
+		}else{
+			$('#stat_count').css('color', '#898989');
+		};
+
+	});
 	
 	$b.click(function(){
 		$a.toggle("slow", function(){
@@ -53,11 +59,17 @@ $(document).ready(function(){
 	    EditCount();
 	} 
 
-	$edit.keyup(function(){	
+	$edit.on('keyup keydown', function(){	
 		var text_length = $edit.val().length;
 		var text_remaining = text_max - text_length;
 
 		$('#edit_count').html(text_remaining);
+
+		if (text_remaining < 0){
+			$('#edit_count').css('color', '#e30b0b');
+		}else{
+			$('#edit_count').css('color', '#898989');
+		};
 
 	});		
 

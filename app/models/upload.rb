@@ -37,6 +37,9 @@ class Upload < ActiveRecord::Base
                         message: 'must be from YouTube, Vimeo, or Soundcloud.'
                       }
 
+    validates :caption, allow_blank: true,
+                      length: { maximum: 280, message: 'must not be longer than 280 characters.' }
+
     validate :link_or_attachment                            
 
   	auto_strip_attributes :caption
