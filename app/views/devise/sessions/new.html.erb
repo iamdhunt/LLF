@@ -26,7 +26,7 @@
 
 					<% if devise_mapping.rememberable? -%>
 					  	<label for="member_remember_me">
-					    	<div><%= f.input :remember_me, as: :boolean, label: 'Keep me logged in', input_html:{ :checked => 'checked', value: '1' } %></div>
+					    	<div><%= f.input :remember_me, as: :boolean, label: 'Keep me logged in', :label_html => {:class => "act_img_lb"}, input_html:{ :checked => 'checked', value: '1' }  %></div>
 						</label>
 				  	<% end -%>
 
