@@ -97,7 +97,7 @@
           <div class="img_wrap">
             <% @listing.assets.first(8).each do | asset | %>
               <span class="imgs">
-                  <%= link_to image_tag(asset.asset(:large2)), asset.asset.url, :data => { :fancybox => 'listing-gallery' } %>
+                  <%= link_to image_tag(asset.asset(:large2)), asset.asset.url(:fancy), :data => { :fancybox => 'listing-gallery' } %>
               </span>
             <% end %>
           </div>
