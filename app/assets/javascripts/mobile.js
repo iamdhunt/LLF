@@ -24,7 +24,6 @@ $(document).ready(function(){
        $( "#banner" ).css( "background-attachment", "inherit" );
        $( ".nav_search #custom-search-input" ).css( "margin-left", "300px" );
        $( ".comment_del" ).css( "display", "inline" );
-       $( ".pr_wrap .u_del" ).css( "display", "inline" );
     }
 
 });

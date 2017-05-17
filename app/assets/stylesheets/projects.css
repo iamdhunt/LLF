@@ -787,11 +787,9 @@
 	font-size: 1.2em;
 }
 .pr_wrap .u_del {
-	color: #898989;
-	font-size: .8em;
+	color: #444;
+	font-size: .75em;
 	float: right;
-	display: none;
-	padding-top: 7px;
 }
 .pr_wrap .update_wrap:hover .u_del {
 	display: inline;
@@ -800,10 +798,6 @@
 	width: 18px;
 	height: 18px;
 	margin: 2px 5px 0 5px;
-}
-.pr_wrap .u_del a {
-	font-weight: normal;
-	color: #898989;
 }
 .pr_wrap #u_bottom {
 	font-size: 1.05em;
@@ -1051,11 +1045,10 @@
 	margin-top: 20px;
 }
 #edit_show .fr-wrapper {
-	max-height: none !important;
-	border-left: 1px solid #e5e5e5;
-	border-right: 1px solid #e5e5e5;
-	border-bottom: 1px solid #e5e5e5;
 	margin-bottom: 20px;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0px 0px 1px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0px 0px 1px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0px 0px 1px rgba(0, 0, 0, 0.16);
 }
 #edit_show #update_form .form-actions {
 	margin-top: 0;

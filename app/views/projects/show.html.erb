@@ -67,7 +67,7 @@
     <div id="e_adr">
 
       <span class='sh_av'>
-          <%= link_to image_tag(@project.avatar.url(:large2), class: ''), @project.avatar.url(:large), :data => { :fancybox => '' } %>
+          <%= link_to image_tag(@project.avatar.url(:large2), class: ''), @project.avatar.url(:large), target: '_self', :data => { :fancybox => '' } %>
       </span>
 
       <span class="action_btns">

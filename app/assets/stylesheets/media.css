@@ -551,22 +551,24 @@
 }
 .emb_cta {
     position: absolute;
-    top: 28%;
-    left: 34%;
-    width: 60px;
-    height: 60px;
+    width: 75px;
+    height: 75px;
     opacity: .85;
     background-image: url(/assets/play.png);
-    background-size: 60px;
+    background-size: 75px;
     background-repeat: no-repeat;
     pointer-events: none;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 .act_cta.emb_cta_wrap .emb_cta {
-	width: 80px;
-	height: 80px;
-	background-size: 80px;
-	top: 35%;
-    left: 38%;
+	width: 100px;
+	height: 100px;
+	background-size: 100px;
 }
 .emb_cta:hover {
 	cursor: pointer;

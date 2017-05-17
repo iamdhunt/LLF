@@ -35,3 +35,13 @@
 .update_wrap li {
 	padding: .25em 0;
 }
+.update_wrap .dropdown-menu li {
+	padding: 0;
+	list-style: none;
+}
+.update_wrap ul.dropdown-menu {
+	padding-left: 0;
+}
+.update_wrap .md_drpdw  .btn-group .dropdown-menu {
+	left: -141px;
+}

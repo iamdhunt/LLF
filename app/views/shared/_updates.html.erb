@@ -3,13 +3,14 @@
 		<div class="u_tit">
 			<%= update.title %>
 		</div>
-		<% if update.member == current_member %>
-			<span class="u_del">
-				<span class="u_edt">
-					<%= link_to "Edit", polymorphic_url([@updateable, update], action: :edit), class: '' %>
-				</span> &#215;
-				<%= link_to "Delete", [@updateable, update], remote: true, method: :delete, data: { confirm: 'Are you sure?' } %>
-			</span>
+		<% if member_signed_in? %>
+			<% if update.member == current_member %>
+				<span class="u_del">
+			        <div class="md_drpdw">
+			          <%= render :partial => "updates/dropdown_toggle", :locals => {:update => update} %>
+			        </div>
+				</span>
+			<% end %>
 		<% end %>
 		<div style="clear:both;"></div>
 	</div>
