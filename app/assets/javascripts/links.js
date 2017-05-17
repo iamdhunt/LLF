@@ -9,7 +9,7 @@ $(document).ready(function() {
             target: "_blank",
          });
       }
-    })
+    });
 
     $(window).scroll(function(){
         if ($(this).scrollTop() > 400) {
