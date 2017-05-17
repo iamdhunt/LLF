@@ -23,7 +23,7 @@
     </div>
 
     <% if activity.targetable.caption? %>
-      <%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, :data => { :fancybox => '',:caption => Rinku.auto_link(activity.targetable.caption) } %>
+      <%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, :data => { :fancybox => '',:caption => Rinku.auto_link(media_with_mentions(activity.targetable)), :tags => %w(a) } %>
     <% else %>
       <%= link_to image_tag(activity.targetable.asset.url, class: 'act_md_i'), activity.targetable.asset.url, :data => { :fancybox => '' } %>
     <% end %>

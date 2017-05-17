@@ -37,9 +37,9 @@
           <input class="pr_in forms" value="<%= medium_url(medium) %>" onclick="this.select()" />
         </div>
         <% if medium.caption? %>
-          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, :data => { :fancybox => 'gallery',:caption => sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) } %>
+          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url(:fancy), :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a) } %>
         <% else %>
-          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url, :data => { :fancybox => 'gallery' } %>
+          <%= link_to image_tag(medium.asset.url, class: ''), medium.asset.url(:fancy), :data => { :fancybox => 'gallery' } %>
         <% end %>
       </div>
     <% end %>

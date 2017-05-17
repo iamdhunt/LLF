@@ -32,9 +32,9 @@
 	<span class="emb_cta"></span>
 	<% if medium.caption? %>
 		<% if medium.cover? %>
-			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => 'gallery', :src => "#hidden-content", :caption => sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) }, :class => 'emb_cv' %>
+			<%= link_to image_tag(medium.cover.url(:large)), "javascript:;", :data => { :fancybox => 'gallery', :src => "#hidden-content", :caption => Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a) }, :class => 'emb_cv' %>
 		<% else %>
-			<%= link_to image_tag('/assets/Default-Soundcloud.jpg'), "javascript:;", :data => { :fancybox => 'gallery', :src => "#hidden-content", :caption => sanitize(Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a)) }, :class => 'emb_cv' %>
+			<%= link_to image_tag('/assets/Default-Soundcloud.jpg'), "javascript:;", :data => { :fancybox => 'gallery', :src => "#hidden-content", :caption => Rinku.auto_link(media_with_mentions(medium)), :tags => %w(a) }, :class => 'emb_cv' %>
 		<% end %>
 	<% else %>
 		<% if medium.cover? %>
