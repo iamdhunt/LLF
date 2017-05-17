@@ -22,33 +22,33 @@
 .convos_wrap .nav-tabs > .active > a {
   color: #444444;
   border: none;
-  border-bottom: 4px solid #9933cc; 
+  border-bottom: 4px solid #000; 
   cursor: pointer;
   -moz-border-bottom-colors: #93C;
 }
 .convos_wrap .nav-tabs > .active > a:hover {
   color: #444444;
   border: none;
-  border-bottom: 4px solid #9933cc; 
+  border-bottom: 4px solid #000; 
   cursor: pointer;
   -moz-border-bottom-colors: #93C;
 }
 .convos_wrap .nav-tabs > .active > a:focus {
   color: #444444;
   border: none;
-  border-bottom: 4px solid #9933cc; 
+  border-bottom: 4px solid #000; 
   cursor: pointer;
   -moz-border-bottom-colors: #93C;
 }
 .convos_wrap .nav-tabs > li > a:hover {
 	border: none;
-	border-bottom: 4px solid #9933cc;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
 .convos_wrap .nav-tabs > li > a:focus {
 	border: none;
-	border-bottom: 4px solid #9933cc;
+	border-bottom: 4px solid #000;
 	color: #444444;
 	background-color: transparent;
 }
@@ -283,7 +283,7 @@
 }
 .not_content .u_n a:hover {
 	text-decoration: none;
-	color: #942fc6;
+	color: #3070d1;
 }
 .not_content .sub a {
 	font-weight: bold;

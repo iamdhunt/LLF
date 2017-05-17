@@ -33,9 +33,9 @@
 
       <div class="act_media_content">
         <% if upload.caption? %>
-          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url, :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(upload.caption) } %>
+          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url(:fancy), :data => { :fancybox => 'gallery',:caption => Rinku.auto_link(media_with_mentions(upload)), :tags => %w(a) } %>
         <% else %>
-          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url, :data => { :fancybox => 'gallery' } %>
+          <%= link_to image_tag(upload.asset.url, class: ''), upload.asset.url(:fancy), :data => { :fancybox => 'gallery' } %>
         <% end %>
       </div>
       
@@ -44,11 +44,9 @@
     
 
     <% if upload.caption? %>
-      <% unless upload.caption.length < 40 %>
-        <div class="media_act_cap">
-          <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
-        </div> 
-      <% end %>
+      <div class="media_act_cap">
+        <%= sanitize(Rinku.auto_link(uploads_with_mentions(upload)), :tags => %w(a)) %>
+      </div> 
     <% end %>
 
   </div>

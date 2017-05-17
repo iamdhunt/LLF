@@ -66,10 +66,6 @@ a img:hover {
 	opacity: 0.75;
 }
 
-.mem_mnts {
-	color: #9327c9;
-}
-
 *, *:before, *:after {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
