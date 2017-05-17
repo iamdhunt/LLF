@@ -3,7 +3,7 @@ $(document).ready(function() {
     var $spinner = $('#spinner.spinner');
     var $refresh = $('i', '.refresh');
 
-    $("a[href^=http]").not('a[href*=s3.amazonaws]').each(function(){
+    $("a[href^=http]").not('a[href*="s3.amazonaws"]').each(function(){
       if(this.href.indexOf(location.hostname) == -1) {
          $(this).attr({
             target: "_blank",
