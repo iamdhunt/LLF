@@ -1,6 +1,6 @@
 <% if @listing.feature.content_type =~ /^image\/(png|gif|jpeg)/ %>
   <div class="feature">
-    <%= link_to image_tag(@listing.feature.url(:large2)), @listing.feature.url, :data => { :fancybox => 'listing-gallery' } %>
+    <%= link_to image_tag(@listing.feature.url(:large2)), @listing.feature.url(:fancy), :data => { :fancybox => 'listing-gallery' } %>
   </div>
 <% end %>
 
