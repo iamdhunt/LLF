@@ -3,15 +3,13 @@ $(document).ready(function() {
     var $spinner = $('#spinner.spinner');
     var $refresh = $('i', '.refresh');
 
-    if ( $("a[href^=http]").attr('target') != '_self' ) {
-      $("a[href^=http]").each(function(){
-        if(this.href.indexOf(location.hostname) == -1) {
-           $(this).attr({
-              target: "_blank",
-           });
-        }
-      })
-    }
+    $("a[href^=http]").not('a[href*=s3.amazonaws]').each(function(){
+      if(this.href.indexOf(location.hostname) == -1) {
+         $(this).attr({
+            target: "_blank",
+         });
+      }
+    })
 
     $(window).scroll(function(){
         if ($(this).scrollTop() > 400) {
