@@ -11,7 +11,7 @@ class SearchController < ApplicationController
     @facet = params[:city]
     @tag_facet = params[:pursuit]
     @query = params[:discover]
-    @results = Member.where(id: @search.results.map(&:id)).page(params[:page]).per_page(72)
+    @results = Member.where(id: @search.results.map(&:id)).page(params[:page]).per_page(30)
     @members = Member.order_by_rand.limit(100).all
   end
 

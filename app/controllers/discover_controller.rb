@@ -4,7 +4,7 @@ class DiscoverController < ApplicationController
   end 
   
   def discover
-    @members = Member.order_by_rand.limit(100).all
+    @members = Member.order_by_rand.limit(40).all
   	@search = Member.solr_search do
       fulltext params[:discover]
   		facet(:city, :limit => 25, :sort => :count)
@@ -15,7 +15,7 @@ class DiscoverController < ApplicationController
     @facet = params[:city]
     @tag_facet = params[:pursuit]
     @query = params[:discover]
-    @results = Member.where(id: @search.results.map(&:id)).page(params[:page]).per_page(72)
+    @results = Member.where(id: @search.results.map(&:id)).page(params[:page]).per_page(30)
     
   end
 

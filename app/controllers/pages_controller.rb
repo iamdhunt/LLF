@@ -20,6 +20,6 @@ class PagesController < ApplicationController
     @activities = Activity.joins(:votes)
       .group("activities.id").having("count(votes.id) >= ?", 1)
       .where(:created_at => 6.months.ago..Time.zone.now.to_date)
-      .order("created_at desc").limit(100).all
+      .order("created_at desc").limit(30).all
   end
 end

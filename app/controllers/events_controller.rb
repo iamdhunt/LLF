@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     @current = Event.order("start_date asc").where("start_date >= ? OR end_date >= ?", Date.today, Date.today).limit(20).all
     @past = Event.order("start_date desc").where("start_date < ? AND end_date < ?", Date.today, Date.today).limit(20).all
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(20)
     @search = Event.solr_search do
       fulltext params[:events]
       any_of do
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     @facet = params[:month]
     @tag_facet = params[:tag]
     @location_facet = params[:locations]
-    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def current
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.order('start_date asc').where("start_date >= ? OR end_date >= ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(20)
     @search = Event.solr_search do
       fulltext params[:events]
       any_of do
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
     @facet = params[:month]
     @tag_facet = params[:tag]
     @location_facet = params[:locations]
-    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -66,7 +66,7 @@ class EventsController < ApplicationController
 
   def past
     @markers = Event.marker_counts.order('count DESC').limit(12)
-    @events = Event.order('start_date desc').where("start_date < ? AND end_date < ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(60)
+    @events = Event.order('start_date desc').where("start_date < ? AND end_date < ?", Time.zone.now.to_date, Time.zone.now.to_date).page(params[:page]).per_page(20)
     @search = Event.solr_search do
       fulltext params[:events]
       any_of do
@@ -84,7 +84,7 @@ class EventsController < ApplicationController
     @facet = params[:month]
     @tag_facet = params[:tag]
     @location_facet = params[:locations]
-    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
+    @results = Event.where(id: @search.results.map(&:id)).page(params[:page]).per_page(20)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -101,12 +101,12 @@ class EventsController < ApplicationController
       @comments = @commentable.comments.order('created_at desc').page(params[:page]).per_page(15)
       @comment = Comment.new
       @uploadable = @event
-      @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(40)
+      @uploads = @uploadable.uploads.order('created_at desc').page(params[:page]).per_page(20)
       @upload = Upload.new
       @updateable = @event
       @updates = @updateable.updates.order('created_at desc').page(params[:page]).per_page(5)
       @update = Update.new
-      @followers = @event.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (36))
+      @followers = @event.followers(:order => 'created_at DESC').paginate(page: params[:page], per_page: (15))
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @event }
@@ -209,8 +209,8 @@ class EventsController < ApplicationController
     @facet = params[:month]
     @tag_facet = params[:tag]
     @location_facet = params[:locations]
-    @results = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).where(id: @search.results.map(&:id)).page(params[:page]).per_page(60)
-    @events = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(60)
+    @results = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).where(id: @search.results.map(&:id)).page(params[:page]).per_page(20)
+    @events = Event.joins(:votes).group("events.id").having("count(votes.id) >= ?", 1).order("created_at desc").page(params[:page]).per_page(20)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   belongs_to :targetable, polymorphic: true
   acts_as_votable
 
-  self.per_page = 40
+  self.per_page = 30
 
   def self.for_member(member, options={})
   	options[:page] ||= 1
