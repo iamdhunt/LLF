@@ -5,7 +5,7 @@ class StatusesController < ApplicationController
   before_filter :find_status, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render file: 'public/404', status: 404, formats: [:html]
+    render file: 'public/404', status: 404, :layout => false
   end
 
 
@@ -30,7 +30,7 @@ class StatusesController < ApplicationController
         format.json { redirect_to profile_path(current_member) }
       end
     else 
-      render file: 'public/404', status: 404, formats: [:html]
+      render file: 'public/404', status: 404, :layout => false
     end
   end
 

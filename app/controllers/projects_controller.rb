@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
   before_filter :find_member
   before_filter :find_project, only: [:edit, :update, :destroy]
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, :layout => false
+  end
+
   # GET /projects
   # GET /projects.json
   def index

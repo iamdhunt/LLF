@@ -4,6 +4,10 @@ class ListingsController < ApplicationController
   before_filter :find_member
   before_filter :find_listing, only: [:edit, :update, :destroy]
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, :layout => false
+  end
+
   # GET /listings
   # GET /listings.json
   def index

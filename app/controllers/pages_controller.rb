@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound do
-    render file: 'public/404', status: 404, formats: [:html]
+    render file: 'public/404', status: 404, formats: [:html, :layout => false]
   end
 
   def faqs
@@ -21,5 +21,8 @@ class PagesController < ApplicationController
       .group("activities.id").having("count(votes.id) >= ?", 1)
       .where(:created_at => 6.months.ago..Time.zone.now.to_date)
       .order("created_at desc").limit(30).all
+  end
+  
+  def error
   end
 end

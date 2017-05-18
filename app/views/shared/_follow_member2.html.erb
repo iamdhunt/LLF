@@ -4,6 +4,6 @@
 
 <% else %>
 
-    <%= link_to "<i class='fa fa-plus'></i>Follow".html_safe, member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn btn_gl_fol" %>
+    <%= link_to "<i class='fa fa-plus'></i>Follow".html_safe, member_follows_path(member.to_param), :method => :post, :remote => true, title: "Follow", alt: "Follow", :class => "btn btn-default btn_gl_fol" %>
 
 <% end %>

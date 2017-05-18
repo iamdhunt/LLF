@@ -5,7 +5,7 @@ class MediaController < ApplicationController
   before_filter :find_media, only: [:edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound do
-    render file: 'public/404', status: 404, formats: [:html]
+    render file: 'public/404', status: 404, :layout => false
   end
 
   # GET /media

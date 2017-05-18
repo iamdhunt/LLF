@@ -2,6 +2,10 @@ class ConversationsController < ApplicationController
     before_filter :authenticate_member!
     helper_method :mailbox, :conversation
 
+    rescue_from ActiveRecord::RecordNotFound do
+    	render file: 'public/404', status: 404, :layout => false
+  	end
+
     def index
     	@messages_count = current_member.mailbox.inbox({:read => false}).count
    	 	@conversations = current_member.mailbox.inbox.order('updated_at desc').page(params[:page]).per_page(15)

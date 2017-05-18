@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
  layout "profile"
 
  rescue_from ActiveRecord::RecordNotFound do
-    render file: 'public/404', status: 404, formats: [:html]
+    render file: 'public/404', status: 404, formats: [:html, :layout => false]
   end
 
   def show
@@ -25,8 +25,8 @@ class ProfilesController < ApplicationController
         format.html
         format.js
       end
-    else 
-  		render file: 'public/404', status: 404, formats: [:html]
+    else
+  		render file: 'public/404', status: 404, :layout => false
   	end
   end
 

@@ -4,6 +4,10 @@ class EventsController < ApplicationController
   before_filter :find_member
   before_filter :find_event, only: [:edit, :update, :destroy]
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render file: 'public/404', status: 404, :layout => false
+  end
+
   # GET /events
   # GET /events.json
   def index
