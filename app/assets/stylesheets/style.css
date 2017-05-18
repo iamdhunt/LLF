@@ -2104,9 +2104,6 @@ label.active {
 /* media queries */
 
 @media only screen and (max-width: 979px) {
-    #custom-search-input input {
-	    width: 84%;
-	}
 	.nav_search.l_o #custom-search-input {
 		margin-left: 300px;
 	}

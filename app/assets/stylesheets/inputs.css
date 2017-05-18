@@ -11,10 +11,13 @@
 #custom-search-input input{
     border: 0;
     box-shadow: none;
-    width: 94%;
+    width: 100%;
     font-size: 1.2em;
     margin: 0;
-    padding: 4px 6px;
+    padding: 4px 38px 4px 6px;
+}
+#custom-search-input .input-group {
+    width: 100%;
 }
 #custom-search-input input:focus {
     outline: none;

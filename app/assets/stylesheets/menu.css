@@ -290,7 +290,9 @@
 }
 #custom-search-input .input-group-btn {
 	display: inline;
-	float: right;
+	position: absolute;
+    right: 0;
+    top: 0;
 }
 .nav_search.l_o #custom-search-input {
 	margin-left: 305px;
