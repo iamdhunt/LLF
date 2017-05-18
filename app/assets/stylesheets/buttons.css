@@ -1,6 +1,7 @@
 .btn {
   font-weight: normal;
   margin: 0;
+  -webkit-appearance:none;
 }
 .btn-grey {
   color: #898989;
