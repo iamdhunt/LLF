@@ -127,11 +127,9 @@
 }
 .p_ev_av {
 	width: 230px;
-	height: 230px;
 }
 .p_ev_av2 {
-	width: 300px;
-	height: 300px;
+	width: 100%;
 }
 .p_av {
 	border-radius: 100%;

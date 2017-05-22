@@ -27,6 +27,7 @@ $(document).ready(function(){
             $( ".conv_header .delete" ).css( "display", "inline" );
             $( ".conv_del" ).css( "display", "inline" );
             $( ".modal-dialog" ).css( "margin-top", "100px" );
+            $( ".scrollup" ).css( "display", "none !important" );
 
             var cPosition = false;
 

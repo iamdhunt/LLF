@@ -233,4 +233,8 @@ $(document).ready(function(){
 	  }
 	});
 
+	$('a.sm2_button').click(function(e){
+	    e.preventDefault();
+	});
+
 });

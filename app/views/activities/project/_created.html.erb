@@ -34,42 +34,44 @@
 	    <%= avatar_project_link activity.targetable, class: "p_ev_av2", title: activity.targetable.title, alt: activity.targetable.title %>
 	</div>
 
-	<div class="act_p_title">
-		<%= link_to activity.targetable.name, project_path(activity.targetable) %>
-	</div>
+	<div class="act_ep_body">
+		<div class="act_p_title">
+			<%= link_to activity.targetable.name, project_path(activity.targetable) %>
+		</div>
 
-	<% if member_signed_in? %>
-		<% if activity.targetable.member != current_member %>
-			<div class="ep_act_fl">
-				<div class='p_f_but'>
-					<%= render :partial => "shared/follow_project", :locals => {:project => activity.targetable} %>
+		<% if member_signed_in? %>
+			<% if activity.targetable.member != current_member %>
+				<div class="ep_act_fl">
+					<div class='p_f_but'>
+						<%= render :partial => "shared/follow_project", :locals => {:project => activity.targetable} %>
+					</div>
 				</div>
+			<% end %>
+		<% else %>
+			<div class="ep_act_fl">
+				<%= render :partial => "activities/fol_logged_out.html" %>
 			</div>
 		<% end %>
-	<% else %>
-		<div class="ep_act_fl">
-			<%= render :partial => "activities/fol_logged_out.html" %>
+
+		<div class="act_ep_content">
+			<%= activity.targetable.blurb %>
 		</div>
-	<% end %>
 
-	<div class="act_ep_content">
-		<%= activity.targetable.blurb %>
-	</div>
-
-	<div class="act_ts">
-		<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "projects", :action => "index", :projects => m}, title: m, alt: m }.join(' ').html_safe %>
-	</div>
-
-	<% if activity.targetable.city? %>
-		<div class='act_loc'>
-			<%= link_to(:controller => "projects", :action => "index", :projects => activity.targetable.city) do %>
-	            <i class="fa fa-map-marker"></i><%= activity.targetable.city.titleize %>
-	        <% end %>
+		<div class="act_ts">
+			<%= activity.targetable.marker_list.map { |m| link_to truncate_tag('+ ' + m), {:controller => "projects", :action => "index", :projects => m}, title: m, alt: m }.join(' ').html_safe %>
 		</div>
-	<% end %>
 
-	<div class="act_tm1">
-		<%= activity.targetable.created_at.strftime("%b %d %Y") %>
+		<% if activity.targetable.city? %>
+			<div class='act_loc'>
+				<%= link_to(:controller => "projects", :action => "index", :projects => activity.targetable.city) do %>
+		            <i class="fa fa-map-marker"></i><%= activity.targetable.city.titleize %>
+		        <% end %>
+			</div>
+		<% end %>
+
+		<div class="act_tm1">
+			<%= activity.targetable.created_at.strftime("%b %d %Y") %>
+		</div>
 	</div>
  
 	<div id="act_btn_wrap">
