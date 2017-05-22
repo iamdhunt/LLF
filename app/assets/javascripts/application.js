@@ -33,3 +33,7 @@
 //= require moment.min.js
 //= require bootstrap-material-datetimepicker.js
 //= require_tree .
+
+	$('a.sm2_button').click(function(e){
+	    e.preventDefault();
+	});
