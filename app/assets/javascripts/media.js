@@ -56,7 +56,8 @@ $(document).ready(function(){
 	        $newElems.animate({ opacity: 1 });
 	        $container.isotope( 'appended', $newElems, true );
 	        soundManager.stopAll();
-	        soundManager.reboot(); 
+	        soundManager.reboot();
+	        basicMP3Player.init();
 	      });
 	    }
 	  );
@@ -114,6 +115,7 @@ $(document).ready(function(){
 	        $cfav.isotope( 'appended', $newElems, true );
 	        soundManager.stopAll();
 	        soundManager.reboot(); 
+	        basicMP3Player.init();
 	      });
 	    }
 	  );
