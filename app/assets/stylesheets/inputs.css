@@ -78,6 +78,7 @@
     -webkit-box-shadow: inset 1px 1px 4px #e4e4e4;
     -moz-box-shadow: inset 1px 1px 4px #e4e4e4;
     box-shadow: inset 1px 1px 4px #e4e4e4;
+    font-size: 1.05em;
 }
 #custom-input input {
     border: 0;

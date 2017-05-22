@@ -52,6 +52,27 @@ $(document).ready(function(){
                   window.scrollTo(0, cPosition);
 
             });  
+      } else {
+            $(window).scroll(function(){
+                  if ($(this).scrollTop() > 400) {
+                        $('.scrollup').fadeIn();
+                  } else {
+                        $('.scrollup').fadeOut();
+                  }
+            });
+
+            $('.scrollup').click(function(){
+                  $("html, body").animate({ scrollTop: 0 }, 600);
+                  return false;
+            });
+
+            $("#b_arrow").click(function() {
+                  var offset = 70;
+
+                  $('html, body').animate({
+                        scrollTop: $(".scroll2").offset().top
+                  }, 1000);
+            });
       }
 
 });

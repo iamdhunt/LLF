@@ -16,7 +16,6 @@
 //= require js.cookie
 //= require jstz
 //= require swf_fu
-//= require jquery.autosize.js
 //= require soundmanager2-nodebug
 //= require jquery.remotipart
 //= require private_pub

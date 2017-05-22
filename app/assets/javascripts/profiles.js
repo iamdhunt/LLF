@@ -10,7 +10,7 @@ $(document).ready(function(){
 	var $edit = $('#edit_update_box');
 
 	$update.one('focus', function(){
-		$(this).autosize();
+		autosize($(this));
 		$buttons.css({ 
 			"display": "block", 
 			"opacity": "0" 
@@ -45,7 +45,7 @@ $(document).ready(function(){
   		return false;
 	});
 
-	$edit.autosize();
+	autosize($edit);
 
 	function EditCount(){	
 		var edit_length = $edit.val().length;

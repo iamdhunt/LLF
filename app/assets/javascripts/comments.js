@@ -13,8 +13,8 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$comment.autosize();
-	$editcm.autosize();
+	autosize($comment);
+	autosize($editcm);
 
 	$('#comment_length').html(text_max);
 

@@ -7,9 +7,9 @@ $(document).ready(function(){
 	var dl_src = $('.dl').attr('src')
 	var $editm = $('#edit_cap_box');
 
-	$cap.autosize();
-	$uplcp.autosize();
-	$editm.autosize();
+	autosize($cap);
+	autosize($uplcp);
+	autosize($editm);
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({

@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var $mkcon = $('#llf_lstgs')
 	var $mkcon2 = $('#pop_lstgs')
    
-	$ai.autosize();
+	autosize($ai);
 
 	$container.imagesLoaded(function(){
 	  $container.isotope({
