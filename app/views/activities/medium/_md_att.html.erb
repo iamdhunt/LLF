@@ -10,7 +10,7 @@
           </div>
 
           <div class="med_play_btn">
-            <%= link_to '<i class="fa fa-play-circle-o"></i>'.html_safe, activity.targetable.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' %>
+            <%= link_to '<i class="fa fa-play-circle-o"></i>'.html_safe, activity.targetable.asset.url, :onclick => 'event.preventDefault();', class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' %>
           </div>
         </div>
   </div>
