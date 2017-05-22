@@ -150,6 +150,7 @@ function BasicMP3Player() {
 
   this.handleClick = function(e) {
     // a sound link was clicked
+    e.preventDefault();
     if (typeof e.button !== 'undefined' && e.button>1) {
       // ignore right-click
       return true;
