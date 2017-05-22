@@ -50,8 +50,7 @@ $(document).ready(function() {
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
 	        $container.isotope( 'appended', $newElems, true );
-	        soundManager.stopAll();
-	        soundManager.reboot();
+	        basicMP3Player.init();
 	      });
 	    }
 	  );

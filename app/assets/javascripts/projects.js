@@ -169,8 +169,7 @@ $(document).ready(function() {
 	      $newElems.imagesLoaded(function(){
 	        $newElems.animate({ opacity: 1 });
 	        $mcon.isotope( 'appended', $newElems, true );
-	        soundManager.stopAll();
-	        soundManager.reboot();
+	        basicMP3Player.init();
 	      });
 	    }
 	  );
