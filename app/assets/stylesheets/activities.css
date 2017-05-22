@@ -21,7 +21,6 @@
 }
 .media_act_cap {
 	font-size: .85em;
-	font-style: oblique;
 	color: #898989;
 	padding: 3px 0;
 	text-align: center;
@@ -302,10 +301,10 @@
 	padding: 8px 0 0 0;
 }
 .act_p_av img {
-	border: 1px solid #e6e6e6;
+	border: 1px solid #d8d8d8;
 }
 .act_ep_body {
-	border: 1px solid #e6e6e6;
+	border: 1px solid #d8d8d8;
     margin-bottom: 8px;
     padding: 10px 0;
     margin-top: -3px;
@@ -425,7 +424,7 @@
 	padding: 8px 0 0 0;
 }
 .act_e_av img {
-	border: 1px solid #e6e6e6;
+	border: 1px solid #d8d8d8;
 }
 .act_market_top {
 	border-bottom: 5px solid #1b85a6;

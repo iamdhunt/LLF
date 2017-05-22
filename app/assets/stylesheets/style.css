@@ -429,6 +429,7 @@ body.modal-open {
 .login_form .forms {
 	height: 40px;
 	width: 100%;
+	font-size: 1.2em;
 }
 .login_form .remember label {
 	vertical-align: baseline;
@@ -539,6 +540,7 @@ body.modal-open {
 .reg_forms {
 	width: 100%;
 	height: 40px;
+	font-size: 1.2em;
 }
 .l_reg {
 	margin: 5px 26px 5px 20px;
@@ -1639,7 +1641,8 @@ hr.contact {
 	height: 35px;
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */
 	border-radius: 100%; /* Opera 10.5, IE 9 */
-	/*-moz-border-radius: 30px; Disabled for FF1+ */
+	-moz-border-radius: 100%;
+	border: 1px solid #d8d8d8;
 }
 .scrollup{
     width:50px;

@@ -62,10 +62,10 @@
 }
 #follow_item_wrap img {
 	width: 150px;
-    height: 150px;
-	-webkit-border-radius: 80px; /* Saf3+, Chrome */
-	border-radius: 80px; /* Opera 10.5, IE 9 */
-	/*-moz-border-radius: 30px; Disabled for FF1+ */
+	-webkit-border-radius: 100%; /* Saf3+, Chrome */
+	border-radius: 100%; /* Opera 10.5, IE 9 */
+	-moz-border-radius: 100%;
+	border: 1px solid #d8d8d8;
 }
 #follow_item_wrap .avatar {
 	padding: 5px;

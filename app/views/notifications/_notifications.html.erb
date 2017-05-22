@@ -117,8 +117,8 @@
 						        <% else %>
 						          <div id='med_art' style="background-image: url('/assets/Default-Audio.jpg')">
 						        <% end %>
-						          <div class="ui360 ui360-vis">
-						            <%= link_to '', notification.notified_object.asset.url %>
+						          <div class="med_play_btn">
+						            <%= link_to '<i class="fa fa-play-circle-o"></i>'.html_safe, notification.notified_object.asset.url, class: 'sm2_button', title: 'Play/Pause', alt: 'Play/Pause' %>
 						          </div>
 						        </div>
 						    </div>
@@ -184,6 +184,28 @@
 							<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:large)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
 						<% else %>
 							<%= link_to image_tag('Default-Audio.jpg'), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+						<% end %>
+					<% end %>
+
+					<% if notification.notified_object.mentioner.link? %>
+						<% if notification.notified_object.mentioner.link =~ /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/ %>
+							<% if notification.notified_object.mentioner.cover? %>
+								<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:large)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% else %>
+								<%= link_to image_tag('Default-Youtube.jpg'), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% end %>
+						<% elsif notification.notified_object.mentioner.link =~ /^(https?\:\/\/)?(www\.)?(vimeo\.com)\/.+$/ %>
+							<% if notification.notified_object.mentioner.cover? %>
+								<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:large)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% else %>
+								<%= link_to image_tag('Default-Vimeo.jpg'), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% end %>
+						<% elsif notification.notified_object.mentioner.link =~ /^(https?\:\/\/)?(www\.)?(soundcloud\.com)\/.+$/ %>
+							<% if notification.notified_object.mentioner.cover? %>
+								<%= link_to image_tag(notification.notified_object.mentioner.cover.url(:large)), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% else %>
+								<%= link_to image_tag('Default-Soundcloud.jpg'), notification.notified_object.mentioner.uploadable, title: 'View Media', alt: 'View Media' %>
+							<% end %>
 						<% end %>
 					<% end %>
 				<% end %>

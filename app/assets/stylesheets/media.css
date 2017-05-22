@@ -34,7 +34,6 @@
 
 .view_caption {
 	font-size: 1em;
-	font-style: oblique;
 	color: #898989;
 	margin-top: 6px;
 }
@@ -269,7 +268,6 @@
 }
 #comment_act_btn .pr_av {
 	width: 30px;
-	height: 30px;
 	vertical-align: bottom;
 }
 .media_fil .t_s {

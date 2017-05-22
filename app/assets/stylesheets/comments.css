@@ -81,7 +81,8 @@
 	height: 40px;
 	-webkit-border-radius: 100%; /* Saf3+, Chrome */
 	border-radius: 100%; /* Opera 10.5, IE 9 */
-	/*-moz-border-radius: 30px; Disabled for FF1+ */
+	-moz-border-radius: 30px;
+	border: 1px solid #d8d8d8;
 }
 .com_form_act {
 	background: #d4d4d4;

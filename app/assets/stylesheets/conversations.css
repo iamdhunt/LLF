@@ -326,6 +326,7 @@
 .not_med img {
 	width: 30px;
 	height: 30px;
+	border: 1px solid #e6e6e6;
 }
 .refresh {
 	margin-bottom: 5px;
@@ -369,4 +370,23 @@
 }
 .not_content .upl_md {
 	max-width: 200px;
+	border: 1px solid #e6e6e6;
+}
+.not_content .act_media_content img {
+	border: 1px solid #e6e6e6;
+}
+.not_content .act_media_content .med_play_btn {
+	font-size: 75px;
+}
+.not_content .med_play_btn a {
+	color: #fff !important;
+}
+.not_content .med_play_btn a:hover {
+    color: #aa9749 !important;
+}
+.not_content .med_play_btn a.sm2_button.sm2_playing {
+	color: #aa9749 !important; 
+}
+.not_content .med_play_btn a.sm2_button.sm2_playing:hover {
+    color: #cc3333 !important;
 }
