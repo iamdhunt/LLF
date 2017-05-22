@@ -15,7 +15,7 @@ class Listing < ActiveRecord::Base
     has_many :activities, as: :targetable, :dependent => :destroy
     has_many :mentions, as: :mentioner, dependent: :destroy
 
-    has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", large2: "700x700#", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} },
+    has_attached_file :feature, styles: lambda { |a| a.instance.feature_content_type =~ %r(image) ? { large: "700x700>", large2: "700x700#", fancy: "500<", feature: "380x380#", activity: "300>", thumb: "30x30#", index: "230x230#", list: "230x230#", form: "188x188#", additional: "100x100#" } : {} },
                       :default_url => '/assets/Default-Listing.jpg',
                       :convert_options => { all: lambda{ |instance| (instance.feature_content_type =~ %r(image)) ?  "-set -colorspace sRGB" : {} } }
     has_attached_file :cover, styles: { large2: "700x700#", cover: "230x230#", form: "188x188#", small: "100x100#" },
